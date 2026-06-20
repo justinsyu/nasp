@@ -1,4 +1,4 @@
-const DATA_URL = "assets/data/presentations-index.json?v=nasp";
+const DATA_URL = "assets/data/presentations-index.json?v=nasp-2";
 const PAGE_SIZE = 120;
 
 const colors = {

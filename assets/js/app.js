@@ -1,4 +1,4 @@
-const DATA_URL = "assets/data/presentations-index.json?v=nasp";
+const DATA_URL = "assets/data/presentations-index.json?v=nasp-2";
 const INITIAL_LIMIT = 80;
 const LIMIT_STEP = 80;
 const CARD_PREVIEW_LIMIT = 520;

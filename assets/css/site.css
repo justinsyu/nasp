@@ -418,6 +418,9 @@ section { margin-top: 2.2rem; }
   font-weight: 850;
   line-height: 1.14;
 }
+.document-header .metadata {
+  margin-top: 0.9rem;
+}
 .metadata {
   display: grid;
   grid-template-columns:
