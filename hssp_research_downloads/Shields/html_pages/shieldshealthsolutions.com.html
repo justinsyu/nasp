@@ -1,0 +1,2690 @@
+<!DOCTYPE html>
+<html lang="en-US" class="no-js">
+
+<head>
+	<meta charset="UTF-8">
+<script type="text/javascript">
+/* <![CDATA[ */
+
+//----------------------------------------------------------
+//------ JAVASCRIPT HOOK FUNCTIONS FOR GRAVITY FORMS -------
+//----------------------------------------------------------
+
+if ( ! gform ) {
+	document.addEventListener( 'gform_main_scripts_loaded', function() { gform.scriptsLoaded = true; } );
+	document.addEventListener( 'gform/theme/scripts_loaded', function() { gform.themeScriptsLoaded = true; } );
+	window.addEventListener( 'DOMContentLoaded', function() { gform.domLoaded = true; } );
+
+	var gform = {
+		domLoaded: false,
+		scriptsLoaded: false,
+		themeScriptsLoaded: false,
+		isFormEditor: () => typeof InitializeEditor === 'function',
+
+		/**
+		 * @deprecated 2.9 the use of initializeOnLoaded in the form editor context is deprecated.
+		 * @remove-in 4.0 this function will not check for gform.isFormEditor().
+		 */
+		callIfLoaded: function ( fn ) {
+			if ( gform.domLoaded && gform.scriptsLoaded && ( gform.themeScriptsLoaded || gform.isFormEditor() ) ) {
+				if ( gform.isFormEditor() ) {
+					console.warn( 'The use of gform.initializeOnLoaded() is deprecated in the form editor context and will be removed in Gravity Forms 3.1.' );
+				}
+				fn();
+				return true;
+			}
+			return false;
+		},
+
+		/**
+		 * Call a function when all scripts are loaded
+		 *
+		 * @param function fn the callback function to call when all scripts are loaded
+		 *
+		 * @returns void
+		 */
+		initializeOnLoaded: function( fn ) {
+			if ( ! gform.callIfLoaded( fn ) ) {
+				document.addEventListener( 'gform_main_scripts_loaded', () => { gform.scriptsLoaded = true; gform.callIfLoaded( fn ); } );
+				document.addEventListener( 'gform/theme/scripts_loaded', () => { gform.themeScriptsLoaded = true; gform.callIfLoaded( fn ); } );
+				window.addEventListener( 'DOMContentLoaded', () => { gform.domLoaded = true; gform.callIfLoaded( fn ); } );
+			}
+		},
+
+		hooks: { action: {}, filter: {} },
+		addAction: function( action, callable, priority, tag ) {
+			gform.addHook( 'action', action, callable, priority, tag );
+		},
+		addFilter: function( action, callable, priority, tag ) {
+			gform.addHook( 'filter', action, callable, priority, tag );
+		},
+		doAction: function( action ) {
+			gform.doHook( 'action', action, arguments );
+		},
+		applyFilters: function( action ) {
+			return gform.doHook( 'filter', action, arguments );
+		},
+		removeAction: function( action, tag ) {
+			gform.removeHook( 'action', action, tag );
+		},
+		removeFilter: function( action, priority, tag ) {
+			gform.removeHook( 'filter', action, priority, tag );
+		},
+		addHook: function( hookType, action, callable, priority, tag ) {
+			if ( undefined == gform.hooks[hookType][action] ) {
+				gform.hooks[hookType][action] = [];
+			}
+			var hooks = gform.hooks[hookType][action];
+			if ( undefined == tag ) {
+				tag = action + '_' + hooks.length;
+			}
+			if( priority == undefined ){
+				priority = 10;
+			}
+
+			gform.hooks[hookType][action].push( { tag:tag, callable:callable, priority:priority } );
+		},
+		doHook: function( hookType, action, args ) {
+
+			// splice args from object into array and remove first index which is the hook name
+			args = Array.prototype.slice.call(args, 1);
+
+			if ( undefined != gform.hooks[hookType][action] ) {
+				var hooks = gform.hooks[hookType][action], hook;
+				//sort by priority
+				hooks.sort(function(a,b){return a["priority"]-b["priority"]});
+
+				hooks.forEach( function( hookItem ) {
+					hook = hookItem.callable;
+
+					if(typeof hook != 'function')
+						hook = window[hook];
+					if ( 'action' == hookType ) {
+						hook.apply(null, args);
+					} else {
+						args[0] = hook.apply(null, args);
+					}
+				} );
+			}
+			if ( 'filter'==hookType ) {
+				return args[0];
+			}
+		},
+		removeHook: function( hookType, action, priority, tag ) {
+			if ( undefined != gform.hooks[hookType][action] ) {
+				var hooks = gform.hooks[hookType][action];
+				hooks = hooks.filter( function(hook, index, arr) {
+					var removeHook = (undefined==tag||tag==hook.tag) && (undefined==priority||priority==hook.priority);
+					return !removeHook;
+				} );
+				gform.hooks[hookType][action] = hooks;
+			}
+		}
+	};
+}
+
+/* ]]> */
+</script>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+<script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/3f3c953f0a81322af9734571/script.js"></script>
+	<!-- This site is optimized with the Yoast SEO plugin v27.8 - https://yoast.com/product/yoast-seo-wordpress/ -->
+	<title>Specialty Pharmacy Solutions | Shields Health Solutions</title>
+	<meta name="description" content="As the top specialty pharmacy solutions provider to health systems nationwide, Shields Health Solutions is your integrated partner for accelerated access, outcomes, and growth." />
+	<link rel="canonical" href="https://shieldshealthsolutions.com/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Specialty Pharmacy Solutions | Shields Health Solutions" />
+	<meta property="og:description" content="As the top specialty pharmacy solutions provider to health systems nationwide, Shields Health Solutions is your integrated partner for accelerated access, outcomes, and growth." />
+	<meta property="og:url" content="https://shieldshealthsolutions.com/" />
+	<meta property="og:site_name" content="Shields Health Solutions" />
+	<meta property="article:publisher" content="https://www.facebook.com/shieldshealthsolutions/" />
+	<meta property="article:modified_time" content="2025-10-17T15:36:01+00:00" />
+	<meta property="og:image" content="https://shieldshealthsolutions.com/content/uploads/2025/02/shields-home-illustration.webp" />
+	<meta property="og:image:width" content="1540" />
+	<meta property="og:image:height" content="884" />
+	<meta property="og:image:type" content="image/webp" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@shields_rx" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebPage","@id":"https:\/\/shieldshealthsolutions.com\/","url":"https:\/\/shieldshealthsolutions.com\/","name":"Specialty Pharmacy Solutions | Shields Health Solutions","isPartOf":{"@id":"https:\/\/shieldshealthsolutions.com\/#website"},"about":{"@id":"https:\/\/shieldshealthsolutions.com\/#organization"},"primaryImageOfPage":{"@id":"https:\/\/shieldshealthsolutions.com\/#primaryimage"},"image":{"@id":"https:\/\/shieldshealthsolutions.com\/#primaryimage"},"thumbnailUrl":"https:\/\/shieldshealthsolutions.com\/content\/uploads\/2025\/02\/shields-home-illustration-1024x588.webp","datePublished":"2024-08-23T17:27:13+00:00","dateModified":"2025-10-17T15:36:01+00:00","description":"As the top specialty pharmacy solutions provider to health systems nationwide, Shields Health Solutions is your integrated partner for accelerated access, outcomes, and growth.","breadcrumb":{"@id":"https:\/\/shieldshealthsolutions.com\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/shieldshealthsolutions.com\/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/shieldshealthsolutions.com\/#primaryimage","url":"https:\/\/shieldshealthsolutions.com\/content\/uploads\/2025\/02\/shields-home-illustration.webp","contentUrl":"https:\/\/shieldshealthsolutions.com\/content\/uploads\/2025\/02\/shields-home-illustration.webp","width":1540,"height":884,"caption":"shields home illustration"},{"@type":"BreadcrumbList","@id":"https:\/\/shieldshealthsolutions.com\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home"}]},{"@type":"WebSite","@id":"https:\/\/shieldshealthsolutions.com\/#website","url":"https:\/\/shieldshealthsolutions.com\/","name":"Shields Health Solutions","description":"ELEVATING SPECIALTY PHARMACY","publisher":{"@id":"https:\/\/shieldshealthsolutions.com\/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/shieldshealthsolutions.com\/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https:\/\/shieldshealthsolutions.com\/#organization","name":"Shields Health Solutions","url":"https:\/\/shieldshealthsolutions.com\/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/shieldshealthsolutions.com\/#\/schema\/logo\/image\/","url":"https:\/\/shieldshealthsolutions.com\/content\/uploads\/2021\/05\/shields-logo.svg","contentUrl":"https:\/\/shieldshealthsolutions.com\/content\/uploads\/2021\/05\/shields-logo.svg","width":500,"height":130,"caption":"Shields Health Solutions"},"image":{"@id":"https:\/\/shieldshealthsolutions.com\/#\/schema\/logo\/image\/"},"sameAs":["https:\/\/www.facebook.com\/shieldshealthsolutions\/","https:\/\/x.com\/shields_rx","https:\/\/www.linkedin.com\/company\/shields-health-solutions\/","https:\/\/www.youtube.com\/channel\/UCqE5LUW1shh3qUhR6_bIxyg"]}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='//play.vidyard.com' />
+<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+<link rel="alternate" type="application/rss+xml" title="Shields Health Solutions &raquo; Feed" href="https://shieldshealthsolutions.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Shields Health Solutions &raquo; Comments Feed" href="https://shieldshealthsolutions.com/comments/feed/" />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://shieldshealthsolutions.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fshieldshealthsolutions.com%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://shieldshealthsolutions.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fshieldshealthsolutions.com%2F&#038;format=xml" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="application-name" content="Shields Health Solutions">
+<style id='wp-img-auto-sizes-contain-inline-css' type='text/css'>
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<link rel='stylesheet' id='wp-block-library-css' href='https://shieldshealthsolutions.com/wp/wp-includes/css/dist/block-library/style.css?ver=6.9.4' type='text/css' media='all' />
+
+<style id='wp-block-button-inline-css' type='text/css'>
+.wp-block-button__link{
+  align-content:center;
+  box-sizing:border-box;
+  cursor:pointer;
+  display:inline-block;
+  height:100%;
+  text-align:center;
+  word-break:break-word;
+}
+.wp-block-button__link.aligncenter{
+  text-align:center;
+}
+.wp-block-button__link.alignright{
+  text-align:right;
+}
+
+:where(.wp-block-button__link){
+  border-radius:9999px;
+  box-shadow:none;
+  padding:calc(.667em + 2px) calc(1.333em + 2px);
+  text-decoration:none;
+}
+
+.wp-block-button[style*=text-decoration] .wp-block-button__link{
+  text-decoration:inherit;
+}
+
+.wp-block-buttons>.wp-block-button.has-custom-width{
+  max-width:none;
+}
+.wp-block-buttons>.wp-block-button.has-custom-width .wp-block-button__link{
+  width:100%;
+}
+.wp-block-buttons>.wp-block-button.has-custom-font-size .wp-block-button__link{
+  font-size:inherit;
+}
+.wp-block-buttons>.wp-block-button.wp-block-button__width-25{
+  width:calc(25% - var(--wp--style--block-gap, .5em)*.75);
+}
+.wp-block-buttons>.wp-block-button.wp-block-button__width-50{
+  width:calc(50% - var(--wp--style--block-gap, .5em)*.5);
+}
+.wp-block-buttons>.wp-block-button.wp-block-button__width-75{
+  width:calc(75% - var(--wp--style--block-gap, .5em)*.25);
+}
+.wp-block-buttons>.wp-block-button.wp-block-button__width-100{
+  flex-basis:100%;
+  width:100%;
+}
+
+.wp-block-buttons.is-vertical>.wp-block-button.wp-block-button__width-25{
+  width:25%;
+}
+.wp-block-buttons.is-vertical>.wp-block-button.wp-block-button__width-50{
+  width:50%;
+}
+.wp-block-buttons.is-vertical>.wp-block-button.wp-block-button__width-75{
+  width:75%;
+}
+
+.wp-block-button.is-style-squared,.wp-block-button__link.wp-block-button.is-style-squared{
+  border-radius:0;
+}
+
+.wp-block-button.no-border-radius,.wp-block-button__link.no-border-radius{
+  border-radius:0 !important;
+}
+
+:root :where(.wp-block-button .wp-block-button__link.is-style-outline),:root :where(.wp-block-button.is-style-outline>.wp-block-button__link){
+  border:2px solid;
+  padding:.667em 1.333em;
+}
+:root :where(.wp-block-button .wp-block-button__link.is-style-outline:not(.has-text-color)),:root :where(.wp-block-button.is-style-outline>.wp-block-button__link:not(.has-text-color)){
+  color:currentColor;
+}
+:root :where(.wp-block-button .wp-block-button__link.is-style-outline:not(.has-background)),:root :where(.wp-block-button.is-style-outline>.wp-block-button__link:not(.has-background)){
+  background-color:initial;
+  background-image:none;
+}
+/*# sourceURL=https://shieldshealthsolutions.com/wp/wp-includes/blocks/button/style.css */
+</style>
+<style id='wp-block-cover-inline-css' type='text/css'>
+.wp-block-cover,.wp-block-cover-image{
+  align-items:center;
+  background-position:50%;
+  box-sizing:border-box;
+  display:flex;
+  justify-content:center;
+  min-height:430px;
+  overflow:hidden;
+  overflow:clip;
+  padding:1em;
+  position:relative;
+}
+.wp-block-cover .has-background-dim:not([class*=-background-color]),.wp-block-cover-image .has-background-dim:not([class*=-background-color]),.wp-block-cover-image.has-background-dim:not([class*=-background-color]),.wp-block-cover.has-background-dim:not([class*=-background-color]){
+  background-color:#000;
+}
+.wp-block-cover .has-background-dim.has-background-gradient,.wp-block-cover-image .has-background-dim.has-background-gradient{
+  background-color:initial;
+}
+.wp-block-cover-image.has-background-dim:before,.wp-block-cover.has-background-dim:before{
+  background-color:inherit;
+  content:"";
+}
+.wp-block-cover .wp-block-cover__background,.wp-block-cover .wp-block-cover__gradient-background,.wp-block-cover-image .wp-block-cover__background,.wp-block-cover-image .wp-block-cover__gradient-background,.wp-block-cover-image.has-background-dim:not(.has-background-gradient):before,.wp-block-cover.has-background-dim:not(.has-background-gradient):before{
+  bottom:0;
+  left:0;
+  opacity:.5;
+  position:absolute;
+  right:0;
+  top:0;
+}
+.wp-block-cover-image.has-background-dim.has-background-dim-10 .wp-block-cover__background,.wp-block-cover-image.has-background-dim.has-background-dim-10 .wp-block-cover__gradient-background,.wp-block-cover-image.has-background-dim.has-background-dim-10:not(.has-background-gradient):before,.wp-block-cover.has-background-dim.has-background-dim-10 .wp-block-cover__background,.wp-block-cover.has-background-dim.has-background-dim-10 .wp-block-cover__gradient-background,.wp-block-cover.has-background-dim.has-background-dim-10:not(.has-background-gradient):before{
+  opacity:.1;
+}
+.wp-block-cover-image.has-background-dim.has-background-dim-20 .wp-block-cover__background,.wp-block-cover-image.has-background-dim.has-background-dim-20 .wp-block-cover__gradient-background,.wp-block-cover-image.has-background-dim.has-background-dim-20:not(.has-background-gradient):before,.wp-block-cover.has-background-dim.has-background-dim-20 .wp-block-cover__background,.wp-block-cover.has-background-dim.has-background-dim-20 .wp-block-cover__gradient-background,.wp-block-cover.has-background-dim.has-background-dim-20:not(.has-background-gradient):before{
+  opacity:.2;
+}
+.wp-block-cover-image.has-background-dim.has-background-dim-30 .wp-block-cover__background,.wp-block-cover-image.has-background-dim.has-background-dim-30 .wp-block-cover__gradient-background,.wp-block-cover-image.has-background-dim.has-background-dim-30:not(.has-background-gradient):before,.wp-block-cover.has-background-dim.has-background-dim-30 .wp-block-cover__background,.wp-block-cover.has-background-dim.has-background-dim-30 .wp-block-cover__gradient-background,.wp-block-cover.has-background-dim.has-background-dim-30:not(.has-background-gradient):before{
+  opacity:.3;
+}
+.wp-block-cover-image.has-background-dim.has-background-dim-40 .wp-block-cover__background,.wp-block-cover-image.has-background-dim.has-background-dim-40 .wp-block-cover__gradient-background,.wp-block-cover-image.has-background-dim.has-background-dim-40:not(.has-background-gradient):before,.wp-block-cover.has-background-dim.has-background-dim-40 .wp-block-cover__background,.wp-block-cover.has-background-dim.has-background-dim-40 .wp-block-cover__gradient-background,.wp-block-cover.has-background-dim.has-background-dim-40:not(.has-background-gradient):before{
+  opacity:.4;
+}
+.wp-block-cover-image.has-background-dim.has-background-dim-50 .wp-block-cover__background,.wp-block-cover-image.has-background-dim.has-background-dim-50 .wp-block-cover__gradient-background,.wp-block-cover-image.has-background-dim.has-background-dim-50:not(.has-background-gradient):before,.wp-block-cover.has-background-dim.has-background-dim-50 .wp-block-cover__background,.wp-block-cover.has-background-dim.has-background-dim-50 .wp-block-cover__gradient-background,.wp-block-cover.has-background-dim.has-background-dim-50:not(.has-background-gradient):before{
+  opacity:.5;
+}
+.wp-block-cover-image.has-background-dim.has-background-dim-60 .wp-block-cover__background,.wp-block-cover-image.has-background-dim.has-background-dim-60 .wp-block-cover__gradient-background,.wp-block-cover-image.has-background-dim.has-background-dim-60:not(.has-background-gradient):before,.wp-block-cover.has-background-dim.has-background-dim-60 .wp-block-cover__background,.wp-block-cover.has-background-dim.has-background-dim-60 .wp-block-cover__gradient-background,.wp-block-cover.has-background-dim.has-background-dim-60:not(.has-background-gradient):before{
+  opacity:.6;
+}
+.wp-block-cover-image.has-background-dim.has-background-dim-70 .wp-block-cover__background,.wp-block-cover-image.has-background-dim.has-background-dim-70 .wp-block-cover__gradient-background,.wp-block-cover-image.has-background-dim.has-background-dim-70:not(.has-background-gradient):before,.wp-block-cover.has-background-dim.has-background-dim-70 .wp-block-cover__background,.wp-block-cover.has-background-dim.has-background-dim-70 .wp-block-cover__gradient-background,.wp-block-cover.has-background-dim.has-background-dim-70:not(.has-background-gradient):before{
+  opacity:.7;
+}
+.wp-block-cover-image.has-background-dim.has-background-dim-80 .wp-block-cover__background,.wp-block-cover-image.has-background-dim.has-background-dim-80 .wp-block-cover__gradient-background,.wp-block-cover-image.has-background-dim.has-background-dim-80:not(.has-background-gradient):before,.wp-block-cover.has-background-dim.has-background-dim-80 .wp-block-cover__background,.wp-block-cover.has-background-dim.has-background-dim-80 .wp-block-cover__gradient-background,.wp-block-cover.has-background-dim.has-background-dim-80:not(.has-background-gradient):before{
+  opacity:.8;
+}
+.wp-block-cover-image.has-background-dim.has-background-dim-90 .wp-block-cover__background,.wp-block-cover-image.has-background-dim.has-background-dim-90 .wp-block-cover__gradient-background,.wp-block-cover-image.has-background-dim.has-background-dim-90:not(.has-background-gradient):before,.wp-block-cover.has-background-dim.has-background-dim-90 .wp-block-cover__background,.wp-block-cover.has-background-dim.has-background-dim-90 .wp-block-cover__gradient-background,.wp-block-cover.has-background-dim.has-background-dim-90:not(.has-background-gradient):before{
+  opacity:.9;
+}
+.wp-block-cover-image.has-background-dim.has-background-dim-100 .wp-block-cover__background,.wp-block-cover-image.has-background-dim.has-background-dim-100 .wp-block-cover__gradient-background,.wp-block-cover-image.has-background-dim.has-background-dim-100:not(.has-background-gradient):before,.wp-block-cover.has-background-dim.has-background-dim-100 .wp-block-cover__background,.wp-block-cover.has-background-dim.has-background-dim-100 .wp-block-cover__gradient-background,.wp-block-cover.has-background-dim.has-background-dim-100:not(.has-background-gradient):before{
+  opacity:1;
+}
+.wp-block-cover .wp-block-cover__background.has-background-dim.has-background-dim-0,.wp-block-cover .wp-block-cover__gradient-background.has-background-dim.has-background-dim-0,.wp-block-cover-image .wp-block-cover__background.has-background-dim.has-background-dim-0,.wp-block-cover-image .wp-block-cover__gradient-background.has-background-dim.has-background-dim-0{
+  opacity:0;
+}
+.wp-block-cover .wp-block-cover__background.has-background-dim.has-background-dim-10,.wp-block-cover .wp-block-cover__gradient-background.has-background-dim.has-background-dim-10,.wp-block-cover-image .wp-block-cover__background.has-background-dim.has-background-dim-10,.wp-block-cover-image .wp-block-cover__gradient-background.has-background-dim.has-background-dim-10{
+  opacity:.1;
+}
+.wp-block-cover .wp-block-cover__background.has-background-dim.has-background-dim-20,.wp-block-cover .wp-block-cover__gradient-background.has-background-dim.has-background-dim-20,.wp-block-cover-image .wp-block-cover__background.has-background-dim.has-background-dim-20,.wp-block-cover-image .wp-block-cover__gradient-background.has-background-dim.has-background-dim-20{
+  opacity:.2;
+}
+.wp-block-cover .wp-block-cover__background.has-background-dim.has-background-dim-30,.wp-block-cover .wp-block-cover__gradient-background.has-background-dim.has-background-dim-30,.wp-block-cover-image .wp-block-cover__background.has-background-dim.has-background-dim-30,.wp-block-cover-image .wp-block-cover__gradient-background.has-background-dim.has-background-dim-30{
+  opacity:.3;
+}
+.wp-block-cover .wp-block-cover__background.has-background-dim.has-background-dim-40,.wp-block-cover .wp-block-cover__gradient-background.has-background-dim.has-background-dim-40,.wp-block-cover-image .wp-block-cover__background.has-background-dim.has-background-dim-40,.wp-block-cover-image .wp-block-cover__gradient-background.has-background-dim.has-background-dim-40{
+  opacity:.4;
+}
+.wp-block-cover .wp-block-cover__background.has-background-dim.has-background-dim-50,.wp-block-cover .wp-block-cover__gradient-background.has-background-dim.has-background-dim-50,.wp-block-cover-image .wp-block-cover__background.has-background-dim.has-background-dim-50,.wp-block-cover-image .wp-block-cover__gradient-background.has-background-dim.has-background-dim-50{
+  opacity:.5;
+}
+.wp-block-cover .wp-block-cover__background.has-background-dim.has-background-dim-60,.wp-block-cover .wp-block-cover__gradient-background.has-background-dim.has-background-dim-60,.wp-block-cover-image .wp-block-cover__background.has-background-dim.has-background-dim-60,.wp-block-cover-image .wp-block-cover__gradient-background.has-background-dim.has-background-dim-60{
+  opacity:.6;
+}
+.wp-block-cover .wp-block-cover__background.has-background-dim.has-background-dim-70,.wp-block-cover .wp-block-cover__gradient-background.has-background-dim.has-background-dim-70,.wp-block-cover-image .wp-block-cover__background.has-background-dim.has-background-dim-70,.wp-block-cover-image .wp-block-cover__gradient-background.has-background-dim.has-background-dim-70{
+  opacity:.7;
+}
+.wp-block-cover .wp-block-cover__background.has-background-dim.has-background-dim-80,.wp-block-cover .wp-block-cover__gradient-background.has-background-dim.has-background-dim-80,.wp-block-cover-image .wp-block-cover__background.has-background-dim.has-background-dim-80,.wp-block-cover-image .wp-block-cover__gradient-background.has-background-dim.has-background-dim-80{
+  opacity:.8;
+}
+.wp-block-cover .wp-block-cover__background.has-background-dim.has-background-dim-90,.wp-block-cover .wp-block-cover__gradient-background.has-background-dim.has-background-dim-90,.wp-block-cover-image .wp-block-cover__background.has-background-dim.has-background-dim-90,.wp-block-cover-image .wp-block-cover__gradient-background.has-background-dim.has-background-dim-90{
+  opacity:.9;
+}
+.wp-block-cover .wp-block-cover__background.has-background-dim.has-background-dim-100,.wp-block-cover .wp-block-cover__gradient-background.has-background-dim.has-background-dim-100,.wp-block-cover-image .wp-block-cover__background.has-background-dim.has-background-dim-100,.wp-block-cover-image .wp-block-cover__gradient-background.has-background-dim.has-background-dim-100{
+  opacity:1;
+}
+.wp-block-cover-image.alignleft,.wp-block-cover-image.alignright,.wp-block-cover.alignleft,.wp-block-cover.alignright{
+  max-width:420px;
+  width:100%;
+}
+.wp-block-cover-image.aligncenter,.wp-block-cover-image.alignleft,.wp-block-cover-image.alignright,.wp-block-cover.aligncenter,.wp-block-cover.alignleft,.wp-block-cover.alignright{
+  display:flex;
+}
+.wp-block-cover .wp-block-cover__inner-container,.wp-block-cover-image .wp-block-cover__inner-container{
+  color:inherit;
+  position:relative;
+  width:100%;
+}
+.wp-block-cover-image.is-position-top-left,.wp-block-cover.is-position-top-left{
+  align-items:flex-start;
+  justify-content:flex-start;
+}
+.wp-block-cover-image.is-position-top-center,.wp-block-cover.is-position-top-center{
+  align-items:flex-start;
+  justify-content:center;
+}
+.wp-block-cover-image.is-position-top-right,.wp-block-cover.is-position-top-right{
+  align-items:flex-start;
+  justify-content:flex-end;
+}
+.wp-block-cover-image.is-position-center-left,.wp-block-cover.is-position-center-left{
+  align-items:center;
+  justify-content:flex-start;
+}
+.wp-block-cover-image.is-position-center-center,.wp-block-cover.is-position-center-center{
+  align-items:center;
+  justify-content:center;
+}
+.wp-block-cover-image.is-position-center-right,.wp-block-cover.is-position-center-right{
+  align-items:center;
+  justify-content:flex-end;
+}
+.wp-block-cover-image.is-position-bottom-left,.wp-block-cover.is-position-bottom-left{
+  align-items:flex-end;
+  justify-content:flex-start;
+}
+.wp-block-cover-image.is-position-bottom-center,.wp-block-cover.is-position-bottom-center{
+  align-items:flex-end;
+  justify-content:center;
+}
+.wp-block-cover-image.is-position-bottom-right,.wp-block-cover.is-position-bottom-right{
+  align-items:flex-end;
+  justify-content:flex-end;
+}
+.wp-block-cover-image.has-custom-content-position.has-custom-content-position .wp-block-cover__inner-container,.wp-block-cover.has-custom-content-position.has-custom-content-position .wp-block-cover__inner-container{
+  margin:0;
+}
+.wp-block-cover-image.has-custom-content-position.has-custom-content-position.is-position-bottom-left .wp-block-cover__inner-container,.wp-block-cover-image.has-custom-content-position.has-custom-content-position.is-position-bottom-right .wp-block-cover__inner-container,.wp-block-cover-image.has-custom-content-position.has-custom-content-position.is-position-center-left .wp-block-cover__inner-container,.wp-block-cover-image.has-custom-content-position.has-custom-content-position.is-position-center-right .wp-block-cover__inner-container,.wp-block-cover-image.has-custom-content-position.has-custom-content-position.is-position-top-left .wp-block-cover__inner-container,.wp-block-cover-image.has-custom-content-position.has-custom-content-position.is-position-top-right .wp-block-cover__inner-container,.wp-block-cover.has-custom-content-position.has-custom-content-position.is-position-bottom-left .wp-block-cover__inner-container,.wp-block-cover.has-custom-content-position.has-custom-content-position.is-position-bottom-right .wp-block-cover__inner-container,.wp-block-cover.has-custom-content-position.has-custom-content-position.is-position-center-left .wp-block-cover__inner-container,.wp-block-cover.has-custom-content-position.has-custom-content-position.is-position-center-right .wp-block-cover__inner-container,.wp-block-cover.has-custom-content-position.has-custom-content-position.is-position-top-left .wp-block-cover__inner-container,.wp-block-cover.has-custom-content-position.has-custom-content-position.is-position-top-right .wp-block-cover__inner-container{
+  margin:0;
+  width:auto;
+}
+.wp-block-cover .wp-block-cover__image-background,.wp-block-cover video.wp-block-cover__video-background,.wp-block-cover-image .wp-block-cover__image-background,.wp-block-cover-image video.wp-block-cover__video-background{
+  border:none;
+  bottom:0;
+  box-shadow:none;
+  height:100%;
+  left:0;
+  margin:0;
+  max-height:none;
+  max-width:none;
+  object-fit:cover;
+  outline:none;
+  padding:0;
+  position:absolute;
+  right:0;
+  top:0;
+  width:100%;
+}
+
+.wp-block-cover-image.has-parallax,.wp-block-cover.has-parallax,.wp-block-cover__image-background.has-parallax,video.wp-block-cover__video-background.has-parallax{
+  background-attachment:fixed;
+  background-repeat:no-repeat;
+  background-size:cover;
+}
+@supports (-webkit-touch-callout:inherit){
+  .wp-block-cover-image.has-parallax,.wp-block-cover.has-parallax,.wp-block-cover__image-background.has-parallax,video.wp-block-cover__video-background.has-parallax{
+    background-attachment:scroll;
+  }
+}
+@media (prefers-reduced-motion:reduce){
+  .wp-block-cover-image.has-parallax,.wp-block-cover.has-parallax,.wp-block-cover__image-background.has-parallax,video.wp-block-cover__video-background.has-parallax{
+    background-attachment:scroll;
+  }
+}
+.wp-block-cover-image.is-repeated,.wp-block-cover.is-repeated,.wp-block-cover__image-background.is-repeated,video.wp-block-cover__video-background.is-repeated{
+  background-repeat:repeat;
+  background-size:auto;
+}
+.wp-block-cover-image-text,.wp-block-cover-image-text a,.wp-block-cover-image-text a:active,.wp-block-cover-image-text a:focus,.wp-block-cover-image-text a:hover,.wp-block-cover-text,.wp-block-cover-text a,.wp-block-cover-text a:active,.wp-block-cover-text a:focus,.wp-block-cover-text a:hover,section.wp-block-cover-image h2,section.wp-block-cover-image h2 a,section.wp-block-cover-image h2 a:active,section.wp-block-cover-image h2 a:focus,section.wp-block-cover-image h2 a:hover{
+  color:#fff;
+}
+
+.wp-block-cover-image .wp-block-cover.has-left-content{
+  justify-content:flex-start;
+}
+.wp-block-cover-image .wp-block-cover.has-right-content{
+  justify-content:flex-end;
+}
+
+.wp-block-cover-image.has-left-content .wp-block-cover-image-text,.wp-block-cover.has-left-content .wp-block-cover-text,section.wp-block-cover-image.has-left-content>h2{
+  margin-left:0;
+  text-align:left;
+}
+
+.wp-block-cover-image.has-right-content .wp-block-cover-image-text,.wp-block-cover.has-right-content .wp-block-cover-text,section.wp-block-cover-image.has-right-content>h2{
+  margin-right:0;
+  text-align:right;
+}
+
+.wp-block-cover .wp-block-cover-text,.wp-block-cover-image .wp-block-cover-image-text,section.wp-block-cover-image>h2{
+  font-size:2em;
+  line-height:1.25;
+  margin-bottom:0;
+  max-width:840px;
+  padding:.44em;
+  text-align:center;
+  z-index:1;
+}
+
+:where(.wp-block-cover-image:not(.has-text-color)),:where(.wp-block-cover:not(.has-text-color)){
+  color:#fff;
+}
+
+:where(.wp-block-cover-image.is-light:not(.has-text-color)),:where(.wp-block-cover.is-light:not(.has-text-color)){
+  color:#000;
+}
+
+:root :where(.wp-block-cover h1:not(.has-text-color)),:root :where(.wp-block-cover h2:not(.has-text-color)),:root :where(.wp-block-cover h3:not(.has-text-color)),:root :where(.wp-block-cover h4:not(.has-text-color)),:root :where(.wp-block-cover h5:not(.has-text-color)),:root :where(.wp-block-cover h6:not(.has-text-color)),:root :where(.wp-block-cover p:not(.has-text-color)){
+  color:inherit;
+}
+body:not(.editor-styles-wrapper) .wp-block-cover:not(.wp-block-cover:has(.wp-block-cover__background+.wp-block-cover__inner-container)) .wp-block-cover__image-background,body:not(.editor-styles-wrapper) .wp-block-cover:not(.wp-block-cover:has(.wp-block-cover__background+.wp-block-cover__inner-container)) .wp-block-cover__video-background{
+  z-index:0;
+}
+body:not(.editor-styles-wrapper) .wp-block-cover:not(.wp-block-cover:has(.wp-block-cover__background+.wp-block-cover__inner-container)) .wp-block-cover__background,body:not(.editor-styles-wrapper) .wp-block-cover:not(.wp-block-cover:has(.wp-block-cover__background+.wp-block-cover__inner-container)) .wp-block-cover__gradient-background,body:not(.editor-styles-wrapper) .wp-block-cover:not(.wp-block-cover:has(.wp-block-cover__background+.wp-block-cover__inner-container)) .wp-block-cover__inner-container,body:not(.editor-styles-wrapper) .wp-block-cover:not(.wp-block-cover:has(.wp-block-cover__background+.wp-block-cover__inner-container)).has-background-dim:not(.has-background-gradient):before{
+  z-index:1;
+}
+.has-modal-open body:not(.editor-styles-wrapper) .wp-block-cover:not(.wp-block-cover:has(.wp-block-cover__background+.wp-block-cover__inner-container)) .wp-block-cover__inner-container{
+  z-index:auto;
+}
+/*# sourceURL=https://shieldshealthsolutions.com/wp/wp-includes/blocks/cover/style.css */
+</style>
+<style id='wp-block-heading-inline-css' type='text/css'>
+h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-background,h3:where(.wp-block-heading).has-background,h4:where(.wp-block-heading).has-background,h5:where(.wp-block-heading).has-background,h6:where(.wp-block-heading).has-background{
+  padding:1.25em 2.375em;
+}
+h1.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h1.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h2.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h2.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h3.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h3.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h4.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h4.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h5.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h5.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h6.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h6.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]){
+  rotate:180deg;
+}
+/*# sourceURL=https://shieldshealthsolutions.com/wp/wp-includes/blocks/heading/style.css */
+</style>
+<style id='wp-block-image-inline-css' type='text/css'>
+.wp-block-image>a,.wp-block-image>figure>a{
+  display:inline-block;
+}
+.wp-block-image img{
+  box-sizing:border-box;
+  height:auto;
+  max-width:100%;
+  vertical-align:bottom;
+}
+@media not (prefers-reduced-motion){
+  .wp-block-image img.hide{
+    visibility:hidden;
+  }
+  .wp-block-image img.show{
+    animation:show-content-image .4s;
+  }
+}
+.wp-block-image[style*=border-radius] img,.wp-block-image[style*=border-radius]>a{
+  border-radius:inherit;
+}
+.wp-block-image.has-custom-border img{
+  box-sizing:border-box;
+}
+.wp-block-image.aligncenter{
+  text-align:center;
+}
+.wp-block-image.alignfull>a,.wp-block-image.alignwide>a{
+  width:100%;
+}
+.wp-block-image.alignfull img,.wp-block-image.alignwide img{
+  height:auto;
+  width:100%;
+}
+.wp-block-image .aligncenter,.wp-block-image .alignleft,.wp-block-image .alignright,.wp-block-image.aligncenter,.wp-block-image.alignleft,.wp-block-image.alignright{
+  display:table;
+}
+.wp-block-image .aligncenter>figcaption,.wp-block-image .alignleft>figcaption,.wp-block-image .alignright>figcaption,.wp-block-image.aligncenter>figcaption,.wp-block-image.alignleft>figcaption,.wp-block-image.alignright>figcaption{
+  caption-side:bottom;
+  display:table-caption;
+}
+.wp-block-image .alignleft{
+  float:left;
+  margin:.5em 1em .5em 0;
+}
+.wp-block-image .alignright{
+  float:right;
+  margin:.5em 0 .5em 1em;
+}
+.wp-block-image .aligncenter{
+  margin-left:auto;
+  margin-right:auto;
+}
+.wp-block-image :where(figcaption){
+  margin-bottom:1em;
+  margin-top:.5em;
+}
+.wp-block-image.is-style-circle-mask img{
+  border-radius:9999px;
+}
+@supports ((-webkit-mask-image:none) or (mask-image:none)) or (-webkit-mask-image:none){
+  .wp-block-image.is-style-circle-mask img{
+    border-radius:0;
+    -webkit-mask-image:url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');
+            mask-image:url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');
+    mask-mode:alpha;
+    -webkit-mask-position:center;
+            mask-position:center;
+    -webkit-mask-repeat:no-repeat;
+            mask-repeat:no-repeat;
+    -webkit-mask-size:contain;
+            mask-size:contain;
+  }
+}
+
+:root :where(.wp-block-image.is-style-rounded img,.wp-block-image .is-style-rounded img){
+  border-radius:9999px;
+}
+
+.wp-block-image figure{
+  margin:0;
+}
+
+.wp-lightbox-container{
+  display:flex;
+  flex-direction:column;
+  position:relative;
+}
+.wp-lightbox-container img{
+  cursor:zoom-in;
+}
+.wp-lightbox-container img:hover+button{
+  opacity:1;
+}
+.wp-lightbox-container button{
+  align-items:center;
+  backdrop-filter:blur(16px) saturate(180%);
+  background-color:#5a5a5a40;
+  border:none;
+  border-radius:4px;
+  cursor:zoom-in;
+  display:flex;
+  height:20px;
+  justify-content:center;
+  opacity:0;
+  padding:0;
+  position:absolute;
+  right:16px;
+  text-align:center;
+  top:16px;
+  width:20px;
+  z-index:100;
+}
+@media not (prefers-reduced-motion){
+  .wp-lightbox-container button{
+    transition:opacity .2s ease;
+  }
+}
+.wp-lightbox-container button:focus-visible{
+  outline:3px auto #5a5a5a40;
+  outline:3px auto -webkit-focus-ring-color;
+  outline-offset:3px;
+}
+.wp-lightbox-container button:hover{
+  cursor:pointer;
+  opacity:1;
+}
+.wp-lightbox-container button:focus{
+  opacity:1;
+}
+.wp-lightbox-container button:focus,.wp-lightbox-container button:hover,.wp-lightbox-container button:not(:hover):not(:active):not(.has-background){
+  background-color:#5a5a5a40;
+  border:none;
+}
+
+.wp-lightbox-overlay{
+  box-sizing:border-box;
+  cursor:zoom-out;
+  height:100vh;
+  left:0;
+  overflow:hidden;
+  position:fixed;
+  top:0;
+  visibility:hidden;
+  width:100%;
+  z-index:100000;
+}
+.wp-lightbox-overlay .close-button{
+  align-items:center;
+  cursor:pointer;
+  display:flex;
+  justify-content:center;
+  min-height:40px;
+  min-width:40px;
+  padding:0;
+  position:absolute;
+  right:calc(env(safe-area-inset-right) + 16px);
+  top:calc(env(safe-area-inset-top) + 16px);
+  z-index:5000000;
+}
+.wp-lightbox-overlay .close-button:focus,.wp-lightbox-overlay .close-button:hover,.wp-lightbox-overlay .close-button:not(:hover):not(:active):not(.has-background){
+  background:none;
+  border:none;
+}
+.wp-lightbox-overlay .lightbox-image-container{
+  height:var(--wp--lightbox-container-height);
+  left:50%;
+  overflow:hidden;
+  position:absolute;
+  top:50%;
+  transform:translate(-50%, -50%);
+  transform-origin:top left;
+  width:var(--wp--lightbox-container-width);
+  z-index:9999999999;
+}
+.wp-lightbox-overlay .wp-block-image{
+  align-items:center;
+  box-sizing:border-box;
+  display:flex;
+  height:100%;
+  justify-content:center;
+  margin:0;
+  position:relative;
+  transform-origin:0 0;
+  width:100%;
+  z-index:3000000;
+}
+.wp-lightbox-overlay .wp-block-image img{
+  height:var(--wp--lightbox-image-height);
+  min-height:var(--wp--lightbox-image-height);
+  min-width:var(--wp--lightbox-image-width);
+  width:var(--wp--lightbox-image-width);
+}
+.wp-lightbox-overlay .wp-block-image figcaption{
+  display:none;
+}
+.wp-lightbox-overlay button{
+  background:none;
+  border:none;
+}
+.wp-lightbox-overlay .scrim{
+  background-color:#fff;
+  height:100%;
+  opacity:.9;
+  position:absolute;
+  width:100%;
+  z-index:2000000;
+}
+.wp-lightbox-overlay.active{
+  visibility:visible;
+}
+@media not (prefers-reduced-motion){
+  .wp-lightbox-overlay.active{
+    animation:turn-on-visibility .25s both;
+  }
+  .wp-lightbox-overlay.active img{
+    animation:turn-on-visibility .35s both;
+  }
+  .wp-lightbox-overlay.show-closing-animation:not(.active){
+    animation:turn-off-visibility .35s both;
+  }
+  .wp-lightbox-overlay.show-closing-animation:not(.active) img{
+    animation:turn-off-visibility .25s both;
+  }
+  .wp-lightbox-overlay.zoom.active{
+    animation:none;
+    opacity:1;
+    visibility:visible;
+  }
+  .wp-lightbox-overlay.zoom.active .lightbox-image-container{
+    animation:lightbox-zoom-in .4s;
+  }
+  .wp-lightbox-overlay.zoom.active .lightbox-image-container img{
+    animation:none;
+  }
+  .wp-lightbox-overlay.zoom.active .scrim{
+    animation:turn-on-visibility .4s forwards;
+  }
+  .wp-lightbox-overlay.zoom.show-closing-animation:not(.active){
+    animation:none;
+  }
+  .wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .lightbox-image-container{
+    animation:lightbox-zoom-out .4s;
+  }
+  .wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .lightbox-image-container img{
+    animation:none;
+  }
+  .wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .scrim{
+    animation:turn-off-visibility .4s forwards;
+  }
+}
+
+@keyframes show-content-image{
+  0%{
+    visibility:hidden;
+  }
+  99%{
+    visibility:hidden;
+  }
+  to{
+    visibility:visible;
+  }
+}
+@keyframes turn-on-visibility{
+  0%{
+    opacity:0;
+  }
+  to{
+    opacity:1;
+  }
+}
+@keyframes turn-off-visibility{
+  0%{
+    opacity:1;
+    visibility:visible;
+  }
+  99%{
+    opacity:0;
+    visibility:visible;
+  }
+  to{
+    opacity:0;
+    visibility:hidden;
+  }
+}
+@keyframes lightbox-zoom-in{
+  0%{
+    transform:translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)), calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale));
+  }
+  to{
+    transform:translate(-50%, -50%) scale(1);
+  }
+}
+@keyframes lightbox-zoom-out{
+  0%{
+    transform:translate(-50%, -50%) scale(1);
+    visibility:visible;
+  }
+  99%{
+    visibility:visible;
+  }
+  to{
+    transform:translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)), calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale));
+    visibility:hidden;
+  }
+}
+/*# sourceURL=https://shieldshealthsolutions.com/wp/wp-includes/blocks/image/style.css */
+</style>
+<style id='wp-block-latest-posts-inline-css' type='text/css'>
+.wp-block-latest-posts{
+  box-sizing:border-box;
+}
+.wp-block-latest-posts.alignleft{
+  margin-right:2em;
+}
+.wp-block-latest-posts.alignright{
+  margin-left:2em;
+}
+.wp-block-latest-posts.wp-block-latest-posts__list{
+  list-style:none;
+}
+.wp-block-latest-posts.wp-block-latest-posts__list li{
+  clear:both;
+  overflow-wrap:break-word;
+}
+.wp-block-latest-posts.is-grid{
+  display:flex;
+  flex-wrap:wrap;
+}
+.wp-block-latest-posts.is-grid li{
+  margin:0 1.25em 1.25em 0;
+  width:100%;
+}
+@media (min-width:600px){
+  .wp-block-latest-posts.columns-2 li{
+    width:calc(50% - .625em);
+  }
+  .wp-block-latest-posts.columns-2 li:nth-child(2n){
+    margin-right:0;
+  }
+  .wp-block-latest-posts.columns-3 li{
+    width:calc(33.33333% - .83333em);
+  }
+  .wp-block-latest-posts.columns-3 li:nth-child(3n){
+    margin-right:0;
+  }
+  .wp-block-latest-posts.columns-4 li{
+    width:calc(25% - .9375em);
+  }
+  .wp-block-latest-posts.columns-4 li:nth-child(4n){
+    margin-right:0;
+  }
+  .wp-block-latest-posts.columns-5 li{
+    width:calc(20% - 1em);
+  }
+  .wp-block-latest-posts.columns-5 li:nth-child(5n){
+    margin-right:0;
+  }
+  .wp-block-latest-posts.columns-6 li{
+    width:calc(16.66667% - 1.04167em);
+  }
+  .wp-block-latest-posts.columns-6 li:nth-child(6n){
+    margin-right:0;
+  }
+}
+
+:root :where(.wp-block-latest-posts.is-grid){
+  padding:0;
+}
+:root :where(.wp-block-latest-posts.wp-block-latest-posts__list){
+  padding-left:0;
+}
+
+.wp-block-latest-posts__post-author,.wp-block-latest-posts__post-date{
+  display:block;
+  font-size:.8125em;
+}
+
+.wp-block-latest-posts__post-excerpt,.wp-block-latest-posts__post-full-content{
+  margin-bottom:1em;
+  margin-top:.5em;
+}
+
+.wp-block-latest-posts__featured-image a{
+  display:inline-block;
+}
+.wp-block-latest-posts__featured-image img{
+  height:auto;
+  max-width:100%;
+  width:auto;
+}
+.wp-block-latest-posts__featured-image.alignleft{
+  float:left;
+  margin-right:1em;
+}
+.wp-block-latest-posts__featured-image.alignright{
+  float:right;
+  margin-left:1em;
+}
+.wp-block-latest-posts__featured-image.aligncenter{
+  margin-bottom:1em;
+  text-align:center;
+}
+/*# sourceURL=https://shieldshealthsolutions.com/wp/wp-includes/blocks/latest-posts/style.css */
+</style>
+<style id='wp-block-buttons-inline-css' type='text/css'>
+.wp-block-buttons{
+  box-sizing:border-box;
+}
+.wp-block-buttons.is-vertical{
+  flex-direction:column;
+}
+.wp-block-buttons.is-vertical>.wp-block-button:last-child{
+  margin-bottom:0;
+}
+.wp-block-buttons>.wp-block-button{
+  display:inline-block;
+  margin:0;
+}
+.wp-block-buttons.is-content-justification-left{
+  justify-content:flex-start;
+}
+.wp-block-buttons.is-content-justification-left.is-vertical{
+  align-items:flex-start;
+}
+.wp-block-buttons.is-content-justification-center{
+  justify-content:center;
+}
+.wp-block-buttons.is-content-justification-center.is-vertical{
+  align-items:center;
+}
+.wp-block-buttons.is-content-justification-right{
+  justify-content:flex-end;
+}
+.wp-block-buttons.is-content-justification-right.is-vertical{
+  align-items:flex-end;
+}
+.wp-block-buttons.is-content-justification-space-between{
+  justify-content:space-between;
+}
+.wp-block-buttons.aligncenter{
+  text-align:center;
+}
+.wp-block-buttons:not(.is-content-justification-space-between,.is-content-justification-right,.is-content-justification-left,.is-content-justification-center) .wp-block-button.aligncenter{
+  margin-left:auto;
+  margin-right:auto;
+  width:100%;
+}
+.wp-block-buttons[style*=text-decoration] .wp-block-button,.wp-block-buttons[style*=text-decoration] .wp-block-button__link{
+  text-decoration:inherit;
+}
+.wp-block-buttons.has-custom-font-size .wp-block-button__link{
+  font-size:inherit;
+}
+.wp-block-buttons .wp-block-button__link{
+  width:100%;
+}
+
+.wp-block-button.aligncenter{
+  text-align:center;
+}
+/*# sourceURL=https://shieldshealthsolutions.com/wp/wp-includes/blocks/buttons/style.css */
+</style>
+<style id='wp-block-columns-inline-css' type='text/css'>
+.wp-block-columns{
+  box-sizing:border-box;
+  display:flex;
+  flex-wrap:wrap !important;
+}
+@media (min-width:782px){
+  .wp-block-columns{
+    flex-wrap:nowrap !important;
+  }
+}
+.wp-block-columns{
+  align-items:normal !important;
+}
+.wp-block-columns.are-vertically-aligned-top{
+  align-items:flex-start;
+}
+.wp-block-columns.are-vertically-aligned-center{
+  align-items:center;
+}
+.wp-block-columns.are-vertically-aligned-bottom{
+  align-items:flex-end;
+}
+@media (max-width:781px){
+  .wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column{
+    flex-basis:100% !important;
+  }
+}
+@media (min-width:782px){
+  .wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column{
+    flex-basis:0;
+    flex-grow:1;
+  }
+  .wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column[style*=flex-basis]{
+    flex-grow:0;
+  }
+}
+.wp-block-columns.is-not-stacked-on-mobile{
+  flex-wrap:nowrap !important;
+}
+.wp-block-columns.is-not-stacked-on-mobile>.wp-block-column{
+  flex-basis:0;
+  flex-grow:1;
+}
+.wp-block-columns.is-not-stacked-on-mobile>.wp-block-column[style*=flex-basis]{
+  flex-grow:0;
+}
+
+:where(.wp-block-columns){
+  margin-bottom:1.75em;
+}
+
+:where(.wp-block-columns.has-background){
+  padding:1.25em 2.375em;
+}
+
+.wp-block-column{
+  flex-grow:1;
+  min-width:0;
+  overflow-wrap:break-word;
+  word-break:break-word;
+}
+.wp-block-column.is-vertically-aligned-top{
+  align-self:flex-start;
+}
+.wp-block-column.is-vertically-aligned-center{
+  align-self:center;
+}
+.wp-block-column.is-vertically-aligned-bottom{
+  align-self:flex-end;
+}
+.wp-block-column.is-vertically-aligned-stretch{
+  align-self:stretch;
+}
+.wp-block-column.is-vertically-aligned-bottom,.wp-block-column.is-vertically-aligned-center,.wp-block-column.is-vertically-aligned-top{
+  width:100%;
+}
+/*# sourceURL=https://shieldshealthsolutions.com/wp/wp-includes/blocks/columns/style.css */
+</style>
+<style id='wp-block-group-inline-css' type='text/css'>
+.wp-block-group{
+  box-sizing:border-box;
+}
+
+:where(.wp-block-group.wp-block-group-is-layout-constrained){
+  position:relative;
+}
+/*# sourceURL=https://shieldshealthsolutions.com/wp/wp-includes/blocks/group/style.css */
+</style>
+<style id='wp-block-separator-inline-css' type='text/css'>
+@charset "UTF-8";
+
+.wp-block-separator{
+  border:none;
+  border-top:2px solid;
+}
+
+:root :where(.wp-block-separator.is-style-dots){
+  height:auto;
+  line-height:1;
+  text-align:center;
+}
+:root :where(.wp-block-separator.is-style-dots):before{
+  color:currentColor;
+  content:"···";
+  font-family:serif;
+  font-size:1.5em;
+  letter-spacing:2em;
+  padding-left:2em;
+}
+
+.wp-block-separator.is-style-dots{
+  background:none !important;
+  border:none !important;
+}
+/*# sourceURL=https://shieldshealthsolutions.com/wp/wp-includes/blocks/separator/style.css */
+</style>
+<style id='wp-block-spacer-inline-css' type='text/css'>
+.wp-block-spacer{
+  clear:both;
+}
+/*# sourceURL=https://shieldshealthsolutions.com/wp/wp-includes/blocks/spacer/style.css */
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #fff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--shs-blue: #0f4864;--wp--preset--color--shs-purple: #6e2157;--wp--preset--color--shs-ada-purple: #6e2157;--wp--preset--color--shs-ada-violet: #79496b;--wp--preset--color--shs-teal: #248097;--wp--preset--color--shs-ada-green: #46602b;--wp--preset--color--shs-green-secondary: #9cbe4e;--wp--preset--color--blue: #59799a;--wp--preset--color--shs-ada-yellow: #f4c956;--wp--preset--color--shs-yellow: #f4c956;--wp--preset--color--shs-med-blue: #2E657E;--wp--preset--color--shs-dk-gray: #343848;--wp--preset--color--shs-lt-gray: #F8F9FA;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--gradient--white-to-blue: linear-gradient(180deg, #FFF 24.72%, #248097 422.7%);;--wp--preset--gradient--blue-to-teal: linear-gradient(96deg, #0D263E 1.08%, #1B6172 95.97%);;--wp--preset--gradient--blue-to-white: linear-gradient(180deg, #FFF 28.53%, #8EBEC9 195.98%, #248097 583.25%);;--wp--preset--font-size--small: 0.875rem;--wp--preset--font-size--medium: clamp(0.875rem, 0.875rem + ((1vw - 0.2rem) * 0.357), 1.125rem);--wp--preset--font-size--large: clamp(0.984rem, 0.984rem + ((1vw - 0.2rem) * 0.737), 1.5rem);--wp--preset--font-size--x-large: clamp(1.576rem, 1.576rem + ((1vw - 0.2rem) * 1.534), 2.65rem);--wp--preset--font-size--tiny: 0.75rem;--wp--preset--font-size--normal: 1rem;--wp--preset--font-size--bodycopy: clamp(0.875rem, 0.875rem + ((1vw - 0.2rem) * 0.269), 1.063rem);--wp--preset--font-size--medium-lg: clamp(0.915rem, 0.915rem + ((1vw - 0.2rem) * 0.657), 1.375rem);--wp--preset--font-size--sm-h: clamp(1.119rem, 1.119rem + ((1vw - 0.2rem) * 0.901), 1.75rem);--wp--preset--font-size--huge: clamp(1.743rem, 1.743rem + ((1vw - 0.2rem) * 1.796), 3rem);--wp--preset--font-family--gotham: Gotham, sans-serif;--wp--preset--font-family--gotham-medium: gotham-medium;--wp--preset--font-family--gotham-light: gotham-light;--wp--preset--font-family--gotham-bold: gotham-bold;--wp--preset--font-family--gotham-book: gotham-book;--wp--preset--font-family--gotham-mediumita: gotham-mediumita;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:root { --wp--style--global--content-size: 1300px;--wp--style--global--wide-size: 1440px; }:where(body) { margin: 0; }.wp-site-blocks { padding-top: var(--wp--style--root--padding-top); padding-bottom: var(--wp--style--root--padding-bottom); }.has-global-padding { padding-right: var(--wp--style--root--padding-right); padding-left: var(--wp--style--root--padding-left); }.has-global-padding > .alignfull { margin-right: calc(var(--wp--style--root--padding-right) * -1); margin-left: calc(var(--wp--style--root--padding-left) * -1); }.has-global-padding :where(:not(.alignfull.is-layout-flow) > .has-global-padding:not(.wp-block-block, .alignfull)) { padding-right: 0; padding-left: 0; }.has-global-padding :where(:not(.alignfull.is-layout-flow) > .has-global-padding:not(.wp-block-block, .alignfull)) > .alignfull { margin-left: 0; margin-right: 0; }.wp-site-blocks > .alignleft { float: left; margin-right: 2em; }.wp-site-blocks > .alignright { float: right; margin-left: 2em; }.wp-site-blocks > .aligncenter { justify-content: center; margin-left: auto; margin-right: auto; }:where(.wp-site-blocks) > * { margin-block-start: 24px; margin-block-end: 0; }:where(.wp-site-blocks) > :first-child { margin-block-start: 0; }:where(.wp-site-blocks) > :last-child { margin-block-end: 0; }:root { --wp--style--block-gap: 24px; }:root :where(.is-layout-flow) > :first-child{margin-block-start: 0;}:root :where(.is-layout-flow) > :last-child{margin-block-end: 0;}:root :where(.is-layout-flow) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-constrained) > :first-child{margin-block-start: 0;}:root :where(.is-layout-constrained) > :last-child{margin-block-end: 0;}:root :where(.is-layout-constrained) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-flex){gap: 24px;}:root :where(.is-layout-grid){gap: 24px;}.is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{background-color: var(--wp--preset--color--white);color: var(--wp--preset--color--shs-dk-gray);font-family: var(--wp--preset--font-family--gotham);font-weight: 400;--wp--style--root--padding-top: 0;--wp--style--root--padding-right: 20px;--wp--style--root--padding-bottom: 0;--wp--style--root--padding-left: 20px;}a:where(:not(.wp-element-button)){text-decoration: underline;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-shs-blue-color{color: var(--wp--preset--color--shs-blue) !important;}.has-shs-purple-color{color: var(--wp--preset--color--shs-purple) !important;}.has-shs-ada-purple-color{color: var(--wp--preset--color--shs-ada-purple) !important;}.has-shs-ada-violet-color{color: var(--wp--preset--color--shs-ada-violet) !important;}.has-shs-teal-color{color: var(--wp--preset--color--shs-teal) !important;}.has-shs-ada-green-color{color: var(--wp--preset--color--shs-ada-green) !important;}.has-shs-green-secondary-color{color: var(--wp--preset--color--shs-green-secondary) !important;}.has-blue-color{color: var(--wp--preset--color--blue) !important;}.has-shs-ada-yellow-color{color: var(--wp--preset--color--shs-ada-yellow) !important;}.has-shs-yellow-color{color: var(--wp--preset--color--shs-yellow) !important;}.has-shs-med-blue-color{color: var(--wp--preset--color--shs-med-blue) !important;}.has-shs-dk-gray-color{color: var(--wp--preset--color--shs-dk-gray) !important;}.has-shs-lt-gray-color{color: var(--wp--preset--color--shs-lt-gray) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-shs-blue-background-color{background-color: var(--wp--preset--color--shs-blue) !important;}.has-shs-purple-background-color{background-color: var(--wp--preset--color--shs-purple) !important;}.has-shs-ada-purple-background-color{background-color: var(--wp--preset--color--shs-ada-purple) !important;}.has-shs-ada-violet-background-color{background-color: var(--wp--preset--color--shs-ada-violet) !important;}.has-shs-teal-background-color{background-color: var(--wp--preset--color--shs-teal) !important;}.has-shs-ada-green-background-color{background-color: var(--wp--preset--color--shs-ada-green) !important;}.has-shs-green-secondary-background-color{background-color: var(--wp--preset--color--shs-green-secondary) !important;}.has-blue-background-color{background-color: var(--wp--preset--color--blue) !important;}.has-shs-ada-yellow-background-color{background-color: var(--wp--preset--color--shs-ada-yellow) !important;}.has-shs-yellow-background-color{background-color: var(--wp--preset--color--shs-yellow) !important;}.has-shs-med-blue-background-color{background-color: var(--wp--preset--color--shs-med-blue) !important;}.has-shs-dk-gray-background-color{background-color: var(--wp--preset--color--shs-dk-gray) !important;}.has-shs-lt-gray-background-color{background-color: var(--wp--preset--color--shs-lt-gray) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-shs-blue-border-color{border-color: var(--wp--preset--color--shs-blue) !important;}.has-shs-purple-border-color{border-color: var(--wp--preset--color--shs-purple) !important;}.has-shs-ada-purple-border-color{border-color: var(--wp--preset--color--shs-ada-purple) !important;}.has-shs-ada-violet-border-color{border-color: var(--wp--preset--color--shs-ada-violet) !important;}.has-shs-teal-border-color{border-color: var(--wp--preset--color--shs-teal) !important;}.has-shs-ada-green-border-color{border-color: var(--wp--preset--color--shs-ada-green) !important;}.has-shs-green-secondary-border-color{border-color: var(--wp--preset--color--shs-green-secondary) !important;}.has-blue-border-color{border-color: var(--wp--preset--color--blue) !important;}.has-shs-ada-yellow-border-color{border-color: var(--wp--preset--color--shs-ada-yellow) !important;}.has-shs-yellow-border-color{border-color: var(--wp--preset--color--shs-yellow) !important;}.has-shs-med-blue-border-color{border-color: var(--wp--preset--color--shs-med-blue) !important;}.has-shs-dk-gray-border-color{border-color: var(--wp--preset--color--shs-dk-gray) !important;}.has-shs-lt-gray-border-color{border-color: var(--wp--preset--color--shs-lt-gray) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-white-to-blue-gradient-background{background: var(--wp--preset--gradient--white-to-blue) !important;}.has-blue-to-teal-gradient-background{background: var(--wp--preset--gradient--blue-to-teal) !important;}.has-blue-to-white-gradient-background{background: var(--wp--preset--gradient--blue-to-white) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}.has-tiny-font-size{font-size: var(--wp--preset--font-size--tiny) !important;}.has-normal-font-size{font-size: var(--wp--preset--font-size--normal) !important;}.has-bodycopy-font-size{font-size: var(--wp--preset--font-size--bodycopy) !important;}.has-medium-lg-font-size{font-size: var(--wp--preset--font-size--medium-lg) !important;}.has-sm-h-font-size{font-size: var(--wp--preset--font-size--sm-h) !important;}.has-huge-font-size{font-size: var(--wp--preset--font-size--huge) !important;}.has-gotham-font-family{font-family: var(--wp--preset--font-family--gotham) !important;}.has-gotham-medium-font-family{font-family: var(--wp--preset--font-family--gotham-medium) !important;}.has-gotham-light-font-family{font-family: var(--wp--preset--font-family--gotham-light) !important;}.has-gotham-bold-font-family{font-family: var(--wp--preset--font-family--gotham-bold) !important;}.has-gotham-book-font-family{font-family: var(--wp--preset--font-family--gotham-book) !important;}.has-gotham-mediumita-font-family{font-family: var(--wp--preset--font-family--gotham-mediumita) !important;}
+:root :where(.wp-block-button .wp-block-button__link){background-color: var(--wp--preset--color--shs-blue);border-radius: 4px;color: var(--wp--preset--color--white);font-size: clamp(0.875rem, 0.875rem + ((1vw - 0.2rem) * 0.179), 1rem);font-weight: 700;line-height: 1.6;padding-top: 12px;padding-right: 26px;padding-bottom: 12px;padding-left: 26px;text-transform: uppercase;}
+:root :where(.wp-block-buttons-is-layout-flow) > :first-child{margin-block-start: 0;}:root :where(.wp-block-buttons-is-layout-flow) > :last-child{margin-block-end: 0;}:root :where(.wp-block-buttons-is-layout-flow) > *{margin-block-start: 30px;margin-block-end: 0;}:root :where(.wp-block-buttons-is-layout-constrained) > :first-child{margin-block-start: 0;}:root :where(.wp-block-buttons-is-layout-constrained) > :last-child{margin-block-end: 0;}:root :where(.wp-block-buttons-is-layout-constrained) > *{margin-block-start: 30px;margin-block-end: 0;}:root :where(.wp-block-buttons-is-layout-flex){gap: 30px;}:root :where(.wp-block-buttons-is-layout-grid){gap: 30px;}
+:root :where(.wp-block-buttons .wp-element-button:hover,.wp-block-buttons  .wp-block-button__link:hover){background-color: var(--wp--preset--color--shs-med-blue);}
+:root :where(.wp-block-buttons .wp-element-button:focus,.wp-block-buttons  .wp-block-button__link:focus){background-color: var(--wp--preset--color--shs-med-blue);}
+:root :where(.wp-block-heading){color: var(--wp--preset--color--shs-dk-gray);font-size: var(--wp--preset--font-size--large);font-weight: 400;line-height: normal;}
+:root :where(.wp-block-heading h1){font-size: var(--wp--preset--font-size--huge);}
+:root :where(.wp-block-heading h2){font-size: var(--wp--preset--font-size--xlarge);}
+:root :where(p){font-size: var(--wp--preset--font-size--bodycopy);line-height: 1.688rem;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel='stylesheet' id='styles-css' href='https://shieldshealthsolutions.com/content/themes/blade-child/css/style.css?ver=1.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='wpdreams-asl-basic-css' href='https://shieldshealthsolutions.com/content/plugins/ajax-search-lite/css/style.basic.css?ver=4.13.5' type='text/css' media='all' />
+<style id='wpdreams-asl-basic-inline-css' type='text/css'>
+
+					div[id*='ajaxsearchlitesettings'].searchsettings .asl_option_inner label {
+						font-size: 0px !important;
+						color: rgba(0, 0, 0, 0);
+					}
+					div[id*='ajaxsearchlitesettings'].searchsettings .asl_option_inner label:after {
+						font-size: 11px !important;
+						position: absolute;
+						top: 0;
+						left: 0;
+						z-index: 1;
+					}
+					.asl_w_container {
+						width: 100%;
+						margin: 0px 0px 0px 0px;
+						min-width: 200px;
+					}
+					div[id*='ajaxsearchlite'].asl_m {
+						width: 100%;
+					}
+					div[id*='ajaxsearchliteres'].wpdreams_asl_results div.resdrg span.highlighted {
+						font-weight: bold;
+						color: rgba(217, 49, 43, 1);
+						background-color: rgba(238, 238, 238, 1);
+					}
+					div[id*='ajaxsearchliteres'].wpdreams_asl_results .results img.asl_image {
+						width: 70px;
+						height: 70px;
+						object-fit: cover;
+					}
+					div[id*='ajaxsearchlite'].asl_r .results {
+						max-height: none;
+					}
+					div[id*='ajaxsearchlite'].asl_r {
+						position: absolute;
+					}
+				
+						div.asl_r.asl_w.vertical .results .item::after {
+							display: block;
+							position: absolute;
+							bottom: 0;
+							content: '';
+							height: 1px;
+							width: 100%;
+							background: #D8D8D8;
+						}
+						div.asl_r.asl_w.vertical .results .item.asl_last_item::after {
+							display: none;
+						}
+					
+/*# sourceURL=wpdreams-asl-basic-inline-css */
+</style>
+<link rel='stylesheet' id='wpdreams-asl-instance-css' href='https://shieldshealthsolutions.com/content/plugins/ajax-search-lite/css/style-underline.css?ver=4.13.5' type='text/css' media='all' />
+<link rel='stylesheet' id='taxopress-frontend-css-css' href='https://shieldshealthsolutions.com/content/plugins/simple-tags/assets/frontend/css/frontend.css?ver=3.50.0' type='text/css' media='all' />
+<style id='wp-block-paragraph-inline-css' type='text/css'>
+.is-small-text{
+  font-size:.875em;
+}
+
+.is-regular-text{
+  font-size:1em;
+}
+
+.is-large-text{
+  font-size:2.25em;
+}
+
+.is-larger-text{
+  font-size:3em;
+}
+
+.has-drop-cap:not(:focus):first-letter{
+  float:left;
+  font-size:8.4em;
+  font-style:normal;
+  font-weight:100;
+  line-height:.68;
+  margin:.05em .1em 0 0;
+  text-transform:uppercase;
+}
+
+body.rtl .has-drop-cap:not(:focus):first-letter{
+  float:none;
+  margin-left:.1em;
+}
+
+p.has-drop-cap.has-background{
+  overflow:hidden;
+}
+
+:root :where(p.has-background){
+  padding:1.25em 2.375em;
+}
+
+:where(p.has-text-color:not(.has-link-color)) a{
+  color:inherit;
+}
+
+p.has-text-align-left[style*="writing-mode:vertical-lr"],p.has-text-align-right[style*="writing-mode:vertical-rl"]{
+  rotate:180deg;
+}
+/*# sourceURL=https://shieldshealthsolutions.com/wp/wp-includes/blocks/paragraph/style.css */
+</style>
+<link rel='stylesheet' id='popup-maker-site-css' href='https://shieldshealthsolutions.com/content/plugins/popup-maker/dist/assets/site.css?ver=1.22.0' type='text/css' media='all' />
+<style id='popup-maker-site-inline-css' type='text/css'>
+/* Popup Google Fonts */
+@import url('//fonts.googleapis.com/css?family=Montserrat|Acme');
+
+/* Popup Theme 578: Outcomes 2025 */
+.pum-theme-578, .pum-theme-enterprise-blue { background-color: rgba( 137, 83, 121, 0.75 ) } 
+.pum-theme-578 .pum-container, .pum-theme-enterprise-blue .pum-container { padding: 28px; border-radius: 5px; border: 1px none #000000; box-shadow: 0px 10px 25px 4px rgba( 2, 2, 2, 0.50 ); background-color: rgba( 110, 33, 87, 1.00 ) } 
+.pum-theme-578 .pum-title, .pum-theme-enterprise-blue .pum-title { color: #ffffff; text-align: left; text-shadow: 0px 0px 0px rgba( 2, 2, 2, 0.23 ); font-family: inherit; font-weight: 100; font-size: 34px; line-height: 36px } 
+.pum-theme-578 .pum-content, .pum-theme-enterprise-blue .pum-content { color: #ffffff; font-family: Sans-Serif; font-weight: 100 } 
+.pum-theme-578 .pum-content + .pum-close, .pum-theme-enterprise-blue .pum-content + .pum-close { position: absolute; height: 28px; width: 28px; left: auto; right: 8px; bottom: auto; top: 8px; padding: 4px; color: #ffffff; font-family: inherit; font-weight: 100; font-size: 20px; line-height: 20px; border: 1px none #ffffff; border-radius: 42px; box-shadow: 0px 0px 0px 0px rgba( 2, 2, 2, 0.23 ); text-shadow: 0px 0px 0px rgba( 0, 0, 0, 0.23 ); background-color: rgba( 49, 91, 124, 1.00 ) } 
+
+/* Popup Theme 10825: Outcomes 2025 */
+.pum-theme-10825, .pum-theme-outcomes-2025 { background-color: rgba( 137, 83, 121, 0.75 ) } 
+.pum-theme-10825 .pum-container, .pum-theme-outcomes-2025 .pum-container { padding: 28px; border-radius: 5px; border: 1px none #000000; box-shadow: 0px 10px 25px 4px rgba( 2, 2, 2, 0.50 ); background-color: rgba( 110, 33, 87, 1.00 ) } 
+.pum-theme-10825 .pum-title, .pum-theme-outcomes-2025 .pum-title { color: #ffffff; text-align: left; text-shadow: 0px 0px 0px rgba( 2, 2, 2, 0.23 ); font-family: inherit; font-weight: 100; font-size: 34px; line-height: 36px } 
+.pum-theme-10825 .pum-content, .pum-theme-outcomes-2025 .pum-content { color: #ffffff; font-family: inherit; font-weight: 100 } 
+.pum-theme-10825 .pum-content + .pum-close, .pum-theme-outcomes-2025 .pum-content + .pum-close { position: absolute; height: 28px; width: 28px; left: auto; right: 8px; bottom: auto; top: 8px; padding: 4px; color: #ffffff; font-family: inherit; font-weight: 100; font-size: 20px; line-height: 20px; border: 1px none #ffffff; border-radius: 42px; box-shadow: 0px 0px 0px 0px rgba( 2, 2, 2, 0.23 ); text-shadow: 0px 0px 0px rgba( 0, 0, 0, 0.23 ); background-color: rgba( 49, 91, 124, 1.00 ) } 
+
+/* Popup Theme 1073: Content map */
+.pum-theme-1073, .pum-theme-content-map { background-color: rgba( 23, 68, 97, 0.73 ) } 
+.pum-theme-1073 .pum-container, .pum-theme-content-map .pum-container { padding: 18px; border-radius: 0px; border: 1px none #000000; box-shadow: 1px 1px 3px 0px rgba( 255, 255, 255, 0.00 ); background-color: rgba( 255, 255, 255, 1.00 ) } 
+.pum-theme-1073 .pum-title, .pum-theme-content-map .pum-title { color: #000000; text-align: left; text-shadow: 0px 0px 0px rgba( 2, 2, 2, 0.23 ); font-family: inherit; font-weight: 100; font-size: 32px; line-height: 36px } 
+.pum-theme-1073 .pum-content, .pum-theme-content-map .pum-content { color: #343848; font-family: inherit; font-weight: 100 } 
+.pum-theme-1073 .pum-content + .pum-close, .pum-theme-content-map .pum-content + .pum-close { position: absolute; height: auto; width: auto; left: auto; right: 0px; bottom: auto; top: 0px; padding: 8px; color: #ffffff; font-family: inherit; font-weight: 500; font-size: 21px; line-height: 25px; border: 1px none #ffffff; border-radius: 0px; box-shadow: 0px 0px 0px 0px rgba( 2, 2, 2, 0.23 ); text-shadow: 0px 0px 0px rgba( 0, 0, 0, 0.23 ); background-color: rgba( 23, 68, 97, 1.00 ) } 
+
+/* Popup Theme 576: Default Theme */
+.pum-theme-576, .pum-theme-default-theme { background-color: rgba( 23, 68, 97, 0.73 ) } 
+.pum-theme-576 .pum-container, .pum-theme-default-theme .pum-container { padding: 18px; border-radius: 0px; border: 1px none #000000; box-shadow: 1px 1px 3px 0px rgba( 255, 255, 255, 0.00 ); background-color: rgba( 255, 255, 255, 0.00 ) } 
+.pum-theme-576 .pum-title, .pum-theme-default-theme .pum-title { color: #000000; text-align: left; text-shadow: 0px 0px 0px rgba( 2, 2, 2, 0.23 ); font-family: inherit; font-weight: 100; font-size: 32px; line-height: 36px } 
+.pum-theme-576 .pum-content, .pum-theme-default-theme .pum-content { color: #174461; font-family: inherit; font-weight: 100 } 
+.pum-theme-576 .pum-content + .pum-close, .pum-theme-default-theme .pum-content + .pum-close { position: absolute; height: auto; width: auto; left: auto; right: 0px; bottom: auto; top: 0px; padding: 8px; color: #ffffff; font-family: inherit; font-weight: 500; font-size: 21px; line-height: 25px; border: 1px none #ffffff; border-radius: 0px; box-shadow: 0px 0px 0px 0px rgba( 2, 2, 2, 0.23 ); text-shadow: 0px 0px 0px rgba( 0, 0, 0, 0.23 ); background-color: rgba( 23, 68, 97, 1.00 ) } 
+
+/* Popup Theme 583: Content Only - For use with page builders or block editor */
+.pum-theme-583, .pum-theme-content-only { background-color: rgba( 0, 0, 0, 0.70 ) } 
+.pum-theme-583 .pum-container, .pum-theme-content-only .pum-container { padding: 0px; border-radius: 0px; border: 1px none #000000; box-shadow: 0px 0px 0px 0px rgba( 2, 2, 2, 0.00 ) } 
+.pum-theme-583 .pum-title, .pum-theme-content-only .pum-title { color: #000000; text-align: left; text-shadow: 0px 0px 0px rgba( 2, 2, 2, 0.23 ); font-family: inherit; font-weight: 400; font-size: 32px; line-height: 36px } 
+.pum-theme-583 .pum-content, .pum-theme-content-only .pum-content { color: #8c8c8c; font-family: inherit; font-weight: 400 } 
+.pum-theme-583 .pum-content + .pum-close, .pum-theme-content-only .pum-content + .pum-close { position: absolute; height: 18px; width: 18px; left: auto; right: 7px; bottom: auto; top: 7px; padding: 0px; color: #000000; font-family: inherit; font-weight: 700; font-size: 20px; line-height: 20px; border: 1px none #ffffff; border-radius: 15px; box-shadow: 0px 0px 0px 0px rgba( 2, 2, 2, 0.00 ); text-shadow: 0px 0px 0px rgba( 0, 0, 0, 0.00 ); background-color: rgba( 255, 255, 255, 0.00 ) } 
+
+/* Popup Theme 582: Floating Bar - Soft Blue */
+.pum-theme-582, .pum-theme-floating-bar { background-color: rgba( 255, 255, 255, 0.00 ) } 
+.pum-theme-582 .pum-container, .pum-theme-floating-bar .pum-container { padding: 8px; border-radius: 0px; border: 1px none #000000; box-shadow: 1px 1px 3px 0px rgba( 2, 2, 2, 0.23 ); background-color: rgba( 238, 246, 252, 1.00 ) } 
+.pum-theme-582 .pum-title, .pum-theme-floating-bar .pum-title { color: #505050; text-align: left; text-shadow: 0px 0px 0px rgba( 2, 2, 2, 0.23 ); font-family: inherit; font-weight: 400; font-size: 32px; line-height: 36px } 
+.pum-theme-582 .pum-content, .pum-theme-floating-bar .pum-content { color: #505050; font-family: inherit; font-weight: 400 } 
+.pum-theme-582 .pum-content + .pum-close, .pum-theme-floating-bar .pum-content + .pum-close { position: absolute; height: 18px; width: 18px; left: auto; right: 5px; bottom: auto; top: 50%; padding: 0px; color: #505050; font-family: Sans-Serif; font-weight: 700; font-size: 15px; line-height: 18px; border: 1px solid #505050; border-radius: 15px; box-shadow: 0px 0px 0px 0px rgba( 2, 2, 2, 0.00 ); text-shadow: 0px 0px 0px rgba( 0, 0, 0, 0.00 ); background-color: rgba( 255, 255, 255, 0.00 ); transform: translate(0, -50%) } 
+
+/* Popup Theme 577: Light Box */
+.pum-theme-577, .pum-theme-lightbox { background-color: rgba( 0, 0, 0, 0.60 ) } 
+.pum-theme-577 .pum-container, .pum-theme-lightbox .pum-container { padding: 18px; border-radius: 3px; border: 8px solid #000000; box-shadow: 0px 0px 30px 0px rgba( 2, 2, 2, 1.00 ); background-color: rgba( 255, 255, 255, 1.00 ) } 
+.pum-theme-577 .pum-title, .pum-theme-lightbox .pum-title { color: #000000; text-align: left; text-shadow: 0px 0px 0px rgba( 2, 2, 2, 0.23 ); font-family: inherit; font-size: 32px; line-height: 36px } 
+.pum-theme-577 .pum-content, .pum-theme-lightbox .pum-content { color: #000000; font-family: inherit } 
+.pum-theme-577 .pum-content + .pum-close, .pum-theme-lightbox .pum-content + .pum-close { position: absolute; height: 30px; width: 30px; left: auto; right: -24px; bottom: auto; top: -24px; padding: 0px; color: #ffffff; font-family: inherit; font-size: 24px; line-height: 26px; border: 2px solid #ffffff; border-radius: 30px; box-shadow: 0px 0px 15px 1px rgba( 2, 2, 2, 0.75 ); text-shadow: 0px 0px 0px rgba( 0, 0, 0, 0.23 ); background-color: rgba( 0, 0, 0, 1.00 ) } 
+
+/* Popup Theme 579: Hello Box */
+.pum-theme-579, .pum-theme-hello-box { background-color: rgba( 0, 0, 0, 0.75 ) } 
+.pum-theme-579 .pum-container, .pum-theme-hello-box .pum-container { padding: 30px; border-radius: 80px; border: 14px solid #81d742; box-shadow: 0px 0px 0px 0px rgba( 2, 2, 2, 0.00 ); background-color: rgba( 255, 255, 255, 1.00 ) } 
+.pum-theme-579 .pum-title, .pum-theme-hello-box .pum-title { color: #2d2d2d; text-align: left; text-shadow: 0px 0px 0px rgba( 2, 2, 2, 0.23 ); font-family: Montserrat; font-size: 32px; line-height: 36px } 
+.pum-theme-579 .pum-content, .pum-theme-hello-box .pum-content { color: #2d2d2d; font-family: inherit } 
+.pum-theme-579 .pum-content + .pum-close, .pum-theme-hello-box .pum-content + .pum-close { position: absolute; height: auto; width: auto; left: auto; right: -30px; bottom: auto; top: -30px; padding: 0px; color: #2d2d2d; font-family: inherit; font-size: 32px; line-height: 28px; border: 1px none #ffffff; border-radius: 28px; box-shadow: 0px 0px 0px 0px rgba( 2, 2, 2, 0.23 ); text-shadow: 0px 0px 0px rgba( 0, 0, 0, 0.23 ); background-color: rgba( 255, 255, 255, 1.00 ) } 
+
+/* Popup Theme 580: Cutting Edge */
+.pum-theme-580, .pum-theme-cutting-edge { background-color: rgba( 0, 0, 0, 0.50 ) } 
+.pum-theme-580 .pum-container, .pum-theme-cutting-edge .pum-container { padding: 18px; border-radius: 0px; border: 1px none #000000; box-shadow: 0px 10px 25px 0px rgba( 2, 2, 2, 0.50 ); background-color: rgba( 30, 115, 190, 1.00 ) } 
+.pum-theme-580 .pum-title, .pum-theme-cutting-edge .pum-title { color: #ffffff; text-align: left; text-shadow: 0px 0px 0px rgba( 2, 2, 2, 0.23 ); font-family: Sans-Serif; font-size: 26px; line-height: 28px } 
+.pum-theme-580 .pum-content, .pum-theme-cutting-edge .pum-content { color: #ffffff; font-family: inherit } 
+.pum-theme-580 .pum-content + .pum-close, .pum-theme-cutting-edge .pum-content + .pum-close { position: absolute; height: 24px; width: 24px; left: auto; right: 0px; bottom: auto; top: 0px; padding: 0px; color: #1e73be; font-family: inherit; font-size: 32px; line-height: 24px; border: 1px none #ffffff; border-radius: 0px; box-shadow: -1px 1px 1px 0px rgba( 2, 2, 2, 0.10 ); text-shadow: -1px 1px 1px rgba( 0, 0, 0, 0.10 ); background-color: rgba( 238, 238, 34, 1.00 ) } 
+
+/* Popup Theme 581: Framed Border */
+.pum-theme-581, .pum-theme-framed-border { background-color: rgba( 255, 255, 255, 0.50 ) } 
+.pum-theme-581 .pum-container, .pum-theme-framed-border .pum-container { padding: 18px; border-radius: 0px; border: 20px outset #dd3333; box-shadow: 1px 1px 3px 0px rgba( 2, 2, 2, 0.97 ) inset; background-color: rgba( 255, 251, 239, 1.00 ) } 
+.pum-theme-581 .pum-title, .pum-theme-framed-border .pum-title { color: #000000; text-align: left; text-shadow: 0px 0px 0px rgba( 2, 2, 2, 0.23 ); font-family: inherit; font-size: 32px; line-height: 36px } 
+.pum-theme-581 .pum-content, .pum-theme-framed-border .pum-content { color: #2d2d2d; font-family: inherit } 
+.pum-theme-581 .pum-content + .pum-close, .pum-theme-framed-border .pum-content + .pum-close { position: absolute; height: 20px; width: 20px; left: auto; right: -20px; bottom: auto; top: -20px; padding: 0px; color: #ffffff; font-family: Acme; font-size: 20px; line-height: 20px; border: 1px none #ffffff; border-radius: 0px; box-shadow: 0px 0px 0px 0px rgba( 2, 2, 2, 0.23 ); text-shadow: 0px 0px 0px rgba( 0, 0, 0, 0.23 ); background-color: rgba( 0, 0, 0, 0.55 ) } 
+
+#pum-10833 {z-index: 1999999999}
+#pum-1067 {z-index: 1999999999}
+#pum-584 {z-index: 1999999999}
+#pum-592 {z-index: 1999999999}
+#pum-594 {z-index: 1999999999}
+#pum-596 {z-index: 1999999999}
+#pum-598 {z-index: 1999999999}
+#pum-600 {z-index: 1999999999}
+#pum-602 {z-index: 1999999999}
+#pum-2410 {z-index: 1999999999}
+#pum-1385 {z-index: 1999999999}
+
+/*# sourceURL=popup-maker-site-inline-css */
+</style>
+<script type="text/javascript" src="https://shieldshealthsolutions.com/wp/wp-includes/js/jquery/jquery.js?ver=3.7.1" id="jquery-core-js"></script>
+<script type="text/javascript" src="https://shieldshealthsolutions.com/wp/wp-includes/js/jquery/jquery-migrate.js?ver=3.4.1" id="jquery-migrate-js"></script>
+<script type="text/javascript" src="https://shieldshealthsolutions.com/content/themes/blade-child/js/aboutUsNews.js?ver=2.8.3" id="aboutUsNews-js"></script>
+<script type="text/javascript" src="https://shieldshealthsolutions.com/content/themes/blade-child/js/careCornerBack.js?ver=2.8.3" id="careCornerBack-js"></script>
+<script type="text/javascript" src="https://shieldshealthsolutions.com/content/themes/blade-child/js/careCornerNoResults.js?ver=2.8.3" id="careCornerNoResults-js"></script>
+<script type="text/javascript" src="https://shieldshealthsolutions.com/content/themes/blade-child/js/careCornerPagination.js?ver=2.8.3" id="careCornerPagination-js"></script>
+<script type="text/javascript" src="https://shieldshealthsolutions.com/content/themes/blade-child/js/careersPage.js?ver=2.8.3" id="careersPage-js"></script>
+<script type="text/javascript" src="https://shieldshealthsolutions.com/content/themes/blade-child/js/checkboxForm.js?ver=2.8.3" id="checkboxForm-js"></script>
+<script type="text/javascript" src="https://shieldshealthsolutions.com/content/themes/blade-child/js/desktopNav.js?ver=2.8.3" id="desktopNav-js"></script>
+<script type="text/javascript" src="https://shieldshealthsolutions.com/content/themes/blade-child/js/drugBox.js?ver=2.8.3" id="drugBox-js"></script>
+<script type="text/javascript" src="https://shieldshealthsolutions.com/content/themes/blade-child/js/flipBox.js?ver=2.8.3" id="flipBox-js"></script>
+<script type="text/javascript" src="https://shieldshealthsolutions.com/content/themes/blade-child/js/imagePopup.js?ver=2.8.3" id="imagePopup-js"></script>
+<script type="text/javascript" src="https://shieldshealthsolutions.com/content/themes/blade-child/js/jobAppValidation.js?ver=2.8.3" id="jobAppValidation-js"></script>
+<script type="text/javascript" src="https://shieldshealthsolutions.com/content/themes/blade-child/js/mobileNav.js?ver=2.8.3" id="mobileNav-js"></script>
+<script type="text/javascript" src="https://shieldshealthsolutions.com/content/themes/blade-child/js/newsroom.js?ver=2.8.3" id="newsroom-js"></script>
+<script type="text/javascript" src="https://shieldshealthsolutions.com/content/themes/blade-child/js/ourPartnersMap.js?ver=2.8.3" id="ourPartnersMap-js"></script>
+<script type="text/javascript" src="https://shieldshealthsolutions.com/content/themes/blade-child/js/ourTeamCards.js?ver=2.8.3" id="ourTeamCards-js"></script>
+<script type="text/javascript" src="https://shieldshealthsolutions.com/content/themes/blade-child/js/paginationDots.js?ver=2.8.3" id="paginationDots-js"></script>
+<script type="text/javascript" src="https://shieldshealthsolutions.com/content/themes/blade-child/js/resourceFilters.js?ver=2.8.3" id="resourceFilters-js"></script>
+<script type="text/javascript" src="https://play.vidyard.com/embed/v4.js" id="vidyard-js"></script>
+<script type="text/javascript" src="https://shieldshealthsolutions.com/content/themes/blade-child/js/navbar.js?ver=1.0.0" id="navbar-js"></script>
+<script type="text/javascript" src="https://shieldshealthsolutions.com/content/themes/blade-child/js/nav.js?ver=2.8.3" id="nav-js"></script>
+<script type="text/javascript" src="https://shieldshealthsolutions.com/content/plugins/simple-tags/assets/frontend/js/frontend.js?ver=3.50.0" id="taxopress-frontend-js-js"></script>
+<link rel="https://api.w.org/" href="https://shieldshealthsolutions.com/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://shieldshealthsolutions.com/wp-json/wp/v2/pages/8094" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://shieldshealthsolutions.com/wp/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 6.9.4" />
+<link rel='shortlink' href='https://shieldshealthsolutions.com/' />
+<!-- start Simple Custom CSS and JS -->
+<meta name="google-site-verification" content="rXeD9KQyDLa1EqZ_mDil0OGlM69Bmws1O4HZRmTbP1s" /><!-- end Simple Custom CSS and JS -->
+<!-- start Simple Custom CSS and JS -->
+<!-- Kamel Plugins -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/image-map-resizer/1.0.10/js/imageMapResizer.min.js" integrity="sha512-sXgF3JImNbesKnmCuR5AE5WPQo6Z8xJMYRvDknGyc0eTWL62pqgEG4Auk9d0VnstzyhRNzPak8AyemFJq7a6/Q==" crossorigin="anonymous"></script><!-- end Simple Custom CSS and JS -->
+<!-- start Simple Custom CSS and JS -->
+<!-- start Simple Custom CSS and JS -->
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function () {
+    const header = document.querySelector(".navbar-primary"); // Select the fixed header element
+    const headerHeight = header ? header.offsetHeight : 0; // Get header height or default to 0
+
+    document.querySelectorAll("a[href^='#']").forEach(anchor => {
+        anchor.addEventListener("click", function (event) {
+            const targetId = this.getAttribute("href").substring(1); // Get the target ID
+            const targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+				event.preventDefault(); // Prevent default anchor jump
+				
+				if (targetId === "grve-main-content") {
+
+				  const headerH = header ? header.offsetHeight : 0;
+				  const y = targetElement.getBoundingClientRect().top + window.pageYOffset - headerH;
+
+				  // Ensure it's focusable even if markup changes later
+				  const hadTabindex = targetElement.hasAttribute("tabindex");
+				  if (!hadTabindex) targetElement.setAttribute("tabindex", "-1");
+
+				  // Try to move focus, then enforce scroll. If another script stole focus,
+				  // retry on the next tick and blur the link as a last resort.
+				  const linkEl = event.currentTarget;
+
+				  requestAnimationFrame(() => {
+					try { targetElement.focus({ preventScroll: true }); } catch { targetElement.focus(); }
+
+					if (document.activeElement !== targetElement) {
+					  setTimeout(() => {
+						try { targetElement.focus({ preventScroll: true }); } catch { targetElement.focus(); }
+						if (document.activeElement !== targetElement && linkEl && linkEl.blur) {
+						  linkEl.blur(); // release focus from the skip link if something held it
+						  try { targetElement.focus({ preventScroll: true }); } catch { targetElement.focus(); }
+						}
+					  }, 0);
+					}
+
+					window.scrollTo({ top: y, behavior: "smooth" });
+				  });
+
+				  if (!hadTabindex) {
+					targetElement.addEventListener("blur", () => targetElement.removeAttribute("tabindex"), { once: true });
+				  }
+
+				  return;
+				}
+				else {
+					const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+					const offsetPosition = targetPosition - headerHeight;
+					window.scrollTo({
+						top: offsetPosition,
+						behavior: "smooth"
+					});
+				}
+				
+            }
+			
+        });
+    });
+});</script>
+<!-- end Simple Custom CSS and JS --><!-- end Simple Custom CSS and JS -->
+<!-- start Simple Custom CSS and JS -->
+<script type="text/javascript">
+window.addEventListener('load',() => {
+	var resourceGrid = document.getElementById('resourceFilter');
+	if(resourceGrid && resourceGrid != '') {
+		let filterFields = resourceGrid.getElementsByTagName('form')[0];
+		if(filterFields && filterFields != '') {
+			let filterBlock = filterFields.parentElement;
+			let filterHeading = document.createElement("h2");
+			filterHeading.innerHTML = "Resource Filters";
+			filterBlock.insertBefore(filterHeading,filterFields);
+		}
+	}
+});
+</script>
+<!-- end Simple Custom CSS and JS -->
+<!-- start Simple Custom CSS and JS -->
+<script type="text/javascript">
+window.addEventListener('load',() => {
+	var searchBox = document.getElementById('ajaxsearchlite1');
+	if(searchBox && searchBox != '') {
+		let searchButton = searchBox.getElementsByTagName('button')[0];
+		searchButton.prepend('SEARCH');
+	}
+});
+
+</script>
+<!-- end Simple Custom CSS and JS -->
+<!-- start Simple Custom CSS and JS -->
+<script type="text/javascript">
+window.onVidyardAPI = () => {
+  jQuery('.popmake-close').on('click', function () {
+    let uuid = jQuery(this).siblings('.pum-content').find('img').data('uuid');
+    const players = VidyardV4.api.getPlayersByUUID(uuid);
+    if(players.length > 0) {
+      players[0].pause();
+    }
+  });
+}</script>
+<!-- end Simple Custom CSS and JS -->
+<script src="https://6caa61e4788c4099a36ed2f1ff44942f.js.ubembed.com" async></script>
+<script type="text/javascript" src="//script.crazyegg.com/pages/scripts/0106/7504.js" async="async" ></script>
+<!-- Google Tag Manager -->
+
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+
+})(window,document,'script','dataLayer','GTM-56ZK9NJ');</script>
+
+<!-- End Google Tag Manager --><meta name="generator" content="Redux 4.4.17" />				<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+				<link rel="preload" as="style" href="//fonts.googleapis.com/css?family=Open+Sans&display=swap" />
+								<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans&display=swap" media="all" />
+				
+<style class='wp-fonts-local' type='text/css'>
+@font-face{font-family:Gotham;font-style:normal;font-weight:325;font-display:block;src:url('https://shieldshealthsolutions.com/content/themes/blade-child/fonts/2012Gotham-Light.woff2') format('woff2');}
+@font-face{font-family:Gotham;font-style:normal;font-weight:400;font-display:block;src:url('https://shieldshealthsolutions.com/content/themes/blade-child/fonts/7480Gotham-Book.woff2') format('woff2');}
+@font-face{font-family:Gotham;font-style:normal;font-weight:500;font-display:block;src:url('https://shieldshealthsolutions.com/content/themes/blade-child/fonts/7153Gotham-medium.woff2') format('woff2');}
+@font-face{font-family:Gotham;font-style:normal;font-weight:700;font-display:block;src:url('https://shieldshealthsolutions.com/content/themes/blade-child/fonts/9936Gotham-Bold.woff2') format('woff2');}
+@font-face{font-family:gotham-medium;font-style:normal;font-weight:400;font-display:fallback;src:url('https://shieldshealthsolutions.com/content/uploads/useanyfont/7153Gotham-medium.woff2') format('woff2');}
+@font-face{font-family:gotham-light;font-style:normal;font-weight:400;font-display:fallback;src:url('https://shieldshealthsolutions.com/content/uploads/useanyfont/2012Gotham-Light.woff2') format('woff2');}
+@font-face{font-family:gotham-bold;font-style:normal;font-weight:400;font-display:fallback;src:url('https://shieldshealthsolutions.com/content/uploads/useanyfont/9936Gotham-Bold.woff2') format('woff2');}
+@font-face{font-family:gotham-book;font-style:normal;font-weight:400;font-display:fallback;src:url('https://shieldshealthsolutions.com/content/uploads/useanyfont/7480Gotham-Book.woff2') format('woff2');}
+@font-face{font-family:gotham-mediumita;font-style:normal;font-weight:400;font-display:fallback;src:url('https://shieldshealthsolutions.com/content/uploads/useanyfont/2473Gotham-MediumIta.woff2') format('woff2');}
+</style>
+<link rel="icon" href="https://shieldshealthsolutions.com/content/uploads/2021/05/favicon.png" sizes="32x32" />
+<link rel="icon" href="https://shieldshealthsolutions.com/content/uploads/2021/05/favicon.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://shieldshealthsolutions.com/content/uploads/2021/05/favicon.png" />
+<meta name="msapplication-TileImage" content="https://shieldshealthsolutions.com/content/uploads/2021/05/favicon.png" />
+		<style type="text/css" id="wp-custom-css">
+			.gform_wrapper.gravity-theme .gfield_required {
+    color: #343848 !important;
+}
+
+@media (max-width:767px) {
+		.mobile-center { justify-content: center; text-align: center; }
+    .mobile-flex-reverse { flex-direction: column-reverse; }
+}
+
+.owl-page span:focus-visible, .owl-page.active span:focus-visible {
+    outline: 1px solid #184765 !important;
+	opacity: 1 !important;
+	background-color: #A6A8AB !important;
+    border: 1px solid #A6A8AB !important;
+}
+
+.grve-social-icons li a:focus-visible{
+    box-shadow: rgb(116, 121, 125) 0px 0px 1px 1px !important;
+    background: #124556 !important;
+}
+
+.btn-purple:focus{
+	background: #9c4382 !important;
+}
+
+.alert-bar__cta:hover{
+	color: white !important
+}
+
+.alert-bar__cta-text:hover{
+	color: white !important
+}
+
+.alert-bar__cta-text span:hover{
+	color: white !important
+}		</style>
+		<noscript><style> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript><style id='core-block-supports-inline-css' type='text/css'>
+/**
+ * Core styles: block-supports
+ */
+.wp-container-core-columns-is-layout-c1f0cdbe {
+	flex-wrap: nowrap;
+}
+.wp-elements-a1756fa75ccc8eb303f854ac29e4358d a:where(:not(.wp-element-button)) {
+	color: var(--wp--preset--color--shs-dk-gray);
+}
+.wp-container-core-buttons-is-layout-4c0ce84a {
+	gap: 20px;
+	justify-content: flex-start;
+}
+.wp-container-core-group-is-layout-a1af20c0 {
+	gap: var(--wp--preset--spacing--50);
+	flex-direction: column;
+	align-items: flex-start;
+}
+.wp-container-core-group-is-layout-35ce5068 > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+	max-width: 508px;
+	margin-left: 0 !important;
+	margin-right: auto !important;
+}
+.wp-container-core-group-is-layout-35ce5068 > .alignwide {
+	max-width: 508px;
+}
+.wp-container-core-group-is-layout-35ce5068 .alignfull {
+	max-width: none;
+}
+.wp-container-core-group-is-layout-35ce5068 > * {
+	margin-block-start: 0;
+	margin-block-end: 0;
+}
+.wp-container-core-group-is-layout-35ce5068 > * + * {
+	margin-block-start: 0;
+	margin-block-end: 0;
+}
+.wp-container-core-cover-is-layout-c6cff203 > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+	max-width: 1330px;
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+.wp-container-core-cover-is-layout-c6cff203 > .alignwide {
+	max-width: 1330px;
+}
+.wp-container-core-cover-is-layout-c6cff203 .alignfull {
+	max-width: none;
+}
+.wp-elements-20d86b6879a34f61040521ffd045e74c a:where(:not(.wp-element-button)) {
+	color: var(--wp--preset--color--white);
+}
+.wp-elements-bb65794d627b5727d2302480a20685b4 a:where(:not(.wp-element-button)) {
+	color: var(--wp--preset--color--white);
+}
+.wp-container-core-group-is-layout-ddbe218a > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+	max-width: 700px;
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+.wp-container-core-group-is-layout-ddbe218a > .alignwide {
+	max-width: 700px;
+}
+.wp-container-core-group-is-layout-ddbe218a .alignfull {
+	max-width: none;
+}
+.wp-elements-dcc84502f10514c1b4e1bf81c9e84202 a:where(:not(.wp-element-button)) {
+	color: var(--wp--preset--color--white);
+}
+.wp-container-core-group-is-layout-23441af8 {
+	flex-wrap: nowrap;
+	justify-content: center;
+}
+.wp-container-core-group-is-layout-a86bb09c {
+	justify-content: flex-start;
+}
+.wp-container-core-group-is-layout-17e564ca > .alignfull {
+	margin-right: calc(20px * -1);
+	margin-left: calc(20px * -1);
+}
+.wp-elements-6a96f2e6cd6d2d008eae8f3e419abfb3 a:where(:not(.wp-element-button)) {
+	color: var(--wp--preset--color--white);
+}
+.wp-container-core-group-is-layout-956398cd {
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+}
+.wp-container-core-group-is-layout-6c531013 {
+	flex-wrap: nowrap;
+}
+.wp-container-core-columns-is-layout-28f84493 {
+	flex-wrap: nowrap;
+}
+.wp-container-core-group-is-layout-7874e49e > .alignfull {
+	margin-right: calc(var(--wp--preset--spacing--50) * -1);
+	margin-left: calc(var(--wp--preset--spacing--50) * -1);
+}
+.wp-container-core-group-is-layout-56987bce > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+	max-width: 664px;
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+.wp-container-core-group-is-layout-56987bce > .alignwide {
+	max-width: 664px;
+}
+.wp-container-core-group-is-layout-56987bce .alignfull {
+	max-width: none;
+}
+.wp-container-core-columns-is-layout-b0cc1bb7 {
+	flex-wrap: nowrap;
+	gap: 60px 40px;
+}
+.wp-container-core-buttons-is-layout-24f9e4ea {
+	justify-content: center;
+}
+.wp-container-core-group-is-layout-9e0c8dd5 > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+	max-width: 1150px;
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+.wp-container-core-group-is-layout-9e0c8dd5 > .alignwide {
+	max-width: 1150px;
+}
+.wp-container-core-group-is-layout-9e0c8dd5 .alignfull {
+	max-width: none;
+}
+.wp-elements-2f2b887ec889a8bc659fdf2a7e0e41aa a:where(:not(.wp-element-button)) {
+	color: var(--wp--preset--color--white);
+}
+.wp-elements-73726f09c6cca10fe95c788f6443d0c3 a:where(:not(.wp-element-button)) {
+	color: var(--wp--preset--color--white);
+}
+.wp-container-core-group-is-layout-d238c1f6 > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+	max-width: 820px;
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+.wp-container-core-group-is-layout-d238c1f6 > .alignwide {
+	max-width: 820px;
+}
+.wp-container-core-group-is-layout-d238c1f6 .alignfull {
+	max-width: none;
+}
+.wp-container-core-group-is-layout-d238c1f6 > .alignfull {
+	margin-right: calc(var(--wp--preset--spacing--50) * -1);
+	margin-left: calc(var(--wp--preset--spacing--50) * -1);
+}
+.wp-elements-d70b9c0186360cacf2a1a4d4bf13c581 a:where(:not(.wp-element-button)) {
+	color: var(--wp--preset--color--white);
+}
+
+.wp-container-core-group-is-layout-8fe521d6 {
+	flex-wrap: nowrap;
+	gap: 30px;
+	justify-content: flex-start;
+}
+.wp-container-content-6a7490d0 {
+	flex-basis: 316px;
+}
+.wp-elements-0804b87cb11a5186bdaaa02148d90b07 a:where(:not(.wp-element-button)) {
+	color: var(--wp--preset--color--white);
+}
+.wp-elements-ef3948a4af5ceb8fcce8f5fad942a22c a:where(:not(.wp-element-button)) {
+	color: var(--wp--preset--color--white);
+}
+.wp-elements-3394511f89dd79e46b33d80d191ff6e5 a:where(:not(.wp-element-button)) {
+	color: var(--wp--preset--color--white);
+}
+.wp-container-core-group-is-layout-52eea422 {
+	gap: 10px;
+	justify-content: center;
+}
+.wp-container-core-group-is-layout-aee3a863 > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+	max-width: 600px;
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+.wp-container-core-group-is-layout-aee3a863 > .alignwide {
+	max-width: 600px;
+}
+.wp-container-core-group-is-layout-aee3a863 .alignfull {
+	max-width: none;
+}
+.wp-elements-6cf5e36989380cd2060595de70ce459f a:where(:not(.wp-element-button)) {
+	color: var(--wp--preset--color--shs-dk-gray);
+}
+.wp-container-core-buttons-is-layout-a89b3969 {
+	justify-content: center;
+}
+.wp-container-core-group-is-layout-f0c56aed > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+	max-width: 1300px;
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+.wp-container-core-group-is-layout-f0c56aed > .alignwide {
+	max-width: 1300px;
+}
+.wp-container-core-group-is-layout-f0c56aed .alignfull {
+	max-width: none;
+}
+.wp-container-core-column-is-layout-8f2dc9b0 > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+	max-width: 482px;
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+.wp-container-core-column-is-layout-8f2dc9b0 > .alignwide {
+	max-width: 482px;
+}
+.wp-container-core-column-is-layout-8f2dc9b0 .alignfull {
+	max-width: none;
+}
+.wp-container-core-columns-is-layout-f5a44f5b {
+	flex-wrap: nowrap;
+	gap: 2em var(--wp--preset--spacing--70);
+}
+.wp-container-core-group-is-layout-26fec5aa > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+	max-width: 1100px;
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+.wp-container-core-group-is-layout-26fec5aa > .alignwide {
+	max-width: 1100px;
+}
+.wp-container-core-group-is-layout-26fec5aa .alignfull {
+	max-width: none;
+}
+.wp-container-core-group-is-layout-af5c4d54 {
+	gap: var(--wp--preset--spacing--70);
+	justify-content: center;
+}
+
+/*# sourceURL=core-block-supports-inline-css */
+</style>
+
+</head>
+<body class="home wp-singular page-template-default page page-id-8094 wp-theme-blade wp-child-theme-blade-child grve-vce-ver-3.6.6 grve-body grve-stretched wpb-js-composer js-comp-ver-8.7.2 vc_responsive">
+<a class="skip-link" href="#grve-main-content">Skip to content</a>
+
+
+<nav class="navbar-primary with-alert">
+      <div class="alert-bar" id="alertBar">
+        <div class="alert-bar__container">
+            <div class="alert-bar__content">
+                <p class="alert-bar__text">
+                    Click, Prescribe, Deliver: New White Paper on the Direct-to-Consumer Model                </p>
+                                    <a href="https://shieldshealthsolutions.com/direct-to-consumer-pharmaceutical-care/" class="alert-bar__cta">
+                        <span class="alert-bar__cta-text">Read Now</span>
+                        <span class="alert-bar__arrow">→</span>
+                    </a>
+                            </div>
+        </div>
+    </div>
+      <div class="navbar-container">
+
+      <!-- <a href="/?s" class="mobile-nav-search-button" id="mobile-search"><img src="https://shieldshealthsolutions.com/content/themes/blade-child/images/icon-search.svg" alt="search"></a> -->
+
+    <div class="navbar-logo-container">
+      <a href="/"><img src="/content/uploads/2024/06/shs-logo.svg" alt="Shields Health Solutions" /></a>
+    </div>
+
+    <div id="mobile-menu">
+
+        <ul id="menu-primary-menu" class="menu-primary"><li class="megamenu column-2"><button class="plain-button">Solutions</button>
+<ul>
+	<li><span class="menu-label">WHO WE SERVE</span></li>
+	<li><a href="https://shieldshealthsolutions.com/providers/" class="gtm-header-nav">Providers</a></li>
+	<li><a href="https://shieldshealthsolutions.com/drug-manufacturers/" class="gtm-header-nav">Drug Manufacturers</a></li>
+	<li><span class="menu-label">OUR FLEXIBLE SOLUTION</span></li>
+	<li><a href="/our-care-model" class="gtm-header-nav">Our Care Model</a></li>
+	<li><a href="/data-analytics" class="gtm-header-nav">TelemetryRx® Data Analytics</a></li>
+</ul>
+</li>
+<li><button class="plain-button">Resources</button>
+<ul>
+	<li><a href="https://shieldshealthsolutions.com/reports-insights/" class="gtm-header-nav">Reports &amp; Insights</a></li>
+	<li><a href="/media-resources" class="gtm-header-nav">Media Resources</a></li>
+</ul>
+</li>
+<li><a href="https://shieldshealthsolutions.com/about/" class="gtm-header-nav">About Us</a>
+<ul>
+	<li><a href="https://shieldshealthsolutions.com/about/our-partners/" class="gtm-header-nav">Our Partners</a></li>
+	<li><a href="https://shieldshealthsolutions.com/about/our-team/" class="gtm-header-nav">Our Team</a></li>
+	<li><a href="https://shieldshealthsolutions.com/about/our-culture/" class="gtm-header-nav">Our Culture</a></li>
+</ul>
+</li>
+<li><a target="_blank" href="https://job-boards.greenhouse.io/shieldshealthsolutions" class="gtm-header-nav">Careers</a></li>
+<li class="nav-search-button"><a href="/?s" class="nav-search-button">Search</a></li>
+<li class="first-on-mobile"><a href="https://shieldshealthsolutions.com/contact-us/" class="nav-cta-button">Contact Us</a></li>
+</ul>        <div id="mobile-search-container">
+          <form class="grve-search" method="get" action="https://shieldshealthsolutions.com/">
+	<label>
+        <span class="sr-only">Search</span>
+        <input type="text" class="grve-search-textfield" value="" name="s" placeholder="What can we help you find?" />    
+    </label>
+    <div>
+        <button type="submit" class="inset-search-btn grve-custom-btn" aria-label="Search"></button>    
+    </div>
+</form>        </div>
+    </div>
+
+    
+      <button id="hamburger" type="button" class="collapsed" aria-controls="mobile-menu" aria-expanded="false">
+          <span class="screen-reader-text">Open main menu</span>
+          <span class="lines"></span>
+      </button>
+
+
+  </div>
+  <div class="b-line"></div>
+</nav>
+
+<noscript class="no-js-msg">The page requires JavaScript to be enabled.</noscript>
+<!-- Google Tag Manager (noscript) -->
+
+<noscript><iframe src=https://www.googletagmanager.com/ns.html?id=GTM-56ZK9NJ
+
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- End Google Tag Manager (noscript) --><!-- Page Content -->
+<div id="grve-main-content" role="main" target="-1" class="page-content is-layout-constrained">
+	
+		<div class="grve-container">
+<div class="wp-block-group hidden has-global-padding is-layout-constrained wp-block-group-is-layout-constrained">
+<div class="wp-block-columns mobile-flex-reverse mobile-center is-layout-flex wp-container-core-columns-is-layout-c1f0cdbe wp-block-columns-is-layout-flex" style="margin-bottom:var(--wp--preset--spacing--80);padding-right:0;padding-left:0">
+<div class="wp-block-column is-vertically-aligned-bottom is-layout-flow wp-block-column-is-layout-flow" style="padding-top:var(--wp--preset--spacing--50);flex-basis:44%">
+<p class="has-gotham-font-family has-huge-font-size" style="font-style:normal;font-weight:700;line-height:1.1">Great alone,<br><span class="has-shs-purple-color has-text-color has-link-color">unstoppable together.</span></p>
+
+
+
+<p class="has-medium-lg-font-size"><strong>More than 80 health systems partner with us to achieve more:</strong> more growth, more efficiency, more revenue, and more great patient outcomes.</p>
+
+
+
+<p class="has-medium-lg-font-size">When your specialty pharmacy is ready for more, Shields is more than ready to help.</p>
+
+
+
+<div class="wp-block-buttons mobile-center is-layout-flex wp-block-buttons-is-layout-flex">
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#our-impact">See what&#8217;s possible</a></div>
+</div>
+</div>
+
+
+
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<figure class="wp-block-image size-large"><img fetchpriority="high" decoding="async" width="1024" height="588" src="https://shieldshealthsolutions.com/content/uploads/2025/02/shields-home-illustration-1024x588.webp" alt="Man holding medicine bottle, woman taking notes while talking to another woman" class="wp-image-9345" srcset="https://shieldshealthsolutions.com/content/uploads/2025/02/shields-home-illustration-1024x588.webp 1024w, https://shieldshealthsolutions.com/content/uploads/2025/02/shields-home-illustration-300x172.webp 300w, https://shieldshealthsolutions.com/content/uploads/2025/02/shields-home-illustration-768x441.webp 768w, https://shieldshealthsolutions.com/content/uploads/2025/02/shields-home-illustration-1536x882.webp 1536w, https://shieldshealthsolutions.com/content/uploads/2025/02/shields-home-illustration.webp 1540w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+</div>
+</div>
+</div>
+
+
+
+<div class="wp-block-cover alignfull has-custom-content-position is-position-center-left is-style-masked-image has-shs-dk-gray-color has-text-color has-link-color wp-elements-a1756fa75ccc8eb303f854ac29e4358d" style="margin-bottom:var(--wp--preset--spacing--60);padding-top:130px;padding-bottom:130px;min-height:340px;aspect-ratio:unset;"><img decoding="async" width="2560" height="485" class="wp-block-cover__image-background wp-image-8573" alt="A happy family walking on the beach" src="https://shieldshealthsolutions.com/content/uploads/2024/09/header_image_03_wide-scaled.webp" style="object-position:61% 92%" data-object-fit="cover" data-object-position="61% 92%" srcset="https://shieldshealthsolutions.com/content/uploads/2024/09/header_image_03_wide-scaled.webp 2560w, https://shieldshealthsolutions.com/content/uploads/2024/09/header_image_03_wide-300x57.webp 300w, https://shieldshealthsolutions.com/content/uploads/2024/09/header_image_03_wide-1024x194.webp 1024w, https://shieldshealthsolutions.com/content/uploads/2024/09/header_image_03_wide-768x146.webp 768w, https://shieldshealthsolutions.com/content/uploads/2024/09/header_image_03_wide-1536x291.webp 1536w, https://shieldshealthsolutions.com/content/uploads/2024/09/header_image_03_wide-1920x364.webp 1920w" sizes="(max-width: 2560px) 100vw, 2560px" /><span aria-hidden="true" class="wp-block-cover__background has-background-dim-90 has-background-dim wp-block-cover__gradient-background has-background-gradient" style="background:linear-gradient(122deg,rgb(255,255,255) 1%,rgba(255,255,255,0) 28%)"></span><div class="wp-block-cover__inner-container has-global-padding is-layout-constrained wp-container-core-cover-is-layout-c6cff203 wp-block-cover-is-layout-constrained">
+<div class="wp-block-group alignwide has-global-padding is-content-justification-left is-layout-constrained wp-container-core-group-is-layout-35ce5068 wp-block-group-is-layout-constrained">
+<div class="wp-block-group is-vertical is-content-justification-left is-layout-flex wp-container-core-group-is-layout-a1af20c0 wp-block-group-is-layout-flex">
+<h1 class="wp-block-heading has-text-align-left has-gotham-font-family has-huge-font-size">Integrated Specialty<br>Pharmacy Solutions</h1>
+
+
+
+<p class="has-text-align-left" style="font-style:normal;font-weight:400">The premier accelerator eliminating the disruptions that derail and fragment patient care.</p>
+
+
+
+<div class="wp-block-buttons is-content-justification-left is-layout-flex wp-container-core-buttons-is-layout-4c0ce84a wp-block-buttons-is-layout-flex">
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://shieldshealthsolutions.com/contact-us/">Contact Us</a></div>
+</div>
+</div>
+</div>
+</div></div>
+
+
+
+<div class="wp-block-group full-bleed-mobile center-on-mobile has-global-padding is-layout-constrained wp-block-group-is-layout-constrained">
+<div class="wp-block-group has-white-color has-shs-purple-background-color has-text-color has-background has-link-color wp-elements-20d86b6879a34f61040521ffd045e74c has-global-padding is-layout-constrained wp-container-core-group-is-layout-7874e49e wp-block-group-is-layout-constrained" style="border-radius:28px;padding-top:var(--wp--preset--spacing--70);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--80);padding-left:var(--wp--preset--spacing--50)">
+<div class="wp-block-group has-global-padding is-layout-constrained wp-container-core-group-is-layout-ddbe218a wp-block-group-is-layout-constrained" style="margin-bottom:var(--wp--preset--spacing--70)">
+<h2 class="wp-block-heading has-text-align-center has-white-color has-text-color has-link-color has-x-large-font-size wp-elements-bb65794d627b5727d2302480a20685b4">Who We Serve</h2>
+
+
+
+<p class="has-text-align-center">Our objective is simple: break down barriers between the patient and the specialty medication they critically need.</p>
+</div>
+
+
+
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-28f84493 wp-block-columns-is-layout-flex">
+<div class="wp-block-column is-vertically-aligned-stretch has-global-padding is-layout-constrained wp-block-column-is-layout-constrained" style="flex-basis:50%">
+<div class="wp-block-group link-card hover-arrow has-border-color has-global-padding is-layout-constrained wp-container-core-group-is-layout-17e564ca wp-block-group-is-layout-constrained" style="border-color:#ffffff69;border-width:2px;border-radius:14px;padding-top:40px;padding-right:20px;padding-bottom:40px;padding-left:20px">
+<div class="wp-block-group is-horizontal is-content-justification-left is-layout-flex wp-container-core-group-is-layout-a86bb09c wp-block-group-is-layout-flex">
+<figure class="wp-block-image aligncenter size-full is-resized"><img decoding="async" src="https://shieldshealthsolutions.com/content/uploads/2024/08/providers.svg" alt="Information for Providers icon" class="wp-image-8203" style="object-fit:cover;width:70px;height:70px"/></figure>
+
+
+
+<div class="wp-block-group is-content-justification-center is-nowrap is-layout-flex wp-container-core-group-is-layout-23441af8 wp-block-group-is-layout-flex">
+<h3 class="wp-block-heading has-white-color has-text-color has-link-color wp-elements-dcc84502f10514c1b4e1bf81c9e84202" style="font-size:clamp(1.119rem, 1.119rem + ((1vw - 0.2rem) * 0.901), 1.75rem);font-style:normal;font-weight:700"><a href="/providers/">For Providers</a></h3>
+
+
+
+<figure class="wp-block-image size-full anim-arrow"><img decoding="async" src="https://shieldshealthsolutions.com/content/uploads/2024/07/right-arrow.svg" alt="" class="wp-image-7961"/></figure>
+</div>
+</div>
+
+
+
+<p>Our solutions address the complexities of specialty by increasing access to payers and drugs, using a high-touch, data-powered model to lower the total cost of care.</p>
+</div>
+</div>
+
+
+
+<div class="wp-block-column is-vertically-aligned-stretch has-global-padding is-layout-constrained wp-block-column-is-layout-constrained" style="flex-basis:50%">
+<div class="wp-block-group link-card hover-arrow has-border-color has-global-padding is-layout-constrained wp-container-core-group-is-layout-17e564ca wp-block-group-is-layout-constrained" style="border-color:#ffffff69;border-width:2px;border-radius:14px;padding-top:40px;padding-right:20px;padding-bottom:40px;padding-left:20px">
+<div class="wp-block-group xs-wrap is-nowrap is-layout-flex wp-container-core-group-is-layout-6c531013 wp-block-group-is-layout-flex">
+<figure class="wp-block-image aligncenter size-full is-resized no-shrink"><img decoding="async" src="https://shieldshealthsolutions.com/content/uploads/2024/08/drug_manufacturers.svg" alt="Information for Drug Manufacturers icon" class="wp-image-8202" style="object-fit:cover;width:70px;height:70px"/></figure>
+
+
+
+<div class="wp-block-group is-content-justification-center is-nowrap is-layout-flex wp-container-core-group-is-layout-956398cd wp-block-group-is-layout-flex">
+<h3 class="wp-block-heading has-white-color has-text-color has-link-color wp-elements-6a96f2e6cd6d2d008eae8f3e419abfb3" style="font-size:clamp(1.119rem, 1.119rem + ((1vw - 0.2rem) * 0.901), 1.75rem);font-style:normal;font-weight:700"><a href="/drug-manufacturers/">For Drug Manufacturers</a></h3>
+
+
+
+<figure class="wp-block-image size-full anim-arrow"><img decoding="async" src="https://shieldshealthsolutions.com/content/uploads/2024/07/right-arrow.svg" alt="" class="wp-image-7961"/></figure>
+</div>
+</div>
+
+
+
+<p>We serve as your strategic partner, helping optimize the impact of specialty products by expediting patient access to treatment, all while maintaining superior outcomes.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<div class="wp-block-group alignfull has-global-padding is-layout-constrained wp-container-core-group-is-layout-9e0c8dd5 wp-block-group-is-layout-constrained has-background" style="margin-top:0;margin-bottom:0;padding-top:60px;padding-bottom:60px;background-image:url(&apos;https://shieldshealthsolutions.com/content/uploads/2024/08/wave-pattern-bg-1.svg&apos;);background-position:28.000000000000004% 20%;background-size:cover;">
+<div class="wp-block-group has-global-padding is-layout-constrained wp-container-core-group-is-layout-56987bce wp-block-group-is-layout-constrained" style="margin-bottom:var(--wp--preset--spacing--70)">
+<div style="height:10px" aria-hidden="true" class="wp-block-spacer desktop-only"></div>
+
+
+
+<h2 class="wp-block-heading has-text-align-center has-x-large-font-size">Our Care Model</h2>
+
+
+
+<p class="has-text-align-center">Leveraging our expertise, proven clinical model and proprietary technology, we elevate what specialty pharmacy can do for health systems.</p>
+</div>
+
+
+
+<div class="wp-block-columns center-on-mobile is-layout-flex wp-container-core-columns-is-layout-b0cc1bb7 wp-block-columns-is-layout-flex" style="margin-top:var(--wp--preset--spacing--60);margin-bottom:var(--wp--preset--spacing--60)">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<h3 class="wp-block-heading" style="font-style:normal;font-weight:700">Enabled by Expertise</h3>
+
+
+
+<hr class="wp-block-separator has-text-color has-shs-purple-color has-alpha-channel-opacity has-shs-purple-background-color has-background is-style-default" style="margin-top:var(--wp--preset--spacing--50);margin-bottom:var(--wp--preset--spacing--50)"/>
+
+
+
+<p style="line-height:1.6">Our skilled experts help health systems unlock access to limited distribution drugs, major payers, and PBMs to lower the cost of care and increase access.</p>
+</div>
+
+
+
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<h3 class="wp-block-heading" style="font-style:normal;font-weight:700">Care Teams You Can Trust</h3>
+
+
+
+<hr class="wp-block-separator has-text-color has-shs-purple-color has-alpha-channel-opacity has-shs-purple-background-color has-background is-style-default" style="margin-top:var(--wp--preset--spacing--50);margin-bottom:var(--wp--preset--spacing--50)"/>
+
+
+
+<p style="line-height:1.4">Our trained, certified and specialized clinical pharmacists, technicians and centralized resources help patients navigate treatment while alleviating the administrative burden for clinicians.</p>
+</div>
+
+
+
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<h3 class="wp-block-heading" style="font-style:normal;font-weight:700">Data That Delivers Results</h3>
+
+
+
+<hr class="wp-block-separator has-text-color has-shs-purple-color has-alpha-channel-opacity has-shs-purple-background-color has-background" style="margin-top:var(--wp--preset--spacing--50);margin-bottom:var(--wp--preset--spacing--50)"/>
+
+
+
+<p style="line-height:1.4">Our purpose-built technology platform, TelemetryRx®, helps identify eligible specialty patients and provides customized data reporting from a single, standardized source.</p>
+</div>
+</div>
+
+
+
+<div class="wp-block-buttons is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-24f9e4ea wp-block-buttons-is-layout-flex" style="margin-top:var(--wp--preset--spacing--70);margin-bottom:var(--wp--preset--spacing--20)">
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/our-care-model/">Learn More About our care model</a></div>
+</div>
+</div>
+
+
+
+<div class="wp-block-group alignfull has-white-color has-blue-to-teal-gradient-background has-text-color has-background has-link-color wp-elements-2f2b887ec889a8bc659fdf2a7e0e41aa is-layout-flow wp-block-group-is-layout-flow" id="our-impact" style="padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--50)">
+<div class="wp-block-group has-global-padding is-layout-constrained wp-container-core-group-is-layout-d238c1f6 wp-block-group-is-layout-constrained" style="margin-bottom:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)">
+<h2 class="wp-block-heading has-text-align-center has-white-color has-text-color has-link-color has-x-large-font-size wp-elements-73726f09c6cca10fe95c788f6443d0c3">Our Impact</h2>
+
+
+
+<p class="has-text-align-center">From time to therapy to medication adherence, our successes define the industry standard.</p>
+</div>
+
+
+
+<div class="wp-block-group is-style-slider-group is-content-justification-center is-layout-flex wp-container-core-group-is-layout-52eea422 wp-block-group-is-layout-flex">
+<div class="wp-block-group has-white-color has-text-color has-background has-link-color wp-elements-d70b9c0186360cacf2a1a4d4bf13c581 wp-container-content-6a7490d0 is-layout-flow wp-block-group-is-layout-flow" style="border-radius:20px;background-color:#24809773;min-height:242px;padding-top:var(--wp--preset--spacing--50);padding-right:0;padding-bottom:var(--wp--preset--spacing--50);padding-left:0">
+<div class="wp-block-group is-content-justification-left is-nowrap is-layout-flex wp-container-core-group-is-layout-8fe521d6 wp-block-group-is-layout-flex" style="min-height:82px;padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
+<div class="wp-block-group has-background is-layout-flow wp-block-group-is-layout-flow" style="border-radius:15px;background-color:#4da2b733;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;background-repeat:no-repeat;background-size:contain;">
+<figure class="wp-block-image size-full is-resized"><img decoding="async" src="https://shieldshealthsolutions.com/content/uploads/2024/07/patients.svg" alt="Patients Represented icon" class="wp-image-8052" style="width:54px"/></figure>
+</div>
+
+
+
+<p class="has-text-align-center" style="font-size:clamp(2.31rem, 2.31rem + ((1vw - 0.2rem) * 2.771), 4.25rem);font-style:normal;font-weight:700">1K+</p>
+</div>
+
+
+
+<div class="wp-block-group has-shs-ada-green-background-color has-background is-content-justification-center is-nowrap is-layout-flex wp-container-core-group-is-layout-23441af8 wp-block-group-is-layout-flex" style="min-height:75px">
+<p class="has-text-align-center has-small-font-size" style="font-style:normal;font-weight:500;text-transform:uppercase">Hospitals and clinics</p>
+</div>
+</div>
+
+
+
+<div class="wp-block-group has-white-color has-text-color has-background has-link-color wp-elements-0804b87cb11a5186bdaaa02148d90b07 wp-container-content-6a7490d0 is-layout-flow wp-block-group-is-layout-flow" style="border-radius:20px;background-color:#24809773;min-height:242px;padding-top:var(--wp--preset--spacing--50);padding-right:0;padding-bottom:var(--wp--preset--spacing--50);padding-left:0">
+<div class="wp-block-group is-content-justification-left is-nowrap is-layout-flex wp-container-core-group-is-layout-8fe521d6 wp-block-group-is-layout-flex" style="min-height:82px;padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
+<div class="wp-block-group has-background is-layout-flow wp-block-group-is-layout-flow" style="border-radius:15px;background-color:#4da2b733;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;background-repeat:no-repeat;background-size:contain;">
+<figure class="wp-block-image size-full is-resized"><img decoding="async" src="https://shieldshealthsolutions.com/content/uploads/2024/07/hands.svg" alt="Health System Partners icon" class="wp-image-8051" style="width:54px"/></figure>
+</div>
+
+
+
+<p class="has-text-align-center" style="font-size:clamp(2.31rem, 2.31rem + ((1vw - 0.2rem) * 2.771), 4.25rem);font-style:normal;font-weight:700">~80</p>
+</div>
+
+
+
+<div class="wp-block-group has-shs-ada-violet-background-color has-background is-content-justification-center is-nowrap is-layout-flex wp-container-core-group-is-layout-23441af8 wp-block-group-is-layout-flex" style="min-height:75px">
+<p class="has-text-align-center has-small-font-size" style="font-style:normal;font-weight:500;text-transform:uppercase">Health System Partners</p>
+</div>
+</div>
+
+
+
+<div class="wp-block-group has-white-color has-text-color has-background has-link-color wp-elements-ef3948a4af5ceb8fcce8f5fad942a22c wp-container-content-6a7490d0 is-layout-flow wp-block-group-is-layout-flow" style="border-radius:20px;background-color:#24809773;min-height:242px;padding-top:var(--wp--preset--spacing--50);padding-right:0;padding-bottom:var(--wp--preset--spacing--50);padding-left:0">
+<div class="wp-block-group is-content-justification-left is-nowrap is-layout-flex wp-container-core-group-is-layout-8fe521d6 wp-block-group-is-layout-flex" style="min-height:82px;padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
+<div class="wp-block-group has-background is-layout-flow wp-block-group-is-layout-flow" style="border-radius:15px;background-color:#4da2b733;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;background-repeat:no-repeat;background-size:contain;">
+<figure class="wp-block-image size-full is-resized"><img decoding="async" src="https://shieldshealthsolutions.com/content/uploads/2024/07/disease.svg" alt="Integrated Disease States icon" class="wp-image-8050" style="width:54px"/></figure>
+</div>
+
+
+
+<p class="has-text-align-center" style="font-size:clamp(2.31rem, 2.31rem + ((1vw - 0.2rem) * 2.771), 4.25rem);font-style:normal;font-weight:700">~50</p>
+</div>
+
+
+
+<div class="wp-block-group has-shs-blue-background-color has-background is-content-justification-center is-nowrap is-layout-flex wp-container-core-group-is-layout-23441af8 wp-block-group-is-layout-flex" style="min-height:75px">
+<p class="has-text-align-center has-small-font-size" style="font-style:normal;font-weight:500;text-transform:uppercase">Integrated Disease States</p>
+</div>
+</div>
+
+
+
+<div class="wp-block-group has-white-color has-text-color has-background has-link-color wp-elements-3394511f89dd79e46b33d80d191ff6e5 wp-container-content-6a7490d0 is-layout-flow wp-block-group-is-layout-flow" style="border-radius:20px;background-color:#24809773;min-height:242px;padding-top:var(--wp--preset--spacing--50);padding-right:0;padding-bottom:var(--wp--preset--spacing--50);padding-left:0">
+<div class="wp-block-group is-content-justification-left is-nowrap is-layout-flex wp-container-core-group-is-layout-8fe521d6 wp-block-group-is-layout-flex" style="min-height:82px;padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
+<div class="wp-block-group has-background is-layout-flow wp-block-group-is-layout-flow" style="border-radius:15px;background-color:#4da2b733;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;background-repeat:no-repeat;background-size:contain;">
+<figure class="wp-block-image size-full is-resized"><img decoding="async" src="https://shieldshealthsolutions.com/content/uploads/2024/07/rx.svg" alt="Specialty Prescription Opportunity icon" class="wp-image-8053" style="width:54px"/></figure>
+</div>
+
+
+
+<p class="has-text-align-center" style="font-size:clamp(2.31rem, 2.31rem + ((1vw - 0.2rem) * 2.771), 4.25rem);font-style:normal;font-weight:700">$52B</p>
+</div>
+
+
+
+<div class="wp-block-group has-shs-purple-background-color has-background is-content-justification-center is-nowrap is-layout-flex wp-container-core-group-is-layout-23441af8 wp-block-group-is-layout-flex" style="min-height:75px">
+<p class="has-text-align-center has-small-font-size" style="font-style:normal;font-weight:500;text-transform:uppercase">Ann. Specialty<br>Prescription Opportunity</p>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<div class="wp-block-group alignfull has-global-padding is-layout-constrained wp-container-core-group-is-layout-f0c56aed wp-block-group-is-layout-constrained has-background" style="padding-top:60px;padding-bottom:60px;background-image:url(&apos;https://shieldshealthsolutions.com/content/uploads/2024/08/wave-pattern-bg.svg&apos;);background-position:50% 44%;background-size:cover;">
+<div class="wp-block-group has-global-padding is-layout-constrained wp-container-core-group-is-layout-aee3a863 wp-block-group-is-layout-constrained" style="margin-bottom:var(--wp--preset--spacing--60)">
+<h2 class="wp-block-heading has-text-align-center has-x-large-font-size">Specialty Pharmacy Insights</h2>
+
+
+
+<p class="has-text-align-center">At Shields, we’re not just solutions, we’re subject matter experts and vanguards in specialty pharmacy integration.</p>
+</div>
+
+
+<ul style="font-style:normal;font-weight:500;text-decoration:none;" class="wp-block-latest-posts__list is-grid columns-3 has-link-color aligncenter wp-elements-6cf5e36989380cd2060595de70ce459f wp-block-latest-posts"><li><a class="wp-block-latest-posts__post-title" href="https://shieldshealthsolutions.com/shields-health-solutions-brings-integrated-specialty-pharmacy-services-to-baptist-health-in-jacksonville/">Shields Health Solutions Brings Integrated Specialty Pharmacy Services to Baptist Health in Jacksonville</a><div class="post-category" data-cat="news">News</div></li>
+<li><a class="wp-block-latest-posts__post-title" href="https://shieldshealthsolutions.com/driving-better-hemophilia-outcomes-through-integrated-care/">Driving Better Hemophilia Outcomes Through Integrated Care</a><div class="post-category" data-cat="case-studies">Case Studies</div></li>
+<li><a class="wp-block-latest-posts__post-title" href="https://shieldshealthsolutions.com/columbus-regional-health-partnership/">Shields Health Solutions Partners with Columbus Regional Health to Enhance Patient Access to Specialty Pharmacy Services</a><div class="post-category" data-cat="news">News</div></li>
+<li><a class="wp-block-latest-posts__post-title" href="https://shieldshealthsolutions.com/diabetes-support-program-results/">How a New Pharmacist-Led Diabetes Support Program is Filling the Gap Between Appointments</a><div class="post-category" data-cat="blog">Articles &amp; Posts</div></li>
+<li><a class="wp-block-latest-posts__post-title" href="https://shieldshealthsolutions.com/direct-to-consumer-pharmaceutical-care/">Click, Prescribe, Deliver: The New Era of Direct-to-Consumer Pharmaceutical Care</a><div class="post-category" data-cat="white-papers">White Papers</div></li>
+<li><a class="wp-block-latest-posts__post-title" href="https://shieldshealthsolutions.com/shields-and-foundation-health-partner-to-bring-ai-to-a-rapidly-evolving-specialty-pharmacy-landscape-2/">Shields and Foundation Health Partner to Bring AI to a Rapidly Evolving Specialty Pharmacy Landscape</a><div class="post-category" data-cat="blog">Articles &amp; Posts</div></li>
+</ul>
+
+
+<div class="wp-block-buttons is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-a89b3969 wp-block-buttons-is-layout-flex">
+<div class="wp-block-button is-style-fill"><a class="wp-block-button__link wp-element-button" href="/reports-insights/">All reports &amp; insights</a></div>
+</div>
+</div>
+
+
+
+<div class="wp-block-group alignfull has-background has-global-padding is-layout-constrained wp-container-core-group-is-layout-26fec5aa wp-block-group-is-layout-constrained" style="background-color:#f8f9fa;padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60);background-image:url(&apos;https://shieldshealthsolutions.com/content/uploads/2024/09/left-swoosh.svg&apos;);background-position:0% 25%;background-repeat:no-repeat;background-size:contain;">
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer desktop-only"></div>
+
+
+
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-f5a44f5b wp-block-columns-is-layout-flex">
+<div class="wp-block-column has-global-padding is-layout-constrained wp-container-core-column-is-layout-8f2dc9b0 wp-block-column-is-layout-constrained">
+<h2 class="wp-block-heading has-x-large-font-size">Contact Shields Health Solutions</h2>
+
+
+
+<p>Ready to innovate your health system with specialty pharmacy? Complete all fields for an email from a Shields Health Solutions representative.</p>
+</div>
+
+
+
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<iframe src="https://go.shieldshealthsolutions.com/l/1061142/2025-04-04/4ggpdvb" width="100%" height="500" type="text/html" frameborder="0" allowTransparency="true" style="border: 0; min-height:500px"></iframe>
+</div>
+</div>
+</div>
+
+
+
+<div class="wp-block-group alignfull is-layout-flow wp-block-group-is-layout-flow" style="padding-top:56px;padding-bottom:56px">
+<h2 class="wp-block-heading has-text-align-center has-x-large-font-size" style="margin-bottom:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">Trusted by Health System Leaders Nationwide&nbsp;</h2>
+
+
+
+<div class="wp-block-group alignfull is-style-slider-group is-logo-slider is-content-justification-center is-layout-flex wp-container-core-group-is-layout-af5c4d54 wp-block-group-is-layout-flex">
+<figure class="wp-block-image size-full is-resized"><img decoding="async" src="https://shieldshealthsolutions.com/content/uploads/2024/08/albany.svg" alt="albany medical center" class="wp-image-7989" style="width:auto;height:150px"/></figure>
+
+
+
+<figure class="wp-block-image size-full is-resized"><img decoding="async" src="https://shieldshealthsolutions.com/content/uploads/2024/08/John-Muir-logo-800x600-1.png" alt="John Muir Health" class="wp-image-8001" style="width:auto;height:150px"/></figure>
+
+
+
+<figure class="wp-block-image size-full is-resized"><img decoding="async" src="https://shieldshealthsolutions.com/content/uploads/2024/08/NEW_CentraCare-logo-horiz-color.png" alt="Centra Care" class="wp-image-8002" style="width:150px"/></figure>
+
+
+
+<figure class="wp-block-image size-full is-resized"><img decoding="async" src="https://shieldshealthsolutions.com/content/uploads/2024/08/baystate.svg" alt="baystate health" class="wp-image-7990" style="width:auto;height:150px"/></figure>
+
+
+
+<figure class="wp-block-image size-full is-resized"><img decoding="async" src="https://shieldshealthsolutions.com/content/uploads/2024/08/Erlanger_LOGO_color-PS-2.png" alt="erlanger" class="wp-image-7997" style="width:auto;height:150px"/></figure>
+
+
+
+<figure class="wp-block-image size-full is-resized"><img decoding="async" src="https://shieldshealthsolutions.com/content/uploads/2024/08/berkshire.svg" alt="berkshire healthcare" class="wp-image-7991" style="width:auto;height:150px"/></figure>
+
+
+
+<figure class="wp-block-image size-full is-resized"><img decoding="async" src="https://shieldshealthsolutions.com/content/uploads/2024/08/bronson.svg" alt="bronson" class="wp-image-7992" style="width:auto;height:150px"/></figure>
+
+
+
+<figure class="wp-block-image size-full is-resized"><img decoding="async" src="https://shieldshealthsolutions.com/content/uploads/2024/08/carenewengland.svg" alt="care new england" class="wp-image-7993" style="width:auto;height:150px"/></figure>
+
+
+
+<figure class="wp-block-image size-full is-resized"><img decoding="async" src="https://shieldshealthsolutions.com/content/uploads/2024/08/connecticut.jpg" alt="Connecticut Children's" class="wp-image-7994" style="width:auto;height:150px"/></figure>
+
+
+
+<figure class="wp-block-image size-full is-resized"><img decoding="async" src="https://shieldshealthsolutions.com/content/uploads/2024/08/cooper.svg" alt="Cooper University Hospital" class="wp-image-7995" style="width:auto;height:150px"/></figure>
+
+
+
+<figure class="wp-block-image size-full is-resized"><img decoding="async" src="https://shieldshealthsolutions.com/content/uploads/2024/08/hartford.svg" alt="Hartford Healthcare" class="wp-image-7998" style="width:auto;height:150px"/></figure>
+
+
+
+<figure class="wp-block-image size-full is-resized"><img decoding="async" src="https://shieldshealthsolutions.com/content/uploads/2024/08/houstonmethodist.svg" alt="Houston Methodist Leading Medicine" class="wp-image-7999" style="width:auto;height:150px"/></figure>
+
+
+
+<figure class="wp-block-image size-full is-resized"><img decoding="async" src="https://shieldshealthsolutions.com/content/uploads/2024/08/inova.svg" alt="INOVA" class="wp-image-8000" style="width:auto;height:150px"/></figure>
+
+
+
+<figure class="wp-block-image size-large is-resized"><img loading="lazy" decoding="async" width="1024" height="281" src="https://shieldshealthsolutions.com/content/uploads/2025/10/Lakeland-Health-Logo_BW-1024x281.png" alt="Lakeland Health Logo B&amp;W" class="wp-image-10306" style="width:150px" srcset="https://shieldshealthsolutions.com/content/uploads/2025/10/Lakeland-Health-Logo_BW-1024x281.png 1024w, https://shieldshealthsolutions.com/content/uploads/2025/10/Lakeland-Health-Logo_BW-300x82.png 300w, https://shieldshealthsolutions.com/content/uploads/2025/10/Lakeland-Health-Logo_BW-768x211.png 768w, https://shieldshealthsolutions.com/content/uploads/2025/10/Lakeland-Health-Logo_BW-1536x422.png 1536w, https://shieldshealthsolutions.com/content/uploads/2025/10/Lakeland-Health-Logo_BW.png 1818w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<figure class="wp-block-image size-full is-resized"><img decoding="async" src="https://shieldshealthsolutions.com/content/uploads/2024/08/northwell.jpg" alt="Northwell Health" class="wp-image-8003" style="width:auto;height:150px"/></figure>
+
+
+
+<figure class="wp-block-image size-full is-resized"><img decoding="async" src="https://shieldshealthsolutions.com/content/uploads/2024/08/nyulangone.svg" alt="NYU Langone" class="wp-image-8004" style="width:auto;height:150px"/></figure>
+
+
+
+<figure class="wp-block-image size-full is-resized"><img decoding="async" src="https://shieldshealthsolutions.com/content/uploads/2024/08/southcoast.svg" alt="Southcoast Health" class="wp-image-8005" style="width:auto;height:150px"/></figure>
+
+
+
+<figure class="wp-block-image size-full is-resized"><img decoding="async" src="https://shieldshealthsolutions.com/content/uploads/2024/08/tampa.svg" alt="Tampa General Hospital" class="wp-image-8006" style="width:auto;height:150px"/></figure>
+
+
+
+<figure class="wp-block-image size-full is-resized"><img decoding="async" src="https://shieldshealthsolutions.com/content/uploads/2024/08/umassmemorial.svg" alt="umass memorial medical center" class="wp-image-8007" style="width:auto;height:150px"/></figure>
+
+
+
+<figure class="wp-block-image size-full is-resized"><img decoding="async" src="https://shieldshealthsolutions.com/content/uploads/2024/09/University-Hospital-NJ.png" alt="university hospital newark" class="wp-image-8008" style="width:auto;height:50px"/></figure>
+
+
+
+<figure class="wp-block-image size-full is-resized"><img decoding="async" src="https://shieldshealthsolutions.com/content/uploads/2024/08/CS_Logo_Plum_Primary_RGB_PNG-web-2.png" alt="CommonSpirit" class="wp-image-7996" style="width:150px"/></figure>
+</div>
+</div>
+</div>		
+</div>
+<div id="search-modal" class="modal">
+    <div class="form-container">
+        <form class="grve-search" method="get" action="https://shieldshealthsolutions.com/">
+	<label>
+        <span class="sr-only">Search</span>
+        <input type="text" class="grve-search-textfield" value="" name="s" placeholder="What can we help you find?" />    
+    </label>
+    <div>
+        <button type="submit" class="inset-search-btn grve-custom-btn" aria-label="Search"></button>    
+    </div>
+</form>        <button class="grve-custom-btn plain-button modal-close"><img src="https://shieldshealthsolutions.com/content/themes/blade-child/images/close-dark.svg" alt="close modal"></button>
+    </div>
+</div>
+			<footer class="page-footer">
+
+				<div class="footer-wrapper">
+					<div class="row"><div class="col">
+					<img src="https://shieldshealthsolutions.com/content/uploads/2024/08/shields-logo-white.svg" alt="shields logo white" class="footer-logo" /><div class="address"><p>100 Technology Center Drive<br />
+Stoughton, MA 02072</p>
+</div>					
+					<div class="social-icons">
+						<ul id="menu-social" class="menu-social">
+							<li><a target="_blank" href="https://twitter.com/shields_rx?lang=en" class="icon-tw">TW</a></li>
+<li><a target="_blank" href="https://www.facebook.com/shieldshealthsolutions/" class="icon-fb">FB</a></li>
+<li><a target="_blank" href="https://www.linkedin.com/company/shields-health-solutions" class="icon-in">IN</a></li>
+<li><a target="_blank" href="https://www.youtube.com/channel/UCqE5LUW1shh3qUhR6_bIxyg" class="icon-yt">YT</a></li>
+						</ul>
+					</div>
+
+					
+					</div> <!-- end col -->
+					<div class="col right-col">
+						<ul id="menu-footer" class="menu-footer">
+							<li><a href="https://shieldshealthsolutions.com/contact-us/">Contact Us</a></li>
+<li><a href="https://job-boards.greenhouse.io/shieldshealthsolutions">Careers</a></li>
+						</ul>
+
+						<figure class="footer-image">
+
+						<a href="https://accreditnet.urac.org/directory/#/accreditation/SPS010008/info" target="_blank"><img src="https://shieldshealthsolutions.com/content/uploads/2025/07/accredited-badge-1-236x300-edit.png" alt="accredited badge 1 236x300 edit" /></a>						</figure>
+
+					</div> <!-- end col -->
+					</div> <!-- end row -->
+
+					
+					<div class="row">
+					
+					<div class="col legal-col">
+
+						<ul id="menu-legal" class="menu-legal">
+							<li><a href="https://shieldshealthsolutions.com/privacy-policy/">Privacy Policy</a></li>
+<li><a href="https://shieldshealthsolutions.com/terms-of-use/">Terms of Use</a></li>
+<li><a href="https://shieldshealthsolutions.com/site-map/">Site Map</a></li>
+						</ul>
+
+						<p class="copyright">© Copyright 2026 Shields Health Solutions. All Rights Reserved.</p>					</div> <!-- end col -->
+				</div> <!-- end row -->
+
+			</footer>
+
+			<!-- SIDE AREA -->
+						<!-- END SIDE AREA -->
+
+			<!-- HIDDEN MENU -->
+						<!-- END HIDDEN MENU -->
+
+			<!-- CART AREA -->
+						<!-- END CART AREA -->
+
+			<div id="search-modal" class="modal">
+    <div class="form-container">
+        <form class="grve-search" method="get" action="https://shieldshealthsolutions.com/">
+	<label>
+        <span class="sr-only">Search</span>
+        <input type="text" class="grve-search-textfield" value="" name="s" placeholder="What can we help you find?" />    
+    </label>
+    <div>
+        <button type="submit" class="inset-search-btn grve-custom-btn" aria-label="Search"></button>    
+    </div>
+</form>        <button class="grve-custom-btn plain-button modal-close"><img src="https://shieldshealthsolutions.com/content/themes/blade-child/images/close-dark.svg" alt="close modal"></button>
+    </div>
+</div>						<div id="grve-top-left-form-modal" class="grve-modal">
+				<div class="grve-modal-wrapper">
+					<div class="grve-modal-content">
+						<div class="grve-modal-form">
+							<div class="grve-modal-item">
+															</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="grve-top-right-form-modal" class="grve-modal">
+				<div class="grve-modal-wrapper">
+					<div class="grve-modal-content">
+						<div class="grve-modal-form">
+							<div class="grve-modal-item">
+															</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="grve-menu-form-modal" class="grve-modal">
+				<div class="grve-modal-wrapper">
+					<div class="grve-modal-content">
+						<div class="grve-modal-form">
+							<div class="grve-modal-item">
+															</div>
+						</div>
+					</div>
+				</div>
+			</div>
+						<div id="grve-language-modal" class="grve-modal">
+			<div class="grve-modal-wrapper">
+				<div class="grve-modal-content">
+					<div class="grve-modal-item">
+								<ul class="grve-language">
+		</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+				
+			
+						<a href="#" class="grve-back-top">
+				<i class="grve-icon-arrow-top-alt grve-text-grey"></i>
+			</a>
+		
+		<!-- </div> end #grve-theme-wrapper -->
+				<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp/wp-*.php","/wp/wp-admin/*","/content/uploads/*","/content/*","/content/plugins/*","/content/themes/blade-child/*","/content/themes/blade/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<div 
+	id="pum-10833" 
+	role="dialog" 
+	aria-modal="false"
+	class="pum pum-overlay pum-theme-576 pum-theme-default-theme popmake-overlay click_open" 
+	data-popmake="{&quot;id&quot;:10833,&quot;slug&quot;:&quot;clinical-outcomes-2025-report&quot;,&quot;theme_id&quot;:576,&quot;cookies&quot;:[{&quot;event&quot;:&quot;on_popup_close&quot;,&quot;settings&quot;:{&quot;name&quot;:&quot;pum-10833&quot;,&quot;time&quot;:&quot;1 month&quot;,&quot;session&quot;:false,&quot;path&quot;:&quot;1&quot;,&quot;key&quot;:&quot;&quot;}}],&quot;triggers&quot;:[{&quot;type&quot;:&quot;click_open&quot;,&quot;settings&quot;:{&quot;extra_selectors&quot;:&quot;&quot;,&quot;cookie_name&quot;:null}}],&quot;mobile_disabled&quot;:null,&quot;tablet_disabled&quot;:null,&quot;meta&quot;:{&quot;display&quot;:{&quot;stackable&quot;:false,&quot;overlay_disabled&quot;:false,&quot;scrollable_content&quot;:false,&quot;disable_reposition&quot;:false,&quot;size&quot;:&quot;medium&quot;,&quot;responsive_min_width&quot;:&quot;0%&quot;,&quot;responsive_min_width_unit&quot;:false,&quot;responsive_max_width&quot;:&quot;100%&quot;,&quot;responsive_max_width_unit&quot;:false,&quot;custom_width&quot;:&quot;640px&quot;,&quot;custom_width_unit&quot;:false,&quot;custom_height&quot;:&quot;380px&quot;,&quot;custom_height_unit&quot;:false,&quot;custom_height_auto&quot;:false,&quot;location&quot;:&quot;center top&quot;,&quot;position_from_trigger&quot;:false,&quot;position_top&quot;:&quot;100&quot;,&quot;position_left&quot;:&quot;0&quot;,&quot;position_bottom&quot;:&quot;0&quot;,&quot;position_right&quot;:&quot;0&quot;,&quot;position_fixed&quot;:false,&quot;animation_type&quot;:&quot;fade&quot;,&quot;animation_speed&quot;:&quot;350&quot;,&quot;animation_origin&quot;:&quot;center top&quot;,&quot;overlay_zindex&quot;:false,&quot;zindex&quot;:&quot;1999999999&quot;},&quot;close&quot;:{&quot;text&quot;:&quot;&quot;,&quot;button_delay&quot;:&quot;0&quot;,&quot;overlay_click&quot;:false,&quot;esc_press&quot;:false,&quot;f4_press&quot;:false},&quot;click_open&quot;:[]}}">
+
+	<div id="popmake-10833" class="pum-container popmake theme-576 pum-responsive pum-responsive-medium responsive size-medium">
+
+				
+				
+		
+				<div class="pum-content popmake-content" tabindex="0">
+			
+<p>Download our report.</p>
+
+
+
+<p></p>
+		</div>
+
+				
+							<button type="button" class="pum-close popmake-close" aria-label="Close">
+			X			</button>
+		
+	</div>
+
+</div>
+<div 
+	id="pum-602" 
+	role="dialog" 
+	aria-modal="false"
+	class="pum pum-overlay pum-theme-576 pum-theme-default-theme popmake-overlay pum-click-to-close click_open" 
+	data-popmake="{&quot;id&quot;:602,&quot;slug&quot;:&quot;our-team-hear-kendra-kueflers-story&quot;,&quot;theme_id&quot;:576,&quot;cookies&quot;:[],&quot;triggers&quot;:[{&quot;type&quot;:&quot;click_open&quot;,&quot;settings&quot;:{&quot;extra_selectors&quot;:&quot;&quot;,&quot;cookie_name&quot;:null}}],&quot;mobile_disabled&quot;:null,&quot;tablet_disabled&quot;:null,&quot;meta&quot;:{&quot;display&quot;:{&quot;stackable&quot;:false,&quot;overlay_disabled&quot;:false,&quot;scrollable_content&quot;:false,&quot;disable_reposition&quot;:false,&quot;size&quot;:&quot;medium&quot;,&quot;responsive_min_width&quot;:&quot;0%&quot;,&quot;responsive_min_width_unit&quot;:false,&quot;responsive_max_width&quot;:&quot;100%&quot;,&quot;responsive_max_width_unit&quot;:false,&quot;custom_width&quot;:&quot;640px&quot;,&quot;custom_width_unit&quot;:false,&quot;custom_height&quot;:&quot;380px&quot;,&quot;custom_height_unit&quot;:false,&quot;custom_height_auto&quot;:false,&quot;location&quot;:&quot;center&quot;,&quot;position_from_trigger&quot;:false,&quot;position_top&quot;:&quot;100&quot;,&quot;position_left&quot;:&quot;0&quot;,&quot;position_bottom&quot;:&quot;0&quot;,&quot;position_right&quot;:&quot;0&quot;,&quot;position_fixed&quot;:false,&quot;animation_type&quot;:&quot;fade&quot;,&quot;animation_speed&quot;:&quot;350&quot;,&quot;animation_origin&quot;:&quot;center top&quot;,&quot;overlay_zindex&quot;:false,&quot;zindex&quot;:&quot;1999999999&quot;},&quot;close&quot;:{&quot;text&quot;:&quot;&quot;,&quot;button_delay&quot;:&quot;0&quot;,&quot;overlay_click&quot;:&quot;1&quot;,&quot;esc_press&quot;:&quot;1&quot;,&quot;f4_press&quot;:false},&quot;click_open&quot;:[]}}">
+
+	<div id="popmake-602" class="pum-container popmake theme-576 pum-responsive pum-responsive-medium responsive size-medium">
+
+				
+				
+		
+				<div class="pum-content popmake-content" tabindex="0">
+			<p><div class="grve-section grve-fullwidth-background grve-bg-none">  <div class="grve-container">    <div class="grve-row grve-bookmark"><div class="wpb_column grve-column grve-column-1-4"></div><div class="wpb_column grve-column grve-column-1-2">
+	<div class="wpb_raw_code wpb_raw_js" >
+		<div class="wpb_wrapper">
+			<!-- Put this wherever you would like your player to appear -->
+<img
+  style="width: 100%; margin: auto; display: block;"
+  class="vidyard-player-embed"
+  alt="vidyard player"
+  src="https://play.vidyard.com/xoMu7PDPbQDAdLQoJtbxTF.jpg"
+  data-uuid="xoMu7PDPbQDAdLQoJtbxTF"
+  data-v="4"
+  data-type="inline"
+/>
+		</div>
+	</div>
+</div><div class="wpb_column grve-column grve-column-1-4"></div></div>  </div>  <div class="grve-background-wrapper"></div></div></p>
+		</div>
+
+				
+							<button type="button" class="pum-close popmake-close" aria-label="Close">
+			X			</button>
+		
+	</div>
+
+</div>
+<div 
+	id="pum-600" 
+	role="dialog" 
+	aria-modal="false"
+	class="pum pum-overlay pum-theme-576 pum-theme-default-theme popmake-overlay pum-click-to-close click_open" 
+	data-popmake="{&quot;id&quot;:600,&quot;slug&quot;:&quot;our-team-hear-teddy-lamarres-story&quot;,&quot;theme_id&quot;:576,&quot;cookies&quot;:[],&quot;triggers&quot;:[{&quot;type&quot;:&quot;click_open&quot;,&quot;settings&quot;:{&quot;extra_selectors&quot;:&quot;&quot;,&quot;cookie_name&quot;:null}}],&quot;mobile_disabled&quot;:null,&quot;tablet_disabled&quot;:null,&quot;meta&quot;:{&quot;display&quot;:{&quot;stackable&quot;:false,&quot;overlay_disabled&quot;:false,&quot;scrollable_content&quot;:false,&quot;disable_reposition&quot;:false,&quot;size&quot;:&quot;small&quot;,&quot;responsive_min_width&quot;:&quot;0%&quot;,&quot;responsive_min_width_unit&quot;:false,&quot;responsive_max_width&quot;:&quot;100%&quot;,&quot;responsive_max_width_unit&quot;:false,&quot;custom_width&quot;:&quot;640px&quot;,&quot;custom_width_unit&quot;:false,&quot;custom_height&quot;:&quot;380px&quot;,&quot;custom_height_unit&quot;:false,&quot;custom_height_auto&quot;:false,&quot;location&quot;:&quot;center top&quot;,&quot;position_from_trigger&quot;:false,&quot;position_top&quot;:&quot;100&quot;,&quot;position_left&quot;:&quot;0&quot;,&quot;position_bottom&quot;:&quot;0&quot;,&quot;position_right&quot;:&quot;0&quot;,&quot;position_fixed&quot;:false,&quot;animation_type&quot;:&quot;fade&quot;,&quot;animation_speed&quot;:&quot;350&quot;,&quot;animation_origin&quot;:&quot;center top&quot;,&quot;overlay_zindex&quot;:false,&quot;zindex&quot;:&quot;1999999999&quot;},&quot;close&quot;:{&quot;text&quot;:&quot;&quot;,&quot;button_delay&quot;:&quot;0&quot;,&quot;overlay_click&quot;:&quot;1&quot;,&quot;esc_press&quot;:&quot;1&quot;,&quot;f4_press&quot;:false},&quot;click_open&quot;:[]}}">
+
+	<div id="popmake-600" class="pum-container popmake theme-576 pum-responsive pum-responsive-small responsive size-small">
+
+				
+				
+		
+				<div class="pum-content popmake-content" tabindex="0">
+			<p><div class="grve-section grve-fullwidth-background grve-bg-none">  <div class="grve-container">    <div class="grve-row grve-bookmark"><div class="wpb_column grve-column grve-column-1-4"></div><div class="wpb_column grve-column grve-column-1-2">
+	<div class="wpb_raw_code wpb_raw_js" >
+		<div class="wpb_wrapper">
+			<!-- Put this wherever you would like your player to appear -->
+<img
+  style="width: 100%; margin: auto; display: block;"
+  class="vidyard-player-embed"
+  src="https://play.vidyard.com/cWj3WiHEGyfDQxMeVYmmab.jpg"
+  data-uuid="cWj3WiHEGyfDQxMeVYmmab"
+  data-v="4"
+  data-type="inline"
+  alt="vidyard player"
+/>
+		</div>
+	</div>
+</div><div class="wpb_column grve-column grve-column-1-4"></div></div>  </div>  <div class="grve-background-wrapper"></div></div></p>
+		</div>
+
+				
+							<button type="button" class="pum-close popmake-close" aria-label="Close">
+			X			</button>
+		
+	</div>
+
+</div>
+<div 
+	id="pum-598" 
+	role="dialog" 
+	aria-modal="false"
+	class="pum pum-overlay pum-theme-576 pum-theme-default-theme popmake-overlay pum-click-to-close click_open" 
+	data-popmake="{&quot;id&quot;:598,&quot;slug&quot;:&quot;our-team-hear-danielle-kabots-story&quot;,&quot;theme_id&quot;:576,&quot;cookies&quot;:[],&quot;triggers&quot;:[{&quot;type&quot;:&quot;click_open&quot;,&quot;settings&quot;:{&quot;extra_selectors&quot;:&quot;&quot;,&quot;cookie_name&quot;:null}}],&quot;mobile_disabled&quot;:null,&quot;tablet_disabled&quot;:null,&quot;meta&quot;:{&quot;display&quot;:{&quot;stackable&quot;:false,&quot;overlay_disabled&quot;:false,&quot;scrollable_content&quot;:false,&quot;disable_reposition&quot;:false,&quot;size&quot;:&quot;small&quot;,&quot;responsive_min_width&quot;:&quot;0%&quot;,&quot;responsive_min_width_unit&quot;:false,&quot;responsive_max_width&quot;:&quot;100%&quot;,&quot;responsive_max_width_unit&quot;:false,&quot;custom_width&quot;:&quot;640px&quot;,&quot;custom_width_unit&quot;:false,&quot;custom_height&quot;:&quot;380px&quot;,&quot;custom_height_unit&quot;:false,&quot;custom_height_auto&quot;:false,&quot;location&quot;:&quot;center top&quot;,&quot;position_from_trigger&quot;:false,&quot;position_top&quot;:&quot;100&quot;,&quot;position_left&quot;:&quot;0&quot;,&quot;position_bottom&quot;:&quot;0&quot;,&quot;position_right&quot;:&quot;0&quot;,&quot;position_fixed&quot;:false,&quot;animation_type&quot;:&quot;fade&quot;,&quot;animation_speed&quot;:&quot;350&quot;,&quot;animation_origin&quot;:&quot;center top&quot;,&quot;overlay_zindex&quot;:false,&quot;zindex&quot;:&quot;1999999999&quot;},&quot;close&quot;:{&quot;text&quot;:&quot;&quot;,&quot;button_delay&quot;:&quot;0&quot;,&quot;overlay_click&quot;:&quot;1&quot;,&quot;esc_press&quot;:&quot;1&quot;,&quot;f4_press&quot;:false},&quot;click_open&quot;:[]}}">
+
+	<div id="popmake-598" class="pum-container popmake theme-576 pum-responsive pum-responsive-small responsive size-small">
+
+				
+				
+		
+				<div class="pum-content popmake-content" tabindex="0">
+			<p><div class="grve-section grve-fullwidth-background grve-bg-none">  <div class="grve-container">    <div class="grve-row grve-bookmark"><div class="wpb_column grve-column grve-column-1">
+	<div class="wpb_raw_code wpb_raw_js" >
+		<div class="wpb_wrapper">
+			<!-- Put this wherever you would like your player to appear -->
+<img
+  style="width: 100%; margin: auto; display: block;"
+  class="vidyard-player-embed"
+  src="https://play.vidyard.com/mu31LrEJtDSKTTyDjbceMa.jpg"
+  data-uuid="mu31LrEJtDSKTTyDjbceMa"
+  data-v="4"
+  data-type="inline"
+  alt="vidyard player"
+/>
+		</div>
+	</div>
+</div></div>  </div>  <div class="grve-background-wrapper"></div></div></p>
+		</div>
+
+				
+							<button type="button" class="pum-close popmake-close" aria-label="Close">
+			X			</button>
+		
+	</div>
+
+</div>
+<div 
+	id="pum-596" 
+	role="dialog" 
+	aria-modal="false"
+	class="pum pum-overlay pum-theme-576 pum-theme-default-theme popmake-overlay pum-click-to-close click_open" 
+	data-popmake="{&quot;id&quot;:596,&quot;slug&quot;:&quot;our-team-hear-olivia-taylors-story&quot;,&quot;theme_id&quot;:576,&quot;cookies&quot;:[],&quot;triggers&quot;:[{&quot;type&quot;:&quot;click_open&quot;,&quot;settings&quot;:{&quot;extra_selectors&quot;:&quot;&quot;,&quot;cookie_name&quot;:null}}],&quot;mobile_disabled&quot;:null,&quot;tablet_disabled&quot;:null,&quot;meta&quot;:{&quot;display&quot;:{&quot;stackable&quot;:false,&quot;overlay_disabled&quot;:false,&quot;scrollable_content&quot;:false,&quot;disable_reposition&quot;:false,&quot;size&quot;:&quot;small&quot;,&quot;responsive_min_width&quot;:&quot;0%&quot;,&quot;responsive_min_width_unit&quot;:false,&quot;responsive_max_width&quot;:&quot;100%&quot;,&quot;responsive_max_width_unit&quot;:false,&quot;custom_width&quot;:&quot;640px&quot;,&quot;custom_width_unit&quot;:false,&quot;custom_height&quot;:&quot;380px&quot;,&quot;custom_height_unit&quot;:false,&quot;custom_height_auto&quot;:false,&quot;location&quot;:&quot;center top&quot;,&quot;position_from_trigger&quot;:false,&quot;position_top&quot;:&quot;100&quot;,&quot;position_left&quot;:&quot;0&quot;,&quot;position_bottom&quot;:&quot;0&quot;,&quot;position_right&quot;:&quot;0&quot;,&quot;position_fixed&quot;:false,&quot;animation_type&quot;:&quot;fade&quot;,&quot;animation_speed&quot;:&quot;350&quot;,&quot;animation_origin&quot;:&quot;center top&quot;,&quot;overlay_zindex&quot;:false,&quot;zindex&quot;:&quot;1999999999&quot;},&quot;close&quot;:{&quot;text&quot;:&quot;&quot;,&quot;button_delay&quot;:&quot;0&quot;,&quot;overlay_click&quot;:&quot;1&quot;,&quot;esc_press&quot;:&quot;1&quot;,&quot;f4_press&quot;:false},&quot;click_open&quot;:[]}}">
+
+	<div id="popmake-596" class="pum-container popmake theme-576 pum-responsive pum-responsive-small responsive size-small">
+
+				
+				
+		
+				<div class="pum-content popmake-content" tabindex="0">
+			<p><div class="grve-section grve-fullwidth-background grve-bg-none">  <div class="grve-container">    <div class="grve-row grve-bookmark"><div class="wpb_column grve-column grve-column-1-4"></div><div class="wpb_column grve-column grve-column-1-2">
+	<div class="wpb_raw_code wpb_raw_js" >
+		<div class="wpb_wrapper">
+			<!-- Put this wherever you would like your player to appear -->
+<img
+  style="width: 100%; margin: auto; display: block;"
+  class="vidyard-player-embed"
+  src="https://play.vidyard.com/p5z7M2pi7i3fTwkhbpJqRT.jpg"
+  data-uuid="p5z7M2pi7i3fTwkhbpJqRT"
+  data-v="4"
+  data-type="inline"
+  alt="vidyard player"
+/>
+		</div>
+	</div>
+</div><div class="wpb_column grve-column grve-column-1-4"></div></div>  </div>  <div class="grve-background-wrapper"></div></div></p>
+		</div>
+
+				
+							<button type="button" class="pum-close popmake-close" aria-label="Close">
+			X			</button>
+		
+	</div>
+
+</div>
+<div 
+	id="pum-594" 
+	role="dialog" 
+	aria-modal="false"
+	class="pum pum-overlay pum-theme-576 pum-theme-default-theme popmake-overlay pum-click-to-close click_open" 
+	data-popmake="{&quot;id&quot;:594,&quot;slug&quot;:&quot;careers-thomas-diaz&quot;,&quot;theme_id&quot;:576,&quot;cookies&quot;:[],&quot;triggers&quot;:[{&quot;type&quot;:&quot;click_open&quot;,&quot;settings&quot;:{&quot;extra_selectors&quot;:&quot;&quot;,&quot;cookie_name&quot;:null}}],&quot;mobile_disabled&quot;:null,&quot;tablet_disabled&quot;:null,&quot;meta&quot;:{&quot;display&quot;:{&quot;stackable&quot;:false,&quot;overlay_disabled&quot;:false,&quot;scrollable_content&quot;:false,&quot;disable_reposition&quot;:false,&quot;size&quot;:&quot;small&quot;,&quot;responsive_min_width&quot;:&quot;0%&quot;,&quot;responsive_min_width_unit&quot;:false,&quot;responsive_max_width&quot;:&quot;100%&quot;,&quot;responsive_max_width_unit&quot;:false,&quot;custom_width&quot;:&quot;640px&quot;,&quot;custom_width_unit&quot;:false,&quot;custom_height&quot;:&quot;380px&quot;,&quot;custom_height_unit&quot;:false,&quot;custom_height_auto&quot;:false,&quot;location&quot;:&quot;center top&quot;,&quot;position_from_trigger&quot;:false,&quot;position_top&quot;:&quot;100&quot;,&quot;position_left&quot;:&quot;0&quot;,&quot;position_bottom&quot;:&quot;0&quot;,&quot;position_right&quot;:&quot;0&quot;,&quot;position_fixed&quot;:false,&quot;animation_type&quot;:&quot;fade&quot;,&quot;animation_speed&quot;:&quot;350&quot;,&quot;animation_origin&quot;:&quot;center top&quot;,&quot;overlay_zindex&quot;:false,&quot;zindex&quot;:&quot;1999999999&quot;},&quot;close&quot;:{&quot;text&quot;:&quot;&quot;,&quot;button_delay&quot;:&quot;0&quot;,&quot;overlay_click&quot;:&quot;1&quot;,&quot;esc_press&quot;:&quot;1&quot;,&quot;f4_press&quot;:false},&quot;click_open&quot;:[]}}">
+
+	<div id="popmake-594" class="pum-container popmake theme-576 pum-responsive pum-responsive-small responsive size-small">
+
+				
+				
+		
+				<div class="pum-content popmake-content" tabindex="0">
+			<p><div class="grve-section grve-fullwidth-background grve-bg-none">  <div class="grve-container">    <div class="grve-row grve-bookmark"><div class="wpb_column grve-column grve-column-1">
+	<div class="wpb_raw_code wpb_raw_js" >
+		<div class="wpb_wrapper">
+			<img
+  style="width: 100%; margin: auto; display: block;"
+  class="vidyard-player-embed"
+  src="https://play.vidyard.com/WkaNL9XWzV6nvsY64qWkcM.jpg"
+  data-uuid="WkaNL9XWzV6nvsY64qWkcM"
+  data-v="4"
+  data-type="inline"
+  alt="vidyard player"
+/>
+		</div>
+	</div>
+</div></div>  </div>  <div class="grve-background-wrapper"></div></div></p>
+		</div>
+
+				
+							<button type="button" class="pum-close popmake-close" aria-label="Close">
+			X			</button>
+		
+	</div>
+
+</div>
+<div 
+	id="pum-592" 
+	role="dialog" 
+	aria-modal="false"
+	class="pum pum-overlay pum-theme-576 pum-theme-default-theme popmake-overlay pum-click-to-close click_open" 
+	data-popmake="{&quot;id&quot;:592,&quot;slug&quot;:&quot;careers-ray-po&quot;,&quot;theme_id&quot;:576,&quot;cookies&quot;:[],&quot;triggers&quot;:[{&quot;type&quot;:&quot;click_open&quot;,&quot;settings&quot;:{&quot;extra_selectors&quot;:&quot;&quot;,&quot;cookie_name&quot;:null}}],&quot;mobile_disabled&quot;:null,&quot;tablet_disabled&quot;:null,&quot;meta&quot;:{&quot;display&quot;:{&quot;stackable&quot;:false,&quot;overlay_disabled&quot;:false,&quot;scrollable_content&quot;:false,&quot;disable_reposition&quot;:false,&quot;size&quot;:&quot;small&quot;,&quot;responsive_min_width&quot;:&quot;0%&quot;,&quot;responsive_min_width_unit&quot;:false,&quot;responsive_max_width&quot;:&quot;100%&quot;,&quot;responsive_max_width_unit&quot;:false,&quot;custom_width&quot;:&quot;640px&quot;,&quot;custom_width_unit&quot;:false,&quot;custom_height&quot;:&quot;380px&quot;,&quot;custom_height_unit&quot;:false,&quot;custom_height_auto&quot;:false,&quot;location&quot;:&quot;center top&quot;,&quot;position_from_trigger&quot;:false,&quot;position_top&quot;:&quot;100&quot;,&quot;position_left&quot;:&quot;0&quot;,&quot;position_bottom&quot;:&quot;0&quot;,&quot;position_right&quot;:&quot;0&quot;,&quot;position_fixed&quot;:false,&quot;animation_type&quot;:&quot;fade&quot;,&quot;animation_speed&quot;:&quot;350&quot;,&quot;animation_origin&quot;:&quot;center top&quot;,&quot;overlay_zindex&quot;:false,&quot;zindex&quot;:&quot;1999999999&quot;},&quot;close&quot;:{&quot;text&quot;:&quot;&quot;,&quot;button_delay&quot;:&quot;0&quot;,&quot;overlay_click&quot;:&quot;1&quot;,&quot;esc_press&quot;:&quot;1&quot;,&quot;f4_press&quot;:false},&quot;click_open&quot;:[]}}">
+
+	<div id="popmake-592" class="pum-container popmake theme-576 pum-responsive pum-responsive-small responsive size-small">
+
+				
+				
+		
+				<div class="pum-content popmake-content" tabindex="0">
+			<p><div class="grve-section grve-fullwidth-background grve-bg-none">  <div class="grve-container">    <div class="grve-row grve-bookmark"><div class="wpb_column grve-column grve-column-1-4"></div><div class="wpb_column grve-column grve-column-1-2">
+	<div class="wpb_raw_code wpb_raw_js" >
+		<div class="wpb_wrapper">
+			<!-- Put this wherever you would like your player to appear -->
+<img
+  style="width: 100%; margin: auto; display: block;"
+  class="vidyard-player-embed"
+  src="https://play.vidyard.com/XMNLSAhdBwLSe9AEnCtUBR.jpg"
+  data-uuid="XMNLSAhdBwLSe9AEnCtUBR"
+  data-v="4"
+  data-type="inline"
+  alt="vidyard player"
+/>
+		</div>
+	</div>
+</div><div class="wpb_column grve-column grve-column-1-4"></div></div>  </div>  <div class="grve-background-wrapper"></div></div></p>
+		</div>
+
+				
+							<button type="button" class="pum-close popmake-close" aria-label="Close">
+			X			</button>
+		
+	</div>
+
+</div>
+<div 
+	id="pum-584" 
+	role="dialog" 
+	aria-modal="false"
+	class="pum pum-overlay pum-theme-576 pum-theme-default-theme popmake-overlay pum-click-to-close click_open" 
+	data-popmake="{&quot;id&quot;:584,&quot;slug&quot;:&quot;careers-brooke-ruhland&quot;,&quot;theme_id&quot;:576,&quot;cookies&quot;:[],&quot;triggers&quot;:[{&quot;type&quot;:&quot;click_open&quot;,&quot;settings&quot;:{&quot;extra_selectors&quot;:&quot;&quot;,&quot;cookie_name&quot;:null}}],&quot;mobile_disabled&quot;:null,&quot;tablet_disabled&quot;:null,&quot;meta&quot;:{&quot;display&quot;:{&quot;stackable&quot;:false,&quot;overlay_disabled&quot;:false,&quot;scrollable_content&quot;:false,&quot;disable_reposition&quot;:false,&quot;size&quot;:&quot;small&quot;,&quot;responsive_min_width&quot;:&quot;0%&quot;,&quot;responsive_min_width_unit&quot;:false,&quot;responsive_max_width&quot;:&quot;100%&quot;,&quot;responsive_max_width_unit&quot;:false,&quot;custom_width&quot;:&quot;640px&quot;,&quot;custom_width_unit&quot;:false,&quot;custom_height&quot;:&quot;380px&quot;,&quot;custom_height_unit&quot;:false,&quot;custom_height_auto&quot;:false,&quot;location&quot;:&quot;center top&quot;,&quot;position_from_trigger&quot;:false,&quot;position_top&quot;:&quot;100&quot;,&quot;position_left&quot;:&quot;0&quot;,&quot;position_bottom&quot;:&quot;0&quot;,&quot;position_right&quot;:&quot;0&quot;,&quot;position_fixed&quot;:false,&quot;animation_type&quot;:&quot;fade&quot;,&quot;animation_speed&quot;:&quot;350&quot;,&quot;animation_origin&quot;:&quot;center top&quot;,&quot;overlay_zindex&quot;:false,&quot;zindex&quot;:&quot;1999999999&quot;},&quot;close&quot;:{&quot;text&quot;:&quot;&quot;,&quot;button_delay&quot;:&quot;0&quot;,&quot;overlay_click&quot;:&quot;1&quot;,&quot;esc_press&quot;:&quot;1&quot;,&quot;f4_press&quot;:false},&quot;click_open&quot;:[]}}">
+
+	<div id="popmake-584" class="pum-container popmake theme-576 pum-responsive pum-responsive-small responsive size-small">
+
+				
+				
+		
+				<div class="pum-content popmake-content" tabindex="0">
+			<p><div class="grve-section grve-fullwidth-background grve-bg-none">  <div class="grve-container">    <div class="grve-row grve-bookmark"><div class="wpb_column grve-column grve-column-1-4"></div><div class="wpb_column grve-column grve-column-1-2">
+	<div class="wpb_raw_code wpb_raw_html wpb_content_element" >
+		<div class="wpb_wrapper">
+			<!-- Put this wherever you would like your player to appear -->
+<img
+  style="width: 100%; margin: auto; display: block;"
+  class="vidyard-player-embed"
+  src="https://play.vidyard.com/Kkv7XjAtyzonMcwZtU5HkS.jpg"
+  data-uuid="Kkv7XjAtyzonMcwZtU5HkS"
+  data-v="4"
+  data-type="inline"
+  alt="vidyard player"
+/>
+		</div>
+	</div>
+</div><div class="wpb_column grve-column grve-column-1-4"></div></div>  </div>  <div class="grve-background-wrapper"></div></div></p>
+		</div>
+
+				
+							<button type="button" class="pum-close popmake-close" aria-label="Close">
+			X			</button>
+		
+	</div>
+
+</div>
+
+<script defer>
+document.querySelectorAll(".gfield_required.gfield_required_text")?.forEach(node => {
+node.textContent = "*";
+})
+</script>
+<script type="text/html" id="wpb-modifications"> window.wpbCustomElement = 1; </script><script type="text/javascript" src="https://shieldshealthsolutions.com/content/themes/blade-child/includes/blocks/resource-filter/view.js?ver=6.9.4" id="tax-filters-js"></script>
+<script type="text/javascript" id="wd-asl-ajaxsearchlite-js-before">
+/* <![CDATA[ */
+window.ASL = typeof window.ASL !== 'undefined' ? window.ASL : {}; window.ASL.wp_rocket_exception = "DOMContentLoaded"; window.ASL.ajaxurl = "https:\/\/shieldshealthsolutions.com\/wp\/wp-admin\/admin-ajax.php"; window.ASL.backend_ajaxurl = "https:\/\/shieldshealthsolutions.com\/wp\/wp-admin\/admin-ajax.php"; window.ASL.asl_url = "https:\/\/shieldshealthsolutions.com\/content\/plugins\/ajax-search-lite\/"; window.ASL.detect_ajax = 1; window.ASL.media_query = 4781; window.ASL.version = 4781; window.ASL.pageHTML = ""; window.ASL.additional_scripts = []; window.ASL.script_async_load = false; window.ASL.init_only_in_viewport = true; window.ASL.font_url = "https:\/\/shieldshealthsolutions.com\/content\/plugins\/ajax-search-lite\/css\/fonts\/icons2.woff2"; window.ASL.highlight = {"enabled":false,"data":[]}; window.ASL.analytics = {"method":0,"tracking_id":"","string":"?ajax_search={asl_term}","event":{"focus":{"active":true,"action":"focus","category":"ASL","label":"Input focus","value":"1"},"search_start":{"active":false,"action":"search_start","category":"ASL","label":"Phrase: {phrase}","value":"1"},"search_end":{"active":true,"action":"search_end","category":"ASL","label":"{phrase} | {results_count}","value":"1"},"magnifier":{"active":true,"action":"magnifier","category":"ASL","label":"Magnifier clicked","value":"1"},"return":{"active":true,"action":"return","category":"ASL","label":"Return button pressed","value":"1"},"facet_change":{"active":false,"action":"facet_change","category":"ASL","label":"{option_label} | {option_value}","value":"1"},"result_click":{"active":true,"action":"result_click","category":"ASL","label":"{result_title} | {result_url}","value":"1"}}};
+//# sourceURL=wd-asl-ajaxsearchlite-js-before
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://shieldshealthsolutions.com/content/plugins/ajax-search-lite/js/min/plugin/merged/asl.min.js?ver=4781" id="wd-asl-ajaxsearchlite-js"></script>
+<script type="text/javascript" src="https://shieldshealthsolutions.com/content/plugins/page-links-to/dist/new-tab.js?ver=3.4.1" id="page-links-to-js"></script>
+<script type="text/javascript" src="https://shieldshealthsolutions.com/wp/wp-includes/js/jquery/ui/core.js?ver=1.13.3" id="jquery-ui-core-js"></script>
+<script type="text/javascript" id="popup-maker-site-js-extra">
+/* <![CDATA[ */
+var pum_vars = {"version":"1.22.0","pm_dir_url":"https://shieldshealthsolutions.com/content/plugins/popup-maker/","ajaxurl":"https://shieldshealthsolutions.com/wp/wp-admin/admin-ajax.php","restapi":"https://shieldshealthsolutions.com/wp-json/pum/v1","rest_nonce":null,"default_theme":"576","debug_mode":"","disable_tracking":"","home_url":"/","message_position":"top","core_sub_forms_enabled":"1","popups":[],"cookie_domain":"","paramNames":{"popup_id":"pid","cta":"cta","notrack":"notrack"},"analytics_enabled":"1","analytics_route":"analytics","analytics_api":"https://shieldshealthsolutions.com/wp-json/pum/v1"};
+var pum_sub_vars = {"ajaxurl":"https://shieldshealthsolutions.com/wp/wp-admin/admin-ajax.php","message_position":"top"};
+var pum_popups = {"pum-10833":{"triggers":[],"cookies":[{"event":"on_popup_close","settings":{"name":"pum-10833","time":"1 month","session":false,"path":"1","key":""}}],"disable_on_mobile":false,"disable_on_tablet":false,"atc_promotion":null,"explain":null,"type_section":null,"theme_id":"576","size":"medium","responsive_min_width":"0%","responsive_max_width":"100%","custom_width":"640px","custom_height_auto":false,"custom_height":"380px","scrollable_content":false,"animation_type":"fade","animation_speed":"350","animation_origin":"center top","open_sound":"none","custom_sound":"","location":"center top","position_top":"100","position_bottom":"0","position_left":"0","position_right":"0","position_from_trigger":false,"position_fixed":false,"overlay_disabled":false,"stackable":false,"disable_reposition":false,"zindex":"1999999999","close_button_delay":"0","fi_promotion":null,"close_on_form_submission":false,"close_on_form_submission_delay":"0","close_on_overlay_click":false,"close_on_esc_press":false,"close_on_f4_press":false,"disable_form_reopen":false,"disable_accessibility":false,"theme_slug":"default-theme","id":10833,"slug":"clinical-outcomes-2025-report"},"pum-602":{"triggers":[],"cookies":[],"disable_on_mobile":false,"disable_on_tablet":false,"atc_promotion":null,"explain":null,"type_section":null,"theme_id":"576","size":"medium","responsive_min_width":"0%","responsive_max_width":"100%","custom_width":"640px","custom_height_auto":false,"custom_height":"380px","scrollable_content":false,"animation_type":"fade","animation_speed":"350","animation_origin":"center top","open_sound":"none","custom_sound":"","location":"center","position_top":"100","position_bottom":"0","position_left":"0","position_right":"0","position_from_trigger":false,"position_fixed":false,"overlay_disabled":false,"stackable":false,"disable_reposition":false,"zindex":"1999999999","close_button_delay":"0","fi_promotion":null,"close_on_form_submission":false,"close_on_form_submission_delay":"0","close_on_overlay_click":true,"close_on_esc_press":true,"close_on_f4_press":false,"disable_form_reopen":true,"disable_accessibility":false,"theme_slug":"default-theme","id":602,"slug":"our-team-hear-kendra-kueflers-story"},"pum-600":{"triggers":[],"cookies":[],"disable_on_mobile":false,"disable_on_tablet":false,"atc_promotion":null,"explain":null,"type_section":null,"theme_id":"576","size":"small","responsive_min_width":"0%","responsive_max_width":"100%","custom_width":"640px","custom_height_auto":false,"custom_height":"380px","scrollable_content":false,"animation_type":"fade","animation_speed":"350","animation_origin":"center top","open_sound":"none","custom_sound":"","location":"center top","position_top":"100","position_bottom":"0","position_left":"0","position_right":"0","position_from_trigger":false,"position_fixed":false,"overlay_disabled":false,"stackable":false,"disable_reposition":false,"zindex":"1999999999","close_button_delay":"0","fi_promotion":null,"close_on_form_submission":false,"close_on_form_submission_delay":"0","close_on_overlay_click":true,"close_on_esc_press":true,"close_on_f4_press":false,"disable_form_reopen":true,"disable_accessibility":false,"theme_slug":"default-theme","id":600,"slug":"our-team-hear-teddy-lamarres-story"},"pum-598":{"triggers":[],"cookies":[],"disable_on_mobile":false,"disable_on_tablet":false,"atc_promotion":null,"explain":null,"type_section":null,"theme_id":"576","size":"small","responsive_min_width":"0%","responsive_max_width":"100%","custom_width":"640px","custom_height_auto":false,"custom_height":"380px","scrollable_content":false,"animation_type":"fade","animation_speed":"350","animation_origin":"center top","open_sound":"none","custom_sound":"","location":"center top","position_top":"100","position_bottom":"0","position_left":"0","position_right":"0","position_from_trigger":false,"position_fixed":false,"overlay_disabled":false,"stackable":false,"disable_reposition":false,"zindex":"1999999999","close_button_delay":"0","fi_promotion":null,"close_on_form_submission":false,"close_on_form_submission_delay":"0","close_on_overlay_click":true,"close_on_esc_press":true,"close_on_f4_press":false,"disable_form_reopen":true,"disable_accessibility":false,"theme_slug":"default-theme","id":598,"slug":"our-team-hear-danielle-kabots-story"},"pum-596":{"triggers":[],"cookies":[],"disable_on_mobile":false,"disable_on_tablet":false,"atc_promotion":null,"explain":null,"type_section":null,"theme_id":"576","size":"small","responsive_min_width":"0%","responsive_max_width":"100%","custom_width":"640px","custom_height_auto":false,"custom_height":"380px","scrollable_content":false,"animation_type":"fade","animation_speed":"350","animation_origin":"center top","open_sound":"none","custom_sound":"","location":"center top","position_top":"100","position_bottom":"0","position_left":"0","position_right":"0","position_from_trigger":false,"position_fixed":false,"overlay_disabled":false,"stackable":false,"disable_reposition":false,"zindex":"1999999999","close_button_delay":"0","fi_promotion":null,"close_on_form_submission":false,"close_on_form_submission_delay":"0","close_on_overlay_click":true,"close_on_esc_press":true,"close_on_f4_press":false,"disable_form_reopen":true,"disable_accessibility":false,"theme_slug":"default-theme","id":596,"slug":"our-team-hear-olivia-taylors-story"},"pum-594":{"triggers":[],"cookies":[],"disable_on_mobile":false,"disable_on_tablet":false,"atc_promotion":null,"explain":null,"type_section":null,"theme_id":"576","size":"small","responsive_min_width":"0%","responsive_max_width":"100%","custom_width":"640px","custom_height_auto":false,"custom_height":"380px","scrollable_content":false,"animation_type":"fade","animation_speed":"350","animation_origin":"center top","open_sound":"none","custom_sound":"","location":"center top","position_top":"100","position_bottom":"0","position_left":"0","position_right":"0","position_from_trigger":false,"position_fixed":false,"overlay_disabled":false,"stackable":false,"disable_reposition":false,"zindex":"1999999999","close_button_delay":"0","fi_promotion":null,"close_on_form_submission":false,"close_on_form_submission_delay":"0","close_on_overlay_click":true,"close_on_esc_press":true,"close_on_f4_press":false,"disable_form_reopen":true,"disable_accessibility":false,"theme_slug":"default-theme","id":594,"slug":"careers-thomas-diaz"},"pum-592":{"triggers":[],"cookies":[],"disable_on_mobile":false,"disable_on_tablet":false,"atc_promotion":null,"explain":null,"type_section":null,"theme_id":"576","size":"small","responsive_min_width":"0%","responsive_max_width":"100%","custom_width":"640px","custom_height_auto":false,"custom_height":"380px","scrollable_content":false,"animation_type":"fade","animation_speed":"350","animation_origin":"center top","open_sound":"none","custom_sound":"","location":"center top","position_top":"100","position_bottom":"0","position_left":"0","position_right":"0","position_from_trigger":false,"position_fixed":false,"overlay_disabled":false,"stackable":false,"disable_reposition":false,"zindex":"1999999999","close_button_delay":"0","fi_promotion":null,"close_on_form_submission":false,"close_on_form_submission_delay":"0","close_on_overlay_click":true,"close_on_esc_press":true,"close_on_f4_press":false,"disable_form_reopen":false,"disable_accessibility":false,"theme_slug":"default-theme","id":592,"slug":"careers-ray-po"},"pum-584":{"triggers":[],"cookies":[],"disable_on_mobile":false,"disable_on_tablet":false,"atc_promotion":null,"explain":null,"type_section":null,"theme_id":"576","size":"small","responsive_min_width":"0%","responsive_max_width":"100%","custom_width":"640px","custom_height_auto":false,"custom_height":"380px","scrollable_content":false,"animation_type":"fade","animation_speed":"350","animation_origin":"center top","open_sound":"none","custom_sound":"","location":"center top","position_top":"100","position_bottom":"0","position_left":"0","position_right":"0","position_from_trigger":false,"position_fixed":false,"overlay_disabled":false,"stackable":false,"disable_reposition":false,"zindex":"1999999999","close_button_delay":"0","fi_promotion":null,"close_on_form_submission":false,"close_on_form_submission_delay":"0","close_on_overlay_click":true,"close_on_esc_press":true,"close_on_f4_press":false,"disable_form_reopen":false,"disable_accessibility":false,"theme_slug":"default-theme","id":584,"slug":"careers-brooke-ruhland"}};
+//# sourceURL=popup-maker-site-js-extra
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://shieldshealthsolutions.com/content/plugins/popup-maker/dist/assets/site.js?defer&amp;ver=1.22.0" id="popup-maker-site-js"></script>
+
+<script type="text/javascript" src='//shieldshealthsolutions.com/content/uploads/custom-css-js/9707.js?v=8833'></script>
+	</body>
+</html>

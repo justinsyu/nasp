@@ -1,0 +1,332 @@
+.hssp-page {
+  background:
+    linear-gradient(180deg, rgba(24, 124, 143, 0.08), transparent 18rem),
+    linear-gradient(180deg, #ffffff 0%, #f7f9fd 52%, #ffffff 100%);
+}
+
+.hssp-shell {
+  display: grid;
+  gap: 1.6rem;
+  padding: 2.5rem max(1rem, calc((100vw - 78rem) / 2)) 3.25rem;
+}
+
+.hssp-shell > *,
+.org-section,
+.evidence-layout,
+.comparison-section,
+.comparison-table-wrap {
+  min-width: 0;
+}
+
+.hssp-shell p,
+.hssp-shell li,
+.hssp-shell td,
+.hssp-shell th {
+  overflow-wrap: anywhere;
+}
+
+.hssp-hero {
+  display: grid;
+  gap: 0.85rem;
+  padding-bottom: 1.4rem;
+  border-bottom: 1px solid var(--border-strong);
+}
+
+.hssp-hero h1 {
+  max-width: 68rem;
+  font-size: clamp(2.2rem, 4vw, 4rem);
+  text-transform: uppercase;
+}
+
+.hssp-hero p {
+  max-width: 67rem;
+  margin: 0;
+  color: var(--muted);
+}
+
+.hssp-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--border-strong);
+  border-bottom: 1px solid var(--border-strong);
+}
+
+.hssp-summary div {
+  min-width: 0;
+  padding: 1rem;
+  border-right: 1px solid var(--border-strong);
+}
+
+.hssp-summary div:last-child {
+  border-right: 0;
+}
+
+.hssp-summary strong {
+  display: block;
+  color: var(--blue);
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.13em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.hssp-summary span {
+  display: block;
+  margin-top: 0.18rem;
+  color: var(--red);
+  font-family: var(--font-display);
+  font-size: 2.15rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.hssp-method {
+  margin: 0;
+}
+
+.method-grid,
+.org-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--border-strong);
+  border-bottom: 1px solid var(--border-strong);
+}
+
+.org-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.method-grid article,
+.insight-card {
+  min-width: 0;
+  padding: 1rem;
+  border-right: 1px solid var(--border-strong);
+  background: var(--surface);
+}
+
+.method-grid article:last-child,
+.org-grid article:last-child {
+  border-right: 0;
+}
+
+.method-grid h3,
+.insight-card h3,
+.evidence-panel h3,
+.analysis-panel h3,
+.takeaway-list h3 {
+  margin: 0 0 0.55rem;
+  color: var(--blue);
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.method-grid p,
+.insight-card p {
+  margin: 0;
+  color: var(--body-text);
+}
+
+.org-jump {
+  position: sticky;
+  top: 4.1rem;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  border: 1px solid var(--border-strong);
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+}
+
+.org-jump a {
+  justify-content: center;
+  min-height: 2.8rem;
+  border-right: 1px solid var(--border-strong);
+  border-bottom: 0;
+}
+
+.org-jump a:last-child {
+  border-right: 0;
+}
+
+.org-section {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.3rem;
+  padding-top: 1.6rem;
+  border-top: 2px solid var(--blue);
+  scroll-margin-top: 8rem;
+}
+
+.org-header {
+  display: grid;
+  gap: 0.65rem;
+  max-width: 70rem;
+}
+
+.org-header h2 {
+  margin: 0;
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  text-transform: uppercase;
+}
+
+.org-header p:last-child {
+  margin: 0;
+  color: var(--muted);
+}
+
+.insight-card {
+  border-left: 4px solid var(--blue);
+}
+
+.accent-blue { border-left-color: var(--blue); }
+.accent-red { border-left-color: var(--red); }
+.accent-gold { border-left-color: var(--gold); }
+.accent-teal { border-left-color: var(--teal); }
+.accent-purple { border-left-color: var(--purple); }
+
+.evidence-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.2fr);
+  border-top: 1px solid var(--border-strong);
+  border-bottom: 1px solid var(--border-strong);
+}
+
+.evidence-panel,
+.analysis-panel {
+  min-width: 0;
+  padding: 1.1rem;
+  background: var(--surface);
+}
+
+.evidence-panel {
+  border-right: 1px solid var(--border-strong);
+  background: linear-gradient(135deg, var(--surface-blue), #ffffff 65%);
+}
+
+.asset-list,
+.analysis-panel ul,
+.takeaway-list ol {
+  margin: 0;
+  padding-left: 1.15rem;
+}
+
+.asset-list li,
+.analysis-panel li,
+.takeaway-list li {
+  margin: 0.45rem 0;
+}
+
+.asset-list a,
+.site-footer a {
+  color: var(--red);
+  font-weight: 850;
+  overflow-wrap: anywhere;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.takeaway-list {
+  padding: 1.1rem;
+  border-left: 3px solid var(--red);
+  background: linear-gradient(135deg, var(--surface-warm), #ffffff 70%);
+}
+
+.comparison-section {
+  margin: 1.2rem 0 0;
+}
+
+.comparison-table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+  border-top: 1px solid var(--border-strong);
+  border-bottom: 1px solid var(--border-strong);
+}
+
+.comparison-table {
+  width: 100%;
+  min-width: 58rem;
+  border-collapse: collapse;
+  background: #ffffff;
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 0.85rem;
+  border-right: 1px solid var(--border-strong);
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.comparison-table th {
+  color: var(--blue);
+  font-weight: 900;
+}
+
+.comparison-table thead th {
+  background: var(--surface-blue);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.comparison-table tr:last-child th,
+.comparison-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.comparison-table th:last-child,
+.comparison-table td:last-child {
+  border-right: 0;
+}
+
+@media (max-width: 900px) {
+  .hssp-summary,
+  .method-grid,
+  .org-grid,
+  .evidence-layout,
+  .org-jump {
+    grid-template-columns: 1fr;
+  }
+
+  .hssp-summary div,
+  .method-grid article,
+  .org-grid article,
+  .evidence-panel {
+    border-right: 0;
+    border-bottom: 1px solid var(--border-strong);
+  }
+
+  .org-jump {
+    position: static;
+  }
+
+  .org-jump a {
+    border-right: 0;
+    border-bottom: 1px solid var(--border-strong);
+  }
+
+  .org-jump a:last-child {
+    border-bottom: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .hssp-shell {
+    padding-top: 1.5rem;
+    overflow-x: hidden;
+  }
+
+  .hssp-hero h1 {
+    font-size: 2.05rem;
+  }
+
+  .hssp-summary span {
+    font-size: 1.9rem;
+  }
+}
