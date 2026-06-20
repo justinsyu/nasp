@@ -420,8 +420,13 @@ section { margin-top: 2.2rem; }
 }
 .metadata {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
-  gap: 0.65rem 1.35rem;
+  grid-template-columns:
+    minmax(4.5rem, 0.45fr)
+    minmax(7rem, 0.7fr)
+    minmax(18rem, 1.45fr)
+    minmax(13rem, 1fr)
+    minmax(13rem, 1fr);
+  gap: 0.65rem 1rem;
   margin: 0.2rem 0 0;
   padding: 0;
 }
@@ -620,6 +625,7 @@ section { margin-top: 2.2rem; }
   .document-row-link { grid-template-columns: 1fr; gap: 0.7rem; }
   .document-row-chip { width: auto; justify-self: start; }
   .document-header { margin-right: 0; }
+  .metadata { grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); }
 }
 
 @media (max-width: 640px) {
