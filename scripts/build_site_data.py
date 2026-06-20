@@ -10,7 +10,6 @@ CORPUS_DIR = ROOT / "nasp_abstracts_posters_pdfs_2019_2025"
 MANIFEST = CORPUS_DIR / "download_manifest.csv"
 OUT_JSON = ROOT / "assets" / "data" / "presentations-index.json"
 OUT_MD = ROOT / "assets" / "data" / "nasp_abstracts_posters.md"
-INFOGRAPHICS_DIR = ROOT / "infographics"
 
 
 CATEGORY_RULES = {
@@ -68,14 +67,6 @@ def clean_text(value: str) -> str:
     value = re.sub(r"```.*?```", "", value, flags=re.S)
     value = re.sub(r"\n{3,}", "\n\n", value)
     return value.strip()
-
-
-def safe_slug(value: str) -> str:
-    value = value.lower().replace("\u200b", "")
-    value = re.sub(r"\s+", "-", value)
-    value = re.sub(r"[^a-z0-9_.-]+", "-", value)
-    value = re.sub(r"-{2,}", "-", value).strip("-._")
-    return value or "poster"
 
 
 def first_heading(markdown: str, fallback: str) -> str:
@@ -170,11 +161,9 @@ def main():
         categories = classify(full_text, CATEGORY_RULES)
         therapies = classify(full_text, THERAPY_RULES)
         uid = pdf_path.stem.lower()
-        infographic_filename = f"{safe_slug(uid)}.html"
         records.append(
             {
                 "uid": uid,
-                "infographic_path": f"infographics/{infographic_filename}",
                 "year": year,
                 "poster_code": poster_code(pdf_path.name),
                 "title": title,

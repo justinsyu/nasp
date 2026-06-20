@@ -191,7 +191,7 @@
 
 .evidence-layout {
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.2fr);
+  grid-template-columns: 1fr;
   border-top: 1px solid var(--border-strong);
   border-bottom: 1px solid var(--border-strong);
 }
@@ -221,7 +221,6 @@
   margin: 0.45rem 0;
 }
 
-.asset-list a,
 .site-footer a {
   color: var(--red);
   font-weight: 850;
