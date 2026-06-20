@@ -62,6 +62,9 @@
   font: inherit;
   text-align: left;
 }
+.intelligence-page .kpi .num {
+  font-weight: 400;
+}
 .kpi:hover,
 .theme-card:hover,
 .bar-item:hover,
