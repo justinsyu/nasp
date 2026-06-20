@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+    <title>NASP Abstracts and Poster PDFs 2019-2025</title>
+    <meta name="description" content="Searchable static archive of NASP annual meeting abstract and poster PDFs from 2019 through 2025, with parsed markdown and source PDF links.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/site.css?v=nasp-3">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="NASP abstract archive home">
+        <img src="assets/img/nasp-logo.svg" alt="NASP">
+        <span>2019-2025 Poster Archive</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#browse">Browse</a>
+        <a href="intelligence.html">Intelligence</a>
+        <a href="#categories">Categories</a>
+        <a href="#therapies">Therapy Areas</a>
+        <a class="download-link" href="assets/data/presentations-index.json" download>
+          <svg class="download-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.5v9m0 0 3.5-3.5M10 11.5 6.5 8M4 14.5v2h12v-2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          JSON
+        </a>
+        <a class="download-link" href="assets/data/nasp_abstracts_posters.md" download>
+          <svg class="download-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.5v9m0 0 3.5-3.5M10 11.5 6.5 8M4 14.5v2h12v-2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Markdown
+        </a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="eyebrow">National Association of Specialty Pharmacy</p>
+        <h1>NASP Annual Meeting Evidence Explorer</h1>
+        <p>Browse the parsed NASP annual meeting poster archive across 2019-2025 by year, operating theme, therapy area, title, author, and poster text.</p>
+      </section>
+
+      <section class="summary-grid" aria-label="Archive summary">
+        <div><strong>Poster records</strong><span data-stat="records">0</span></div>
+        <div><strong>Meeting years</strong><span data-stat="years">0</span></div>
+        <div><strong>Topic categories</strong><span data-stat="categories">0</span></div>
+      </section>
+
+      <section id="browse" class="archive-browser" aria-labelledby="browse-title">
+        <div class="section-heading-row">
+          <div>
+            <h2 id="browse-title">Browse posters</h2>
+            <p class="lead">Search titles, authors, parsed poster text, local filenames, categories, and therapy-area signals.</p>
+          </div>
+        </div>
+
+        <form class="filter-panel" id="filters">
+          <label>
+            <span>Search</span>
+            <input id="search" type="search" placeholder="Try adherence, limited distribution, oncology, technician, OPR01">
+          </label>
+          <label>
+            <span>Year</span>
+            <select id="year-filter"><option value="">All years</option></select>
+          </label>
+          <label>
+            <span>Category</span>
+            <select id="category-filter"><option value="">All categories</option></select>
+          </label>
+          <label>
+            <span>Therapy area</span>
+            <select id="therapy-filter"><option value="">All therapy areas</option></select>
+          </label>
+          <label>
+            <span>Sort</span>
+            <select id="sort-filter">
+              <option value="year-desc">Newest first</option>
+              <option value="year-asc">Oldest first</option>
+              <option value="code">Poster code</option>
+              <option value="title">Title</option>
+            </select>
+          </label>
+        </form>
+
+        <div class="results-toolbar" aria-live="polite">
+          <span id="result-count">Loading posters...</span>
+          <button class="button button-secondary" id="clear-filters" type="button">Clear filters</button>
+        </div>
+
+        <ul class="document-list document-rows" id="results"></ul>
+        <button class="button button-primary load-more" id="load-more" type="button" hidden>Load more results</button>
+      </section>
+
+      <section id="categories" aria-labelledby="categories-title">
+        <h2 id="categories-title">Topic categories</h2>
+        <ul class="document-list analytics-grid" id="category-list"></ul>
+      </section>
+
+      <section id="therapies" aria-labelledby="therapies-title">
+        <h2 id="therapies-title">Therapy areas</h2>
+        <ul class="document-list analytics-grid" id="therapy-list"></ul>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Static archive for search, citation, and retrieval. NASP source PDF links and locally parsed markdown are retained on each poster record.</p>
+      <p>Source data: <a href="https://naspnet.org/annual-meeting/abstracts-posters" rel="noopener">NASP Abstracts & Posters</a>.</p>
+    </footer>
+
+    <dialog class="abstract-dialog" id="abstract-dialog" aria-labelledby="dialog-title">
+      <article>
+        <button class="dialog-close" type="button" aria-label="Close record detail">Close</button>
+        <div id="dialog-content"></div>
+      </article>
+    </dialog>
+
+    <div class="floating-actions" aria-label="Page tools">
+      <div class="floating-contact">
+        <p>Need specialty pharmacy conference intelligence? <a href="mailto:justin.yu@advection-solutions.com">Contact us</a> today.</p>
+        <a class="floating-action floating-action-logo" href="https://www.advection-solutions.com/" target="_blank" rel="noopener" aria-label="Visit Advection Solutions">
+          <img class="floating-action-logo-img" src="assets/img/advection-logo.png" alt="Advection">
+        </a>
+      </div>
+      <button class="floating-action floating-action-top" id="top-button" type="button" aria-label="Back to top">
+        <svg class="floating-action-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 16V4m0 0L5.5 8.5M10 4l4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Top
+      </button>
+    </div>
+
+    <script src="assets/js/app.js?v=nasp-15" defer></script>
+  </body>
+</html>

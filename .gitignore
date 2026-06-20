@@ -1,0 +1,12 @@
+.env
+.playwright-mcp/
+server.log
+server.err
+*.log
+*.err.log
+llamaparse_nasp_status.csv
+nasp_abstracts_posters_pdfs_2019_2025/*_images/
+nasp_images/
+nasp_pdfs/
+nasp_text/
+nasp_text_fitz/

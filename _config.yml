@@ -1,0 +1,16 @@
+title: NASP Abstracts and Poster Archive
+description: Searchable static archive of NASP annual meeting abstract and poster PDFs from 2019 through 2025.
+url: "https://justinsyu.github.io"
+baseurl: "/nasp"
+lang: en-US
+timezone: America/New_York
+maintainer: Justin Yu
+repository_url: "https://github.com/justinsyu/nasp"
+
+exclude:
+  - scripts/
+  - .env
+  - .git/
+  - .github/
+  - .jekyll-cache/
+  - vendor/
