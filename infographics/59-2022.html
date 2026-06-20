@@ -1,0 +1,744 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pharmacist Impact in a Multiple Sclerosis Clinic | NASP 2022</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -5.5rem -5.8rem auto;
+      width: 17rem;
+      height: 17rem;
+      border: 1.35rem solid rgba(24, 124, 143, 0.12);
+      border-radius: 50%;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 3.6rem;
+      height: 3.6rem;
+      border-radius: 50%;
+      background: conic-gradient(var(--red) 0 230deg, rgba(209, 38, 48, 0.14) 230deg 360deg);
+      box-shadow: 0 0 0 0.5rem rgba(255, 255, 255, 0.78);
+    }
+
+    .hero-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .poster-code small {
+      display: block;
+      margin-top: 0.18rem;
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-size: 0.76rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .hero-statement {
+      border-left: 4px solid var(--teal);
+      background: rgba(255, 255, 255, 0.7);
+      padding: 0.72rem 0.82rem;
+      color: var(--ink);
+      font-weight: 800;
+    }
+
+    .metric-card strong small {
+      color: var(--red);
+      font-size: 0.78rem;
+    }
+
+    .metric-card p {
+      margin: 0.38rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 750;
+      line-height: 1.32;
+    }
+
+    .outcome-grid {
+      display: grid;
+      grid-template-columns: minmax(18rem, 0.82fr) minmax(0, 1.18fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .turnaround-gauge {
+      display: grid;
+      place-items: center;
+      min-height: 22rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 50% 46%, #ffffff 0 38%, transparent 39%),
+        conic-gradient(from -90deg, var(--teal) 0 231deg, rgba(36, 55, 112, 0.12) 231deg 360deg),
+        var(--surface-blue);
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .gauge-inner {
+      display: grid;
+      place-items: center;
+      width: min(16rem, 80%);
+      aspect-ratio: 1;
+      border: 8px solid rgba(255, 255, 255, 0.9);
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 16px 34px rgba(36, 55, 112, 0.12);
+    }
+
+    .gauge-inner strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(3.4rem, 8vw, 5.5rem);
+      line-height: 0.9;
+    }
+
+    .gauge-inner span {
+      display: block;
+      max-width: 9rem;
+      margin: 0.4rem auto 0;
+      color: var(--ink);
+      font-size: 0.74rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .comparison-bars {
+      display: grid;
+      gap: 0.9rem;
+      margin-top: 0.9rem;
+    }
+
+    .comparison-row {
+      display: grid;
+      grid-template-columns: 9rem minmax(0, 1fr) 4.2rem;
+      gap: 0.7rem;
+      align-items: center;
+    }
+
+    .comparison-row b {
+      color: var(--ink);
+      font-size: 0.82rem;
+      line-height: 1.2;
+    }
+
+    .comparison-track {
+      height: 1.05rem;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+
+    .comparison-fill {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .comparison-fill.post {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .comparison-row em {
+      color: var(--ink);
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .impact-delta {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.72rem;
+      margin-top: 1rem;
+    }
+
+    .delta-card {
+      border: 1px solid rgba(174, 187, 210, 0.95);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.78rem;
+    }
+
+    .delta-card span {
+      color: var(--muted);
+      font-size: 0.64rem;
+      font-weight: 900;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    .delta-card strong {
+      display: block;
+      margin-top: 0.18rem;
+      color: var(--teal);
+      font-family: var(--font-display);
+      font-size: 1.72rem;
+      line-height: 1;
+    }
+
+    .workflow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.85rem;
+    }
+
+    .workflow-step {
+      position: relative;
+      min-height: 10.4rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.78rem;
+    }
+
+    .workflow-step::before {
+      content: attr(data-step);
+      display: inline-grid;
+      place-items: center;
+      width: 1.75rem;
+      height: 1.75rem;
+      margin-bottom: 0.48rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      font-weight: 900;
+    }
+
+    .workflow-step:nth-child(2)::before { background: var(--red); }
+    .workflow-step:nth-child(3)::before { background: var(--teal); }
+    .workflow-step:nth-child(4)::before { background: var(--green); }
+
+    .workflow-step p {
+      margin: 0.4rem 0 0;
+      color: var(--body);
+      font-size: 0.8rem;
+      line-height: 1.38;
+    }
+
+    .survey-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(17rem, 0.92fr);
+      gap: 1rem;
+    }
+
+    .bar-list {
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 0.85rem;
+    }
+
+    .response-row {
+      display: grid;
+      grid-template-columns: 10.2rem minmax(0, 1fr) 3.6rem;
+      gap: 0.6rem;
+      align-items: center;
+    }
+
+    .response-row span {
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+      line-height: 1.15;
+    }
+
+    .response-row i {
+      display: block;
+      height: 0.82rem;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--purple), var(--teal));
+    }
+
+    .response-row b {
+      color: var(--ink);
+      font-size: 0.82rem;
+      text-align: right;
+    }
+
+    .satisfaction-seal {
+      display: grid;
+      align-content: center;
+      min-height: 100%;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        linear-gradient(145deg, rgba(36, 55, 112, 0.97), rgba(117, 97, 168, 0.92)),
+        var(--ink);
+      padding: 1.15rem;
+      color: #fff;
+    }
+
+    .satisfaction-seal strong {
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(3.2rem, 8vw, 5.8rem);
+      line-height: 0.88;
+    }
+
+    .satisfaction-seal span {
+      display: block;
+      margin-top: 0.6rem;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      line-height: 1.3;
+      text-transform: uppercase;
+    }
+
+    .satisfaction-seal p {
+      margin: 0.85rem 0 0;
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .service-cloud {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.9rem;
+    }
+
+    .service-tile {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 7px;
+      background: var(--surface-blue);
+      padding: 0.75rem;
+    }
+
+    .service-tile:nth-child(2) {
+      background: var(--surface-warm);
+    }
+
+    .service-tile:nth-child(3) {
+      background: #fff;
+    }
+
+    .service-tile strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+
+    .service-tile span {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--body);
+      font-size: 0.78rem;
+      font-weight: 800;
+      line-height: 1.22;
+    }
+
+    .table-card caption {
+      margin-bottom: 0.36rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 850;
+      text-align: left;
+    }
+
+    .compact-table td:not(:first-child),
+    .compact-table th:not(:first-child) {
+      text-align: right;
+    }
+
+    .callout-list {
+      display: grid;
+      gap: 0.58rem;
+      margin: 0.7rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .callout-list li {
+      border-left: 4px solid var(--teal);
+      background: var(--surface-blue);
+      padding: 0.62rem 0.72rem;
+      font-size: 0.86rem;
+    }
+
+    .callout-list li:nth-child(2) {
+      border-color: var(--gold);
+      background: var(--surface-warm);
+    }
+
+    .callout-list li:nth-child(3) {
+      border-color: var(--green);
+      background: #fff;
+    }
+
+    @media (max-width: 900px) {
+      .outcome-grid,
+      .survey-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .workflow,
+      .service-cloud,
+      .impact-delta {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 620px) {
+      .comparison-row,
+      .response-row {
+        grid-template-columns: 1fr;
+      }
+
+      .comparison-row em,
+      .response-row b {
+        text-align: left;
+      }
+
+      .workflow,
+      .service-cloud,
+      .impact-delta {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#results">Results</a>
+        <a href="#workflow">Workflow</a>
+        <a href="#survey">Survey</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2022 poster 59-2022 | Multiple sclerosis medication access</p>
+        <h1 id="poster-title">Pharmacist Impact in a Multiple Sclerosis Clinic</h1>
+        <p class="hero-summary">
+          A New York health system-based MS center compared medication access before and after
+          integrating an ambulatory care pharmacist into prior authorization, appeal, counseling,
+          and clinic-support workflows.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Retrospective observational study</li>
+          <li class="tag therapy">Multiple sclerosis</li>
+          <li class="tag therapy">Disease modifying therapy access</li>
+          <li class="tag">Prior authorization</li>
+          <li class="tag">Clinic satisfaction</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div>
+          <div class="poster-code">59-2022<small>Shields Health Solutions</small></div>
+          <dl class="meta-grid">
+            <div>
+              <dt>Year</dt>
+              <dd>2022</dd>
+            </div>
+            <div>
+              <dt>Clinic</dt>
+              <dd>NY HSB MS center</dd>
+            </div>
+            <div>
+              <dt>Pre-ACP</dt>
+              <dd>Apr-Sep 2021</dd>
+            </div>
+            <div>
+              <dt>Post-ACP</dt>
+              <dd>Oct 2021-Mar 2022</dd>
+            </div>
+          </dl>
+        </div>
+        <p class="hero-statement">
+          Objective: demonstrate ACP impact on PA turnaround time, PA and appeal approvals, and
+          clinic satisfaction.
+        </p>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key results">
+        <article class="metric-card">
+          <span>PA turnaround time</span>
+          <strong>1<small> day faster</small></strong>
+          <p>Mean TAT decreased from 2.8 days to 1.8 days.</p>
+        </article>
+        <article class="metric-card">
+          <span>PA approval rate</span>
+          <strong>62% -> 85%</strong>
+          <p>Approval increased by 23 percentage points after ACP integration.</p>
+        </article>
+        <article class="metric-card">
+          <span>Appeal approval rate</span>
+          <strong>50% -> 62%</strong>
+          <p>Appeal approval increased by 12 percentage points.</p>
+        </article>
+        <article class="metric-card">
+          <span>Clinic survey response</span>
+          <strong>11/14</strong>
+          <p>All respondents rated the integrated ACP as very beneficial.</p>
+        </article>
+      </section>
+
+      <section id="results" class="outcome-grid" aria-label="Pre and post ACP outcomes">
+        <div class="turnaround-gauge" aria-hidden="true">
+          <div class="gauge-inner">
+            <div>
+              <strong>1.8</strong>
+              <span>post-ACP PA TAT in days</span>
+            </div>
+          </div>
+        </div>
+
+        <article class="panel">
+          <p class="section-label">Operational outcome</p>
+          <h2>Prior authorization moved faster and approvals rose after pharmacist integration.</h2>
+          <p>
+            The clearest pattern was simultaneous operational compression and higher approval yield:
+            total PA turnaround fell by one day while PA approvals and appeal approvals both increased
+            during the post-ACP period.
+          </p>
+          <div class="comparison-bars" aria-label="Pre and post ACP metric comparison">
+            <div class="comparison-row">
+              <b>Pre-ACP PA TAT</b>
+              <span class="comparison-track"><span class="comparison-fill" style="width:100%"></span></span>
+              <em>2.8d</em>
+            </div>
+            <div class="comparison-row">
+              <b>Post-ACP PA TAT</b>
+              <span class="comparison-track"><span class="comparison-fill post" style="width:64%"></span></span>
+              <em>1.8d</em>
+            </div>
+            <div class="comparison-row">
+              <b>PA approvals before</b>
+              <span class="comparison-track"><span class="comparison-fill" style="width:62%"></span></span>
+              <em>62%</em>
+            </div>
+            <div class="comparison-row">
+              <b>PA approvals after</b>
+              <span class="comparison-track"><span class="comparison-fill post" style="width:85%"></span></span>
+              <em>85%</em>
+            </div>
+          </div>
+          <div class="impact-delta" aria-label="Impact deltas">
+            <div class="delta-card">
+              <span>Relative PA approval lift</span>
+              <strong>37%</strong>
+            </div>
+            <div class="delta-card">
+              <span>Absolute TAT change</span>
+              <strong>-1 day</strong>
+            </div>
+            <div class="delta-card">
+              <span>Relative appeal lift</span>
+              <strong>24%</strong>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section id="workflow" class="panel">
+        <p class="section-label">Evidence flow</p>
+        <h2>Embedding the ACP created a clearer path from medication request to access resolution.</h2>
+        <div class="workflow" aria-label="ACP access workflow">
+          <article class="workflow-step" data-step="1">
+            <h3>Clinic flags need</h3>
+            <p>Clinic staff notified the hospital-based pharmacy team that a PA was needed.</p>
+          </article>
+          <article class="workflow-step" data-step="2">
+            <h3>Criteria check</h3>
+            <p>Eligible MS and related medication requests moved into pharmacy-led PA submission.</p>
+          </article>
+          <article class="workflow-step" data-step="3">
+            <h3>Approval route</h3>
+            <p>When approved, the team notified patients where they could fill per insurance.</p>
+          </article>
+          <article class="workflow-step" data-step="4">
+            <h3>Appeal route</h3>
+            <p>When denied, the ACP formulated appeals and conducted peer-to-peer support as needed.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel markdown-fragment">
+          <p class="section-label">Objective</p>
+          <h2>Measure access impact beyond a single turnaround metric.</h2>
+          <p>
+            The poster evaluated PA turnaround time, PA approval rates, appeal approval rates, and
+            clinic satisfaction after introducing an ambulatory care pharmacist into MS medication
+            access work.
+          </p>
+          <ul class="callout-list">
+            <li>Population included patients prescribed DMTs and selected neurologic or related agents.</li>
+            <li>Study design compared pre-implementation and post-implementation time periods.</li>
+            <li>Clinic staff survey data captured perceived value of pharmacist services.</li>
+          </ul>
+        </article>
+
+        <article class="panel markdown-fragment">
+          <p class="section-label">Conclusion</p>
+          <h2>The ACP role was associated with better operational and clinic-facing outcomes.</h2>
+          <p>
+            The authors concluded that ACP incorporation improved PA turnaround, increased PA and
+            appeal approvals, and created high clinic satisfaction, with expansion opportunities in
+            clinic initiatives, documentation visibility, drug information, and teach appointments.
+          </p>
+        </article>
+      </section>
+
+      <section id="survey" class="survey-grid" aria-label="Clinic survey findings">
+        <article class="panel">
+          <p class="section-label">Most impactful ACP services</p>
+          <h2>Staff placed the greatest value on PA and appeal support.</h2>
+          <div class="bar-list" aria-label="Most impactful ACP service responses">
+            <div class="response-row">
+              <span>Appeal assistance</span>
+              <span class="comparison-track"><i style="width:100%"></i></span>
+              <b>100%</b>
+            </div>
+            <div class="response-row">
+              <span>Drug information</span>
+              <span class="comparison-track"><i style="width:90.9%"></i></span>
+              <b>90.9%</b>
+            </div>
+            <div class="response-row">
+              <span>Patient counseling</span>
+              <span class="comparison-track"><i style="width:90%"></i></span>
+              <b>90%</b>
+            </div>
+            <div class="response-row">
+              <span>Prescription clarification</span>
+              <span class="comparison-track"><i style="width:63.6%"></i></span>
+              <b>63.6%</b>
+            </div>
+          </div>
+        </article>
+
+        <aside class="satisfaction-seal">
+          <strong>100%</strong>
+          <span>rated integrated ACP as very beneficial</span>
+          <p>
+            All survey respondents supported enhanced ACP integration, with 70% requesting more
+            teach-appointments and incorporation into clinic initiatives.
+          </p>
+        </aside>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Expansion opportunities</p>
+        <h2>Additional requested ACP services clustered around teaching and clinic integration.</h2>
+        <div class="service-cloud" aria-label="Interest in additional ACP services">
+          <div class="service-tile">
+            <strong>70%</strong>
+            <span>Support in clinic initiatives</span>
+          </div>
+          <div class="service-tile">
+            <strong>70%</strong>
+            <span>Virtual teach appointments</span>
+          </div>
+          <div class="service-tile">
+            <strong>60%</strong>
+            <span>Drug information support</span>
+          </div>
+          <div class="service-tile">
+            <strong>50%</strong>
+            <span>In-person teach appointments</span>
+          </div>
+          <div class="service-tile">
+            <strong>50%</strong>
+            <span>Greater ACP visibility</span>
+          </div>
+          <div class="service-tile">
+            <strong>0%</strong>
+            <span>Documentation as a requested expansion item</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="tables" class="tables-grid" aria-label="Extracted table patterns">
+        <article class="table-card">
+          <p class="section-label">Figure 1 table</p>
+          <h2>Pre- and post-ACP clinic metrics</h2>
+          <div class="table-wrap">
+            <table class="compact-table">
+              <caption>Turnaround and approval outcomes extracted from the poster.</caption>
+              <thead>
+                <tr>
+                  <th>Metric</th>
+                  <th>Pre-ACP</th>
+                  <th>Post-ACP</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>PA TAT</td><td>2.8 days</td><td>1.8 days</td></tr>
+                <tr><td>PA approval rate</td><td>62%</td><td>85%</td></tr>
+                <tr><td>Appeal approval rate</td><td>50%</td><td>62%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Figure 3 pattern</p>
+          <h2>Interest in additional services</h2>
+          <div class="table-wrap">
+            <table class="compact-table">
+              <caption>Clinic staff interest in expanding ACP activities.</caption>
+              <thead>
+                <tr>
+                  <th>Service</th>
+                  <th>Responses</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Support in clinic initiatives</td><td>70%</td></tr>
+                <tr><td>Virtual TA</td><td>70%</td></tr>
+                <tr><td>Drug information</td><td>60%</td></tr>
+                <tr><td>In-person TA</td><td>50%</td></tr>
+                <tr><td>Visibility of ACP</td><td>50%</td></tr>
+                <tr><td>Documentation</td><td>0%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/59-2022.pdf">Open original PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/59-2022.md">Open extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

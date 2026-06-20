@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Evidence-Based Specialty Pharmacy Program for Hemophilia | NASP 2020</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hemophilia-hero-art {
+      position: relative;
+      min-height: 19rem;
+      border: 1px solid rgba(36, 55, 112, 0.2);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(209, 38, 48, 0.16), transparent 8rem),
+        radial-gradient(circle at 82% 78%, rgba(24, 124, 143, 0.2), transparent 9rem),
+        linear-gradient(135deg, #fff 0%, var(--surface-blue) 57%, var(--surface-warm) 100%);
+      overflow: hidden;
+    }
+    .hemophilia-hero-art svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 19rem;
+    }
+    .hero-card .model-note {
+      margin: 0;
+      border-left: 4px solid var(--teal);
+      padding-left: 0.72rem;
+      color: var(--ink);
+      font-size: 0.94rem;
+      font-weight: 800;
+    }
+    .metric-card p {
+      margin: 0.42rem 0 0;
+      font-size: 0.78rem;
+    }
+    .build-map {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.74rem;
+      margin-top: 0.75rem;
+    }
+    .build-node {
+      position: relative;
+      min-height: 11.5rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.86rem;
+      overflow: hidden;
+    }
+    .build-node::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 0.35rem;
+      background: var(--accent, var(--red));
+    }
+    .build-node::after {
+      content: attr(data-step);
+      position: absolute;
+      right: 0.45rem;
+      bottom: -0.55rem;
+      color: rgba(36, 55, 112, 0.1);
+      font-family: var(--font-display);
+      font-size: 4.7rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .build-node h3,
+    .build-node p {
+      position: relative;
+      z-index: 1;
+    }
+    .build-node p {
+      margin: 0.48rem 0 0;
+      font-size: 0.82rem;
+    }
+    .build-node:nth-child(2) { --accent: var(--gold); }
+    .build-node:nth-child(3) { --accent: var(--teal); }
+    .build-node:nth-child(4) { --accent: var(--green); }
+    .workflow-board {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .workflow-lane {
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.9rem;
+    }
+    .workflow-lane h3 {
+      margin-bottom: 0.55rem;
+    }
+    .step-list {
+      display: grid;
+      gap: 0.48rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .step-list li {
+      display: grid;
+      grid-template-columns: 2rem minmax(0, 1fr);
+      gap: 0.55rem;
+      align-items: start;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.56rem;
+      font-size: 0.82rem;
+    }
+    .step-list b {
+      display: grid;
+      place-items: center;
+      width: 2rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+    }
+    .requirements-panel {
+      display: grid;
+      grid-template-columns: minmax(13rem, 0.46fr) minmax(0, 0.54fr);
+      gap: 1rem;
+      align-items: center;
+    }
+    .requirements-dial {
+      position: relative;
+      display: grid;
+      place-items: center;
+      min-height: 17rem;
+    }
+    .requirements-dial svg {
+      width: min(100%, 18rem);
+      height: auto;
+    }
+    .requirements-center {
+      position: absolute;
+      display: grid;
+      place-items: center;
+      width: 8.4rem;
+      aspect-ratio: 1;
+      border: 2px solid rgba(36, 55, 112, 0.26);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--ink);
+      text-align: center;
+      box-shadow: 0 0.6rem 1.2rem rgba(36, 55, 112, 0.1);
+    }
+    .requirements-center strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2.3rem;
+      line-height: 0.95;
+    }
+    .requirements-center span {
+      display: block;
+      margin-top: 0.22rem;
+      color: var(--muted);
+      font-size: 0.65rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .lens-chart.enhanced .lens-row {
+      grid-template-columns: 11rem minmax(0, 1fr) 2.6rem;
+    }
+    .lens-row output {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 900;
+      text-align: right;
+    }
+    .outcome-tags {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.48rem;
+      margin-top: 0.72rem;
+    }
+    .outcome-tag {
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-left: 0.35rem solid var(--accent, var(--red));
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.48rem 0.55rem;
+      color: var(--ink);
+      font-size: 0.76rem;
+      font-weight: 820;
+      line-height: 1.25;
+    }
+    .outcome-tag:nth-child(2n) { --accent: var(--teal); }
+    .outcome-tag:nth-child(3n) { --accent: var(--gold); }
+    .outcome-tag:nth-child(4n) { --accent: var(--green); }
+    .outcome-tag:nth-child(5n) { --accent: var(--purple); }
+    .table-card ul {
+      margin: 0.55rem 0 0 1.05rem;
+      padding: 0;
+    }
+    .table-card li {
+      margin: 0.16rem 0;
+      font-size: 0.82rem;
+    }
+    .conclusion-card {
+      border-left: 5px solid var(--red);
+      background:
+        linear-gradient(90deg, rgba(209, 38, 48, 0.08), rgba(255, 255, 255, 0) 62%),
+        #fff;
+    }
+    .source-note {
+      margin: 0.5rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    @media (max-width: 880px) {
+      .build-map,
+      .workflow-board,
+      .requirements-panel {
+        grid-template-columns: 1fr;
+      }
+      .outcome-tags {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .lens-chart.enhanced .lens-row {
+        grid-template-columns: 1fr;
+      }
+      .lens-row output {
+        text-align: left;
+      }
+    }
+    @media (max-width: 560px) {
+      .build-map,
+      .outcome-tags {
+        grid-template-columns: 1fr;
+      }
+      .requirements-center {
+        width: 7.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar" aria-label="Infographic navigation">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav>
+        <a href="#model">Care model</a>
+        <a href="#requirements">Requirements</a>
+        <a href="#outcomes">Outcomes</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-32_2020.pdf">PDF source</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-32_2020.md">Markdown source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2020 Poster-32</p>
+        <h1>Development of an evidence-based specialty pharmacy program for hemophilia</h1>
+        <p class="hero-summary">UMass Memorial and Shields Health Solutions described how a pharmacist-nurse hemophilia program was built by translating guidelines, payer requirements, accreditation standards, and meaningful clinical outcomes into a patient management platform and outreach workflow.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Program design</li>
+          <li class="tag therapy">Hemophilia</li>
+          <li class="tag therapy">Specialty pharmacy</li>
+          <li class="tag">Pharmacist-nurse model</li>
+        </ul>
+      </div>
+      <aside class="hero-card">
+        <div>
+          <p class="section-label">Poster file</p>
+          <div class="poster-code">Poster-32_2020</div>
+        </div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Launch</dt>
+            <dd>January 2020</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>Academic medical center specialty pharmacy</dd>
+          </div>
+          <div>
+            <dt>Clinical model</dt>
+            <dd>Hemophilia nurse + specialty pharmacists</dd>
+          </div>
+          <div>
+            <dt>Built into</dt>
+            <dd>Internal patient management platform</dd>
+          </div>
+        </dl>
+        <p class="model-note">The poster's central contribution is a build blueprint: identify requirements, encode them in the PMP, and use the workflow to support customized care.</p>
+      </aside>
+    </section>
+
+    <main>
+      <section class="visual-grid" aria-labelledby="program-objective">
+        <div class="panel">
+          <p class="section-label">Objective</p>
+          <h2 id="program-objective">Translate standards into a hemophilia care system</h2>
+          <p>Rather than reporting a drug outcome study, this poster documents the process for designing and implementing a comprehensive specialty pharmacy program for patients with complex hemophilia treatment regimens.</p>
+          <div class="number-cloud" aria-label="Key study facts">
+            <div class="number-pill">2010<small>literature search start</small></div>
+            <div class="number-pill">6 mo<small>follow-up cadence</small></div>
+            <div class="number-pill">2<small>nursing agency contracts</small></div>
+          </div>
+        </div>
+        <div class="hemophilia-hero-art" aria-label="Hemophilia program visual">
+          <svg viewBox="0 0 760 430" role="img" aria-labelledby="hero-art-title hero-art-desc">
+            <title id="hero-art-title">Pharmacist-nurse hemophilia program</title>
+            <desc id="hero-art-desc">A visual map showing guideline, payer, accreditation, and outcome inputs converging into a patient management platform, then flowing to pharmacist and nurse care.</desc>
+            <defs>
+              <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#243770" flood-opacity="0.16"/>
+              </filter>
+              <linearGradient id="dropGrad" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#d12630"/>
+                <stop offset="1" stop-color="#187c8f"/>
+              </linearGradient>
+            </defs>
+            <rect x="32" y="48" width="150" height="76" rx="12" fill="#fff" stroke="#aebbd2"/>
+            <text x="107" y="82" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial" font-size="18" font-weight="850">MASAC</text>
+            <text x="107" y="105" text-anchor="middle" fill="#68758d" font-family="Inter, Arial" font-size="12" font-weight="800">guidelines</text>
+            <rect x="578" y="48" width="150" height="76" rx="12" fill="#fff" stroke="#aebbd2"/>
+            <text x="653" y="82" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial" font-size="18" font-weight="850">Payors</text>
+            <text x="653" y="105" text-anchor="middle" fill="#68758d" font-family="Inter, Arial" font-size="12" font-weight="800">requirements</text>
+            <rect x="32" y="306" width="150" height="76" rx="12" fill="#fff" stroke="#aebbd2"/>
+            <text x="107" y="340" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial" font-size="18" font-weight="850">Accreditation</text>
+            <text x="107" y="363" text-anchor="middle" fill="#68758d" font-family="Inter, Arial" font-size="12" font-weight="800">documentation</text>
+            <rect x="578" y="306" width="150" height="76" rx="12" fill="#fff" stroke="#aebbd2"/>
+            <text x="653" y="340" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial" font-size="18" font-weight="850">Outcomes</text>
+            <text x="653" y="363" text-anchor="middle" fill="#68758d" font-family="Inter, Arial" font-size="12" font-weight="800">clinical targets</text>
+            <path d="M190 88 C255 104 286 132 322 170" fill="none" stroke="#d12630" stroke-width="5" stroke-linecap="round"/>
+            <path d="M570 88 C505 104 474 132 438 170" fill="none" stroke="#e99e25" stroke-width="5" stroke-linecap="round"/>
+            <path d="M190 342 C252 324 287 296 322 260" fill="none" stroke="#187c8f" stroke-width="5" stroke-linecap="round"/>
+            <path d="M570 342 C508 324 473 296 438 260" fill="none" stroke="#4d8a67" stroke-width="5" stroke-linecap="round"/>
+            <path d="M380 100 C415 156 452 185 513 202 C453 220 416 254 380 330 C344 254 307 220 247 202 C308 185 345 156 380 100Z" fill="url(#dropGrad)" filter="url(#softShadow)"/>
+            <circle cx="380" cy="212" r="70" fill="#fff" fill-opacity="0.93"/>
+            <text x="380" y="198" text-anchor="middle" fill="#d12630" font-family="Montserrat, Arial" font-size="27" font-weight="900">PMP</text>
+            <text x="380" y="222" text-anchor="middle" fill="#243770" font-family="Inter, Arial" font-size="13" font-weight="850">patient management</text>
+            <text x="380" y="242" text-anchor="middle" fill="#243770" font-family="Inter, Arial" font-size="13" font-weight="850">platform</text>
+            <rect x="272" y="24" width="216" height="42" rx="21" fill="#243770"/>
+            <text x="380" y="51" text-anchor="middle" fill="#fff" font-family="Inter, Arial" font-size="13" font-weight="900">evidence-based build inputs</text>
+            <rect x="232" y="374" width="132" height="36" rx="18" fill="#fff" stroke="#187c8f" stroke-width="2"/>
+            <text x="298" y="397" text-anchor="middle" fill="#187c8f" font-family="Inter, Arial" font-size="13" font-weight="900">nurse outreach</text>
+            <rect x="396" y="374" width="132" height="36" rx="18" fill="#fff" stroke="#d12630" stroke-width="2"/>
+            <text x="462" y="397" text-anchor="middle" fill="#d12630" font-family="Inter, Arial" font-size="13" font-weight="900">pharmacist care</text>
+          </svg>
+        </div>
+      </section>
+
+      <section class="metric-strip" aria-label="Key numbers">
+        <div class="metric-card">
+          <span>Commercial payors</span>
+          <strong>11</strong>
+          <p>Identified as a source of market requirements for hemophilia care.</p>
+        </div>
+        <div class="metric-card">
+          <span>Unique payor requirements</span>
+          <strong>25</strong>
+          <p>Mapped into categories such as interventions, adherence, assay management, and bleeds.</p>
+        </div>
+        <div class="metric-card">
+          <span>Documentation requirements</span>
+          <strong>58</strong>
+          <p>Accreditation-driven patient documentation elements were incorporated.</p>
+        </div>
+        <div class="metric-card">
+          <span>Clinical outcomes</span>
+          <strong>9</strong>
+          <p>Meaningful hemophilia outcomes were selected from literature and guidelines.</p>
+        </div>
+      </section>
+
+      <section class="panel" id="model">
+        <p class="section-label">Evidence flow</p>
+        <h2>From requirement gathering to a working care model</h2>
+        <div class="build-map">
+          <article class="build-node" data-step="01">
+            <h3>Search the evidence</h3>
+            <p>Literature from January 1, 2010 onward was reviewed to identify clinically meaningful hemophilia outcomes and definitions.</p>
+          </article>
+          <article class="build-node" data-step="02">
+            <h3>Collect operating standards</h3>
+            <p>MASAC guidance, commercial payer requirements, and accreditation documentation standards were compiled into a build list.</p>
+          </article>
+          <article class="build-node" data-step="03">
+            <h3>Configure the PMP</h3>
+            <p>Required questions, assessments, interventions, and outcome fields were embedded in the internal patient management platform.</p>
+          </article>
+          <article class="build-node" data-step="04">
+            <h3>Deliver customized care</h3>
+            <p>A hemophilia nurse and specialty pharmacists used the platform to track outcomes, guide outreach, and coordinate infusion support.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="workflow-board" aria-labelledby="workflow-title">
+        <div class="workflow-lane">
+          <p class="section-label">New start workflow</p>
+          <h2 id="workflow-title">Structured assessments anchor the program</h2>
+          <ol class="step-list">
+            <li><b>1</b><span>Initiate onboarding assessment for the patient.</span></li>
+            <li><b>2</b><span>Complete clinical initial assessment.</span></li>
+            <li><b>3</b><span>Evaluate referral need for home infusion nursing services.</span></li>
+            <li><b>4</b><span>Continue clinical follow-up assessment every 6 months.</span></li>
+            <li><b>5</b><span>Open patient care initial activity for ongoing management.</span></li>
+          </ol>
+        </div>
+        <div class="workflow-lane">
+          <p class="section-label">Refill workflow</p>
+          <h2>Refills become clinical checkpoints</h2>
+          <ol class="step-list">
+            <li><b>A</b><span>Start with patient care refill activity and screen for a recent bleed.</span></li>
+            <li><b>B</b><span>If a bleed occurred, complete a bleed assessment in the PMP and adjust care if needed.</span></li>
+            <li><b>C</b><span>If a refill is needed, perform outreach and assess clinical status through required PMP questions.</span></li>
+            <li><b>D</b><span>Coordinate assay management to reduce variance between ordered and dispensed dose.</span></li>
+            <li><b>E</b><span>Confirm infusion supplies, home nursing needs, future follow-up, or supply reconciliation.</span></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="panel requirements-panel" id="requirements">
+        <div>
+          <p class="section-label">Requirement architecture</p>
+          <h2>Three external lenses shaped the internal platform</h2>
+          <p>The program did not rely on a single requirement source. It combined payer expectations, accreditation documentation, and outcomes judged clinically meaningful for hemophilia management.</p>
+          <div class="lens-chart enhanced" aria-label="Requirements by source">
+            <div class="lens-row">
+              <span>Accreditation standards</span>
+              <div class="lens-bar"><i style="width: 100%"></i></div>
+              <output>58</output>
+            </div>
+            <div class="lens-row">
+              <span>Payor requirements</span>
+              <div class="lens-bar"><i style="width: 43%"></i></div>
+              <output>25</output>
+            </div>
+            <div class="lens-row">
+              <span>Clinical outcomes</span>
+              <div class="lens-bar"><i style="width: 16%"></i></div>
+              <output>9</output>
+            </div>
+          </div>
+        </div>
+        <div class="requirements-dial" aria-label="Requirement count dial">
+          <svg viewBox="0 0 260 260" role="img" aria-labelledby="dial-title">
+            <title id="dial-title">Requirement sources converging into the PMP</title>
+            <circle cx="130" cy="130" r="104" fill="none" stroke="#d9e1ef" stroke-width="24"/>
+            <circle cx="130" cy="130" r="104" fill="none" stroke="#d12630" stroke-width="24" stroke-dasharray="214 653" stroke-dashoffset="-18" stroke-linecap="round"/>
+            <circle cx="130" cy="130" r="76" fill="none" stroke="#e99e25" stroke-width="18" stroke-dasharray="165 478" stroke-dashoffset="-70" stroke-linecap="round"/>
+            <circle cx="130" cy="130" r="50" fill="none" stroke="#187c8f" stroke-width="14" stroke-dasharray="58 314" stroke-dashoffset="-126" stroke-linecap="round"/>
+            <text x="130" y="22" text-anchor="middle" fill="#243770" font-family="Inter, Arial" font-size="11" font-weight="900">documentation</text>
+            <text x="230" y="142" text-anchor="middle" fill="#243770" font-family="Inter, Arial" font-size="11" font-weight="900">payor</text>
+            <text x="130" y="248" text-anchor="middle" fill="#243770" font-family="Inter, Arial" font-size="11" font-weight="900">outcomes</text>
+          </svg>
+          <div class="requirements-center">
+            <div>
+              <strong>92</strong>
+              <span>coded elements</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tables-grid" aria-label="Table pattern summary">
+        <article class="table-card">
+          <p class="section-label">Payor table pattern</p>
+          <h3>25 requirements across 6 domains</h3>
+          <ul>
+            <li>Clinical interventions</li>
+            <li>Assay management</li>
+            <li>Medication adherence</li>
+            <li>Bleed management</li>
+            <li>Baseline parameters</li>
+            <li>Clinical outcomes including target joints and inhibitor management</li>
+          </ul>
+        </article>
+        <article class="table-card">
+          <p class="section-label">Accreditation table pattern</p>
+          <h3>58 documentation needs converted to patient-management fields</h3>
+          <ul>
+            <li>Clinical assessments, demographics, medication list, and goals of therapy</li>
+            <li>Education, counseling, drug utilization review, and interventions</li>
+            <li>Prescription details, benefits investigation, copay support, and welcome packet</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="panel" id="outcomes">
+        <p class="section-label">Clinical outcomes selected</p>
+        <h2>Nine hemophilia outcomes became routine tracking targets</h2>
+        <div class="outcome-tags" aria-label="Clinical outcome list">
+          <div class="outcome-tag">Hemophilia-related comorbid conditions</div>
+          <div class="outcome-tag">Annualized bleeding rate</div>
+          <div class="outcome-tag">Pain assessment</div>
+          <div class="outcome-tag">Life-threatening bleeds</div>
+          <div class="outcome-tag">Timeliness to treat</div>
+          <div class="outcome-tag">Supply on hand</div>
+          <div class="outcome-tag">Vaccination status</div>
+          <div class="outcome-tag">Medication regimen</div>
+          <div class="outcome-tag">Monitoring dental visits</div>
+        </div>
+      </section>
+
+      <section class="section-stack">
+        <div class="panel">
+          <p class="section-label">Home infusion layer</p>
+          <h2>Operational support was contracted, not assumed</h2>
+          <p>Two home infusion nursing agencies preferred by regional patients were identified. The specialty pharmacy established contracts, and the hemophilia nurse referral packet included demographics, medication or supply orders, and intravenous access details.</p>
+        </div>
+        <div class="panel conclusion-card">
+          <p class="section-label">Conclusion</p>
+          <h2>A systematic build creates the quality foundation</h2>
+          <p>Gathering requirements from payors, accreditation organizations, and clinical best practices provided the foundation for the hemophilia program. Ongoing evaluation of outcomes was positioned as the next step to validate quality care delivered by the hemophilia nurse and specialty pharmacists.</p>
+          <p class="source-note">Authors listed Shields Health Solutions, UMass Memorial Health Care, and NYU Langone Health affiliations in the source poster.</p>
+        </div>
+      </section>
+
+      <footer class="footer-actions" aria-label="Source files">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-32_2020.pdf">Open original PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-32_2020.md">Open extracted markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

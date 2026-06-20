@@ -1,0 +1,624 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reducing Discontinuation and Dose Reduction with Pharmacist Monitoring | NASP 2019</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -3rem;
+      bottom: -3.6rem;
+      width: 13rem;
+      height: 13rem;
+      border: 1.2rem solid rgba(24, 124, 143, 0.12);
+      border-radius: 50%;
+    }
+    .hero-card > * {
+      position: relative;
+      z-index: 1;
+    }
+    .care-loop {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.5rem;
+      margin-top: 0.6rem;
+    }
+    .care-loop span {
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.55rem;
+      color: var(--ink);
+      font-size: 0.72rem;
+      font-weight: 850;
+      text-align: center;
+    }
+    .metric-card strong small {
+      color: var(--red);
+      font-size: 0.88rem;
+    }
+    .metric-card em {
+      display: block;
+      margin-top: 0.34rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-style: normal;
+      font-weight: 760;
+    }
+    .study-frame {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.75rem;
+    }
+    .study-card {
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.75rem;
+    }
+    .study-card h3 {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.42rem;
+    }
+    .study-card h3 span {
+      color: var(--red);
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 900;
+    }
+    .study-card p {
+      margin: 0;
+      color: var(--body);
+      font-size: 0.8rem;
+    }
+    .call-lanes {
+      display: grid;
+      gap: 0.6rem;
+      margin-top: 0.82rem;
+    }
+    .call-lane {
+      display: grid;
+      grid-template-columns: 9.3rem minmax(0, 1fr);
+      gap: 0.62rem;
+      align-items: center;
+    }
+    .lane-label {
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+    .lane-track {
+      position: relative;
+      height: 3.1rem;
+      border: 1px solid rgba(36, 55, 112, 0.15);
+      border-radius: 999px;
+      background: #eef4fb;
+    }
+    .lane-track i {
+      position: absolute;
+      top: 50%;
+      width: 1.45rem;
+      height: 1.45rem;
+      transform: translate(-50%, -50%);
+      border: 3px solid #fff;
+      border-radius: 50%;
+      background: var(--teal);
+      box-shadow: 0 0 0 1px rgba(36, 55, 112, 0.2);
+    }
+    .call-lane.control .lane-track i {
+      background: var(--border-strong);
+    }
+    .lane-track i::after {
+      content: attr(data-day);
+      position: absolute;
+      top: 1.45rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--muted);
+      font-size: 0.58rem;
+      font-style: normal;
+      font-weight: 850;
+      white-space: nowrap;
+    }
+    .outcome-board {
+      display: grid;
+      gap: 0.76rem;
+      margin-top: 0.8rem;
+    }
+    .outcome-row {
+      display: grid;
+      grid-template-columns: 12rem minmax(0, 1fr) 4rem;
+      gap: 0.55rem;
+      align-items: center;
+    }
+    .outcome-row .label {
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 900;
+    }
+    .paired-track {
+      display: grid;
+      gap: 0.25rem;
+    }
+    .bar-line {
+      display: grid;
+      grid-template-columns: 2.1rem minmax(0, 1fr) 2.7rem;
+      gap: 0.34rem;
+      align-items: center;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 850;
+    }
+    .bar-track {
+      height: 0.6rem;
+      border-radius: 999px;
+      background: #e7edf6;
+      overflow: hidden;
+    }
+    .bar-fill {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--border-strong);
+    }
+    .bar-fill.ig {
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .delta {
+      color: var(--teal);
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 900;
+      text-align: right;
+    }
+    .maintenance-curve {
+      width: 100%;
+      height: auto;
+      margin-top: 0.7rem;
+    }
+    .intervention-mix {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 0.76rem;
+    }
+    .mix-row {
+      display: grid;
+      grid-template-columns: 12rem minmax(0, 1fr) 3.5rem;
+      gap: 0.5rem;
+      align-items: center;
+      color: var(--body);
+      font-size: 0.76rem;
+      font-weight: 780;
+    }
+    .mix-row .mix-track {
+      height: 0.72rem;
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .mix-row .mix-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .sample-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.72rem;
+    }
+    .sample-tile {
+      border-left: 3px solid var(--gold);
+      background: var(--surface-warm);
+      padding: 0.58rem;
+    }
+    .sample-tile strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.18rem;
+      line-height: 1;
+    }
+    .sample-tile span {
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 820;
+    }
+    .takeaway {
+      border-left: 5px solid var(--red);
+      background: linear-gradient(90deg, rgba(209, 38, 48, 0.08), rgba(255, 255, 255, 0));
+    }
+    .source-note {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+    @media (max-width: 900px) {
+      .study-frame,
+      .sample-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 700px) {
+      .care-loop,
+      .study-frame,
+      .sample-grid,
+      .call-lane,
+      .outcome-row,
+      .mix-row {
+        grid-template-columns: 1fr;
+      }
+      .delta {
+        text-align: left;
+      }
+      .lane-label {
+        margin-top: 0.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar" aria-label="Infographic navigation">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#intervention">Intervention</a>
+        <a href="#results">Results</a>
+        <a href="#evidence">Evidence</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2019 poster 28_2019</p>
+        <h1 id="poster-title">A targeted approach to reducing rates of discontinuation and dose reduction in patients receiving sorafenib or regorafenib</h1>
+        <p class="hero-summary">
+          Vanderbilt Specialty Pharmacy tested whether a structured pharmacist monitoring program
+          could detect adverse reactions earlier and help patients stay on oral multikinase inhibitor
+          therapy through the first 90 days.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Historically controlled study</li>
+          <li class="tag therapy">Sorafenib</li>
+          <li class="tag therapy">Regorafenib</li>
+          <li class="tag">90-day monitoring</li>
+          <li class="tag">Vanderbilt University Medical Center</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div>
+          <p class="section-label">Poster file</p>
+          <div class="poster-code">28_2019</div>
+        </div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Year</dt>
+            <dd>2019</dd>
+          </div>
+          <div>
+            <dt>Total n</dt>
+            <dd>33 patients</dd>
+          </div>
+          <div>
+            <dt>Control</dt>
+            <dd>4 calls</dd>
+          </div>
+          <div>
+            <dt>Intervention</dt>
+            <dd>Kit + 7 calls</dd>
+          </div>
+        </dl>
+        <div class="care-loop" aria-hidden="true">
+          <span>Assess adverse effects</span>
+          <span>Mitigate symptoms</span>
+          <span>Preserve therapy</span>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Control group</span>
+          <strong>17</strong>
+          <em>Therapy initiated Sep 2016-Aug 2017.</em>
+        </article>
+        <article class="metric-card">
+          <span>Intervention group</span>
+          <strong>16</strong>
+          <em>Therapy initiated Sep 2017-Aug 2018.</em>
+        </article>
+        <article class="metric-card">
+          <span>IG support delivered</span>
+          <strong>80</strong>
+          <em>Calls documented among 13 intervention patients.</em>
+        </article>
+        <article class="metric-card">
+          <span>Interventions made</span>
+          <strong>41</strong>
+          <em>Most focused on adverse-effect mitigation.</em>
+        </article>
+      </section>
+
+      <section class="visual-grid" id="intervention">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Could proactive pharmacist touchpoints reduce treatment disruption?</h2>
+          <p>
+            The poster assessed the impact of pharmacist intervention on rates of sorafenib and
+            regorafenib treatment discontinuation and dose reduction due to adverse reactions.
+          </p>
+          <div class="study-frame">
+            <div class="study-card">
+              <h3>Control group <span>CG n=17</span></h3>
+              <p>Initial counseling plus refill-oriented phone calls at days 30, 60, and 90.</p>
+            </div>
+            <div class="study-card">
+              <h3>Intervention group <span>IG n=16</span></h3>
+              <p>Welcome kit plus additional early clinical calls tailored by therapy.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Call schedule</p>
+          <h2>Intervention added earlier checks before the refill cycle</h2>
+          <div class="call-lanes" aria-label="90-day call schedule by group">
+            <div class="call-lane">
+              <span class="lane-label">Sorafenib IG</span>
+              <div class="lane-track">
+                <i style="left:2%" data-day="1"></i>
+                <i style="left:8%" data-day="7"></i>
+                <i style="left:13%" data-day="12"></i>
+                <i style="left:20%" data-day="15-21"></i>
+                <i style="left:33%" data-day="30"></i>
+                <i style="left:67%" data-day="60"></i>
+                <i style="left:98%" data-day="90"></i>
+              </div>
+            </div>
+            <div class="call-lane">
+              <span class="lane-label">Regorafenib IG</span>
+              <div class="lane-track">
+                <i style="left:2%" data-day="1"></i>
+                <i style="left:4%" data-day="3"></i>
+                <i style="left:10%" data-day="7-10"></i>
+                <i style="left:20%" data-day="15-21"></i>
+                <i style="left:33%" data-day="30"></i>
+                <i style="left:67%" data-day="60"></i>
+                <i style="left:98%" data-day="90"></i>
+              </div>
+            </div>
+            <div class="call-lane control">
+              <span class="lane-label">Control group</span>
+              <div class="lane-track">
+                <i style="left:2%" data-day="1"></i>
+                <i style="left:33%" data-day="30"></i>
+                <i style="left:67%" data-day="60"></i>
+                <i style="left:98%" data-day="90"></i>
+              </div>
+            </div>
+          </div>
+          <p class="source-note">Schedule extracted from Figure 1; percentage position approximates day within 90 days.</p>
+        </article>
+      </section>
+
+      <section class="visual-grid" id="results">
+        <article class="panel">
+          <p class="section-label">90-day outcomes</p>
+          <h2>Intervention patients were less likely to interrupt or modify therapy</h2>
+          <div class="outcome-board" aria-label="Rates of therapy disruption within 90 days">
+            <div class="outcome-row">
+              <span class="label">Therapy discontinued</span>
+              <div class="paired-track">
+                <div class="bar-line"><span>CG</span><div class="bar-track"><i class="bar-fill" style="width:29%"></i></div><span>29%</span></div>
+                <div class="bar-line"><span>IG</span><div class="bar-track"><i class="bar-fill ig" style="width:13%"></i></div><span>13%</span></div>
+              </div>
+              <span class="delta">-16 pts</span>
+            </div>
+            <div class="outcome-row">
+              <span class="label">Dose reduction</span>
+              <div class="paired-track">
+                <div class="bar-line"><span>CG</span><div class="bar-track"><i class="bar-fill" style="width:25%"></i></div><span>25%</span></div>
+                <div class="bar-line"><span>IG</span><div class="bar-track"><i class="bar-fill ig" style="width:18%"></i></div><span>18%</span></div>
+              </div>
+              <span class="delta">-7 pts</span>
+            </div>
+            <div class="outcome-row">
+              <span class="label">Any interruption or dose reduction</span>
+              <div class="paired-track">
+                <div class="bar-line"><span>CG</span><div class="bar-track"><i class="bar-fill" style="width:65%"></i></div><span>65%</span></div>
+                <div class="bar-line"><span>IG</span><div class="bar-track"><i class="bar-fill ig" style="width:13%"></i></div><span>13%</span></div>
+              </div>
+              <span class="delta">-52 pts</span>
+            </div>
+          </div>
+          <p class="source-note">Rates are from Figure 3; percentages are descriptive and not presented as adjusted estimates.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Maintaining therapy</p>
+          <h2>The 90-day maintenance gap widened late in follow-up</h2>
+          <svg class="maintenance-curve" viewBox="0 0 620 300" role="img" aria-label="Percent maintaining therapy through 90 days">
+            <rect x="54" y="24" width="510" height="210" rx="8" fill="#f6f9fe" stroke="#d9e1ef"/>
+            <g stroke="#d9e1ef" stroke-width="1">
+              <line x1="54" y1="66" x2="564" y2="66"/>
+              <line x1="54" y1="108" x2="564" y2="108"/>
+              <line x1="54" y1="150" x2="564" y2="150"/>
+              <line x1="54" y1="192" x2="564" y2="192"/>
+            </g>
+            <g fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800">
+              <text x="20" y="70">100</text>
+              <text x="26" y="112">80</text>
+              <text x="26" y="154">60</text>
+              <text x="26" y="196">40</text>
+              <text x="64" y="260">1</text>
+              <text x="130" y="260">7</text>
+              <text x="196" y="260">12</text>
+              <text x="263" y="260">15</text>
+              <text x="330" y="260">21</text>
+              <text x="431" y="260">60</text>
+              <text x="548" y="260">90</text>
+            </g>
+            <polyline points="68,66 136,66 204,66 272,66 340,66 442,91 558,91" fill="none" stroke="#d12630" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            <polyline points="68,66 136,66 204,66 272,66 340,102 442,127 558,152" fill="none" stroke="#aebbd2" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            <g fill="#fff" stroke-width="3">
+              <circle cx="558" cy="91" r="7" stroke="#d12630"/>
+              <circle cx="558" cy="152" r="7" stroke="#aebbd2"/>
+            </g>
+            <g font-family="Inter, Arial, sans-serif" font-weight="900" font-size="13">
+              <text x="430" y="82" fill="#d12630">IG 88%</text>
+              <text x="430" y="166" fill="#68758d">CG 59%</text>
+              <text x="254" y="286" fill="#68758d">Days after therapy initiation</text>
+            </g>
+          </svg>
+          <p class="source-note">Line visualizes the Figure 2 therapy-discontinuation maintenance series.</p>
+        </article>
+      </section>
+
+      <section class="evidence-map" id="evidence" aria-label="Evidence flow">
+        <article class="evidence-card">
+          <h3>Rationale</h3>
+          <p>Adverse events with sorafenib and regorafenib commonly lead to discontinuation or dose reduction.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Mechanism</h3>
+          <p>Pharmacists monitored side effects, blood pressure, missed doses, supply, interactions, and care-team communication.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Workload</h3>
+          <p>The intervention group generated 80 calls and 41 documented interventions among 13 patients.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Main action</h3>
+          <p>Adverse-effect mitigation accounted for 26 interventions, or 63% of all pharmacist actions.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Conclusion</h3>
+          <p>Tailored clinical monitoring helped detect and mitigate adverse reactions so patients remained on therapy longer.</p>
+        </article>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">Intervention mix</p>
+          <h2>Most pharmacist actions targeted adverse effects</h2>
+          <div class="intervention-mix" aria-label="Pharmacist intervention types">
+            <div class="mix-row">
+              <span>Mitigation strategies</span>
+              <div class="mix-track"><i style="width:63%"></i></div>
+              <strong>26 (63%)</strong>
+            </div>
+            <div class="mix-row">
+              <span>Reviewed dose</span>
+              <div class="mix-track"><i style="width:14%"></i></div>
+              <strong>6 (14%)</strong>
+            </div>
+            <div class="mix-row">
+              <span>Screened interaction</span>
+              <div class="mix-track"><i style="width:7%"></i></div>
+              <strong>3 (7%)</strong>
+            </div>
+            <div class="mix-row">
+              <span>Contacted provider</span>
+              <div class="mix-track"><i style="width:7%"></i></div>
+              <strong>3 (7%)</strong>
+            </div>
+            <div class="mix-row">
+              <span>Starter-kit supplies</span>
+              <div class="mix-track"><i style="width:7%"></i></div>
+              <strong>3 (7%)</strong>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel takeaway">
+          <p class="section-label">Interpretation</p>
+          <h2>A small, targeted monitoring layer produced a large descriptive signal</h2>
+          <div class="markdown-fragment">
+            <p>
+              The poster concluded that tailored clinical monitoring of oral multikinase inhibitors
+              was effective in detecting and mitigating adverse reactions.
+            </p>
+            <p>
+              The strongest visual signal was the difference in any therapy interruption or dose
+              reduction within 90 days: 65% in the control group versus 13% in the intervention group.
+            </p>
+          </div>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Extracted table patterns">
+        <article class="table-card">
+          <p class="section-label">Sample characteristics</p>
+          <h2>Groups were small and clinically mixed</h2>
+          <div class="sample-grid" aria-label="Selected baseline characteristics">
+            <div class="sample-tile"><strong>64 / 59</strong><span>Mean age, CG / IG</span></div>
+            <div class="sample-tile"><strong>53% / 69%</strong><span>Female, CG / IG</span></div>
+            <div class="sample-tile"><strong>41% / 19%</strong><span>AML, CG / IG</span></div>
+            <div class="sample-tile"><strong>35% / 44%</strong><span>HCC, CG / IG</span></div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Characteristic</th>
+                  <th>Control n=17</th>
+                  <th>Intervention n=16</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Age, years</td><td>64 [15.2]</td><td>59 [17.1]</td></tr>
+                <tr><td>Race, White</td><td>17 (100)</td><td>12 (75)</td></tr>
+                <tr><td>Desmoid tumor</td><td>2 (12)</td><td>5 (31)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Counseling pattern</p>
+          <h2>Assessments moved from setup to longitudinal symptom checks</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Early setup topics</th>
+                  <th>Ongoing monitoring topics</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Dosing, administration, storage</td><td>Incidence of side effects</td></tr>
+                <tr><td>Starter kit contents</td><td>Blood pressure monitoring</td></tr>
+                <tr><td>Drug-drug interactions</td><td>Missed doses and refill needs</td></tr>
+                <tr><td>Pregnancy, lactation, contraception</td><td>Patient experience and provider communication</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="source-note">Condensed from Table 1; some topics were assessed as needed.</p>
+        </article>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/28_2019.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/28_2019.md">Source Markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Evaluating the Specialty APPE Experience | NASP 2025</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .appe-hero-art {
+      position: relative;
+      min-height: 19rem;
+      border: 1px solid rgba(36, 55, 112, 0.2);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 20% 18%, rgba(24, 124, 143, 0.2), transparent 8.5rem),
+        radial-gradient(circle at 86% 78%, rgba(233, 158, 37, 0.24), transparent 10rem),
+        linear-gradient(145deg, #ffffff 0%, var(--surface-blue) 56%, var(--surface-warm) 100%);
+      overflow: hidden;
+    }
+
+    .appe-hero-art svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 19rem;
+    }
+
+    .hero-card .finding {
+      margin: 0;
+      border-left: 4px solid var(--teal);
+      padding-left: 0.72rem;
+      color: var(--ink);
+      font-size: 0.94rem;
+      font-weight: 850;
+    }
+
+    .metric-card p {
+      margin: 0.45rem 0 0;
+      font-size: 0.78rem;
+    }
+
+    .signal-layout {
+      display: grid;
+      grid-template-columns: minmax(15rem, 0.68fr) minmax(0, 1.32fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .big-signal {
+      display: grid;
+      align-content: center;
+      min-height: 16rem;
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background:
+        linear-gradient(145deg, rgba(209, 38, 48, 0.12), transparent 42%),
+        linear-gradient(315deg, rgba(24, 124, 143, 0.12), transparent 48%),
+        #ffffff;
+      padding: 1.15rem;
+    }
+
+    .big-signal span {
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .big-signal strong {
+      display: block;
+      margin-top: 0.2rem;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(4rem, 10vw, 6.5rem);
+      line-height: 0.88;
+    }
+
+    .big-signal p {
+      margin: 0.75rem 0 0;
+      color: var(--ink);
+      font-size: 0.95rem;
+      font-weight: 800;
+    }
+
+    .stacked-bars {
+      display: grid;
+      gap: 0.8rem;
+      margin-top: 0.7rem;
+    }
+
+    .stacked-row {
+      display: grid;
+      grid-template-columns: 8.6rem minmax(0, 1fr) 4rem;
+      gap: 0.65rem;
+      align-items: center;
+    }
+
+    .stacked-row b {
+      color: var(--ink);
+      font-size: 0.82rem;
+      line-height: 1.15;
+    }
+
+    .stacked-track {
+      display: grid;
+      grid-template-columns: var(--very) var(--sat) var(--neutral);
+      height: 1.12rem;
+      border: 1px solid rgba(174, 187, 210, 0.88);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+
+    .stacked-track span:nth-child(1) { background: var(--teal); }
+    .stacked-track span:nth-child(2) { background: var(--gold); }
+    .stacked-track span:nth-child(3) { background: rgba(104, 117, 141, 0.35); }
+
+    .stacked-row em {
+      color: var(--ink);
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 0.9rem;
+      margin-top: 0.7rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    .legend i {
+      display: inline-block;
+      width: 0.7rem;
+      height: 0.7rem;
+      margin-right: 0.25rem;
+      border-radius: 2px;
+      vertical-align: -0.08rem;
+      background: var(--teal);
+    }
+
+    .legend span:nth-child(2) i { background: var(--gold); }
+    .legend span:nth-child(3) i { background: rgba(104, 117, 141, 0.35); }
+
+    .program-path {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .program-step {
+      position: relative;
+      min-height: 12.2rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #ffffff, var(--surface-blue));
+      padding: 0.9rem;
+      overflow: hidden;
+    }
+
+    .program-step::after {
+      content: attr(data-step);
+      position: absolute;
+      right: 0.45rem;
+      bottom: -0.62rem;
+      color: rgba(36, 55, 112, 0.1);
+      font-family: var(--font-display);
+      font-size: 4.8rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .program-step h3,
+    .program-step p {
+      position: relative;
+      z-index: 1;
+    }
+
+    .program-step p {
+      margin: 0.55rem 0 0;
+      font-size: 0.82rem;
+    }
+
+    .support-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .support-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.9rem;
+    }
+
+    .support-card small {
+      display: inline-flex;
+      margin-bottom: 0.45rem;
+      border-radius: 999px;
+      background: rgba(117, 97, 168, 0.12);
+      padding: 0.2rem 0.5rem;
+      color: var(--purple);
+      font-size: 0.65rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .support-card strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .support-card p {
+      margin: 0.45rem 0 0;
+      font-size: 0.82rem;
+    }
+
+    .agreement-bars {
+      display: grid;
+      gap: 0.62rem;
+      margin-top: 0.65rem;
+    }
+
+    .agreement-row {
+      display: grid;
+      grid-template-columns: 10rem minmax(0, 1fr) 3.1rem;
+      gap: 0.55rem;
+      align-items: center;
+    }
+
+    .agreement-row b {
+      color: var(--ink);
+      font-size: 0.8rem;
+      line-height: 1.1;
+    }
+
+    .agreement-track {
+      height: 1rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+
+    .agreement-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .agreement-row span {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .takeaway {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(24, 124, 143, 0.1), transparent 42%),
+        #ffffff;
+    }
+
+    .takeaway p {
+      margin: 0;
+      color: var(--ink);
+      font-size: 1rem;
+      font-weight: 850;
+    }
+
+    @media (max-width: 900px) {
+      .signal-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .program-path,
+      .support-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .program-path,
+      .support-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stacked-row,
+      .agreement-row {
+        grid-template-columns: 1fr;
+      }
+
+      .stacked-row em,
+      .agreement-row span {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">NASP Posters</a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/1203-PSP93-OR-Poster-AM25_2025.pdf">Poster PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/1203-PSP93-OR-Poster-AM25_2025.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2025 | 1203-PSP93-OR</p>
+        <h1>Evaluating the Specialty APPE Experience</h1>
+        <p class="hero-summary">
+          A first-year UK Specialty Pharmacy and Infusion Services APPE program used a site coordinator, structured specialty content, disease-state discussions, and mock interviews to support student learning and preceptor workflow.
+        </p>
+        <ul class="tag-row" aria-label="Poster themes">
+          <li class="tag therapy">Specialty pharmacy</li>
+          <li class="tag category">Experiential education</li>
+          <li class="tag">Student satisfaction</li>
+          <li class="tag">Preceptor support</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div class="poster-code">PSP93</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Year</dt>
+            <dd>2025</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>HSSP APPE</dd>
+          </div>
+          <div>
+            <dt>Students</dt>
+            <dd>23 responded</dd>
+          </div>
+          <div>
+            <dt>Preceptors</dt>
+            <dd>7 responded</dd>
+          </div>
+        </dl>
+        <p class="finding">Core finding: organized coordination was associated with high satisfaction and strong perceived preparation value.</p>
+      </aside>
+    </section>
+
+    <main>
+      <section class="visual-grid" aria-labelledby="program-model">
+        <div class="appe-hero-art" aria-hidden="true">
+          <svg viewBox="0 0 640 420" role="img">
+            <defs>
+              <linearGradient id="appeGradient" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#187c8f" stop-opacity="0.95"/>
+                <stop offset="1" stop-color="#d12630" stop-opacity="0.92"/>
+              </linearGradient>
+              <filter id="appeShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#243770" flood-opacity="0.16"/>
+              </filter>
+            </defs>
+            <rect x="64" y="52" width="512" height="304" rx="28" fill="#ffffff" opacity="0.82" filter="url(#appeShadow)"/>
+            <circle cx="320" cy="205" r="76" fill="url(#appeGradient)" opacity="0.94"/>
+            <circle cx="320" cy="205" r="50" fill="#ffffff" opacity="0.95"/>
+            <path d="M297 203l16 17 35-44" fill="none" stroke="#187c8f" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+            <g fill="#ffffff" stroke="#aebbd2" stroke-width="3" filter="url(#appeShadow)">
+              <rect x="64" y="72" width="152" height="82" rx="16"/>
+              <rect x="424" y="72" width="152" height="82" rx="16"/>
+              <rect x="64" y="258" width="152" height="82" rx="16"/>
+              <rect x="424" y="258" width="152" height="82" rx="16"/>
+            </g>
+            <g fill="none" stroke="#243770" stroke-width="4" stroke-linecap="round" opacity="0.45">
+              <path d="M216 113h70"/>
+              <path d="M424 113h-70"/>
+              <path d="M216 299h70"/>
+              <path d="M424 299h-70"/>
+            </g>
+            <g font-family="Inter, Arial, sans-serif" text-anchor="middle">
+              <text x="140" y="103" fill="#243770" font-size="18" font-weight="900">Day 1</text>
+              <text x="140" y="128" fill="#68758d" font-size="13" font-weight="800">orientation</text>
+              <text x="500" y="103" fill="#243770" font-size="18" font-weight="900">Topic</text>
+              <text x="500" y="128" fill="#68758d" font-size="13" font-weight="800">series</text>
+              <text x="140" y="289" fill="#243770" font-size="18" font-weight="900">Disease</text>
+              <text x="140" y="314" fill="#68758d" font-size="13" font-weight="800">discussions</text>
+              <text x="500" y="289" fill="#243770" font-size="18" font-weight="900">Mock</text>
+              <text x="500" y="314" fill="#68758d" font-size="13" font-weight="800">interviews</text>
+              <text x="320" y="332" fill="#d12630" font-size="18" font-weight="900">coordinator-led APPE structure</text>
+            </g>
+          </svg>
+        </div>
+
+        <div class="panel">
+          <p class="section-label" id="program-model">Objective</p>
+          <h2>Measure satisfaction and locate program strengths</h2>
+          <div class="markdown-fragment">
+            <p>The project assessed student pharmacist and preceptor satisfaction with the UKSPIS APPE Program, identified strengths and weaknesses, explored expansion opportunities, and evaluated the impact of the newly implemented site coordinator.</p>
+            <p>The questionnaire was distributed through REDCap to APPE students after each rotation block and to preceptors after their final scheduled APPE block in the 2024-2025 academic year.</p>
+          </div>
+          <div class="number-cloud" aria-label="Study response counts">
+            <div class="number-pill">76.7%<small>student response</small></div>
+            <div class="number-pill">77.8%<small>preceptor response</small></div>
+            <div class="number-pill">20<small>complete student surveys</small></div>
+            <div class="number-pill">7<small>complete preceptor surveys</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="metric-strip" aria-label="Key result metrics">
+        <div class="metric-card">
+          <span>Student satisfaction</span>
+          <strong>90%</strong>
+          <p>Satisfied or very satisfied with the UKSPIS APPE Program.</p>
+        </div>
+        <div class="metric-card">
+          <span>Preceptor satisfaction</span>
+          <strong>100%</strong>
+          <p>Preceptors reported satisfied or very satisfied responses.</p>
+        </div>
+        <div class="metric-card">
+          <span>Mock interview value</span>
+          <strong>97%</strong>
+          <p>Students agreed or strongly agreed it prepared them for applications and interviews.</p>
+        </div>
+        <div class="metric-card">
+          <span>NAPLEX preparation</span>
+          <strong>83%</strong>
+          <p>Students agreed or strongly agreed disease-state discussions aided preparation.</p>
+        </div>
+      </section>
+
+      <section class="signal-layout" aria-labelledby="satisfaction-signal">
+        <div class="big-signal">
+          <span id="satisfaction-signal">Top-line result</span>
+          <strong>0%</strong>
+          <p>Dissatisfied or very dissatisfied among both student and preceptor respondents.</p>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Satisfaction Pattern</p>
+          <h2>Positive ratings dominated both respondent groups</h2>
+          <div class="stacked-bars" aria-label="Overall satisfaction distribution">
+            <div class="stacked-row">
+              <b>Students</b>
+              <div class="stacked-track" style="--very: 62%; --sat: 28%; --neutral: 10%;">
+                <span aria-label="Very satisfied 62 percent"></span>
+                <span aria-label="Satisfied 28 percent"></span>
+                <span aria-label="Neutral 10 percent"></span>
+              </div>
+              <em>90%</em>
+            </div>
+            <div class="stacked-row">
+              <b>Preceptors</b>
+              <div class="stacked-track" style="--very: 72%; --sat: 28%; --neutral: 0%;">
+                <span aria-label="Very satisfied 72 percent"></span>
+                <span aria-label="Satisfied 28 percent"></span>
+                <span aria-label="Neutral 0 percent"></span>
+              </div>
+              <em>100%</em>
+            </div>
+          </div>
+          <div class="legend" aria-label="Satisfaction legend">
+            <span><i></i>Very satisfied</span>
+            <span><i></i>Satisfied</span>
+            <span><i></i>Neutral</span>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="program-components">
+        <p class="section-label" id="program-components">Evidence Flow</p>
+        <h2>Four structured components formed the APPE support model</h2>
+        <div class="program-path">
+          <article class="program-step" data-step="1">
+            <h3>Streamlined onboarding</h3>
+            <p>Centralized communication and orientation reduced early rotation friction for students and preceptors.</p>
+          </article>
+          <article class="program-step" data-step="2">
+            <h3>Expert-led specialty topics</h3>
+            <p>Specialty Topic Series presentations were used to broaden exposure to specialty pharmacy practice.</p>
+          </article>
+          <article class="program-step" data-step="3">
+            <h3>Student-led disease discussions</h3>
+            <p>Disease-state topic discussions connected rotation learning to NAPLEX preparation.</p>
+          </article>
+          <article class="program-step" data-step="4">
+            <h3>Mock application and interview</h3>
+            <p>A rigorous mock process targeted future job and postgraduate training readiness.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="visual-grid" aria-labelledby="preparation-signal">
+        <div class="panel">
+          <p class="section-label" id="preparation-signal">Student Preparation</p>
+          <h2>Career-readiness items outpaced neutral or negative response</h2>
+          <div class="agreement-bars">
+            <div class="agreement-row">
+              <b>Mock interview prepared me</b>
+              <div class="agreement-track"><i style="--w: 97%;"></i></div>
+              <span>97%</span>
+            </div>
+            <div class="agreement-row">
+              <b>Disease discussions aided NAPLEX prep</b>
+              <div class="agreement-track"><i style="--w: 83%;"></i></div>
+              <span>83%</span>
+            </div>
+            <div class="agreement-row">
+              <b>Specialty topics helped learning</b>
+              <div class="agreement-track"><i style="--w: 100%;"></i></div>
+              <span>100%</span>
+            </div>
+            <div class="agreement-row">
+              <b>Rotation met expectations</b>
+              <div class="agreement-track"><i style="--w: 95%;"></i></div>
+              <span>95%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Coordinator Effect</p>
+          <h2>Coordination was the clearest support signal</h2>
+          <div class="support-grid">
+            <article class="support-card">
+              <small>Students</small>
+              <strong>100%</strong>
+              <p>Agreed or strongly agreed site coordinator communication was adequate.</p>
+            </article>
+            <article class="support-card">
+              <small>Students</small>
+              <strong>100%</strong>
+              <p>Agreed or strongly agreed the site coordinator streamlined the APPE experience.</p>
+            </article>
+            <article class="support-card">
+              <small>Preceptors</small>
+              <strong>100%</strong>
+              <p>Agreed or strongly agreed coordinator communication and streamlining were adequate.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="tables-grid" aria-label="Condensed table patterns">
+        <article class="table-card">
+          <h2>Overall Satisfaction</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Level</th>
+                  <th>Preceptor</th>
+                  <th>Student</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Very satisfied</td>
+                  <td>72%</td>
+                  <td>62%</td>
+                </tr>
+                <tr>
+                  <td>Satisfied</td>
+                  <td>28%</td>
+                  <td>28%</td>
+                </tr>
+                <tr>
+                  <td>Neutral</td>
+                  <td>0%</td>
+                  <td>10%</td>
+                </tr>
+                <tr>
+                  <td>Dissatisfied or very dissatisfied</td>
+                  <td>0%</td>
+                  <td>0%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <h2>Support Items With Universal Agreement</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Statement Pattern</th>
+                  <th>Group</th>
+                  <th>Agree + Strongly Agree</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Site coordinator communication was adequate</td>
+                  <td>Students</td>
+                  <td>100%</td>
+                </tr>
+                <tr>
+                  <td>Primary preceptor communication was adequate</td>
+                  <td>Students</td>
+                  <td>100%</td>
+                </tr>
+                <tr>
+                  <td>Specialty Topic Series helped learning</td>
+                  <td>Students</td>
+                  <td>100%</td>
+                </tr>
+                <tr>
+                  <td>Specialty Topic Series are valuable for APPE students</td>
+                  <td>Preceptors</td>
+                  <td>100%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel takeaway" aria-labelledby="conclusion">
+        <p class="section-label" id="conclusion">Conclusion</p>
+        <h2>Organized specialty APPE infrastructure showed early promise</h2>
+        <p>The first official year of the UKSPIS APPE Program suggests that a site coordinator within an organized specialty pharmacy rotation can support operational efficiency, student learning needs, and preceptor experience.</p>
+      </section>
+    </main>
+
+    <footer class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/1203-PSP93-OR-Poster-AM25_2025.pdf">View source poster PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/1203-PSP93-OR-Poster-AM25_2025.md">View extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,701 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OPR57-RP AM24 | Pharmacist-led PMP in inflammatory disease</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .pmp-orbit {
+      position: relative;
+      min-height: 18rem;
+      overflow: hidden;
+      border: 1px solid rgba(36, 55, 112, 0.2);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 78% 18%, rgba(233, 158, 37, 0.26), transparent 6.5rem),
+        radial-gradient(circle at 15% 82%, rgba(24, 124, 143, 0.18), transparent 8rem),
+        linear-gradient(145deg, #ffffff, var(--surface-blue) 62%, var(--surface-warm));
+      padding: 1rem;
+    }
+
+    .pmp-orbit svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .hero-note {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.55rem;
+    }
+
+    .hero-note div {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.76);
+      padding: 0.65rem;
+    }
+
+    .hero-note strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+
+    .hero-note span {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .study-board {
+      display: grid;
+      grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .objective-card {
+      display: grid;
+      align-content: center;
+      min-height: 15rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        linear-gradient(160deg, rgba(36, 55, 112, 0.96), rgba(24, 124, 143, 0.9)),
+        var(--ink);
+      padding: 1.15rem;
+      color: #fff;
+    }
+
+    .objective-card span {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .objective-card strong {
+      margin-top: 0.35rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.8vw, 3.45rem);
+      line-height: 0.96;
+    }
+
+    .objective-card p {
+      margin: 0.75rem 0 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.92rem;
+    }
+
+    .flow-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.62rem;
+      height: 100%;
+    }
+
+    .flow-step {
+      position: relative;
+      min-height: 11rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.8rem;
+      overflow: hidden;
+    }
+
+    .flow-step::before {
+      content: attr(data-step);
+      display: grid;
+      width: 2rem;
+      height: 2rem;
+      place-items: center;
+      border-radius: 999px;
+      background: var(--red);
+      color: #fff;
+      font-family: var(--font-display);
+      font-weight: 900;
+    }
+
+    .flow-step:nth-child(2)::before { background: var(--gold); }
+    .flow-step:nth-child(3)::before { background: var(--teal); }
+    .flow-step:nth-child(4)::before { background: var(--green); }
+    .flow-step:nth-child(5)::before { background: var(--purple); }
+
+    .flow-step b {
+      display: block;
+      margin-top: 0.65rem;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      line-height: 1.12;
+    }
+
+    .flow-step p {
+      margin: 0.42rem 0 0;
+      font-size: 0.79rem;
+    }
+
+    .composition-grid {
+      display: grid;
+      grid-template-columns: minmax(17rem, 0.9fr) minmax(0, 1.1fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .donut-wrap {
+      display: grid;
+      grid-template-columns: 10.5rem minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+      margin-top: 0.8rem;
+    }
+
+    .sex-donut {
+      display: grid;
+      width: 10.5rem;
+      aspect-ratio: 1;
+      place-items: center;
+      border-radius: 50%;
+      background: conic-gradient(var(--red) 0 63%, var(--teal) 63% 100%);
+      box-shadow: inset 0 0 0 1px rgba(36, 55, 112, 0.16);
+    }
+
+    .sex-donut::before {
+      content: "n=784";
+      display: grid;
+      width: 6.4rem;
+      aspect-ratio: 1;
+      place-items: center;
+      border-radius: 50%;
+      background: #fff;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 900;
+    }
+
+    .legend-list {
+      display: grid;
+      gap: 0.45rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .legend-list li {
+      display: grid;
+      grid-template-columns: 0.8rem minmax(0, 1fr) auto;
+      gap: 0.45rem;
+      align-items: center;
+      font-size: 0.86rem;
+    }
+
+    .legend-list i {
+      width: 0.8rem;
+      height: 0.8rem;
+      border-radius: 3px;
+      background: var(--swatch);
+    }
+
+    .bar-list {
+      display: grid;
+      gap: 0.58rem;
+      margin-top: 0.8rem;
+    }
+
+    .mix-row {
+      display: grid;
+      grid-template-columns: 7.2rem minmax(0, 1fr) 4.2rem;
+      gap: 0.55rem;
+      align-items: center;
+    }
+
+    .mix-row span {
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 850;
+    }
+
+    .mix-track {
+      height: 0.9rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+
+    .mix-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .mix-row:nth-child(2) .mix-track i { background: linear-gradient(90deg, var(--purple), var(--red)); }
+    .mix-row:nth-child(3) .mix-track i { background: linear-gradient(90deg, var(--teal), var(--green)); }
+    .mix-row:nth-child(4) .mix-track i { background: linear-gradient(90deg, var(--gold), var(--teal)); }
+    .mix-row:nth-child(5) .mix-track i { background: linear-gradient(90deg, var(--green), var(--teal)); }
+    .mix-row:nth-child(6) .mix-track i,
+    .mix-row:nth-child(7) .mix-track i { background: var(--border-strong); }
+
+    .mix-value {
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 850;
+      text-align: right;
+    }
+
+    .ra-board {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .severity-stack {
+      display: grid;
+      grid-template-columns: 24fr 70fr 6fr;
+      min-height: 4.3rem;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      margin-top: 0.75rem;
+    }
+
+    .severity-stack div {
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.92rem;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .severity-stack div:nth-child(1) { background: var(--red); }
+    .severity-stack div:nth-child(2) { background: var(--gold); color: #3f2d07; }
+    .severity-stack div:nth-child(3) { background: var(--green); }
+
+    .measure-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.6rem;
+      margin-top: 0.8rem;
+    }
+
+    .measure {
+      min-height: 8rem;
+      border: 1px solid rgba(174, 187, 210, 0.86);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.75rem;
+    }
+
+    .measure b {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+    }
+
+    .measure span {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--body);
+      font-size: 0.78rem;
+    }
+
+    .burden-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+
+    .mini-rank {
+      display: grid;
+      gap: 0.5rem;
+      margin-top: 0.65rem;
+    }
+
+    .rank-line {
+      display: grid;
+      grid-template-columns: 6.3rem minmax(0, 1fr) 5.2rem;
+      gap: 0.5rem;
+      align-items: center;
+      font-size: 0.78rem;
+    }
+
+    .rank-line b {
+      color: var(--ink);
+    }
+
+    .rank-bar {
+      height: 0.7rem;
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+
+    .rank-bar i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: var(--teal);
+    }
+
+    .rank-line.cost .rank-bar i { background: var(--red); }
+
+    .insight-band {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+
+    .insight-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.9rem;
+    }
+
+    .insight-card h3 {
+      margin-bottom: 0.45rem;
+    }
+
+    .insight-card p,
+    .source-note {
+      margin: 0;
+      font-size: 0.86rem;
+    }
+
+    .source-note {
+      color: var(--muted);
+    }
+
+    @media (max-width: 960px) {
+      .study-board,
+      .composition-grid,
+      .ra-board,
+      .burden-grid,
+      .insight-band {
+        grid-template-columns: 1fr;
+      }
+
+      .flow-grid,
+      .measure-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 620px) {
+      .hero-note,
+      .donut-wrap,
+      .flow-grid,
+      .measure-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .sex-donut {
+        width: min(10.5rem, 100%);
+      }
+
+      .mix-row,
+      .rank-line {
+        grid-template-columns: 1fr;
+      }
+
+      .mix-value {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP infographic index">NASP Posters</a>
+      <nav aria-label="Page sections">
+        <a href="#design">Design</a>
+        <a href="#cohort">Cohort</a>
+        <a href="#outcomes">Outcomes</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">OPR57-RP Poster AM24 | 2024 | Research in progress</p>
+        <h1>The impact of a pharmacist-led patient management program on inflammatory disease</h1>
+        <p class="hero-summary">Vivo Health, a health-system-owned specialty pharmacy, planned a retrospective pre-post analysis of patient-reported outcomes collected during pharmacist telehealth assessments for patients with inflammatory disease.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Pharmacist-led PMP</li>
+          <li class="tag therapy">Inflammatory disease</li>
+          <li class="tag">Telehealth reassessment</li>
+          <li class="tag">Patient-reported outcomes</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card">
+        <div class="poster-code">OPR57-RP</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Setting</dt>
+            <dd>Vivo Health specialty pharmacy</dd>
+          </div>
+          <div>
+            <dt>Design</dt>
+            <dd>Retrospective pre-post</dd>
+          </div>
+          <div>
+            <dt>Population</dt>
+            <dd>Mixed-payer ID cohort</dd>
+          </div>
+          <div>
+            <dt>Status</dt>
+            <dd>Analysis planned</dd>
+          </div>
+        </dl>
+        <div class="hero-note">
+          <div><strong>784</strong><span>Patients with 2023 reassessment</span></div>
+          <div><strong>5</strong><span>Accredited specialty pharmacies</span></div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key poster numbers">
+        <article class="metric-card">
+          <span>Analysis cohort</span>
+          <strong>784</strong>
+          <p class="source-note">Patients diagnosed with inflammatory disease and reassessed in 2023.</p>
+        </article>
+        <article class="metric-card">
+          <span>Female</span>
+          <strong>63%</strong>
+          <p class="source-note">Sex distribution across the full cohort.</p>
+        </article>
+        <article class="metric-card">
+          <span>RA share</span>
+          <strong>27%</strong>
+          <p class="source-note">Largest primary diagnosis group: 213 patients.</p>
+        </article>
+        <article class="metric-card">
+          <span>PMP cadence</span>
+          <strong>6 mo</strong>
+          <p class="source-note">Reassessment interval for opted-in specialty patients.</p>
+        </article>
+      </section>
+
+      <section id="design" class="study-board">
+        <article class="objective-card">
+          <span>Objective</span>
+          <strong>Measure whether pharmacist telehealth management improves patient-reported outcomes.</strong>
+          <p>Initial assessment values will be compared with the latest reassessment through the end of 2023.</p>
+        </article>
+
+        <div class="flow-grid" aria-label="Evidence flow">
+          <article class="flow-step" data-step="1">
+            <b>Eligible ID patient</b>
+            <p>Diagnosis of inflammatory disease plus at least 3 anti-inflammatory medication fills.</p>
+          </article>
+          <article class="flow-step" data-step="2">
+            <b>PMP assessment</b>
+            <p>Pharmacists provide education, counseling, monitoring, and refill screening by telehealth.</p>
+          </article>
+          <article class="flow-step" data-step="3">
+            <b>Reassessment</b>
+            <p>Patients with a completed 2023 reassessment form the analytic cohort.</p>
+          </article>
+          <article class="flow-step" data-step="4">
+            <b>Pre-post test</b>
+            <p>Initial outcomes are compared with latest outcomes using t-test or nonparametric alternatives.</p>
+          </article>
+          <article class="flow-step" data-step="5">
+            <b>Predictor model</b>
+            <p>Regression models examine age, sex, months in program, and RA severity.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="visual-grid">
+        <article class="panel pmp-orbit" aria-label="PMP visual model">
+          <p class="section-label">Program model</p>
+          <h2>Pharmacist contact turns refill encounters into structured outcome monitoring.</h2>
+          <svg viewBox="0 0 620 320" role="img" aria-label="Telehealth patient management loop connecting education, counseling, monitoring, refill screening, and outcome reassessment">
+            <defs>
+              <marker id="arrowhead" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+                <polygon points="0 0, 9 3.5, 0 7" fill="#d12630"></polygon>
+              </marker>
+            </defs>
+            <circle cx="310" cy="160" r="72" fill="#243770"></circle>
+            <text x="310" y="143" text-anchor="middle" fill="#fff" font-family="Montserrat, Arial" font-size="24" font-weight="900">PMP</text>
+            <text x="310" y="172" text-anchor="middle" fill="#fff" font-family="Inter, Arial" font-size="16" font-weight="800">telehealth</text>
+            <text x="310" y="196" text-anchor="middle" fill="#fff" font-family="Inter, Arial" font-size="16" font-weight="800">assessment</text>
+            <path d="M310 50 C430 50 520 95 520 160 C520 225 430 270 310 270 C190 270 100 225 100 160 C100 95 190 50 310 50" fill="none" stroke="#d12630" stroke-width="5" marker-end="url(#arrowhead)"></path>
+            <g font-family="Inter, Arial" font-size="15" font-weight="800" fill="#243770">
+              <rect x="232" y="18" width="156" height="48" rx="8" fill="#ffffff" stroke="#aebbd2"></rect>
+              <text x="310" y="48" text-anchor="middle">Disease education</text>
+              <rect x="448" y="124" width="144" height="56" rx="8" fill="#ffffff" stroke="#aebbd2"></rect>
+              <text x="520" y="147" text-anchor="middle">Medication</text>
+              <text x="520" y="166" text-anchor="middle">counseling</text>
+              <rect x="230" y="254" width="160" height="48" rx="8" fill="#ffffff" stroke="#aebbd2"></rect>
+              <text x="310" y="284" text-anchor="middle">Outcome reassessment</text>
+              <rect x="28" y="124" width="144" height="56" rx="8" fill="#ffffff" stroke="#aebbd2"></rect>
+              <text x="100" y="147" text-anchor="middle">Monitoring +</text>
+              <text x="100" y="166" text-anchor="middle">refill screen</text>
+            </g>
+          </svg>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Methodology</p>
+          <h2>Planned analysis compares initial assessment with latest 2023 reassessment.</h2>
+          <div class="number-cloud" aria-label="Analysis facts">
+            <div class="number-pill">Jul 2021<small>Flares captured</small></div>
+            <div class="number-pill">Aug 2022<small>RAPID3 + pain</small></div>
+            <div class="number-pill">2023<small>Full-year endpoint</small></div>
+            <div class="number-pill">R Stats<small>Software</small></div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Inclusion</th>
+                  <th>Exclusion</th>
+                  <th>Comparison</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Inflammatory disease diagnosis, &ge;3 anti-inflammatory medication fills, completed 2023 assessment.</td>
+                  <td>Therapy change; RA patients starting near remission, defined as RAPID3 &le;3.</td>
+                  <td>Initial vs latest reassessment for RAPID3, severity, flares, and pain.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section id="cohort" class="composition-grid">
+        <article class="panel">
+          <p class="section-label">Cohort composition</p>
+          <h2>Female patients represented nearly two-thirds of the 2023 reassessment cohort.</h2>
+          <div class="donut-wrap">
+            <div class="sex-donut" aria-label="Female 63 percent, male 37 percent"></div>
+            <ul class="legend-list">
+              <li style="--swatch: var(--red);"><i></i><span>Female</span><strong>63%</strong></li>
+              <li style="--swatch: var(--teal);"><i></i><span>Male</span><strong>37%</strong></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Primary diagnosis mix</p>
+          <h2>Rheumatoid arthritis was the largest single diagnosis group.</h2>
+          <div class="bar-list" aria-label="Diagnosis distribution">
+            <div class="mix-row"><span>RA</span><div class="mix-track"><i style="--w: 27%;"></i></div><b class="mix-value">213 | 27%</b></div>
+            <div class="mix-row"><span>Dermatology</span><div class="mix-track"><i style="--w: 22%;"></i></div><b class="mix-value">173 | 22%</b></div>
+            <div class="mix-row"><span>Psoriasis</span><div class="mix-track"><i style="--w: 17%;"></i></div><b class="mix-value">132 | 17%</b></div>
+            <div class="mix-row"><span>PsA</span><div class="mix-track"><i style="--w: 15%;"></i></div><b class="mix-value">119 | 15%</b></div>
+            <div class="mix-row"><span>IBD</span><div class="mix-track"><i style="--w: 13%;"></i></div><b class="mix-value">106 | 13%</b></div>
+            <div class="mix-row"><span>AS</span><div class="mix-track"><i style="--w: 3%;"></i></div><b class="mix-value">23 | 3%</b></div>
+            <div class="mix-row"><span>JIA</span><div class="mix-track"><i style="--w: 3%;"></i></div><b class="mix-value">20 | 3%</b></div>
+          </div>
+          <p class="source-note">Dermatology includes hidradenitis suppurativa and atopic dermatitis.</p>
+        </article>
+      </section>
+
+      <section id="outcomes" class="ra-board">
+        <article class="panel">
+          <p class="section-label">RA baseline severity</p>
+          <h2>Among RA patients retained for severity analysis, 70% began in the moderate RAPID3 category.</h2>
+          <div class="severity-stack" aria-label="RA severity: severe 24 percent, moderate 70 percent, low 6 percent">
+            <div>Severe<br>24%</div>
+            <div>Moderate<br>70%</div>
+            <div>Low<br>6%</div>
+          </div>
+          <p class="source-note">Counts: severe 57, moderate 165, low 14. Fifteen patients in remission were removed.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Patient-reported outcomes</p>
+          <h2>Four measures define the effect question.</h2>
+          <div class="measure-grid">
+            <div class="measure"><b>RAPID3</b><span>RA function, pain, and global status scored 0-30.</span></div>
+            <div class="measure"><b>Severity</b><span>RA categories derived from RAPID3: high, moderate, low, near remission.</span></div>
+            <div class="measure"><b>Flares</b><span>Self-reported number of flares in the prior 6 months.</span></div>
+            <div class="measure"><b>Pain</b><span>Current pain score on a 0-10 scale across the cohort.</span></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="burden-grid">
+        <article class="table-card">
+          <p class="section-label">Burden pattern</p>
+          <h2>Incidence varies widely across inflammatory conditions.</h2>
+          <div class="mini-rank" aria-label="Age standardized incidence rates per 100,000 persons per year">
+            <div class="rank-line"><b>Asthma</b><div class="rank-bar"><i style="--w: 100%;"></i></div><span>504 / 100k</span></div>
+            <div class="rank-line"><b>AD</b><div class="rank-bar"><i style="--w: 65%;"></i></div><span>328 / 100k</span></div>
+            <div class="rank-line"><b>Psoriasis</b><div class="rank-bar"><i style="--w: 26%;"></i></div><span>129 / 100k</span></div>
+            <div class="rank-line"><b>RA / PsA</b><div class="rank-bar"><i style="--w: 3%;"></i></div><span>13 / 100k</span></div>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Economic pattern</p>
+          <h2>Per-patient costs peak in psoriatic arthritis, AS, and IBD.</h2>
+          <div class="mini-rank" aria-label="Cost per patient in 2023 USD">
+            <div class="rank-line cost"><b>PsA</b><div class="rank-bar"><i style="--w: 100%;"></i></div><span>$19,282</span></div>
+            <div class="rank-line cost"><b>AS</b><div class="rank-bar"><i style="--w: 92%;"></i></div><span>$17,728</span></div>
+            <div class="rank-line cost"><b>IBD</b><div class="rank-bar"><i style="--w: 83%;"></i></div><span>$16,031</span></div>
+            <div class="rank-line cost"><b>JIA</b><div class="rank-bar"><i style="--w: 56%;"></i></div><span>$10,830</span></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="insight-band">
+        <article class="insight-card">
+          <p class="section-label">Baseline result</p>
+          <h3>The cohort is broad but RA-heavy.</h3>
+          <p>Diagnosis distribution supports separate primary-diagnosis analysis, with RA large enough for RAPID3 severity stratification.</p>
+        </article>
+        <article class="insight-card">
+          <p class="section-label">Expected conclusion</p>
+          <h3>PMP benefit is hypothesized, not yet proven here.</h3>
+          <p>The poster anticipates positive effects, with outcomes predicted to vary by initial severity, sex, months in program, and age.</p>
+        </article>
+        <article class="insight-card">
+          <p class="section-label">Interpretation limits</p>
+          <h3>Selection and data quality matter.</h3>
+          <p>Patients may opt out, retrospective records may be inconsistent, and medications are limited to the PMP formulary.</p>
+        </article>
+      </section>
+
+      <section id="sources" class="panel">
+        <p class="section-label">Source files</p>
+        <h2>Poster source and extracted markdown</h2>
+        <p class="source-note">Infographic derived from the confirmed 2024 markdown file and linked back to the original poster artifacts.</p>
+        <div class="footer-actions">
+          <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/57-OPR57-RP-Poster-AM24_2024.pdf">Open poster PDF</a>
+          <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/57-OPR57-RP-Poster-AM24_2024.md">Open source markdown</a>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

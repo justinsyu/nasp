@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Evaluation of a Specialty Pharmacy Health Coaching Program | NASP 2019</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .coach-hero-art {
+      display: grid;
+      place-items: center;
+      min-height: 12rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(209, 38, 48, 0.14), transparent 6rem),
+        radial-gradient(circle at 84% 76%, rgba(24, 124, 143, 0.16), transparent 7rem),
+        #fff;
+    }
+    .coach-hero-art svg {
+      width: min(100%, 18rem);
+      height: auto;
+    }
+    .objective-card {
+      border-left: 5px solid var(--red);
+      background: linear-gradient(90deg, rgba(209, 38, 48, 0.08), rgba(255, 255, 255, 0));
+    }
+    .pathway {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+    .path-step {
+      position: relative;
+      min-height: 9.2rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.75rem;
+    }
+    .path-step strong {
+      display: grid;
+      place-items: center;
+      width: 2.1rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 900;
+    }
+    .path-step h3 {
+      margin-top: 0.6rem;
+    }
+    .path-step p {
+      margin: 0.35rem 0 0;
+      font-size: 0.82rem;
+    }
+    .split-panel {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 0.9rem;
+      align-items: start;
+    }
+    .focus-list {
+      display: grid;
+      gap: 0.42rem;
+      margin-top: 0.65rem;
+    }
+    .focus-item {
+      display: grid;
+      grid-template-columns: 3.2rem minmax(0, 1fr);
+      gap: 0.55rem;
+      align-items: center;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.42rem;
+    }
+    .focus-item b {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      line-height: 1;
+      text-align: center;
+    }
+    .focus-item span {
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 820;
+    }
+    .activity-bars {
+      display: grid;
+      gap: 0.48rem;
+      margin-top: 0.65rem;
+    }
+    .activity-row {
+      display: grid;
+      grid-template-columns: 4.9rem minmax(0, 1fr) 2.4rem;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    .activity-row span {
+      color: var(--ink);
+      font-size: 0.76rem;
+      font-weight: 850;
+    }
+    .track {
+      height: 0.78rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: #eef3f8;
+      overflow: hidden;
+    }
+    .track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .activity-row em {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+    .phq-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.6rem;
+      margin-top: 0.75rem;
+    }
+    .phq-card {
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.65rem;
+    }
+    .phq-card h3 {
+      min-height: 2.4rem;
+      font-size: 0.82rem;
+    }
+    .score-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.35rem;
+      margin-top: 0.5rem;
+    }
+    .score-pair div {
+      border-radius: 6px;
+      background: var(--surface-blue);
+      padding: 0.42rem;
+      text-align: center;
+    }
+    .score-pair small {
+      display: block;
+      color: var(--muted);
+      font-size: 0.58rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .score-pair b {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      line-height: 1.1;
+    }
+    .delta {
+      display: inline-flex;
+      margin-top: 0.48rem;
+      border-radius: 999px;
+      background: rgba(77, 138, 103, 0.12);
+      color: var(--green);
+      padding: 0.18rem 0.46rem;
+      font-size: 0.68rem;
+      font-weight: 900;
+    }
+    .delta.up {
+      background: rgba(233, 158, 37, 0.14);
+      color: #9a6615;
+    }
+    .survey-board {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.8rem;
+    }
+    .survey-gauge {
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.75rem;
+    }
+    .survey-gauge strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2rem;
+      line-height: 1;
+    }
+    .survey-gauge span {
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .gauge-track {
+      height: 0.58rem;
+      margin-top: 0.55rem;
+      border-radius: 999px;
+      background: #e9eff7;
+      overflow: hidden;
+    }
+    .gauge-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .referral-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.75rem;
+    }
+    .referral {
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.58rem;
+    }
+    .referral strong {
+      display: block;
+      color: var(--teal);
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+    .referral span {
+      display: block;
+      margin-top: 0.2rem;
+      color: var(--body);
+      font-size: 0.72rem;
+      font-weight: 780;
+    }
+    .takeaway-strip {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: center;
+      border: 1px solid rgba(36, 55, 112, 0.2);
+      border-radius: 8px;
+      background:
+        linear-gradient(90deg, rgba(24, 124, 143, 0.1), rgba(117, 97, 168, 0.08)),
+        #fff;
+      padding: 1rem;
+    }
+    .takeaway-strip p {
+      margin: 0.35rem 0 0;
+      max-width: 62rem;
+    }
+    .promis-badge {
+      display: grid;
+      place-items: center;
+      width: 7.4rem;
+      aspect-ratio: 1;
+      border: 2px solid rgba(24, 124, 143, 0.35);
+      border-radius: 50%;
+      background: #fff;
+      color: var(--teal);
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 900;
+      line-height: 1;
+      text-align: center;
+    }
+    .source-note {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    @media (max-width: 900px) {
+      .pathway,
+      .split-panel,
+      .phq-grid,
+      .survey-board,
+      .referral-grid,
+      .takeaway-strip {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 560px) {
+      .activity-row,
+      .focus-item {
+        grid-template-columns: 1fr;
+      }
+      .activity-row em {
+        text-align: left;
+      }
+      .path-step {
+        min-height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar" aria-label="Infographic navigation">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav>
+        <a href="#methods">Methods</a>
+        <a href="#results">Results</a>
+        <a href="#conclusion">Conclusion</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/35_2019.pdf">PDF source</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/35_2019.md">Markdown source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2019 Annual Meeting &amp; Expo</p>
+        <h1>Evaluation of a Specialty Pharmacy Health Coaching Program</h1>
+        <p class="hero-summary">Fairview Specialty Pharmacy evaluated whether adding a health coach to therapy management could address social, emotional, lifestyle, and end-of-life needs that may sit outside routine pharmacist or nurse support.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Health coaching</li>
+          <li class="tag therapy">Specialty pharmacy</li>
+          <li class="tag therapy">Depression screening</li>
+          <li class="tag">Patient experience</li>
+        </ul>
+      </div>
+      <aside class="hero-card">
+        <div>
+          <p class="section-label">Poster file</p>
+          <div class="poster-code">35_2019</div>
+        </div>
+        <div class="coach-hero-art" aria-hidden="true">
+          <svg viewBox="0 0 320 220" role="img">
+            <defs>
+              <linearGradient id="coachGrad" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#d12630"/>
+                <stop offset="0.55" stop-color="#e99e25"/>
+                <stop offset="1" stop-color="#187c8f"/>
+              </linearGradient>
+            </defs>
+            <path d="M62 155c21-36 39-54 65-54 22 0 34 13 48 26 16 15 35 29 68 17" fill="none" stroke="#d9e1ef" stroke-width="30" stroke-linecap="round"/>
+            <path d="M62 155c21-36 39-54 65-54 22 0 34 13 48 26 16 15 35 29 68 17" fill="none" stroke="url(#coachGrad)" stroke-width="14" stroke-linecap="round"/>
+            <circle cx="92" cy="72" r="25" fill="#243770"/>
+            <circle cx="210" cy="68" r="25" fill="#187c8f"/>
+            <path d="M50 180c8-40 27-68 43-68s35 28 43 68" fill="#eef4fb" stroke="#243770" stroke-width="5"/>
+            <path d="M168 180c8-40 27-68 43-68s35 28 43 68" fill="#fff7ea" stroke="#187c8f" stroke-width="5"/>
+            <circle cx="151" cy="122" r="18" fill="#fff" stroke="#d12630" stroke-width="5"/>
+            <path d="M144 122l5 6 10-14" fill="none" stroke="#4d8a67" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Program window</dt>
+            <dd>Apr 2016-Jan 2019</dd>
+          </div>
+          <div>
+            <dt>Authors</dt>
+            <dd>Simonson, Wittenborg, Snyder, Wiest, McNamara</dd>
+          </div>
+        </dl>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Patients coached</span>
+          <strong>82</strong>
+        </article>
+        <article class="metric-card">
+          <span>Assessments completed</span>
+          <strong>623</strong>
+        </article>
+        <article class="metric-card">
+          <span>PHQ-9 paired scores</span>
+          <strong>54</strong>
+        </article>
+        <article class="metric-card">
+          <span>Referral volume</span>
+          <strong>36</strong>
+        </article>
+      </section>
+
+      <section class="panel objective-card">
+        <p class="section-label">Objective</p>
+        <h2>Measure whether a health coach added value beyond standard specialty pharmacy therapy management.</h2>
+        <p>The poster assessed program reach, patient satisfaction and perceived health impact, change in PHQ-9 depression scores, and referrals to additional support services.</p>
+      </section>
+
+      <section class="panel" id="methods">
+        <p class="section-label">Methods</p>
+        <h2>How patients moved through coaching</h2>
+        <div class="pathway" aria-label="Health coaching process">
+          <article class="path-step">
+            <strong>1</strong>
+            <h3>Trigger or offer</h3>
+            <p>Coaching was offered during initial calls or after needs such as emotional distress, new chronic illness, life transition, coping issues, or advanced care planning.</p>
+          </article>
+          <article class="path-step">
+            <strong>2</strong>
+            <h3>Initial outreach</h3>
+            <p>The health coach explained the program, confirmed interest, identified a focus area, encouraged goals, and documented baseline PHQ-9.</p>
+          </article>
+          <article class="path-step">
+            <strong>3</strong>
+            <h3>Follow-up calls</h3>
+            <p>Ongoing calls focused on patient goals and documented referrals for outside services when additional support was needed.</p>
+          </article>
+          <article class="path-step">
+            <strong>4</strong>
+            <h3>Session 3 check</h3>
+            <p>After the third call, patients received repeat PHQ-9 screening and a mailed satisfaction survey.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="visual-grid" id="results">
+        <article class="panel">
+          <p class="section-label">Coaching focus</p>
+          <h2>Loss, grief, and emotional needs dominated the program mix.</h2>
+          <p>The largest focus pattern was emotional/spiritual support with loss and grief, accounting for 38 of 82 patients, or 46%.</p>
+          <div class="focus-list" aria-label="Top health focus areas">
+            <div class="focus-item"><b>38</b><span>Emotional/spiritual: loss &amp; grief</span></div>
+            <div class="focus-item"><b>12</b><span>Lifestyle changes plus loss &amp; grief</span></div>
+            <div class="focus-item"><b>8</b><span>Loss &amp; grief plus other needs</span></div>
+            <div class="focus-item"><b>5</b><span>Lifestyle changes</span></div>
+            <div class="focus-item"><b>11</b><span>Stress management, omitted, or mixed smaller groups</span></div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Assessment intensity</p>
+          <h2>Most patients had 1-5 assessments, with a smaller high-touch tail.</h2>
+          <div class="activity-bars" aria-label="Assessments per patient distribution">
+            <div class="activity-row"><span>1-5</span><div class="track"><i style="width:100%"></i></div><em>58</em></div>
+            <div class="activity-row"><span>6-10</span><div class="track"><i style="width:21%"></i></div><em>12</em></div>
+            <div class="activity-row"><span>11-15</span><div class="track"><i style="width:17%"></i></div><em>10</em></div>
+            <div class="activity-row"><span>16-20</span><div class="track"><i style="width:10%"></i></div><em>6</em></div>
+            <div class="activity-row"><span>21-25</span><div class="track"><i style="width:7%"></i></div><em>4</em></div>
+            <div class="activity-row"><span>26-30</span><div class="track"><i style="width:3%"></i></div><em>2</em></div>
+            <div class="activity-row"><span>31-35</span><div class="track"><i style="width:2%"></i></div><em>1</em></div>
+          </div>
+          <p class="source-note">Distribution shown from poster Figure 1.</p>
+        </article>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">PHQ-9 pattern</p>
+        <h2>Depression scores generally improved after three coaching sessions.</h2>
+        <p>Among 54 patients with paired PHQ-9 scores, 30 patients improved overall. In patients with baseline moderate to severe depression, 70% had decreased depression scores.</p>
+        <div class="phq-grid" aria-label="Baseline and post-session 3 PHQ-9 scores by severity group">
+          <article class="phq-card">
+            <h3>Severe</h3>
+            <div class="score-pair"><div><small>Base</small><b>22.5</b></div><div><small>Post</small><b>17.4</b></div></div>
+            <span class="delta">-5.1</span>
+          </article>
+          <article class="phq-card">
+            <h3>Moderately severe</h3>
+            <div class="score-pair"><div><small>Base</small><b>16.5</b></div><div><small>Post</small><b>14.8</b></div></div>
+            <span class="delta">-1.7</span>
+          </article>
+          <article class="phq-card">
+            <h3>Moderate</h3>
+            <div class="score-pair"><div><small>Base</small><b>12.3</b></div><div><small>Post</small><b>7.2</b></div></div>
+            <span class="delta">-5.1</span>
+          </article>
+          <article class="phq-card">
+            <h3>Mild</h3>
+            <div class="score-pair"><div><small>Base</small><b>7.1</b></div><div><small>Post</small><b>8.6</b></div></div>
+            <span class="delta up">+1.5</span>
+          </article>
+          <article class="phq-card">
+            <h3>Minimal or none</h3>
+            <div class="score-pair"><div><small>Base</small><b>2.7</b></div><div><small>Post</small><b>5.7</b></div></div>
+            <span class="delta up">+3.0</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="split-panel">
+        <article class="panel">
+          <p class="section-label">Patient voice</p>
+          <h2>Survey respondents reported high perceived benefit.</h2>
+          <p>Anonymous patient experience survey, n=21; values are strongly agree or agree.</p>
+          <div class="survey-board" aria-label="Patient experience survey results">
+            <div class="survey-gauge">
+              <strong>86%</strong>
+              <span>Physical health improved</span>
+              <div class="gauge-track"><i style="width:86%"></i></div>
+            </div>
+            <div class="survey-gauge">
+              <strong>95%</strong>
+              <span>Mental health improved</span>
+              <div class="gauge-track"><i style="width:95%"></i></div>
+            </div>
+            <div class="survey-gauge">
+              <strong>100%</strong>
+              <span>Satisfied with program</span>
+              <div class="gauge-track"><i style="width:100%"></i></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Additional services</p>
+          <h2>Referrals connected 44% of coached patients to added resources.</h2>
+          <div class="referral-grid" aria-label="Referral categories">
+            <div class="referral"><strong>8</strong><span>Support group or therapist</span></div>
+            <div class="referral"><strong>8</strong><span>Social worker, case manager, or financial support</span></div>
+            <div class="referral"><strong>7</strong><span>Physician referrals</span></div>
+            <div class="referral"><strong>5</strong><span>Psychologist or psychiatrist</span></div>
+            <div class="referral"><strong>4</strong><span>Other healthcare resource</span></div>
+            <div class="referral"><strong>3</strong><span>Hospice or advance care planning</span></div>
+            <div class="referral"><strong>1</strong><span>Family resource</span></div>
+            <div class="referral"><strong>36</strong><span>Total patient referrals</span></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Condensed table patterns">
+        <article class="table-card">
+          <p class="section-label">PHQ-9 severity key</p>
+          <h3>Score bands used in the poster</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Score</th><th>Severity</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>0-4</td><td>Minimal or none</td></tr>
+                <tr><td>5-9</td><td>Mild</td></tr>
+                <tr><td>10-14</td><td>Moderate</td></tr>
+                <tr><td>15-19</td><td>Moderately severe</td></tr>
+                <tr><td>20-27</td><td>Severe</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+        <article class="table-card">
+          <p class="section-label">Focus categories</p>
+          <h3>Initial desired areas of focus</h3>
+          <div class="number-cloud">
+            <div class="number-pill">Emotional<small>spiritual needs</small></div>
+            <div class="number-pill">Lifestyle<small>changes</small></div>
+            <div class="number-pill">Loss<small>and grief</small></div>
+            <div class="number-pill">Stress<small>management</small></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="takeaway-strip" id="conclusion">
+        <div>
+          <p class="section-label">Conclusion</p>
+          <h2>Health coaching was associated with high satisfaction, perceived physical and mental health benefit, improved depression scores, and resource referrals.</h2>
+          <p>The program ultimately shifted from PHQ-9 alone to PROMIS-2 to better monitor physical, mental, and social health domains.</p>
+        </div>
+        <div class="promis-badge">PROMIS-2</div>
+      </section>
+
+      <footer class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/35_2019.pdf">Open poster PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/35_2019.md">Open extracted markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

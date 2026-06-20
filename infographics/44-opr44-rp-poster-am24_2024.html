@@ -1,0 +1,726 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2024 Infographic | SDOH and CDK 4/6 Inhibitor Adherence</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .poster-hero {
+      grid-template-columns: minmax(0, 1.2fr) minmax(19rem, 0.8fr);
+    }
+    .hero-summary strong {
+      color: var(--ink);
+      font-weight: 900;
+    }
+    .signal-visual {
+      position: relative;
+      min-height: 18rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(233, 158, 37, 0.38), transparent 11rem),
+        linear-gradient(145deg, rgba(36, 55, 112, 0.97), rgba(24, 124, 143, 0.93));
+      color: #fff;
+      overflow: hidden;
+      padding: 1rem;
+    }
+    .signal-visual svg {
+      position: absolute;
+      inset: 1.1rem 0.7rem auto auto;
+      width: min(16rem, 58%);
+      height: auto;
+      opacity: 0.78;
+    }
+    .signal-visual strong {
+      display: block;
+      max-width: 13rem;
+      margin-top: 0.35rem;
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 7vw, 5.1rem);
+      line-height: 0.92;
+    }
+    .signal-visual span {
+      display: block;
+      max-width: 15rem;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.9rem;
+      font-weight: 760;
+    }
+    .signal-visual .mini-stat {
+      position: absolute;
+      right: 1rem;
+      bottom: 1rem;
+      width: min(12rem, 42%);
+      border-left: 2px solid rgba(255, 255, 255, 0.45);
+      padding-left: 0.7rem;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 0.78rem;
+    }
+    .metric-card strong small {
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+    .metric-card.accent strong { color: var(--teal); }
+    .metric-card.gold strong { color: var(--gold); }
+    .metric-card.green strong { color: var(--green); }
+    .story-band {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .timeline {
+      display: grid;
+      gap: 0.72rem;
+      margin-top: 0.75rem;
+    }
+    .timeline-step {
+      display: grid;
+      grid-template-columns: 2.2rem minmax(0, 1fr);
+      gap: 0.65rem;
+      align-items: start;
+    }
+    .timeline-step b {
+      display: grid;
+      place-items: center;
+      width: 2.05rem;
+      height: 2.05rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+    }
+    .timeline-step h3 {
+      margin: 0;
+      font-size: 0.95rem;
+    }
+    .timeline-step p {
+      margin: 0.15rem 0 0;
+      font-size: 0.82rem;
+    }
+    .risk-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.75rem;
+    }
+    .risk-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface-blue);
+      padding: 0.72rem;
+    }
+    .risk-card h3 {
+      margin-bottom: 0.38rem;
+      font-size: 0.88rem;
+    }
+    .risk-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    .bar-stack {
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 0.75rem;
+    }
+    .comparison-row {
+      display: grid;
+      grid-template-columns: 5.2rem minmax(0, 1fr) 4.1rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .comparison-row em {
+      color: var(--muted);
+      font-style: normal;
+      text-align: right;
+    }
+    .track {
+      height: 1rem;
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .adherence-lanes {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 0.75rem;
+    }
+    .lane {
+      display: grid;
+      grid-template-columns: 5.2rem minmax(0, 1fr) 3.4rem;
+      gap: 0.5rem;
+      align-items: center;
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .stacked {
+      display: flex;
+      height: 1.18rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 999px;
+      overflow: hidden;
+      background: #edf2f8;
+    }
+    .stacked i:nth-child(1) { background: var(--teal); }
+    .stacked i:nth-child(2) { background: var(--gold); }
+    .stacked i:nth-child(3) { background: var(--red); }
+    .legend-inline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-top: 0.7rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 800;
+    }
+    .legend-inline span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .legend-inline i {
+      width: 0.72rem;
+      height: 0.72rem;
+      border-radius: 3px;
+      background: var(--legend-color, var(--teal));
+    }
+    .factor-matrix {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+    .factor-cell {
+      min-height: 8rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.72rem;
+    }
+    .factor-cell strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2rem;
+      line-height: 1;
+    }
+    .factor-cell span {
+      display: block;
+      margin-top: 0.18rem;
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 850;
+    }
+    .factor-cell p {
+      margin: 0.42rem 0 0;
+      color: var(--muted);
+      font-size: 0.74rem;
+    }
+    .medication-bars {
+      display: grid;
+      gap: 0.48rem;
+      margin-top: 0.62rem;
+    }
+    .med-row {
+      display: grid;
+      grid-template-columns: 5.8rem minmax(0, 1fr) 2.9rem;
+      gap: 0.5rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .med-row .track {
+      height: 0.75rem;
+    }
+    .med-row .track i {
+      background: var(--teal);
+    }
+    .callout-panel {
+      border-color: rgba(209, 38, 48, 0.35);
+      background:
+        linear-gradient(135deg, rgba(209, 38, 48, 0.08), transparent 42%),
+        #fff;
+    }
+    .callout-panel p {
+      margin: 0.45rem 0 0;
+      font-size: 0.9rem;
+    }
+    .source-note {
+      margin: 0.65rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    @media (max-width: 900px) {
+      .story-band,
+      .risk-grid,
+      .factor-matrix {
+        grid-template-columns: 1fr;
+      }
+      .signal-visual .mini-stat {
+        position: static;
+        width: auto;
+        margin-top: 1.4rem;
+      }
+    }
+    @media (max-width: 560px) {
+      .comparison-row,
+      .lane,
+      .med-row {
+        grid-template-columns: 1fr;
+      }
+      .comparison-row em,
+      .lane > span:last-child,
+      .med-row > span:last-child {
+        text-align: left;
+      }
+      .signal-visual {
+        min-height: 21rem;
+      }
+      .signal-visual svg {
+        inset: auto -1.8rem 0.4rem auto;
+        width: 15rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">NASP Posters</a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/44-OPR44-RP-Poster-AM24_2024.pdf">Poster PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/44-OPR44-RP-Poster-AM24_2024.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP Conference 2024 | Nashville, TN | OPR44-RP</p>
+        <h1 id="poster-title">Evaluating the role of social determinants of health and patient demographics on CDK 4/6 inhibitor adherence for breast cancer</h1>
+        <p class="hero-summary">A MaxorPlus retrospective cohort study linked pharmacy claims and publicly available SDOH indicators to ask whether specific risk factors align with lower adherence to breast cancer CDK 4/6 inhibitors.</p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag therapy">Breast cancer</li>
+          <li class="tag therapy">CDK 4/6 inhibitors</li>
+          <li class="tag category">Social determinants of health</li>
+          <li class="tag">PDC adherence</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div class="poster-code">44<br>OPR44-RP</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Year</dt>
+            <dd>2024</dd>
+          </div>
+          <div>
+            <dt>Population</dt>
+            <dd>Commercial members</dd>
+          </div>
+          <div>
+            <dt>Study window</dt>
+            <dd>Jan 2022 to Dec 2023</dd>
+          </div>
+          <div>
+            <dt>PDC window</dt>
+            <dd>Jan 2022 to May 2024</dd>
+          </div>
+        </dl>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key study metrics">
+        <article class="metric-card">
+          <span>Included members</span>
+          <strong>143</strong>
+        </article>
+        <article class="metric-card accent">
+          <span>Average age</span>
+          <strong>56 <small>years</small></strong>
+        </article>
+        <article class="metric-card gold">
+          <span>Average adherence</span>
+          <strong>86.8%</strong>
+        </article>
+        <article class="metric-card green">
+          <span>Low adherence cohort</span>
+          <strong>32</strong>
+        </article>
+      </section>
+
+      <section class="visual-grid">
+        <div class="signal-visual" aria-label="Main finding visual">
+          <span>Most prominent low-adherence SDOH signal</span>
+          <strong>40.63%</strong>
+          <span>of members with PDC below 80% had a digital or health literacy risk factor.</span>
+          <svg viewBox="0 0 320 250" role="img" aria-label="Abstract adherence and SDOH network">
+            <defs>
+              <linearGradient id="nodeFill" x1="0" x2="1">
+                <stop offset="0" stop-color="#ffffff" stop-opacity="0.95"/>
+                <stop offset="1" stop-color="#e99e25" stop-opacity="0.9"/>
+              </linearGradient>
+            </defs>
+            <path d="M53 179 C95 116, 134 198, 170 130 S240 40, 286 91" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" opacity="0.25"/>
+            <path d="M53 179 C95 116, 134 198, 170 130 S240 40, 286 91" fill="none" stroke="#e99e25" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="55" cy="178" r="28" fill="url(#nodeFill)"/>
+            <circle cx="136" cy="184" r="22" fill="#ffffff" opacity="0.9"/>
+            <circle cx="177" cy="124" r="35" fill="#ffffff" opacity="0.9"/>
+            <circle cx="252" cy="68" r="44" fill="#ffffff" opacity="0.92"/>
+            <path d="M235 58 h34 M252 41 v34" stroke="#d12630" stroke-width="8" stroke-linecap="round"/>
+            <path d="M166 118 h22 M177 107 v22" stroke="#187c8f" stroke-width="5" stroke-linecap="round"/>
+            <path d="M50 169 h12 M56 163 v12" stroke="#243770" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+          <div class="mini-stat">Transportation did not trigger as a risk factor in this cohort.</div>
+        </div>
+
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Find adherence patterns that can guide targeted specialty pharmacy outreach</h2>
+          <p>The poster describes the association between SDOH and CDK 4/6 inhibitor adherence in a MaxorPlus commercial breast cancer population. The practical implication is direct: identify patient groups where education, follow-up, and personalized support may improve medication coverage.</p>
+          <div class="risk-grid">
+            <div class="risk-card">
+              <h3>Clinical focus</h3>
+              <p>Palbociclib, ribociclib, and abemaciclib therapy with at least two specialty pharmacy claims.</p>
+            </div>
+            <div class="risk-card">
+              <h3>Adherence measure</h3>
+              <p>Proportion of Days Covered with an 80% clinical threshold and a 6-month discontinuation gap.</p>
+            </div>
+            <div class="risk-card">
+              <h3>SDOH lens</h3>
+              <p>Access, literacy, isolation, sedentary lifestyle, economic stability, and transportation indicators.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="story-band">
+        <article class="panel">
+          <p class="section-label">Methods</p>
+          <h2>Claims-to-SDOH evidence flow</h2>
+          <div class="timeline">
+            <div class="timeline-step">
+              <b>1</b>
+              <div>
+                <h3>Identify new therapy</h3>
+                <p>Commercial MaxorPlus members newly treated after Jan 1, 2022.</p>
+              </div>
+            </div>
+            <div class="timeline-step">
+              <b>2</b>
+              <div>
+                <h3>Require repeat specialty claims</h3>
+                <p>At least two claims for Ibrance, Kisqali, or Verzenio during the study period.</p>
+              </div>
+            </div>
+            <div class="timeline-step">
+              <b>3</b>
+              <div>
+                <h3>Calculate PDC</h3>
+                <p>Coverage was assessed from the first fill or 180 days before last fill exhaust date through last fill plus 28 days supplied.</p>
+              </div>
+            </div>
+            <div class="timeline-step">
+              <b>4</b>
+              <div>
+                <h3>Layer public SDOH data</h3>
+                <p>Consumer and public data sources were used to assign SDOH risk factor groups.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Adherence cohorts</p>
+          <h2>More than half of members reached 90% or higher PDC</h2>
+          <div class="bar-stack" aria-label="Adherence cohort sizes">
+            <div class="comparison-row">
+              <span>&ge;90% PDC</span>
+              <div class="track"><i style="width: 52.45%"></i></div>
+              <em>75 pts</em>
+            </div>
+            <div class="comparison-row">
+              <span>80-89% PDC</span>
+              <div class="track"><i style="width: 25.17%"></i></div>
+              <em>36 pts</em>
+            </div>
+            <div class="comparison-row">
+              <span>&lt;80% PDC</span>
+              <div class="track"><i style="width: 22.38%"></i></div>
+              <em>32 pts</em>
+            </div>
+          </div>
+          <p class="source-note">Percent widths are based on 143 included patients.</p>
+          <div class="medication-bars" aria-label="Medication distribution">
+            <div class="med-row">
+              <span>Verzenio</span>
+              <div class="track"><i style="width: 100%"></i></div>
+              <span>77</span>
+            </div>
+            <div class="med-row">
+              <span>Ibrance</span>
+              <div class="track"><i style="width: 52%"></i></div>
+              <span>40</span>
+            </div>
+            <div class="med-row">
+              <span>Kisqali</span>
+              <div class="track"><i style="width: 34%"></i></div>
+              <span>26</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel" aria-labelledby="sdoh-risk-title">
+        <p class="section-label">Results</p>
+        <h2 id="sdoh-risk-title">Digital and health literacy separated the low-adherence group most clearly</h2>
+        <div class="visual-grid">
+          <div>
+            <h3>SDOH factor prevalence by adherence level</h3>
+            <div class="bar-stack" aria-label="SDOH prevalence in low adherence cohort">
+              <div class="comparison-row">
+                <span>Access</span>
+                <div class="track"><i style="width: 12.5%"></i></div>
+                <em>12.50%</em>
+              </div>
+              <div class="comparison-row">
+                <span>Literacy</span>
+                <div class="track"><i style="width: 40.63%"></i></div>
+                <em>40.63%</em>
+              </div>
+              <div class="comparison-row">
+                <span>Isolation</span>
+                <div class="track"><i style="width: 37.5%"></i></div>
+                <em>37.50%</em>
+              </div>
+              <div class="comparison-row">
+                <span>Sedentary</span>
+                <div class="track"><i style="width: 37.5%"></i></div>
+                <em>37.50%</em>
+              </div>
+              <div class="comparison-row">
+                <span>Economic</span>
+                <div class="track"><i style="width: 25%"></i></div>
+                <em>25.00%</em>
+              </div>
+            </div>
+            <p class="source-note">Bars show the &lt;80% PDC cohort. Literacy was 16.00% in the &ge;90% cohort and 19.44% in the 80-89% cohort.</p>
+          </div>
+          <div>
+            <h3>Number of SDOH risk factors</h3>
+            <div class="factor-matrix" aria-label="High SDOH factor load by adherence">
+              <div class="factor-cell">
+                <strong>34.67%</strong>
+                <span>&ge;90% PDC</span>
+                <p>Members with 3 recorded SDOH factors.</p>
+              </div>
+              <div class="factor-cell">
+                <strong>33.33%</strong>
+                <span>80-89% PDC</span>
+                <p>Members with 3 recorded SDOH factors.</p>
+              </div>
+              <div class="factor-cell">
+                <strong>40.63%</strong>
+                <span>&lt;80% PDC</span>
+                <p>The largest 3-factor share appeared in the low-adherence group.</p>
+              </div>
+            </div>
+            <div class="number-cloud" aria-label="Baseline SDOH group counts">
+              <div class="number-pill">19<small>0 factors</small></div>
+              <div class="number-pill">28<small>1 factor</small></div>
+              <div class="number-pill">45<small>2 factors</small></div>
+              <div class="number-pill">51<small>3 factors</small></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="visual-grid">
+        <article class="panel">
+          <p class="section-label">Age pattern</p>
+          <h2>Older members were overrepresented in the &lt;80% PDC cohort</h2>
+          <div class="adherence-lanes" aria-label="Age distribution by adherence">
+            <div class="lane">
+              <span>&ge;90%</span>
+              <div class="stacked">
+                <i style="width: 47%"></i>
+                <i style="width: 44%"></i>
+                <i style="width: 9%"></i>
+              </div>
+              <span>75 pts</span>
+            </div>
+            <div class="lane">
+              <span>80-89%</span>
+              <div class="stacked">
+                <i style="width: 41%"></i>
+                <i style="width: 44%"></i>
+                <i style="width: 15%"></i>
+              </div>
+              <span>36 pts</span>
+            </div>
+            <div class="lane">
+              <span>&lt;80%</span>
+              <div class="stacked">
+                <i style="width: 36%"></i>
+                <i style="width: 22%"></i>
+                <i style="width: 42%"></i>
+              </div>
+              <span>32 pts</span>
+            </div>
+          </div>
+          <div class="legend-inline" aria-label="Age legend">
+            <span><i style="--legend-color: var(--teal)"></i>&lt;55</span>
+            <span><i style="--legend-color: var(--gold)"></i>55-65</span>
+            <span><i style="--legend-color: var(--red)"></i>&gt;65</span>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Medication adherence</p>
+          <h2>Median adherence remained high across the three therapies</h2>
+          <div class="lens-chart" aria-label="Median medication adherence">
+            <div class="lens-row">
+              <span>Kisqali</span>
+              <div class="lens-bar"><i style="width: 89%"></i></div>
+            </div>
+            <div class="lens-row">
+              <span>Ibrance</span>
+              <div class="lens-bar"><i style="width: 89%"></i></div>
+            </div>
+            <div class="lens-row">
+              <span>Verzenio</span>
+              <div class="lens-bar"><i style="width: 93%"></i></div>
+            </div>
+          </div>
+          <div class="number-cloud" aria-label="Age range and gender counts">
+            <div class="number-pill">63<small>&lt;55 years</small></div>
+            <div class="number-pill">54<small>55-65 years</small></div>
+            <div class="number-pill">26<small>&gt;65 years</small></div>
+            <div class="number-pill">141<small>female</small></div>
+            <div class="number-pill">2<small>male</small></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel callout-panel">
+          <p class="section-label">Conclusion</p>
+          <h2>Education and outreach are the most actionable next steps</h2>
+          <p>Forty percent of members in the &lt;80% adherence cohort were at risk for a digital or health literacy SDOH factor, suggesting that tailored education, personalized support, and follow-up may help improve adherence.</p>
+          <p>Specialty pharmacy clinical programs can use these findings to focus outreach on patients who may need additional help understanding CDK 4/6 treatment.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Limitations</p>
+          <h2>Interpret with cohort and data limits in mind</h2>
+          <div class="markdown-fragment">
+            <ul>
+              <li>Medical claims were not included, limiting clinical context.</li>
+              <li>PDC does not capture missed doses due to neutropenia or side effects.</li>
+              <li>Some members may have had additional coverage such as Medicare.</li>
+              <li>The small cohort limits robust statistical analysis.</li>
+            </ul>
+          </div>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Condensed table patterns">
+        <article class="table-card">
+          <h3>SDOH by adherence: selected pattern</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Adherence</th>
+                  <th>Patients</th>
+                  <th>Digital and health literacy</th>
+                  <th>Social isolation</th>
+                  <th>Sedentary lifestyle</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>&ge;90%</td>
+                  <td>75</td>
+                  <td>12 (16.00%)</td>
+                  <td>27 (36.00%)</td>
+                  <td>28 (37.33%)</td>
+                </tr>
+                <tr>
+                  <td>80-89%</td>
+                  <td>36</td>
+                  <td>7 (19.44%)</td>
+                  <td>14 (38.89%)</td>
+                  <td>11 (30.56%)</td>
+                </tr>
+                <tr>
+                  <td>&lt;80%</td>
+                  <td>32</td>
+                  <td>13 (40.63%)</td>
+                  <td>12 (37.50%)</td>
+                  <td>12 (37.50%)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <h3>Baseline characteristics: selected counts</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Characteristic</th>
+                  <th>Pattern</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Medication type</td>
+                  <td>Highest count</td>
+                  <td>Verzenio, 77</td>
+                </tr>
+                <tr>
+                  <td>Age range</td>
+                  <td>Largest group</td>
+                  <td>&lt;55 years, 63</td>
+                </tr>
+                <tr>
+                  <td>SDOH factor groups</td>
+                  <td>Largest group</td>
+                  <td>3 factors, 51</td>
+                </tr>
+                <tr>
+                  <td>Median adherence</td>
+                  <td>Highest therapy</td>
+                  <td>Verzenio, 93%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <footer class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/44-OPR44-RP-Poster-AM24_2024.pdf">Open original poster PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/44-OPR44-RP-Poster-AM24_2024.md">Open extracted markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

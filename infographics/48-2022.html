@@ -1,0 +1,680 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clinical Outcomes Evaluation and Reporting | NASP 2022</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -4rem;
+      bottom: -4.5rem;
+      width: 15rem;
+      height: 15rem;
+      border: 1.3rem solid rgba(24, 124, 143, 0.11);
+      border-radius: 50%;
+    }
+
+    .network-visual {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .network-visual svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .network-caption {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.45rem;
+    }
+
+    .network-caption span {
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.78);
+      padding: 0.5rem;
+      color: var(--ink);
+      font-size: 0.7rem;
+      font-weight: 850;
+      text-align: center;
+    }
+
+    .outcomes-board {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: 1rem;
+    }
+
+    .outcome-lede {
+      display: grid;
+      align-content: center;
+      min-height: 100%;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 20% 15%, rgba(233, 158, 37, 0.22), transparent 8rem),
+        linear-gradient(145deg, var(--ink), #304a8a);
+      padding: 1.15rem;
+      color: #fff;
+    }
+
+    .outcome-lede span {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .outcome-lede strong {
+      margin-top: 0.35rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 8vw, 5.3rem);
+      line-height: 0.9;
+    }
+
+    .outcome-lede p {
+      max-width: 31rem;
+      margin: 0.75rem 0 0;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 0.95rem;
+    }
+
+    .outcome-bars {
+      display: grid;
+      gap: 0.72rem;
+      margin-top: 0.75rem;
+    }
+
+    .outcome-row {
+      display: grid;
+      grid-template-columns: 7.4rem minmax(0, 1fr) 4.4rem;
+      gap: 0.65rem;
+      align-items: center;
+    }
+
+    .outcome-row b {
+      color: var(--ink);
+      font-size: 0.82rem;
+      line-height: 1.15;
+    }
+
+    .bar-shell {
+      position: relative;
+      height: 1.15rem;
+      border: 1px solid rgba(174, 187, 210, 0.8);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      display: block;
+      width: var(--value);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .bar-fill.teal {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .bar-fill.purple {
+      background: linear-gradient(90deg, var(--purple), var(--teal));
+    }
+
+    .bar-fill.caution {
+      background: linear-gradient(90deg, var(--green), var(--gold));
+    }
+
+    .outcome-row em {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.12rem;
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .denominator-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.8rem;
+    }
+
+    .denominator-grid div {
+      border-left: 2px solid rgba(36, 55, 112, 0.18);
+      padding-left: 0.55rem;
+    }
+
+    .denominator-grid strong {
+      display: block;
+      color: var(--ink);
+      font-size: 0.9rem;
+      line-height: 1.1;
+    }
+
+    .denominator-grid span {
+      display: block;
+      margin-top: 0.15rem;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .framework-lane {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.7rem;
+    }
+
+    .framework-lane::before {
+      content: "";
+      position: absolute;
+      top: 2.05rem;
+      left: 8%;
+      right: 8%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--red), var(--gold), var(--teal), var(--green), var(--purple));
+    }
+
+    .step-node {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 0.45rem;
+      align-content: start;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.78rem;
+      min-height: 10.8rem;
+    }
+
+    .step-node i {
+      display: inline-grid;
+      width: 2.6rem;
+      height: 2.6rem;
+      place-items: center;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      background: var(--step-color, var(--red));
+      color: #fff;
+      font-family: var(--font-display);
+      font-style: normal;
+      font-weight: 900;
+      box-shadow: 0 0 0 1px rgba(174, 187, 210, 0.85);
+    }
+
+    .step-node:nth-child(2) { --step-color: var(--gold); }
+    .step-node:nth-child(3) { --step-color: var(--teal); }
+    .step-node:nth-child(4) { --step-color: var(--green); }
+    .step-node:nth-child(5) { --step-color: var(--purple); }
+
+    .step-node p {
+      margin: 0;
+      color: var(--body);
+      font-size: 0.8rem;
+    }
+
+    .definition-list {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 0.65rem;
+    }
+
+    .definition-item {
+      display: grid;
+      grid-template-columns: 8.2rem minmax(0, 1fr);
+      gap: 0.7rem;
+      align-items: start;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.55rem;
+    }
+
+    .definition-item:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .definition-item strong {
+      color: var(--ink);
+      font-size: 0.84rem;
+    }
+
+    .definition-item span {
+      color: var(--body);
+      font-size: 0.82rem;
+    }
+
+    .methods-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.7rem;
+    }
+
+    .method-tile {
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 8px;
+      background: var(--surface-blue);
+      padding: 0.78rem;
+    }
+
+    .method-tile strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+    }
+
+    .method-tile p {
+      margin: 0.35rem 0 0;
+      color: var(--body);
+      font-size: 0.82rem;
+    }
+
+    .takeaway-band {
+      display: grid;
+      grid-template-columns: minmax(0, 0.62fr) minmax(0, 1.38fr);
+      gap: 0.85rem;
+      align-items: stretch;
+    }
+
+    .takeaway-stamp {
+      display: grid;
+      align-content: center;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--surface-warm);
+      padding: 1rem;
+    }
+
+    .takeaway-stamp strong {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 3.2rem);
+      line-height: 0.96;
+    }
+
+    .takeaway-stamp span {
+      margin-top: 0.45rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 900px) {
+      .outcomes-board,
+      .takeaway-band,
+      .methods-grid,
+      .framework-lane {
+        grid-template-columns: 1fr;
+      }
+
+      .framework-lane::before {
+        display: none;
+      }
+
+      .denominator-grid,
+      .network-caption {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .outcome-row,
+      .definition-item,
+      .denominator-grid,
+      .network-caption {
+        grid-template-columns: 1fr;
+      }
+
+      .outcome-row em {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/48-2022.pdf">PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/48-2022.md">Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2022 Annual Meeting | Shields Health Solutions</p>
+        <h1>Clinical Outcomes Evaluation and Reporting</h1>
+        <p class="hero-summary">A standardized framework was built to define, capture, validate, and report specialty pharmacy clinical outcomes across health-system specialty pharmacies.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Clinical outcomes</li>
+          <li class="tag therapy">HCV</li>
+          <li class="tag therapy">HIV</li>
+          <li class="tag therapy">RA</li>
+          <li class="tag therapy">Oncology</li>
+          <li class="tag">Benchmarking</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Poster metadata and network visual">
+        <div class="poster-code">48-2022</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Network</dt>
+            <dd>15 HSSPs</dd>
+          </div>
+          <div>
+            <dt>Period</dt>
+            <dd>Jan-Dec 2021</dd>
+          </div>
+          <div>
+            <dt>Output</dt>
+            <dd>Quarterly CO reporting</dd>
+          </div>
+          <div>
+            <dt>Data source</dt>
+            <dd>PMP + EMR</dd>
+          </div>
+        </dl>
+        <div class="network-visual" aria-hidden="true">
+          <svg viewBox="0 0 460 230" role="img">
+            <defs>
+              <linearGradient id="pmpGrad" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#d12630"/>
+                <stop offset="0.55" stop-color="#e99e25"/>
+                <stop offset="1" stop-color="#187c8f"/>
+              </linearGradient>
+            </defs>
+            <rect x="158" y="70" width="144" height="88" rx="14" fill="#fff" stroke="#243770" stroke-width="4"/>
+            <text x="230" y="105" text-anchor="middle" fill="#243770" font-size="24" font-weight="900" font-family="Arial, sans-serif">PMP</text>
+            <text x="230" y="132" text-anchor="middle" fill="#68758d" font-size="13" font-weight="700" font-family="Arial, sans-serif">Discrete CO fields</text>
+            <g fill="#fff" stroke="#243770" stroke-width="3">
+              <circle cx="62" cy="48" r="25"/>
+              <circle cx="92" cy="176" r="25"/>
+              <circle cx="378" cy="52" r="25"/>
+              <circle cx="392" cy="174" r="25"/>
+              <circle cx="230" cy="28" r="22"/>
+            </g>
+            <g stroke="url(#pmpGrad)" stroke-width="5" stroke-linecap="round">
+              <path d="M85 58 C118 72 126 86 158 99"/>
+              <path d="M115 170 C135 154 139 140 158 128"/>
+              <path d="M356 62 C330 75 324 88 302 101"/>
+              <path d="M370 168 C341 152 329 139 302 126"/>
+              <path d="M230 50 L230 70"/>
+            </g>
+            <g fill="#187c8f" font-family="Arial, sans-serif" font-size="12" font-weight="900" text-anchor="middle">
+              <text x="62" y="52">SP</text>
+              <text x="92" y="180">SP</text>
+              <text x="378" y="56">SP</text>
+              <text x="392" y="178">SP</text>
+              <text x="230" y="32">QA</text>
+            </g>
+            <path d="M230 158 C230 183 249 193 280 197" fill="none" stroke="#4d8a67" stroke-width="5" stroke-linecap="round"/>
+            <rect x="280" y="178" width="116" height="38" rx="8" fill="#eef4fb" stroke="#aebbd2"/>
+            <text x="338" y="202" text-anchor="middle" fill="#243770" font-size="15" font-weight="900" font-family="Arial, sans-serif">Reports</text>
+          </svg>
+          <div class="network-caption">
+            <span>Integrated SP programs</span>
+            <span>Consistent documentation</span>
+            <span>Validated reporting</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="At-a-glance numbers">
+        <article class="metric-card">
+          <span>HSSPs analyzed</span>
+          <strong>15</strong>
+        </article>
+        <article class="metric-card">
+          <span>Disease states</span>
+          <strong>4</strong>
+        </article>
+        <article class="metric-card">
+          <span>Outcome patients</span>
+          <strong>17,527</strong>
+        </article>
+        <article class="metric-card">
+          <span>Reporting cadence</span>
+          <strong>Qtrly</strong>
+        </article>
+      </section>
+
+      <section class="outcomes-board" id="results">
+        <div class="outcome-lede">
+          <span>Core result</span>
+          <strong>4 outcome lenses</strong>
+          <p>Quarterly reporting converted different specialty pharmacy outcomes into comparable, reproducible measures across HCV, HIV, RA, and oncology.</p>
+        </div>
+        <article class="panel">
+          <p class="section-label">Clinical Outcomes Achievement</p>
+          <h2>High viral outcome achievement, with RA improvement and oncology utilization tracked as distinct quality signals.</h2>
+          <div class="outcome-bars" aria-label="Clinical outcome percentages">
+            <div class="outcome-row">
+              <b>HCV SVR</b>
+              <div class="bar-shell"><span class="bar-fill" style="--value: 94.8%"></span></div>
+              <em>94.8%</em>
+            </div>
+            <div class="outcome-row">
+              <b>HIV viral suppression</b>
+              <div class="bar-shell"><span class="bar-fill teal" style="--value: 92.2%"></span></div>
+              <em>92.2%</em>
+            </div>
+            <div class="outcome-row">
+              <b>RA RAPID3 improvement</b>
+              <div class="bar-shell"><span class="bar-fill purple" style="--value: 43.6%"></span></div>
+              <em>43.6%</em>
+            </div>
+            <div class="outcome-row">
+              <b>ONC hospitalization</b>
+              <div class="bar-shell"><span class="bar-fill caution" style="--value: 6.9%"></span></div>
+              <em>6.9%</em>
+            </div>
+          </div>
+          <div class="denominator-grid" aria-label="Outcome denominators">
+            <div>
+              <strong>346 / 365</strong>
+              <span>HCV patients achieved SVR</span>
+            </div>
+            <div>
+              <strong>3,819 / 4,144</strong>
+              <span>HIV patients suppressed</span>
+            </div>
+            <div>
+              <strong>167 / 383</strong>
+              <span>RA patients improved</span>
+            </div>
+            <div>
+              <strong>878 / 12,635</strong>
+              <span>ONC patients hospitalized</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel" id="framework">
+        <p class="section-label">Reporting Framework</p>
+        <h2>From outcome idea to benchmark-ready quarterly reporting</h2>
+        <div class="framework-lane" aria-label="Clinical outcome identification and reporting process">
+          <article class="step-node">
+            <i>1</i>
+            <h3>Identify outcomes</h3>
+            <p>Clinical outcomes were selected from literature and guideline-based measures.</p>
+          </article>
+          <article class="step-node">
+            <i>2</i>
+            <h3>Deploy fields</h3>
+            <p>Discrete data fields were added to the patient management platform.</p>
+          </article>
+          <article class="step-node">
+            <i>3</i>
+            <h3>Standardize criteria</h3>
+            <p>Time on service, historical limits, and inclusion/exclusion rules shaped extracts.</p>
+          </article>
+          <article class="step-node">
+            <i>4</i>
+            <h3>Validate extracts</h3>
+            <p>De-identified data went through quality assurance before internal publication.</p>
+          </article>
+          <article class="step-node">
+            <i>5</i>
+            <h3>Report quarterly</h3>
+            <p>Selected outcomes were published for HCV, HIV, RA, and oncology.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-stack" id="methods">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Create a reproducible way to compare clinical outcomes across HSSPs.</h2>
+          <div class="markdown-fragment">
+            <p>The poster describes a process for reporting clinical outcomes across multiple health-system specialty pharmacies, with the goal of creating standard benchmarks for performance comparison.</p>
+          </div>
+        </article>
+        <article class="panel">
+          <p class="section-label">Methods Pattern</p>
+          <h2>A care model plus data discipline</h2>
+          <div class="methods-grid">
+            <div class="method-tile">
+              <strong>Capture</strong>
+              <p>Discrete fields in the PMP aligned documentation to selected outcomes.</p>
+            </div>
+            <div class="method-tile">
+              <strong>Train</strong>
+              <p>Pharmacists completed standardized training to improve consistency.</p>
+            </div>
+            <div class="method-tile">
+              <strong>Extract</strong>
+              <p>Common criteria supported reproducible cross-site analysis.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="tables-grid" id="definitions">
+        <article class="table-card">
+          <p class="section-label">Outcome Definitions</p>
+          <h2>Each metric had a specific measurement rule.</h2>
+          <div class="definition-list">
+            <div class="definition-item">
+              <strong>Viral suppression</strong>
+              <span>HIV viral load &lt; 200 copies/mL.</span>
+            </div>
+            <div class="definition-item">
+              <strong>SVR</strong>
+              <span>Undetected HCV viral load at 12 weeks or more after HCV treatment completion.</span>
+            </div>
+            <div class="definition-item">
+              <strong>RAPID3 improvement</strong>
+              <span>RAPID3 change of &ge; -3.8 from baseline and/or treat-to-target score of &le; 6.</span>
+            </div>
+            <div class="definition-item">
+              <strong>Hospitalization</strong>
+              <span>EMR or patient-reported emergency room or hospital utilization.</span>
+            </div>
+          </div>
+        </article>
+        <article class="table-card">
+          <p class="section-label">Table Pattern</p>
+          <h2>The poster pairs a definition table with an achievement table.</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Therapy area</th>
+                  <th>Outcome</th>
+                  <th>Result</th>
+                  <th>Patient count</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>HCV</td>
+                  <td>SVR</td>
+                  <td>94.8%</td>
+                  <td>346 of 365</td>
+                </tr>
+                <tr>
+                  <td>HIV</td>
+                  <td>Viral suppression</td>
+                  <td>92.2%</td>
+                  <td>3,819 of 4,144</td>
+                </tr>
+                <tr>
+                  <td>RA</td>
+                  <td>RAPID3 improvement</td>
+                  <td>43.6%</td>
+                  <td>167 of 383</td>
+                </tr>
+                <tr>
+                  <td>ONC</td>
+                  <td>Hospitalization utilization</td>
+                  <td>6.9%</td>
+                  <td>878 of 12,635</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="takeaway-band" id="conclusion">
+        <div class="takeaway-stamp">
+          <strong>Benchmark foundation</strong>
+          <span>Conclusion</span>
+        </div>
+        <article class="panel markdown-fragment">
+          <p class="section-label">Interpretation</p>
+          <h2>Standard criteria made outcomes comparable across specialty pharmacies.</h2>
+          <p>A clinical outcome reporting framework was implemented across a network of HSSPs. The authors concluded that standardized criteria allowed each specialty pharmacy to compare performance and validate quality clinical care.</p>
+          <p>Reported results in HCV, HIV, RA, and oncology can help shape benchmarks for clinical outcome performance in health-system specialty pharmacy.</p>
+        </article>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Authors</p>
+        <div class="markdown-fragment">
+          <p>Kristen Ditch, PharmD, BCCCP; Martha Stutsky, PharmD, BCPS; Carolkim Huynh, PharmD, CSP; Christopher Barr; Shreevidya Periyasamy, MS HIA; Kate Smullen, PharmD, CSP, MSCS; Jennifer L. Donovan, PharmD.</p>
+          <p>Disclosures: the authors reported nothing to disclose concerning possible financial or personal relationships with commercial entities related to the subject matter.</p>
+        </div>
+      </section>
+
+      <footer class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/48-2022.pdf">Open source PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/48-2022.md">Open source markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

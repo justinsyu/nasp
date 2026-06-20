@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2024 Infographic | Pharmacist-Led PARP Inhibitor Monitoring</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .care-arc {
+      position: relative;
+      min-height: 18rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 82% 10%, rgba(233, 158, 37, 0.24), transparent 8rem),
+        linear-gradient(150deg, rgba(238, 244, 251, 0.98), #fff 58%, rgba(255, 247, 234, 0.94));
+      overflow: hidden;
+      padding: 0.8rem;
+    }
+    .care-arc svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .hero-card .button-link {
+      justify-content: center;
+      background: #fff;
+    }
+    .signal-band {
+      display: grid;
+      grid-template-columns: 0.72fr 1.28fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .lead-signal {
+      display: grid;
+      align-content: center;
+      min-height: 14rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        linear-gradient(145deg, rgba(36, 55, 112, 0.98), rgba(24, 124, 143, 0.94)),
+        radial-gradient(circle at 92% 12%, rgba(233, 158, 37, 0.4), transparent 10rem);
+      color: #fff;
+      padding: 1.1rem;
+    }
+    .lead-signal span {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+    .lead-signal strong {
+      margin-top: 0.24rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      line-height: 0.9;
+    }
+    .lead-signal p {
+      margin: 0.7rem 0 0;
+      color: rgba(255, 255, 255, 0.87);
+      font-size: 0.95rem;
+    }
+    .paired-bars {
+      display: grid;
+      gap: 0.74rem;
+      margin-top: 0.75rem;
+    }
+    .paired-row {
+      display: grid;
+      grid-template-columns: 8.6rem minmax(0, 1fr) 4.2rem;
+      gap: 0.62rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+    .paired-track {
+      height: 1.05rem;
+      border: 1px solid rgba(174, 187, 210, 0.88);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .paired-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .paired-track.post i {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .paired-row em {
+      color: var(--ink);
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+    .visit-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-top: 0.8rem;
+    }
+    .visit-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.88rem;
+    }
+    .visit-card h3 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.7rem;
+      margin-bottom: 0.55rem;
+    }
+    .visit-card h3 span {
+      color: var(--muted);
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .dot-timeline {
+      display: grid;
+      grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+      gap: 0.35rem;
+      align-items: end;
+      min-height: 5.4rem;
+      margin-top: 0.4rem;
+    }
+    .dot-timeline b {
+      display: grid;
+      place-items: center;
+      min-height: 2.1rem;
+      border: 1px solid rgba(36, 55, 112, 0.2);
+      border-radius: 7px;
+      background: var(--surface-blue);
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      line-height: 1.1;
+      text-align: center;
+    }
+    .dot-timeline b.pharm {
+      background: rgba(24, 124, 143, 0.12);
+      border-color: rgba(24, 124, 143, 0.45);
+      color: var(--teal);
+    }
+    .dot-timeline b.refill {
+      background: var(--surface-warm);
+      border-color: rgba(233, 158, 37, 0.45);
+      color: #996318;
+    }
+    .source-note {
+      margin: 0.72rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+    .intervention-layout {
+      display: grid;
+      grid-template-columns: 14rem minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+      margin-top: 0.35rem;
+    }
+    .intervention-layout svg {
+      width: 100%;
+      max-width: 14rem;
+      height: auto;
+    }
+    .legend {
+      display: grid;
+      gap: 0.45rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .legend li {
+      display: grid;
+      grid-template-columns: 0.85rem minmax(0, 1fr) auto;
+      gap: 0.45rem;
+      align-items: center;
+      color: var(--body);
+      font-size: 0.8rem;
+    }
+    .legend i {
+      width: 0.85rem;
+      height: 0.85rem;
+      border-radius: 3px;
+      background: var(--legend-color, var(--red));
+    }
+    .mini-cards {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+    .mini-card {
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: var(--surface-blue);
+      padding: 0.65rem;
+    }
+    .mini-card strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+    .mini-card span {
+      display: block;
+      margin-top: 0.28rem;
+      color: var(--muted);
+      font-size: 0.67rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .comparison-table td:last-child,
+    .comparison-table td:nth-child(2),
+    .comparison-table th:last-child,
+    .comparison-table th:nth-child(2) {
+      text-align: right;
+    }
+    .ae-grid {
+      display: grid;
+      gap: 0.54rem;
+      margin-top: 0.7rem;
+    }
+    .ae-row {
+      display: grid;
+      grid-template-columns: 8.4rem minmax(0, 1fr) 6rem;
+      gap: 0.55rem;
+      align-items: center;
+      font-size: 0.78rem;
+    }
+    .ae-row span:first-child {
+      color: var(--ink);
+      font-weight: 850;
+    }
+    .ae-line {
+      display: grid;
+      grid-template-columns: var(--pre) var(--post);
+      height: 0.85rem;
+      border: 1px solid rgba(174, 187, 210, 0.8);
+      border-radius: 999px;
+      overflow: hidden;
+      background: #edf2f8;
+    }
+    .ae-line i:first-child { background: rgba(209, 38, 48, 0.78); }
+    .ae-line i:last-child { background: rgba(24, 124, 143, 0.78); }
+    .ae-row em {
+      color: var(--muted);
+      font-style: normal;
+      font-weight: 850;
+      text-align: right;
+    }
+    .legend-pair {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem 0.9rem;
+      margin-top: 0.65rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+    .legend-pair i {
+      display: inline-block;
+      width: 0.68rem;
+      height: 0.68rem;
+      margin-right: 0.25rem;
+      border-radius: 2px;
+      vertical-align: -0.05rem;
+      background: rgba(209, 38, 48, 0.78);
+    }
+    .legend-pair span:last-child i { background: rgba(24, 124, 143, 0.78); }
+    @media (max-width: 900px) {
+      .signal-band,
+      .intervention-layout {
+        grid-template-columns: 1fr;
+      }
+      .mini-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 620px) {
+      .visit-grid,
+      .mini-cards {
+        grid-template-columns: 1fr;
+      }
+      .paired-row,
+      .ae-row {
+        grid-template-columns: 1fr;
+      }
+      .paired-row em,
+      .ae-row em {
+        text-align: left;
+      }
+      .dot-timeline {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/11-OPR11-EN-Poster-AM24_2024.pdf">Poster PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/11-OPR11-EN-Poster-AM24_2024.md">Markdown Source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">2024 Annual Meeting Poster | 11-OPR11-EN</p>
+        <h1>Pharmacist-led monitoring for patients initiating PARP inhibitor therapy</h1>
+        <p class="hero-summary">
+          A Vanderbilt Specialty Pharmacy pre/post study evaluated whether tailored pharmacist monitoring during the first 90 days of PARP inhibitor therapy changed interruptions, dose changes, discontinuations, and acute-care use.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Single-center pre/post intervention</li>
+          <li class="tag therapy">PARP inhibitors</li>
+          <li class="tag therapy">Oncology specialty pharmacy</li>
+          <li class="tag">90-day monitoring window</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster details">
+        <div class="poster-code">AM24<br>11-OPR11-EN</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Pre cohort</dt>
+            <dd>n = 28</dd>
+          </div>
+          <div>
+            <dt>Post cohort</dt>
+            <dd>n = 29</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>Vanderbilt SP</dd>
+          </div>
+          <div>
+            <dt>Therapy</dt>
+            <dd>PARPi starts</dd>
+          </div>
+        </dl>
+        <div class="care-arc" aria-label="Monitoring cadence illustration">
+          <svg viewBox="0 0 420 260" role="img" aria-labelledby="arc-title arc-desc">
+            <title id="arc-title">PARP inhibitor monitoring arc</title>
+            <desc id="arc-desc">Pharmacist-led monitoring adds early touchpoints during the first 90 days of treatment.</desc>
+            <defs>
+              <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L9,3 z" fill="#243770"></path>
+              </marker>
+            </defs>
+            <rect x="24" y="35" width="88" height="118" rx="12" fill="#fff" stroke="#aebbd2" stroke-width="3"></rect>
+            <path d="M46 70h44M46 94h30M46 118h50" stroke="#187c8f" stroke-width="8" stroke-linecap="round"></path>
+            <circle cx="68" cy="181" r="27" fill="#fff" stroke="#243770" stroke-width="4"></circle>
+            <path d="M55 181h26M68 168v26" stroke="#d12630" stroke-width="7" stroke-linecap="round"></path>
+            <path d="M126 82 C190 26, 270 32, 344 76" fill="none" stroke="#187c8f" stroke-width="9" stroke-linecap="round" marker-end="url(#arrowhead)"></path>
+            <path d="M126 140 C196 185, 268 196, 354 162" fill="none" stroke="#e99e25" stroke-width="8" stroke-linecap="round" stroke-dasharray="2 15" marker-end="url(#arrowhead)"></path>
+            <circle cx="348" cy="80" r="34" fill="#eef4fb" stroke="#187c8f" stroke-width="5"></circle>
+            <path d="M333 80l10 10 22-27" fill="none" stroke="#187c8f" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path>
+            <circle cx="354" cy="160" r="30" fill="#fff7ea" stroke="#e99e25" stroke-width="5"></circle>
+            <path d="M340 160h28M354 146v28" stroke="#e99e25" stroke-width="6" stroke-linecap="round"></path>
+            <text x="143" y="48" fill="#187c8f" font-family="Arial, sans-serif" font-size="20" font-weight="800">Early pharmacist calls</text>
+            <text x="145" y="224" fill="#243770" font-family="Arial, sans-serif" font-size="18" font-weight="800">Goal: fewer disruptions in first 90 days</text>
+          </svg>
+        </div>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/11-OPR11-EN-Poster-AM24_2024.pdf">Open poster PDF</a>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Therapy interruptions</span>
+          <strong>54% -> 31%</strong>
+        </article>
+        <article class="metric-card">
+          <span>Median interruption</span>
+          <strong>17d -> 7d</strong>
+        </article>
+        <article class="metric-card">
+          <span>Hospitalizations</span>
+          <strong>25% -> 7%</strong>
+        </article>
+        <article class="metric-card">
+          <span>Pharmacist interventions</span>
+          <strong>181</strong>
+        </article>
+      </section>
+
+      <section class="signal-band" id="results">
+        <div class="lead-signal">
+          <span>Central outcome</span>
+          <strong>10 fewer days</strong>
+          <p>Median treatment interruptions shortened from 17 days before tailored monitoring to 7 days after pharmacist-led monitoring was implemented.</p>
+        </div>
+        <article class="panel">
+          <p class="section-label">Therapy changes and acute-care use</p>
+          <h2>Post-intervention patients had fewer interruptions and hospitalizations.</h2>
+          <div class="paired-bars">
+            <div class="paired-row">
+              <span>Interruptions pre</span>
+              <span class="paired-track"><i style="width: 100%;"></i></span>
+              <em>54%</em>
+            </div>
+            <div class="paired-row">
+              <span>Interruptions post</span>
+              <span class="paired-track post"><i style="width: 57%;"></i></span>
+              <em>31%</em>
+            </div>
+            <div class="paired-row">
+              <span>Hospitalization pre</span>
+              <span class="paired-track"><i style="width: 100%;"></i></span>
+              <em>25%</em>
+            </div>
+            <div class="paired-row">
+              <span>Hospitalization post</span>
+              <span class="paired-track post"><i style="width: 28%;"></i></span>
+              <em>7%</em>
+            </div>
+            <div class="paired-row">
+              <span>ER visits pre</span>
+              <span class="paired-track"><i style="width: 70%;"></i></span>
+              <em>7%</em>
+            </div>
+            <div class="paired-row">
+              <span>ER visits post</span>
+              <span class="paired-track post"><i style="width: 100%;"></i></span>
+              <em>10%</em>
+            </div>
+          </div>
+          <p class="source-note">Values are from the poster summary table for therapy changes, hospitalizations, and ER visits during the first 90 days.</p>
+        </article>
+      </section>
+
+      <section class="visit-grid" id="methods">
+        <article class="visit-card">
+          <h3>Pre-intervention cadence <span>2017-2019</span></h3>
+          <p class="source-note">Initial counseling plus technician refill calls at 30, 60, and 90 days.</p>
+          <div class="dot-timeline" style="--cols: 4;" aria-label="Pre-intervention monitoring schedule">
+            <b class="pharm">Initial</b>
+            <b class="refill">Day 30</b>
+            <b class="refill">Day 60</b>
+            <b class="refill">Day 90</b>
+          </div>
+        </article>
+        <article class="visit-card">
+          <h3>Post-intervention cadence <span>2021-2022</span></h3>
+          <p class="source-note">Early pharmacist touchpoints added on days 5, 14, 21, 35, and 42, with refill calls retained.</p>
+          <div class="dot-timeline" style="--cols: 9;" aria-label="Post-intervention monitoring schedule">
+            <b class="pharm">Initial</b>
+            <b class="pharm">Day 5</b>
+            <b class="pharm">Day 14</b>
+            <b class="pharm">Day 21</b>
+            <b class="refill">Day 28</b>
+            <b class="pharm">Day 35</b>
+            <b class="pharm">Day 42</b>
+            <b class="pharm">Day 60</b>
+            <b class="pharm">Day 90</b>
+          </div>
+        </article>
+      </section>
+
+      <section class="evidence-map" id="evidence" aria-label="Evidence flow">
+        <article class="evidence-card">
+          <h3>Objective</h3>
+          <p>Evaluate pharmacist-led tailored monitoring on medication interruptions, dose reductions, discontinuations, ER visits, and hospitalizations.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Population</h3>
+          <p>Adults initiating PARP inhibitor therapy filled through Vanderbilt Specialty Pharmacy or manufacturer assistance programs.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Monitoring topics</h3>
+          <p>Calls assessed medication-taking, missed doses, side effects, mitigation strategies, next call timing, and escalation to physicians if needed.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Detected workload</h3>
+          <p>The post-intervention model generated 181 pharmacist interventions; patient education was the dominant category.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Conclusion</h3>
+          <p>Tailored pharmacist monitoring was associated with fewer and shorter interruptions and fewer hospitalizations during early PARPi treatment.</p>
+        </article>
+      </section>
+
+      <section class="visual-grid" aria-label="Intervention and adverse event patterns">
+        <article class="panel">
+          <p class="section-label">Pharmacist interventions</p>
+          <h2>Education anchored most intervention activity.</h2>
+          <div class="intervention-layout">
+            <svg viewBox="0 0 240 240" role="img" aria-label="Donut chart showing pharmacist intervention mix">
+              <circle cx="120" cy="120" r="76" fill="none" stroke="#d9e1ef" stroke-width="36"></circle>
+              <circle cx="120" cy="120" r="76" fill="none" stroke="#d12630" stroke-width="36" stroke-dasharray="326.7 150.8" stroke-dashoffset="0" transform="rotate(-90 120 120)"></circle>
+              <circle cx="120" cy="120" r="76" fill="none" stroke="#187c8f" stroke-width="36" stroke-dasharray="76.5 401" stroke-dashoffset="-326.7" transform="rotate(-90 120 120)"></circle>
+              <circle cx="120" cy="120" r="76" fill="none" stroke="#e99e25" stroke-width="36" stroke-dasharray="21.1 456.4" stroke-dashoffset="-403.2" transform="rotate(-90 120 120)"></circle>
+              <circle cx="120" cy="120" r="76" fill="none" stroke="#7561a8" stroke-width="36" stroke-dasharray="18.5 459" stroke-dashoffset="-424.3" transform="rotate(-90 120 120)"></circle>
+              <circle cx="120" cy="120" r="76" fill="none" stroke="#4d8a67" stroke-width="36" stroke-dasharray="34.6 442.9" stroke-dashoffset="-442.8" transform="rotate(-90 120 120)"></circle>
+              <circle cx="120" cy="120" r="49" fill="#fff"></circle>
+              <text x="120" y="112" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="20" font-weight="900">68%</text>
+              <text x="120" y="136" text-anchor="middle" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="800">education</text>
+            </svg>
+            <ul class="legend">
+              <li style="--legend-color: var(--red);"><i></i><span>Patient education</span><b>123</b></li>
+              <li style="--legend-color: var(--teal);"><i></i><span>Supportive therapy</span><b>29</b></li>
+              <li style="--legend-color: var(--gold);"><i></i><span>Care coordination</span><b>8</b></li>
+              <li style="--legend-color: var(--purple);"><i></i><span>Dose reduction</span><b>7</b></li>
+              <li style="--legend-color: var(--green);"><i></i><span>Other documented PIs</span><b>14</b></li>
+            </ul>
+          </div>
+          <p class="source-note">Patient education included active listening, therapy review, side-effect management, dose counseling, financial counseling, and interaction screening.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Adverse event capture</p>
+          <h2>More monitoring surfaced more patient-reported symptoms.</h2>
+          <div class="ae-grid">
+            <div class="ae-row">
+              <span>Fatigue</span>
+              <span class="ae-line" style="--pre:25fr; --post:76fr;"><i></i><i></i></span>
+              <em>25 vs 76</em>
+            </div>
+            <div class="ae-row">
+              <span>Nausea</span>
+              <span class="ae-line" style="--pre:24fr; --post:58fr;"><i></i><i></i></span>
+              <em>24 vs 58</em>
+            </div>
+            <div class="ae-row">
+              <span>Anemia</span>
+              <span class="ae-line" style="--pre:15fr; --post:5fr;"><i></i><i></i></span>
+              <em>15 vs 5</em>
+            </div>
+            <div class="ae-row">
+              <span>Vomiting</span>
+              <span class="ae-line" style="--pre:10fr; --post:7fr;"><i></i><i></i></span>
+              <em>10 vs 7</em>
+            </div>
+            <div class="ae-row">
+              <span>Total AEs</span>
+              <span class="ae-line" style="--pre:164fr; --post:258fr;"><i></i><i></i></span>
+              <em>164 vs 258</em>
+            </div>
+          </div>
+          <div class="legend-pair" aria-label="Adverse event bar legend">
+            <span><i></i>Pre-intervention</span>
+            <span><i></i>Post-intervention</span>
+          </div>
+          <p class="source-note">The adverse-event table shows higher total event counts after implementation, consistent with more frequent early calls and symptom documentation.</p>
+        </article>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">Cohort shape</p>
+          <h2>Similar-size cohorts, heavily ovarian and olaparib-treated.</h2>
+          <div class="mini-cards">
+            <div class="mini-card"><strong>62</strong><span>pre median age</span></div>
+            <div class="mini-card"><strong>63</strong><span>post median age</span></div>
+            <div class="mini-card"><strong>82%</strong><span>pre ovarian</span></div>
+            <div class="mini-card"><strong>90%</strong><span>post olaparib</span></div>
+          </div>
+          <p class="source-note">Ovarian category included ovarian, fallopian tube, or primary peritoneal cancer.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Discontinuation context</p>
+          <h2>Disease progression remained the main reason therapy stopped.</h2>
+          <div class="paired-bars">
+            <div class="paired-row">
+              <span>Progression pre</span>
+              <span class="paired-track"><i style="width: 90%;"></i></span>
+              <em>80%</em>
+            </div>
+            <div class="paired-row">
+              <span>Progression post</span>
+              <span class="paired-track post"><i style="width: 100%;"></i></span>
+              <em>89%</em>
+            </div>
+            <div class="paired-row">
+              <span>AE pre</span>
+              <span class="paired-track"><i style="width: 100%;"></i></span>
+              <em>20%</em>
+            </div>
+            <div class="paired-row">
+              <span>AE post</span>
+              <span class="paired-track post"><i style="width: 55%;"></i></span>
+              <em>11%</em>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="tables-grid" id="tables">
+        <article class="table-card">
+          <p class="section-label">Condensed outcome table</p>
+          <h3>First 90 days of PARPi therapy</h3>
+          <div class="table-wrap">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th>Outcome</th>
+                  <th>Pre</th>
+                  <th>Post</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Dose reduction</td><td>36%</td><td>34%</td></tr>
+                <tr><td>Therapy interruption</td><td>54%</td><td>31%</td></tr>
+                <tr><td>Discontinuation</td><td>18%</td><td>31%</td></tr>
+                <tr><td>Hospitalization</td><td>25%</td><td>7%</td></tr>
+                <tr><td>ER visits</td><td>7%</td><td>10%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Table pattern</p>
+          <h3>Therapy persistence snapshots</h3>
+          <div class="table-wrap">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th>Day</th>
+                  <th>Pre, no discontinuation</th>
+                  <th>Post, no discontinuation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>0</td><td>100%</td><td>100%</td></tr>
+                <tr><td>30</td><td>95%</td><td>90%</td></tr>
+                <tr><td>60</td><td>85%</td><td>75%</td></tr>
+                <tr><td>90</td><td>82%</td><td>69%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel markdown-fragment" id="conclusion">
+        <p class="section-label">Bottom line</p>
+        <h2>More frequent pharmacist contact changed the early-treatment risk profile.</h2>
+        <p>
+          The poster concludes that pharmacist-led monitoring during PARP inhibitor initiation was associated with fewer and shorter dose interruptions and fewer hospitalizations in the first 90 days, even as additional touchpoints captured more symptoms and intervention opportunities.
+        </p>
+      </section>
+
+      <footer class="footer-actions" id="sources">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/11-OPR11-EN-Poster-AM24_2024.pdf">Open original PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/11-OPR11-EN-Poster-AM24_2024.md">Open extracted markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

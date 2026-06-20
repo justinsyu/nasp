@@ -1,0 +1,751 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2020 NASP Research Presentation Abstracts | Infographic</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .summit-hero {
+      position: relative;
+      overflow: hidden;
+    }
+    .summit-hero::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: min(44vw, 30rem);
+      height: min(26vw, 17rem);
+      background:
+        linear-gradient(135deg, transparent 0 42%, rgba(209, 38, 48, 0.16) 42% 47%, transparent 47%),
+        linear-gradient(90deg, rgba(24, 124, 143, 0.12), rgba(233, 158, 37, 0.1));
+      clip-path: polygon(0 100%, 10% 54%, 24% 54%, 24% 33%, 36% 33%, 36% 54%, 50% 54%, 50% 20%, 62% 20%, 62% 54%, 76% 54%, 76% 38%, 88% 38%, 88% 54%, 100% 54%, 100% 100%);
+      opacity: 0.86;
+      pointer-events: none;
+    }
+    .hero-summary strong,
+    .theme-note strong,
+    .pattern-note strong {
+      color: var(--ink);
+      font-weight: 900;
+    }
+    .mini-capitol {
+      width: 100%;
+      height: auto;
+      margin-top: 0.3rem;
+    }
+    .signal-row {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+    .signal-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--surface);
+      padding: 0.82rem;
+      min-height: 8rem;
+    }
+    .signal-card span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.62rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .signal-card strong {
+      display: block;
+      margin-top: 0.2rem;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.85rem;
+      line-height: 1;
+    }
+    .signal-card p {
+      margin: 0.55rem 0 0;
+      font-size: 0.78rem;
+    }
+    .theme-board {
+      display: grid;
+      grid-template-columns: 0.62fr 1.38fr;
+      gap: 1rem;
+      align-items: center;
+    }
+    .donut-wrap {
+      display: grid;
+      place-items: center;
+      min-height: 17rem;
+    }
+    .donut {
+      width: min(100%, 17rem);
+      height: auto;
+      overflow: visible;
+    }
+    .donut text {
+      fill: var(--ink);
+      font-family: var(--font-display);
+      font-weight: 900;
+      text-anchor: middle;
+    }
+    .theme-note {
+      margin: 0.6rem 0 0;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+    .theme-radar {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.7rem;
+    }
+    .theme-tile {
+      position: relative;
+      min-height: 8.7rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, rgba(238, 244, 251, 0.85), rgba(255, 255, 255, 0.95)),
+        #fff;
+      padding: 0.78rem 0.82rem 0.86rem;
+      overflow: hidden;
+    }
+    .theme-tile::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 0.34rem;
+      background: var(--tile-accent, var(--red));
+    }
+    .theme-tile:nth-child(2) { --tile-accent: var(--gold); }
+    .theme-tile:nth-child(3) { --tile-accent: var(--teal); }
+    .theme-tile:nth-child(4) { --tile-accent: var(--green); }
+    .theme-tile strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.28rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .theme-tile b {
+      display: block;
+      margin-top: 0.48rem;
+      color: var(--ink);
+      font-size: 0.88rem;
+    }
+    .theme-tile p {
+      margin: 0.28rem 0 0;
+      font-size: 0.78rem;
+    }
+    .therapy-matrix {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.75rem;
+    }
+    .therapy-cell {
+      min-height: 4rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.58rem;
+    }
+    .therapy-cell strong {
+      display: block;
+      color: var(--ink);
+      font-size: 0.82rem;
+      line-height: 1.15;
+    }
+    .therapy-cell span {
+      display: block;
+      margin-top: 0.18rem;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .flowline {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.72rem;
+      margin-top: 0.65rem;
+    }
+    .flow-step {
+      position: relative;
+      min-height: 10.6rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--surface);
+      padding: 0.82rem;
+    }
+    .flow-step::after {
+      content: "";
+      position: absolute;
+      top: 2.15rem;
+      right: -0.58rem;
+      width: 0.78rem;
+      height: 0.78rem;
+      border-top: 2px solid var(--border-strong);
+      border-right: 2px solid var(--border-strong);
+      background: var(--surface);
+      transform: rotate(45deg);
+      z-index: 1;
+    }
+    .flow-step:last-child::after {
+      display: none;
+    }
+    .flow-step span {
+      display: inline-grid;
+      place-items: center;
+      width: 2rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--surface-blue);
+      color: var(--red);
+      font-family: var(--font-display);
+      font-weight: 900;
+    }
+    .flow-step h3 {
+      margin-top: 0.55rem;
+    }
+    .flow-step p {
+      margin: 0.44rem 0 0;
+      font-size: 0.8rem;
+    }
+    .examples-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+    .example-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--surface);
+      padding: 0.85rem;
+    }
+    .example-card .poster {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+    .example-card h3 {
+      margin-top: 0.34rem;
+      min-height: 2.45rem;
+    }
+    .example-card dl {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.46rem;
+      margin: 0.74rem 0 0;
+    }
+    .example-card dt {
+      color: var(--muted);
+      font-size: 0.61rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .example-card dd {
+      margin: 0.06rem 0 0;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 900;
+      line-height: 1.02;
+    }
+    .pattern-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.58rem;
+      margin-top: 0.75rem;
+    }
+    .pattern-card {
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.62rem;
+    }
+    .pattern-card strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+    }
+    .pattern-card span {
+      display: block;
+      margin-top: 0.22rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+    }
+    .pattern-note {
+      margin: 0.72rem 0 0;
+      font-size: 0.84rem;
+    }
+    .source-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(24, 124, 143, 0.08), rgba(233, 158, 37, 0.1)),
+        #fff;
+      padding: 1rem;
+    }
+    @media (max-width: 980px) {
+      .signal-row,
+      .flowline,
+      .pattern-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .theme-board,
+      .examples-grid {
+        grid-template-columns: 1fr;
+      }
+      .flow-step::after {
+        display: none;
+      }
+    }
+    @media (max-width: 640px) {
+      .signal-row,
+      .theme-radar,
+      .therapy-matrix,
+      .flowline,
+      .examples-grid,
+      .pattern-grid {
+        grid-template-columns: 1fr;
+      }
+      .summit-hero::after {
+        opacity: 0.25;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP poster infographics">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Intelligence</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/TF-IJDA_2020_NASP-abstract-book-1.pdf">Source PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/TF-IJDA_2020_NASP-abstract-book-1.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero summit-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Journal of Drug Assessment supplement | September 14-18, 2020</p>
+        <h1>2020 NASP research abstracts: specialty pharmacy under pandemic pressure</h1>
+        <p class="hero-summary">
+          The eighth annual NASP meeting moved to a virtual format and published a research supplement that reads like a field map:
+          <strong>access navigation, adherence measurement, integrated care models, cost burden, and COVID-era remote operations</strong>
+          became the dominant specialty pharmacy storylines.
+        </p>
+        <ul class="tag-row" aria-label="Themes">
+          <li class="tag category">Virtual NASP Annual Meeting</li>
+          <li class="tag category">33 poster slots</li>
+          <li class="tag category">31 full structured abstracts</li>
+          <li class="tag therapy">Access</li>
+          <li class="tag therapy">Adherence</li>
+          <li class="tag therapy">Outcomes</li>
+          <li class="tag therapy">COVID-19 operations</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Publication metadata">
+        <div class="poster-code">TF-IJDA<br>2020</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Format</dt>
+            <dd>Abstract book</dd>
+          </div>
+          <div>
+            <dt>Venue</dt>
+            <dd>NASP Annual Meeting &amp; Expo</dd>
+          </div>
+          <div>
+            <dt>Publication</dt>
+            <dd>Vol. 9, Issue S1</dd>
+          </div>
+          <div>
+            <dt>Tracks</dt>
+            <dd>Clinical, Operational, Regulatory, Experience</dd>
+          </div>
+        </dl>
+        <svg class="mini-capitol" viewBox="0 0 520 210" role="img" aria-label="Stylized Capitol and virtual signal motif">
+          <rect x="0" y="166" width="520" height="24" fill="#243770" opacity="0.12"/>
+          <path d="M60 164h400v18H60z" fill="#243770"/>
+          <path d="M92 112h336v52H92z" fill="#eef4fb" stroke="#aebbd2" stroke-width="3"/>
+          <path d="M128 84h264v28H128z" fill="#fff7ea" stroke="#aebbd2" stroke-width="3"/>
+          <path d="M176 84c8-44 160-44 168 0z" fill="#ffffff" stroke="#aebbd2" stroke-width="3"/>
+          <path d="M210 84c4-22 96-22 100 0z" fill="#d12630" opacity="0.14"/>
+          <g fill="#243770">
+            <rect x="116" y="124" width="18" height="40"/>
+            <rect x="158" y="124" width="18" height="40"/>
+            <rect x="200" y="124" width="18" height="40"/>
+            <rect x="242" y="124" width="18" height="40"/>
+            <rect x="284" y="124" width="18" height="40"/>
+            <rect x="326" y="124" width="18" height="40"/>
+            <rect x="368" y="124" width="18" height="40"/>
+          </g>
+          <g fill="none" stroke="#187c8f" stroke-width="6" stroke-linecap="round" opacity="0.75">
+            <path d="M414 52c18 10 30 28 30 49"/>
+            <path d="M439 35c27 16 45 45 45 78"/>
+            <path d="M105 53c-18 10-29 28-29 49"/>
+            <path d="M81 36c-27 16-45 45-45 78"/>
+          </g>
+          <circle cx="260" cy="74" r="7" fill="#e99e25"/>
+        </svg>
+      </aside>
+    </section>
+
+    <main>
+      <section class="signal-row" aria-label="Headline metrics">
+        <article class="signal-card">
+          <span>Accepted</span>
+          <strong>33</strong>
+          <p>Poster abstracts were accepted for presentation in the supplement.</p>
+        </article>
+        <article class="signal-card">
+          <span>Complete records</span>
+          <strong>31</strong>
+          <p>Full abstracts include repeated Background, Methods, Results, and Conclusions sections.</p>
+        </article>
+        <article class="signal-card">
+          <span>Delivery focus</span>
+          <strong>45%</strong>
+          <p>The largest share addressed delivery of specialty pharmacy products or services.</p>
+        </article>
+        <article class="signal-card">
+          <span>Adherence</span>
+          <strong>24%</strong>
+          <p>Nearly one quarter centered on adherence, persistence, lapses, or PMN measurement.</p>
+        </article>
+        <article class="signal-card">
+          <span>Outcome studies</span>
+          <strong>21%</strong>
+          <p>Outcomes analyses frequently paired care-model measures with cost or utilization endpoints.</p>
+        </article>
+      </section>
+
+      <section class="panel" id="themes">
+        <p class="section-label">Theme Map</p>
+        <h2>Four lenses explain the supplement</h2>
+        <div class="theme-board">
+          <div>
+            <div class="donut-wrap">
+              <svg class="donut" viewBox="0 0 220 220" role="img" aria-label="Distribution of abstract themes: 45 percent delivery, 24 percent adherence, 21 percent outcomes, 10 percent COVID-19 services">
+                <circle cx="110" cy="110" r="74" fill="none" stroke="#e7edf6" stroke-width="34"/>
+                <circle cx="110" cy="110" r="74" fill="none" stroke="#d12630" stroke-width="34" stroke-dasharray="209 465" stroke-dashoffset="0" transform="rotate(-90 110 110)"/>
+                <circle cx="110" cy="110" r="74" fill="none" stroke="#e99e25" stroke-width="34" stroke-dasharray="112 465" stroke-dashoffset="-209" transform="rotate(-90 110 110)"/>
+                <circle cx="110" cy="110" r="74" fill="none" stroke="#187c8f" stroke-width="34" stroke-dasharray="98 465" stroke-dashoffset="-321" transform="rotate(-90 110 110)"/>
+                <circle cx="110" cy="110" r="74" fill="none" stroke="#4d8a67" stroke-width="34" stroke-dasharray="46 465" stroke-dashoffset="-419" transform="rotate(-90 110 110)"/>
+                <circle cx="110" cy="110" r="46" fill="#fff"/>
+                <text x="110" y="105" font-size="30">2020</text>
+                <text x="110" y="130" font-size="11">poster mix</text>
+              </svg>
+            </div>
+            <p class="theme-note">Percentages are from the supplement introduction; COVID-19 represents the remaining posters after delivery, adherence, and outcomes categories.</p>
+          </div>
+          <div class="theme-radar">
+            <article class="theme-tile">
+              <strong>45%</strong>
+              <b>Specialty product and service delivery</b>
+              <p>Prior authorization, limited distribution networks, integrated health-system services, patient onboarding, and operational handoffs.</p>
+            </article>
+            <article class="theme-tile">
+              <strong>24%</strong>
+              <b>Adherence and persistence</b>
+              <p>PDC dashboards, primary medication non-adherence, denosumab lapses, MS DMT adherence, and discontinuation causes.</p>
+            </article>
+            <article class="theme-tile">
+              <strong>21%</strong>
+              <b>Outcomes and economics</b>
+              <p>Cost-effectiveness, healthcare utilization, hemophilia B burden, hospital costs, SVR documentation, and clinical endpoints.</p>
+            </article>
+            <article class="theme-tile">
+              <strong>10%</strong>
+              <b>COVID-era service adaptation</b>
+              <p>Digital employee communication, at-home granulocyte colony-stimulating factors, and telehealth-era care redesign.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="visual-grid" id="context">
+        <article class="panel">
+          <p class="section-label">Conference Context</p>
+          <h2>Virtual meeting, full-scale agenda</h2>
+          <div class="number-cloud" aria-label="Meeting numbers">
+            <div class="number-pill">5<small>pre-conference workshops</small></div>
+            <div class="number-pill">26<small>education sessions</small></div>
+            <div class="number-pill">4<small>CORE tracks</small></div>
+            <div class="number-pill">125+<small>corporate members</small></div>
+            <div class="number-pill">1,800<small>individual members</small></div>
+          </div>
+          <p class="pattern-note">
+            The introduction frames specialty pharmacy as a coordinated, patient-centric model that was already built for remote support, technology-enabled access work, and fulfillment during shelter-in-place conditions.
+          </p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Therapeutic Footprint</p>
+          <h2>Research clustered around complex, high-touch diseases</h2>
+          <div class="therapy-matrix">
+            <div class="therapy-cell"><strong>Hepatitis C</strong><span>DAA access, SVR, donor-derived HCV</span></div>
+            <div class="therapy-cell"><strong>Transplant</strong><span>SOT, renal, immunosuppression</span></div>
+            <div class="therapy-cell"><strong>Rheumatology</strong><span>RA, RAPID3, biosimilars</span></div>
+            <div class="therapy-cell"><strong>Oncology</strong><span>oral oncolytics, PMN, OC safety</span></div>
+            <div class="therapy-cell"><strong>Hemophilia B</strong><span>burden, model, program design</span></div>
+            <div class="therapy-cell"><strong>Multiple sclerosis</strong><span>DMT adherence, dalfampridine access</span></div>
+            <div class="therapy-cell"><strong>Osteoporosis</strong><span>denosumab lapses and discontinuation</span></div>
+            <div class="therapy-cell"><strong>Hyperkalemia</strong><span>patiromer cost-effectiveness</span></div>
+            <div class="therapy-cell"><strong>HIV</strong><span>rapid-start ART services</span></div>
+          </div>
+        </article>
+      </section>
+
+      <section id="flow">
+        <p class="section-label">Evidence Flow</p>
+        <h2>How the abstracts build the case for specialty pharmacy value</h2>
+        <div class="flowline">
+          <article class="flow-step">
+            <span>1</span>
+            <h3>Identify access friction</h3>
+            <p>Studies track payer approval, first dose timing, limited distribution access, affordability, and patient-assistance pathways.</p>
+          </article>
+          <article class="flow-step">
+            <span>2</span>
+            <h3>Embed pharmacists in care</h3>
+            <p>Integrated models connect clinic records, prescribing support, patient outreach, and specialty fulfillment into one workflow.</p>
+          </article>
+          <article class="flow-step">
+            <span>3</span>
+            <h3>Measure adherence precisely</h3>
+            <p>Abstracts stress that raw PMN, PDC, discontinuation, and lapse metrics need chart review and method transparency.</p>
+          </article>
+          <article class="flow-step">
+            <span>4</span>
+            <h3>Translate into outcomes</h3>
+            <p>Evidence links pharmacy services to SVR documentation, lower hospital burden, treatment initiation, and safety interventions.</p>
+          </article>
+          <article class="flow-step">
+            <span>5</span>
+            <h3>Adapt under COVID-19</h3>
+            <p>Digital communication and at-home medication programs show how specialty pharmacies extended service models remotely.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="examples">
+        <p class="section-label">Key Examples</p>
+        <h2>Representative findings from the abstract book</h2>
+        <div class="examples-grid">
+          <article class="example-card">
+            <span class="poster">Poster 1 | DAA access</span>
+            <h3>On-site specialty pharmacy shortened HCV therapy access</h3>
+            <dl>
+              <div>
+                <dt>Patients</dt>
+                <dd>91</dd>
+              </div>
+              <div>
+                <dt>Accessed DAA</dt>
+                <dd>100%</dd>
+              </div>
+              <div>
+                <dt>Initial PA approval</dt>
+                <dd>65%</dd>
+              </div>
+              <div>
+                <dt>Monthly OOP after aid</dt>
+                <dd>$2</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="example-card">
+            <span class="poster">Poster 2 | CPPA operations</span>
+            <h3>Renal transplant pharmacists absorbed prescribing work</h3>
+            <dl>
+              <div>
+                <dt>Orders</dt>
+                <dd>5,793</dd>
+              </div>
+              <div>
+                <dt>Chart reviews</dt>
+                <dd>1,821</dd>
+              </div>
+              <div>
+                <dt>Interventions</dt>
+                <dd>3,852</dd>
+              </div>
+              <div>
+                <dt>Audit error</dt>
+                <dd>0%</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="example-card">
+            <span class="poster">Poster 8 | COVID communication</span>
+            <h3>Text-linked updates reached remote pharmacy staff</h3>
+            <dl>
+              <div>
+                <dt>Deliveries</dt>
+                <dd>914</dd>
+              </div>
+              <div>
+                <dt>Initial click</dt>
+                <dd>63.35%</dd>
+              </div>
+              <div>
+                <dt>Audience</dt>
+                <dd>900</dd>
+              </div>
+              <div>
+                <dt>Ranked</dt>
+                <dd>3rd</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="example-card">
+            <span class="poster">Posters 17 &amp; 26 | Hemophilia B</span>
+            <h3>Burden studies made specialty economics visible</h3>
+            <dl>
+              <div>
+                <dt>Claims patients</dt>
+                <dd>454</dd>
+              </div>
+              <div>
+                <dt>Annual cost</dt>
+                <dd>$205.8K</dd>
+              </div>
+              <div>
+                <dt>Severe profile</dt>
+                <dd>$644.0K</dd>
+              </div>
+              <div>
+                <dt>Lifetime model</dt>
+                <dd>$23.0M</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="example-card">
+            <span class="poster">Poster 18 | MS access</span>
+            <h3>Limited distribution access changed dalfampridine starts</h3>
+            <dl>
+              <div>
+                <dt>Prescriptions</dt>
+                <dd>285</dd>
+              </div>
+              <div>
+                <dt>Post-VSP approval</dt>
+                <dd>100%</dd>
+              </div>
+              <div>
+                <dt>Post-VSP starts</dt>
+                <dd>100%</dd>
+              </div>
+              <div>
+                <dt>Access time</dt>
+                <dd>4.4 d</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="example-card">
+            <span class="poster">Poster 33 | Oral chemotherapy safety</span>
+            <h3>Enhanced refill checks caught monitoring needs</h3>
+            <dl>
+              <div>
+                <dt>Patients</dt>
+                <dd>32</dd>
+              </div>
+              <div>
+                <dt>Interventions</dt>
+                <dd>7</dd>
+              </div>
+              <div>
+                <dt>Monitoring yield</dt>
+                <dd>22%</dd>
+              </div>
+              <div>
+                <dt>Risk flag</dt>
+                <dd>High</dd>
+              </div>
+            </dl>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-stack" id="patterns">
+        <article class="panel">
+          <p class="section-label">Methods Pattern</p>
+          <h2>Most abstracts are applied, retrospective, and operational</h2>
+          <div class="lens-chart" aria-label="Method pattern counts">
+            <div class="lens-row">
+              <span>Retrospective</span>
+              <div class="lens-bar"><i style="width: 100%"></i></div>
+            </div>
+            <div class="lens-row">
+              <span>Cohort / claims</span>
+              <div class="lens-bar"><i style="width: 78%"></i></div>
+            </div>
+            <div class="lens-row">
+              <span>QI / workflow</span>
+              <div class="lens-bar"><i style="width: 55%"></i></div>
+            </div>
+            <div class="lens-row">
+              <span>Survey</span>
+              <div class="lens-bar"><i style="width: 32%"></i></div>
+            </div>
+            <div class="lens-row">
+              <span>Prospective</span>
+              <div class="lens-bar"><i style="width: 24%"></i></div>
+            </div>
+          </div>
+          <p class="pattern-note">
+            The dominant evidence style is pragmatic: chart reviews, claims analyses, dashboards, survey instruments, and before/after implementation studies.
+          </p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Abstract Anatomy</p>
+          <h2>Structured sections replace tables</h2>
+          <div class="pattern-grid">
+            <div class="pattern-card"><strong>Background</strong><span>Problem framing and disease/service context.</span></div>
+            <div class="pattern-card"><strong>Objectives</strong><span>One or two concrete measurement aims.</span></div>
+            <div class="pattern-card"><strong>Methods</strong><span>Data source, cohort window, and endpoint definitions.</span></div>
+            <div class="pattern-card"><strong>Results</strong><span>Counts, percentages, costs, and turnaround times.</span></div>
+            <div class="pattern-card"><strong>Conclusions</strong><span>Service-value interpretation and next steps.</span></div>
+          </div>
+          <p class="pattern-note">
+            <strong>No markdown tables were detected</strong> in the source extraction; the recurring "table" pattern is the five-part abstract structure repeated across the 31 complete records.
+          </p>
+        </article>
+      </section>
+
+      <section class="source-card">
+        <p class="section-label">Source</p>
+        <h2>Open the original supplement</h2>
+        <p class="hero-summary">
+          This infographic synthesizes the confirmed markdown extraction for
+          <em>2020 National Association of Specialty Pharmacy Annual Meeting &amp; Expo: Research Presentation Abstracts</em>,
+          published as a Journal of Drug Assessment supplement.
+        </p>
+        <div class="footer-actions">
+          <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/TF-IJDA_2020_NASP-abstract-book-1.pdf">View source PDF</a>
+          <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/TF-IJDA_2020_NASP-abstract-book-1.md">View source markdown</a>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

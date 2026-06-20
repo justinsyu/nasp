@@ -1,0 +1,640 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pharmacy Benefit Uptake of Biosimilar Products | NASP 2025</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .biosimilar-page {
+      --blue-soft: rgba(24, 124, 143, 0.12);
+      --red-soft: rgba(209, 38, 48, 0.11);
+      --gold-soft: rgba(233, 158, 37, 0.18);
+    }
+    .hero-card.switch-card {
+      background:
+        radial-gradient(circle at 16% 24%, rgba(24, 124, 143, 0.16), transparent 7.5rem),
+        radial-gradient(circle at 86% 18%, rgba(209, 38, 48, 0.12), transparent 8rem),
+        linear-gradient(145deg, #fff, var(--surface-blue) 56%, var(--surface-warm));
+    }
+    .switch-card svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-top: 0.4rem;
+    }
+    .authors {
+      margin: 0;
+      max-width: 58rem;
+      color: var(--muted);
+      font-size: 0.86rem;
+      font-weight: 750;
+    }
+    .thesis {
+      margin: 0;
+      border-left: 4px solid var(--red);
+      padding-left: 0.72rem;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 850;
+      line-height: 1.35;
+    }
+    .metric-card p,
+    .panel p,
+    .table-card p {
+      margin: 0.42rem 0 0;
+    }
+    .metric-card strong.small {
+      color: var(--teal);
+      font-size: 1.55rem;
+      line-height: 1.08;
+    }
+    .outcome-board {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(20rem, 0.78fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .stacked-switch {
+      display: grid;
+      grid-template-columns: 79fr 9fr 5fr 4fr 2fr;
+      height: 3.4rem;
+      margin: 0.8rem 0 0.9rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+    }
+    .stacked-switch i:nth-child(1) { background: var(--teal); }
+    .stacked-switch i:nth-child(2) { background: var(--red); }
+    .stacked-switch i:nth-child(3) { background: var(--gold); }
+    .stacked-switch i:nth-child(4) { background: var(--purple); }
+    .stacked-switch i:nth-child(5) { background: var(--green); }
+    .outcome-legend {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.45rem;
+      margin-top: 0.5rem;
+    }
+    .legend-tile {
+      min-width: 0;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.55rem;
+    }
+    .legend-tile b {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      line-height: 1.15;
+    }
+    .legend-tile strong {
+      display: block;
+      margin-top: 0.22rem;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+    .timeline {
+      display: grid;
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+    .time-row {
+      display: grid;
+      grid-template-columns: 7.5rem minmax(0, 1fr);
+      gap: 0.65rem;
+      align-items: center;
+    }
+    .time-row b {
+      color: var(--ink);
+      font-size: 0.78rem;
+      line-height: 1.15;
+    }
+    .time-track {
+      position: relative;
+      min-height: 2.7rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 999px;
+      background: var(--surface-blue);
+      overflow: hidden;
+    }
+    .time-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .time-track.post i {
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .time-track span {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 0 0.8rem;
+      color: var(--ink);
+      font-size: 0.75rem;
+      font-weight: 850;
+      text-align: center;
+    }
+    .chart-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 1rem;
+    }
+    .bar-list {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 0.72rem;
+    }
+    .bar-row {
+      display: grid;
+      grid-template-columns: 8.6rem minmax(0, 1fr) 3.1rem;
+      gap: 0.52rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .bar-row span:last-child {
+      color: var(--muted);
+      text-align: right;
+    }
+    .bar-track {
+      height: 0.82rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .bar-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .bar-track.teal i {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .condition-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.75rem;
+    }
+    .condition-card {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.68rem;
+    }
+    .condition-card b {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.86rem;
+    }
+    .condition-card strong {
+      display: block;
+      margin-top: 0.26rem;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+    .condition-card span {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+    .reason-wheel {
+      display: grid;
+      grid-template-columns: 16rem minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+    }
+    .donut-wrap {
+      display: grid;
+      place-items: center;
+      min-height: 16rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 8px;
+      background: linear-gradient(145deg, #fff, var(--surface-blue));
+    }
+    .donut-wrap svg {
+      width: min(13rem, 100%);
+      height: auto;
+    }
+    .callout-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+    .callout {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+    }
+    .callout b {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.96rem;
+      line-height: 1.2;
+    }
+    .callout p {
+      font-size: 0.82rem;
+    }
+    .source-note {
+      margin: 0.5rem 0 0;
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+    .takeaway {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, var(--blue-soft), transparent 42%),
+        linear-gradient(180deg, #fff, var(--surface-warm));
+    }
+    .takeaway p {
+      max-width: 70rem;
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.06rem, 1.75vw, 1.44rem);
+      font-weight: 850;
+      line-height: 1.35;
+    }
+    .compact-table th,
+    .compact-table td {
+      font-size: 0.76rem;
+    }
+    @media (max-width: 960px) {
+      .outcome-board,
+      .chart-panel,
+      .reason-wheel {
+        grid-template-columns: 1fr;
+      }
+      .outcome-legend,
+      .condition-grid,
+      .callout-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 560px) {
+      .outcome-legend,
+      .condition-grid,
+      .callout-grid,
+      .bar-row,
+      .time-row {
+        grid-template-columns: 1fr;
+      }
+      .bar-row span:last-child {
+        text-align: left;
+      }
+      .stacked-switch {
+        height: 2.4rem;
+      }
+    }
+  </style>
+</head>
+<body class="biosimilar-page">
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/2142-PSP75-EN-Poster-AM25_2025.pdf">Source PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/2142-PSP75-EN-Poster-AM25_2025.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP Annual Meeting 2025 / 2142-PSP75</p>
+        <h1 id="poster-title">Preliminary Real-World Evidence on the Pharmacy Benefit Uptake of Biosimilar Products for Self-Insured Employers</h1>
+        <p class="authors">Elizabeth Brewster, PharmD; Catherine Berger, PharmD; Courtney Keefe, PharmD; Tu Doan, PharmD; Matthew Harman, PharmD, MPH</p>
+        <p class="hero-summary">
+          After branded adalimumab was excluded from a self-insured employer formulary, claims were used to track whether members moved to the preferred biosimilar, another branded biologic, or back to the originator product.
+        </p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag therapy">Biosimilars</li>
+          <li class="tag category">Pharmacy benefit</li>
+          <li class="tag">Adalimumab exclusion</li>
+          <li class="tag">Self-insured employers</li>
+          <li class="tag">Real-world evidence</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card switch-card" aria-label="Study snapshot">
+        <div class="poster-code">2142<br>PSP75</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Employers</dt>
+            <dd>284</dd>
+          </div>
+          <div>
+            <dt>Members</dt>
+            <dd>2,441</dd>
+          </div>
+          <div>
+            <dt>Pre-period</dt>
+            <dd>Sep 2023-Mar 2024</dd>
+          </div>
+          <div>
+            <dt>Post-period</dt>
+            <dd>Apr-Oct 2024</dd>
+          </div>
+        </dl>
+        <p class="thesis">Core signal: most members transitioned to the preferred biosimilar, while smaller but meaningful groups product-hopped or returned to branded adalimumab.</p>
+        <svg viewBox="0 0 360 180" role="img" aria-label="Switch schematic from branded adalimumab to biosimilar and other branded biologics">
+          <defs>
+            <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+              <path d="M0 0 L8 4 L0 8 Z" fill="#68758d"/>
+            </marker>
+          </defs>
+          <circle cx="82" cy="90" r="46" fill="#fff" stroke="#243770" stroke-width="4"/>
+          <text x="82" y="84" text-anchor="middle" fill="#243770" font-size="15" font-weight="900">Branded</text>
+          <text x="82" y="104" text-anchor="middle" fill="#68758d" font-size="13" font-weight="800">adalimumab</text>
+          <path d="M130 72 C170 40 202 40 238 58" fill="none" stroke="#187c8f" stroke-width="5" marker-end="url(#arrow)"/>
+          <path d="M130 108 C176 140 206 142 242 122" fill="none" stroke="#d12630" stroke-width="5" marker-end="url(#arrow)"/>
+          <circle cx="278" cy="58" r="35" fill="#fff" stroke="#187c8f" stroke-width="4"/>
+          <text x="278" y="55" text-anchor="middle" fill="#243770" font-size="13" font-weight="900">79%</text>
+          <text x="278" y="73" text-anchor="middle" fill="#68758d" font-size="11" font-weight="800">biosimilar</text>
+          <circle cx="278" cy="122" r="35" fill="#fff" stroke="#d12630" stroke-width="4"/>
+          <text x="278" y="119" text-anchor="middle" fill="#243770" font-size="13" font-weight="900">9%</text>
+          <text x="278" y="137" text-anchor="middle" fill="#68758d" font-size="11" font-weight="800">other brand</text>
+        </svg>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <div class="metric-card">
+          <span>Direct switch</span>
+          <strong>79%</strong>
+          <p>1,940 members moved to the formulary-preferred adalimumab biosimilar.</p>
+        </div>
+        <div class="metric-card">
+          <span>Indirect switch</span>
+          <strong>9%</strong>
+          <p>220 members moved to another branded biologic sharing at least one indication.</p>
+        </div>
+        <div class="metric-card">
+          <span>Step through</span>
+          <strong>5%</strong>
+          <p>130 members filled another branded biologic after at least one biosimilar fill.</p>
+        </div>
+        <div class="metric-card">
+          <span>Switch back</span>
+          <strong class="small">56 members</strong>
+          <p>2% returned to branded adalimumab after a biosimilar fill.</p>
+        </div>
+      </section>
+
+      <section class="outcome-board" aria-label="Objective and methods">
+        <div class="panel">
+          <p class="section-label">Question</p>
+          <h2>What happened after branded adalimumab became a formulary exclusion?</h2>
+          <p>The poster evaluated whether impacted members switched to the preferred biosimilar, switched to a different branded biologic, remained on branded adalimumab, or later switched back. It also examined reasons for unsuccessful biosimilar switches and disease states linked to product-hopping.</p>
+          <div class="stacked-switch" aria-label="Post-exclusion switch outcomes: 79 percent direct switch, 9 percent indirect switch, 5 percent step through, 4 percent nonswitch, 2 percent switch back">
+            <i></i><i></i><i></i><i></i><i></i>
+          </div>
+          <div class="outcome-legend">
+            <div class="legend-tile"><b>Direct switch</b><strong>79%</strong></div>
+            <div class="legend-tile"><b>Indirect switch</b><strong>9%</strong></div>
+            <div class="legend-tile"><b>Step through</b><strong>5%</strong></div>
+            <div class="legend-tile"><b>Nonswitch</b><strong>4%</strong></div>
+            <div class="legend-tile"><b>Switch back</b><strong>2%</strong></div>
+          </div>
+        </div>
+        <div class="panel">
+          <p class="section-label">Design</p>
+          <h2>PBM pharmacy claims plus prior authorization review.</h2>
+          <p>Claims from 284 self-insured employers implementing an exclusionary formulary were extracted from PBM reporting tools. Key fields included product, member account ID, fill date, age, gender, diagnosis code, and pharmacy.</p>
+          <div class="timeline" aria-label="Study timeline">
+            <div class="time-row">
+              <b>Before exclusion</b>
+              <div class="time-track"><i style="width:100%"></i><span>9/1/23 to 3/31/24</span></div>
+            </div>
+            <div class="time-row">
+              <b>After exclusion</b>
+              <div class="time-track post"><i style="width:100%"></i><span>4/1/24 to 10/31/24</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="chart-panel" aria-label="Indirect switch patterns">
+        <div class="panel">
+          <p class="section-label">Indirect switch product mix</p>
+          <h2>Three products accounted for most product-hopping.</h2>
+          <div class="bar-list">
+            <div class="bar-row"><b>secukinumab</b><div class="bar-track"><i style="width:100%"></i></div><span>26%</span></div>
+            <div class="bar-row"><b>upadacitinib</b><div class="bar-track"><i style="width:77%"></i></div><span>20%</span></div>
+            <div class="bar-row"><b>risankizumab</b><div class="bar-track"><i style="width:62%"></i></div><span>16%</span></div>
+            <div class="bar-row"><b>etanercept</b><div class="bar-track"><i style="width:54%"></i></div><span>14%</span></div>
+            <div class="bar-row"><b>ustekinumab</b><div class="bar-track"><i style="width:19%"></i></div><span>5%</span></div>
+            <div class="bar-row"><b>guselkumab</b><div class="bar-track"><i style="width:19%"></i></div><span>5%</span></div>
+            <div class="bar-row"><b>others</b><div class="bar-track"><i style="width:54%"></i></div><span>14%</span></div>
+          </div>
+          <p class="source-note">Indirect switch n=220.</p>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Disease-state distribution</p>
+          <h2>Psoriasis/psoriatic arthritis, RA, and HS dominated indirect switches.</h2>
+          <div class="bar-list">
+            <div class="bar-row"><b>PsO/PsA</b><div class="bar-track teal"><i style="width:100%"></i></div><span>36%</span></div>
+            <div class="bar-row"><b>RA</b><div class="bar-track teal"><i style="width:72%"></i></div><span>26%</span></div>
+            <div class="bar-row"><b>HS</b><div class="bar-track teal"><i style="width:42%"></i></div><span>15%</span></div>
+            <div class="bar-row"><b>CD</b><div class="bar-track teal"><i style="width:25%"></i></div><span>9%</span></div>
+            <div class="bar-row"><b>UC</b><div class="bar-track teal"><i style="width:19%"></i></div><span>7%</span></div>
+            <div class="bar-row"><b>AS</b><div class="bar-track teal"><i style="width:14%"></i></div><span>5%</span></div>
+            <div class="bar-row"><b>Other AI</b><div class="bar-track teal"><i style="width:3%"></i></div><span>1%</span></div>
+          </div>
+          <p class="source-note">AI = autoimmune; condition abbreviations match the source poster.</p>
+        </div>
+      </section>
+
+      <section class="panel" aria-label="Condition-specific choices">
+        <p class="section-label">Table pattern: most-used indirect switch product by condition</p>
+        <h2>The alternative product generally followed the member's diagnosis.</h2>
+        <div class="condition-grid">
+          <div class="condition-card">
+            <b>AS</b>
+            <strong>36% / 36%</strong>
+            <span>secukinumab and upadacitinib tied among 11 members</span>
+          </div>
+          <div class="condition-card">
+            <b>CD</b>
+            <strong>35%</strong>
+            <span>risankizumab among 20 members</span>
+          </div>
+          <div class="condition-card">
+            <b>HS</b>
+            <strong>100%</strong>
+            <span>secukinumab among 34 members</span>
+          </div>
+          <div class="condition-card">
+            <b>PsO/PsA</b>
+            <strong>35%</strong>
+            <span>risankizumab among 79 members</span>
+          </div>
+          <div class="condition-card">
+            <b>RA</b>
+            <strong>38%</strong>
+            <span>etanercept among 58 members</span>
+          </div>
+          <div class="condition-card">
+            <b>UC</b>
+            <strong>60%</strong>
+            <span>upadacitinib among 15 members</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="reason-wheel panel" aria-label="Switch-back reasoning">
+        <div class="donut-wrap">
+          <svg viewBox="0 0 220 220" role="img" aria-label="Switch-back prior authorization reasons: 68 percent trial and failure, 25 percent intolerable side effects, 5 percent provider request, 2 percent lost to follow up">
+            <circle cx="110" cy="110" r="76" fill="none" stroke="#e7edf6" stroke-width="34"/>
+            <circle cx="110" cy="110" r="76" fill="none" stroke="#d12630" stroke-width="34" stroke-dasharray="325 478" stroke-dashoffset="0" transform="rotate(-90 110 110)"/>
+            <circle cx="110" cy="110" r="76" fill="none" stroke="#e99e25" stroke-width="34" stroke-dasharray="120 478" stroke-dashoffset="-325" transform="rotate(-90 110 110)"/>
+            <circle cx="110" cy="110" r="76" fill="none" stroke="#187c8f" stroke-width="34" stroke-dasharray="24 478" stroke-dashoffset="-445" transform="rotate(-90 110 110)"/>
+            <circle cx="110" cy="110" r="76" fill="none" stroke="#7561a8" stroke-width="34" stroke-dasharray="9 478" stroke-dashoffset="-469" transform="rotate(-90 110 110)"/>
+            <circle cx="110" cy="110" r="48" fill="#fff"/>
+            <text x="110" y="104" text-anchor="middle" fill="#243770" font-size="28" font-weight="900">56</text>
+            <text x="110" y="126" text-anchor="middle" fill="#68758d" font-size="13" font-weight="800">switch backs</text>
+          </svg>
+        </div>
+        <div>
+          <p class="section-label">Why did members switch back?</p>
+          <h2>Prior authorization reasons pointed mostly to clinical experience, not blanket prescriber refusal.</h2>
+          <div class="bar-list">
+            <div class="bar-row"><b>Trial and failure</b><div class="bar-track"><i style="width:100%"></i></div><span>68%</span></div>
+            <div class="bar-row"><b>Side effects</b><div class="bar-track"><i style="width:37%"></i></div><span>25%</span></div>
+            <div class="bar-row"><b>Provider request</b><div class="bar-track"><i style="width:7%"></i></div><span>5%</span></div>
+            <div class="bar-row"><b>Lost follow-up</b><div class="bar-track"><i style="width:3%"></i></div><span>0-2%</span></div>
+          </div>
+          <p class="source-note">Counts: 38, 14, 3, and 1 respectively.</p>
+        </div>
+      </section>
+
+      <section class="section-stack" aria-label="Interpretation and limitations">
+        <div class="panel">
+          <p class="section-label">Interpretation</p>
+          <h2>Product-hopping was visible, but the preferred biosimilar absorbed the majority of switches.</h2>
+          <div class="callout-grid">
+            <div class="callout">
+              <b>Large direct-switch base</b>
+              <p>Almost 80% of impacted branded adalimumab utilizers moved to the preferred biosimilar.</p>
+            </div>
+            <div class="callout">
+              <b>Diagnosis mattered</b>
+              <p>Alternative biologic choices varied by autoimmune condition and available indications.</p>
+            </div>
+            <div class="callout">
+              <b>Provider hesitancy was smaller</b>
+              <p>Provider-only requests represented 5% of switch-back reasoning in the prior authorization review.</p>
+            </div>
+          </div>
+        </div>
+        <div class="panel">
+          <p class="section-label">Limitations</p>
+          <h2>Interpret cautiously: claims and ICD-10 coding are imperfect proxies.</h2>
+          <p>Indications depended on prescriber coding accuracy, one autoimmune condition per member was assumed, and included biologics did not share identical indications or dosing schedules. Natural disease progression and antibody development were not incorporated.</p>
+        </div>
+      </section>
+
+      <section class="tables-grid" aria-label="Source table extracts">
+        <div class="table-card">
+          <p class="section-label">Post-exclusion outcomes</p>
+          <h2>Outcome counts</h2>
+          <div class="table-wrap">
+            <table class="compact-table">
+              <thead>
+                <tr><th>Switch type</th><th>Members</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Direct switch</td><td>1,940 (79%)</td></tr>
+                <tr><td>Indirect switch</td><td>220 (9%)</td></tr>
+                <tr><td>Nonswitch</td><td>95 (4%)</td></tr>
+                <tr><td>Step through biosimilar to other brand</td><td>130 (5%)</td></tr>
+                <tr><td>Switch back</td><td>56 (2%)</td></tr>
+                <tr><td><b>Total</b></td><td><b>2,441</b></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="table-card">
+          <p class="section-label">Switch-back indications</p>
+          <h2>Switch back vs book of business</h2>
+          <div class="table-wrap">
+            <table class="compact-table">
+              <thead>
+                <tr><th>Indication</th><th>Switch back</th><th>BoB</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>RA</td><td>32%</td><td>28%</td></tr>
+                <tr><td>CD</td><td>20%</td><td>24%</td></tr>
+                <tr><td>AS</td><td>13%</td><td>8%</td></tr>
+                <tr><td>PsO/PsA</td><td>11%</td><td>21%</td></tr>
+                <tr><td>UC</td><td>9%</td><td>9%</td></tr>
+                <tr><td>HS</td><td>7%</td><td>6%</td></tr>
+                <tr><td>JIA</td><td>5%</td><td>0%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="evidence-map" aria-label="Evidence flow">
+        <article class="evidence-card">
+          <h3>Exclude originator</h3>
+          <p>Branded adalimumab was removed from the formulary effective April 2024.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Track claims</h3>
+          <p>Pharmacy claims identified product fills, timing, diagnosis, and member-level switch pathways.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Separate pathways</h3>
+          <p>Direct switch, indirect switch, nonswitch, step-through, and switch-back groups were quantified.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Read disease signal</h3>
+          <p>Alternative biologic use clustered around PsO/PsA, RA, HS, CD, UC, and AS patterns.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Explain failures</h3>
+          <p>Switch-back reviews most often cited trial failure or intolerable side effects.</p>
+        </article>
+      </section>
+
+      <section class="panel takeaway">
+        <p>
+          Conclusion: the exclusionary formulary moved most branded adalimumab users to the preferred biosimilar, but disease state and post-switch tolerability shaped the smaller groups who product-hopped, stepped through, or returned to branded adalimumab.
+        </p>
+      </section>
+    </main>
+
+    <footer class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/2142-PSP75-EN-Poster-AM25_2025.pdf">Open original PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/2142-PSP75-EN-Poster-AM25_2025.md">Read extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

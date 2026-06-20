@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OPR53 | nrSPMS Burden of Illness | NASP 2024</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-summary strong {
+      color: var(--ink);
+      font-weight: 900;
+    }
+
+    .burden-orbit {
+      min-height: 18rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 20% 18%, rgba(209, 38, 48, 0.16), transparent 7.5rem),
+        radial-gradient(circle at 82% 82%, rgba(24, 124, 143, 0.18), transparent 8rem),
+        linear-gradient(135deg, #fff 0%, var(--surface-blue) 58%, var(--surface-warm) 100%);
+      overflow: hidden;
+    }
+
+    .burden-orbit svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 18rem;
+    }
+
+    .paired-board {
+      display: grid;
+      gap: 0.72rem;
+      margin-top: 0.75rem;
+    }
+
+    .paired-row {
+      display: grid;
+      grid-template-columns: 9rem minmax(0, 1fr) 5.6rem;
+      gap: 0.62rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+
+    .paired-row small {
+      display: block;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 800;
+    }
+
+    .dual-track {
+      display: grid;
+      gap: 0.22rem;
+    }
+
+    .dual-track i {
+      display: block;
+      height: 0.62rem;
+      border-radius: 999px;
+      background: var(--red);
+    }
+
+    .dual-track i.control {
+      background: var(--teal);
+    }
+
+    .paired-row em {
+      color: var(--muted);
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .method-ribbon {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.8rem;
+    }
+
+    .method-step {
+      min-height: 8rem;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+    }
+
+    .method-step b {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      line-height: 1;
+    }
+
+    .method-step span {
+      display: block;
+      margin-top: 0.45rem;
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+
+    .cost-callout {
+      display: grid;
+      grid-template-columns: minmax(12rem, 0.75fr) minmax(0, 1.25fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .cost-multiplier {
+      display: grid;
+      align-content: center;
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background:
+        linear-gradient(155deg, rgba(209, 38, 48, 0.12), transparent 48%),
+        var(--ink);
+      padding: 1.1rem;
+      color: #fff;
+    }
+
+    .cost-multiplier span {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .cost-multiplier strong {
+      margin-top: 0.2rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(4rem, 10vw, 6.2rem);
+      line-height: 0.88;
+    }
+
+    .cost-multiplier p {
+      margin: 0.7rem 0 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.92rem;
+    }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 0.7rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 850;
+    }
+
+    .legend i {
+      display: inline-block;
+      width: 0.75rem;
+      height: 0.75rem;
+      margin-right: 0.25rem;
+      border-radius: 999px;
+      vertical-align: -0.1rem;
+      background: var(--red);
+    }
+
+    .legend span:last-child i {
+      background: var(--teal);
+    }
+
+    .conclusion-panel {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(233, 158, 37, 0.16), transparent 42%),
+        #fff;
+    }
+
+    .conclusion-panel p {
+      margin: 0;
+      color: var(--ink);
+      font-size: 1rem;
+      font-weight: 850;
+    }
+
+    .compact-note {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 900px) {
+      .cost-callout,
+      .method-ribbon {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .cost-callout,
+      .method-ribbon {
+        grid-template-columns: 1fr;
+      }
+
+      .paired-row {
+        grid-template-columns: 1fr;
+      }
+
+      .paired-row em {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/53-OPR53-EN-Poster-AM24_2024.pdf">PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/53-OPR53-EN-Poster-AM24_2024.md">Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2024 Annual Meeting &amp; Expo | OPR53</p>
+        <h1>Burden of illness in nonrelapsing secondary progressive multiple sclerosis</h1>
+        <p class="hero-summary">
+          A matched-cohort analysis of linked US EHR and claims data found that people with nrSPMS had
+          <strong>higher comorbidity signals, more physician visits, and substantially higher annual costs</strong>
+          than demographically matched MS-free controls.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag therapy">Multiple sclerosis</li>
+          <li class="tag category">Retrospective matched cohort</li>
+          <li class="tag">US claims + EHR</li>
+          <li class="tag">2012-2021 data</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div class="poster-code">OPR53</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Year</dt>
+            <dd>2024</dd>
+          </div>
+          <div>
+            <dt>Cohorts</dt>
+            <dd>856 vs 856</dd>
+          </div>
+          <div>
+            <dt>Objective</dt>
+            <dd>Clinical and economic burden</dd>
+          </div>
+          <div>
+            <dt>Presenter</dt>
+            <dd>Melissa A. Geyer</dd>
+          </div>
+        </dl>
+        <div class="burden-orbit" aria-hidden="true">
+          <svg viewBox="0 0 520 330" role="img">
+            <defs>
+              <linearGradient id="orbitRed" x1="0" x2="1">
+                <stop offset="0" stop-color="#d12630"/>
+                <stop offset="1" stop-color="#e99e25"/>
+              </linearGradient>
+              <linearGradient id="orbitTeal" x1="0" x2="1">
+                <stop offset="0" stop-color="#187c8f"/>
+                <stop offset="1" stop-color="#4d8a67"/>
+              </linearGradient>
+            </defs>
+            <rect x="24" y="34" width="472" height="244" rx="18" fill="rgba(255,255,255,.62)" stroke="#aebbd2"/>
+            <path d="M70 226 C150 92, 286 92, 452 226" fill="none" stroke="#d9e1ef" stroke-width="18" stroke-linecap="round"/>
+            <path d="M70 226 C150 92, 286 92, 452 226" fill="none" stroke="url(#orbitRed)" stroke-width="18" stroke-linecap="round" stroke-dasharray="330 520"/>
+            <circle cx="72" cy="226" r="35" fill="#243770"/>
+            <circle cx="260" cy="88" r="43" fill="url(#orbitRed)"/>
+            <circle cx="452" cy="226" r="35" fill="url(#orbitTeal)"/>
+            <text x="72" y="218" text-anchor="middle" fill="#fff" font-family="Montserrat, Arial" font-weight="900" font-size="25">856</text>
+            <text x="72" y="240" text-anchor="middle" fill="#fff" font-family="Inter, Arial" font-size="13">nrSPMS</text>
+            <text x="260" y="81" text-anchor="middle" fill="#fff" font-family="Montserrat, Arial" font-weight="900" font-size="30">$58K</text>
+            <text x="260" y="106" text-anchor="middle" fill="#fff" font-family="Inter, Arial" font-size="13">annual HCC</text>
+            <text x="452" y="218" text-anchor="middle" fill="#fff" font-family="Montserrat, Arial" font-weight="900" font-size="25">856</text>
+            <text x="452" y="240" text-anchor="middle" fill="#fff" font-family="Inter, Arial" font-size="13">controls</text>
+            <text x="260" y="300" text-anchor="middle" fill="#243770" font-family="Inter, Arial" font-weight="800" font-size="15">Matched on age, sex, race, region, and insurance</text>
+          </svg>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Headline metrics">
+        <article class="metric-card">
+          <span>Final analytic cohort</span>
+          <strong>1:1</strong>
+          <p class="compact-note">856 people with nrSPMS matched to 856 MS-free controls.</p>
+        </article>
+        <article class="metric-card">
+          <span>Total HCC</span>
+          <strong>$58.4K</strong>
+          <p class="compact-note">Mean annual cost in nrSPMS vs $24.8K in controls.</p>
+        </article>
+        <article class="metric-card">
+          <span>Pharmacy driver</span>
+          <strong>7.5x</strong>
+          <p class="compact-note">$34,830 outpatient pharmacy cost vs $4,623.</p>
+        </article>
+        <article class="metric-card">
+          <span>Physician visits</span>
+          <strong>12.6</strong>
+          <p class="compact-note">Mean visits vs 10.1 for controls; P &lt; 0.001.</p>
+        </article>
+      </section>
+
+      <section class="evidence-map" aria-label="Evidence flow">
+        <article class="evidence-card">
+          <h3>Why it matters</h3>
+          <p>nrSPMS represents progressive disability without recent relapse, and no DMTs were approved for this population in the US.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Objective</h3>
+          <p>Understand real-world clinical and economic burden among people with nrSPMS in the United States.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Data window</h3>
+          <p>Integrated administrative database with linked EHR and claims records from Jan 1, 2012 to Dec 31, 2021.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Design</h3>
+          <p>Two-year baseline to classify nonrelapsing status, followed by one year of HCRU and cost measurement.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Signal</h3>
+          <p>Clinical burden clustered around fatigue, depression, gait abnormalities, infections, and elevated outpatient pharmacy costs.</p>
+        </article>
+      </section>
+
+      <section class="panel" aria-labelledby="methods-heading">
+        <p class="section-label">Methods</p>
+        <h2 id="methods-heading">Matched claims-and-EHR study with a two-year lookback</h2>
+        <div class="method-ribbon" aria-label="Study design steps">
+          <div class="method-step">
+            <b>01</b>
+            <span>Identify SPMS phenotype through EHR records and a validated claims-based nrSPMS algorithm.</span>
+          </div>
+          <div class="method-step">
+            <b>02</b>
+            <span>Require continuous medical and pharmacy enrollment across baseline and follow-up periods.</span>
+          </div>
+          <div class="method-step">
+            <b>03</b>
+            <span>Exclude relapse evidence during the two-year baseline and exclude selected neurologic disorders.</span>
+          </div>
+          <div class="method-step">
+            <b>04</b>
+            <span>Match each nrSPMS patient to an MS-free control by demographics, region, and insurance.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="visual-grid">
+        <article class="panel">
+          <p class="section-label">Population</p>
+          <h2>Matched groups were demographically identical by design</h2>
+          <div class="number-cloud" aria-label="Demographic summary">
+            <div class="number-pill">54.4<small>Mean age</small></div>
+            <div class="number-pill">79.8%<small>Female</small></div>
+            <div class="number-pill">87.0%<small>Caucasian</small></div>
+            <div class="number-pill">51.6%<small>Commercial</small></div>
+            <div class="number-pill">37.9%<small>Medicare</small></div>
+            <div class="number-pill">46.5%<small>Midwest</small></div>
+          </div>
+          <p class="compact-note">Mean Charlson Comorbidity Index was lower in nrSPMS than controls: 1.02 vs 1.21; P = 0.032.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Clinical signal</p>
+          <h2>MS-related symptoms and infection burden separate the cohorts</h2>
+          <div class="paired-board" aria-label="Clinical paired bar chart">
+            <div class="paired-row">
+              <span>Malaise/fatigue<small>31.3% vs 15.3%</small></span>
+              <div class="dual-track">
+                <i style="width: 100%"></i>
+                <i class="control" style="width: 49%"></i>
+              </div>
+              <em>P &lt; 0.001</em>
+            </div>
+            <div class="paired-row">
+              <span>Depression<small>28.6% vs 16.0%</small></span>
+              <div class="dual-track">
+                <i style="width: 91%"></i>
+                <i class="control" style="width: 51%"></i>
+              </div>
+              <em>P &lt; 0.001</em>
+            </div>
+            <div class="paired-row">
+              <span>Abnormal gait<small>20.8% vs 3.7%</small></span>
+              <div class="dual-track">
+                <i style="width: 66%"></i>
+                <i class="control" style="width: 12%"></i>
+              </div>
+              <em>P &lt; 0.001</em>
+            </div>
+            <div class="paired-row">
+              <span>Burning/numbness<small>14.1% vs 3.9%</small></span>
+              <div class="dual-track">
+                <i style="width: 45%"></i>
+                <i class="control" style="width: 12%"></i>
+              </div>
+              <em>P &lt; 0.001</em>
+            </div>
+            <div class="paired-row">
+              <span>Infections<small>53.9% vs 48.8%</small></span>
+              <div class="dual-track">
+                <i style="width: 100%"></i>
+                <i class="control" style="width: 91%"></i>
+              </div>
+              <em>P = 0.038</em>
+            </div>
+          </div>
+          <div class="legend">
+            <span><i></i>nrSPMS cohort</span>
+            <span><i></i>Matched controls</span>
+          </div>
+        </article>
+      </section>
+
+      <section class="cost-callout" aria-label="Economic burden">
+        <article class="cost-multiplier">
+          <span>Mean total annual HCC</span>
+          <strong>2.4x</strong>
+          <p>$58,412 for nrSPMS compared with $24,827 for matched controls; P &lt; 0.001.</p>
+        </article>
+        <article class="panel">
+          <p class="section-label">Cost pattern</p>
+          <h2>Outpatient pharmacy and physician visits drove the cost gap</h2>
+          <div class="paired-board" aria-label="Cost paired bar chart">
+            <div class="paired-row">
+              <span>Total HCC<small>$58,412 vs $24,827</small></span>
+              <div class="dual-track">
+                <i style="width: 100%"></i>
+                <i class="control" style="width: 43%"></i>
+              </div>
+              <em>P &lt; 0.001</em>
+            </div>
+            <div class="paired-row">
+              <span>Pharmacy<small>$34,830 vs $4,623</small></span>
+              <div class="dual-track">
+                <i style="width: 100%"></i>
+                <i class="control" style="width: 13%"></i>
+              </div>
+              <em>P &lt; 0.001</em>
+            </div>
+            <div class="paired-row">
+              <span>Physician visits<small>$5,610 vs $4,110</small></span>
+              <div class="dual-track">
+                <i style="width: 100%"></i>
+                <i class="control" style="width: 73%"></i>
+              </div>
+              <em>P &lt; 0.001</em>
+            </div>
+            <div class="paired-row">
+              <span>Medical claims<small>$23,581 vs $20,204</small></span>
+              <div class="dual-track">
+                <i style="width: 100%"></i>
+                <i class="control" style="width: 86%"></i>
+              </div>
+              <em>P = 0.230</em>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Selected source tables">
+        <article class="table-card">
+          <p class="section-label">HCRU pattern</p>
+          <h3>Follow-up utilization favored higher nrSPMS use</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Measure</th>
+                  <th>nrSPMS</th>
+                  <th>Controls</th>
+                  <th>P-value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Mortality</td>
+                  <td>2.2%</td>
+                  <td>1.1%</td>
+                  <td>0.057</td>
+                </tr>
+                <tr>
+                  <td>Hospitalizations</td>
+                  <td>10.7%</td>
+                  <td>10.3%</td>
+                  <td>0.753</td>
+                </tr>
+                <tr>
+                  <td>Emergency visits</td>
+                  <td>30.5%</td>
+                  <td>28.5%</td>
+                  <td>0.368</td>
+                </tr>
+                <tr>
+                  <td>Physician visits</td>
+                  <td>12.6 mean</td>
+                  <td>10.1 mean</td>
+                  <td>&lt;0.001</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Study constraints</p>
+          <h3>Interpretation guardrails</h3>
+          <div class="markdown-fragment">
+            <ul>
+              <li>Cross-sectional burden estimates may not capture changing disease management over time.</li>
+              <li>Claims miscoding could affect patient identification and comorbidity reporting.</li>
+              <li>Findings may not generalize to populations outside the covered insurance mix.</li>
+            </ul>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel conclusion-panel" aria-labelledby="conclusion-heading">
+        <p class="section-label">Conclusion</p>
+        <h2 id="conclusion-heading">nrSPMS carried additional clinical and economic burden in a population without approved therapies</h2>
+        <p>
+          Compared with matched MS-free controls, people with nrSPMS showed higher prevalence of several MS-related comorbidities,
+          greater physician-visit intensity, and markedly higher healthcare costs, led primarily by outpatient pharmacy spending.
+        </p>
+      </section>
+
+      <footer class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/53-OPR53-EN-Poster-AM24_2024.pdf">Open original PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/53-OPR53-EN-Poster-AM24_2024.md">Open extracted markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

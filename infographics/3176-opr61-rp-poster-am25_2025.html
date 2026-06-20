@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Validation of a Pharmacist Monitoring Tool for Patients with Inflammatory Bowel Disease | NASP 2025 Infographic</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      overflow: hidden;
+      position: relative;
+    }
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -3.5rem;
+      bottom: -3.5rem;
+      width: 11rem;
+      height: 11rem;
+      border: 1.1rem solid rgba(24, 124, 143, 0.12);
+      border-radius: 50%;
+    }
+    .author-line {
+      margin: 0;
+      color: var(--body);
+      font-size: 0.82rem;
+    }
+    .gim-hero-art {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      min-height: 13rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(238, 244, 251, 0.84)),
+        radial-gradient(circle at 18% 18%, rgba(209, 38, 48, 0.16), transparent 7rem);
+    }
+    .gim-hero-art svg {
+      width: min(100%, 20rem);
+      height: auto;
+      padding: 0.85rem;
+    }
+    .metric-card p {
+      margin: 0.42rem 0 0;
+      font-size: 0.78rem;
+    }
+    .metric-card strong small {
+      color: inherit;
+      font-size: 0.54em;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+    .objective-card {
+      border: 1px solid rgba(209, 38, 48, 0.3);
+      border-left: 6px solid var(--red);
+      border-radius: 8px;
+      background: #fff;
+      padding: 1rem;
+    }
+    .objective-card p {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.08rem;
+      font-weight: 850;
+      line-height: 1.35;
+    }
+    .flowline {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.8rem;
+    }
+    .flow-step {
+      position: relative;
+      min-height: 10rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.85rem;
+    }
+    .flow-step::before {
+      content: attr(data-step);
+      display: grid;
+      width: 2.05rem;
+      height: 2.05rem;
+      place-items: center;
+      margin-bottom: 0.55rem;
+      border-radius: 7px;
+      background: var(--accent, var(--ink));
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 900;
+    }
+    .flow-step:nth-child(2) { --accent: var(--red); }
+    .flow-step:nth-child(3) { --accent: var(--teal); }
+    .flow-step:nth-child(4) { --accent: var(--green); }
+    .flow-step p {
+      margin: 0.4rem 0 0;
+      font-size: 0.82rem;
+    }
+    .funnel {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 0.8rem;
+    }
+    .funnel-row {
+      display: grid;
+      grid-template-columns: 6rem minmax(0, 1fr);
+      gap: 0.65rem;
+      align-items: center;
+    }
+    .funnel-count {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      font-weight: 900;
+      line-height: 1;
+      text-align: right;
+    }
+    .funnel-track {
+      position: relative;
+      min-height: 2.55rem;
+      overflow: hidden;
+      border: 1px solid rgba(36, 55, 112, 0.15);
+      border-radius: 7px;
+      background: #edf2f8;
+    }
+    .funnel-track i {
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: var(--w);
+      background: linear-gradient(90deg, var(--ink), var(--teal));
+    }
+    .funnel-label {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      height: 100%;
+      min-height: 2.55rem;
+      align-items: center;
+      padding: 0.35rem 0.65rem;
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+    .assessment-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+    .assessment-column {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.8rem;
+    }
+    .assessment-column h3 {
+      display: inline-flex;
+      margin-bottom: 0.55rem;
+      border-bottom: 3px solid var(--accent, var(--red));
+      padding-bottom: 0.2rem;
+    }
+    .assessment-column:nth-child(2) { --accent: var(--teal); }
+    .chip-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.42rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .chip-list li {
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 999px;
+      background: var(--surface-blue);
+      padding: 0.26rem 0.52rem;
+      color: var(--ink);
+      font-size: 0.76rem;
+      font-weight: 800;
+    }
+    .donut-panel {
+      display: grid;
+      grid-template-columns: 12rem minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+      margin-top: 0.75rem;
+    }
+    .donut-panel svg {
+      width: 100%;
+      height: auto;
+    }
+    .legend {
+      display: grid;
+      gap: 0.42rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-size: 0.82rem;
+    }
+    .legend li {
+      display: grid;
+      grid-template-columns: 0.78rem minmax(0, 1fr);
+      gap: 0.42rem;
+      align-items: center;
+    }
+    .legend i {
+      display: block;
+      width: 0.78rem;
+      height: 0.78rem;
+      border-radius: 3px;
+      background: var(--swatch);
+    }
+    .medication-bars {
+      display: grid;
+      gap: 0.52rem;
+      margin-top: 0.75rem;
+    }
+    .med-bar {
+      display: grid;
+      grid-template-columns: 9.5rem minmax(0, 1fr) 2.2rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .med-track {
+      height: 0.82rem;
+      overflow: hidden;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: #edf2f8;
+    }
+    .med-track i {
+      display: block;
+      width: calc(var(--value) / 48 * 100%);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .insight-list {
+      display: grid;
+      gap: 0.6rem;
+      margin: 0.75rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .insight-list li {
+      border-left: 4px solid var(--accent, var(--teal));
+      background: rgba(238, 244, 251, 0.7);
+      padding: 0.62rem 0.72rem;
+      color: var(--body);
+      font-size: 0.86rem;
+    }
+    .insight-list li:nth-child(2) { --accent: var(--gold); }
+    .insight-list li:nth-child(3) { --accent: var(--red); }
+    .insight-list li:nth-child(4) { --accent: var(--purple); }
+    @media (max-width: 860px) {
+      .flowline,
+      .assessment-grid,
+      .donut-panel {
+        grid-template-columns: 1fr;
+      }
+      .med-bar {
+        grid-template-columns: 1fr;
+      }
+      .funnel-row {
+        grid-template-columns: 4.6rem minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP infographic home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/3176-OPR61-RP-Poster-AM25_2025.pdf">PDF Source</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/3176-OPR61-RP-Poster-AM25_2025.md">Markdown Source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2025 | 3176-OPR61-RP | IBD specialty pharmacy</p>
+        <h1 id="poster-title">Validation of a Pharmacist Monitoring Tool for Patients with Inflammatory Bowel Disease</h1>
+        <p class="hero-summary">UW Health is testing whether the pharmacist-built gastro-intestinal metric (GIM) Score can standardize specialty pharmacy assessments, identify suboptimal medication efficacy, and align with physician assessment of IBD control.</p>
+        <ul class="tag-row" aria-label="Poster topics">
+          <li class="tag category">Prospective cohort</li>
+          <li class="tag therapy">Inflammatory bowel disease</li>
+          <li class="tag">Medication monitoring</li>
+          <li class="tag">Pharmacist assessment</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div class="poster-code">GIM<br>Score</div>
+        <p class="author-line">Connie Vo, PharmD, CSP; Kristina M. Heimerl, PharmD, BCACP; Jaynika B. Patel, PharmD; James Langley, PharmD, MS</p>
+        <div class="gim-hero-art" aria-hidden="true">
+          <svg viewBox="0 0 360 230" role="img">
+            <title>GIM Score monitoring motif</title>
+            <rect x="35" y="30" width="170" height="170" rx="14" fill="#ffffff" stroke="#aebbd2" stroke-width="3"/>
+            <path d="M63 72h72M63 108h92M63 144h64" stroke="#243770" stroke-width="8" stroke-linecap="round"/>
+            <circle cx="165" cy="72" r="10" fill="#187c8f"/>
+            <circle cx="185" cy="108" r="10" fill="#e99e25"/>
+            <circle cx="155" cy="144" r="10" fill="#d12630"/>
+            <path d="M236 50c38 13 66 40 66 78 0 41-27 69-66 81" fill="none" stroke="#187c8f" stroke-width="14" stroke-linecap="round"/>
+            <path d="M245 84c23 8 38 24 38 47 0 21-13 37-37 48" fill="none" stroke="#e99e25" stroke-width="12" stroke-linecap="round"/>
+            <path d="M231 118c20 2 31 10 31 24 0 13-10 21-30 26" fill="none" stroke="#d12630" stroke-width="10" stroke-linecap="round"/>
+            <circle cx="236" cy="50" r="9" fill="#243770"/>
+            <circle cx="236" cy="209" r="9" fill="#243770"/>
+          </svg>
+        </div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Site</dt>
+            <dd>UW Health</dd>
+          </div>
+          <div>
+            <dt>Study period</dt>
+            <dd>Aug 2024-Jul 2025</dd>
+          </div>
+          <div>
+            <dt>Population</dt>
+            <dd>Adult IBD</dd>
+          </div>
+          <div>
+            <dt>Analysis set</dt>
+            <dd>n=152</dd>
+          </div>
+        </dl>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Eligible to recruit</span>
+          <strong>482</strong>
+          <p>patients met recruitment eligibility at the outset.</p>
+        </article>
+        <article class="metric-card">
+          <span>Overall analysis</span>
+          <strong>152</strong>
+          <p>consented and included in biostatistician analysis.</p>
+        </article>
+        <article class="metric-card">
+          <span>Validity analysis</span>
+          <strong>121</strong>
+          <p>included for pharmacist to physician comparison.</p>
+        </article>
+        <article class="metric-card">
+          <span>Secondary analysis</span>
+          <strong>103</strong>
+          <p>included for accuracy and responsiveness.</p>
+        </article>
+      </section>
+
+      <section class="visual-grid" aria-label="Objective and study design">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Validate a pharmacist-specific IBD monitoring score</h2>
+          <div class="objective-card">
+            <p>Compare baseline GIM Score assessments with physician office-visit assessments, then estimate a cutoff for IBD stability and evaluate responsiveness when disease activity changes.</p>
+          </div>
+          <div class="assessment-grid" aria-label="GIM Score assessment domains">
+            <div class="assessment-column">
+              <h3>Disease activity signals</h3>
+              <ul class="chip-list">
+                <li>General well-being</li>
+                <li>Abdominal pain</li>
+                <li>Bowel frequency</li>
+                <li>Blood in stool</li>
+                <li>Symptom attempts</li>
+              </ul>
+            </div>
+            <div class="assessment-column">
+              <h3>Medication signals</h3>
+              <ul class="chip-list">
+                <li>Work/school productivity</li>
+                <li>Next dose awareness</li>
+                <li>Missed doses</li>
+                <li>Adverse effects</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Methods</p>
+          <h2>Prospective cohort embedded in specialty pharmacy follow-up</h2>
+          <div class="flowline">
+            <div class="flow-step" data-step="1">
+              <h3>Enroll</h3>
+              <p>Recruited through MyChart and phone, consented, flagged, and added to a study episode.</p>
+            </div>
+            <div class="flow-step" data-step="2">
+              <h3>Baseline GIM</h3>
+              <p>Study team administered the GIM Score by phone within one week of the GI office visit.</p>
+            </div>
+            <div class="flow-step" data-step="3">
+              <h3>Provider visit</h3>
+              <p>GI assessment captured questionnaire data, medication changes, labs, drug levels, and procedures.</p>
+            </div>
+            <div class="flow-step" data-step="4">
+              <h3>Follow-up</h3>
+              <p>Repeat GIM Score at 8 weeks for stable patients or 4 weeks for unknown stability.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="visual-grid" aria-label="Recruitment and demographics">
+        <article class="panel">
+          <p class="section-label">Results in progress</p>
+          <h2>Cohort funnel from eligible patients to analytic samples</h2>
+          <div class="funnel" aria-label="Patient recruitment funnel">
+            <div class="funnel-row">
+              <div class="funnel-count">482</div>
+              <div class="funnel-track"><i style="--w:100%"></i><span class="funnel-label">Eligible to recruit</span></div>
+            </div>
+            <div class="funnel-row">
+              <div class="funnel-count">152</div>
+              <div class="funnel-track"><i style="--w:31.5%"></i><span class="funnel-label">Consented and included in overall analysis</span></div>
+            </div>
+            <div class="funnel-row">
+              <div class="funnel-count">121</div>
+              <div class="funnel-track"><i style="--w:25.1%"></i><span class="funnel-label">Primary outcome validity analysis</span></div>
+            </div>
+            <div class="funnel-row">
+              <div class="funnel-count">103</div>
+              <div class="funnel-track"><i style="--w:21.4%"></i><span class="funnel-label">Secondary accuracy and responsiveness analysis</span></div>
+            </div>
+          </div>
+          <ul class="insight-list">
+            <li>Clinic access was the largest documented barrier: 184 eligible patients could not schedule an office visit during the study window.</li>
+            <li>Engagement remained a recurring challenge, with 70 non-engaged before consent and additional losses after consent or baseline score.</li>
+          </ul>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Demographic profile</p>
+          <h2>Adult IBD cohort skewed toward Crohn's disease</h2>
+          <div class="donut-panel">
+            <svg viewBox="0 0 220 220" role="img" aria-label="IBD diagnosis donut chart">
+              <circle cx="110" cy="110" r="74" fill="none" stroke="#edf2f8" stroke-width="34"/>
+              <circle cx="110" cy="110" r="74" fill="none" stroke="#d12630" stroke-width="34" stroke-dasharray="343 465" stroke-dashoffset="0" transform="rotate(-90 110 110)"/>
+              <circle cx="110" cy="110" r="74" fill="none" stroke="#187c8f" stroke-width="34" stroke-dasharray="122 465" stroke-dashoffset="-343" transform="rotate(-90 110 110)"/>
+              <circle cx="110" cy="110" r="48" fill="#fff"/>
+              <text x="110" y="105" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="28" font-weight="900">152</text>
+              <text x="110" y="128" text-anchor="middle" fill="#68758d" font-family="Inter, sans-serif" font-size="12" font-weight="800">patients</text>
+            </svg>
+            <ul class="legend">
+              <li><i style="--swatch:#d12630"></i><span>Crohn's disease: 112 (73.7%)</span></li>
+              <li><i style="--swatch:#187c8f"></i><span>Ulcerative colitis: 40 (26.3%)</span></li>
+              <li><i style="--swatch:#e99e25"></i><span>Median age: 48 years (range 19-82)</span></li>
+              <li><i style="--swatch:#7561a8"></i><span>Female: 80 (52.6%); male: 71 (46.7%)</span></li>
+              <li><i style="--swatch:#4d8a67"></i><span>J-pouch or ostomy: 22 (14.5%)</span></li>
+            </ul>
+          </div>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Medication and eligibility patterns">
+        <article class="table-card">
+          <p class="section-label">Specialty medications</p>
+          <h2>Medication mix shows multiple biologic and small-molecule pathways</h2>
+          <div class="medication-bars" aria-label="Top medication counts">
+            <div class="med-bar"><span>Adalimumab</span><div class="med-track"><i style="--value:48"></i></div><span>48</span></div>
+            <div class="med-bar"><span>Risankizumab-rzaa</span><div class="med-track"><i style="--value:38"></i></div><span>38</span></div>
+            <div class="med-bar"><span>Ustekinumab</span><div class="med-track"><i style="--value:35"></i></div><span>35</span></div>
+            <div class="med-bar"><span>Upadacitinib</span><div class="med-track"><i style="--value:25"></i></div><span>25</span></div>
+            <div class="med-bar"><span>Adalimumab-aaty</span><div class="med-track"><i style="--value:15"></i></div><span>15</span></div>
+            <div class="med-bar"><span>Tofacitinib</span><div class="med-track"><i style="--value:10"></i></div><span>10</span></div>
+            <div class="med-bar"><span>Adalimumab-adaz</span><div class="med-track"><i style="--value:10"></i></div><span>10</span></div>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Eligibility frame</p>
+          <h2>Study population required GI linkage, adherence, and specialty pharmacy participation</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Included</th>
+                  <th>Excluded</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Established with a UW Health gastroenterologist and office visit scheduled during the study period.</td>
+                  <td>Pediatric patients younger than 18 years.</td>
+                </tr>
+                <tr>
+                  <td>GI prescriber for adalimumab or biosimilar, certolizumab, ustekinumab, risankizumab, tofacitinib, upadacitinib, or ozanimod.</td>
+                  <td>Pregnant patients or prisoners.</td>
+                </tr>
+                <tr>
+                  <td>Adherent to IBD medication with PDC greater than 0.7 and enrolled in the UW Health Specialty Pharmacy Medication Management Program.</td>
+                  <td>Patients unable to complete required clinic or follow-up assessment steps.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-stack" aria-label="Interpretation">
+        <article class="panel">
+          <p class="section-label">Discussion</p>
+          <h2>Operational lessons from an embedded monitoring study</h2>
+          <ul class="insight-list">
+            <li>Recruitment integration into specialty pharmacy workflows supported enrollment.</li>
+            <li>Collaboration with gastroenterology clinic providers and staff increased research visibility.</li>
+            <li>Limited GI clinic access created a barrier to gathering office-visit data.</li>
+            <li>Patient engagement may require telephone, EHR messaging, and letters rather than one contact channel.</li>
+          </ul>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Conclusion signal</p>
+          <h2>A pharmacist lens can make IBD monitoring more medication-aware</h2>
+          <p class="hero-summary">The poster frames the GIM Score as a practical validation target: physician tools help assess disease state activity, while a pharmacist-specific tool adds medication efficacy, adherence, adverse-effect, and follow-up signals needed for specialty medication optimization.</p>
+          <div class="number-cloud" aria-label="Selected numeric details">
+            <div class="number-pill">PDC &gt;0.7<small>adherence threshold</small></div>
+            <div class="number-pill">1 week<small>baseline window</small></div>
+            <div class="number-pill">4 or 8<small>follow-up weeks</small></div>
+            <div class="number-pill">2019<small>GIM developed</small></div>
+          </div>
+        </article>
+      </section>
+
+      <footer class="footer-actions" aria-label="Source documents">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/3176-OPR61-RP-Poster-AM25_2025.pdf">Open PDF Source</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/3176-OPR61-RP-Poster-AM25_2025.md">Open Markdown Source</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

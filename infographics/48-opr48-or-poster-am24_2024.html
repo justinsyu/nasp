@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2024 Infographic | ACT Score Trajectories in Specialty Pharmacy</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .trajectory-hero {
+      position: relative;
+      min-height: 22rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 18% 16%, rgba(233, 158, 37, 0.28), transparent 16rem),
+        linear-gradient(135deg, rgba(36, 55, 112, 0.98), rgba(24, 124, 143, 0.94));
+      color: #fff;
+      overflow: hidden;
+      padding: 1.1rem;
+    }
+    .trajectory-hero svg {
+      position: absolute;
+      right: -1.8rem;
+      bottom: -1.3rem;
+      width: min(31rem, 88%);
+      height: auto;
+    }
+    .trajectory-hero .kicker {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+    .trajectory-hero strong {
+      display: block;
+      margin-top: 0.2rem;
+      font-family: var(--font-display);
+      font-size: clamp(2.7rem, 6vw, 5.7rem);
+      line-height: 0.92;
+    }
+    .trajectory-hero span {
+      display: block;
+      max-width: 18rem;
+      margin-top: 0.58rem;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 0.94rem;
+    }
+    .hero-card .button-link {
+      justify-content: center;
+      background: #fff;
+    }
+    .compact-list {
+      margin: 0.55rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .compact-list li {
+      display: grid;
+      grid-template-columns: 0.85rem minmax(0, 1fr);
+      gap: 0.42rem;
+      margin-top: 0.42rem;
+      font-size: 0.88rem;
+    }
+    .compact-list li::before {
+      content: "";
+      width: 0.52rem;
+      height: 0.52rem;
+      margin-top: 0.43rem;
+      border-radius: 50%;
+      background: var(--red);
+    }
+    .score-band {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.65rem;
+    }
+    .score-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.68rem;
+    }
+    .score-card b {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.42rem;
+      line-height: 1;
+    }
+    .score-card span {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--muted);
+      font-size: 0.67rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .act-bars {
+      display: grid;
+      gap: 0.72rem;
+      margin-top: 0.7rem;
+    }
+    .act-row {
+      display: grid;
+      grid-template-columns: 7.4rem minmax(0, 1fr) 3.5rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+    .act-track {
+      height: 1.1rem;
+      border: 1px solid rgba(36, 55, 112, 0.15);
+      border-radius: 999px;
+      background: var(--surface-blue);
+      overflow: hidden;
+    }
+    .act-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--bar-color, var(--red));
+    }
+    .baseline .very { --bar-color: var(--red); width: 55.3%; }
+    .baseline .notwell { --bar-color: var(--gold); width: 15.8%; }
+    .baseline .well { --bar-color: var(--green); width: 28.9%; }
+    .followup .very { --bar-color: var(--red); width: 28.1%; }
+    .followup .notwell { --bar-color: var(--gold); width: 22.8%; }
+    .followup .well { --bar-color: var(--green); width: 49.1%; }
+    .delta-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.75rem;
+    }
+    .delta-tile {
+      border-left: 3px solid var(--red);
+      background: var(--surface-blue);
+      padding: 0.58rem 0.62rem;
+    }
+    .delta-tile strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      line-height: 1;
+    }
+    .delta-tile span {
+      display: block;
+      margin-top: 0.24rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+    .flow-line {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+    .flow-node {
+      position: relative;
+      min-height: 8.3rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.82rem;
+    }
+    .flow-node::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -0.51rem;
+      width: 0.75rem;
+      height: 0.75rem;
+      border-top: 2px solid var(--border-strong);
+      border-right: 2px solid var(--border-strong);
+      background: #fff;
+      transform: translateY(-50%) rotate(45deg);
+    }
+    .flow-node:last-child::after { display: none; }
+    .flow-node b {
+      display: inline-grid;
+      place-items: center;
+      width: 1.65rem;
+      height: 1.65rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+    }
+    .flow-node h3 {
+      margin-top: 0.48rem;
+      font-size: 0.94rem;
+    }
+    .flow-node p {
+      margin: 0.35rem 0 0;
+      font-size: 0.78rem;
+    }
+    .or-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.7rem;
+    }
+    .or-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.78rem;
+    }
+    .or-card strong {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2rem;
+      line-height: 1;
+    }
+    .or-card h3 {
+      margin-top: 0.35rem;
+      font-size: 0.92rem;
+    }
+    .or-card p {
+      margin: 0.3rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    .insurance-grid {
+      display: grid;
+      grid-template-columns: 11rem minmax(0, 1fr);
+      gap: 0.95rem;
+      align-items: center;
+      margin-top: 0.65rem;
+    }
+    .donut {
+      width: 100%;
+      max-width: 11rem;
+      height: auto;
+    }
+    .legend {
+      display: grid;
+      gap: 0.45rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .legend li {
+      display: grid;
+      grid-template-columns: 0.8rem minmax(0, 1fr) auto;
+      gap: 0.45rem;
+      align-items: center;
+      font-size: 0.8rem;
+    }
+    .legend i {
+      width: 0.8rem;
+      height: 0.8rem;
+      border-radius: 3px;
+      background: var(--legend-color, var(--red));
+    }
+    .callout {
+      margin-top: 0.75rem;
+      border: 1px solid rgba(209, 38, 48, 0.28);
+      border-radius: 8px;
+      background: #fff7ea;
+      padding: 0.76rem;
+      color: var(--ink);
+      font-size: 0.88rem;
+      font-weight: 750;
+    }
+    .pattern-table td:first-child {
+      color: var(--ink);
+      font-weight: 850;
+    }
+    .source-note {
+      margin: 0.8rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+    @media (max-width: 900px) {
+      .flow-line,
+      .or-grid,
+      .score-band,
+      .delta-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .flow-node::after { display: none; }
+    }
+    @media (max-width: 560px) {
+      .flow-line,
+      .or-grid,
+      .score-band,
+      .delta-strip,
+      .insurance-grid {
+        grid-template-columns: 1fr;
+      }
+      .act-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav aria-label="Source files">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/48-OPR48-OR-Poster-AM24_2024.pdf">PDF source</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/48-OPR48-OR-Poster-AM24_2024.md">Markdown source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP Annual Meeting 2024 | OPR48</p>
+        <h1>Trajectory of Asthma Control Test Scores Among Patients Treated Within the Specialty Pharmacy</h1>
+        <p class="hero-summary">Fairview Pharmacy Services evaluated how ACT scores changed after specialty pharmacy dispensing and which care characteristics aligned with being well controlled or achieving a minimally important difference.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Outcomes research</li>
+          <li class="tag therapy">Asthma biologics</li>
+          <li class="tag">ACT score trajectories</li>
+          <li class="tag">Specialty pharmacy</li>
+        </ul>
+      </div>
+      <aside class="hero-card">
+        <div class="poster-code">OPR48</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Year</dt>
+            <dd>2024</dd>
+          </div>
+          <div>
+            <dt>Population</dt>
+            <dd>114 patients</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>Fairview Pharmacy Services</dd>
+          </div>
+          <div>
+            <dt>Measure</dt>
+            <dd>ACT score</dd>
+          </div>
+        </dl>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/48-OPR48-OR-Poster-AM24_2024.pdf">Open poster PDF</a>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <div class="metric-card">
+          <span>Total cohort</span>
+          <strong>114</strong>
+        </div>
+        <div class="metric-card">
+          <span>Baseline very poor control</span>
+          <strong>55%</strong>
+        </div>
+        <div class="metric-card">
+          <span>Follow-up well controlled</span>
+          <strong>49%</strong>
+        </div>
+        <div class="metric-card">
+          <span>Met MID at follow-up</span>
+          <strong>46%</strong>
+        </div>
+      </section>
+
+      <section class="visual-grid">
+        <div class="trajectory-hero" aria-label="ACT trajectory summary">
+          <p class="kicker">Primary signal</p>
+          <strong>ACT gains clustered where baseline burden was highest</strong>
+          <span>Patients starting very poorly controlled improved a median of 4 points, while those already well controlled stayed largely stable.</span>
+          <svg viewBox="0 0 520 300" role="img" aria-label="Stylized line chart showing ACT scores rising from baseline to follow-up">
+            <defs>
+              <linearGradient id="lineGrad" x1="0" x2="1">
+                <stop offset="0" stop-color="#e99e25"/>
+                <stop offset="1" stop-color="#ffffff"/>
+              </linearGradient>
+            </defs>
+            <g fill="none" stroke="rgba(255,255,255,.22)" stroke-width="1">
+              <path d="M46 228H470"/>
+              <path d="M46 178H470"/>
+              <path d="M46 128H470"/>
+              <path d="M46 78H470"/>
+            </g>
+            <g fill="rgba(255,255,255,.82)" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800">
+              <text x="40" y="254">Baseline</text>
+              <text x="378" y="254">Follow-up</text>
+              <text x="20" y="82">25</text>
+              <text x="20" y="132">20</text>
+              <text x="20" y="182">15</text>
+            </g>
+            <path d="M86 205 C172 190 255 141 428 118" stroke="url(#lineGrad)" stroke-width="7" stroke-linecap="round"/>
+            <path d="M86 168 C187 164 273 116 428 78" stroke="rgba(255,255,255,.76)" stroke-width="4" stroke-linecap="round"/>
+            <path d="M86 87 C190 82 291 66 428 52" stroke="rgba(77,138,103,.95)" stroke-width="4" stroke-linecap="round"/>
+            <g>
+              <circle cx="86" cy="205" r="9" fill="#d12630"/>
+              <circle cx="428" cy="118" r="9" fill="#e99e25"/>
+              <circle cx="86" cy="168" r="7" fill="#e99e25"/>
+              <circle cx="428" cy="78" r="7" fill="#fff"/>
+              <circle cx="86" cy="87" r="7" fill="#4d8a67"/>
+              <circle cx="428" cy="52" r="7" fill="#4d8a67"/>
+            </g>
+          </svg>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Score state shift</p>
+          <h2>Follow-up moved the cohort toward control, but not uniformly.</h2>
+          <div class="act-bars baseline" aria-label="Baseline ACT category distribution">
+            <div class="act-row">
+              <span>Very poor</span>
+              <div class="act-track"><i class="very"></i></div>
+              <em>55.3%</em>
+            </div>
+            <div class="act-row">
+              <span>Not well</span>
+              <div class="act-track"><i class="notwell"></i></div>
+              <em>15.8%</em>
+            </div>
+            <div class="act-row">
+              <span>Well</span>
+              <div class="act-track"><i class="well"></i></div>
+              <em>28.9%</em>
+            </div>
+          </div>
+          <p class="source-note">Baseline distribution: 63 very poorly controlled, 18 not well controlled, 33 well controlled.</p>
+          <div class="act-bars followup" aria-label="Follow-up ACT category distribution">
+            <div class="act-row">
+              <span>Very poor</span>
+              <div class="act-track"><i class="very"></i></div>
+              <em>28.1%</em>
+            </div>
+            <div class="act-row">
+              <span>Not well</span>
+              <div class="act-track"><i class="notwell"></i></div>
+              <em>22.8%</em>
+            </div>
+            <div class="act-row">
+              <span>Well</span>
+              <div class="act-track"><i class="well"></i></div>
+              <em>49.1%</em>
+            </div>
+          </div>
+          <div class="delta-strip">
+            <div class="delta-tile">
+              <strong>+4</strong>
+              <span>Median ACT change from very poor baseline</span>
+            </div>
+            <div class="delta-tile">
+              <strong>+3.5</strong>
+              <span>Median ACT change from not well baseline</span>
+            </div>
+            <div class="delta-tile">
+              <strong>0</strong>
+              <span>Median ACT change from well controlled baseline</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Evidence flow</p>
+        <h2>From specialty pharmacy encounter data to personalized asthma follow-up.</h2>
+        <div class="flow-line">
+          <div class="flow-node">
+            <b>1</b>
+            <h3>Identify eligible patients</h3>
+            <p>Age 12 or older, asthma diagnosis, at least one 2023 specialty pharmacy dispense, baseline ACT, and follow-up ACT 30 to 365 days later.</p>
+          </div>
+          <div class="flow-node">
+            <b>2</b>
+            <h3>Classify ACT control</h3>
+            <p>Scores were grouped as very poorly controlled under 16, not well controlled 16 to 19, or well controlled 20 to 25.</p>
+          </div>
+          <div class="flow-node">
+            <b>3</b>
+            <h3>Compare care factors</h3>
+            <p>Chi-squared tests and logistic regressions assessed adherence, insurance, therapy status, medication switches, and triggers.</p>
+          </div>
+          <div class="flow-node">
+            <b>4</b>
+            <h3>Target assessment intensity</h3>
+            <p>ACT trajectory, nonadherence, insurance type, and triggers can shape counseling and reassessment frequency.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="visual-grid">
+        <div class="panel">
+          <p class="section-label">Adjusted associations</p>
+          <h2>Three predictors stood out in the poster's regression patterns.</h2>
+          <div class="or-grid">
+            <div class="or-card">
+              <strong>8.0</strong>
+              <h3>Baseline well controlled</h3>
+              <p>Adjusted odds ratio for being well controlled at follow-up versus very poorly controlled baseline; 95% CI 3.0 to 20.0.</p>
+            </div>
+            <div class="or-card">
+              <strong>2.5</strong>
+              <h3>Commercial insurance</h3>
+              <p>Adjusted odds ratio for meeting MID versus Medicaid; 95% CI 1.1 to 6.0.</p>
+            </div>
+            <div class="or-card">
+              <strong>3.5</strong>
+              <h3>No odor/fume trigger</h3>
+              <p>Adjusted odds ratio for being well controlled or meeting MID versus patients triggered by odors/fumes; 95% CI 1.1 to 11.0.</p>
+            </div>
+          </div>
+          <div class="callout">Interpretation: improvement depended on both clinical starting point and care context, so the poster frames ACT follow-up as a trajectory, not a single end-state.</div>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Insurance pattern</p>
+          <h2>Insurance was similar at baseline but meaningful at follow-up.</h2>
+          <div class="insurance-grid">
+            <svg class="donut" viewBox="0 0 42 42" role="img" aria-label="Insurance mix donut chart">
+              <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#eef4fb" stroke-width="8"/>
+              <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#187c8f" stroke-width="8" stroke-dasharray="43.9 56.1" stroke-dashoffset="25" transform="rotate(-90 21 21)"/>
+              <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#d12630" stroke-width="8" stroke-dasharray="47.4 52.6" stroke-dashoffset="-18.9" transform="rotate(-90 21 21)"/>
+              <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#e99e25" stroke-width="8" stroke-dasharray="8.8 91.2" stroke-dashoffset="-66.3" transform="rotate(-90 21 21)"/>
+              <circle cx="21" cy="21" r="10.8" fill="#fff"/>
+              <text x="21" y="20" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="4.4" font-weight="900">114</text>
+              <text x="21" y="25" text-anchor="middle" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="2.4" font-weight="800">patients</text>
+            </svg>
+            <ul class="legend">
+              <li style="--legend-color: var(--teal)"><i></i><span>Commercial</span><b>43.9%</b></li>
+              <li style="--legend-color: var(--red)"><i></i><span>Medicaid</span><b>47.4%</b></li>
+              <li style="--legend-color: var(--gold)"><i></i><span>Medicare</span><b>8.8%</b></li>
+            </ul>
+          </div>
+          <ul class="compact-list">
+            <li>Commercial insurance was associated with follow-up control and meeting MID.</li>
+            <li>Insurance was associated with adherence; 85.7% of patients with PDC below 0.8 were on Medicaid.</li>
+            <li>The poster points to social determinants of health as a likely context for poorer asthma outcomes.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="tables-grid">
+        <div class="table-card">
+          <p class="section-label">Table pattern</p>
+          <h2>Follow-up control concentrated among adherent patients.</h2>
+          <div class="table-wrap">
+            <table class="pattern-table">
+              <thead>
+                <tr>
+                  <th>Care characteristic</th>
+                  <th>Poster signal</th>
+                  <th>p-value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Adherent</td>
+                  <td>82.1% of well-controlled follow-up group was adherent</td>
+                  <td>0.021</td>
+                </tr>
+                <tr>
+                  <td>New therapy</td>
+                  <td>71.2% of MID achievers were new to therapy</td>
+                  <td>0.0018</td>
+                </tr>
+                <tr>
+                  <td>Baseline ACT category</td>
+                  <td>Associated with follow-up ACT category and MID achievement</td>
+                  <td>&lt;.0001</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="table-card">
+          <p class="section-label">Conclusion</p>
+          <h2>ACT trajectories can make pharmacy follow-up more specific.</h2>
+          <ul class="compact-list">
+            <li>Most patients were well controlled or met MID at follow-up within the specialty pharmacy.</li>
+            <li>Commercial insurance patients were most likely to achieve MID and remain adherent.</li>
+            <li>Incorporating insurance, nonadherence, triggers, and ACT trajectory into counseling may improve personalization.</li>
+          </ul>
+          <p class="source-note">MID was defined as an ACT improvement of at least 3 points, based on Schatz et al., J Allergy Clin Immunol, 2009.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/48-OPR48-OR-Poster-AM24_2024.pdf">View original PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/48-OPR48-OR-Poster-AM24_2024.md">View extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

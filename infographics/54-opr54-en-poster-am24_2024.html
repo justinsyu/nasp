@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OPR54-EN 2024 | Early Treat-to-Target Goals With Abrocitinib</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card.treat-target-card {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 90% 8%, rgba(24, 124, 143, 0.22), transparent 6rem),
+        radial-gradient(circle at 12% 88%, rgba(233, 158, 37, 0.24), transparent 7rem),
+        linear-gradient(145deg, #ffffff 0%, var(--surface-blue) 54%, var(--surface-warm) 100%);
+    }
+
+    .target-dial {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.6rem;
+    }
+
+    .dial-cell {
+      border: 1px solid rgba(174, 187, 210, 0.86);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.82);
+      padding: 0.75rem;
+    }
+
+    .dial-cell strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.7rem);
+      line-height: 0.92;
+    }
+
+    .dial-cell span {
+      display: block;
+      margin-top: 0.3rem;
+      color: var(--ink);
+      font-size: 0.72rem;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+
+    .study-flow {
+      display: grid;
+      grid-template-columns: 1fr 0.55fr 1fr;
+      gap: 0.7rem;
+      align-items: center;
+      margin-top: 0.8rem;
+    }
+
+    .flow-box {
+      min-height: 7.8rem;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.8rem;
+    }
+
+    .flow-box strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1rem;
+      line-height: 1.15;
+    }
+
+    .flow-box p {
+      margin: 0.45rem 0 0;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .flow-arrow {
+      display: grid;
+      place-items: center;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 900;
+    }
+
+    .arm-stack {
+      display: grid;
+      gap: 0.45rem;
+      margin-top: 0.55rem;
+    }
+
+    .arm-chip {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.7rem;
+      border: 1px solid rgba(36, 55, 112, 0.15);
+      border-radius: 999px;
+      background: var(--surface-blue);
+      padding: 0.38rem 0.62rem;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+
+    .target-board {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .target-comparison {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.85rem;
+    }
+
+    .target-panel {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.95rem;
+    }
+
+    .target-panel h3 {
+      margin-bottom: 0.25rem;
+    }
+
+    .target-panel > p {
+      margin: 0 0 0.8rem;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .goal-bars {
+      display: grid;
+      gap: 0.68rem;
+    }
+
+    .goal-row {
+      display: grid;
+      grid-template-columns: 9.2rem minmax(0, 1fr) 3rem;
+      gap: 0.65rem;
+      align-items: center;
+    }
+
+    .goal-row b {
+      color: var(--ink);
+      font-size: 0.78rem;
+    }
+
+    .goal-track {
+      height: 1.12rem;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+
+    .goal-fill {
+      display: block;
+      width: var(--value);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .goal-fill.gold {
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .goal-fill.purple {
+      background: linear-gradient(90deg, var(--purple), var(--teal));
+    }
+
+    .goal-row em {
+      color: var(--ink);
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .signal-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 1rem;
+    }
+
+    .itch-plot {
+      position: relative;
+      min-height: 16rem;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, rgba(238, 244, 251, 0.72), #fff),
+        repeating-linear-gradient(0deg, transparent, transparent 3.15rem, rgba(174, 187, 210, 0.35) 3.2rem);
+      padding: 1rem;
+    }
+
+    .itch-bars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      align-items: end;
+      gap: 0.75rem;
+      height: 11rem;
+      margin-top: 0.65rem;
+      border-bottom: 2px solid rgba(36, 55, 112, 0.32);
+    }
+
+    .itch-bar {
+      display: grid;
+      align-content: end;
+      justify-items: center;
+      height: 100%;
+    }
+
+    .itch-bar i {
+      display: block;
+      width: min(100%, 4.2rem);
+      height: var(--height);
+      border-radius: 8px 8px 0 0;
+      background: linear-gradient(180deg, var(--red), var(--gold));
+    }
+
+    .itch-bar:nth-child(2) i {
+      background: linear-gradient(180deg, var(--teal), var(--green));
+    }
+
+    .itch-bar:nth-child(3) i {
+      background: linear-gradient(180deg, var(--purple), var(--teal));
+    }
+
+    .itch-bar strong {
+      margin-bottom: 0.3rem;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+    }
+
+    .itch-bar span {
+      margin-top: 0.42rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 850;
+      text-align: center;
+    }
+
+    .domain-lattice {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.6rem;
+      margin-top: 0.8rem;
+    }
+
+    .domain-card {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.75rem;
+    }
+
+    .domain-card strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+
+    .domain-card span {
+      display: block;
+      margin-top: 0.28rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    .micro-table th,
+    .micro-table td {
+      font-size: 0.72rem;
+    }
+
+    .takeaway-ribbon {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 1rem;
+      align-items: stretch;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--ink);
+      color: #fff;
+      padding: 1rem;
+    }
+
+    .takeaway-ribbon h2,
+    .takeaway-ribbon h3 {
+      color: #fff;
+    }
+
+    .takeaway-ribbon p,
+    .takeaway-ribbon li {
+      color: rgba(255, 255, 255, 0.84);
+    }
+
+    .takeaway-ribbon ul {
+      margin: 0.55rem 0 0 1.05rem;
+      padding: 0;
+    }
+
+    .source-note {
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 900px) {
+      .target-comparison,
+      .signal-grid,
+      .takeaway-ribbon {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .target-dial,
+      .study-flow,
+      .domain-lattice {
+        grid-template-columns: 1fr;
+      }
+
+      .flow-arrow {
+        transform: rotate(90deg);
+      }
+
+      .goal-row {
+        grid-template-columns: 1fr;
+      }
+
+      .goal-row em {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/54-OPR54-EN-Poster-AM24_2024.pdf">Source PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/54-OPR54-EN-Poster-AM24_2024.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">OPR54-EN | NASP Annual Meeting &amp; Expo 2024</p>
+        <h1>Early Treat-to-Target Signals After 4 Weeks of Abrocitinib Monotherapy</h1>
+        <p class="hero-summary">A post hoc analysis of pooled JADE MONO-1 and JADE MONO-2 phase 3 data examined whether patients with moderate-to-severe atopic dermatitis reached proposed 3- and 6-month treatment goals after only 4 weeks.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag therapy">Atopic dermatitis</li>
+          <li class="tag category">Post hoc phase 3 analysis</li>
+          <li class="tag">Abrocitinib 100 mg / 200 mg QD</li>
+          <li class="tag">Week 4 response</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card treat-target-card" aria-label="Poster metadata and headline result">
+        <div class="poster-code">OPR54-EN</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Year</dt>
+            <dd>2024</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>NASP, Nashville</dd>
+          </div>
+          <div>
+            <dt>Data Source</dt>
+            <dd>JADE MONO-1/2</dd>
+          </div>
+          <div>
+            <dt>Analysis</dt>
+            <dd>Observed, descriptive</dd>
+          </div>
+        </dl>
+        <div class="target-dial">
+          <div class="dial-cell">
+            <strong>77%</strong>
+            <span>Abrocitinib 200 mg met the Month 3 target at Week 4</span>
+          </div>
+          <div class="dial-cell">
+            <strong>64%</strong>
+            <span>Abrocitinib 200 mg met the Month 6 target at Week 4</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <div class="metric-card">
+          <span>Pooled randomized patients</span>
+          <strong>778</strong>
+        </div>
+        <div class="metric-card">
+          <span>Week 4 complete target data</span>
+          <strong>487</strong>
+        </div>
+        <div class="metric-card">
+          <span>Clinical trial arms</span>
+          <strong>3</strong>
+        </div>
+        <div class="metric-card">
+          <span>Assessment window</span>
+          <strong>4 wk</strong>
+        </div>
+      </section>
+
+      <section class="visual-grid">
+        <div class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Ask a time-shifted question</h2>
+          <div class="markdown-fragment">
+            <p>Could proposed 3-month and 6-month treat-to-target goals in skin lesions, itch, and dermatology-related quality of life already be achieved after 4 weeks of abrocitinib monotherapy?</p>
+          </div>
+          <div class="domain-lattice" aria-label="Treatment goal domains">
+            <div class="domain-card">
+              <strong>EASI</strong>
+              <span>Skin lesion improvement</span>
+            </div>
+            <div class="domain-card">
+              <strong>PP-NRS</strong>
+              <span>Peak pruritus / itch</span>
+            </div>
+            <div class="domain-card">
+              <strong>DLQI</strong>
+              <span>Dermatology quality of life</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Study Design</p>
+          <h2>Pooled monotherapy phase 3 trials</h2>
+          <div class="study-flow" aria-label="Study flow">
+            <div class="flow-box">
+              <strong>Eligible patients</strong>
+              <p>Age >=12 years, AD >=1 year, moderate-to-severe disease, inadequate topical response or systemic-therapy need.</p>
+            </div>
+            <div class="flow-arrow" aria-hidden="true">&rarr;</div>
+            <div class="flow-box">
+              <strong>Randomized arms</strong>
+              <div class="arm-stack">
+                <div class="arm-chip"><span>Placebo QD</span><span>n=155</span></div>
+                <div class="arm-chip"><span>Abrocitinib 100 mg QD</span><span>n=314</span></div>
+                <div class="arm-chip"><span>Abrocitinib 200 mg QD</span><span>n=309</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="target-board" aria-label="Treat-to-target results">
+        <div>
+          <p class="section-label">Results</p>
+          <h2>Week 4 target attainment separated treatment arms</h2>
+        </div>
+
+        <div class="target-comparison">
+          <article class="target-panel">
+            <h3>Month 3 target met at Week 4</h3>
+            <p>PtGA improvement >=1 point plus EASI-50 or PP-NRS3 or DLQI4</p>
+            <div class="goal-bars">
+              <div class="goal-row">
+                <b>Placebo</b>
+                <div class="goal-track"><span class="goal-fill gold" style="--value: 27%;"></span></div>
+                <em>27%</em>
+              </div>
+              <div class="goal-row">
+                <b>Abrocitinib 100 mg</b>
+                <div class="goal-track"><span class="goal-fill" style="--value: 56%;"></span></div>
+                <em>56%</em>
+              </div>
+              <div class="goal-row">
+                <b>Abrocitinib 200 mg</b>
+                <div class="goal-track"><span class="goal-fill purple" style="--value: 77%;"></span></div>
+                <em>77%</em>
+              </div>
+            </div>
+          </article>
+
+          <article class="target-panel">
+            <h3>Month 6 target met at Week 4</h3>
+            <p>PtGA score <=2 plus EASI-75 or PP-NRS <=4 or DLQI <=5</p>
+            <div class="goal-bars">
+              <div class="goal-row">
+                <b>Placebo</b>
+                <div class="goal-track"><span class="goal-fill gold" style="--value: 19%;"></span></div>
+                <em>19%</em>
+              </div>
+              <div class="goal-row">
+                <b>Abrocitinib 100 mg</b>
+                <div class="goal-track"><span class="goal-fill" style="--value: 32%;"></span></div>
+                <em>32%</em>
+              </div>
+              <div class="goal-row">
+                <b>Abrocitinib 200 mg</b>
+                <div class="goal-track"><span class="goal-fill purple" style="--value: 64%;"></span></div>
+                <em>64%</em>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="signal-grid">
+        <div class="panel">
+          <p class="section-label">Itch Relief</p>
+          <h2>PP-NRS improved more with abrocitinib</h2>
+          <div class="itch-plot" aria-label="PP-NRS least squares mean change from baseline">
+            <h3>LSM change from baseline to Week 4</h3>
+            <div class="itch-bars">
+              <div class="itch-bar" style="--height: 20%;">
+                <strong>-0.7</strong>
+                <i></i>
+                <span>Placebo</span>
+              </div>
+              <div class="itch-bar" style="--height: 68%;">
+                <strong>-2.6</strong>
+                <i></i>
+                <span>Abrocitinib 100 mg</span>
+              </div>
+              <div class="itch-bar" style="--height: 100%;">
+                <strong>-3.8</strong>
+                <i></i>
+                <span>Abrocitinib 200 mg</span>
+              </div>
+            </div>
+          </div>
+          <p class="source-note">Baseline mean PP-NRS was 7 +/- 2 across treatment arms.</p>
+        </div>
+
+        <div class="table-card">
+          <p class="section-label">Table Pattern</p>
+          <h2>Baseline characteristics were comparable</h2>
+          <div class="table-wrap">
+            <table class="micro-table">
+              <thead>
+                <tr>
+                  <th>Characteristic</th>
+                  <th>Placebo</th>
+                  <th>Abro 100 mg</th>
+                  <th>Abro 200 mg</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Age, mean +/- SD</td>
+                  <td>32 +/- 14</td>
+                  <td>35 +/- 16</td>
+                  <td>33 +/- 16</td>
+                </tr>
+                <tr>
+                  <td>Female, n (%)</td>
+                  <td>59 (38)</td>
+                  <td>130 (41)</td>
+                  <td>140 (45)</td>
+                </tr>
+                <tr>
+                  <td>EASI, mean +/- SD</td>
+                  <td>28 +/- 11</td>
+                  <td>30 +/- 12</td>
+                  <td>30 +/- 13</td>
+                </tr>
+                <tr>
+                  <td>PP-NRS, mean +/- SD</td>
+                  <td>7 +/- 2</td>
+                  <td>7 +/- 2</td>
+                  <td>7 +/- 2</td>
+                </tr>
+                <tr>
+                  <td>DLQI, mean +/- SD</td>
+                  <td>14 +/- 7</td>
+                  <td>15 +/- 7</td>
+                  <td>15 +/- 6</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="evidence-map" aria-label="Evidence flow">
+        <article class="evidence-card">
+          <h3>1. Target Framework</h3>
+          <p>Adult moderate-to-severe AD goals combine PtGA change or absolute status with at least one disease-domain threshold.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>2. Trial Pool</h3>
+          <p>JADE MONO-1 and MONO-2 contributed randomized monotherapy data across placebo, 100 mg, and 200 mg arms.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>3. Week 4 Lens</h3>
+          <p>Only patients with Week 4 PtGA, EASI, PP-NRS, and DLQI data were included in the target-attainment analysis.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>4. Response Gradient</h3>
+          <p>Both abrocitinib doses exceeded placebo, with the 200 mg arm showing the largest Month 3 and Month 6 target attainment.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>5. Clinical Readout</h3>
+          <p>The authors conclude that proposed later treatment goals may be achieved far earlier with abrocitinib.</p>
+        </article>
+      </section>
+
+      <section class="takeaway-ribbon">
+        <div>
+          <p class="section-label">Conclusion</p>
+          <h2>Rapid multi-domain improvement</h2>
+        </div>
+        <div>
+          <h3>What the poster adds</h3>
+          <ul>
+            <li>Substantial proportions of abrocitinib-treated patients reached proposed 3- and 6-month goals by Week 4.</li>
+            <li>Itch severity improved more with abrocitinib 200 mg and 100 mg than with placebo.</li>
+            <li>Early target assessment may help clinicians evaluate response sooner in moderate-to-severe AD.</li>
+          </ul>
+        </div>
+      </section>
+
+      <footer class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/54-OPR54-EN-Poster-AM24_2024.pdf">Open original PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/54-OPR54-EN-Poster-AM24_2024.md">Open extracted markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

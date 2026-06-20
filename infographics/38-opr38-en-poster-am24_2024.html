@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2024 Infographic | DAA Retreatment After NAT+ HCV Transplant</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .transplant-hero-art {
+      position: relative;
+      min-height: 18rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(233, 158, 37, 0.28), transparent 9rem),
+        linear-gradient(135deg, rgba(36, 55, 112, 0.96), rgba(24, 124, 143, 0.9));
+      color: #fff;
+      overflow: hidden;
+      padding: 1rem;
+    }
+    .transplant-hero-art svg {
+      position: absolute;
+      right: -1.6rem;
+      bottom: -1.4rem;
+      width: min(27rem, 82%);
+      opacity: 0.88;
+    }
+    .transplant-hero-art .art-label {
+      position: relative;
+      z-index: 1;
+      max-width: 15rem;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .transplant-hero-art .art-number {
+      position: relative;
+      z-index: 1;
+      display: block;
+      margin-top: 0.2rem;
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 8vw, 5.8rem);
+      font-weight: 900;
+      line-height: 0.88;
+    }
+    .outcome-ring {
+      display: grid;
+      grid-template-columns: 13.5rem minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+      margin-top: 0.75rem;
+    }
+    .outcome-ring svg {
+      width: 100%;
+      max-width: 13.5rem;
+      height: auto;
+    }
+    .microcopy {
+      margin: 0.6rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+    .journey {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.8rem;
+    }
+    .journey-step {
+      position: relative;
+      min-height: 10.5rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.82rem;
+    }
+    .journey-step::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -0.51rem;
+      width: 0.74rem;
+      height: 0.74rem;
+      border-top: 2px solid var(--border-strong);
+      border-right: 2px solid var(--border-strong);
+      background: #fff;
+      transform: translateY(-50%) rotate(45deg);
+    }
+    .journey-step:last-child::after { display: none; }
+    .journey-step b {
+      display: inline-grid;
+      place-items: center;
+      width: 1.72rem;
+      height: 1.72rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+    }
+    .journey-step h3 {
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+    }
+    .journey-step p {
+      margin: 0.38rem 0 0;
+      font-size: 0.78rem;
+    }
+    .site-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.58rem;
+      margin-top: 0.75rem;
+    }
+    .site-card {
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: var(--surface-blue);
+      padding: 0.7rem;
+    }
+    .site-card strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+    .site-card span {
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .mini-bars {
+      display: grid;
+      gap: 0.6rem;
+      margin-top: 0.7rem;
+    }
+    .mini-row {
+      display: grid;
+      grid-template-columns: 9.2rem minmax(0, 1fr) 4.7rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+    .mini-track {
+      height: 0.9rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .mini-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .organ-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+      align-items: center;
+      margin-top: 0.55rem;
+    }
+    .organ-svg {
+      width: 100%;
+      max-width: 17rem;
+      margin: 0 auto;
+    }
+    .legend {
+      display: grid;
+      gap: 0.42rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .legend li {
+      display: grid;
+      grid-template-columns: 0.78rem minmax(0, 1fr) auto;
+      gap: 0.45rem;
+      align-items: center;
+      font-size: 0.8rem;
+    }
+    .legend i {
+      width: 0.78rem;
+      height: 0.78rem;
+      border-radius: 3px;
+      background: var(--legend-color, var(--red));
+    }
+    .timeline-band {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.75rem;
+    }
+    .timeline-card {
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: var(--surface-blue);
+      padding: 0.8rem;
+    }
+    .timeline-card strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2.25rem;
+      line-height: 1;
+    }
+    .timeline-card span {
+      color: var(--ink);
+      font-size: 0.86rem;
+      font-weight: 850;
+    }
+    .med-matrix tbody td:nth-child(n+2),
+    .med-matrix thead th:nth-child(n+2) {
+      text-align: center;
+    }
+    .callout {
+      border-left: 4px solid var(--red);
+      background: var(--surface-warm);
+      padding: 0.85rem 1rem;
+    }
+    .callout p {
+      margin: 0;
+      color: var(--ink);
+      font-size: 0.94rem;
+      font-weight: 750;
+    }
+    @media (max-width: 900px) {
+      .journey,
+      .site-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .journey-step::after { display: none; }
+      .outcome-ring,
+      .organ-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 560px) {
+      .journey,
+      .site-grid,
+      .timeline-band,
+      .mini-row {
+        grid-template-columns: 1fr;
+      }
+      .mini-row span:last-child { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="https://naspnet.org/" aria-label="NASP website">NASP Posters</a>
+      <nav aria-label="Page sections">
+        <a href="#snapshot">Snapshot</a>
+        <a href="#flow">Evidence Flow</a>
+        <a href="#results">Results</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">2024 Annual Meeting Poster | 38-OPR38-EN</p>
+        <h1>DAA treatment failure and retreatment after NAT+ HCV solid organ transplantation</h1>
+        <p class="hero-summary">
+          A four-center retrospective case series pooled HCV-negative solid organ transplant recipients who received HCV NAT+
+          organs, failed initial direct-acting antiviral therapy, and then underwent DAA retreatment.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Multisite retrospective case series</li>
+          <li class="tag therapy">HCV NAT+ transplant</li>
+          <li class="tag therapy">DAA retreatment</li>
+          <li class="tag">September 2016-June 2022</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Poster details">
+        <div class="poster-code">AM24<br>38-OPR38-EN</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Poster year</dt>
+            <dd>2024</dd>
+          </div>
+          <div>
+            <dt>Facilities</dt>
+            <dd>4 centers</dd>
+          </div>
+          <div>
+            <dt>Case series</dt>
+            <dd>13 patients</dd>
+          </div>
+          <div>
+            <dt>Primary outcome</dt>
+            <dd>SVR after retreatment</dd>
+          </div>
+        </dl>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/38-OPR38-EN-Poster-AM24_2024.pdf">Open poster PDF</a>
+      </aside>
+    </section>
+
+    <main>
+      <section id="snapshot" class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Initial DAA failures pooled</span>
+          <strong>13</strong>
+        </article>
+        <article class="metric-card">
+          <span>First retreatment SVR</span>
+          <strong>92%</strong>
+        </article>
+        <article class="metric-card">
+          <span>Ultimately achieved SVR</span>
+          <strong>100%</strong>
+        </article>
+        <article class="metric-card">
+          <span>Median days to start DAA #1</span>
+          <strong>35</strong>
+        </article>
+      </section>
+
+      <section class="visual-grid" aria-label="Outcome and practice-site summary">
+        <article class="transplant-hero-art">
+          <p class="art-label">Retreatment converted nearly every initial DAA failure into documented sustained virologic response.</p>
+          <span class="art-number">12/13</span>
+          <svg viewBox="0 0 420 300" role="img" aria-label="Transplant and antiviral response illustration">
+            <defs>
+              <linearGradient id="organGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ffffff" stop-opacity="0.94"></stop>
+                <stop offset="1" stop-color="#e99e25" stop-opacity="0.78"></stop>
+              </linearGradient>
+            </defs>
+            <path d="M147 61c38-38 99-32 126 17 33 60 6 129-34 159-34 26-75 31-113 6-43-28-57-84-40-126 9-23 30-28 61-56z" fill="url(#organGrad)"></path>
+            <path d="M208 72c-5 46-3 87 10 128 8 27 16 44 34 67" fill="none" stroke="#243770" stroke-width="13" stroke-linecap="round" opacity="0.86"></path>
+            <path d="M96 143c42 8 88 12 136 8 45-4 78-17 106-44" fill="none" stroke="#187c8f" stroke-width="16" stroke-linecap="round" opacity="0.78"></path>
+            <circle cx="319" cy="86" r="30" fill="#d12630" opacity="0.9"></circle>
+            <path d="M308 86h22M319 75v22" stroke="#fff" stroke-width="7" stroke-linecap="round"></path>
+            <circle cx="109" cy="235" r="23" fill="#7561a8" opacity="0.75"></circle>
+            <circle cx="357" cy="200" r="12" fill="#fff" opacity="0.74"></circle>
+            <circle cx="71" cy="101" r="10" fill="#fff" opacity="0.78"></circle>
+          </svg>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Primary outcome</p>
+          <h2>High SVR after DAA retreatment, with one patient rescued by a third course</h2>
+          <div class="outcome-ring">
+            <svg viewBox="0 0 240 240" role="img" aria-label="Donut chart showing 12 of 13 achieved SVR after first retreatment">
+              <circle cx="120" cy="120" r="77" fill="none" stroke="#d9e1ef" stroke-width="36"></circle>
+              <circle cx="120" cy="120" r="77" fill="none" stroke="#d12630" stroke-width="36" stroke-dasharray="446.6 37.2" stroke-dashoffset="0" transform="rotate(-90 120 120)"></circle>
+              <circle cx="120" cy="120" r="50" fill="#fff"></circle>
+              <text x="120" y="112" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="27" font-weight="900">92%</text>
+              <text x="120" y="137" text-anchor="middle" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="850">SVR after retreatment</text>
+            </svg>
+            <div>
+              <ul class="legend">
+                <li style="--legend-color: var(--red);"><i></i><span>Achieved SVR after DAA retreatment</span><b>12</b></li>
+                <li style="--legend-color: var(--border-strong);"><i></i><span>Required a third DAA course before SVR</span><b>1</b></li>
+              </ul>
+              <p class="microcopy">Patient 9 failed SOF/VEL/VOX x12 weeks, then achieved SVR14 after sofosbuvir + GLE/PIB + RBV x24 weeks.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section id="flow" class="panel">
+        <p class="section-label">Evidence flow</p>
+        <h2>From NAT+ organ transplant to retreatment strategy</h2>
+        <div class="journey">
+          <article class="journey-step">
+            <b>1</b>
+            <h3>HCV-negative recipient</h3>
+            <p>Adult patients received HCV NAT+ solid organs at Vanderbilt, MUSC, Ochsner, or Rochester.</p>
+          </article>
+          <article class="journey-step">
+            <b>2</b>
+            <h3>Initial DAA course</h3>
+            <p>Initial regimens were SOF/VEL, GLE/PIB, or LDV/SOF, typically for 12 weeks.</p>
+          </article>
+          <article class="journey-step">
+            <b>3</b>
+            <h3>Failure identified</h3>
+            <p>Failures included positive viral load at end of treatment, on treatment, or within weeks after EOT.</p>
+          </article>
+          <article class="journey-step">
+            <b>4</b>
+            <h3>Retreatment selected</h3>
+            <p>SOF/VEL/VOX-containing regimens were the dominant retreatment strategy, with RBV or longer duration in selected cases.</p>
+          </article>
+          <article class="journey-step">
+            <b>5</b>
+            <h3>SVR assessed</h3>
+            <p>The case series measured sustained virologic response after retreatment as the primary outcome.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="results" class="visual-grid" aria-label="Patient and regimen results">
+        <article class="panel">
+          <p class="section-label">Recipient profile</p>
+          <h2>Most failures occurred after kidney transplant</h2>
+          <div class="organ-grid">
+            <svg class="organ-svg" viewBox="0 0 260 260" role="img" aria-label="Donut chart of solid organ transplant type">
+              <circle cx="130" cy="130" r="82" fill="none" stroke="#d9e1ef" stroke-width="38"></circle>
+              <circle cx="130" cy="130" r="82" fill="none" stroke="#d12630" stroke-width="38" stroke-dasharray="396.5 118.7" stroke-dashoffset="0" transform="rotate(-90 130 130)"></circle>
+              <circle cx="130" cy="130" r="82" fill="none" stroke="#e99e25" stroke-width="38" stroke-dasharray="39.6 475.6" stroke-dashoffset="-396.5" transform="rotate(-90 130 130)"></circle>
+              <circle cx="130" cy="130" r="82" fill="none" stroke="#187c8f" stroke-width="38" stroke-dasharray="39.6 475.6" stroke-dashoffset="-436.1" transform="rotate(-90 130 130)"></circle>
+              <circle cx="130" cy="130" r="82" fill="none" stroke="#7561a8" stroke-width="38" stroke-dasharray="39.6 475.6" stroke-dashoffset="-475.7" transform="rotate(-90 130 130)"></circle>
+              <circle cx="130" cy="130" r="53" fill="#fff"></circle>
+              <text x="130" y="122" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="29" font-weight="900">77%</text>
+              <text x="130" y="148" text-anchor="middle" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="850">kidney</text>
+            </svg>
+            <ul class="legend">
+              <li style="--legend-color: var(--red);"><i></i><span>Kidney</span><b>10</b></li>
+              <li style="--legend-color: var(--gold);"><i></i><span>Heart</span><b>1</b></li>
+              <li style="--legend-color: var(--teal);"><i></i><span>Liver</span><b>1</b></li>
+              <li style="--legend-color: var(--purple);"><i></i><span>Lung</span><b>1</b></li>
+            </ul>
+          </div>
+          <p class="microcopy">Genotype mix was mostly genotype 1/1a (8 patients), followed by genotype 3 (4 patients) and genotype 2 (1 patient).</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Regimen pattern</p>
+          <h2>SOF/VEL/VOX became the main retreatment backbone</h2>
+          <div class="mini-bars">
+            <div class="mini-row">
+              <span>SOF/VEL/VOX x12</span>
+              <div class="mini-track"><i style="width: 100%;"></i></div>
+              <span>8 (62%)</span>
+            </div>
+            <div class="mini-row">
+              <span>SOF/VEL/VOX + RBV x12</span>
+              <div class="mini-track"><i style="width: 25%;"></i></div>
+              <span>2 (15%)</span>
+            </div>
+            <div class="mini-row">
+              <span>GLE/PIB + RBV x16</span>
+              <div class="mini-track"><i style="width: 12.5%;"></i></div>
+              <span>1 (8%)</span>
+            </div>
+            <div class="mini-row">
+              <span>SOF/VEL/VOX + RBV x24</span>
+              <div class="mini-track"><i style="width: 12.5%;"></i></div>
+              <span>1 (8%)</span>
+            </div>
+            <div class="mini-row">
+              <span>SOF/VEL/VOX x24</span>
+              <div class="mini-track"><i style="width: 12.5%;"></i></div>
+              <span>1 (8%)</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">Practice sites</p>
+          <h2>Four tertiary centers contributed failure cases</h2>
+          <div class="site-grid" aria-label="Estimated NAT-positive SOT volume by site">
+            <div class="site-card"><strong>345</strong><span>VUMC NAT+ SOT</span></div>
+            <div class="site-card"><strong>152</strong><span>MUSC NAT+ SOT</span></div>
+            <div class="site-card"><strong>280</strong><span>OHS NAT+ SOT</span></div>
+            <div class="site-card"><strong>40</strong><span>URMC NAT+ SOT</span></div>
+          </div>
+          <p class="microcopy">All sites initiated DAA after hospital discharge and involved pharmacists in DAA approval and initiation.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Monitoring timelines</p>
+          <h2>Median intervals were similar before treatment and before retreatment</h2>
+          <div class="timeline-band">
+            <div class="timeline-card">
+              <strong>35</strong>
+              <span>median days from SOT to DAA #1</span>
+              <p class="microcopy">IQR 22-41 days</p>
+            </div>
+            <div class="timeline-card">
+              <strong>35</strong>
+              <span>median days from DAA failure to retreatment</span>
+              <p class="microcopy">IQR 17-76 days</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="evidence-map" aria-label="Extracted poster takeaways">
+        <article class="evidence-card">
+          <h3>Objective</h3>
+          <p>Describe HCV NAT+ SOT recipients who failed initial DAA therapy, retreatment strategies, and subsequent SVR rates.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Methods</h3>
+          <p>Adult HCV-negative NAT+ organ recipients with initial DAA failure were reviewed across four tertiary medical centers.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Initial DAA</h3>
+          <p>SOF/VEL x12 represented 46% of initial regimens; GLE/PIB x12 represented 38%; LDV/SOF x12 represented 15%.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Signal</h3>
+          <p>All patients ultimately achieved SVR after one or two DAA retreatment courses.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Conclusion</h3>
+          <p>Retreatment regimens varied, but SOF/VEL/VOX-containing regimens were used most often, commonly for 12 weeks.</p>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Condensed source table patterns">
+        <article class="table-card">
+          <p class="section-label">Table pattern</p>
+          <h2>Concomitant acid-suppression medications of concern</h2>
+          <div class="table-wrap">
+            <table class="med-matrix">
+              <thead>
+                <tr>
+                  <th>Medication class</th>
+                  <th>During DAA failure<br>total n=14</th>
+                  <th>With SVR achieved<br>total n=13</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>PPI</td>
+                  <td>4</td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                  <td>H2RA</td>
+                  <td>7</td>
+                  <td>10</td>
+                </tr>
+                <tr>
+                  <td>Antacid</td>
+                  <td>8</td>
+                  <td>9</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="microcopy">The poster notes these agents can affect DAA absorption; PPI differences may reflect regimen interaction profiles.</p>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Clinical interpretation</p>
+          <h2>What the case series adds</h2>
+          <div class="callout">
+            <p>Because initial DAA failure is uncommon in this population, the pooled multisite series gives practical detail on how retreatment was selected and monitored.</p>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Question</th>
+                  <th>Poster signal</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Who failed?</td>
+                  <td>Mostly kidney recipients; ages ranged from 31 to 73 years.</td>
+                </tr>
+                <tr>
+                  <td>What was used?</td>
+                  <td>SOF/VEL/VOX-based retreatment was prescribed most frequently.</td>
+                </tr>
+                <tr>
+                  <td>What happened?</td>
+                  <td>SVR was high after retreatment, and universal after an additional course for one patient.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/38-OPR38-EN-Poster-AM24_2024.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/38-OPR38-EN-Poster-AM24_2024.md">Source markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

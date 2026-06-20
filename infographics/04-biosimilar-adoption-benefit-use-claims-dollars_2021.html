@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Biosimilar Adoption, Benefit-use Claims and Dollars | NASP 2021</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .biosimilar-hero {
+      display: grid;
+      gap: 0.75rem;
+    }
+    .hero-card svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-top: 0.25rem;
+    }
+    .finding-callout {
+      margin: 0;
+      border-left: 4px solid var(--red);
+      padding-left: 0.72rem;
+      color: var(--ink);
+      font-size: 0.95rem;
+      font-weight: 850;
+    }
+    .signal-board {
+      display: grid;
+      grid-template-columns: minmax(16rem, 0.78fr) minmax(0, 1.22fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .signal-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 1rem;
+    }
+    .signal-card strong {
+      display: block;
+      margin: 0.3rem 0 0.45rem;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 6vw, 5.7rem);
+      line-height: 0.92;
+    }
+    .signal-card p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+    .wave-chart {
+      display: grid;
+      gap: 0.7rem;
+    }
+    .wave-row {
+      display: grid;
+      grid-template-columns: 9rem minmax(0, 1fr) 5rem;
+      gap: 0.6rem;
+      align-items: center;
+    }
+    .wave-row b {
+      color: var(--ink);
+      font-size: 0.82rem;
+      line-height: 1.15;
+    }
+    .wave-row span {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 850;
+      text-align: right;
+    }
+    .wave-track {
+      position: relative;
+      height: 1.2rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: rgba(36, 55, 112, 0.08);
+      overflow: hidden;
+    }
+    .wave-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .wave-track i.dollars {
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .benefit-shift {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-top: 0.75rem;
+    }
+    .shift-panel {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+    }
+    .shift-panel h3 {
+      margin-bottom: 0.55rem;
+    }
+    .share-bar {
+      display: grid;
+      grid-template-columns: 4.2rem minmax(0, 1fr) 4.2rem;
+      gap: 0.5rem;
+      align-items: center;
+      margin: 0.42rem 0;
+      color: var(--ink);
+      font-size: 0.76rem;
+      font-weight: 850;
+    }
+    .share-track {
+      display: grid;
+      grid-template-columns: var(--left) 1fr;
+      height: 1.25rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .share-track i:first-child { background: var(--teal); }
+    .share-track i:last-child { background: rgba(233, 158, 37, 0.72); }
+    .legend-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.55rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 850;
+    }
+    .legend-line i {
+      display: inline-block;
+      width: 0.72rem;
+      height: 0.72rem;
+      border-radius: 99px;
+      margin-right: 0.28rem;
+      vertical-align: -0.1rem;
+    }
+    .rx-dot { background: var(--teal); }
+    .medical-dot { background: rgba(233, 158, 37, 0.72); }
+    .adoption-arc {
+      min-height: 18rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 18% 22%, rgba(24, 124, 143, 0.16), transparent 8rem),
+        radial-gradient(circle at 84% 78%, rgba(209, 38, 48, 0.13), transparent 9rem),
+        linear-gradient(135deg, #ffffff 0%, var(--surface-blue) 58%, var(--surface-warm) 100%);
+      overflow: hidden;
+    }
+    .adoption-arc svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 18rem;
+    }
+    .methods-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.75rem;
+    }
+    .method-tile {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.82rem;
+    }
+    .method-tile b {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      line-height: 1.15;
+    }
+    .method-tile span {
+      display: block;
+      margin-top: 0.42rem;
+      font-size: 0.78rem;
+    }
+    .paired-bars {
+      display: grid;
+      gap: 0.58rem;
+      margin-top: 0.75rem;
+    }
+    .paired-row {
+      display: grid;
+      grid-template-columns: 6.4rem minmax(0, 1fr) 6.3rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .paired-row span:last-child {
+      color: var(--muted);
+      text-align: right;
+    }
+    .dual-track {
+      display: grid;
+      gap: 0.18rem;
+    }
+    .dual-track i {
+      display: block;
+      height: 0.55rem;
+      border-radius: 999px;
+      background: var(--red);
+    }
+    .dual-track i.bio {
+      background: var(--purple);
+    }
+    .takeaway {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(24, 124, 143, 0.12), transparent 42%),
+        #fff;
+    }
+    .takeaway p {
+      max-width: 64rem;
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.05rem, 1.7vw, 1.42rem);
+      font-weight: 850;
+      line-height: 1.35;
+    }
+    .source-note {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    @media (max-width: 900px) {
+      .signal-board,
+      .benefit-shift,
+      .methods-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 560px) {
+      .signal-board,
+      .benefit-shift,
+      .methods-grid,
+      .wave-row,
+      .paired-row {
+        grid-template-columns: 1fr;
+      }
+      .wave-row span,
+      .paired-row span:last-child {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/04-Biosimilar-Adoption-Benefit-use-Claims-Dollars_2021.pdf">Source PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/04-Biosimilar-Adoption-Benefit-use-Claims-Dollars_2021.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP Annual Meeting &amp; Expo 2021 / Poster 04</p>
+        <h1 id="poster-title">Biosimilar Adoption, Benefit-use Claims and Dollars</h1>
+        <p class="hero-summary">
+          Workpartners Research Reference Database claims from 2016 through 2020 show specialty-drug spend rising, biosimilar volume accelerating from a small base, and more activity moving through the medical benefit.
+        </p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag therapy">Biosimilars</li>
+          <li class="tag category">Claims analytics</li>
+          <li class="tag">Prescription vs medical benefit</li>
+          <li class="tag">Innovator vs biosimilar</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Study snapshot">
+        <div class="poster-code">04<br>2021</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Data period</dt>
+            <dd>2016-2020</dd>
+          </div>
+          <div>
+            <dt>Database</dt>
+            <dd>Workpartners RRDb</dd>
+          </div>
+          <div>
+            <dt>Total claims</dt>
+            <dd>73,611</dd>
+          </div>
+          <div>
+            <dt>Total spend</dt>
+            <dd>$301.5M</dd>
+          </div>
+        </dl>
+        <p class="finding-callout">Core finding: 2020 specialty claims rose 17% and dollars rose 30% versus 2016, while biosimilars grew much faster from a low baseline.</p>
+        <svg viewBox="0 0 360 150" role="img" aria-label="Small schematic of biosimilar adoption across claims and dollars">
+          <defs>
+            <linearGradient id="heroLine" x1="0" x2="1">
+              <stop offset="0" stop-color="#187c8f"/>
+              <stop offset="0.55" stop-color="#e99e25"/>
+              <stop offset="1" stop-color="#d12630"/>
+            </linearGradient>
+          </defs>
+          <path d="M32 112 C86 104 105 82 146 78 S211 74 244 48 S295 30 328 32" fill="none" stroke="url(#heroLine)" stroke-width="8" stroke-linecap="round"/>
+          <path d="M44 112 h284" stroke="#aebbd2" stroke-width="2"/>
+          <circle cx="47" cy="111" r="13" fill="#fff" stroke="#187c8f" stroke-width="4"/>
+          <circle cx="244" cy="48" r="13" fill="#fff" stroke="#e99e25" stroke-width="4"/>
+          <circle cx="328" cy="32" r="13" fill="#fff" stroke="#d12630" stroke-width="4"/>
+          <text x="44" y="138" text-anchor="middle" fill="#243770" font-size="14" font-weight="900">2016</text>
+          <text x="327" y="138" text-anchor="middle" fill="#243770" font-size="14" font-weight="900">2020</text>
+          <text x="180" y="24" text-anchor="middle" fill="#68758d" font-size="13" font-weight="800">specialty-drug utilization and biosimilar adoption</text>
+        </svg>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <div class="metric-card">
+          <span>Aggregate specialty spend</span>
+          <strong>$301.5M</strong>
+          <p>Innovator and biosimilar products combined</p>
+        </div>
+        <div class="metric-card">
+          <span>Claims analyzed</span>
+          <strong>73,611</strong>
+          <p>Five-year total across specialty agents</p>
+        </div>
+        <div class="metric-card">
+          <span>2020 vs 2016 claims</span>
+          <strong>+17%</strong>
+          <p>Total specialty-product claims increased</p>
+        </div>
+        <div class="metric-card">
+          <span>2020 vs 2016 dollars</span>
+          <strong>+30%</strong>
+          <p>Total specialty-product costs increased</p>
+        </div>
+      </section>
+
+      <section class="signal-board" aria-label="Biosimilar growth signal">
+        <div class="signal-card">
+          <p class="section-label">Biosimilar acceleration</p>
+          <strong>6,120%</strong>
+          <p>Biosimilar costs increased from 2016 to 2020; biosimilar claims increased 1,198% over the same comparison.</p>
+        </div>
+        <div class="panel">
+          <p class="section-label">Comparison to innovator products</p>
+          <h2>Adoption grew fastest where the baseline was smallest.</h2>
+          <div class="wave-chart">
+            <div class="wave-row">
+              <b>Innovator claims</b>
+              <div class="wave-track"><i style="width:5%"></i></div>
+              <span>-5%</span>
+            </div>
+            <div class="wave-row">
+              <b>Innovator dollars</b>
+              <div class="wave-track"><i class="dollars" style="width:4%"></i></div>
+              <span>+4%</span>
+            </div>
+            <div class="wave-row">
+              <b>Biosimilar claims</b>
+              <div class="wave-track"><i style="width:55%"></i></div>
+              <span>+1,198%</span>
+            </div>
+            <div class="wave-row">
+              <b>Biosimilar dollars</b>
+              <div class="wave-track"><i class="dollars" style="width:100%"></i></div>
+              <span>+6,120%</span>
+            </div>
+          </div>
+          <p class="source-note">Bars are scaled to show relative signal strength, not absolute dollars or claim counts.</p>
+        </div>
+      </section>
+
+      <section class="visual-grid" aria-label="Objective and adoption illustration">
+        <div class="adoption-arc" role="img" aria-label="Illustration of claims flowing from reference biologics to biosimilars and across pharmacy and medical benefit channels">
+          <svg viewBox="0 0 680 460" aria-hidden="true">
+            <defs>
+              <linearGradient id="pipeA" x1="0" x2="1">
+                <stop offset="0" stop-color="#243770"/>
+                <stop offset="1" stop-color="#187c8f"/>
+              </linearGradient>
+              <linearGradient id="pipeB" x1="0" x2="1">
+                <stop offset="0" stop-color="#d12630"/>
+                <stop offset="1" stop-color="#e99e25"/>
+              </linearGradient>
+              <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#243770" flood-opacity="0.14"/>
+              </filter>
+            </defs>
+            <path d="M92 148 C190 62 315 67 430 144 S572 234 598 314" fill="none" stroke="url(#pipeA)" stroke-width="16" stroke-linecap="round" opacity="0.28"/>
+            <path d="M92 314 C194 236 303 236 410 300 S546 369 598 314" fill="none" stroke="url(#pipeB)" stroke-width="16" stroke-linecap="round" opacity="0.35"/>
+            <circle cx="122" cy="230" r="78" fill="#fff" stroke="#243770" stroke-width="4" filter="url(#softShadow)"/>
+            <text x="122" y="218" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="20" font-weight="900">Reference</text>
+            <text x="122" y="244" text-anchor="middle" fill="#68758d" font-family="Inter, sans-serif" font-size="15" font-weight="800">biologics</text>
+            <circle cx="340" cy="230" r="92" fill="#fff" stroke="#187c8f" stroke-width="4" filter="url(#softShadow)"/>
+            <path d="M306 232 h68 M340 198 v68" stroke="#187c8f" stroke-width="13" stroke-linecap="round"/>
+            <text x="340" y="316" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="20" font-weight="900">Biosimilar option</text>
+            <circle cx="558" cy="166" r="58" fill="#fff" stroke="#e99e25" stroke-width="4"/>
+            <text x="558" y="161" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="16" font-weight="900">Rx</text>
+            <text x="558" y="184" text-anchor="middle" fill="#68758d" font-family="Inter, sans-serif" font-size="13" font-weight="800">benefit</text>
+            <circle cx="558" cy="318" r="58" fill="#fff" stroke="#d12630" stroke-width="4"/>
+            <text x="558" y="313" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="16" font-weight="900">Medical</text>
+            <text x="558" y="336" text-anchor="middle" fill="#68758d" font-family="Inter, sans-serif" font-size="13" font-weight="800">benefit</text>
+            <text x="340" y="420" text-anchor="middle" fill="#68758d" font-family="Inter, sans-serif" font-size="16" font-weight="850">Claims classified by product type, benefit used, annual volume, and cost.</text>
+          </svg>
+        </div>
+        <div class="panel markdown-fragment">
+          <p class="section-label">Objective</p>
+          <h2>Use objective data to examine growth in specialty drugs, biosimilar use, and coverage benefits.</h2>
+          <p>The analysis focused on marketed US biosimilars for reference products including infliximab, filgrastim, pegfilgrastim, bevacizumab, trastuzumab, rituximab, and epoetin alfa.</p>
+          <div class="number-cloud" aria-label="Reference database scope">
+            <div class="number-pill">4.6M<small>total lives in RRDb</small></div>
+            <div class="number-pill">3M+<small>employees/dependents</small></div>
+            <div class="number-pill">50<small>states represented</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Methods</p>
+        <h2>Claims were sorted across product type and benefit channel, then compared to the 2016 baseline.</h2>
+        <div class="methods-grid" aria-label="Method sequence">
+          <div class="method-tile">
+            <b>Select population</b>
+            <span>US beneficiaries in the Workpartners RRDb from 2016 through 2020.</span>
+          </div>
+          <div class="method-tile">
+            <b>Classify agent</b>
+            <span>Specialty products categorized as innovator/reference agents or biosimilars.</span>
+          </div>
+          <div class="method-tile">
+            <b>Classify benefit</b>
+            <span>Claims and costs assigned to prescription drug or medical benefit processing.</span>
+          </div>
+          <div class="method-tile">
+            <b>Compare baseline</b>
+            <span>2020 claims and dollars were compared with 2016 levels.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Benefit-use table pattern</p>
+        <h2>Medical-benefit processing became more prominent in the extracted 2016-2020 tables.</h2>
+        <div class="benefit-shift">
+          <div class="shift-panel">
+            <h3>Claims processed: first series</h3>
+            <div class="share-bar">
+              <span>2016</span>
+              <div class="share-track" style="--left:94.6%"><i></i><i></i></div>
+              <span>5.4% med</span>
+            </div>
+            <div class="share-bar">
+              <span>2020</span>
+              <div class="share-track" style="--left:64.4%"><i></i><i></i></div>
+              <span>35.6% med</span>
+            </div>
+            <div class="legend-line"><span><i class="rx-dot"></i>Prescription benefit</span><span><i class="medical-dot"></i>Medical benefit</span></div>
+          </div>
+          <div class="shift-panel">
+            <h3>Dollars processed: first series</h3>
+            <div class="share-bar">
+              <span>2016</span>
+              <div class="share-track" style="--left:96.8%"><i></i><i></i></div>
+              <span>3.2% med</span>
+            </div>
+            <div class="share-bar">
+              <span>2020</span>
+              <div class="share-track" style="--left:79.2%"><i></i><i></i></div>
+              <span>20.8% med</span>
+            </div>
+            <div class="legend-line"><span><i class="rx-dot"></i>Prescription benefit</span><span><i class="medical-dot"></i>Medical benefit</span></div>
+          </div>
+        </div>
+        <p class="source-note">The markdown extraction contains grouped chart rows; this visualization preserves the clearest first-series pattern and links to the full source tables below.</p>
+      </section>
+
+      <section class="section-stack" aria-label="Product mix and interpretation">
+        <div class="panel">
+          <p class="section-label">Innovator vs biosimilar mix</p>
+          <h2>2020 remained innovator-heavy in the extracted product-mix tables.</h2>
+          <div class="paired-bars">
+            <div class="paired-row">
+              <span>Claims, innovator series</span>
+              <div class="dual-track">
+                <i style="width:94.1%"></i>
+                <i class="bio" style="width:96.7%"></i>
+              </div>
+              <span>94.1% to 96.7%</span>
+            </div>
+            <div class="paired-row">
+              <span>Dollars, innovator series</span>
+              <div class="dual-track">
+                <i style="width:93%"></i>
+                <i class="bio" style="width:95.9%"></i>
+              </div>
+              <span>93.0% to 95.9%</span>
+            </div>
+            <div class="paired-row">
+              <span>Claims, biosimilar series</span>
+              <div class="dual-track">
+                <i style="width:82%"></i>
+                <i class="bio" style="width:92.9%"></i>
+              </div>
+              <span>82.0% to 92.9%</span>
+            </div>
+            <div class="paired-row">
+              <span>Dollars, biosimilar series</span>
+              <div class="dual-track">
+                <i style="width:91%"></i>
+                <i class="bio" style="width:95.7%"></i>
+              </div>
+              <span>91.0% to 95.7%</span>
+            </div>
+          </div>
+          <p class="source-note">Red bars show 2016 and purple bars show 2020 for the leading category in each extracted series.</p>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Interpretation</p>
+          <h2>The conclusion links payer adoption to savings potential and infusion logistics.</h2>
+          <div class="markdown-fragment">
+            <ul>
+              <li>Health plans had recognized value and savings opportunities and increased biosimilar use.</li>
+              <li>The shift from pharmacy to medical benefit may reflect the infusion route for many biosimilars.</li>
+              <li>Future work should evaluate individual innovator/biosimilar pairs and variation by therapy area, agent, insurance plan, and region.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="evidence-map" aria-label="Evidence flow">
+        <article class="evidence-card">
+          <h3>Specialty costs rose</h3>
+          <p>Across all specialty products, 2020 dollars were 30% higher than 2016.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Claims rose more modestly</h3>
+          <p>Claims increased 17%, suggesting spend growth outpaced utilization growth.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Biosimilars accelerated</h3>
+          <p>Biosimilar claims and dollars grew sharply from a small 2016 base.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Benefit channel shifted</h3>
+          <p>Extracted tables show medical-benefit share increasing over time.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Next question narrows</h3>
+          <p>Pair-level and region-level analyses are needed to explain variation.</p>
+        </article>
+      </section>
+
+      <section class="panel takeaway">
+        <p>
+          Conclusion: in a large employer claims database, biosimilar use expanded rapidly between 2016 and 2020, while specialty-product costs continued to rise and more activity appeared under the medical benefit.
+        </p>
+      </section>
+    </main>
+
+    <footer class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/04-Biosimilar-Adoption-Benefit-use-Claims-Dollars_2021.pdf">Open original PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/04-Biosimilar-Adoption-Benefit-use-Claims-Dollars_2021.md">Read extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

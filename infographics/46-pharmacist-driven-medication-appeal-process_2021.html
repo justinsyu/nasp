@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clinical Pharmacist-Driven Appeal Process in Dermatology | NASP 2021 Infographic</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .appeal-hero-art {
+      position: relative;
+      display: grid;
+      min-height: 18rem;
+      place-items: center;
+      overflow: hidden;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(24, 124, 143, 0.20), transparent 8rem),
+        radial-gradient(circle at 82% 76%, rgba(233, 158, 37, 0.25), transparent 9rem),
+        linear-gradient(135deg, #ffffff 0%, var(--surface-blue) 58%, var(--surface-warm) 100%);
+    }
+    .appeal-hero-art svg {
+      display: block;
+      width: 100%;
+      max-width: 31rem;
+      height: auto;
+      padding: 1rem;
+    }
+    .hero-card .finding {
+      margin: 0;
+      border-left: 4px solid var(--red);
+      padding-left: 0.72rem;
+      color: var(--ink);
+      font-size: 0.93rem;
+      font-weight: 850;
+      line-height: 1.35;
+    }
+    .metric-card p {
+      margin: 0.45rem 0 0;
+      font-size: 0.78rem;
+    }
+    .metric-card strong small {
+      display: inline;
+      color: inherit;
+      font-size: 0.55em;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+    .before-after {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.85rem;
+      margin-top: 0.8rem;
+    }
+    .era-card {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.9rem;
+    }
+    .era-card h3 {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.7rem;
+    }
+    .era-card h3 span {
+      color: var(--muted);
+      font-family: var(--font-body);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .stacked-bar {
+      display: flex;
+      width: 100%;
+      height: 2.1rem;
+      overflow: hidden;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: var(--surface-blue);
+    }
+    .stacked-bar i {
+      display: block;
+      width: var(--w);
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .stacked-bar b {
+      display: block;
+      width: calc(100% - var(--w));
+      background: repeating-linear-gradient(
+        135deg,
+        rgba(36, 55, 112, 0.12) 0,
+        rgba(36, 55, 112, 0.12) 7px,
+        rgba(36, 55, 112, 0.04) 7px,
+        rgba(36, 55, 112, 0.04) 14px
+      );
+    }
+    .legend-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-top: 0.65rem;
+      color: var(--body);
+      font-size: 0.78rem;
+    }
+    .legend-row span::before {
+      content: "";
+      display: inline-block;
+      width: 0.68rem;
+      height: 0.68rem;
+      margin-right: 0.3rem;
+      border-radius: 2px;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+      vertical-align: -0.06rem;
+    }
+    .legend-row span:last-child::before {
+      background: rgba(36, 55, 112, 0.15);
+    }
+    .era-numbers {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.8rem;
+    }
+    .era-numbers div {
+      border-left: 3px solid var(--accent, var(--teal));
+      background: var(--surface-blue);
+      padding: 0.52rem 0.62rem;
+    }
+    .era-numbers div:nth-child(2) {
+      --accent: var(--red);
+      background: #fff7ea;
+    }
+    .era-numbers b {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+    .era-numbers small {
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 850;
+      text-transform: uppercase;
+    }
+    .workflow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+    .workflow-step {
+      position: relative;
+      min-height: 12rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+      overflow: hidden;
+    }
+    .workflow-step::before {
+      content: attr(data-step);
+      position: absolute;
+      right: 0.55rem;
+      bottom: -0.62rem;
+      color: rgba(36, 55, 112, 0.10);
+      font-family: var(--font-display);
+      font-size: 4.9rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .workflow-step::after {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 0.32rem;
+      background: var(--accent, var(--red));
+    }
+    .workflow-step:nth-child(2) { --accent: var(--gold); }
+    .workflow-step:nth-child(3) { --accent: var(--teal); }
+    .workflow-step:nth-child(4) { --accent: var(--green); }
+    .workflow-step:nth-child(5) { --accent: var(--purple); }
+    .workflow-step p {
+      position: relative;
+      z-index: 1;
+      margin: 0.48rem 0 0;
+      font-size: 0.82rem;
+    }
+    .time-chart {
+      display: grid;
+      gap: 0.85rem;
+      margin-top: 0.85rem;
+    }
+    .time-row {
+      display: grid;
+      grid-template-columns: 7.5rem minmax(0, 1fr) 4rem;
+      gap: 0.62rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+    .time-track {
+      height: 1.45rem;
+      overflow: hidden;
+      border: 1px solid rgba(36, 55, 112, 0.15);
+      border-radius: 999px;
+      background: rgba(36, 55, 112, 0.08);
+    }
+    .time-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .time-track.post i {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .diagnosis-grid,
+    .reason-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.75rem;
+    }
+    .tag-card {
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.68rem;
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+    .approval-signal {
+      display: grid;
+      grid-template-columns: 10rem minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+      margin-top: 0.85rem;
+    }
+    .approval-signal svg {
+      width: 100%;
+      height: auto;
+    }
+    .callout {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(209, 38, 48, 0.10), transparent 42%),
+        #fff;
+    }
+    .callout p {
+      max-width: 62rem;
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.05rem, 1.8vw, 1.45rem);
+      font-weight: 850;
+      line-height: 1.35;
+    }
+    @media (max-width: 900px) {
+      .before-after,
+      .workflow,
+      .approval-signal {
+        grid-template-columns: 1fr;
+      }
+      .workflow-step {
+        min-height: 8rem;
+      }
+    }
+    @media (max-width: 560px) {
+      .time-row,
+      .diagnosis-grid,
+      .reason-grid,
+      .era-numbers {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP infographic home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/46-Pharmacist-driven-medication-appeal-process_2021.pdf">PDF Source</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/46-Pharmacist-driven-medication-appeal-process_2021.md">Markdown Source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2021 | Poster 46 | Dermatology medication access</p>
+        <h1 id="poster-title">Assessment of a Clinical Pharmacist-Driven Appeal Process in a Dermatology Practice</h1>
+        <p class="hero-summary">Wake Forest Baptist Health evaluated whether embedding a clinical pharmacist into dermatology medication access work changed how often denied specialty medication prior authorizations moved to appeal, how quickly appeals were submitted, and how often appeals were approved.</p>
+        <ul class="tag-row" aria-label="Poster topics">
+          <li class="tag category">Prior authorization appeals</li>
+          <li class="tag therapy">Dermatology specialty medications</li>
+          <li class="tag">Clinic-embedded pharmacist</li>
+          <li class="tag">Medication access</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div class="poster-code">46<br>2021</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Site</dt>
+            <dd>WFBH Dermatology</dd>
+          </div>
+          <div>
+            <dt>Design</dt>
+            <dd>Retrospective review</dd>
+          </div>
+          <div>
+            <dt>Pre period</dt>
+            <dd>Aug 2018-May 2019</dd>
+          </div>
+          <div>
+            <dt>Post period</dt>
+            <dd>Aug 2019-May 2020</dd>
+          </div>
+        </dl>
+        <p class="finding">Primary endpoint: change in the rate of appeals submitted after a clinic-embedded pharmacist joined the dermatology practice.</p>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Appeal submission</span>
+          <strong>57.6<small>%</small></strong>
+          <p>post-intervention, up from 20.8% before pharmacist embedding.</p>
+        </article>
+        <article class="metric-card">
+          <span>Absolute lift</span>
+          <strong>+36.8<small> pts</small></strong>
+          <p>increase in submitted appeal rate, p&lt;0.001.</p>
+        </article>
+        <article class="metric-card">
+          <span>Time saved</span>
+          <strong>46.7</strong>
+          <p>fewer days on average to submit an appeal, p&lt;0.001.</p>
+        </article>
+        <article class="metric-card">
+          <span>Approval signal</span>
+          <strong>65<small>%</small></strong>
+          <p>post-intervention approval rate versus 47.6% pre-intervention.</p>
+        </article>
+      </section>
+
+      <section class="visual-grid" aria-label="Objective and intervention art">
+        <article class="panel markdown-fragment">
+          <p class="section-label">Objective</p>
+          <h2>Measure whether a pharmacist changed the appeal pathway</h2>
+          <p>The study evaluated the impact of a clinic-embedded pharmacist on specialty medication appeal submission in a dermatology practice.</p>
+          <p>Secondary endpoints included appeal approval rate, number of appeals submitted, and time to appeal submission.</p>
+          <div class="number-cloud" aria-label="Study scope">
+            <div class="number-pill">245<small>PA denials reviewed</small></div>
+            <div class="number-pill">104<small>appeals submitted</small></div>
+            <div class="number-pill">2<small>10-month cohorts</small></div>
+          </div>
+        </article>
+
+        <div class="appeal-hero-art" role="img" aria-label="Illustration of pharmacist moving a denied prior authorization into an appeal workflow">
+          <svg viewBox="0 0 560 360" aria-hidden="true">
+            <defs>
+              <linearGradient id="appealGrad" x1="0" x2="1">
+                <stop offset="0" stop-color="#187c8f"></stop>
+                <stop offset="1" stop-color="#4d8a67"></stop>
+              </linearGradient>
+              <filter id="appealShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#243770" flood-opacity="0.14"></feDropShadow>
+              </filter>
+            </defs>
+            <rect x="50" y="54" width="190" height="240" rx="18" fill="#fff" stroke="#aebbd2" stroke-width="3" filter="url(#appealShadow)"></rect>
+            <rect x="80" y="88" width="118" height="18" rx="5" fill="#243770"></rect>
+            <rect x="80" y="130" width="126" height="13" rx="4" fill="#d9e1ef"></rect>
+            <rect x="80" y="160" width="102" height="13" rx="4" fill="#d9e1ef"></rect>
+            <rect x="80" y="190" width="132" height="13" rx="4" fill="#d9e1ef"></rect>
+            <circle cx="145" cy="249" r="31" fill="#fff7ea" stroke="#d12630" stroke-width="7"></circle>
+            <path d="M132 249h26" stroke="#d12630" stroke-width="7" stroke-linecap="round"></path>
+            <path d="M250 178h60" stroke="#e99e25" stroke-width="12" stroke-linecap="round"></path>
+            <path d="M292 151l35 27-35 27" fill="none" stroke="#e99e25" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"></path>
+            <rect x="320" y="54" width="190" height="240" rx="18" fill="#fff" stroke="#aebbd2" stroke-width="3" filter="url(#appealShadow)"></rect>
+            <rect x="350" y="88" width="114" height="18" rx="5" fill="#243770"></rect>
+            <rect x="350" y="130" width="126" height="13" rx="4" fill="#d9e1ef"></rect>
+            <rect x="350" y="160" width="102" height="13" rx="4" fill="#d9e1ef"></rect>
+            <rect x="350" y="190" width="132" height="13" rx="4" fill="#d9e1ef"></rect>
+            <circle cx="415" cy="249" r="31" fill="#eef4fb" stroke="url(#appealGrad)" stroke-width="7"></circle>
+            <path d="M398 248l12 12 25-27" fill="none" stroke="#187c8f" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path>
+            <circle cx="280" cy="178" r="46" fill="#243770"></circle>
+            <path d="M280 142v72M244 178h72" stroke="#fff" stroke-width="12" stroke-linecap="round"></path>
+            <text x="145" y="325" text-anchor="middle" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="850">Denied PA</text>
+            <text x="415" y="325" text-anchor="middle" fill="#243770" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="850">Submitted appeal</text>
+          </svg>
+        </div>
+      </section>
+
+      <section class="panel" aria-label="Before and after appeal submission">
+        <p class="section-label">Primary endpoint</p>
+        <h2>Pharmacist embedding shifted denials toward submitted appeals</h2>
+        <div class="before-after">
+          <article class="era-card">
+            <h3>Pre-intervention <span>101 denied PAs</span></h3>
+            <div class="stacked-bar" style="--w:20.8%" aria-label="Pre-intervention: 20.8 percent appeals submitted">
+              <i></i><b></b>
+            </div>
+            <div class="legend-row">
+              <span>21 submitted</span>
+              <span>80 not submitted</span>
+            </div>
+            <div class="era-numbers">
+              <div><b>20.8%</b><small>submitted</small></div>
+              <div><b>79.2%</b><small>not submitted</small></div>
+            </div>
+          </article>
+          <article class="era-card">
+            <h3>Post-intervention <span>144 denied PAs</span></h3>
+            <div class="stacked-bar" style="--w:57.6%" aria-label="Post-intervention: 57.6 percent appeals submitted">
+              <i></i><b></b>
+            </div>
+            <div class="legend-row">
+              <span>83 submitted</span>
+              <span>61 not submitted</span>
+            </div>
+            <div class="era-numbers">
+              <div><b>57.6%</b><small>submitted</small></div>
+              <div><b>42.4%</b><small>not submitted</small></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section aria-label="Dermatology appeal workflow">
+        <p class="section-label">Dermatology appeal process workflow</p>
+        <h2>Medication access specialist plus pharmacist created a clearer handoff</h2>
+        <div class="workflow">
+          <article class="workflow-step" data-step="1">
+            <h3>MAS submits PA</h3>
+            <p>Specialty medications requiring prior authorization route first to the medication access specialist.</p>
+          </article>
+          <article class="workflow-step" data-step="2">
+            <h3>Denial triggers appeal</h3>
+            <p>If the PA is denied, the embedded pharmacist prepares the appeal by phone or letter.</p>
+          </article>
+          <article class="workflow-step" data-step="3">
+            <h3>Provider approves</h3>
+            <p>The provider reviews and approves the appeal letter before submission.</p>
+          </article>
+          <article class="workflow-step" data-step="4">
+            <h3>MAS follows status</h3>
+            <p>The medication access specialist tracks payer response after submission.</p>
+          </article>
+          <article class="workflow-step" data-step="5">
+            <h3>Escalate if needed</h3>
+            <p>Additional appeal levels may be pursued after another denial.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="visual-grid" aria-label="Timing and approval results">
+        <article class="panel">
+          <p class="section-label">Time to submission</p>
+          <h2>Appeals moved almost seven weeks faster</h2>
+          <div class="time-chart">
+            <div class="time-row">
+              <span>Pre</span>
+              <span class="time-track"><i style="--w:100%"></i></span>
+              <span>67.6 d</span>
+            </div>
+            <div class="time-row">
+              <span>Post</span>
+              <span class="time-track post"><i style="--w:30.9%"></i></span>
+              <span>20.9 d</span>
+            </div>
+          </div>
+          <p class="hero-summary">Average time to appeal submission decreased by 46.7 days after the pharmacist intervention.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Approval rate</p>
+          <h2>Submission gains were paired with a higher approval signal</h2>
+          <div class="approval-signal">
+            <svg viewBox="0 0 180 180" aria-label="Approval rate ring showing 65 percent post intervention">
+              <circle cx="90" cy="90" r="68" fill="none" stroke="#d9e1ef" stroke-width="22"></circle>
+              <circle cx="90" cy="90" r="68" fill="none" stroke="#187c8f" stroke-width="22" stroke-linecap="round" stroke-dasharray="278 427" transform="rotate(-90 90 90)"></circle>
+              <text x="90" y="86" text-anchor="middle" fill="#243770" font-size="38" font-family="Montserrat, Arial, sans-serif" font-weight="900">65%</text>
+              <text x="90" y="112" text-anchor="middle" fill="#68758d" font-size="12" font-family="Inter, Arial, sans-serif" font-weight="850">post approval</text>
+            </svg>
+            <div class="markdown-fragment">
+              <p>Appeal approval increased from 47.6% to 65.0%, a 17.4 percentage-point rise (p=0.05).</p>
+              <p>The authors note approval success is partly outside clinic control because final determinations remain payer decisions.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-stack" aria-label="Appeal context and limitations">
+        <article class="panel">
+          <p class="section-label">Appeal context</p>
+          <h2>Common dermatology diagnoses and denial drivers</h2>
+          <div class="diagnosis-grid" aria-label="Common diagnoses">
+            <div class="tag-card">Psoriasis</div>
+            <div class="tag-card">Atopic dermatitis</div>
+            <div class="tag-card">Intrinsic allergic eczema</div>
+            <div class="tag-card">Alopecia areata</div>
+          </div>
+          <div class="reason-grid" aria-label="Common appeal reasons">
+            <div class="tag-card">Off-label use</div>
+            <div class="tag-card">Formulary requirement</div>
+            <div class="tag-card">Step therapy requirement</div>
+            <div class="tag-card">Manufacturer assistance prerequisites</div>
+          </div>
+        </article>
+
+        <article class="panel markdown-fragment">
+          <p class="section-label">Interpretation</p>
+          <h2>A workflow result, not just a payer result</h2>
+          <p>The clearest effect was operational: more appeals were submitted and they were submitted faster after the pharmacist took ownership of denied specialty medication PAs.</p>
+          <p>Limitations included single-center design, inconsistent pre-intervention PA documentation, and different medication access training levels between nurses and pharmacists.</p>
+        </article>
+      </section>
+
+      <section class="panel callout">
+        <p>Conclusion: embedding a clinical pharmacist in dermatology positively impacted appeal submission rate, appeal approval rate, and time to appeal submission for specialty medication access.</p>
+      </section>
+    </main>
+
+    <footer class="footer-actions" aria-label="Source files">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/46-Pharmacist-driven-medication-appeal-process_2021.pdf">Open original poster PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/46-Pharmacist-driven-medication-appeal-process_2021.md">Open extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

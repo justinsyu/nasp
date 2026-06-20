@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2025 Infographic | Specialty Pharmacy Accreditation Time Demands</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .accreditation-hero {
+      position: relative;
+      min-height: 100%;
+      overflow: hidden;
+    }
+    .accreditation-hero svg {
+      width: 100%;
+      height: auto;
+      margin-top: 0.25rem;
+    }
+    .hero-card .button-link {
+      justify-content: center;
+      background: #fff;
+    }
+    .burden-callout {
+      position: relative;
+      display: grid;
+      min-height: 17rem;
+      align-content: end;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 72% 22%, rgba(233, 158, 37, 0.38), transparent 8rem),
+        linear-gradient(135deg, rgba(36, 55, 112, 0.98), rgba(24, 124, 143, 0.9));
+      color: #fff;
+      padding: 1rem;
+      overflow: hidden;
+    }
+    .burden-callout::before,
+    .burden-callout::after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 999px;
+      pointer-events: none;
+    }
+    .burden-callout::before {
+      inset: -4.4rem auto auto -3rem;
+      width: 15rem;
+      height: 15rem;
+    }
+    .burden-callout::after {
+      right: -2.4rem;
+      bottom: -2rem;
+      width: 13rem;
+      height: 13rem;
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .burden-callout .kicker {
+      position: relative;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+    .burden-callout strong {
+      position: relative;
+      display: block;
+      margin-top: 0.25rem;
+      font-family: var(--font-display);
+      font-size: clamp(3.1rem, 8vw, 6.2rem);
+      line-height: 0.88;
+    }
+    .burden-callout span {
+      position: relative;
+      display: block;
+      max-width: 24rem;
+      margin-top: 0.55rem;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 0.95rem;
+    }
+    .flow-rail {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+    .flow-step {
+      position: relative;
+      min-height: 9.2rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.78rem;
+    }
+    .flow-step::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -0.46rem;
+      width: 0.68rem;
+      height: 0.68rem;
+      border-top: 2px solid var(--border-strong);
+      border-right: 2px solid var(--border-strong);
+      background: #fff;
+      transform: translateY(-50%) rotate(45deg);
+    }
+    .flow-step:last-child::after { display: none; }
+    .flow-step b {
+      display: inline-grid;
+      place-items: center;
+      width: 1.55rem;
+      height: 1.55rem;
+      border-radius: 50%;
+      background: var(--step-color, var(--red));
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+    }
+    .flow-step:nth-child(2) { --step-color: var(--gold); }
+    .flow-step:nth-child(3) { --step-color: var(--teal); }
+    .flow-step:nth-child(4) { --step-color: var(--green); }
+    .flow-step:nth-child(5) { --step-color: var(--purple); }
+    .flow-step h3 {
+      margin-top: 0.48rem;
+      font-size: 0.91rem;
+    }
+    .flow-step p {
+      margin: 0.35rem 0 0;
+      font-size: 0.78rem;
+    }
+    .bar-stack {
+      display: grid;
+      gap: 0.62rem;
+      margin-top: 0.7rem;
+    }
+    .rank-bar {
+      display: grid;
+      grid-template-columns: minmax(8rem, 1fr) minmax(0, 1.35fr) 4.4rem;
+      gap: 0.58rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+    .rank-bar .track {
+      height: 1rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 999px;
+      background: var(--surface-blue);
+      overflow: hidden;
+    }
+    .rank-bar i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .rank-bar em {
+      color: var(--muted);
+      font-style: normal;
+      font-size: 0.76rem;
+      font-weight: 900;
+      text-align: right;
+    }
+    .rank-bar.challenge i {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .distribution-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 0.45rem;
+      margin-top: 0.75rem;
+      align-items: end;
+    }
+    .dist-column {
+      display: grid;
+      gap: 0.3rem;
+      align-items: end;
+      min-height: 8.8rem;
+    }
+    .dist-column i {
+      display: block;
+      min-height: 0.65rem;
+      height: var(--h);
+      border-radius: 6px 6px 2px 2px;
+      background: var(--bar-color, var(--teal));
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.32);
+    }
+    .dist-column.median i {
+      background: var(--green);
+    }
+    .dist-column strong {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1rem;
+      line-height: 1;
+      text-align: center;
+    }
+    .dist-column span {
+      color: var(--muted);
+      font-size: 0.65rem;
+      font-weight: 850;
+      text-align: center;
+    }
+    .hours-grid {
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+    }
+    .profile-list {
+      display: grid;
+      gap: 0.5rem;
+      margin: 0.7rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .profile-list li {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 0.52rem;
+      align-items: start;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: var(--surface-blue);
+      padding: 0.54rem 0.6rem;
+      font-size: 0.84rem;
+    }
+    .profile-list strong {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      line-height: 1;
+      white-space: nowrap;
+    }
+    .insight-panel {
+      background:
+        linear-gradient(90deg, rgba(238, 244, 251, 0.95), rgba(255, 247, 234, 0.72)),
+        #fff;
+    }
+    .quote-mark {
+      display: inline-grid;
+      place-items: center;
+      width: 2.2rem;
+      height: 2.2rem;
+      margin-bottom: 0.45rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 900;
+    }
+    .source-note {
+      margin: 0.65rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+    @media (max-width: 900px) {
+      .flow-rail,
+      .distribution-grid,
+      .hours-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .flow-step::after { display: none; }
+    }
+    @media (max-width: 620px) {
+      .rank-bar {
+        grid-template-columns: 1fr;
+      }
+      .rank-bar em {
+        text-align: left;
+      }
+      .flow-rail,
+      .distribution-grid,
+      .hours-grid {
+        grid-template-columns: 1fr;
+      }
+      .dist-column {
+        min-height: auto;
+        grid-template-columns: 4.5rem minmax(0, 1fr) 3rem;
+        align-items: center;
+      }
+      .dist-column i {
+        width: var(--h);
+        height: 0.95rem;
+        border-radius: 999px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP infographic index">NASP Infographics</a>
+      <nav aria-label="Source documents">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/1210-OPR11-OR-Poster-AM25_2025.pdf">Poster PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/1210-OPR11-OR-Poster-AM25_2025.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2025 | OPR11 | Operations Research</p>
+        <h1>Evaluating Health System Time Demands and Challenges of Specialty Pharmacy Accreditation</h1>
+        <p class="hero-summary">A survey of health-system specialty pharmacies found accreditation maintenance clustered around scarce dedicated staffing, high policy and quality documentation workload, and reported effects on time available for patient care.</p>
+        <ul class="tag-row" aria-label="Infographic tags">
+          <li class="tag category">Specialty pharmacy accreditation</li>
+          <li class="tag therapy">Health-system SPs</li>
+          <li class="tag">Survey study</li>
+          <li class="tag">Shields Health Solutions network</li>
+        </ul>
+      </div>
+      <aside class="hero-card accreditation-hero" aria-label="Poster metadata and visual summary">
+        <div class="poster-code">1210-OPR11</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Year</dt>
+            <dd>2025</dd>
+          </div>
+          <div>
+            <dt>Respondents</dt>
+            <dd>N=15</dd>
+          </div>
+          <div>
+            <dt>Survey</dt>
+            <dd>11 questions</dd>
+          </div>
+          <div>
+            <dt>Fielded</dt>
+            <dd>Dec 2024</dd>
+          </div>
+        </dl>
+        <svg viewBox="0 0 420 220" role="img" aria-label="Accreditation workload visual with linked documentation, staffing, and patient care nodes">
+          <defs>
+            <linearGradient id="ringGrad" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0" stop-color="#d12630"/>
+              <stop offset="0.55" stop-color="#e99e25"/>
+              <stop offset="1" stop-color="#187c8f"/>
+            </linearGradient>
+          </defs>
+          <rect x="0" y="0" width="420" height="220" rx="18" fill="#eef4fb"/>
+          <circle cx="210" cy="110" r="74" fill="none" stroke="url(#ringGrad)" stroke-width="18" stroke-dasharray="308 156"/>
+          <circle cx="210" cy="110" r="46" fill="#fff" stroke="#aebbd2" stroke-width="2"/>
+          <text x="210" y="104" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="20" font-weight="900">SP</text>
+          <text x="210" y="128" text-anchor="middle" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800">accreditation</text>
+          <g fill="#fff" stroke="#aebbd2" stroke-width="2">
+            <rect x="26" y="42" width="112" height="54" rx="10"/>
+            <rect x="282" y="42" width="112" height="54" rx="10"/>
+            <rect x="50" y="151" width="122" height="48" rx="10"/>
+            <rect x="248" y="151" width="122" height="48" rx="10"/>
+          </g>
+          <g stroke="#243770" stroke-width="2.5" stroke-linecap="round" opacity="0.58">
+            <path d="M138 72 C162 60 180 55 202 48"/>
+            <path d="M282 72 C258 60 240 55 218 48"/>
+            <path d="M172 174 C188 156 197 144 205 129"/>
+            <path d="M248 174 C232 156 223 144 215 129"/>
+          </g>
+          <g font-family="Inter, Arial, sans-serif" font-size="12" font-weight="850" fill="#243770">
+            <text x="82" y="65" text-anchor="middle">Policies</text>
+            <text x="82" y="82" text-anchor="middle">and procedures</text>
+            <text x="338" y="65" text-anchor="middle">QPI and</text>
+            <text x="338" y="82" text-anchor="middle">data reporting</text>
+            <text x="111" y="180" text-anchor="middle">Staffing</text>
+            <text x="309" y="180" text-anchor="middle">Patient care</text>
+          </g>
+        </svg>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/1210-OPR11-OR-Poster-AM25_2025.pdf">View original poster</a>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Surveyed pharmacies</span>
+          <strong>20</strong>
+          <p class="source-note">Health-system SPs with a Shields relationship.</p>
+        </article>
+        <article class="metric-card">
+          <span>Respondents</span>
+          <strong>15</strong>
+          <p class="source-note">All reported URAC accreditation.</p>
+        </article>
+        <article class="metric-card">
+          <span>Dually accredited</span>
+          <strong>86.7%</strong>
+          <p class="source-note">13 of 15 organizations.</p>
+        </article>
+        <article class="metric-card">
+          <span>Patient-care impact</span>
+          <strong>81.8%</strong>
+          <p class="source-note">Among 11 with accreditation staff also providing care.</p>
+        </article>
+      </section>
+
+      <section class="visual-grid">
+        <article class="burden-callout">
+          <p class="kicker">Central signal</p>
+          <strong>14 of 15</strong>
+          <span>rated writing and maintaining policies and procedures as time-consuming, challenging, or both.</span>
+        </article>
+        <article class="panel insight-panel">
+          <span class="quote-mark">!</span>
+          <p class="section-label">Objective</p>
+          <h2>Map the operational load behind accreditation</h2>
+          <p>The poster evaluated challenges, time commitments, and resource allocation required to achieve and maintain specialty pharmacy accreditation among health-system specialty pharmacies.</p>
+          <ul class="profile-list">
+            <li><strong>5 pt</strong><span>Likert scales captured perceived time intensity and difficulty for accreditation tasks.</span></li>
+            <li><strong>FTE</strong><span>Staffing resources, weekly hours, and personnel roles were collected to characterize resource models.</span></li>
+            <li><strong>Care</strong><span>Respondents reported whether accreditation requirements affected time available for patient care.</span></li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="panel" aria-labelledby="flow-title">
+        <p class="section-label">Evidence flow</p>
+        <h2 id="flow-title">From accreditation requirements to patient-care pressure</h2>
+        <div class="flow-rail">
+          <article class="flow-step">
+            <b>1</b>
+            <h3>Accreditation is universal</h3>
+            <p>All 15 respondents reported URAC accreditation; 13 also reported dual accreditation.</p>
+          </article>
+          <article class="flow-step">
+            <b>2</b>
+            <h3>Survey timing is near-term</h3>
+            <p>Eleven respondents expected an initial or reaccreditation survey within one year.</p>
+          </article>
+          <article class="flow-step">
+            <b>3</b>
+            <h3>Staffing varies widely</h3>
+            <p>Five organizations reported 0 dedicated FTE, while the median reported 0.5 FTE.</p>
+          </article>
+          <article class="flow-step">
+            <b>4</b>
+            <h3>Documentation dominates</h3>
+            <p>Policies, QPI preparation, and data reporting were the most frequent time-consuming tasks.</p>
+          </article>
+          <article class="flow-step">
+            <b>5</b>
+            <h3>Care time is affected</h3>
+            <p>Among dual-role personnel, 81.8% agreed or strongly agreed that accreditation burden affected patient-care time.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">Most time-consuming tasks</p>
+          <h2>Tasks rated score >=3</h2>
+          <div class="bar-stack" aria-label="Time-consuming task rankings">
+            <div class="rank-bar">
+              <span>Policies and procedures</span>
+              <span class="track"><i style="--w: 93.3%"></i></span>
+              <em>14 (93.3%)</em>
+            </div>
+            <div class="rank-bar">
+              <span>QPI committee prep</span>
+              <span class="track"><i style="--w: 86.7%"></i></span>
+              <em>13 (86.7%)</em>
+            </div>
+            <div class="rank-bar">
+              <span>Data evaluation and reporting</span>
+              <span class="track"><i style="--w: 73.3%"></i></span>
+              <em>11 (73.3%)</em>
+            </div>
+          </div>
+        </article>
+        <article class="panel">
+          <p class="section-label">Most challenging tasks</p>
+          <h2>Tasks rated score >=3</h2>
+          <div class="bar-stack" aria-label="Challenging task rankings">
+            <div class="rank-bar challenge">
+              <span>Policies and procedures</span>
+              <span class="track"><i style="--w: 93.3%"></i></span>
+              <em>14 (93.3%)</em>
+            </div>
+            <div class="rank-bar challenge">
+              <span>Patient management program</span>
+              <span class="track"><i style="--w: 86.7%"></i></span>
+              <em>13 (86.7%)</em>
+            </div>
+            <div class="rank-bar challenge">
+              <span>Applying required standards</span>
+              <span class="track"><i style="--w: 86.7%"></i></span>
+              <em>13 (86.7%)</em>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">Dedicated FTE pattern</p>
+          <h2>Most sites reported limited protected FTE</h2>
+          <div class="distribution-grid" aria-label="Full-time equivalent distribution">
+            <div class="dist-column" style="--h: 2.1rem">
+              <i></i><span>1.0 FTE</span><strong>1</strong>
+            </div>
+            <div class="dist-column" style="--h: 4.2rem">
+              <i></i><span>1.0 FTE</span><strong>2</strong>
+            </div>
+            <div class="dist-column" style="--h: 2.1rem">
+              <i></i><span>0.75 FTE</span><strong>1</strong>
+            </div>
+            <div class="dist-column median" style="--h: 4.2rem">
+              <i></i><span>0.5 FTE median</span><strong>2</strong>
+            </div>
+            <div class="dist-column" style="--h: 8.4rem; --bar-color: var(--gold)">
+              <i></i><span>0.25 FTE</span><strong>4</strong>
+            </div>
+            <div class="dist-column" style="--h: 10.5rem; --bar-color: var(--red)">
+              <i></i><span>0 FTE</span><strong>5</strong>
+            </div>
+          </div>
+        </article>
+        <article class="panel">
+          <p class="section-label">Weekly hours pattern</p>
+          <h2>Median dedicated time was 1-2 hours per week</h2>
+          <div class="distribution-grid hours-grid" aria-label="Dedicated staffing hours per week distribution">
+            <div class="dist-column" style="--h: 4.2rem">
+              <i></i><span>&gt;10 hr</span><strong>2</strong>
+            </div>
+            <div class="dist-column" style="--h: 2.1rem">
+              <i></i><span>9-10 hr</span><strong>1</strong>
+            </div>
+            <div class="dist-column" style="--h: 2.1rem">
+              <i></i><span>7-8 hr</span><strong>1</strong>
+            </div>
+            <div class="dist-column" style="--h: 2.1rem">
+              <i></i><span>5-6 hr</span><strong>1</strong>
+            </div>
+            <div class="dist-column" style="--h: 2.1rem">
+              <i></i><span>3-4 hr</span><strong>1</strong>
+            </div>
+            <div class="dist-column median" style="--h: 10.5rem">
+              <i></i><span>1-2 hr median</span><strong>5</strong>
+            </div>
+            <div class="dist-column" style="--h: 8.4rem; --bar-color: var(--gold)">
+              <i></i><span>&lt;1 hr</span><strong>4</strong>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="tables-grid">
+        <article class="table-card">
+          <p class="section-label">Accreditation status</p>
+          <h2>Respondent profile</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Measure</th>
+                  <th>N=15</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>URAC accredited</td>
+                  <td>15 (100%)</td>
+                </tr>
+                <tr>
+                  <td>Dually accredited</td>
+                  <td>13 (86.7%)</td>
+                </tr>
+                <tr>
+                  <td>Survey expected within 1 year</td>
+                  <td>11 (73.3%)</td>
+                </tr>
+                <tr>
+                  <td>Working with accreditation consultant</td>
+                  <td>6 (40%)</td>
+                </tr>
+                <tr>
+                  <td>Manager, supervisor, or director time listed for accreditation</td>
+                  <td>14 (93.3%)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+        <article class="table-card insight-panel">
+          <p class="section-label">Conclusion</p>
+          <h2>Dedicated support may preserve clinical capacity</h2>
+          <p>The survey highlights accreditation activities that are both time-consuming and challenging, especially policies and procedures, quality improvement preparation, data reporting, and patient management program work.</p>
+          <p>Because resource allocation varied substantially, the authors recommend that health-system specialty pharmacies evaluate accreditation strategies and consider dedicated personnel or alternative support models that allow clinical staff to focus on patient care.</p>
+        </article>
+      </section>
+
+      <footer class="footer-actions" aria-label="Source links">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/1210-OPR11-OR-Poster-AM25_2025.pdf">Open poster PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/1210-OPR11-OR-Poster-AM25_2025.md">Open markdown extraction</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

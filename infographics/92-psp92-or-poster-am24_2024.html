@@ -1,0 +1,672 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2024 Infographic | One-Year Patient Navigation Outcomes</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .navigator-hero {
+      position: relative;
+      min-height: 21rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 78% 16%, rgba(233, 158, 37, 0.24), transparent 8rem),
+        linear-gradient(150deg, rgba(36, 55, 112, 0.98), rgba(24, 124, 143, 0.9));
+      color: #fff;
+      padding: 1rem;
+    }
+
+    .navigator-hero svg {
+      position: absolute;
+      inset: auto -1.8rem -2.2rem auto;
+      width: min(27rem, 78%);
+      opacity: 0.84;
+    }
+
+    .navigator-hero .kicker {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .navigator-hero strong {
+      display: block;
+      max-width: 17rem;
+      margin-top: 0.32rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(3.3rem, 7vw, 5.6rem);
+      line-height: 0.86;
+    }
+
+    .navigator-hero span {
+      display: block;
+      max-width: 18rem;
+      margin-top: 0.75rem;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.94rem;
+    }
+
+    .hero-card .button-link {
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.82);
+    }
+
+    .resolve-meter {
+      display: grid;
+      grid-template-columns: 86.6fr 13.4fr;
+      height: 1.35rem;
+      margin-top: 0.65rem;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 999px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .resolve-meter span:first-child { background: linear-gradient(90deg, var(--teal), var(--green)); }
+    .resolve-meter span:last-child { background: rgba(209, 38, 48, 0.74); }
+
+    .legend-pair {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem 0.8rem;
+      margin-top: 0.5rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 850;
+    }
+
+    .legend-pair i {
+      display: inline-block;
+      width: 0.68rem;
+      height: 0.68rem;
+      margin-right: 0.28rem;
+      border-radius: 3px;
+      vertical-align: -0.07rem;
+      background: var(--legend, var(--teal));
+    }
+
+    .navigation-path {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.75rem;
+    }
+
+    .path-step {
+      position: relative;
+      min-height: 8.8rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+    }
+
+    .path-step::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -0.54rem;
+      width: 0.78rem;
+      height: 0.78rem;
+      border-top: 2px solid var(--border-strong);
+      border-right: 2px solid var(--border-strong);
+      background: #fff;
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    .path-step:last-child::after { display: none; }
+
+    .path-step b {
+      display: inline-grid;
+      place-items: center;
+      width: 1.75rem;
+      height: 1.75rem;
+      border-radius: 50%;
+      background: var(--step-color, var(--red));
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+    }
+
+    .path-step h3 {
+      margin-top: 0.52rem;
+      font-size: 0.94rem;
+    }
+
+    .path-step p {
+      margin: 0.38rem 0 0;
+      font-size: 0.8rem;
+    }
+
+    .challenge-board {
+      display: grid;
+      grid-template-columns: minmax(14rem, 0.72fr) minmax(0, 1.28fr);
+      gap: 1rem;
+      align-items: center;
+      margin-top: 0.5rem;
+    }
+
+    .donut-wrap {
+      position: relative;
+      display: grid;
+      place-items: center;
+      min-height: 15rem;
+    }
+
+    .donut-wrap svg {
+      width: min(15rem, 100%);
+      height: auto;
+      transform: rotate(-90deg);
+    }
+
+    .donut-center {
+      position: absolute;
+      display: grid;
+      place-items: center;
+      width: 8.5rem;
+      height: 8.5rem;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      background: #fff;
+      color: var(--ink);
+      text-align: center;
+    }
+
+    .donut-center strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      line-height: 1;
+    }
+
+    .donut-center span {
+      display: block;
+      margin-top: 0.18rem;
+      color: var(--muted);
+      font-size: 0.66rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .challenge-bars {
+      display: grid;
+      gap: 0.54rem;
+    }
+
+    .challenge-row {
+      display: grid;
+      grid-template-columns: 10.5rem minmax(0, 1fr) 4.4rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+
+    .challenge-track {
+      height: 0.95rem;
+      border: 1px solid rgba(174, 187, 210, 0.78);
+      border-radius: 999px;
+      background: var(--surface-blue);
+      overflow: hidden;
+    }
+
+    .challenge-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: var(--c, var(--red));
+    }
+
+    .challenge-row em {
+      color: var(--muted);
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .outcome-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.6rem;
+      margin-top: 0.7rem;
+    }
+
+    .outcome-tile {
+      min-height: 8.7rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, rgba(238, 244, 251, 0.9), #fff 58%);
+      padding: 0.78rem;
+    }
+
+    .outcome-tile strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(1.45rem, 3vw, 2.1rem);
+      line-height: 1;
+      overflow-wrap: anywhere;
+    }
+
+    .outcome-tile span {
+      display: block;
+      margin-top: 0.42rem;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+
+    .outcome-tile:last-child {
+      grid-column: 1 / -1;
+      min-height: 6.7rem;
+    }
+
+    .support-split {
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+      gap: 0.85rem;
+      align-items: stretch;
+    }
+
+    .support-callout {
+      display: grid;
+      align-content: center;
+      min-height: 12rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 88% 16%, rgba(209, 38, 48, 0.14), transparent 7rem),
+        var(--surface-warm);
+      padding: 1rem;
+    }
+
+    .support-callout strong {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 7vw, 5.1rem);
+      line-height: 0.9;
+    }
+
+    .support-callout span {
+      margin-top: 0.55rem;
+      color: var(--ink);
+      font-weight: 850;
+    }
+
+    .table-mini th:last-child,
+    .table-mini td:last-child {
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .source-note {
+      margin: 0.65rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 900px) {
+      .navigation-path,
+      .outcome-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .path-step::after { display: none; }
+
+      .challenge-board,
+      .support-split {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .navigation-path,
+      .outcome-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .outcome-tile:last-child {
+        grid-column: auto;
+      }
+
+      .challenge-row {
+        grid-template-columns: 1fr;
+        gap: 0.28rem;
+      }
+
+      .challenge-row em {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="NASP infographic home">NASP Infographic</a>
+      <nav aria-label="Page sections">
+        <a href="#objective">Objective</a>
+        <a href="#methods">Methods</a>
+        <a href="#results">Results</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP Annual Meeting 2024 · Poster PSP92-OR</p>
+        <h1>One-Year Outcomes of Patient Navigation Services for Patients with Bleeding Disorders</h1>
+        <p class="hero-summary">A specialty pharmacy patient navigation program helped patients, families, and caregivers overcome nonclinical barriers to bleeding disorder care during a one-year retrospective review.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag therapy">Bleeding disorders</li>
+          <li class="tag category">Patient navigation</li>
+          <li class="tag">Retrospective study</li>
+          <li class="tag">Jan-Dec 2023</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div class="poster-code">PSP92-OR</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Year</dt>
+            <dd>2024</dd>
+          </div>
+          <div>
+            <dt>Cases</dt>
+            <dd>179</dd>
+          </div>
+          <div>
+            <dt>Program</dt>
+            <dd>BioMatrix Specialty Pharmacy</dd>
+          </div>
+          <div>
+            <dt>Cost to community</dt>
+            <dd>Zero</dd>
+          </div>
+        </dl>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/92-PSP92-OR-Poster-AM24_2024.pdf">View poster PDF</a>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key results">
+        <div class="metric-card">
+          <span>Completed cases</span>
+          <strong>179</strong>
+        </div>
+        <div class="metric-card">
+          <span>Resolved barriers</span>
+          <strong>155</strong>
+        </div>
+        <div class="metric-card">
+          <span>Resolution rate</span>
+          <strong>87%</strong>
+        </div>
+        <div class="metric-card">
+          <span>501(c)(3) support</span>
+          <strong>$154K</strong>
+        </div>
+      </section>
+
+      <section class="visual-grid" id="objective">
+        <div class="navigator-hero" aria-label="Navigation outcome visual">
+          <p class="kicker">Navigation translated barriers into action</p>
+          <strong>155 resolved</strong>
+          <span>Most completed cases ended with the presenting health-system barrier resolved, while navigators also surfaced additional support needs in one-third of cases.</span>
+          <svg viewBox="0 0 520 360" role="img" aria-label="Abstract route through connected care points">
+            <defs>
+              <linearGradient id="routeGrad" x1="0" x2="1" y1="0" y2="0">
+                <stop offset="0" stop-color="#ffffff" stop-opacity="0.92"/>
+                <stop offset="0.55" stop-color="#e99e25" stop-opacity="0.95"/>
+                <stop offset="1" stop-color="#d12630" stop-opacity="0.92"/>
+              </linearGradient>
+            </defs>
+            <path d="M45 265 C105 115 182 300 246 165 S375 84 470 220" fill="none" stroke="url(#routeGrad)" stroke-width="18" stroke-linecap="round"/>
+            <g fill="#fff" stroke="#243770" stroke-width="6">
+              <circle cx="45" cy="265" r="28"/>
+              <circle cx="158" cy="209" r="25"/>
+              <circle cx="246" cy="165" r="31"/>
+              <circle cx="358" cy="137" r="25"/>
+              <circle cx="470" cy="220" r="34"/>
+            </g>
+            <g fill="#243770" font-family="Arial, sans-serif" font-size="28" font-weight="700" text-anchor="middle">
+              <text x="45" y="274">1</text>
+              <text x="158" y="218">2</text>
+              <text x="246" y="175">3</text>
+              <text x="358" y="146">4</text>
+              <text x="470" y="230">✓</text>
+            </g>
+          </svg>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Study Question</p>
+          <h2>Can a multidisciplinary navigation program reduce access friction for the bleeding disorder community?</h2>
+          <div class="markdown-fragment">
+            <p>The poster examined 2023 outcomes from an integrated specialty pharmacy navigation program that provides education, financial-barrier support, insurance assistance, community-resource facilitation, and emotional support.</p>
+          </div>
+          <div class="resolve-meter" aria-label="155 resolved and 24 unresolved cases">
+            <span></span>
+            <span></span>
+          </div>
+          <div class="legend-pair">
+            <span><i style="--legend: var(--teal);"></i>155 resolved</span>
+            <span><i style="--legend: var(--red);"></i>24 unresolved</span>
+          </div>
+          <p class="source-note">Authors: Justin Lindhorst, Shelby Smoak, Bill Wilbert, Brenda Montgomery King, and Kimberly Epps.</p>
+        </div>
+      </section>
+
+      <section class="panel" id="methods">
+        <p class="section-label">Methods</p>
+        <h2>Retrospective case review with primary and additional support needs captured</h2>
+        <div class="navigation-path">
+          <article class="path-step" style="--step-color: var(--red);">
+            <b>1</b>
+            <h3>Cases completed</h3>
+            <p>179 unique patient navigation cases were completed during January through December 2023.</p>
+          </article>
+          <article class="path-step" style="--step-color: var(--gold);">
+            <b>2</b>
+            <h3>Barriers categorized</h3>
+            <p>Each record captured the challenge and outcome, then grouped challenges into eight operational categories.</p>
+          </article>
+          <article class="path-step" style="--step-color: var(--teal);">
+            <b>3</b>
+            <h3>Additional needs added</h3>
+            <p>Secondary and tertiary support needs were identified in 60 cases and added as data points.</p>
+          </article>
+          <article class="path-step" style="--step-color: var(--green);">
+            <b>4</b>
+            <h3>Outcomes tabulated</h3>
+            <p>Resolution, insurance access, provider or product access, and financial-burden outcomes were summarized.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel" id="results">
+        <p class="section-label">Barrier Pattern</p>
+        <h2>Enrollment, copay/premium assistance, and public insurance represented the largest need clusters</h2>
+        <div class="challenge-board">
+          <div class="donut-wrap">
+            <svg viewBox="0 0 220 220" aria-label="Donut chart of 239 barrier data points">
+              <circle cx="110" cy="110" r="82" fill="none" stroke="#e8eef7" stroke-width="30"/>
+              <circle cx="110" cy="110" r="82" fill="none" stroke="#d12630" stroke-width="30" stroke-dasharray="44.0 515.2" stroke-dashoffset="0"/>
+              <circle cx="110" cy="110" r="82" fill="none" stroke="#e99e25" stroke-width="30" stroke-dasharray="112.1 447.1" stroke-dashoffset="-44.0"/>
+              <circle cx="110" cy="110" r="82" fill="none" stroke="#187c8f" stroke-width="30" stroke-dasharray="107.8 451.4" stroke-dashoffset="-156.1"/>
+              <circle cx="110" cy="110" r="82" fill="none" stroke="#4d8a67" stroke-width="30" stroke-dasharray="94.8 464.4" stroke-dashoffset="-263.9"/>
+              <circle cx="110" cy="110" r="82" fill="none" stroke="#7561a8" stroke-width="30" stroke-dasharray="21.5 537.7" stroke-dashoffset="-358.7"/>
+              <circle cx="110" cy="110" r="82" fill="none" stroke="#8aa0bd" stroke-width="30" stroke-dasharray="19.4 539.8" stroke-dashoffset="-380.2"/>
+              <circle cx="110" cy="110" r="82" fill="none" stroke="#243770" stroke-width="30" stroke-dasharray="66.8 492.4" stroke-dashoffset="-399.6"/>
+              <circle cx="110" cy="110" r="82" fill="none" stroke="#b85760" stroke-width="30" stroke-dasharray="38.8 520.4" stroke-dashoffset="-466.4"/>
+            </svg>
+            <div class="donut-center">
+              <div>
+                <strong>239</strong>
+                <span>challenge data points</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="challenge-bars">
+            <div class="challenge-row">
+              <span>Enrollment support</span>
+              <div class="challenge-track"><i style="--w: 100%; --c: var(--gold);"></i></div>
+              <em>52 · 22%</em>
+            </div>
+            <div class="challenge-row">
+              <span>Premium/copay assistance</span>
+              <div class="challenge-track"><i style="--w: 94%; --c: var(--teal);"></i></div>
+              <em>49 · 21%</em>
+            </div>
+            <div class="challenge-row">
+              <span>Medicare/Medicaid</span>
+              <div class="challenge-track"><i style="--w: 85%; --c: var(--green);"></i></div>
+              <em>44 · 18%</em>
+            </div>
+            <div class="challenge-row">
+              <span>Emergency financial</span>
+              <div class="challenge-track"><i style="--w: 60%; --c: var(--ink);"></i></div>
+              <em>31 · 13%</em>
+            </div>
+            <div class="challenge-row">
+              <span>Commercial insurance</span>
+              <div class="challenge-track"><i style="--w: 50%; --c: var(--red);"></i></div>
+              <em>26 · 11%</em>
+            </div>
+            <div class="challenge-row">
+              <span>Other</span>
+              <div class="challenge-track"><i style="--w: 35%; --c: #b85760;"></i></div>
+              <em>18 · 7%</em>
+            </div>
+            <div class="challenge-row">
+              <span>SSI/SSDI</span>
+              <div class="challenge-track"><i style="--w: 19%; --c: var(--purple);"></i></div>
+              <em>10 · 4%</em>
+            </div>
+            <div class="challenge-row">
+              <span>Accommodation plans</span>
+              <div class="challenge-track"><i style="--w: 17%; --c: #8aa0bd;"></i></div>
+              <em>9 · 4%</em>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-stack">
+        <div class="panel">
+          <p class="section-label">Outcome Matrix</p>
+          <h2>Access was preserved or restored across multiple domains</h2>
+          <div class="outcome-grid">
+            <div class="outcome-tile">
+              <strong>32</strong>
+              <span>secured new insurance coverage</span>
+            </div>
+            <div class="outcome-tile">
+              <strong>49</strong>
+              <span>maintained insurance coverage</span>
+            </div>
+            <div class="outcome-tile">
+              <strong>32</strong>
+              <span>gained access to provider or product</span>
+            </div>
+            <div class="outcome-tile">
+              <strong>77</strong>
+              <span>had financial burden reduced</span>
+            </div>
+            <div class="outcome-tile">
+              <strong>60</strong>
+              <span>cases had secondary or tertiary support identified</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Conclusion</p>
+          <h2>Integrated navigation addressed present barriers and anticipated future needs</h2>
+          <div class="support-split">
+            <div class="support-callout">
+              <strong>34%</strong>
+              <span>of cases had additional points of support identified by navigators.</span>
+            </div>
+            <div class="markdown-fragment">
+              <p>The poster concludes that a multidisciplinary patient navigation program was effective in helping members of the bleeding disorder community resolve health-system barriers and overcome nonclinical obstacles to care.</p>
+              <p>Because navigators identified secondary and tertiary needs, the intervention functioned as both a problem-resolution service and a way to preempt future access challenges.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tables-grid" aria-label="Source data tables">
+        <div class="table-card">
+          <p class="section-label">Table Pattern</p>
+          <h2>Challenge Categories</h2>
+          <div class="table-wrap">
+            <table class="table-mini">
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Data points</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Enrollment Support</td><td>52 (22%)</td></tr>
+                <tr><td>Premium/Copay Assistance</td><td>49 (21%)</td></tr>
+                <tr><td>Medicare/Medicaid</td><td>44 (18%)</td></tr>
+                <tr><td>Emergency Financial</td><td>31 (13%)</td></tr>
+                <tr><td>Commercial Insurance</td><td>26 (11%)</td></tr>
+                <tr><td>Other</td><td>18 (7%)</td></tr>
+                <tr><td>SSI/SSDI</td><td>10 (4%)</td></tr>
+                <tr><td>Accommodation Plans</td><td>9 (4%)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="table-card">
+          <p class="section-label">Table Pattern</p>
+          <h2>Program Outcomes</h2>
+          <div class="table-wrap">
+            <table class="table-mini">
+              <thead>
+                <tr>
+                  <th>Outcome</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Resolved</td><td>155</td></tr>
+                <tr><td>Unresolved</td><td>24</td></tr>
+                <tr><td>Total 501(c)(3) support, excluding manufacturer copay assistance</td><td>$154,107</td></tr>
+                <tr><td>Secured new insurance coverage</td><td>32</td></tr>
+                <tr><td>Maintained insurance coverage</td><td>49</td></tr>
+                <tr><td>Gained access to provider or product</td><td>32</td></tr>
+                <tr><td>Financial burden reduced</td><td>77</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer-actions" id="sources">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/92-PSP92-OR-Poster-AM24_2024.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/92-PSP92-OR-Poster-AM24_2024.md">Source Markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

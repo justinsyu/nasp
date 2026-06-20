@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Real-world Use of Immunomodulators with Pegloticase | NASP 2023</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .gout-hero-art {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+    .therapy-orbit {
+      width: 100%;
+      height: auto;
+      filter: drop-shadow(0 10px 22px rgba(36, 55, 112, 0.12));
+    }
+    .hero-card .signal-note {
+      margin: 0;
+      border-left: 4px solid var(--teal);
+      padding-left: 0.65rem;
+      color: var(--body);
+      font-size: 0.84rem;
+      font-weight: 760;
+    }
+    .metric-card strong .unit {
+      color: var(--muted);
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      font-weight: 900;
+    }
+    .route-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .route-card::after {
+      content: "";
+      position: absolute;
+      right: -3rem;
+      bottom: -3rem;
+      width: 10rem;
+      aspect-ratio: 1;
+      border: 1.6rem solid rgba(24, 124, 143, 0.08);
+      border-radius: 50%;
+    }
+    .method-rail {
+      display: grid;
+      gap: 0.65rem;
+      margin-top: 0.8rem;
+    }
+    .method-step {
+      display: grid;
+      grid-template-columns: 2.8rem 1fr;
+      gap: 0.7rem;
+      align-items: start;
+    }
+    .method-step strong {
+      display: grid;
+      place-items: center;
+      min-height: 2.2rem;
+      border: 1px solid rgba(36, 55, 112, 0.2);
+      border-radius: 7px;
+      background: var(--surface-blue);
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 900;
+    }
+    .method-step p {
+      margin: 0;
+      padding-top: 0.15rem;
+      color: var(--body);
+      font-size: 0.88rem;
+    }
+    .comparison-board {
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 0.75rem;
+    }
+    .comparison-row {
+      display: grid;
+      grid-template-columns: 9.4rem minmax(0, 1fr) 4.8rem;
+      gap: 0.6rem;
+      align-items: center;
+    }
+    .comparison-row .label {
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 850;
+    }
+    .bar-track {
+      height: 1.1rem;
+      border: 1px solid rgba(36, 55, 112, 0.15);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .bar-fill {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .bar-fill.teal { background: linear-gradient(90deg, var(--teal), var(--green)); }
+    .bar-fill.purple { background: linear-gradient(90deg, var(--purple), var(--teal)); }
+    .comparison-row .value {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.96rem;
+      font-weight: 900;
+      text-align: right;
+    }
+    .stacked-band {
+      display: grid;
+      grid-template-columns: 12fr 13fr 1fr 8fr;
+      min-height: 4.2rem;
+      margin-top: 0.85rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .band-segment {
+      display: grid;
+      align-content: center;
+      justify-items: center;
+      min-width: 0;
+      padding: 0.6rem 0.35rem;
+      color: #fff;
+      text-align: center;
+    }
+    .band-segment strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      line-height: 1;
+    }
+    .band-segment span {
+      display: block;
+      margin-top: 0.16rem;
+      font-size: 0.67rem;
+      font-weight: 850;
+      line-height: 1.15;
+    }
+    .band-segment.mtx { background: var(--red); }
+    .band-segment.mmf { background: var(--teal); }
+    .band-segment.aza { background: var(--purple); }
+    .band-segment.no-imo { background: var(--ink); }
+    .chart-note {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    .mini-table {
+      display: grid;
+      gap: 0.42rem;
+      margin-top: 0.78rem;
+    }
+    .mini-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 3.6rem;
+      gap: 0.55rem;
+      align-items: center;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 6px;
+      background: #fff;
+      padding: 0.48rem 0.55rem;
+    }
+    .mini-row span {
+      color: var(--body);
+      font-size: 0.78rem;
+      font-weight: 760;
+    }
+    .mini-row strong {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 900;
+      text-align: right;
+    }
+    .intervention-grid {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 0.45rem;
+      margin-top: 0.85rem;
+      align-items: end;
+      min-height: 12rem;
+    }
+    .intervention-bar {
+      display: grid;
+      grid-template-rows: 1fr auto;
+      gap: 0.42rem;
+      height: 12rem;
+      min-width: 0;
+    }
+    .intervention-bar i {
+      display: block;
+      align-self: end;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 7px 7px 3px 3px;
+      background: linear-gradient(180deg, var(--gold), var(--red));
+    }
+    .intervention-bar:nth-child(2) i { background: linear-gradient(180deg, var(--teal), var(--green)); }
+    .intervention-bar:nth-child(3) i { background: linear-gradient(180deg, var(--purple), var(--teal)); }
+    .intervention-bar b {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 900;
+      text-align: center;
+    }
+    .intervention-bar span {
+      color: var(--body);
+      font-size: 0.66rem;
+      font-weight: 800;
+      line-height: 1.15;
+      text-align: center;
+    }
+    .callout-band {
+      border-left: 5px solid var(--red);
+      background:
+        linear-gradient(90deg, rgba(209, 38, 48, 0.09), rgba(255, 255, 255, 0.5)),
+        var(--surface);
+    }
+    .callout-band p {
+      margin: 0;
+      color: var(--body);
+      font-size: 0.92rem;
+    }
+    .source-card p {
+      margin: 0 0 0.7rem;
+      font-size: 0.88rem;
+    }
+    @media (max-width: 820px) {
+      .comparison-row {
+        grid-template-columns: 1fr;
+      }
+      .comparison-row .value {
+        text-align: left;
+      }
+      .intervention-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        min-height: 0;
+      }
+      .intervention-bar {
+        grid-template-columns: 3.5rem 1fr;
+        grid-template-rows: auto;
+        height: auto;
+        align-items: center;
+      }
+      .intervention-bar i {
+        width: 100% !important;
+        height: 1.4rem !important;
+      }
+      .intervention-bar b,
+      .intervention-bar span {
+        text-align: left;
+      }
+    }
+    @media (max-width: 560px) {
+      .method-step,
+      .mini-row {
+        grid-template-columns: 1fr;
+      }
+      .stacked-band {
+        grid-template-columns: 1fr;
+      }
+      .mini-row strong {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar" aria-label="Infographic navigation">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav>
+        <a href="#evidence">Evidence</a>
+        <a href="#results">Results</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/43_Real-world-use-of-immunomodulators-in-patients-receiving-pegloticase-for-chronic-gout_2023.pdf">PDF source</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/43_Real-world-use-of-immunomodulators-in-patients-receiving-pegloticase-for-chronic-gout_2023.md">Markdown source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2023 Poster 43</p>
+        <h1>Real-world use of immunomodulators in patients receiving pegloticase for chronic gout</h1>
+        <p class="hero-summary">A specialty pharmacy record review found that immunomodulator use was broader than the assessment initially captured: 76% of pegloticase patients had an immunomodulator documented after post hoc medication-profile and referral review.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Retrospective analysis</li>
+          <li class="tag therapy">Pegloticase</li>
+          <li class="tag therapy">Chronic gout</li>
+          <li class="tag">Immunomodulator assessment</li>
+        </ul>
+      </div>
+      <aside class="hero-card">
+        <div>
+          <p class="section-label">Poster file</p>
+          <div class="poster-code">43_2023</div>
+        </div>
+        <div class="gout-hero-art">
+          <svg class="therapy-orbit" viewBox="0 0 420 230" role="img" aria-label="Pegloticase and immunomodulator co-therapy visual">
+            <defs>
+              <linearGradient id="vialGrad" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#ffffff"/>
+                <stop offset="1" stop-color="#eef4fb"/>
+              </linearGradient>
+              <linearGradient id="flowGrad" x1="0" x2="1" y1="0" y2="0">
+                <stop offset="0" stop-color="#d12630"/>
+                <stop offset="0.52" stop-color="#e99e25"/>
+                <stop offset="1" stop-color="#187c8f"/>
+              </linearGradient>
+            </defs>
+            <rect x="18" y="22" width="384" height="186" rx="24" fill="#fff" stroke="#aebbd2"/>
+            <path d="M83 72 C141 23 275 31 334 83" fill="none" stroke="url(#flowGrad)" stroke-width="10" stroke-linecap="round"/>
+            <path d="M86 151 C147 200 276 199 335 148" fill="none" stroke="#187c8f" stroke-width="10" stroke-linecap="round" opacity="0.35"/>
+            <g transform="translate(66 65)">
+              <rect x="32" y="0" width="58" height="95" rx="14" fill="url(#vialGrad)" stroke="#243770" stroke-width="4"/>
+              <rect x="41" y="-16" width="40" height="22" rx="5" fill="#243770"/>
+              <rect x="42" y="44" width="38" height="31" rx="7" fill="#d12630" opacity="0.14"/>
+              <text x="61" y="65" text-anchor="middle" fill="#d12630" font-family="Montserrat, Arial" font-size="17" font-weight="900">PEG</text>
+            </g>
+            <g transform="translate(234 58)">
+              <circle cx="58" cy="58" r="52" fill="#eef4fb" stroke="#243770" stroke-width="4"/>
+              <circle cx="38" cy="43" r="16" fill="#d12630"/>
+              <circle cx="75" cy="42" r="16" fill="#187c8f"/>
+              <circle cx="58" cy="75" r="16" fill="#7561a8"/>
+              <text x="58" y="122" text-anchor="middle" fill="#243770" font-family="Inter, Arial" font-size="14" font-weight="900">IMMUNOMODULATORS</text>
+            </g>
+            <circle cx="210" cy="115" r="26" fill="#fff7ea" stroke="#e99e25" stroke-width="4"/>
+            <text x="210" y="110" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial" font-size="18" font-weight="900">76%</text>
+            <text x="210" y="127" text-anchor="middle" fill="#68758d" font-family="Inter, Arial" font-size="11" font-weight="900">documented</text>
+          </svg>
+        </div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Study window</dt>
+            <dd>07/08/2022-03/31/2023</dd>
+          </div>
+          <div>
+            <dt>Patients</dt>
+            <dd>34</dd>
+          </div>
+          <div>
+            <dt>Data source</dt>
+            <dd>SoleMetrics</dd>
+          </div>
+          <div>
+            <dt>Authors</dt>
+            <dd>Soleo Health</dd>
+          </div>
+        </dl>
+        <p class="signal-note">The July 2022 label update made methotrexate co-therapy newly salient in the assessment workflow.</p>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Pegloticase patients reviewed</span>
+          <strong>34</strong>
+        </article>
+        <article class="metric-card">
+          <span>Assessment-captured methotrexate</span>
+          <strong>14 <span class="unit">/ 34</span></strong>
+        </article>
+        <article class="metric-card">
+          <span>Any immunomodulator documented</span>
+          <strong>26 <span class="unit">/ 34</span></strong>
+        </article>
+        <article class="metric-card">
+          <span>Clinical interventions logged</span>
+          <strong>21</strong>
+        </article>
+      </section>
+
+      <section class="visual-grid" id="evidence">
+        <article class="panel route-card">
+          <p class="section-label">Objective</p>
+          <h2>Find real-world co-therapy patterns after a label-driven assessment change</h2>
+          <div class="method-rail">
+            <div class="method-step">
+              <strong>1</strong>
+              <p>Pegloticase prescribing information was updated in July 2022 to include methotrexate co-use, reflecting evidence for improved efficacy and fewer infusion reactions.</p>
+            </div>
+            <div class="method-step">
+              <strong>2</strong>
+              <p>The organization modified its therapy-specific pegloticase clinical assessment to capture methotrexate use.</p>
+            </div>
+            <div class="method-step">
+              <strong>3</strong>
+              <p>Patient records from 07/08/2022 through 03/31/2023 were retrospectively reviewed in SoleMetrics and cross-checked against referral documents and medication profiles.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Assessment lens</p>
+          <h2>Post hoc review nearly doubled the detected co-therapy signal</h2>
+          <div class="comparison-board" aria-label="Initial assessment versus combined post hoc immunomodulator finding">
+            <div class="comparison-row">
+              <div class="label">Clinical assessment: methotrexate</div>
+              <div class="bar-track"><i class="bar-fill" style="width:41%"></i></div>
+              <div class="value">41%</div>
+            </div>
+            <div class="comparison-row">
+              <div class="label">Combined review: any immunomodulator</div>
+              <div class="bar-track"><i class="bar-fill teal" style="width:76%"></i></div>
+              <div class="value">76%</div>
+            </div>
+          </div>
+          <p class="chart-note">Initial assessment found 14 of 34 patients on methotrexate. The combined assessment, medication-profile, and referral review found 26 of 34 patients on an immunomodulator.</p>
+          <div class="number-cloud" aria-label="Analysis counts">
+            <div class="number-pill">14<small>MTX captured</small></div>
+            <div class="number-pill">26<small>Any IM found</small></div>
+            <div class="number-pill">8<small>No IM documented</small></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel" id="results">
+        <p class="section-label">Figure 1 pattern</p>
+        <h2>Mycophenolate appeared almost as often as methotrexate in real-world prescribing</h2>
+        <div class="stacked-band" aria-label="Immunomodulator status distribution out of 34 patients">
+          <div class="band-segment mtx">
+            <strong>12</strong>
+            <span>Methotrexate</span>
+          </div>
+          <div class="band-segment mmf">
+            <strong>13</strong>
+            <span>Mycophenolate mofetil</span>
+          </div>
+          <div class="band-segment aza">
+            <strong>1</strong>
+            <span>Azathioprine</span>
+          </div>
+          <div class="band-segment no-imo">
+            <strong>8</strong>
+            <span>No IM, contraindication, or stable pre-update monotherapy</span>
+          </div>
+        </div>
+        <div class="mini-table">
+          <div class="mini-row">
+            <span>No immunomodulator ordered by prescriber</span>
+            <strong>2</strong>
+          </div>
+          <div class="mini-row">
+            <span>Contraindication to immunomodulator</span>
+            <strong>2</strong>
+          </div>
+          <div class="mini-row">
+            <span>Initiated before prescribing-information update and stable on pegloticase alone</span>
+            <strong>4</strong>
+          </div>
+        </div>
+        <p class="chart-note">Counts are patient-level categories from the post hoc immunomodulator-use table.</p>
+      </section>
+
+      <section class="evidence-map" aria-label="Evidence flow">
+        <article class="evidence-card">
+          <h3>Population</h3>
+          <p>Adults receiving pegloticase for chronic gout through a complex specialty pharmacy.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Trigger</h3>
+          <p>A July 2022 prescribing-information update elevated methotrexate as a key co-therapy to assess.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Detection gap</h3>
+          <p>The assessment focused on methotrexate, while referral documents revealed other immunomodulators.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Practice signal</h3>
+          <p>Clinicians can intervene when no immunomodulator is ordered alongside pegloticase.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Next iteration</h3>
+          <p>The assessment could be expanded to capture all immunomodulators and support adverse-event analysis.</p>
+        </article>
+      </section>
+
+      <section class="visual-grid">
+        <article class="panel">
+          <p class="section-label">Figure 2 pattern</p>
+          <h2>Monitoring and immunomodulator review drove most interventions</h2>
+          <div class="intervention-grid" aria-label="Clinical intervention counts">
+            <div class="intervention-bar">
+              <i style="height:100%"></i>
+              <div><b>8</b><span>Uric acid monitoring</span></div>
+            </div>
+            <div class="intervention-bar">
+              <i style="height:50%"></i>
+              <div><b>4</b><span>Immunomodulator use</span></div>
+            </div>
+            <div class="intervention-bar">
+              <i style="height:37.5%"></i>
+              <div><b>3</b><span>Increased gout flares</span></div>
+            </div>
+            <div class="intervention-bar">
+              <i style="height:25%"></i>
+              <div><b>2</b><span>Pegloticase counseling</span></div>
+            </div>
+            <div class="intervention-bar">
+              <i style="height:25%"></i>
+              <div><b>2</b><span>Drug utilization review</span></div>
+            </div>
+            <div class="intervention-bar">
+              <i style="height:12.5%"></i>
+              <div><b>1</b><span>Adjusted frequency counseling</span></div>
+            </div>
+            <div class="intervention-bar">
+              <i style="height:12.5%"></i>
+              <div><b>1</b><span>Site of care counseling</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel callout-band">
+          <p class="section-label">Conclusion</p>
+          <h2>Assessment design shaped what the pharmacy could see</h2>
+          <p>The poster concluded that a therapy-specific pegloticase assessment can identify immunomodulator prescribing trends, but the initial methotrexate-centered view missed substantial use of mycophenolate. Capturing all immunomodulators may improve intervention targeting, durability-of-response monitoring, adverse-event analysis, and future real-world data collection.</p>
+        </article>
+      </section>
+
+      <section class="tables-grid">
+        <article class="table-card">
+          <p class="section-label">Extracted table pattern</p>
+          <h2>Immunomodulator status</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Status</th>
+                  <th>Patients</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Methotrexate</td><td>12</td></tr>
+                <tr><td>Mycophenolate mofetil</td><td>13</td></tr>
+                <tr><td>Azathioprine</td><td>1</td></tr>
+                <tr><td>No immunomodulator ordered</td><td>2</td></tr>
+                <tr><td>Contraindication</td><td>2</td></tr>
+                <tr><td>Stable on pegloticase alone before update</td><td>4</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card source-card">
+          <p class="section-label">Source links</p>
+          <h2>Poster materials</h2>
+          <p><strong>Authors:</strong> Christine Miller, PharmD; Drew Doyle, RPh; Barbara Prosser, RPh. Soleo Health.</p>
+          <p><strong>Disclosure:</strong> Authors reported nothing to disclose.</p>
+          <div class="footer-actions">
+            <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/43_Real-world-use-of-immunomodulators-in-patients-receiving-pegloticase-for-chronic-gout_2023.pdf">Open poster PDF</a>
+            <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/43_Real-world-use-of-immunomodulators-in-patients-receiving-pegloticase-for-chronic-gout_2023.md">Open extracted markdown</a>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

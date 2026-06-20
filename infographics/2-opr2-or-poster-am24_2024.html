@@ -1,0 +1,721 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2024 Infographic | Alternative Funding Programs and Medication Access</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .access-hero-visual {
+      position: relative;
+      min-height: 21rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 84% 12%, rgba(233, 158, 37, 0.35), transparent 8rem),
+        linear-gradient(145deg, rgba(36, 55, 112, 0.98), rgba(24, 124, 143, 0.9));
+      color: #fff;
+      overflow: hidden;
+      padding: 1.1rem;
+    }
+
+    .access-hero-visual svg {
+      position: absolute;
+      inset: auto -1rem -1.6rem auto;
+      width: min(25rem, 78%);
+      height: auto;
+      opacity: 0.94;
+    }
+
+    .access-hero-visual .visual-label {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.74);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .access-hero-visual strong {
+      display: block;
+      max-width: 16rem;
+      margin-top: 0.3rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 5.5vw, 4.6rem);
+      line-height: 0.9;
+    }
+
+    .access-hero-visual span {
+      display: block;
+      max-width: 17rem;
+      margin-top: 0.7rem;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.9rem;
+    }
+
+    .time-compare {
+      display: grid;
+      gap: 0.8rem;
+      margin-top: 0.7rem;
+    }
+
+    .time-row {
+      display: grid;
+      grid-template-columns: 7rem minmax(0, 1fr) 4.2rem;
+      gap: 0.65rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 850;
+    }
+
+    .time-track {
+      height: 1.25rem;
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+
+    .time-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+    }
+
+    .time-track.afp i {
+      width: 100%;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .time-track.hssp i {
+      width: 43%;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .stat-callout {
+      display: grid;
+      align-content: center;
+      min-height: 13rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(209, 38, 48, 0.94), rgba(233, 158, 37, 0.88)),
+        var(--red);
+      color: #fff;
+      padding: 1.05rem;
+    }
+
+    .stat-callout span {
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .stat-callout strong {
+      display: block;
+      margin-top: 0.2rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 7vw, 5.3rem);
+      line-height: 0.88;
+    }
+
+    .stat-callout p {
+      margin: 0.65rem 0 0;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 0.92rem;
+    }
+
+    .pathway {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 0.5rem;
+      margin-top: 0.8rem;
+    }
+
+    .path-node {
+      position: relative;
+      min-height: 9rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.74rem;
+    }
+
+    .path-node::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -0.44rem;
+      width: 0.65rem;
+      height: 0.65rem;
+      border-top: 2px solid var(--border-strong);
+      border-right: 2px solid var(--border-strong);
+      background: #fff;
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    .path-node:last-child::after { display: none; }
+
+    .path-node.delay {
+      background: var(--surface-warm);
+      border-color: rgba(209, 38, 48, 0.42);
+    }
+
+    .path-node b {
+      display: inline-grid;
+      place-items: center;
+      width: 1.55rem;
+      height: 1.55rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+    }
+
+    .path-node.delay b { background: var(--red); }
+
+    .path-node h3 {
+      margin-top: 0.45rem;
+      font-size: 0.86rem;
+    }
+
+    .path-node p {
+      margin: 0.34rem 0 0;
+      font-size: 0.74rem;
+      line-height: 1.38;
+    }
+
+    .hospital-bars {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 0.7rem;
+    }
+
+    .hospital-group {
+      display: grid;
+      gap: 0.38rem;
+    }
+
+    .hospital-group h3 {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.6rem;
+      color: var(--ink);
+      font-size: 0.88rem;
+    }
+
+    .paired-bar {
+      display: grid;
+      grid-template-columns: 5.5rem minmax(0, 1fr) 3.4rem;
+      gap: 0.5rem;
+      align-items: center;
+      color: var(--body);
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .paired-bar .bar {
+      height: 0.86rem;
+      border-radius: 999px;
+      background: var(--surface-blue);
+      overflow: hidden;
+    }
+
+    .paired-bar i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+    }
+
+    .paired-bar.afp i { background: var(--red); }
+    .paired-bar.hssp i { background: var(--teal); }
+
+    .medication-bars {
+      display: grid;
+      gap: 0.58rem;
+      margin-top: 0.75rem;
+    }
+
+    .med-row {
+      display: grid;
+      grid-template-columns: 7.4rem minmax(0, 1fr) 5.4rem;
+      gap: 0.5rem;
+      align-items: center;
+      font-size: 0.76rem;
+      font-weight: 850;
+    }
+
+    .stacked-med {
+      display: grid;
+      grid-template-columns: var(--afp) var(--hssp);
+      height: 1rem;
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 999px;
+      overflow: hidden;
+      background: #edf2f8;
+    }
+
+    .stacked-med span:first-child { background: var(--red); }
+    .stacked-med span:last-child { background: var(--teal); }
+
+    .legend-pair {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem 0.9rem;
+      margin-top: 0.7rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 850;
+    }
+
+    .legend-pair i {
+      display: inline-block;
+      width: 0.7rem;
+      height: 0.7rem;
+      margin-right: 0.25rem;
+      border-radius: 2px;
+      vertical-align: -0.06rem;
+      background: var(--red);
+    }
+
+    .legend-pair span:last-child i { background: var(--teal); }
+
+    .criteria-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-top: 0.65rem;
+    }
+
+    .criteria-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface-blue);
+      padding: 0.85rem;
+    }
+
+    .criteria-card h3 {
+      margin-bottom: 0.45rem;
+      color: var(--ink);
+    }
+
+    .criteria-card ul,
+    .tight-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .criteria-card li,
+    .tight-list li {
+      display: grid;
+      grid-template-columns: 0.75rem minmax(0, 1fr);
+      gap: 0.35rem;
+      margin-top: 0.36rem;
+      font-size: 0.83rem;
+    }
+
+    .criteria-card li::before,
+    .tight-list li::before {
+      content: "";
+      width: 0.45rem;
+      height: 0.45rem;
+      margin-top: 0.46rem;
+      border-radius: 50%;
+      background: var(--red);
+    }
+
+    .criteria-card.exclude li::before { background: var(--muted); }
+
+    .note-box {
+      border-left: 4px solid var(--gold);
+      background: var(--surface-warm);
+      padding: 0.82rem 0.92rem;
+    }
+
+    .note-box p {
+      margin: 0;
+      color: var(--body);
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 1000px) {
+      .pathway { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .path-node::after { display: none; }
+    }
+
+    @media (max-width: 900px) {
+      .criteria-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 560px) {
+      .time-row,
+      .paired-bar,
+      .med-row {
+        grid-template-columns: 1fr;
+      }
+
+      .pathway { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="https://naspnet.org/" aria-label="NASP website">NASP Posters</a>
+      <nav aria-label="Page sections">
+        <a href="#snapshot">Snapshot</a>
+        <a href="#flow">Access Flow</a>
+        <a href="#results">Results</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">2024 Annual Meeting Poster | 2-OPR2-OR</p>
+        <h1>Exploring the impact of alternative funding programs on medication access and clinical outcomes</h1>
+        <p class="hero-summary">
+          A single health-system specialty pharmacy compared patients routed externally through Alternative Funding Programs
+          with patients able to start specialty therapy through the HSSP, focusing on time to treat and hospitalization rates.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Retrospective observational study</li>
+          <li class="tag therapy">Alternative Funding Programs</li>
+          <li class="tag therapy">Medication access</li>
+          <li class="tag">January 2022-May 2023</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Poster details">
+        <div class="poster-code">AM24<br>2-OPR2-OR</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Poster year</dt>
+            <dd>2024</dd>
+          </div>
+          <div>
+            <dt>Study window</dt>
+            <dd>17 months</dd>
+          </div>
+          <div>
+            <dt>AFP group</dt>
+            <dd>37 patients</dd>
+          </div>
+          <div>
+            <dt>HSSP group</dt>
+            <dd>176 patients</dd>
+          </div>
+        </dl>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/2-OPR2-OR-Poster-AM24_2024.pdf">Open poster PDF</a>
+      </aside>
+    </section>
+
+    <main>
+      <section id="snapshot" class="metric-strip" aria-label="Key poster numbers">
+        <article class="metric-card">
+          <span>Total patients</span>
+          <strong>213</strong>
+        </article>
+        <article class="metric-card">
+          <span>AFP median time to treat</span>
+          <strong>21d</strong>
+        </article>
+        <article class="metric-card">
+          <span>HSSP median time to treat</span>
+          <strong>9d</strong>
+        </article>
+        <article class="metric-card">
+          <span>Relative access delay</span>
+          <strong>133%</strong>
+        </article>
+      </section>
+
+      <section class="visual-grid" aria-label="Primary access finding">
+        <article class="access-hero-visual">
+          <p class="visual-label">Access bottleneck</p>
+          <strong>12 extra days</strong>
+          <span>Median time to treatment was 21 days for AFP-routed patients versus 9 days for HSSP patients.</span>
+          <svg viewBox="0 0 360 260" role="img" aria-label="Specialty medication access path with delayed branch">
+            <defs>
+              <linearGradient id="routeGold" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ffffff" stop-opacity="0.96"></stop>
+                <stop offset="1" stop-color="#e99e25" stop-opacity="0.82"></stop>
+              </linearGradient>
+            </defs>
+            <path d="M50 172c34-50 64-72 102-72 46 0 68 42 112 42 27 0 49-16 69-47" fill="none" stroke="rgba(255,255,255,0.42)" stroke-width="18" stroke-linecap="round"></path>
+            <path d="M50 172c34-50 64-72 102-72 46 0 68 42 112 42 27 0 49-16 69-47" fill="none" stroke="url(#routeGold)" stroke-width="8" stroke-linecap="round"></path>
+            <circle cx="52" cy="172" r="24" fill="#ffffff"></circle>
+            <path d="M41 172h22M52 161v22" stroke="#243770" stroke-width="6" stroke-linecap="round"></path>
+            <rect x="125" y="70" width="70" height="60" rx="12" fill="#ffffff" opacity="0.95"></rect>
+            <path d="M145 101h30M160 86v30" stroke="#187c8f" stroke-width="7" stroke-linecap="round"></path>
+            <circle cx="257" cy="142" r="23" fill="#d12630"></circle>
+            <path d="M247 132l20 20M267 132l-20 20" stroke="#fff" stroke-width="6" stroke-linecap="round"></path>
+            <path d="M310 78l28 17-28 17z" fill="#ffffff"></path>
+            <circle cx="302" cy="215" r="28" fill="#187c8f" opacity="0.72"></circle>
+            <circle cx="98" cy="48" r="18" fill="#e99e25" opacity="0.82"></circle>
+          </svg>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Primary endpoint</p>
+          <h2>AFP routing more than doubled time to therapy start</h2>
+          <div class="time-compare">
+            <div class="time-row">
+              <span>AFP</span>
+              <div class="time-track afp" aria-label="AFP time to treat 21 days"><i></i></div>
+              <span>21 days</span>
+            </div>
+            <div class="time-row">
+              <span>HSSP</span>
+              <div class="time-track hssp" aria-label="HSSP time to treat 9 days"><i></i></div>
+              <span>9 days</span>
+            </div>
+          </div>
+          <p class="source-note">Reported comparison: p &lt; 0.0001. The poster states turnaround time was 133% higher for externally filled AFP therapies.</p>
+        </article>
+      </section>
+
+      <section id="flow" class="panel">
+        <p class="section-label">Patient access flow</p>
+        <h2>Where the AFP pathway introduces delay</h2>
+        <div class="pathway">
+          <article class="path-node">
+            <b>1</b>
+            <h3>Referral</h3>
+            <p>HSSP receives the specialty medication referral and patients complete required labs.</p>
+          </article>
+          <article class="path-node">
+            <b>2</b>
+            <h3>Prior authorization</h3>
+            <p>The HSSP submits prior authorization and determines coverage or external-routing requirements.</p>
+          </article>
+          <article class="path-node">
+            <b>3</b>
+            <h3>Coverage split</h3>
+            <p>Covered prescriptions can be dispensed by HSSP or triaged to another pharmacy by preference or payor rule.</p>
+          </article>
+          <article class="path-node delay">
+            <b>4</b>
+            <h3>AFP contact</h3>
+            <p>When no specialty medication coverage exists, the patient must engage the AFP process.</p>
+          </article>
+          <article class="path-node delay">
+            <b>5</b>
+            <h3>Enrollment</h3>
+            <p>The patient completes AFP enrollment while therapy start is pending.</p>
+          </article>
+          <article class="path-node delay">
+            <b>6</b>
+            <h3>PAP application</h3>
+            <p>The AFP applies to a charitable patient assistance program for medication access.</p>
+          </article>
+          <article class="path-node">
+            <b>7</b>
+            <h3>Approval or exception</h3>
+            <p>Approval enables medication receipt; denial sends the case for exception review.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="results" class="visual-grid" aria-label="Hospitalization and medication results">
+        <article class="panel">
+          <p class="section-label">Secondary endpoints</p>
+          <h2>Disease-related hospitalizations were higher in the AFP group</h2>
+          <div class="hospital-bars">
+            <div class="hospital-group">
+              <h3><span>Related to specialty disease</span><span>p = 0.025</span></h3>
+              <div class="paired-bar afp">
+                <span>AFP</span>
+                <div class="bar"><i style="width: 100%;"></i></div>
+                <span>0.49</span>
+              </div>
+              <div class="paired-bar hssp">
+                <span>HSSP</span>
+                <div class="bar"><i style="width: 65%;"></i></div>
+                <span>0.32</span>
+              </div>
+            </div>
+            <div class="hospital-group">
+              <h3><span>All-cause hospitalization</span><span>p = 0.478</span></h3>
+              <div class="paired-bar afp">
+                <span>AFP</span>
+                <div class="bar"><i style="width: 100%;"></i></div>
+                <span>1.29</span>
+              </div>
+              <div class="paired-bar hssp">
+                <span>HSSP</span>
+                <div class="bar"><i style="width: 92%;"></i></div>
+                <span>1.19</span>
+              </div>
+            </div>
+          </div>
+          <p class="source-note">Rates were calculated as hospitalizations divided by total patients in each group.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Most common medications</p>
+          <h2>HSSP patients outnumbered AFP patients across listed therapies</h2>
+          <div class="medication-bars">
+            <div class="med-row">
+              <span>Adalimumab</span>
+              <div class="stacked-med" style="--afp: 11.8%; --hssp: 88.2%;"><span></span><span></span></div>
+              <span>10 / 75</span>
+            </div>
+            <div class="med-row">
+              <span>Capecitabine</span>
+              <div class="stacked-med" style="--afp: 14.3%; --hssp: 85.7%;"><span></span><span></span></div>
+              <span>5 / 30</span>
+            </div>
+            <div class="med-row">
+              <span>Etanercept</span>
+              <div class="stacked-med" style="--afp: 25%; --hssp: 75%;"><span></span><span></span></div>
+              <span>10 / 30</span>
+            </div>
+            <div class="med-row">
+              <span>Enzalutamide</span>
+              <div class="stacked-med" style="--afp: 16.7%; --hssp: 83.3%;"><span></span><span></span></div>
+              <span>5 / 25</span>
+            </div>
+            <div class="med-row">
+              <span>Upadacitinib</span>
+              <div class="stacked-med" style="--afp: 25%; --hssp: 75%;"><span></span><span></span></div>
+              <span>5 / 15</span>
+            </div>
+          </div>
+          <div class="legend-pair">
+            <span><i></i>AFP count</span>
+            <span><i></i>HSSP count</span>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-stack" aria-label="Study design and demographics">
+        <article class="panel">
+          <p class="section-label">Methods</p>
+          <h2>Retrospective, single-HSSP observational comparison</h2>
+          <div class="criteria-grid">
+            <div class="criteria-card">
+              <h3>Inclusion</h3>
+              <ul>
+                <li>Adult patients older than 18 years.</li>
+                <li>Newly prescribed one of nine listed specialty therapies.</li>
+                <li>Study period from January 1, 2022 to May 31, 2023.</li>
+              </ul>
+            </div>
+            <div class="criteria-card exclude">
+              <h3>Exclusion</h3>
+              <ul>
+                <li>Infusion therapy or not eligible to fill medication during the study period.</li>
+                <li>Patients who did not start medication.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Baseline pattern</p>
+          <h2>AFP patients skewed younger and more rheumatology-heavy</h2>
+          <div class="number-cloud">
+            <div class="number-pill">48.2<small>AFP mean age</small></div>
+            <div class="number-pill">57.3<small>HSSP mean age</small></div>
+            <div class="number-pill">78.4%<small>AFP rheumatology</small></div>
+            <div class="number-pill">65.3%<small>HSSP rheumatology</small></div>
+          </div>
+          <ul class="tight-list" style="margin-top: 0.75rem;">
+            <li>Female sex was reported for 23 AFP patients and 94 HSSP patients.</li>
+            <li>Oncology represented 21.6% of AFP patients and 34.7% of HSSP patients.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="evidence-map" aria-label="Extracted poster takeaways">
+        <article class="evidence-card">
+          <h3>Objective</h3>
+          <p>Compare time to medication access for specialty therapies obtained through HSSP versus external AFP routing.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Outcome lens</h3>
+          <p>Assess specialty disease-related and all-cause hospitalization rates between AFP and HSSP groups.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Primary signal</h3>
+          <p>Median time to treat was 21 days for AFP patients and 9 days for HSSP patients.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Clinical signal</h3>
+          <p>Disease-related hospitalization rate was higher for AFP patients and statistically significant in the poster analysis.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Conclusion</h3>
+          <p>External AFP requirements were associated with delayed therapy initiation and higher disease-related hospitalization rates.</p>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Condensed table patterns and caveats">
+        <article class="table-card">
+          <p class="section-label">Source table pattern</p>
+          <h2>Time to treat and hospitalization rates</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Measure</th>
+                  <th>AFP</th>
+                  <th>HSSP</th>
+                  <th>Signal</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Median time to treat</td>
+                  <td>21 days</td>
+                  <td>9 days</td>
+                  <td>p &lt; 0.0001</td>
+                </tr>
+                <tr>
+                  <td>Disease-related hospitalization</td>
+                  <td>0.49</td>
+                  <td>0.32</td>
+                  <td>p = 0.025</td>
+                </tr>
+                <tr>
+                  <td>All-cause hospitalization</td>
+                  <td>1.29</td>
+                  <td>1.19</td>
+                  <td>p = 0.478</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Interpretation caveat</p>
+          <h2>Estimated AFP delay may be conservative</h2>
+          <div class="note-box">
+            <p>
+              The poster lists difficulty accurately determining medication start dates for externally filled AFP patients
+              as a limitation, and notes that AFP median time to treat was likely higher than calculated.
+            </p>
+          </div>
+          <ul class="tight-list" style="margin-top: 0.75rem;">
+            <li>Future work was recommended in larger samples and additional disease states.</li>
+            <li>The authors also called for examining patients who never start medication because of AFP issues.</li>
+          </ul>
+        </article>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/2-OPR2-OR-Poster-AM24_2024.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/2-OPR2-OR-Poster-AM24_2024.md">Source markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

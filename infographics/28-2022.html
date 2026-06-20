@@ -1,0 +1,776 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vaccine Screening Protocol for Specialty DMARDs | NASP 2022</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .poster-hero {
+      position: relative;
+      overflow: hidden;
+    }
+    .poster-hero::before {
+      content: "";
+      position: absolute;
+      right: 18rem;
+      bottom: -5rem;
+      width: 15rem;
+      height: 15rem;
+      border: 1.3rem solid rgba(24, 124, 143, 0.1);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 88% 14%, rgba(209, 38, 48, 0.12), transparent 5.6rem),
+        linear-gradient(135deg, transparent 0 48%, rgba(233, 158, 37, 0.13) 48% 52%, transparent 52%);
+      pointer-events: none;
+    }
+    .hero-card > * {
+      position: relative;
+      z-index: 1;
+    }
+    .form-preview {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 0.45rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.88);
+      padding: 0.75rem;
+    }
+    .form-preview h3 {
+      color: var(--ink);
+      font-size: 0.92rem;
+    }
+    .check-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.38rem;
+    }
+    .check-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.28rem;
+      border: 1px solid rgba(24, 124, 143, 0.28);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--ink);
+      padding: 0.2rem 0.42rem;
+      font-size: 0.68rem;
+      font-weight: 850;
+    }
+    .check-chip i {
+      display: grid;
+      place-items: center;
+      width: 0.88rem;
+      height: 0.88rem;
+      border-radius: 2px;
+      background: var(--teal);
+      color: #fff;
+      font-style: normal;
+      font-size: 0.62rem;
+      line-height: 1;
+    }
+    .hero-card svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .metric-card strong small {
+      color: var(--red);
+      font-size: 0.9rem;
+    }
+    .metric-card em {
+      display: block;
+      margin-top: 0.38rem;
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-style: normal;
+      font-weight: 750;
+    }
+    .workflow-ribbon {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.7rem;
+    }
+    .workflow-step {
+      position: relative;
+      min-height: 10.5rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.85rem;
+      overflow: hidden;
+    }
+    .workflow-step::before {
+      content: attr(data-step);
+      display: grid;
+      place-items: center;
+      width: 2.1rem;
+      height: 2.1rem;
+      margin-bottom: 0.68rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      font-weight: 900;
+    }
+    .workflow-step.screening {
+      background: linear-gradient(180deg, #fff, #fff7ea);
+      border-color: rgba(233, 158, 37, 0.65);
+    }
+    .workflow-step.screening::before {
+      background: var(--red);
+    }
+    .workflow-step h3 {
+      font-size: 0.94rem;
+    }
+    .workflow-step p {
+      margin: 0.42rem 0 0;
+      font-size: 0.79rem;
+    }
+    .workflow-step .sidecar {
+      display: inline-block;
+      margin-top: 0.62rem;
+      border-radius: 999px;
+      background: rgba(209, 38, 48, 0.1);
+      color: var(--red);
+      padding: 0.22rem 0.48rem;
+      font-size: 0.66rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .funnel-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(18rem, 0.95fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .funnel-chart {
+      display: grid;
+      gap: 0.72rem;
+      margin-top: 0.8rem;
+    }
+    .funnel-row {
+      display: grid;
+      grid-template-columns: 9.8rem minmax(0, 1fr) 5rem;
+      gap: 0.6rem;
+      align-items: center;
+    }
+    .funnel-row b {
+      color: var(--ink);
+      font-size: 0.82rem;
+      line-height: 1.15;
+    }
+    .funnel-track {
+      height: 1.45rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 999px;
+      background: #e9eff7;
+      overflow: hidden;
+    }
+    .funnel-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .funnel-row span {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 900;
+      text-align: right;
+    }
+    .recommendation-card {
+      position: relative;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--ink);
+      color: #fff;
+      padding: 1rem;
+      overflow: hidden;
+    }
+    .recommendation-card::after {
+      content: "";
+      position: absolute;
+      right: -4rem;
+      bottom: -4rem;
+      width: 12rem;
+      height: 12rem;
+      border: 1.2rem solid rgba(255, 255, 255, 0.08);
+      border-radius: 50%;
+    }
+    .recommendation-card h2,
+    .recommendation-card h3 {
+      color: #fff;
+    }
+    .recommendation-card .big-percent {
+      display: block;
+      margin: 0.5rem 0 0.25rem;
+      color: var(--gold);
+      font-family: var(--font-display);
+      font-size: 4rem;
+      font-weight: 900;
+      line-height: 0.9;
+    }
+    .recommendation-card p {
+      position: relative;
+      z-index: 1;
+      margin: 0.55rem 0 0;
+      color: rgba(255, 255, 255, 0.84);
+      font-size: 0.88rem;
+    }
+    .mix-board {
+      display: grid;
+      grid-template-columns: 18rem minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+    }
+    .donut {
+      display: grid;
+      place-items: center;
+      min-height: 18rem;
+      border: 1px solid rgba(36, 55, 112, 0.12);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at center, #fff 0 39%, transparent 40%),
+        conic-gradient(var(--red) 0 49%, var(--teal) 49% 77%, var(--gold) 77% 100%);
+    }
+    .donut div {
+      text-align: center;
+    }
+    .donut strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 2.7rem;
+      font-weight: 900;
+      line-height: 0.95;
+    }
+    .donut span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .mix-bars {
+      display: grid;
+      gap: 0.72rem;
+      margin-top: 0.8rem;
+    }
+    .mix-row {
+      display: grid;
+      grid-template-columns: 6.3rem minmax(0, 1fr) 5.8rem;
+      gap: 0.55rem;
+      align-items: center;
+    }
+    .mix-row b {
+      color: var(--ink);
+      font-size: 0.84rem;
+    }
+    .mix-track {
+      height: 0.95rem;
+      border-radius: 999px;
+      background: #e7eef7;
+      overflow: hidden;
+    }
+    .mix-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--bar-color, var(--red));
+    }
+    .mix-row span {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.88rem;
+      font-weight: 900;
+      text-align: right;
+    }
+    .efficiency-panel {
+      display: grid;
+      grid-template-columns: minmax(16rem, 0.8fr) minmax(0, 1.2fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .score-card {
+      display: grid;
+      align-content: center;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--surface-blue), #fff);
+      padding: 1rem;
+    }
+    .score-card strong {
+      color: var(--teal);
+      font-family: var(--font-display);
+      font-size: 4rem;
+      font-weight: 900;
+      line-height: 0.9;
+    }
+    .score-card span {
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .score-bars {
+      display: grid;
+      gap: 0.8rem;
+      margin-top: 0.75rem;
+    }
+    .score-row {
+      display: grid;
+      grid-template-columns: 11.2rem minmax(0, 1fr) 2.8rem;
+      gap: 0.55rem;
+      align-items: center;
+    }
+    .score-row b {
+      color: var(--ink);
+      font-size: 0.82rem;
+    }
+    .score-track {
+      height: 1rem;
+      border-radius: 999px;
+      background: #e7eef7;
+      overflow: hidden;
+    }
+    .score-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .score-row span {
+      color: var(--teal);
+      font-family: var(--font-display);
+      font-weight: 900;
+      text-align: right;
+    }
+    .feedback-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+    .feedback-list {
+      margin: 0.55rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .feedback-list li {
+      position: relative;
+      margin: 0.48rem 0;
+      padding-left: 1rem;
+      font-size: 0.86rem;
+    }
+    .feedback-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.58em;
+      width: 0.42rem;
+      height: 0.42rem;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+    .table-card .note {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-weight: 750;
+    }
+    .takeaway-banner {
+      display: grid;
+      grid-template-columns: 0.72fr 1.28fr;
+      gap: 1rem;
+      align-items: center;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--surface-warm), #fff 55%, var(--surface-blue));
+      padding: 1rem;
+    }
+    .takeaway-badge {
+      display: grid;
+      place-items: center;
+      min-height: 10rem;
+      border: 2px solid rgba(209, 38, 48, 0.22);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2.3rem;
+      font-weight: 900;
+      text-align: center;
+      line-height: 1;
+    }
+    .takeaway-banner p {
+      margin: 0.55rem 0 0;
+    }
+    @media (max-width: 900px) {
+      .workflow-ribbon {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .funnel-grid,
+      .mix-board,
+      .efficiency-panel,
+      .feedback-grid,
+      .takeaway-banner {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 560px) {
+      .workflow-ribbon,
+      .funnel-row,
+      .mix-row,
+      .score-row {
+        grid-template-columns: 1fr;
+      }
+      .funnel-row span,
+      .mix-row span,
+      .score-row span {
+        text-align: left;
+      }
+      .donut {
+        min-height: 14rem;
+      }
+      .recommendation-card .big-percent,
+      .score-card strong {
+        font-size: 3.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#workflow">Workflow</a>
+        <a href="#results">Results</a>
+        <a href="#vaccines">Vaccines</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2022 poster 28-2022</p>
+        <h1 id="poster-title">Implementing a vaccine screening protocol for specialty disease modifying anti-rheumatic drugs</h1>
+        <p class="hero-summary">
+          Vanderbilt specialty pharmacists embedded a vaccine screening form into drug-specific
+          DMARD counseling notes, turning new-start counseling into a standardized checkpoint for
+          immunization review, vaccine counseling, and documented recommendations.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Quality improvement</li>
+          <li class="tag therapy">Rheumatology</li>
+          <li class="tag therapy">Specialty DMARDs</li>
+          <li class="tag">09/01/2021 to 10/29/2021</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata and vaccine screening form visual">
+        <div>
+          <div class="poster-code">28-2022</div>
+          <dl class="meta-grid">
+            <div>
+              <dt>Year</dt>
+              <dd>2022</dd>
+            </div>
+            <div>
+              <dt>Setting</dt>
+              <dd>Outpatient rheumatology</dd>
+            </div>
+            <div>
+              <dt>Site</dt>
+              <dd>Vanderbilt</dd>
+            </div>
+            <div>
+              <dt>Tool</dt>
+              <dd>EHR form</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="form-preview">
+          <h3>EHR vaccine screening cue</h3>
+          <div class="check-row" aria-label="Clinical screenings reviewed">
+            <span class="check-chip"><i>&#10003;</i> Immunization record</span>
+            <span class="check-chip"><i>&#10003;</i> Hepatitis B</span>
+            <span class="check-chip"><i>&#10003;</i> TB</span>
+          </div>
+          <div class="check-row" aria-label="Immunizations recommended">
+            <span class="check-chip"><i>&#10003;</i> Pneumonia</span>
+            <span class="check-chip"><i>&#10003;</i> Influenza</span>
+            <span class="check-chip"><i>&#10003;</i> Zoster</span>
+          </div>
+        </div>
+        <svg viewBox="0 0 420 170" role="img" aria-label="Stylized pharmacist checklist connecting patient counseling to vaccine recommendations">
+          <rect x="22" y="28" width="108" height="108" rx="18" fill="#eef4fb" stroke="#aebbd2" />
+          <circle cx="76" cy="67" r="22" fill="#187c8f" opacity=".92" />
+          <path d="M42 127c10-26 58-26 68 0" fill="none" stroke="#187c8f" stroke-width="12" stroke-linecap="round" />
+          <path d="M145 84h73" stroke="#d12630" stroke-width="8" stroke-linecap="round" />
+          <path d="M208 65l27 19-27 19" fill="none" stroke="#d12630" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+          <rect x="253" y="22" width="140" height="125" rx="12" fill="#fff7ea" stroke="#aebbd2" />
+          <path d="M281 55l11 11 25-28" fill="none" stroke="#4d8a67" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M327 52h42M281 89l11 11 25-28M327 86h42M281 123l11 11 25-28M327 120h42" fill="none" stroke="#243770" stroke-width="7" stroke-linecap="round" />
+        </svg>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Eligible patients</span>
+          <strong>106</strong>
+          <em>New specialty DMARD starts counseled by integrated pharmacists.</em>
+        </article>
+        <article class="metric-card">
+          <span>Screened</span>
+          <strong>76<small> / 71.7%</small></strong>
+          <em>Eligible patients who received vaccine screening.</em>
+        </article>
+        <article class="metric-card">
+          <span>Recommendations made</span>
+          <strong>72<small> / 67.9%</small></strong>
+          <em>Eligible patients with documented vaccine recommendations.</em>
+        </article>
+        <article class="metric-card">
+          <span>Efficiency score</span>
+          <strong>8.0<small> / 10</small></strong>
+          <em>Post-implementation pharmacist rating, up from 4.2.</em>
+        </article>
+      </section>
+
+      <section id="workflow" class="panel">
+        <p class="section-label">Implementation in workflow</p>
+        <h2>The protocol was inserted at the counseling moment when pharmacists already review therapy start requirements</h2>
+        <div class="workflow-ribbon" aria-label="Specialty DMARD workflow">
+          <article class="workflow-step" data-step="1">
+            <h3>New prescription request</h3>
+            <p>Specialty pharmacist receives a new DMARD request from the rheumatology provider.</p>
+          </article>
+          <article class="workflow-step" data-step="2">
+            <h3>Formulary and authorization</h3>
+            <p>Insurance coverage review and prior authorization steps are completed.</p>
+          </article>
+          <article class="workflow-step" data-step="3">
+            <h3>Treatment selection</h3>
+            <p>Specialty DMARD selection moves forward after access work is resolved.</p>
+          </article>
+          <article class="workflow-step screening" data-step="4">
+            <h3>Initial counseling plus screening</h3>
+            <p>Drug-specific counseling note prompts vaccine eligibility review and recommendations.</p>
+            <span class="sidecar">new protocol</span>
+          </article>
+          <article class="workflow-step" data-step="5">
+            <h3>Prescription delivery</h3>
+            <p>Therapy delivery proceeds with immunization counseling documented in the EHR.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="results" class="funnel-grid">
+        <article class="panel">
+          <p class="section-label">Screening funnel</p>
+          <h2>Most eligible patients were screened; nearly all screened patients received a recommendation</h2>
+          <p>
+            The implementation created a measurable documentation funnel: 106 eligible patients,
+            76 screened patients, and 72 patients with vaccine recommendations.
+          </p>
+          <div class="funnel-chart" aria-label="Patient screening funnel">
+            <div class="funnel-row">
+              <b>Total eligible patients</b>
+              <div class="funnel-track"><i style="width:100%"></i></div>
+              <span>106</span>
+            </div>
+            <div class="funnel-row">
+              <b>Received vaccine screening</b>
+              <div class="funnel-track"><i style="width:71.7%"></i></div>
+              <span>76</span>
+            </div>
+            <div class="funnel-row">
+              <b>Recommendations made</b>
+              <div class="funnel-track"><i style="width:67.9%"></i></div>
+              <span>72</span>
+            </div>
+          </div>
+        </article>
+
+        <aside class="recommendation-card">
+          <h2>Recommendation yield</h2>
+          <span class="big-percent">94.7%</span>
+          <h3>of screened patients received specific vaccine recommendations</h3>
+          <p>
+            The strongest result was not only screening completion but conversion of screening into
+            actionable vaccine counseling for specialty DMARD patients.
+          </p>
+        </aside>
+      </section>
+
+      <section id="vaccines" class="panel mix-board">
+        <div class="donut" aria-label="Vaccine recommendation mix: influenza 49 percent, zoster 28 percent, pneumonia 23 percent">
+          <div>
+            <strong>120</strong>
+            <span>recommendations</span>
+          </div>
+        </div>
+        <div>
+          <p class="section-label">Types of vaccines recommended</p>
+          <h2>Influenza made up about half of documented recommendations</h2>
+          <p>
+            The extracted table reports 59 influenza, 33 zoster, and 28 pneumonia recommendations,
+            indicating that multiple vaccine recommendations could be made for a single screened patient.
+          </p>
+          <div class="mix-bars" aria-label="Vaccine recommendation mix">
+            <div class="mix-row">
+              <b>Influenza</b>
+              <div class="mix-track"><i style="width:49%; --bar-color: var(--red)"></i></div>
+              <span>49% (n=59)</span>
+            </div>
+            <div class="mix-row">
+              <b>Zoster</b>
+              <div class="mix-track"><i style="width:28%; --bar-color: var(--teal)"></i></div>
+              <span>28% (n=33)</span>
+            </div>
+            <div class="mix-row">
+              <b>Pneumonia</b>
+              <div class="mix-track"><i style="width:23%; --bar-color: var(--gold)"></i></div>
+              <span>23% (n=28)</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="efficiency-panel">
+        <article class="score-card" aria-label="Efficiency score change from 4.2 to 8">
+          <span>Post-implementation efficiency</span>
+          <strong>8.0</strong>
+          <p>
+            Pharmacists rated the standardized process substantially more efficient after the EHR
+            note form and condensed vaccine resource were introduced.
+          </p>
+        </article>
+        <article class="panel">
+          <p class="section-label">Pharmacist implementation survey</p>
+          <h2>Efficiency nearly doubled after the protocol went live</h2>
+          <div class="score-bars" aria-label="Efficiency score before and after implementation">
+            <div class="score-row">
+              <b>Pre-implementation (n=5)</b>
+              <div class="score-track"><i style="width:42%"></i></div>
+              <span>4.2</span>
+            </div>
+            <div class="score-row">
+              <b>Post-implementation (n=6)</b>
+              <div class="score-track"><i style="width:80%"></i></div>
+              <span>8.0</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="feedback-grid" aria-label="Feedback and future directions">
+        <article class="panel">
+          <p class="section-label">What worked</p>
+          <h2>Pharmacists described the tool as clear and easy to use</h2>
+          <ul class="feedback-list">
+            <li>The EHR form made vaccine review visible inside the chart.</li>
+            <li>The condensed reference helped pharmacists recommend appropriate vaccines consistently.</li>
+            <li>The protocol fit into an existing specialty pharmacist counseling workflow.</li>
+          </ul>
+        </article>
+        <article class="panel">
+          <p class="section-label">Suggested improvements</p>
+          <h2>Next refinements focused on automation and more complete vaccine context</h2>
+          <ul class="feedback-list">
+            <li>Add COVID vaccine documentation, dose-series options, and declined/completed fields.</li>
+            <li>Pull vaccine dates, lab values, and prior form data directly into the note.</li>
+            <li>Assess long-term follow-up to determine which recommended vaccines are received.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Extracted table patterns">
+        <article class="table-card">
+          <p class="section-label">Table pattern 1</p>
+          <h2>Eligible patient screening outcomes</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Patients</th>
+                  <th>Percentage of eligible</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Total eligible patients</td><td>106</td><td>100%</td></tr>
+                <tr><td>Received vaccine screening</td><td>76</td><td>71.7%</td></tr>
+                <tr><td>Vaccine recommendations made</td><td>72</td><td>67.9%</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="note">The poster additionally reports that 94.7% of screened patients received recommendations.</p>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Table pattern 2</p>
+          <h2>Vaccine type distribution</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Vaccine type</th>
+                  <th>Percentage</th>
+                  <th>Count</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Influenza</td><td>49%</td><td>59</td></tr>
+                <tr><td>Zoster</td><td>28%</td><td>33</td></tr>
+                <tr><td>Pneumonia</td><td>23%</td><td>28</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="note">Counts sum to 120 vaccine recommendations across 72 patients with recommendations.</p>
+        </article>
+      </section>
+
+      <section class="takeaway-banner">
+        <div class="takeaway-badge">EHR<br>Prompt</div>
+        <div>
+          <p class="section-label">Conclusion</p>
+          <h2>A standardized vaccine screening protocol produced broad screening and practical recommendations</h2>
+          <p>
+            The poster concludes that embedding vaccine screening in specialty DMARD counseling
+            notes led to successful screening for most eligible patients, frequent specific vaccine
+            recommendations, and a process pharmacists rated as efficient.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/28-2022.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/28-2022.md">Source Markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

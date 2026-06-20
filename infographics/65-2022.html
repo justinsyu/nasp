@@ -1,0 +1,846 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>65-2022 | PARPi 90-Day Safety and Adherence</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -3.3rem;
+      top: -3rem;
+      width: 13.5rem;
+      height: 13.5rem;
+      border: 1.15rem solid rgba(209, 38, 48, 0.1);
+      border-radius: 50%;
+    }
+
+    .parpi-orbit {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      min-height: 16.5rem;
+      margin-top: 0.2rem;
+    }
+
+    .parpi-orbit svg {
+      width: min(100%, 21rem);
+      height: auto;
+      display: block;
+    }
+
+    .metric-card p {
+      margin: 0.38rem 0 0;
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-weight: 750;
+    }
+
+    .metric-card strong small {
+      color: var(--red);
+      font-size: 0.9rem;
+    }
+
+    .story-band {
+      display: grid;
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .dark-claim {
+      display: grid;
+      align-content: center;
+      min-height: 16rem;
+      border: 1px solid var(--ink);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 88% 18%, rgba(233, 158, 37, 0.28), transparent 7rem),
+        linear-gradient(145deg, #243770, #18264f);
+      color: #fff;
+      padding: 1.1rem;
+    }
+
+    .dark-claim span {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .dark-claim strong {
+      display: block;
+      margin-top: 0.25rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 6vw, 4.6rem);
+      line-height: 0.94;
+      overflow-wrap: anywhere;
+    }
+
+    .dark-claim p {
+      max-width: 24rem;
+      margin: 0.7rem 0 0;
+      color: rgba(255, 255, 255, 0.84);
+      font-size: 0.95rem;
+    }
+
+    .pathway {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+
+    .path-node {
+      display: grid;
+      grid-template-columns: 4.3rem minmax(0, 1fr);
+      gap: 0.75rem;
+      align-items: center;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.65rem;
+    }
+
+    .path-node b {
+      display: grid;
+      place-items: center;
+      min-height: 3.4rem;
+      border-radius: 7px;
+      background: var(--surface-blue);
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+
+    .path-node h3 {
+      margin-bottom: 0.14rem;
+    }
+
+    .path-node p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 750;
+    }
+
+    .path-node.mod b { background: rgba(209, 38, 48, 0.1); color: var(--red); }
+    .path-node.hold b { background: rgba(233, 158, 37, 0.16); color: #9a610e; }
+    .path-node.reduce b { background: rgba(77, 138, 103, 0.14); color: var(--green); }
+
+    .ae-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 1rem;
+    }
+
+    .ae-bars {
+      display: grid;
+      gap: 0.62rem;
+      margin-top: 0.75rem;
+    }
+
+    .ae-row {
+      display: grid;
+      grid-template-columns: 7.8rem minmax(0, 1fr) 2.2rem;
+      gap: 0.55rem;
+      align-items: center;
+    }
+
+    .ae-row span {
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+
+    .ae-row em {
+      color: var(--ink);
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .ae-track {
+      height: 0.78rem;
+      border: 1px solid rgba(36, 55, 112, 0.15);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+
+    .ae-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .heatmap {
+      display: grid;
+      gap: 0.42rem;
+      margin-top: 0.75rem;
+    }
+
+    .heat-row,
+    .heat-head {
+      display: grid;
+      grid-template-columns: 5.8rem repeat(8, minmax(1.45rem, 1fr));
+      gap: 0.22rem;
+      align-items: center;
+    }
+
+    .heat-head span {
+      color: var(--muted);
+      font-size: 0.58rem;
+      font-weight: 900;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .heat-row b {
+      color: var(--ink);
+      font-size: 0.72rem;
+      line-height: 1.1;
+    }
+
+    .heat-cell {
+      display: grid;
+      place-items: center;
+      min-height: 1.55rem;
+      border: 1px solid rgba(174, 187, 210, 0.75);
+      border-radius: 4px;
+      background: #f5f8fc;
+      color: var(--ink);
+      font-size: 0.7rem;
+      font-weight: 850;
+    }
+
+    .heat-cell[data-level="1"] { background: rgba(233, 158, 37, 0.18); }
+    .heat-cell[data-level="2"] { background: rgba(233, 158, 37, 0.35); }
+    .heat-cell[data-level="3"] { background: rgba(209, 38, 48, 0.16); }
+    .heat-cell[data-level="4"] { background: rgba(209, 38, 48, 0.28); }
+    .heat-cell[data-level="5"] { background: rgba(209, 38, 48, 0.42); }
+
+    .timeline-panel {
+      overflow: hidden;
+    }
+
+    .mod-timeline {
+      display: grid;
+      grid-template-columns: repeat(8, minmax(0, 1fr));
+      gap: 0.42rem;
+      margin-top: 0.9rem;
+      align-items: end;
+    }
+
+    .time-col {
+      display: grid;
+      grid-template-rows: 8.5rem auto;
+      gap: 0.45rem;
+      min-width: 0;
+    }
+
+    .stack {
+      display: grid;
+      align-content: end;
+      gap: 0.1rem;
+      height: 8.5rem;
+      border: 1px solid rgba(174, 187, 210, 0.6);
+      border-radius: 6px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.25rem;
+    }
+
+    .seg {
+      display: block;
+      min-height: 0.55rem;
+      border-radius: 3px;
+    }
+
+    .seg.hold { background: var(--gold); }
+    .seg.reduce { background: var(--green); }
+    .seg.stop { background: var(--red); }
+
+    .time-col span {
+      color: var(--ink);
+      font-size: 0.65rem;
+      font-weight: 850;
+      text-align: center;
+    }
+
+    .timeline-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 0.8rem;
+      margin-top: 0.7rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 850;
+    }
+
+    .timeline-legend i {
+      display: inline-block;
+      width: 0.7rem;
+      height: 0.7rem;
+      margin-right: 0.25rem;
+      border-radius: 2px;
+      vertical-align: -0.05rem;
+    }
+
+    .timeline-legend .hold i { background: var(--gold); }
+    .timeline-legend .reduce i { background: var(--green); }
+    .timeline-legend .stop i { background: var(--red); }
+
+    .adherence-card {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+
+    .adherence-tile {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.8rem;
+    }
+
+    .adherence-tile strong {
+      color: var(--teal);
+      font-family: var(--font-display);
+      font-size: 2.15rem;
+      line-height: 1;
+    }
+
+    .adherence-tile span {
+      display: block;
+      margin-top: 0.3rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 800;
+    }
+
+    .source-note {
+      margin: 0.65rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 750;
+    }
+
+    .callout-list {
+      margin: 0.6rem 0 0 1.05rem;
+      padding: 0;
+    }
+
+    .callout-list li {
+      margin: 0.28rem 0;
+    }
+
+    @media (max-width: 900px) {
+      .story-band,
+      .ae-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .mod-timeline {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 620px) {
+      body {
+        overflow-x: hidden;
+      }
+
+      .infographic-shell {
+        width: calc(100vw - 1rem);
+        overflow-x: hidden;
+      }
+
+      .infographic-shell,
+      .poster-hero,
+      .hero-copy,
+      .hero-card,
+      main,
+      section,
+      .panel,
+      .table-card {
+        min-width: 0;
+        max-width: 100%;
+      }
+
+      h1 {
+        width: 100%;
+        max-width: 20.8rem;
+        font-size: 1.48rem;
+        line-height: 1.16;
+        overflow-wrap: anywhere;
+      }
+
+      h2 {
+        overflow-wrap: anywhere;
+      }
+
+      .hero-summary {
+        width: 100%;
+        max-width: 20.8rem;
+        font-size: 0.92rem;
+        overflow-wrap: anywhere;
+      }
+
+      .meta-grid dd {
+        overflow-wrap: anywhere;
+      }
+
+      .ae-row {
+        grid-template-columns: 1fr;
+      }
+
+      .ae-row em {
+        text-align: left;
+      }
+
+      .heat-row,
+      .heat-head {
+        grid-template-columns: 4.8rem repeat(8, minmax(1.2rem, 1fr));
+      }
+
+      .heat-head span,
+      .heat-row b,
+      .heat-cell {
+        font-size: 0.56rem;
+      }
+
+      .mod-timeline,
+      .adherence-card {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#evidence">Evidence</a>
+        <a href="#tables">Tables</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2022 poster 65</p>
+        <h1>PARPi therapy: adverse events and treatment modifications during the first 90 days</h1>
+        <p class="hero-summary">
+          Vanderbilt Specialty Pharmacy reviewed new starts on olaparib, rucaparib, niraparib, or talazoparib to map early adverse events, treatment holds, dose reductions, discontinuations, and adherence.
+        </p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag therapy">Oncology</li>
+          <li class="tag therapy">PARP inhibitors</li>
+          <li class="tag category">Retrospective cohort</li>
+          <li class="tag">90-day follow-up</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div class="poster-code">65-2022</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Site</dt>
+            <dd>Vanderbilt University Medical Center</dd>
+          </div>
+          <div>
+            <dt>Cohort</dt>
+            <dd>N=28</dd>
+          </div>
+          <div>
+            <dt>Window</dt>
+            <dd>Nov 2017 to Oct 2019</dd>
+          </div>
+          <div>
+            <dt>Follow-up</dt>
+            <dd>90 days</dd>
+          </div>
+        </dl>
+        <div class="parpi-orbit" aria-hidden="true">
+          <svg viewBox="0 0 320 250">
+            <defs>
+              <linearGradient id="pillFill" x1="0" x2="1">
+                <stop offset="0" stop-color="#d12630"/>
+                <stop offset="1" stop-color="#e99e25"/>
+              </linearGradient>
+            </defs>
+            <circle cx="160" cy="124" r="88" fill="#eef4fb" stroke="#aebbd2" stroke-width="2"/>
+            <circle cx="160" cy="124" r="58" fill="#fff" stroke="#d9e1ef" stroke-width="2"/>
+            <path d="M93 103c17-33 50-54 87-51" fill="none" stroke="#187c8f" stroke-width="7" stroke-linecap="round"/>
+            <path d="M230 142c-11 34-42 59-79 62" fill="none" stroke="#4d8a67" stroke-width="7" stroke-linecap="round"/>
+            <g transform="rotate(-24 160 124)">
+              <rect x="105" y="104" width="110" height="39" rx="19.5" fill="url(#pillFill)"/>
+              <line x1="160" y1="104" x2="160" y2="143" stroke="#fff" stroke-width="3"/>
+            </g>
+            <g fill="#243770" font-family="Montserrat, Arial, sans-serif" text-anchor="middle">
+              <text x="160" y="120" font-size="24" font-weight="900">PARPi</text>
+              <text x="160" y="141" font-size="12" font-weight="800">90 days</text>
+            </g>
+            <g font-family="Inter, Arial, sans-serif" font-size="10" font-weight="800" fill="#243770">
+              <circle cx="58" cy="64" r="20" fill="#fff7ea" stroke="#e99e25"/>
+              <text x="58" y="68" text-anchor="middle">AE</text>
+              <circle cx="264" cy="62" r="20" fill="#fff" stroke="#d12630"/>
+              <text x="264" y="66" text-anchor="middle">Hold</text>
+              <circle cx="258" cy="193" r="20" fill="#eef4fb" stroke="#187c8f"/>
+              <text x="258" y="197" text-anchor="middle">PDC</text>
+              <circle cx="63" cy="190" r="20" fill="#fff" stroke="#4d8a67"/>
+              <text x="63" y="194" text-anchor="middle">Dose</text>
+            </g>
+          </svg>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key metrics">
+        <article class="metric-card">
+          <span>Any adverse event</span>
+          <strong>100<small>%</small></strong>
+          <p>All 28 patients reported at least one AE in the first 90 days.</p>
+        </article>
+        <article class="metric-card">
+          <span>Treatment modifications</span>
+          <strong>18</strong>
+          <p>64% of patients had a hold, dose reduction, or discontinuation.</p>
+        </article>
+        <article class="metric-card">
+          <span>Treatment holds</span>
+          <strong>15</strong>
+          <p>The most common modification, concentrated near week 6 and day 60.</p>
+        </article>
+        <article class="metric-card">
+          <span>Hold-adjusted PDC</span>
+          <strong>100<small>%</small></strong>
+          <p>Median adherence after removing medically advised hold days.</p>
+        </article>
+      </section>
+
+      <section class="story-band">
+        <article class="dark-claim">
+          <span>Primary finding</span>
+          <strong>AE load did not erase adherence</strong>
+          <p>
+            Early toxicity was universal and modifications were common, but patients who remained on therapy still showed high medication coverage.
+          </p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Treatment modification pathway</p>
+          <h2>Most patients needed an adjustment, usually a hold or dose reduction.</h2>
+          <div class="pathway" aria-label="Patient treatment modification pathway">
+            <div class="path-node">
+              <b>28</b>
+              <div>
+                <h3>Patients initiated PARPi therapy</h3>
+                <p>Single-center retrospective cohort with 90-day observation from medication initiation.</p>
+              </div>
+            </div>
+            <div class="path-node mod">
+              <b>18</b>
+              <div>
+                <h3>Had treatment modifications</h3>
+                <p>Modification categories were not mutually exclusive.</p>
+              </div>
+            </div>
+            <div class="path-node hold">
+              <b>15</b>
+              <div>
+                <h3>Treatment holds</h3>
+                <p>11 patients had 1 hold, 3 had 2 holds, and 1 had 3 holds.</p>
+              </div>
+            </div>
+            <div class="path-node reduce">
+              <b>11</b>
+              <div>
+                <h3>Dose reductions</h3>
+                <p>7 patients had 1 reduction and 4 patients had 2 reductions.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section id="evidence" class="ae-grid">
+        <article class="panel">
+          <p class="section-label">Adverse event signal</p>
+          <h2>Fatigue, nausea, anemia, and vomiting were the recurring early AEs.</h2>
+          <div class="ae-bars" aria-label="Cumulative adverse event frequency entries">
+            <div class="ae-row">
+              <span>Fatigue</span>
+              <div class="ae-track"><i style="width:100%"></i></div>
+              <em>25</em>
+            </div>
+            <div class="ae-row">
+              <span>Nausea</span>
+              <div class="ae-track"><i style="width:88%"></i></div>
+              <em>22</em>
+            </div>
+            <div class="ae-row">
+              <span>Anemia</span>
+              <div class="ae-track"><i style="width:72%"></i></div>
+              <em>18</em>
+            </div>
+            <div class="ae-row">
+              <span>Elevated creatinine</span>
+              <div class="ae-track"><i style="width:56%"></i></div>
+              <em>14</em>
+            </div>
+            <div class="ae-row">
+              <span>Other</span>
+              <div class="ae-track"><i style="width:52%"></i></div>
+              <em>13</em>
+            </div>
+            <div class="ae-row">
+              <span>Vomiting</span>
+              <div class="ae-track"><i style="width:36%"></i></div>
+              <em>9</em>
+            </div>
+          </div>
+          <p class="source-note">Counts summarize table entries across scheduled checkpoints and are not unique-patient incidence.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">AE timing heatmap</p>
+          <h2>Symptoms were present from week 1 through day 90.</h2>
+          <div class="heatmap" aria-label="Adverse event frequency by time">
+            <div class="heat-head">
+              <span></span><span>W1</span><span>W2</span><span>W3</span><span>W4</span><span>W5</span><span>W6</span><span>D60</span><span>D90</span>
+            </div>
+            <div class="heat-row">
+              <b>Fatigue</b>
+              <span class="heat-cell" data-level="2">3</span><span class="heat-cell" data-level="1">1</span><span class="heat-cell" data-level="1">2</span><span class="heat-cell" data-level="5">6</span><span class="heat-cell" data-level="1">1</span><span class="heat-cell" data-level="3">4</span><span class="heat-cell" data-level="3">4</span><span class="heat-cell" data-level="3">4</span>
+            </div>
+            <div class="heat-row">
+              <b>Nausea</b>
+              <span class="heat-cell" data-level="3">4</span><span class="heat-cell" data-level="2">3</span><span class="heat-cell" data-level="2">3</span><span class="heat-cell" data-level="3">4</span><span class="heat-cell" data-level="1">2</span><span class="heat-cell" data-level="2">3</span><span class="heat-cell">0</span><span class="heat-cell" data-level="2">3</span>
+            </div>
+            <div class="heat-row">
+              <b>Anemia</b>
+              <span class="heat-cell" data-level="1">1</span><span class="heat-cell" data-level="1">2</span><span class="heat-cell">0</span><span class="heat-cell" data-level="3">4</span><span class="heat-cell" data-level="2">3</span><span class="heat-cell" data-level="1">1</span><span class="heat-cell" data-level="3">4</span><span class="heat-cell" data-level="2">3</span>
+            </div>
+            <div class="heat-row">
+              <b>Creatinine</b>
+              <span class="heat-cell">0</span><span class="heat-cell" data-level="1">1</span><span class="heat-cell" data-level="1">1</span><span class="heat-cell" data-level="3">4</span><span class="heat-cell" data-level="1">2</span><span class="heat-cell" data-level="1">1</span><span class="heat-cell" data-level="1">2</span><span class="heat-cell" data-level="2">3</span>
+            </div>
+            <div class="heat-row">
+              <b>Vomiting</b>
+              <span class="heat-cell" data-level="1">1</span><span class="heat-cell">0</span><span class="heat-cell" data-level="1">2</span><span class="heat-cell" data-level="1">1</span><span class="heat-cell" data-level="1">1</span><span class="heat-cell">0</span><span class="heat-cell" data-level="2">3</span><span class="heat-cell">0</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="visual-grid">
+        <article class="panel timeline-panel">
+          <p class="section-label">Modification timing</p>
+          <h2>Adjustment activity peaked between week 6 and day 60.</h2>
+          <div class="mod-timeline" aria-label="Treatment modifications over time">
+            <div class="time-col">
+              <div class="stack">
+                <i class="seg hold" style="height:1.1rem"></i>
+              </div>
+              <span>Week 1</span>
+            </div>
+            <div class="time-col">
+              <div class="stack">
+                <i class="seg stop" style="height:0.55rem"></i>
+              </div>
+              <span>Week 2</span>
+            </div>
+            <div class="time-col">
+              <div class="stack">
+                <i class="seg hold" style="height:2.2rem"></i>
+                <i class="seg reduce" style="height:0.55rem"></i>
+              </div>
+              <span>Week 3</span>
+            </div>
+            <div class="time-col">
+              <div class="stack">
+                <i class="seg hold" style="height:0.55rem"></i>
+                <i class="seg reduce" style="height:0.55rem"></i>
+                <i class="seg stop" style="height:0.55rem"></i>
+              </div>
+              <span>Week 4</span>
+            </div>
+            <div class="time-col">
+              <div class="stack">
+                <i class="seg hold" style="height:1.1rem"></i>
+                <i class="seg stop" style="height:0.55rem"></i>
+              </div>
+              <span>Week 5</span>
+            </div>
+            <div class="time-col">
+              <div class="stack">
+                <i class="seg hold" style="height:3.85rem"></i>
+                <i class="seg reduce" style="height:1.65rem"></i>
+                <i class="seg stop" style="height:0.55rem"></i>
+              </div>
+              <span>Week 6</span>
+            </div>
+            <div class="time-col">
+              <div class="stack">
+                <i class="seg hold" style="height:2.2rem"></i>
+                <i class="seg reduce" style="height:1.65rem"></i>
+                <i class="seg stop" style="height:1.65rem"></i>
+              </div>
+              <span>Day 60</span>
+            </div>
+            <div class="time-col">
+              <div class="stack">
+                <i class="seg stop" style="height:2.75rem"></i>
+              </div>
+              <span>Day 90</span>
+            </div>
+          </div>
+          <div class="timeline-legend">
+            <span class="hold"><i></i>Treatment hold</span>
+            <span class="reduce"><i></i>Dose reduction</span>
+            <span class="stop"><i></i>Discontinuation</span>
+          </div>
+        </article>
+
+        <article class="panel markdown-fragment">
+          <p class="section-label">Objective and interpretation</p>
+          <h2>The poster asks how early PARPi toxicity translates into medication changes.</h2>
+          <p><strong>Primary objective:</strong> Identify AE type and frequency, then quantify AE-related treatment holds, dose reductions, and discontinuations after PARPi initiation.</p>
+          <p><strong>Secondary objective:</strong> Measure adherence to PARPi therapy.</p>
+          <ul class="callout-list">
+            <li>Patients initiating olaparib, rucaparib, niraparib, or talazoparib for FDA-approved indications were included.</li>
+            <li>Clinical trial participation was excluded.</li>
+            <li>The prospective phase will evaluate the integrated specialty pharmacist role in AE mitigation, patient education, and supportive therapy.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">Adherence among evaluable records</p>
+          <h2>Coverage stayed high despite interruptions.</h2>
+          <div class="adherence-card">
+            <div class="adherence-tile">
+              <strong>97%</strong>
+              <span>PDC, median (IQR 92-100)</span>
+            </div>
+            <div class="adherence-tile">
+              <strong>100%</strong>
+              <span>Hold-adjusted PDC, median (IQR 96-100)</span>
+            </div>
+          </div>
+          <p class="source-note">Four records filled externally were excluded from PDC analysis, leaving N=24.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Cohort profile</p>
+          <h2>Mostly olaparib-treated ovarian cancer population.</h2>
+          <div class="number-cloud" aria-label="Cohort characteristics">
+            <div class="number-pill">62<small>Median age</small></div>
+            <div class="number-pill">96%<small>Female</small></div>
+            <div class="number-pill">82%<small>White</small></div>
+            <div class="number-pill">89%<small>Olaparib</small></div>
+            <div class="number-pill">84%<small>Ovarian on olaparib</small></div>
+            <div class="number-pill">43%<small>Two prior chemotherapies</small></div>
+          </div>
+        </article>
+      </section>
+
+      <section id="tables" class="tables-grid" aria-label="Extracted table patterns">
+        <article class="table-card">
+          <p class="section-label">Medication by cancer type</p>
+          <h2>PARPi distribution</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Pattern</th>
+                  <th>Olaparib N=25</th>
+                  <th>Rucaparib N=2</th>
+                  <th>Talazoparib N=1</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Breast cancer</td><td>8% (2)</td><td>--</td><td>100% (1)</td></tr>
+                <tr><td>Ovarian cancer</td><td>84% (21)</td><td>100% (2)</td><td>--</td></tr>
+                <tr><td>Pancreatic cancer</td><td>4% (1)</td><td>--</td><td>--</td></tr>
+                <tr><td>Prostate cancer</td><td>4% (1)</td><td>--</td><td>--</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Treatment modification detail</p>
+          <h2>What changed within 90 days</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Modification</th>
+                  <th>Patients</th>
+                  <th>Pattern</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>No treatment modification</td><td>10</td><td>36% of cohort</td></tr>
+                <tr><td>Any modification</td><td>18</td><td>64% of cohort</td></tr>
+                <tr><td>Dose reduction</td><td>11</td><td>7 had one; 4 had two</td></tr>
+                <tr><td>Treatment hold</td><td>15</td><td>11 had one; 3 had two; 1 had three</td></tr>
+                <tr><td>Discontinuation</td><td>5</td><td>1 AE-related; 4 disease progression</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="evidence-map" aria-label="Evidence flow">
+        <article class="evidence-card">
+          <h3>Clinical issue</h3>
+          <p>PARPi therapy can cause early adverse events that require active monitoring.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Study design</h3>
+          <p>Retrospective review followed new-start patients for 90 days after initiation.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Observed burden</h3>
+          <p>Every patient experienced at least one AE; fatigue, nausea, and anemia recurred across visits.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Management pattern</h3>
+          <p>Holds and dose reductions were frequent, especially after the first month.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Bottom line</h3>
+          <p>High adherence was maintained among patients who remained on therapy, despite modifications.</p>
+        </article>
+      </section>
+
+      <footer id="sources" class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/65-2022.pdf">Source PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/65-2022.md">Source Markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

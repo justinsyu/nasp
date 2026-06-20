@@ -1,0 +1,743 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>10-2022 | Oral Oncolytic Adherence During COVID-19</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -4rem -5rem auto;
+      width: 15rem;
+      height: 15rem;
+      border: 1.4rem solid rgba(24, 124, 143, 0.11);
+      border-radius: 50%;
+    }
+
+    .digital-ring {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 8rem minmax(0, 1fr);
+      gap: 0.8rem;
+      align-items: center;
+      margin-top: 0.3rem;
+    }
+
+    .ring-visual {
+      display: grid;
+      place-items: center;
+      width: 8rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background:
+        conic-gradient(var(--teal) 0 74.1%, rgba(174, 187, 210, 0.45) 74.1% 100%);
+      box-shadow: inset 0 0 0 1px rgba(36, 55, 112, 0.16);
+    }
+
+    .ring-visual span {
+      display: grid;
+      place-items: center;
+      width: 5.4rem;
+      aspect-ratio: 1;
+      border: 1px solid rgba(174, 187, 210, 0.8);
+      border-radius: 50%;
+      background: #fff;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      font-weight: 900;
+      line-height: 1;
+      text-align: center;
+    }
+
+    .ring-visual small {
+      display: block;
+      color: var(--muted);
+      font-family: var(--font-body);
+      font-size: 0.58rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .ring-note {
+      margin: 0;
+      color: var(--body);
+      font-size: 0.83rem;
+      font-weight: 750;
+    }
+
+    .metric-card strong small {
+      color: var(--red);
+      font-size: 0.95rem;
+    }
+
+    .metric-card em {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-style: normal;
+      font-weight: 750;
+      line-height: 1.28;
+    }
+
+    .timeline-panel {
+      position: relative;
+      min-height: 17rem;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(209, 38, 48, 0.12), transparent 8rem),
+        linear-gradient(140deg, #fff, var(--surface-blue));
+    }
+
+    .covid-timeline {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 0.9rem;
+    }
+
+    .timeline-track {
+      position: relative;
+      height: 2.25rem;
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(209, 38, 48, 0.14) 0 52.1%, rgba(24, 124, 143, 0.16) 52.1% 100%);
+      overflow: hidden;
+    }
+
+    .timeline-track::after {
+      content: "3/1/2020 split";
+      position: absolute;
+      left: 52.1%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      border: 1px solid rgba(36, 55, 112, 0.24);
+      border-radius: 999px;
+      background: #fff;
+      padding: 0.24rem 0.55rem;
+      color: var(--ink);
+      font-size: 0.66rem;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .timeline-labels {
+      display: grid;
+      grid-template-columns: 52.1fr 47.9fr;
+      gap: 0.65rem;
+    }
+
+    .timeline-labels div {
+      border-left: 4px solid var(--red);
+      background: rgba(255, 255, 255, 0.72);
+      padding: 0.55rem 0.65rem;
+    }
+
+    .timeline-labels div:last-child {
+      border-color: var(--teal);
+    }
+
+    .timeline-labels strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.18rem;
+      line-height: 1;
+    }
+
+    .timeline-labels span {
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 850;
+    }
+
+    .adherence-pair {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.95rem;
+    }
+
+    .adherence-tile {
+      border: 1px solid rgba(174, 187, 210, 0.8);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.7rem;
+    }
+
+    .adherence-tile strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.85rem;
+      line-height: 1;
+    }
+
+    .adherence-tile.post strong {
+      color: var(--teal);
+    }
+
+    .adherence-tile span {
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 850;
+    }
+
+    .ladder {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 0.8rem;
+    }
+
+    .ladder-row {
+      display: grid;
+      grid-template-columns: 7.5rem minmax(0, 1fr) 4.2rem;
+      gap: 0.55rem;
+      align-items: center;
+    }
+
+    .ladder-row b {
+      color: var(--ink);
+      font-size: 0.78rem;
+    }
+
+    .ladder-track {
+      height: 0.82rem;
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 999px;
+      background: #e9eff7;
+      overflow: hidden;
+    }
+
+    .ladder-fill {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .ladder-fill.high {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .ladder-row em {
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .forest {
+      display: grid;
+      gap: 0.65rem;
+      margin-top: 0.85rem;
+    }
+
+    .forest-row {
+      display: grid;
+      grid-template-columns: 9.6rem minmax(0, 1fr) 3.8rem;
+      gap: 0.55rem;
+      align-items: center;
+      min-height: 1.85rem;
+    }
+
+    .forest-row .factor {
+      color: var(--ink);
+      font-size: 0.76rem;
+      font-weight: 850;
+      line-height: 1.15;
+    }
+
+    .forest-axis {
+      position: relative;
+      height: 1.05rem;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(209, 38, 48, 0.1), #eef4fb 50%, rgba(77, 138, 103, 0.13));
+    }
+
+    .forest-axis::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: -0.22rem;
+      bottom: -0.22rem;
+      width: 2px;
+      background: rgba(36, 55, 112, 0.55);
+    }
+
+    .ci {
+      position: absolute;
+      top: 50%;
+      left: var(--lo);
+      width: calc(var(--hi) - var(--lo));
+      height: 3px;
+      transform: translateY(-50%);
+      border-radius: 999px;
+      background: rgba(36, 55, 112, 0.54);
+    }
+
+    .or-dot {
+      position: absolute;
+      top: 50%;
+      left: var(--or);
+      width: 0.82rem;
+      height: 0.82rem;
+      transform: translate(-50%, -50%);
+      border: 2px solid #fff;
+      border-radius: 50%;
+      background: var(--accent, var(--red));
+      box-shadow: 0 0 0 1px rgba(36, 55, 112, 0.25);
+    }
+
+    .forest-row.positive .or-dot {
+      --accent: var(--green);
+    }
+
+    .forest-row.neutral .or-dot {
+      --accent: var(--gold);
+    }
+
+    .forest-row .value {
+      color: var(--ink);
+      font-size: 0.76rem;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .flow-ribbon {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.8rem;
+    }
+
+    .flow-step {
+      min-height: 9.2rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.75rem;
+    }
+
+    .flow-step::before {
+      content: attr(data-step);
+      display: inline-grid;
+      place-items: center;
+      width: 1.75rem;
+      height: 1.75rem;
+      margin-bottom: 0.5rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+
+    .flow-step p {
+      margin: 0.35rem 0 0;
+      color: var(--body);
+      font-size: 0.8rem;
+    }
+
+    .callout-list {
+      display: grid;
+      gap: 0.55rem;
+      margin: 0.72rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .callout-list li {
+      border-left: 4px solid var(--teal);
+      background: var(--surface-blue);
+      padding: 0.55rem 0.68rem;
+      color: var(--body);
+      font-size: 0.84rem;
+    }
+
+    .callout-list li:nth-child(2) {
+      border-color: var(--gold);
+      background: var(--surface-warm);
+    }
+
+    .callout-list li:nth-child(3) {
+      border-color: var(--green);
+      background: rgba(77, 138, 103, 0.1);
+    }
+
+    .mini-table td:last-child,
+    .mini-table th:last-child,
+    .mini-table td:nth-child(2),
+    .mini-table th:nth-child(2),
+    .mini-table td:nth-child(3),
+    .mini-table th:nth-child(3) {
+      text-align: right;
+    }
+
+    .source-note {
+      margin: 0.7rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 750;
+    }
+
+    @media (max-width: 900px) {
+      .flow-ribbon,
+      .adherence-pair {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .digital-ring,
+      .timeline-labels,
+      .ladder-row,
+      .forest-row {
+        grid-template-columns: 1fr;
+      }
+
+      .ladder-row em,
+      .forest-row .value {
+        text-align: left;
+      }
+
+      .ring-visual {
+        width: 7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#outcomes">Outcomes</a>
+        <a href="#model">Model</a>
+        <a href="#tables">Tables</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2022 poster 10-2022 | Oral oncology adherence</p>
+        <h1 id="poster-title">Impact of COVID-19 on Oral Oncolytic Adherence</h1>
+        <p class="hero-summary">
+          CVS Health assessed whether patients initiating oral oncolytics during the first COVID-19 year
+          differed from pre-COVID initiators in optimal adherence, persistence, and digital platform use.
+          The headline: COVID initiation itself had minimal adjusted impact, while the intensity of digital
+          engagement separated adherence odds.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Retrospective cohort</li>
+          <li class="tag therapy">CML</li>
+          <li class="tag therapy">Ovarian cancer</li>
+          <li class="tag therapy">Prostate cancer</li>
+          <li class="tag">MPR &ge; 0.8</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata and digital engagement visual">
+        <div>
+          <div class="poster-code">10-2022</div>
+          <dl class="meta-grid">
+            <div>
+              <dt>Year</dt>
+              <dd>2022</dd>
+            </div>
+            <div>
+              <dt>Population</dt>
+              <dd>15,494 patients</dd>
+            </div>
+            <div>
+              <dt>Design</dt>
+              <dd>1-year follow-up</dd>
+            </div>
+            <div>
+              <dt>Outcome</dt>
+              <dd>Optimal MPR</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="digital-ring">
+          <div class="ring-visual" aria-label="74.1 percent digitally engaged">
+            <span>74.1<small>% engaged</small></span>
+          </div>
+          <p class="ring-note">
+            Digital enrollment was stable across eras (74.5% pre-COVID vs 73.6% post-COVID; p = 0.18),
+            but engagement intensity mattered in the adjusted adherence model.
+          </p>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Total cohort</span>
+          <strong>15,494</strong>
+          <em>Adults initiating oral oncolytics from 3/1/2019 to 3/1/2021.</em>
+        </article>
+        <article class="metric-card">
+          <span>Optimal adherence</span>
+          <strong>85.3<small>%</small></strong>
+          <em>MPR &ge; 0.8 across the full analytic population.</em>
+        </article>
+        <article class="metric-card">
+          <span>Digitally engaged</span>
+          <strong>74.1<small>%</small></strong>
+          <em>Patients with at least one CVS digital platform interaction.</em>
+        </article>
+        <article class="metric-card">
+          <span>High engagement OR</span>
+          <strong>1.71</strong>
+          <em>Adjusted odds of optimal adherence vs no digital engagement.</em>
+        </article>
+      </section>
+
+      <section id="outcomes" class="visual-grid">
+        <article class="panel timeline-panel">
+          <p class="section-label">COVID study split</p>
+          <h2>Initiation shifted, adherence barely moved.</h2>
+          <p>
+            Patients were split at March 1, 2020 and followed for one year. Post-COVID initiators had
+            slightly higher unadjusted optimal adherence and more persistence signals, but COVID
+            initiation was not associated with optimal adherence after adjustment.
+          </p>
+          <div class="covid-timeline" aria-label="Pre and post COVID cohort split">
+            <div class="timeline-track"></div>
+            <div class="timeline-labels">
+              <div>
+                <strong>8,067</strong>
+                <span>Pre-COVID initiators, 52.1%</span>
+              </div>
+              <div>
+                <strong>7,427</strong>
+                <span>Post-COVID initiators, 47.9%</span>
+              </div>
+            </div>
+          </div>
+          <div class="adherence-pair">
+            <div class="adherence-tile">
+              <strong>84.75%</strong>
+              <span>Pre-COVID optimal adherence</span>
+            </div>
+            <div class="adherence-tile post">
+              <strong>85.96%</strong>
+              <span>Post-COVID optimal adherence</span>
+            </div>
+          </div>
+          <p class="source-note">Unadjusted difference: p = 0.036. Adjusted post-COVID initiation OR: 1.06 (95% CI 0.96-1.16).</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Engagement ladder</p>
+          <h2>The adjusted model was not monotonic until high use.</h2>
+          <p>
+            Engagement categories were defined by total interactions over follow-up: none, low
+            (&lt;28), moderate (28-105), and high (&gt;105). Low and moderate engagement had lower
+            odds than no engagement, while high engagement had higher odds.
+          </p>
+          <div class="ladder" aria-label="Digital engagement categories and adjusted odds ratios">
+            <div class="ladder-row">
+              <b>None</b>
+              <span class="ladder-track"><span class="ladder-fill" style="width:58%"></span></span>
+              <em>Ref.</em>
+            </div>
+            <div class="ladder-row">
+              <b>Low</b>
+              <span class="ladder-track"><span class="ladder-fill" style="width:37%"></span></span>
+              <em>OR 0.64</em>
+            </div>
+            <div class="ladder-row">
+              <b>Moderate</b>
+              <span class="ladder-track"><span class="ladder-fill" style="width:39%"></span></span>
+              <em>OR 0.67</em>
+            </div>
+            <div class="ladder-row">
+              <b>High</b>
+              <span class="ladder-track"><span class="ladder-fill high" style="width:100%"></span></span>
+              <em>OR 1.71</em>
+            </div>
+          </div>
+          <p class="source-note">Each category represented roughly one quarter of the cohort: none 25.9%, low 24.4%, moderate 24.7%, high 25.0%.</p>
+        </article>
+      </section>
+
+      <section class="panel" id="methods">
+        <p class="section-label">Evidence flow</p>
+        <h2>From initiation date to adherence signal</h2>
+        <div class="flow-ribbon" aria-label="Methods and analysis flow">
+          <article class="flow-step" data-step="1">
+            <h3>Population</h3>
+            <p>Adults with CML, ovarian cancer, or prostate cancer initiating oral oncolytics.</p>
+          </article>
+          <article class="flow-step" data-step="2">
+            <h3>Era split</h3>
+            <p>Pre-COVID before 3/1/2020 and post-COVID after 3/1/2020, each followed for one year.</p>
+          </article>
+          <article class="flow-step" data-step="3">
+            <h3>Measures</h3>
+            <p>Optimal adherence used MPR &ge; 0.8; digital interactions were grouped into none, low, moderate, and high.</p>
+          </article>
+          <article class="flow-step" data-step="4">
+            <h3>Analysis</h3>
+            <p>Descriptive statistics and logistic regression tested COVID initiation, engagement, demographics, and therapy factors.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="model" class="visual-grid">
+        <article class="panel">
+          <p class="section-label">Adjusted adherence model</p>
+          <h2>High engagement and fewer therapy disruptions stood out.</h2>
+          <p>
+            The forest plot below maps selected odds ratios on a compact scale. Dots right of the
+            center line favor optimal adherence; dots left of center indicate lower odds.
+          </p>
+          <div class="forest" aria-label="Selected odds ratios for optimal adherence">
+            <div class="forest-row neutral">
+              <span class="factor">Post-COVID initiation</span>
+              <span class="forest-axis"><i class="ci" style="--lo:48%;--hi:58%"></i><i class="or-dot" style="--or:53%"></i></span>
+              <span class="value">1.06</span>
+            </div>
+            <div class="forest-row">
+              <span class="factor">Low digital engagement</span>
+              <span class="forest-axis"><i class="ci" style="--lo:28%;--hi:36%"></i><i class="or-dot" style="--or:32%"></i></span>
+              <span class="value">0.64</span>
+            </div>
+            <div class="forest-row">
+              <span class="factor">Moderate digital engagement</span>
+              <span class="forest-axis"><i class="ci" style="--lo:30%;--hi:38%"></i><i class="or-dot" style="--or:34%"></i></span>
+              <span class="value">0.67</span>
+            </div>
+            <div class="forest-row positive">
+              <span class="factor">High digital engagement</span>
+              <span class="forest-axis"><i class="ci" style="--lo:73%;--hi:94%"></i><i class="or-dot" style="--or:86%"></i></span>
+              <span class="value">1.71</span>
+            </div>
+            <div class="forest-row positive">
+              <span class="factor">Age 65-74</span>
+              <span class="forest-axis"><i class="ci" style="--lo:59%;--hi:75%"></i><i class="or-dot" style="--or:67%"></i></span>
+              <span class="value">1.33</span>
+            </div>
+            <div class="forest-row positive">
+              <span class="factor">Male gender</span>
+              <span class="forest-axis"><i class="ci" style="--lo:52%;--hi:72%"></i><i class="or-dot" style="--or:61%"></i></span>
+              <span class="value">1.22</span>
+            </div>
+            <div class="forest-row positive">
+              <span class="factor">Copay assistance</span>
+              <span class="forest-axis"><i class="ci" style="--lo:53%;--hi:64%"></i><i class="or-dot" style="--or:58%"></i></span>
+              <span class="value">1.16</span>
+            </div>
+            <div class="forest-row">
+              <span class="factor">Treatment change</span>
+              <span class="forest-axis"><i class="ci" style="--lo:18%;--hi:24%"></i><i class="or-dot" style="--or:21%"></i></span>
+              <span class="value">0.42</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel markdown-fragment">
+          <p class="section-label">Objective and conclusion</p>
+          <h2>What the poster claims</h2>
+          <h3>Objective</h3>
+          <p>
+            Examine the impact of COVID-19 on adherence to oral oncolytic agents in a large health
+            plan with a significant digital health platform.
+          </p>
+          <h3>Interpretation</h3>
+          <ul class="callout-list">
+            <li>COVID had minimal effect on oral oncolytic adherence after accounting for other factors.</li>
+            <li>Post-COVID initiators had fewer therapy changes and more fills, suggesting stronger persistence.</li>
+            <li>Digital engagement appears threshold-dependent: high engagement increased adherence odds, while low and moderate engagement did not.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="tables" class="tables-grid" aria-label="Extracted table patterns">
+        <article class="table-card">
+          <p class="section-label">Cohort profile</p>
+          <h2>Pre/post groups were similar, with small but significant differences.</h2>
+          <div class="table-wrap">
+            <table class="mini-table">
+              <thead>
+                <tr>
+                  <th>Measure</th>
+                  <th>Pre-COVID</th>
+                  <th>Post-COVID</th>
+                  <th>Pattern</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Patients</td><td>8,067</td><td>7,427</td><td>52.1% vs 47.9%</td></tr>
+                <tr><td>Male gender</td><td>75.3%</td><td>77.3%</td><td>Higher post-COVID; p = 0.0033</td></tr>
+                <tr><td>Copay assistance</td><td>38.4%</td><td>41.7%</td><td>Higher post-COVID; p = 0.00002</td></tr>
+                <tr><td>Digital engagement</td><td>74.5%</td><td>73.6%</td><td>No difference; p = 0.18</td></tr>
+                <tr><td>Changed therapy</td><td>9.9%</td><td>8.9%</td><td>Lower post-COVID; p = 0.023</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Digital engagement phenotype</p>
+          <h2>Engaged patients looked clinically different at baseline.</h2>
+          <div class="table-wrap">
+            <table class="mini-table">
+              <thead>
+                <tr>
+                  <th>Measure</th>
+                  <th>Engaged</th>
+                  <th>Not engaged</th>
+                  <th>Pattern</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Patients</td><td>11,480</td><td>4,014</td><td>74.1% engaged</td></tr>
+                <tr><td>Mean age</td><td>64.8</td><td>68.4</td><td>Engaged patients younger; p &lt; 0.00001</td></tr>
+                <tr><td>Male gender</td><td>74.3%</td><td>82.0%</td><td>Engaged patients more often female</td></tr>
+                <tr><td>Prostate cancer</td><td>61.2%</td><td>72.6%</td><td>Less concentrated in prostate cancer</td></tr>
+                <tr><td>Copay assistance</td><td>41.8%</td><td>34.6%</td><td>More assistance among engaged patients</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel markdown-fragment" id="conclusion">
+        <p class="section-label">Bottom line</p>
+        <h2>COVID timing was a small signal; engagement intensity was the sharper signal.</h2>
+        <p>
+          In this large oral oncology cohort, pre/post COVID initiation groups had nearly identical
+          mean MPR and similar digital enrollment. The practical finding is more nuanced than
+          "digital is better": high digital interaction volume was associated with greater adjusted
+          adherence odds, while low and moderate engagement were associated with lower odds than no
+          engagement.
+        </p>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/10-2022.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/10-2022.md">Source Markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

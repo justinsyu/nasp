@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>01-2022 | Follow the Script</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .script-path {
+      position: relative;
+      overflow: hidden;
+      min-height: 18rem;
+      border: 1px solid rgba(36, 55, 112, 0.2);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 88% 16%, rgba(233, 158, 37, 0.22), transparent 7rem),
+        linear-gradient(160deg, rgba(238, 244, 251, 0.98), #fff 58%, rgba(255, 247, 234, 0.95));
+      padding: 1rem;
+    }
+
+    .script-path svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .hero-verdict {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.6rem;
+      margin-top: 0.4rem;
+    }
+
+    .verdict-cell {
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.78);
+      padding: 0.7rem;
+    }
+
+    .verdict-cell strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+
+    .verdict-cell span {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .thesis-band {
+      display: grid;
+      grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .big-claim {
+      display: grid;
+      align-content: center;
+      min-height: 13rem;
+      padding: 1.15rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .big-claim span {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .big-claim strong {
+      margin-top: 0.25rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      line-height: 0.9;
+    }
+
+    .big-claim p {
+      margin: 0.65rem 0 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.95rem;
+    }
+
+    .access-bars {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 0.8rem;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 8.5rem minmax(0, 1fr) 3.2rem;
+      gap: 0.7rem;
+      align-items: center;
+    }
+
+    .bar-row b {
+      color: var(--ink);
+      font-size: 0.82rem;
+    }
+
+    .bar-track {
+      height: 1.15rem;
+      border: 1px solid rgba(174, 187, 210, 0.8);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .bar-fill.hssp {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .bar-row em {
+      color: var(--ink);
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .population-cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+
+    .population-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.9rem;
+    }
+
+    .split-meter {
+      display: grid;
+      grid-template-columns: var(--hssp) var(--external);
+      height: 1.05rem;
+      margin: 0.7rem 0 0.55rem;
+      overflow: hidden;
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 999px;
+      background: var(--surface-blue);
+    }
+
+    .split-meter span:first-child { background: var(--teal); }
+    .split-meter span:last-child { background: rgba(209, 38, 48, 0.72); }
+
+    .legend-pair {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 0.85rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    .legend-pair i {
+      display: inline-block;
+      width: 0.65rem;
+      height: 0.65rem;
+      margin-right: 0.25rem;
+      border-radius: 2px;
+      vertical-align: -0.05rem;
+      background: var(--teal);
+    }
+
+    .legend-pair span:last-child i { background: rgba(209, 38, 48, 0.72); }
+
+    .insight-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 1rem;
+    }
+
+    .agent-gap {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 0.75rem;
+    }
+
+    .gap-row {
+      display: grid;
+      grid-template-columns: 6.7rem minmax(0, 1fr) 3.4rem;
+      gap: 0.55rem;
+      align-items: center;
+      font-size: 0.78rem;
+    }
+
+    .gap-row span:first-child {
+      color: var(--ink);
+      font-weight: 850;
+    }
+
+    .gap-line {
+      height: 0.72rem;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(24, 124, 143, 0.28), rgba(209, 38, 48, 0.75));
+    }
+
+    .exception {
+      border-color: rgba(233, 158, 37, 0.55);
+      background: var(--surface-warm);
+    }
+
+    .callout-list {
+      display: grid;
+      gap: 0.55rem;
+      margin: 0.7rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .callout-list li {
+      border-left: 4px solid var(--teal);
+      background: var(--surface-blue);
+      padding: 0.56rem 0.7rem;
+      color: var(--body);
+      font-size: 0.86rem;
+    }
+
+    .callout-list li:nth-child(2) { border-color: var(--green); }
+    .callout-list li:nth-child(3) { border-color: var(--gold); background: var(--surface-warm); }
+
+    .compact-table td:last-child,
+    .compact-table th:last-child {
+      text-align: right;
+    }
+
+    .source-note {
+      margin: 0.7rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 900px) {
+      .thesis-band,
+      .insight-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .hero-verdict,
+      .population-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .bar-row,
+      .gap-row {
+        grid-template-columns: 1fr;
+      }
+
+      .bar-row em {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/01-2022.pdf">Poster PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/01-2022.md">Markdown Source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">2022 poster 01 | Multiple sclerosis DMT access</p>
+        <h1>Follow the Script: Assessing Access Time and Adherence in Patients with MS</h1>
+        <p class="hero-summary">
+          This retrospective analysis compared health system specialty pharmacy fills with external pharmacy fills for self-administered disease-modifying therapies. The signal was consistent: HSSP patients reached therapy faster and maintained stronger adherence.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag therapy">Multiple sclerosis</li>
+          <li class="tag category">Specialty pharmacy</li>
+          <li class="tag">Script-to-mouth time</li>
+          <li class="tag">PDC adherence</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card">
+        <div class="poster-code">01-2022</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Population</dt>
+            <dd>MS patients on DMT</dd>
+          </div>
+          <div>
+            <dt>Access cohort</dt>
+            <dd>n = 183</dd>
+          </div>
+          <div>
+            <dt>Adherence cohort</dt>
+            <dd>n = 293</dd>
+          </div>
+          <div>
+            <dt>Primary contrast</dt>
+            <dd>HSSP vs external</dd>
+          </div>
+        </dl>
+        <div class="script-path" aria-label="Prescription access pathway illustration">
+          <svg viewBox="0 0 420 245" role="img" aria-labelledby="svg-title svg-desc">
+            <title id="svg-title">Script-to-mouth pathway</title>
+            <desc id="svg-desc">A stylized prescription route shows HSSP reaching therapy in 8 days and external pharmacy in 24 days.</desc>
+            <defs>
+              <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L9,3 z" fill="#243770"></path>
+              </marker>
+            </defs>
+            <rect x="20" y="28" width="84" height="106" rx="9" fill="#fff" stroke="#aebbd2" stroke-width="3"></rect>
+            <path d="M39 58h46M39 80h34M39 102h48" stroke="#187c8f" stroke-width="8" stroke-linecap="round"></path>
+            <circle cx="63" cy="162" r="24" fill="#fff" stroke="#243770" stroke-width="4"></circle>
+            <path d="M52 162h22M63 151v22" stroke="#d12630" stroke-width="7" stroke-linecap="round"></path>
+            <path d="M118 82 C175 40, 245 38, 310 68" fill="none" stroke="#187c8f" stroke-width="8" stroke-linecap="round" marker-end="url(#arrow)"></path>
+            <path d="M118 124 C185 166, 247 178, 340 163" fill="none" stroke="#d12630" stroke-width="8" stroke-linecap="round" stroke-dasharray="1 16" marker-end="url(#arrow)"></path>
+            <circle cx="338" cy="72" r="32" fill="#eef4fb" stroke="#187c8f" stroke-width="5"></circle>
+            <path d="M324 72l9 9 20-23" fill="none" stroke="#187c8f" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path>
+            <circle cx="356" cy="160" r="28" fill="#fff7ea" stroke="#d12630" stroke-width="5"></circle>
+            <path d="M342 160h28M356 146v28" stroke="#d12630" stroke-width="6" stroke-linecap="round"></path>
+            <text x="145" y="39" fill="#187c8f" font-family="Arial, sans-serif" font-size="22" font-weight="800">HSSP: 8 days</text>
+            <text x="145" y="204" fill="#d12630" font-family="Arial, sans-serif" font-size="22" font-weight="800">External: 24 days</text>
+          </svg>
+          <div class="hero-verdict">
+            <div class="verdict-cell">
+              <strong>3x</strong>
+              <span>faster access with HSSP</span>
+            </div>
+            <div class="verdict-cell">
+              <strong>0.97</strong>
+              <span>PDC in new-start cohort</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key metrics">
+        <article class="metric-card">
+          <span>External access time</span>
+          <strong>24d</strong>
+        </article>
+        <article class="metric-card">
+          <span>HSSP access time</span>
+          <strong>8d</strong>
+        </article>
+        <article class="metric-card">
+          <span>New-start PDC lift</span>
+          <strong>+0.08</strong>
+        </article>
+        <article class="metric-card">
+          <span>HSSP max access</span>
+          <strong>18d</strong>
+        </article>
+      </section>
+
+      <section class="thesis-band" id="results">
+        <div class="big-claim">
+          <span>Central result</span>
+          <strong>24 -> 8</strong>
+          <p>Average script-to-mouth time shortened from 24 days at external pharmacies to 8 days through HSSP.</p>
+        </div>
+        <div class="panel">
+          <p class="section-label">Access and adherence side by side</p>
+          <h2>Faster starts paired with tighter refill coverage.</h2>
+          <div class="access-bars">
+            <div class="bar-row">
+              <b>External access</b>
+              <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
+              <em>24d</em>
+            </div>
+            <div class="bar-row">
+              <b>HSSP access</b>
+              <span class="bar-track"><span class="bar-fill hssp" style="width:33%"></span></span>
+              <em>8d</em>
+            </div>
+            <div class="bar-row">
+              <b>External PDC</b>
+              <span class="bar-track"><span class="bar-fill" style="width:89%"></span></span>
+              <em>0.89</em>
+            </div>
+            <div class="bar-row">
+              <b>HSSP PDC</b>
+              <span class="bar-track"><span class="bar-fill hssp" style="width:97%"></span></span>
+              <em>0.97</em>
+            </div>
+          </div>
+          <p class="source-note">PDC values shown here are from the script-to-mouth population, where adherence risk is highest because therapy is newly started.</p>
+        </div>
+      </section>
+
+      <section class="population-cards" id="methods">
+        <article class="population-card">
+          <p class="section-label">Script-to-mouth population</p>
+          <h3>n = 183</h3>
+          <div class="split-meter" style="--hssp:37%; --external:63%" aria-hidden="true"><span></span><span></span></div>
+          <div class="legend-pair">
+            <span><i></i>HSSP 37%</span>
+            <span><i></i>External 63%</span>
+          </div>
+          <p class="source-note">Included MS diagnosis and prescribed self-administered DMT; manufacturer patient assistance program fills were excluded.</p>
+        </article>
+        <article class="population-card">
+          <p class="section-label">Adherence population</p>
+          <h3>n = 293</h3>
+          <div class="split-meter" style="--hssp:30%; --external:70%" aria-hidden="true"><span></span><span></span></div>
+          <div class="legend-pair">
+            <span><i></i>HSSP 30%</span>
+            <span><i></i>External 70%</span>
+          </div>
+          <p class="source-note">Adherence analysis required a first fill and at least three fills, then compared PDC by pharmacy type.</p>
+        </article>
+      </section>
+
+      <section class="evidence-map" aria-label="Evidence flow">
+        <article class="evidence-card">
+          <h3>Barrier</h3>
+          <p>High costs, limited distribution networks, and prior authorizations can delay DMT access.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Intervention lens</h3>
+          <p>Health system specialty pharmacy services integrate medication access and clinical follow-up.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Measured access</h3>
+          <p>Average script-to-mouth time was 8 days for HSSP and 24 days for external pharmacies.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Measured adherence</h3>
+          <p>New-start PDC was 0.97 with HSSP versus 0.89 externally; overall PDC was 0.96 versus 0.94.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Implication</h3>
+          <p>Earlier treatment and stronger adherence may help reduce the risk of MS progression.</p>
+        </article>
+      </section>
+
+      <section class="insight-grid">
+        <div class="panel">
+          <p class="section-label">Disease-modifying therapy pattern</p>
+          <h2>External pharmacy access took longer for nearly every DMT.</h2>
+          <div class="agent-gap" aria-label="Largest external minus HSSP access gaps">
+            <div class="gap-row">
+              <span>Betaseron</span>
+              <i class="gap-line" style="width:100%"></i>
+              <b>+58d</b>
+            </div>
+            <div class="gap-row">
+              <span>Gilenya</span>
+              <i class="gap-line" style="width:86%"></i>
+              <b>+50d</b>
+            </div>
+            <div class="gap-row">
+              <span>Avonex</span>
+              <i class="gap-line" style="width:40%"></i>
+              <b>+23d</b>
+            </div>
+            <div class="gap-row">
+              <span>Rebif</span>
+              <i class="gap-line" style="width:34%"></i>
+              <b>+20d</b>
+            </div>
+            <div class="gap-row exception">
+              <span>Kesimpta</span>
+              <i class="gap-line" style="width:5%; background:var(--gold)"></i>
+              <b>-3d</b>
+            </div>
+          </div>
+          <p class="source-note">Gap is external pharmacy days minus HSSP days. Kesimpta was the only listed agent where HSSP was slower.</p>
+        </div>
+
+        <div class="panel markdown-fragment">
+          <p class="section-label">Extracted objective and conclusion</p>
+          <h2>What the poster set out to test.</h2>
+          <p><strong>Objective:</strong> Evaluate script-to-mouth time for MS DMTs and compare adherence rates between HSSP and unaffiliated external pharmacies.</p>
+          <ul class="callout-list">
+            <li>HSSP dispensed nearly all prescriptions in less time than the external pharmacy average and Q3.</li>
+            <li>HSSP patients more consistently had PDC in the 90% to 100% range.</li>
+            <li>Access could not be assessed when the initial written date was unavailable in the EHR or from the external pharmacy.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="tables-grid" id="tables">
+        <article class="table-card">
+          <p class="section-label">Access distribution</p>
+          <h3>Script-to-mouth time, days</h3>
+          <div class="table-wrap">
+            <table class="compact-table">
+              <thead>
+                <tr>
+                  <th>Metric</th>
+                  <th>External</th>
+                  <th>HSSP</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Max</td><td>63</td><td>18</td></tr>
+                <tr><td>Q3</td><td>29</td><td>8</td></tr>
+                <tr><td>Median</td><td>24</td><td>5</td></tr>
+                <tr><td>Q1</td><td>14</td><td>1</td></tr>
+                <tr><td>Min</td><td>6</td><td>0</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Adherence distribution</p>
+          <h3>PDC by pharmacy type</h3>
+          <div class="table-wrap">
+            <table class="compact-table">
+              <thead>
+                <tr>
+                  <th>Population</th>
+                  <th>External</th>
+                  <th>HSSP</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Script-to-mouth average</td><td>0.89</td><td>0.97</td></tr>
+                <tr><td>Script-to-mouth Q1</td><td>0.88</td><td>0.91</td></tr>
+                <tr><td>Script-to-mouth min</td><td>0.72</td><td>0.91</td></tr>
+                <tr><td>Overall average</td><td>0.94</td><td>0.96</td></tr>
+                <tr><td>Overall min</td><td>0.81</td><td>0.88</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel markdown-fragment" id="conclusion">
+        <p class="section-label">Bottom line</p>
+        <h2>Health system specialty pharmacy was associated with faster access and higher adherence.</h2>
+        <p>
+          The poster concludes that MS patients enrolled in HSSP services had script-to-mouth time more than three times faster and achieved higher adherence than patients filling through external pharmacies. Because DMT benefit depends on early and consistent treatment, the access and PDC findings point in the same clinical direction.
+        </p>
+      </section>
+
+      <footer class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/01-2022.pdf">Open original PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/01-2022.md">Open extracted markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

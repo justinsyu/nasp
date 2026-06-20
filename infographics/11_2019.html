@@ -1,0 +1,661 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Variation in Health Plan Specialty Drug Coverage | NASP 2019</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .topbar {
+      margin-right: 0;
+      margin-left: 0;
+    }
+    .coverage-hero-art {
+      display: grid;
+      gap: 0.8rem;
+      margin-top: 0.4rem;
+    }
+    .coverage-orbit {
+      width: 100%;
+      height: auto;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 22% 20%, rgba(233, 158, 37, 0.24), transparent 6rem),
+        radial-gradient(circle at 78% 76%, rgba(24, 124, 143, 0.18), transparent 7rem),
+        #fff;
+    }
+    .orbit-label {
+      fill: var(--ink);
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .orbit-small {
+      fill: var(--muted);
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 800;
+    }
+    .source-line {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    .source-line strong {
+      color: var(--ink);
+      font-weight: 850;
+    }
+    .split-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+      gap: 1rem;
+      align-items: start;
+    }
+    .donut-layout {
+      display: grid;
+      grid-template-columns: 12rem minmax(0, 1fr);
+      gap: 0.9rem;
+      align-items: center;
+      margin-top: 0.8rem;
+    }
+    .donut {
+      width: 100%;
+      height: auto;
+      overflow: visible;
+    }
+    .donut text {
+      font-family: var(--font-display);
+      font-weight: 900;
+    }
+    .legend-list {
+      display: grid;
+      gap: 0.5rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .legend-list li {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 0.45rem;
+      align-items: center;
+      color: var(--body);
+      font-size: 0.82rem;
+      font-weight: 780;
+    }
+    .swatch {
+      width: 0.82rem;
+      aspect-ratio: 1;
+      border-radius: 3px;
+      background: var(--swatch-color);
+    }
+    .legend-list strong {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 900;
+    }
+    .plan-variation {
+      display: grid;
+      gap: 0.38rem;
+      margin-top: 0.75rem;
+    }
+    .plan-row {
+      display: grid;
+      grid-template-columns: 7.6rem minmax(0, 1fr) 3.4rem;
+      gap: 0.55rem;
+      align-items: center;
+    }
+    .plan-row .label {
+      color: var(--ink);
+      font-size: 0.76rem;
+      font-weight: 850;
+      white-space: nowrap;
+    }
+    .stacked-bar {
+      display: flex;
+      height: 1.05rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 999px;
+      background: #eef3f8;
+      overflow: hidden;
+    }
+    .seg {
+      display: block;
+      height: 100%;
+    }
+    .seg.restrict { background: linear-gradient(90deg, var(--red), var(--gold)); }
+    .seg.open { background: linear-gradient(90deg, var(--teal), var(--green)); }
+    .seg.none { background: var(--purple); }
+    .plan-row .value {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 0.92rem;
+      font-weight: 900;
+      text-align: right;
+    }
+    .variation-callout {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.85rem;
+    }
+    .mini-card {
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.7rem;
+    }
+    .mini-card strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      line-height: 1;
+    }
+    .mini-card span {
+      display: block;
+      margin-top: 0.22rem;
+      color: var(--body);
+      font-size: 0.74rem;
+      font-weight: 780;
+    }
+    .restrict-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.75rem;
+    }
+    .restrict-card {
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.76rem;
+    }
+    .restrict-card strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.65rem;
+      line-height: 1;
+    }
+    .restrict-card span {
+      display: block;
+      min-height: 2.4rem;
+      margin-top: 0.25rem;
+      color: var(--body);
+      font-size: 0.76rem;
+      font-weight: 800;
+    }
+    .mini-track {
+      height: 0.48rem;
+      margin-top: 0.5rem;
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .mini-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--gold));
+    }
+    .flowline {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.75rem;
+    }
+    .flow-step {
+      position: relative;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.82rem;
+    }
+    .flow-step b {
+      display: grid;
+      place-items: center;
+      width: 2rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--surface-blue);
+      color: var(--red);
+      font-family: var(--font-display);
+      font-weight: 900;
+    }
+    .flow-step h3 {
+      margin-top: 0.55rem;
+    }
+    .flow-step p {
+      margin: 0.42rem 0 0;
+      font-size: 0.82rem;
+    }
+    .step-board {
+      display: grid;
+      gap: 0.48rem;
+      margin-top: 0.75rem;
+    }
+    .step-row {
+      display: grid;
+      grid-template-columns: 7.2rem minmax(0, 1fr) 4.2rem;
+      gap: 0.55rem;
+      align-items: center;
+    }
+    .step-row .label {
+      color: var(--ink);
+      font-size: 0.74rem;
+      font-weight: 850;
+      overflow-wrap: anywhere;
+    }
+    .step-stack {
+      display: flex;
+      height: 0.98rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 999px;
+      overflow: hidden;
+      background: #edf2f8;
+    }
+    .step3 { background: var(--red); }
+    .step2 { background: var(--gold); }
+    .step1 { background: var(--teal); }
+    .step-row .value {
+      color: var(--body);
+      font-size: 0.72rem;
+      font-weight: 850;
+      text-align: right;
+    }
+    .takeaway-panel {
+      border-left: 5px solid var(--red);
+      background:
+        linear-gradient(90deg, rgba(209, 38, 48, 0.08), rgba(255, 255, 255, 0)),
+        #fff;
+    }
+    .takeaway-panel p {
+      margin: 0;
+      color: var(--ink);
+      font-size: 1.02rem;
+      font-weight: 850;
+    }
+    .source-note {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    @media (max-width: 900px) {
+      .split-panel,
+      .donut-layout,
+      .flowline {
+        grid-template-columns: 1fr;
+      }
+      .restrict-grid,
+      .variation-callout {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 560px) {
+      .plan-row,
+      .step-row {
+        grid-template-columns: 1fr;
+      }
+      .plan-row .value,
+      .step-row .value {
+        text-align: left;
+      }
+      .restrict-grid,
+      .variation-callout {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar" aria-label="Infographic navigation">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav>
+        <a href="#coverage">Coverage</a>
+        <a href="#variation">Plan variation</a>
+        <a href="#methods">Methods</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/11_2019.pdf">PDF source</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/11_2019.md">Markdown source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2019 Annual Meeting &amp; Expo</p>
+        <h1>Variation in health plan specialty drug coverage</h1>
+        <p class="hero-summary">Tufts CEVR compared large commercial health plans' specialty drug policies with FDA labels and found that access rules were rarely uniform: 95% of drug-indication pairs varied across plans.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Coverage policy analysis</li>
+          <li class="tag therapy">Specialty drugs</li>
+          <li class="tag therapy">Commercial plans</li>
+          <li class="tag">Tufts SPEC database</li>
+        </ul>
+      </div>
+      <aside class="hero-card">
+        <div>
+          <p class="section-label">Poster file</p>
+          <div class="poster-code">11_2019</div>
+        </div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Year</dt>
+            <dd>2019</dd>
+          </div>
+          <div>
+            <dt>Plans</dt>
+            <dd>17 large US commercial plans</dd>
+          </div>
+          <div>
+            <dt>Database</dt>
+            <dd>SPEC, as of Dec 2018</dd>
+          </div>
+          <div>
+            <dt>Authors</dt>
+            <dd>Margaretos, Lai, Panzer, Chambers</dd>
+          </div>
+        </dl>
+        <div class="coverage-hero-art" aria-hidden="true">
+          <svg class="coverage-orbit" viewBox="0 0 360 180" role="img">
+            <title>Coverage decisions flow from drug indication pairs to 17 health plans</title>
+            <defs>
+              <linearGradient id="heroLine" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#d12630"/>
+                <stop offset="1" stop-color="#187c8f"/>
+              </linearGradient>
+            </defs>
+            <path d="M64 91 C120 18, 246 18, 296 91 C246 162, 120 162, 64 91Z" fill="none" stroke="url(#heroLine)" stroke-width="3"/>
+            <circle cx="64" cy="91" r="26" fill="#ffffff" stroke="#d12630" stroke-width="3"/>
+            <text x="64" y="88" text-anchor="middle" class="orbit-label">484</text>
+            <text x="64" y="104" text-anchor="middle" class="orbit-small">pairs</text>
+            <circle cx="180" cy="42" r="23" fill="#ffffff" stroke="#e99e25" stroke-width="3"/>
+            <text x="180" y="39" text-anchor="middle" class="orbit-label">17</text>
+            <text x="180" y="55" text-anchor="middle" class="orbit-small">plans</text>
+            <circle cx="296" cy="91" r="30" fill="#ffffff" stroke="#187c8f" stroke-width="3"/>
+            <text x="296" y="88" text-anchor="middle" class="orbit-label">6,139</text>
+            <text x="296" y="104" text-anchor="middle" class="orbit-small">decisions</text>
+            <circle cx="180" cy="138" r="24" fill="#ffffff" stroke="#7561a8" stroke-width="3"/>
+            <text x="180" y="135" text-anchor="middle" class="orbit-label">95%</text>
+            <text x="180" y="151" text-anchor="middle" class="orbit-small">varied</text>
+          </svg>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Drug-indication pairs</span>
+          <strong>484</strong>
+        </article>
+        <article class="metric-card">
+          <span>Coverage decisions</span>
+          <strong>6,139</strong>
+        </article>
+        <article class="metric-card">
+          <span>Plans reviewed</span>
+          <strong>17</strong>
+        </article>
+        <article class="metric-card">
+          <span>Pairs with variation</span>
+          <strong>95%</strong>
+        </article>
+      </section>
+
+      <section id="coverage" class="visual-grid">
+        <article class="panel">
+          <p class="section-label">Coverage restrictiveness</p>
+          <h2>Almost half of decisions added restrictions beyond the FDA label.</h2>
+          <div class="donut-layout">
+            <svg class="donut" viewBox="0 0 220 220" role="img" aria-label="Coverage decisions: 52 percent covered without restrictions, 45 percent covered with restrictions, 3 percent not covered">
+              <circle cx="110" cy="110" r="76" fill="none" stroke="#d9e1ef" stroke-width="34"/>
+              <circle cx="110" cy="110" r="76" fill="none" stroke="#187c8f" stroke-width="34" stroke-dasharray="248.35 477.52" stroke-dashoffset="0" transform="rotate(-90 110 110)"/>
+              <circle cx="110" cy="110" r="76" fill="none" stroke="#d12630" stroke-width="34" stroke-dasharray="214.88 477.52" stroke-dashoffset="-248.35" transform="rotate(-90 110 110)"/>
+              <circle cx="110" cy="110" r="76" fill="none" stroke="#7561a8" stroke-width="34" stroke-dasharray="14.33 477.52" stroke-dashoffset="-463.23" transform="rotate(-90 110 110)"/>
+              <circle cx="110" cy="110" r="48" fill="#fff"/>
+              <text x="110" y="103" text-anchor="middle" fill="#243770" font-size="32">45%</text>
+              <text x="110" y="126" text-anchor="middle" fill="#68758d" font-size="12">restricted</text>
+            </svg>
+            <ul class="legend-list">
+              <li><i class="swatch" style="--swatch-color: var(--teal);"></i><span>Covered without restrictions</span><strong>52%</strong></li>
+              <li><i class="swatch" style="--swatch-color: var(--red);"></i><span>Covered with restrictions</span><strong>45%</strong></li>
+              <li><i class="swatch" style="--swatch-color: var(--purple);"></i><span>Not covered</span><strong>3%</strong></li>
+            </ul>
+          </div>
+          <p class="source-note">Figure 1 denominator: 6,139 coverage decisions.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Restriction mix</p>
+          <h2>Step edits were the dominant restriction type.</h2>
+          <div class="restrict-grid" aria-label="Restriction type frequency among decisions with at least one restriction">
+            <div class="restrict-card">
+              <strong>60%</strong>
+              <span>Step edits</span>
+              <div class="mini-track"><i style="width: 60%;"></i></div>
+            </div>
+            <div class="restrict-card">
+              <strong>34%</strong>
+              <span>Prescriber restrictions</span>
+              <div class="mini-track"><i style="width: 34%;"></i></div>
+            </div>
+            <div class="restrict-card">
+              <strong>33%</strong>
+              <span>Patient subgroup restrictions</span>
+              <div class="mini-track"><i style="width: 33%;"></i></div>
+            </div>
+            <div class="restrict-card">
+              <strong>4%</strong>
+              <span>Other restrictions</span>
+              <div class="mini-track"><i style="width: 4%;"></i></div>
+            </div>
+          </div>
+          <div class="variation-callout">
+            <div class="mini-card">
+              <strong>2,748</strong>
+              <span>Coverage decisions had at least one restriction.</span>
+            </div>
+            <div class="mini-card">
+              <strong>27%</strong>
+              <span>Restricted decisions had multiple restrictions.</span>
+            </div>
+            <div class="mini-card">
+              <strong>732</strong>
+              <span>Restricted decisions included more than one restriction.</span>
+            </div>
+          </div>
+          <p class="source-note">Figure 3 denominator: 2,748 restricted coverage decisions.</p>
+        </article>
+      </section>
+
+      <section id="variation" class="panel">
+        <p class="section-label">Plan-to-plan variation</p>
+        <h2>The share of plan decisions with restrictions ranged from 14% to 85%.</h2>
+        <div class="split-panel">
+          <div>
+            <p>Each bar shows the split of not covered, covered with restrictions, and covered without restrictions for a plan. The outlier pattern is visible: Plan 17 applied restrictions in 85% of decisions, while Plan 15 did so in 14%.</p>
+            <div class="variation-callout">
+              <div class="mini-card">
+                <strong>14%</strong>
+                <span>Lowest plan-level restriction rate.</span>
+              </div>
+              <div class="mini-card">
+                <strong>85%</strong>
+                <span>Highest plan-level restriction rate.</span>
+              </div>
+              <div class="mini-card">
+                <strong>5%</strong>
+                <span>Drug-indication pairs covered the same way by all plans.</span>
+              </div>
+            </div>
+          </div>
+          <div class="plan-variation" aria-label="Plan coverage restrictiveness bars">
+            <div class="plan-row">
+              <span class="label">Plan 17</span>
+              <span class="stacked-bar"><i class="seg none" style="width: 2%;"></i><i class="seg restrict" style="width: 85%;"></i><i class="seg open" style="width: 13%;"></i></span>
+              <span class="value">85%</span>
+            </div>
+            <div class="plan-row">
+              <span class="label">Plan 3</span>
+              <span class="stacked-bar"><i class="seg none" style="width: 2%;"></i><i class="seg restrict" style="width: 49%;"></i><i class="seg open" style="width: 49%;"></i></span>
+              <span class="value">49%</span>
+            </div>
+            <div class="plan-row">
+              <span class="label">Plan 1</span>
+              <span class="stacked-bar"><i class="seg none" style="width: 2%;"></i><i class="seg restrict" style="width: 43%;"></i><i class="seg open" style="width: 55%;"></i></span>
+              <span class="value">43%</span>
+            </div>
+            <div class="plan-row">
+              <span class="label">Plan 2</span>
+              <span class="stacked-bar"><i class="seg none" style="width: 2%;"></i><i class="seg restrict" style="width: 36%;"></i><i class="seg open" style="width: 62%;"></i></span>
+              <span class="value">36%</span>
+            </div>
+            <div class="plan-row">
+              <span class="label">Plan 4</span>
+              <span class="stacked-bar"><i class="seg none" style="width: 2%;"></i><i class="seg restrict" style="width: 32%;"></i><i class="seg open" style="width: 66%;"></i></span>
+              <span class="value">32%</span>
+            </div>
+            <div class="plan-row">
+              <span class="label">Plans 8/11</span>
+              <span class="stacked-bar"><i class="seg none" style="width: 2%;"></i><i class="seg restrict" style="width: 27%;"></i><i class="seg open" style="width: 71%;"></i></span>
+              <span class="value">27%</span>
+            </div>
+            <div class="plan-row">
+              <span class="label">Plans 5/14</span>
+              <span class="stacked-bar"><i class="seg none" style="width: 2%;"></i><i class="seg restrict" style="width: 24%;"></i><i class="seg open" style="width: 74%;"></i></span>
+              <span class="value">24%</span>
+            </div>
+            <div class="plan-row">
+              <span class="label">Plan 13</span>
+              <span class="stacked-bar"><i class="seg none" style="width: 2%;"></i><i class="seg restrict" style="width: 20%;"></i><i class="seg open" style="width: 78%;"></i></span>
+              <span class="value">20%</span>
+            </div>
+            <div class="plan-row">
+              <span class="label">Plan 16</span>
+              <span class="stacked-bar"><i class="seg none" style="width: 2%;"></i><i class="seg restrict" style="width: 18%;"></i><i class="seg open" style="width: 80%;"></i></span>
+              <span class="value">18%</span>
+            </div>
+            <div class="plan-row">
+              <span class="label">Plan 15</span>
+              <span class="stacked-bar"><i class="seg none" style="width: 2%;"></i><i class="seg restrict" style="width: 14%;"></i><i class="seg open" style="width: 84%;"></i></span>
+              <span class="value">14%</span>
+            </div>
+          </div>
+        </div>
+        <p class="source-note">Selected rows summarize the Figure 2 pattern; plans with similar restriction rates are grouped where space is limited.</p>
+      </section>
+
+      <section class="visual-grid">
+        <article class="panel">
+          <p class="section-label">Evidence flow</p>
+          <h2>How the analysis classified access rules</h2>
+          <div id="methods" class="flowline">
+            <div class="flow-step">
+              <b>1</b>
+              <h3>Collect plan policies</h3>
+              <p>Public specialty drug coverage policies were drawn from 17 large commercial health plans in SPEC.</p>
+            </div>
+            <div class="flow-step">
+              <b>2</b>
+              <h3>Map to indications</h3>
+              <p>The database contained 484 drug-indication pairs and 6,139 coverage decisions as of December 2018.</p>
+            </div>
+            <div class="flow-step">
+              <b>3</b>
+              <h3>Compare to labels</h3>
+              <p>Each policy was compared with the FDA label to determine whether it narrowed access.</p>
+            </div>
+            <div class="flow-step">
+              <b>4</b>
+              <h3>Classify restrictiveness</h3>
+              <p>Decisions were coded as unrestricted coverage, restricted coverage, or not covered.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Step-edit depth</p>
+          <h2>Some plans required patients to try more alternatives before access.</h2>
+          <div class="step-board" aria-label="Selected step edit depth patterns by plan">
+            <div class="step-row">
+              <span class="label">Plan 3</span>
+              <span class="step-stack"><i class="seg step3" style="width: 25%;"></i><i class="seg step2" style="width: 25%;"></i><i class="seg step1" style="width: 50%;"></i></span>
+              <span class="value">25% at 3+</span>
+            </div>
+            <div class="step-row">
+              <span class="label">Plans 4/14/15</span>
+              <span class="step-stack"><i class="seg step3" style="width: 20%;"></i><i class="seg step2" style="width: 20%;"></i><i class="seg step1" style="width: 60%;"></i></span>
+              <span class="value">20% at 3+</span>
+            </div>
+            <div class="step-row">
+              <span class="label">Plans 1/8/9/10/11/13</span>
+              <span class="step-stack"><i class="seg step3" style="width: 15%;"></i><i class="seg step2" style="width: 25%;"></i><i class="seg step1" style="width: 60%;"></i></span>
+              <span class="value">15% at 3+</span>
+            </div>
+            <div class="step-row">
+              <span class="label">Plans 2/6/7</span>
+              <span class="step-stack"><i class="seg step3" style="width: 10%;"></i><i class="seg step2" style="width: 30%;"></i><i class="seg step1" style="width: 60%;"></i></span>
+              <span class="value">10% at 3+</span>
+            </div>
+            <div class="step-row">
+              <span class="label">Plans 5/17</span>
+              <span class="step-stack"><i class="seg step3" style="width: 0%;"></i><i class="seg step2" style="width: 40%;"></i><i class="seg step1" style="width: 60%;"></i></span>
+              <span class="value">0% at 3+</span>
+            </div>
+          </div>
+          <ul class="tag-row" aria-label="Step edit legend" style="margin-top: 0.75rem;">
+            <li class="tag category">Red: 3+ steps</li>
+            <li class="tag">Gold: 2 steps</li>
+            <li class="tag therapy">Teal: 1 step</li>
+          </ul>
+          <p class="source-note">Figure 4 denominator: 1,636 coverage decisions with step edits.</p>
+        </article>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Question</h2>
+          <div class="markdown-fragment">
+            <p>To examine variation in how commercial health plans cover specialty drugs.</p>
+          </div>
+        </article>
+        <article class="panel takeaway-panel">
+          <p class="section-label">Conclusion</p>
+          <h2>Takeaway</h2>
+          <p>Coverage restrictions appeared in roughly half of specialty drug coverage decisions, and both the frequency and type of restrictions varied notably across plans.</p>
+        </article>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Interpretive summary</p>
+        <h2>Access depended on the plan as much as the product.</h2>
+        <div class="section-stack">
+          <div class="markdown-fragment">
+            <h3>What was consistent</h3>
+            <p>Noncoverage was uncommon overall at 3%, and every plan had a small not-covered share in Figure 2.</p>
+          </div>
+          <div class="markdown-fragment">
+            <h3>What changed by plan</h3>
+            <p>Plans differed sharply in restriction frequency, and only 5% of drug-indication pairs were covered the same way by all included plans.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/11_2019.pdf">Open PDF source</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/11_2019.md">Open markdown source</a>
+      <a class="button-link" href="../index.html">Back to index</a>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,737 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Assessing Rates and Reasons for Treatment Lapses in Patients Treated With Denosumab | NASP 2020</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -4rem;
+      bottom: -4.5rem;
+      width: 15rem;
+      height: 15rem;
+      border: 1.25rem solid rgba(209, 38, 48, 0.10);
+      border-radius: 50%;
+    }
+    .hero-card > * {
+      position: relative;
+      z-index: 1;
+    }
+    .finding-note {
+      margin: 0;
+      border-left: 4px solid var(--red);
+      padding-left: 0.72rem;
+      color: var(--ink);
+      font-size: 0.94rem;
+      font-weight: 850;
+    }
+    .metric-card p,
+    .panel p,
+    .reason-card p,
+    .timeline-step p {
+      margin: 0.45rem 0 0;
+    }
+    .metric-card strong small {
+      color: var(--red);
+      font-size: 0.88rem;
+    }
+    .therapy-visual {
+      min-height: 20rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 18% 20%, rgba(24, 124, 143, 0.18), transparent 8rem),
+        radial-gradient(circle at 84% 78%, rgba(233, 158, 37, 0.21), transparent 9rem),
+        linear-gradient(135deg, #fff, var(--surface-blue) 58%, var(--surface-warm));
+      overflow: hidden;
+    }
+    .therapy-visual svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 20rem;
+    }
+    .dose-board {
+      display: grid;
+      grid-template-columns: minmax(17rem, 0.72fr) minmax(0, 1.28fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .lapse-card {
+      display: grid;
+      align-content: center;
+      min-height: 20rem;
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background:
+        linear-gradient(150deg, rgba(209, 38, 48, 0.10), transparent 46%),
+        #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+    .lapse-card strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(5rem, 10vw, 8rem);
+      line-height: 0.86;
+    }
+    .lapse-card span {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.14rem;
+      font-weight: 900;
+      line-height: 1.18;
+    }
+    .lapse-card p {
+      max-width: 17rem;
+      margin: 0.65rem auto 0;
+      color: var(--body);
+      font-size: 0.88rem;
+    }
+    .dose-bars {
+      display: grid;
+      gap: 0.78rem;
+      margin-top: 0.9rem;
+    }
+    .dose-row {
+      display: grid;
+      grid-template-columns: 7.6rem minmax(0, 1fr) 4.2rem;
+      gap: 0.62rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 850;
+    }
+    .dose-track,
+    .reason-track,
+    .predictor-line {
+      border-radius: 999px;
+      background: #e7eef7;
+      overflow: hidden;
+    }
+    .dose-track {
+      height: 1.2rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+    }
+    .dose-track i,
+    .reason-track i {
+      display: block;
+      width: var(--width);
+      height: 100%;
+      border-radius: inherit;
+      background: var(--bar-color, linear-gradient(90deg, var(--teal), var(--green)));
+    }
+    .reason-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.72rem;
+    }
+    .reason-card {
+      position: relative;
+      min-height: 12.4rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.82rem;
+      overflow: hidden;
+    }
+    .reason-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 0.34rem;
+      background: var(--accent, var(--red));
+    }
+    .reason-card strong {
+      display: block;
+      margin-top: 0.2rem;
+      color: var(--accent, var(--red));
+      font-family: var(--font-display);
+      font-size: 2.1rem;
+      line-height: 1;
+    }
+    .reason-card h3 {
+      margin-top: 0.45rem;
+    }
+    .reason-card p {
+      font-size: 0.8rem;
+      line-height: 1.42;
+    }
+    .reason-card:nth-child(2) { --accent: var(--gold); }
+    .reason-card:nth-child(3) { --accent: var(--purple); }
+    .reason-card:nth-child(4) { --accent: var(--green); }
+    .reason-card:nth-child(5) { --accent: var(--teal); }
+    .top-reasons {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(16rem, 0.9fr);
+      gap: 1rem;
+      align-items: center;
+    }
+    .reason-bars {
+      display: grid;
+      gap: 0.62rem;
+      margin-top: 0.75rem;
+    }
+    .reason-row {
+      display: grid;
+      grid-template-columns: 11.5rem minmax(0, 1fr) 3rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .reason-track {
+      height: 0.98rem;
+    }
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.72rem;
+      margin-top: 0.72rem;
+    }
+    .timeline-step {
+      min-height: 11rem;
+      border: 1px solid rgba(174, 187, 210, 0.95);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.8rem;
+    }
+    .timeline-step::before {
+      content: attr(data-step);
+      display: inline-grid;
+      place-items: center;
+      width: 1.9rem;
+      height: 1.9rem;
+      margin-bottom: 0.55rem;
+      border-radius: 50%;
+      background: var(--step-color, var(--ink));
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+    .timeline-step:nth-child(2) { --step-color: var(--red); }
+    .timeline-step:nth-child(3) { --step-color: var(--gold); }
+    .timeline-step:nth-child(4) { --step-color: var(--teal); }
+    .timeline-step:nth-child(5) { --step-color: var(--green); }
+    .predictor-panel {
+      display: grid;
+      grid-template-columns: minmax(16rem, 0.55fr) minmax(0, 1.45fr);
+      gap: 1rem;
+      align-items: center;
+    }
+    .null-finding {
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(117, 97, 168, 0.14), transparent 7rem),
+        #fff;
+      padding: 1rem;
+    }
+    .null-finding strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(3.2rem, 7vw, 5.5rem);
+      line-height: 0.9;
+    }
+    .null-finding span {
+      display: block;
+      margin-top: 0.42rem;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-weight: 900;
+      line-height: 1.22;
+    }
+    .predictor-list {
+      display: grid;
+      gap: 0.65rem;
+    }
+    .predictor-row {
+      display: grid;
+      grid-template-columns: 8.8rem minmax(0, 1fr) 5rem;
+      gap: 0.58rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .predictor-line {
+      position: relative;
+      height: 1rem;
+    }
+    .predictor-line::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 50%;
+      width: 2px;
+      background: rgba(36, 55, 112, 0.45);
+    }
+    .predictor-line i {
+      position: absolute;
+      top: 0.18rem;
+      left: var(--left);
+      width: var(--width);
+      height: 0.64rem;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--purple), var(--teal));
+    }
+    .profile-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.78rem;
+    }
+    .profile-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+    }
+    .profile-card strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      line-height: 1;
+    }
+    .profile-card span {
+      display: block;
+      margin-top: 0.3rem;
+      color: var(--body);
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
+    .takeaway {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(24, 124, 143, 0.12), transparent 48%),
+        #fff;
+    }
+    .takeaway p {
+      max-width: 66rem;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.05rem, 1.75vw, 1.42rem);
+      font-weight: 850;
+      line-height: 1.35;
+    }
+    .source-note {
+      margin: 0.58rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 760;
+    }
+    @media (max-width: 900px) {
+      .topbar {
+        margin-left: 0;
+        margin-right: 0;
+      }
+      .dose-board,
+      .top-reasons,
+      .predictor-panel {
+        grid-template-columns: 1fr;
+      }
+      .reason-grid,
+      .timeline {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .profile-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 560px) {
+      .topbar {
+        margin-left: 0;
+        margin-right: 0;
+      }
+      .dose-row,
+      .reason-row,
+      .predictor-row {
+        grid-template-columns: 1fr;
+      }
+      .reason-grid,
+      .timeline,
+      .profile-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-3-1_2020.pdf">Source PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-3-1_2020.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2020 / Poster 3-1</p>
+        <h1 id="poster-title">Assessing Rates and Reasons for Treatment Lapses in Patients Treated With Denosumab</h1>
+        <p class="hero-summary">
+          Vanderbilt University Medical Center studied real-world denosumab persistence in adults receiving at least two doses, asking how often injection gaps occurred, why they happened, and whether patient characteristics predicted lapse risk.
+        </p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag therapy">Osteoporosis</li>
+          <li class="tag category">Treatment lapses</li>
+          <li class="tag">Denosumab every 6 months</li>
+          <li class="tag">Retrospective cohort</li>
+          <li class="tag">Specialty pharmacy coordination</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Study snapshot">
+        <div class="poster-code">3-1<br>2020</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Setting</dt>
+            <dd>Large academic medical center</dd>
+          </div>
+          <div>
+            <dt>Region</dt>
+            <dd>Southeastern United States</dd>
+          </div>
+          <div>
+            <dt>Study period</dt>
+            <dd>01/2010-12/2018</dd>
+          </div>
+          <div>
+            <dt>Cohort</dt>
+            <dd>534 adults</dd>
+          </div>
+        </dl>
+        <p class="finding-note">Main signal: lapses were common, but no measured patient characteristic was associated with likelihood of lapse.</p>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Patients studied</span>
+          <strong>534</strong>
+          <p>Adults with two or more denosumab doses.</p>
+        </article>
+        <article class="metric-card">
+          <span>Patients with lapse</span>
+          <strong>37<small>%</small></strong>
+          <p>Any qualifying 240+ day gap between injections.</p>
+        </article>
+        <article class="metric-card">
+          <span>Total lapses</span>
+          <strong>252</strong>
+          <p>Documented across patients with one to three lapses.</p>
+        </article>
+        <article class="metric-card">
+          <span>Median doses</span>
+          <strong>6</strong>
+          <p>Median 6 injections received, IQR 3-9.</p>
+        </article>
+      </section>
+
+      <section class="visual-grid" aria-label="Therapy context and objective">
+        <div class="therapy-visual" role="img" aria-label="Illustration of six-month denosumab injections and a delayed treatment interval">
+          <svg viewBox="0 0 700 460" aria-hidden="true">
+            <defs>
+              <linearGradient id="syringeFill" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#ffffff"/>
+                <stop offset="1" stop-color="#eef4fb"/>
+              </linearGradient>
+              <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#243770" flood-opacity="0.15"/>
+              </filter>
+            </defs>
+            <path d="M96 250 C186 112 397 97 565 188" fill="none" stroke="#187c8f" stroke-width="8" stroke-linecap="round" opacity="0.22"/>
+            <path d="M95 322 C238 398 458 392 601 286" fill="none" stroke="#d12630" stroke-width="8" stroke-linecap="round" opacity="0.18"/>
+            <g filter="url(#softShadow)">
+              <rect x="190" y="135" width="235" height="74" rx="18" fill="url(#syringeFill)" stroke="#243770" stroke-width="5"/>
+              <rect x="420" y="158" width="78" height="28" rx="7" fill="#ffffff" stroke="#243770" stroke-width="5"/>
+              <path d="M498 172 H616" stroke="#243770" stroke-width="5" stroke-linecap="round"/>
+              <path d="M616 172 l32 -18" stroke="#243770" stroke-width="5" stroke-linecap="round"/>
+              <rect x="135" y="153" width="58" height="38" rx="8" fill="#d12630"/>
+              <path d="M164 127 v90" stroke="#243770" stroke-width="5" stroke-linecap="round"/>
+              <path d="M240 147 v50 M286 147 v50 M332 147 v50 M378 147 v50" stroke="#aebbd2" stroke-width="3" stroke-linecap="round"/>
+              <path d="M222 172 h164" stroke="#187c8f" stroke-width="18" stroke-linecap="round" opacity="0.8"/>
+            </g>
+            <g>
+              <circle cx="159" cy="312" r="43" fill="#ffffff" stroke="#187c8f" stroke-width="5"/>
+              <path d="M159 288 v27 l22 14" fill="none" stroke="#187c8f" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="159" y="377" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="16" font-weight="900">6 months</text>
+            </g>
+            <g>
+              <circle cx="354" cy="312" r="43" fill="#ffffff" stroke="#e99e25" stroke-width="5"/>
+              <path d="M332 312 h44 M354 290 v44" stroke="#e99e25" stroke-width="8" stroke-linecap="round"/>
+              <text x="354" y="377" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="16" font-weight="900">Dose due</text>
+            </g>
+            <g>
+              <circle cx="548" cy="312" r="43" fill="#ffffff" stroke="#d12630" stroke-width="5"/>
+              <path d="M526 312 h44" stroke="#d12630" stroke-width="8" stroke-linecap="round"/>
+              <text x="548" y="377" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="16" font-weight="900">240+ days</text>
+            </g>
+            <text x="350" y="430" text-anchor="middle" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="850">Denosumab persistence depends on keeping clinic injections on schedule.</text>
+          </svg>
+        </div>
+
+        <article class="panel markdown-fragment">
+          <p class="section-label">Objective</p>
+          <h2>Measure lapse frequency, reasons, and predictors in routine care.</h2>
+          <p>Denosumab is administered subcutaneously every six months for osteoporosis. The poster notes that fracture risk can rise when therapy is stopped without a reasonable cause, while some interruptions, such as dental procedures, infections, trauma-related fractures, or adverse effects, may be clinically reasonable.</p>
+          <div class="number-cloud" aria-label="Study definition highlights">
+            <div class="number-pill">2+<small>doses required</small></div>
+            <div class="number-pill">240+<small>days defined lapse</small></div>
+            <div class="number-pill">9 yrs<small>records reviewed</small></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="dose-board" aria-label="Treatment lapse burden">
+        <div class="lapse-card">
+          <span>Patients experiencing at least one treatment lapse</span>
+          <strong>37%</strong>
+          <span>197 of 534 patients</span>
+          <p>Excluding gaps due to death, transfer of care, temporary medication change, or patient discontinuation.</p>
+        </div>
+        <article class="panel">
+          <p class="section-label">Treatment lapses per patient</p>
+          <h2>Most patients stayed on schedule, but one in three had at least one delay.</h2>
+          <div class="dose-bars" aria-label="Number of lapses per patient">
+            <div class="dose-row">
+              <span>0 lapses</span>
+              <div class="dose-track"><i style="--width:63%;"></i></div>
+              <span>337 (63%)</span>
+            </div>
+            <div class="dose-row">
+              <span>1 lapse</span>
+              <div class="dose-track"><i style="--width:29%; --bar-color: linear-gradient(90deg, var(--red), var(--gold));"></i></div>
+              <span>152 (29%)</span>
+            </div>
+            <div class="dose-row">
+              <span>2 lapses</span>
+              <div class="dose-track"><i style="--width:7%; --bar-color: linear-gradient(90deg, var(--gold), var(--purple));"></i></div>
+              <span>35 (7%)</span>
+            </div>
+            <div class="dose-row">
+              <span>3 lapses</span>
+              <div class="dose-track"><i style="--width:2%; --bar-color: linear-gradient(90deg, var(--purple), var(--teal));"></i></div>
+              <span>10 (2%)</span>
+            </div>
+          </div>
+          <p class="source-note">The table totals 534 patients; percentages are reported as shown in the poster.</p>
+        </article>
+      </section>
+
+      <section class="panel" aria-label="Reasons for treatment lapses">
+        <p class="section-label">Reason mix</p>
+        <h2>Medical or health-related causes were the largest category, but logistical barriers also drove many delays.</h2>
+        <div class="reason-grid">
+          <article class="reason-card">
+            <strong>102</strong>
+            <h3>Medical or health related</h3>
+            <p>40.5% of lapses; led by upcoming dental procedures, illness or infection, adverse reactions, medication holidays, low calcium or vitamin D, and surgery.</p>
+          </article>
+          <article class="reason-card">
+            <strong>77</strong>
+            <h3>Logistical</h3>
+            <p>30.6% of lapses; included no-shows or cancellations, logistical barriers, insurance or financial problems, lab timing, and care coordination across clinics.</p>
+          </article>
+          <article class="reason-card">
+            <strong>58</strong>
+            <h3>Unknown</h3>
+            <p>23.0% of lapses had no explanation documented, creating an information gap for prevention planning.</p>
+          </article>
+          <article class="reason-card">
+            <strong>9</strong>
+            <h3>Other</h3>
+            <p>3.6% of lapses were categorized as other in the extracted poster table.</p>
+          </article>
+          <article class="reason-card">
+            <strong>6</strong>
+            <h3>Patient decision</h3>
+            <p>2.4% of lapses reflected adverse-effect concerns or a patient preference or decision not to treat.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="top-reasons" aria-label="Most common specific lapse reasons">
+        <article class="panel">
+          <p class="section-label">Top documented reasons</p>
+          <h2>Dental procedures, no-shows, logistical barriers, and undocumented gaps dominated the specific reasons list.</h2>
+          <div class="reason-bars">
+            <div class="reason-row"><span>No explanation documented</span><div class="reason-track"><i style="--width:100%;"></i></div><span>58</span></div>
+            <div class="reason-row"><span>Dental procedure</span><div class="reason-track"><i style="--width:69%; --bar-color: linear-gradient(90deg, var(--teal), var(--green));"></i></div><span>40</span></div>
+            <div class="reason-row"><span>No-show or cancellation</span><div class="reason-track"><i style="--width:50%; --bar-color: linear-gradient(90deg, var(--red), var(--gold));"></i></div><span>29</span></div>
+            <div class="reason-row"><span>Logistical barrier</span><div class="reason-track"><i style="--width:47%; --bar-color: linear-gradient(90deg, var(--gold), var(--purple));"></i></div><span>27</span></div>
+            <div class="reason-row"><span>Illness or infection</span><div class="reason-track"><i style="--width:31%; --bar-color: linear-gradient(90deg, var(--purple), var(--teal));"></i></div><span>18</span></div>
+            <div class="reason-row"><span>Financial or insurance</span><div class="reason-track"><i style="--width:21%; --bar-color: linear-gradient(90deg, var(--red), var(--purple));"></i></div><span>12</span></div>
+          </div>
+        </article>
+        <article class="panel markdown-fragment">
+          <p class="section-label">Interpretation</p>
+          <h2>Pharmacist prevention opportunities clustered around coordination.</h2>
+          <p>The conclusion emphasized that pharmacists can coordinate care, help patients navigate insurance, and offer solutions for scheduling or transportation barriers. Those roles map directly to the largest avoidable-looking categories in the lapse table.</p>
+        </article>
+      </section>
+
+      <section class="panel" aria-label="Evidence flow">
+        <p class="section-label">Evidence flow</p>
+        <h2>The study moved from dispensing history to documented reasons and regression testing.</h2>
+        <div class="timeline">
+          <article class="timeline-step" data-step="1">
+            <h3>Define cohort</h3>
+            <p>Adults receiving two or more doses of denosumab from January 2010 through December 2018.</p>
+          </article>
+          <article class="timeline-step" data-step="2">
+            <h3>Extract records</h3>
+            <p>Demographics, treatment dates, and fracture dates before and after denosumab initiation were reviewed.</p>
+          </article>
+          <article class="timeline-step" data-step="3">
+            <h3>Identify lapses</h3>
+            <p>Gaps of at least 240 days between injections were counted after prespecified exclusions.</p>
+          </article>
+          <article class="timeline-step" data-step="4">
+            <h3>Classify reasons</h3>
+            <p>Documented causes were grouped as medical, logistical, patient decision, other, or unknown.</p>
+          </article>
+          <article class="timeline-step" data-step="5">
+            <h3>Test predictors</h3>
+            <p>Logistic regression assessed whether patient characteristics were associated with lapse risk.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="predictor-panel" aria-label="Predictors of patient lapses">
+        <div class="null-finding">
+          <p class="section-label">Regression finding</p>
+          <strong>0</strong>
+          <span>measured patient characteristics associated with lapse likelihood</span>
+          <p class="source-note">All reported p-values were greater than 0.05.</p>
+        </div>
+        <article class="panel">
+          <p class="section-label">Odds ratios</p>
+          <h2>All confidence intervals crossed the null value.</h2>
+          <div class="predictor-list" aria-label="Odds ratios and confidence intervals">
+            <div class="predictor-row">
+              <span>Non-white vs white</span>
+              <div class="predictor-line"><i style="--left:10%; --width:40%;"></i></div>
+              <span>0.6 [0.2, 1.4]</span>
+            </div>
+            <div class="predictor-row">
+              <span>Non-smoker vs ever</span>
+              <div class="predictor-line"><i style="--left:25%; --width:35%;"></i></div>
+              <span>0.8 [0.5, 1.2]</span>
+            </div>
+            <div class="predictor-row">
+              <span>Female vs male</span>
+              <div class="predictor-line"><i style="--left:35%; --width:70%; max-width:65%;"></i></div>
+              <span>1.2 [0.7, 2.1]</span>
+            </div>
+            <div class="predictor-row">
+              <span>BMI per 5 units</span>
+              <div class="predictor-line"><i style="--left:45%; --width:10%;"></i></div>
+              <span>1.0 [0.9, 1.1]</span>
+            </div>
+            <div class="predictor-row">
+              <span>Age per 10 years</span>
+              <div class="predictor-line"><i style="--left:45%; --width:20%;"></i></div>
+              <span>1.1 [0.9, 1.3]</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-stack" aria-label="Population profile and conclusions">
+        <article class="panel">
+          <p class="section-label">Patient profile</p>
+          <h2>The cohort was older and predominantly white and female, with substantial fracture history.</h2>
+          <div class="profile-grid">
+            <div class="profile-card"><strong>69</strong><span>median age, IQR 62-77 years</span></div>
+            <div class="profile-card"><strong>95%</strong><span>white race, 506 patients</span></div>
+            <div class="profile-card"><strong>86%</strong><span>female, 461 patients</span></div>
+            <div class="profile-card"><strong>71%</strong><span>fracture before treatment</span></div>
+            <div class="profile-card"><strong>31%</strong><span>chronic kidney disease</span></div>
+            <div class="profile-card"><strong>63%</strong><span>hypertension</span></div>
+          </div>
+        </article>
+        <article class="panel markdown-fragment">
+          <p class="section-label">Conclusion</p>
+          <h2>Lapses were common, mostly explainable, and operationally addressable.</h2>
+          <p>Most documented lapses were tied to medical or health-related reasons, with logistical issues close behind. The authors proposed future work to identify patients at risk and develop pharmacist-led, patient-centered interventions to support adherence to osteoporosis therapy.</p>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Extracted table patterns">
+        <article class="table-card">
+          <p class="section-label">Characteristics table pattern</p>
+          <h2>Selected cohort characteristics</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Characteristic</th>
+                  <th>Median [IQR] or n (%)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Age, years</td><td>69 [62-77]</td></tr>
+                <tr><td>Number of doses received</td><td>6 [3-9]</td></tr>
+                <tr><td>Race, White</td><td>506 (95)</td></tr>
+                <tr><td>Gender, female</td><td>461 (86)</td></tr>
+                <tr><td>Fractures before treatment</td><td>381 (71)</td></tr>
+                <tr><td>Fractures after first dose</td><td>68 (13)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+        <article class="table-card">
+          <p class="section-label">Reason table pattern</p>
+          <h2>Lapse categories across 252 events</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Lapses</th>
+                  <th>Share</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Medical or health related</td><td>102</td><td>40.5%</td></tr>
+                <tr><td>Logistical</td><td>77</td><td>30.6%</td></tr>
+                <tr><td>Unknown</td><td>58</td><td>23.0%</td></tr>
+                <tr><td>Other</td><td>9</td><td>3.6%</td></tr>
+                <tr><td>Patient decision</td><td>6</td><td>2.4%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel takeaway">
+        <p>
+          Bottom line: denosumab delays affected 37% of patients, most often for medical or logistical reasons, suggesting that pharmacist-led care coordination, insurance navigation, and scheduling support are practical targets for reducing avoidable lapses.
+        </p>
+      </section>
+    </main>
+
+    <footer class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-3-1_2020.pdf">Open original PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-3-1_2020.md">Read extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

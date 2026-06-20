@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Treatment utilization patterns and time to therapy discontinuation in ALK+ mNSCLC</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .alk-hero {
+      position: relative;
+      overflow: hidden;
+      border-bottom-color: var(--teal);
+    }
+
+    .alk-hero::after {
+      content: "";
+      position: absolute;
+      right: -4rem;
+      bottom: -5rem;
+      width: 22rem;
+      height: 22rem;
+      border: 1.2rem solid rgba(24, 124, 143, 0.12);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-summary strong {
+      color: var(--ink);
+      font-weight: 850;
+    }
+
+    .hero-card.therapy-orbit {
+      position: relative;
+      min-height: 24rem;
+      background:
+        radial-gradient(circle at 54% 36%, rgba(24, 124, 143, 0.12), transparent 0 7.4rem),
+        linear-gradient(145deg, var(--surface-blue), #ffffff 56%, var(--surface-warm));
+    }
+
+    .orbit-svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .orbit-caption {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    .metric-card.accent-teal strong { color: var(--teal); }
+    .metric-card.accent-gold strong { color: var(--gold); }
+    .metric-card.accent-purple strong { color: var(--purple); }
+
+    .objective-panel {
+      display: grid;
+      grid-template-columns: 0.78fr 1.22fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .objective-panel .panel:first-child {
+      background: var(--surface-blue);
+    }
+
+    .study-window {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 0.55rem;
+      align-items: center;
+      margin-top: 0.8rem;
+    }
+
+    .study-window b {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.92rem;
+    }
+
+    .timeline-rail {
+      height: 0.5rem;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--red), var(--gold), var(--teal));
+    }
+
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+
+    .method-step {
+      position: relative;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.82rem;
+      min-height: 9rem;
+    }
+
+    .method-step::before {
+      content: attr(data-step);
+      display: inline-grid;
+      place-items: center;
+      width: 2rem;
+      height: 2rem;
+      margin-bottom: 0.55rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-weight: 900;
+    }
+
+    .method-step h3 {
+      margin-bottom: 0.35rem;
+    }
+
+    .method-step p {
+      margin: 0;
+      font-size: 0.84rem;
+    }
+
+    .ttd-panel {
+      background:
+        linear-gradient(180deg, rgba(238, 244, 251, 0.72), rgba(255, 255, 255, 0.95)),
+        var(--surface);
+    }
+
+    .ttd-grid {
+      display: grid;
+      gap: 0.72rem;
+      margin-top: 0.7rem;
+    }
+
+    .ttd-row {
+      display: grid;
+      grid-template-columns: 3rem minmax(0, 1fr) 4rem;
+      gap: 0.6rem;
+      align-items: center;
+    }
+
+    .ttd-line {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.86rem;
+      font-weight: 900;
+    }
+
+    .ttd-bars {
+      display: grid;
+      gap: 0.26rem;
+    }
+
+    .ttd-bar {
+      display: grid;
+      grid-template-columns: 4.4rem minmax(0, 1fr);
+      gap: 0.42rem;
+      align-items: center;
+    }
+
+    .ttd-label {
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    .ttd-track {
+      height: 0.82rem;
+      border-radius: 999px;
+      background: #e8edf6;
+      overflow: hidden;
+    }
+
+    .ttd-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--bar-color, var(--red));
+    }
+
+    .ttd-value {
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+      text-align: right;
+    }
+
+    .note {
+      margin: 0.65rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+
+    .pathway-card {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.8rem;
+    }
+
+    .path-column {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.75rem;
+    }
+
+    .path-column h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .path-node {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-top: 0.38rem;
+      border-left: 0.28rem solid var(--node-color, var(--red));
+      background: var(--surface-blue);
+      padding: 0.38rem 0.46rem;
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 820;
+    }
+
+    .path-node span:last-child {
+      font-family: var(--font-display);
+      font-weight: 900;
+    }
+
+    .flow-callout {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.8rem;
+      align-items: center;
+      margin-top: 0.8rem;
+      border: 1px solid rgba(209, 38, 48, 0.28);
+      border-radius: 8px;
+      background: #fff7ea;
+      padding: 0.8rem;
+    }
+
+    .flow-callout strong {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2.1rem;
+      line-height: 1;
+    }
+
+    .flow-callout p {
+      margin: 0;
+      font-size: 0.86rem;
+    }
+
+    .pdc-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.8rem;
+    }
+
+    .pdc-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.8rem;
+    }
+
+    .pdc-card h3 {
+      margin-bottom: 0.55rem;
+    }
+
+    .pdc-meter {
+      --pct: 95%;
+      height: 0.75rem;
+      border-radius: 999px;
+      background: #e7edf5;
+      overflow: hidden;
+    }
+
+    .pdc-meter i {
+      display: block;
+      width: var(--pct);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--green), var(--teal));
+    }
+
+    .pdc-card strong {
+      display: block;
+      margin-top: 0.46rem;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+
+    .pdc-card span {
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 800;
+    }
+
+    .mini-table th,
+    .mini-table td {
+      font-size: 0.76rem;
+    }
+
+    .conclusion-band {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .conclusion-band .panel:first-child {
+      border-color: rgba(24, 124, 143, 0.35);
+      background: linear-gradient(145deg, rgba(24, 124, 143, 0.12), #fff 54%);
+    }
+
+    .takeaway-list {
+      margin: 0.4rem 0 0;
+      padding-left: 1.05rem;
+    }
+
+    .takeaway-list li {
+      margin: 0.34rem 0;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .objective-panel,
+      .conclusion-band,
+      .pathway-card,
+      .pdc-grid,
+      .method-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .study-window {
+        grid-template-columns: 1fr;
+      }
+
+      .ttd-row {
+        grid-template-columns: 1fr;
+      }
+
+      .ttd-value {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Back to top">NASP 2025</a>
+      <nav aria-label="Page sections">
+        <a href="#methods">Methods</a>
+        <a href="#results">Results</a>
+        <a href="#pathways">Pathways</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero alk-hero" id="top" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">1167-OPR29-OR-Poster-AM25</p>
+        <h1 id="poster-title">ALK+ mNSCLC therapy use through the specialty pharmacy lens</h1>
+        <p class="hero-summary">
+          A retrospective, multi-center analysis followed adults receiving ALK tyrosine kinase inhibitors from <strong>October 2017 through April 2025</strong>, summarizing treatment-line use, time to discontinuation, and adherence across ALK inhibitor generations.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag therapy">ALK+ metastatic NSCLC</li>
+          <li class="tag category">Retrospective observational analysis</li>
+          <li class="tag">Integrated health system specialty pharmacy</li>
+        </ul>
+      </div>
+      <aside class="hero-card therapy-orbit" aria-label="ALK TKI generations">
+        <div class="poster-code">2025<br>OPR29</div>
+        <svg class="orbit-svg" viewBox="0 0 360 260" role="img" aria-labelledby="orbit-title orbit-desc">
+          <title id="orbit-title">ALK TKI generations represented as treatment orbits</title>
+          <desc id="orbit-desc">First, second, and third generation ALK inhibitors arranged around a central ALK positive metastatic non-small cell lung cancer population.</desc>
+          <defs>
+            <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#243770" flood-opacity="0.16"/>
+            </filter>
+          </defs>
+          <circle cx="180" cy="132" r="96" fill="none" stroke="#d9e1ef" stroke-width="10"/>
+          <circle cx="180" cy="132" r="62" fill="none" stroke="#eef4fb" stroke-width="18"/>
+          <circle cx="180" cy="132" r="39" fill="#243770" filter="url(#softShadow)"/>
+          <text x="180" y="124" text-anchor="middle" fill="#fff" font-family="Montserrat, Arial, sans-serif" font-size="19" font-weight="900">ALK+</text>
+          <text x="180" y="146" text-anchor="middle" fill="#fff" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="800">mNSCLC</text>
+          <g filter="url(#softShadow)">
+            <circle cx="78" cy="95" r="37" fill="#d12630"/>
+            <text x="78" y="88" text-anchor="middle" fill="#fff" font-family="Montserrat, Arial, sans-serif" font-size="19" font-weight="900">1st</text>
+            <text x="78" y="107" text-anchor="middle" fill="#fff" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="800">Crizotinib</text>
+            <circle cx="245" cy="62" r="43" fill="#187c8f"/>
+            <text x="245" y="55" text-anchor="middle" fill="#fff" font-family="Montserrat, Arial, sans-serif" font-size="20" font-weight="900">2nd</text>
+            <text x="245" y="75" text-anchor="middle" fill="#fff" font-family="Inter, Arial, sans-serif" font-size="9" font-weight="800">Ceritinib +</text>
+            <text x="245" y="88" text-anchor="middle" fill="#fff" font-family="Inter, Arial, sans-serif" font-size="9" font-weight="800">Alectinib + Brigatinib</text>
+            <circle cx="246" cy="203" r="38" fill="#7561a8"/>
+            <text x="246" y="197" text-anchor="middle" fill="#fff" font-family="Montserrat, Arial, sans-serif" font-size="20" font-weight="900">3rd</text>
+            <text x="246" y="216" text-anchor="middle" fill="#fff" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="800">Lorlatinib</text>
+          </g>
+          <path d="M105 101 C140 72, 184 60, 210 61" fill="none" stroke="#e99e25" stroke-width="4" stroke-linecap="round"/>
+          <path d="M242 106 C254 135, 254 159, 248 166" fill="none" stroke="#e99e25" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <p class="orbit-caption">The study grouped approved ALK TKIs by generation and line of therapy, then measured discontinuation after a 90-day treatment gap.</p>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>1st generation fills</span>
+          <strong>52</strong>
+        </article>
+        <article class="metric-card accent-teal">
+          <span>2nd generation fills</span>
+          <strong>205</strong>
+        </article>
+        <article class="metric-card accent-purple">
+          <span>3rd generation fills</span>
+          <strong>71</strong>
+        </article>
+        <article class="metric-card accent-gold">
+          <span>Study window</span>
+          <strong>7.5y</strong>
+        </article>
+      </section>
+
+      <section class="objective-panel" id="methods" aria-label="Objective and methods">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Describe utilization and persistence with ALK TKIs</h2>
+          <p>The poster asked how patients receiving ALK TKIs for ALK+ metastatic non-small cell lung cancer move across treatment lines, how long therapy continues before discontinuation, and whether adherence remains high during specialty pharmacy management.</p>
+          <div class="study-window" aria-label="Study dates">
+            <b>Oct 2017</b>
+            <span class="timeline-rail" aria-hidden="true"></span>
+            <b>Apr 2025</b>
+          </div>
+        </article>
+        <article class="panel">
+          <p class="section-label">Patient identification</p>
+          <h2>From pharmacy fills to treatment episodes</h2>
+          <div class="method-grid">
+            <div class="method-step" data-step="1">
+              <h3>Include</h3>
+              <p>Adults enrolled in integrated health system specialty pharmacy services with at least 3 qualifying ALK TKI fills after the relevant first-line approval date.</p>
+            </div>
+            <div class="method-step" data-step="2">
+              <h3>Classify</h3>
+              <p>Fill records were mapped to first, second, and third line therapy, with extracted demographics, dates, insurance type, and region.</p>
+            </div>
+            <div class="method-step" data-step="3">
+              <h3>Measure</h3>
+              <p>Time to discontinuation was days between first and last qualifying fill before a gap of 90 days or more; adherence used adjusted PDC.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="visual-grid" id="results" aria-label="Treatment discontinuation and patient mix">
+        <article class="panel ttd-panel">
+          <p class="section-label">Time to discontinuation</p>
+          <h2>Durability varied by generation and treatment line</h2>
+          <div class="ttd-grid" aria-label="Average time to discontinuation in days">
+            <div class="ttd-row">
+              <div class="ttd-line">1L</div>
+              <div class="ttd-bars">
+                <div class="ttd-bar"><span class="ttd-label">1st gen</span><span class="ttd-track"><i style="width:75%; --bar-color: var(--red);"></i></span></div>
+                <div class="ttd-bar"><span class="ttd-label">2nd gen</span><span class="ttd-track"><i style="width:100%; --bar-color: var(--teal);"></i></span></div>
+                <div class="ttd-bar"><span class="ttd-label">3rd gen</span><span class="ttd-track"><i style="width:85%; --bar-color: var(--purple);"></i></span></div>
+              </div>
+              <div class="ttd-value">281.1 / 372.8 / 315.8</div>
+            </div>
+            <div class="ttd-row">
+              <div class="ttd-line">2L</div>
+              <div class="ttd-bars">
+                <div class="ttd-bar"><span class="ttd-label">2nd gen</span><span class="ttd-track"><i style="width:74%; --bar-color: var(--teal);"></i></span></div>
+                <div class="ttd-bar"><span class="ttd-label">3rd gen</span><span class="ttd-track"><i style="width:70%; --bar-color: var(--purple);"></i></span></div>
+              </div>
+              <div class="ttd-value">276.0 / 262.4</div>
+            </div>
+            <div class="ttd-row">
+              <div class="ttd-line">3L</div>
+              <div class="ttd-bars">
+                <div class="ttd-bar"><span class="ttd-label">2nd gen</span><span class="ttd-track"><i style="width:78%; --bar-color: var(--teal);"></i></span></div>
+                <div class="ttd-bar"><span class="ttd-label">3rd gen</span><span class="ttd-track"><i style="width:54%; --bar-color: var(--purple);"></i></span></div>
+              </div>
+              <div class="ttd-value">292.3 / 201.0</div>
+            </div>
+          </div>
+          <p class="note">Bars are scaled to the largest Figure 2 value, 372.8 days for first-line second-generation ALK TKIs.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Patient mix</p>
+          <h2>Second-generation ALK TKIs dominated first-line use</h2>
+          <div class="number-cloud" aria-label="Line of therapy counts by generation">
+            <div class="number-pill">198<small>2nd gen 1L</small></div>
+            <div class="number-pill">52<small>1st gen 1L</small></div>
+            <div class="number-pill">50<small>3rd gen 1L</small></div>
+            <div class="number-pill">31<small>2L counts</small></div>
+            <div class="number-pill">4<small>3L counts</small></div>
+          </div>
+          <div class="lens-chart" aria-label="Share of generation totals by first line therapy">
+            <div class="lens-row"><span>1st gen 1L share</span><div class="lens-bar"><i style="width:100%"></i></div></div>
+            <div class="lens-row"><span>2nd gen 1L share</span><div class="lens-bar"><i style="width:97%"></i></div></div>
+            <div class="lens-row"><span>3rd gen 1L share</span><div class="lens-bar"><i style="width:70%"></i></div></div>
+          </div>
+          <p class="note">Earlier first-line approval of second-generation therapies likely contributed to the larger first-line volume in this data window.</p>
+        </article>
+      </section>
+
+      <section class="panel" id="pathways" aria-label="Treatment pathways">
+        <p class="section-label">Treatment pathways</p>
+        <h2>Most multi-line records stopped before another therapy line</h2>
+        <div class="pathway-card">
+          <div class="path-column">
+            <h3>1L starting point</h3>
+            <div class="path-node" style="--node-color: var(--red);"><span>1st gen</span><span>4</span></div>
+            <div class="path-node" style="--node-color: var(--teal);"><span>2nd gen</span><span>22</span></div>
+            <div class="path-node" style="--node-color: var(--purple);"><span>3rd gen</span><span>4</span></div>
+          </div>
+          <div class="path-column">
+            <h3>2L destination</h3>
+            <div class="path-node" style="--node-color: var(--teal);"><span>2nd gen</span><span>11</span></div>
+            <div class="path-node" style="--node-color: var(--purple);"><span>3rd gen</span><span>20</span></div>
+            <div class="path-node" style="--node-color: var(--gold);"><span>No 2L recorded</span><span>18</span></div>
+          </div>
+          <div class="path-column">
+            <h3>3L destination</h3>
+            <div class="path-node" style="--node-color: var(--teal);"><span>2nd gen</span><span>3</span></div>
+            <div class="path-node" style="--node-color: var(--purple);"><span>3rd gen</span><span>1</span></div>
+            <div class="path-node" style="--node-color: var(--gold);"><span>No 3L recorded</span><span>27</span></div>
+          </div>
+        </div>
+        <div class="flow-callout">
+          <strong>15%</strong>
+          <p>The poster flagged a small subset callout of 6 patients, reinforcing that transitions beyond early treatment lines were limited in the observed pathway diagram.</p>
+        </div>
+      </section>
+
+      <section class="section-stack" aria-label="Adherence and characteristics">
+        <article class="panel">
+          <p class="section-label">Adherence signal</p>
+          <h2>Adjusted PDC stayed high across therapy lines</h2>
+          <div class="pdc-grid">
+            <div class="pdc-card">
+              <h3>1L</h3>
+              <div class="pdc-meter" style="--pct: 96.7%;"><i></i></div>
+              <strong>93.4-96.7%</strong>
+              <span>Mean adjusted PDC range</span>
+            </div>
+            <div class="pdc-card">
+              <h3>2L</h3>
+              <div class="pdc-meter" style="--pct: 96.9%;"><i></i></div>
+              <strong>95.6-96.9%</strong>
+              <span>Mean adjusted PDC range</span>
+            </div>
+            <div class="pdc-card">
+              <h3>3L</h3>
+              <div class="pdc-meter" style="--pct: 100%;"><i></i></div>
+              <strong>93.2-100%</strong>
+              <span>Mean adjusted PDC range</span>
+            </div>
+          </div>
+          <p class="note">The conclusion interprets high PDC as consistent with effective patient management by health system specialty pharmacies.</p>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Table pattern</p>
+          <h2>Demographics clustered near age 60</h2>
+          <div class="table-wrap">
+            <table class="mini-table">
+              <thead>
+                <tr>
+                  <th>Characteristic</th>
+                  <th>1st Gen</th>
+                  <th>2nd Gen</th>
+                  <th>3rd Gen</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Generation N</td>
+                  <td>52</td>
+                  <td>205</td>
+                  <td>71</td>
+                </tr>
+                <tr>
+                  <td>Average age at initial fill</td>
+                  <td>62.9</td>
+                  <td>59.5</td>
+                  <td>59.8</td>
+                </tr>
+                <tr>
+                  <td>Female, n (%)</td>
+                  <td>32 (61.5)</td>
+                  <td>99 (48)</td>
+                  <td>43 (61)</td>
+                </tr>
+                <tr>
+                  <td>Largest region</td>
+                  <td>Northeast, 48%</td>
+                  <td>Northeast, 46%</td>
+                  <td>Northeast, 34%</td>
+                </tr>
+                <tr>
+                  <td>Top insurance type</td>
+                  <td>Medicare, 50%</td>
+                  <td>Medicare, 38%</td>
+                  <td>Medicare, 40%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="conclusion-band" aria-label="Conclusion">
+        <article class="panel">
+          <p class="section-label">Conclusion</p>
+          <h2>Later lines showed shorter persistence, while adherence remained strong</h2>
+          <ul class="takeaway-list">
+            <li>Mean time to discontinuation generally decreased as treatment line increased.</li>
+            <li>Most patients did not move to a subsequent treatment line after first-line therapy.</li>
+            <li>Future analysis was recommended to evaluate utilization of third-generation ALK TKIs after first-line approval.</li>
+          </ul>
+        </article>
+        <article class="panel">
+          <p class="section-label">Context</p>
+          <h2>Why this pattern matters</h2>
+          <p>Guidelines recommend newer-generation ALK TKIs in first-line ALK+ mNSCLC because they offer the longest expected benefit, but clinical deterioration can limit later-line therapy. This pharmacy-fill analysis visualizes that attrition while showing consistently high adjusted PDC among patients managed by the specialty pharmacy service.</p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer-actions" id="sources" aria-label="Source files">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/1167-OPR29-OR-Poster-AM25_2025.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/1167-OPR29-OR-Poster-AM25_2025.md">Source markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

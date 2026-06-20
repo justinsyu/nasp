@@ -1,0 +1,782 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Harnessing the EHR to Improve Hepatitis C Clinic Workflow | NASP 2022</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .poster-hero {
+      grid-template-columns: minmax(0, 1.18fr) minmax(20rem, 0.82fr);
+    }
+
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 86% 14%, rgba(233, 158, 37, 0.22), transparent 7rem),
+        radial-gradient(circle at 12% 82%, rgba(24, 124, 143, 0.16), transparent 8rem),
+        linear-gradient(145deg, var(--surface-blue), #ffffff 56%, var(--surface-warm));
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -5.4rem -6.2rem auto;
+      width: 15rem;
+      height: 15rem;
+      border: 1.2rem solid rgba(209, 38, 48, 0.11);
+      border-radius: 50%;
+    }
+
+    .hero-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .ehr-visual {
+      width: 100%;
+      height: auto;
+      margin-top: 0.35rem;
+    }
+
+    .metric-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 9.5rem;
+    }
+
+    .metric-card::after {
+      content: "";
+      position: absolute;
+      right: -1.8rem;
+      bottom: -1.8rem;
+      width: 5.4rem;
+      height: 5.4rem;
+      border-radius: 50%;
+      background: rgba(24, 124, 143, 0.08);
+    }
+
+    .metric-card p {
+      position: relative;
+      margin: 0.48rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 760;
+      line-height: 1.36;
+    }
+
+    .metric-card strong {
+      position: relative;
+    }
+
+    .metric-card strong small {
+      color: var(--red);
+      font-size: 0.82rem;
+    }
+
+    .workflow-panel {
+      background:
+        linear-gradient(180deg, rgba(238, 244, 251, 0.72), rgba(255, 255, 255, 0.96)),
+        #fff;
+    }
+
+    .pipeline {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.9rem;
+    }
+
+    .pipeline-step {
+      position: relative;
+      min-height: 10.25rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.78rem;
+    }
+
+    .pipeline-step:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 2.25rem;
+      right: -0.52rem;
+      width: 0.8rem;
+      height: 0.8rem;
+      border-top: 2px solid var(--red);
+      border-right: 2px solid var(--red);
+      transform: rotate(45deg);
+      background: #fff;
+    }
+
+    .step-number {
+      display: inline-grid;
+      place-items: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.86rem;
+      font-weight: 900;
+    }
+
+    .pipeline-step h3 {
+      margin-top: 0.58rem;
+    }
+
+    .pipeline-step p {
+      margin: 0.44rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+      line-height: 1.36;
+    }
+
+    .smartform-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.85rem;
+    }
+
+    .smartform-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.82rem;
+      box-shadow: 0 10px 22px rgba(36, 55, 112, 0.06);
+    }
+
+    .smartform-card h3 {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      min-height: 2.5rem;
+    }
+
+    .form-icon {
+      flex: 0 0 auto;
+      display: inline-grid;
+      place-items: center;
+      width: 1.85rem;
+      height: 1.85rem;
+      border: 1px solid rgba(209, 38, 48, 0.24);
+      border-radius: 6px;
+      background: rgba(209, 38, 48, 0.08);
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+
+    .smartform-card ul {
+      margin: 0.5rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .smartform-card li {
+      display: grid;
+      grid-template-columns: 0.52rem 1fr;
+      gap: 0.4rem;
+      margin: 0.34rem 0;
+      color: var(--body);
+      font-size: 0.78rem;
+      line-height: 1.3;
+    }
+
+    .smartform-card li::before {
+      content: "";
+      width: 0.45rem;
+      height: 0.45rem;
+      margin-top: 0.34rem;
+      border-radius: 50%;
+      background: var(--teal);
+    }
+
+    .dashboard-compare {
+      display: grid;
+      grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .burden-list {
+      display: grid;
+      gap: 0.58rem;
+      margin: 0.85rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .burden-list li {
+      border-left: 4px solid var(--red);
+      background: rgba(209, 38, 48, 0.06);
+      padding: 0.58rem 0.7rem;
+      color: var(--ink);
+      font-size: 0.85rem;
+      font-weight: 780;
+    }
+
+    .dashboard-mock {
+      display: grid;
+      grid-template-columns: 0.82fr 1.18fr;
+      gap: 0.65rem;
+      margin-top: 0.55rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background: #fbfdff;
+      padding: 0.75rem;
+    }
+
+    .dash-tile {
+      min-height: 5.1rem;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.62rem;
+    }
+
+    .dash-tile strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.28rem;
+      line-height: 1;
+    }
+
+    .dash-tile span {
+      display: block;
+      margin-top: 0.28rem;
+      color: var(--muted);
+      font-size: 0.67rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .dash-chart {
+      display: grid;
+      gap: 0.35rem;
+      grid-row: span 2;
+    }
+
+    .chart-row {
+      display: grid;
+      grid-template-columns: 6.4rem minmax(0, 1fr);
+      gap: 0.48rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.72rem;
+      font-weight: 850;
+    }
+
+    .chart-bar {
+      height: 0.7rem;
+      border-radius: 999px;
+      background: var(--surface-blue);
+      overflow: hidden;
+    }
+
+    .chart-bar i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .insight-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-top: 0.85rem;
+    }
+
+    .insight-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.86rem;
+    }
+
+    .insight-card h3 {
+      padding-bottom: 0.52rem;
+      border-bottom: 2px solid rgba(36, 55, 112, 0.12);
+    }
+
+    .insight-card p {
+      margin: 0.55rem 0 0;
+      color: var(--body);
+      font-size: 0.84rem;
+    }
+
+    .data-field-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.7rem;
+    }
+
+    .data-field {
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 999px;
+      background: var(--surface-blue);
+      padding: 0.28rem 0.54rem;
+      color: var(--ink);
+      font-size: 0.72rem;
+      font-weight: 820;
+    }
+
+    .note-sample {
+      margin-top: 0.8rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        linear-gradient(90deg, rgba(24, 124, 143, 0.09), transparent 34%),
+        #fff;
+      padding: 0.85rem;
+    }
+
+    .note-line {
+      display: grid;
+      grid-template-columns: 8.2rem 1fr;
+      gap: 0.62rem;
+      padding: 0.45rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.8rem;
+    }
+
+    .note-line:last-child {
+      border-bottom: 0;
+    }
+
+    .note-line b {
+      color: var(--ink);
+    }
+
+    .table-card.full-width {
+      grid-column: 1 / -1;
+    }
+
+    .conclusion-band {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(19rem, 0.5fr);
+      gap: 1rem;
+      align-items: stretch;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 92% 16%, rgba(233, 158, 37, 0.16), transparent 8rem),
+        linear-gradient(135deg, var(--ink), #304a8f);
+      padding: 1rem;
+      color: #fff;
+    }
+
+    .conclusion-band h2,
+    .conclusion-band .section-label {
+      color: #fff;
+    }
+
+    .conclusion-band .section-label {
+      opacity: 0.78;
+    }
+
+    .conclusion-band p {
+      margin: 0.5rem 0 0;
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .outcome-list {
+      display: grid;
+      gap: 0.55rem;
+      margin: 0.9rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .outcome-list li {
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 0.58rem 0.66rem;
+      color: #fff;
+      font-size: 0.84rem;
+      font-weight: 780;
+    }
+
+    .source-box {
+      align-self: end;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.09);
+      padding: 0.85rem;
+    }
+
+    .source-box h3 {
+      color: #fff;
+      margin-bottom: 0.55rem;
+    }
+
+    .source-box .button-link {
+      width: 100%;
+      justify-content: center;
+      border-color: rgba(255, 255, 255, 0.55);
+      color: #fff;
+      margin-top: 0.48rem;
+    }
+
+    @media (max-width: 980px) {
+      .pipeline,
+      .smartform-grid,
+      .insight-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .pipeline-step:not(:last-child)::after {
+        display: none;
+      }
+
+      .dashboard-compare,
+      .conclusion-band {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .pipeline,
+      .smartform-grid,
+      .insight-grid,
+      .dashboard-mock {
+        grid-template-columns: 1fr;
+      }
+
+      .note-line,
+      .chart-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">NASP Posters</a>
+      <nav aria-label="Source navigation">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/18-2022.pdf">Poster PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/18-2022.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2022 | Workflow automation | Hepatitis C clinic</p>
+        <h1>Harnessing the Electronic Health Record to Improve Workflow &amp; Reporting in a Hepatitis C Clinic</h1>
+        <p class="hero-summary">Vanderbilt Specialty Pharmacy converted fragmented HCV clinic documentation into discrete Epic SmartForm fields, reusable note text, and near real-time Tableau dashboards for workload, workflow, and outcomes reporting.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Quality improvement</li>
+          <li class="tag therapy">Hepatitis C</li>
+          <li class="tag">EHR SmartForms</li>
+          <li class="tag">Tableau dashboards</li>
+          <li class="tag">Specialty pharmacy</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata and EHR visual">
+        <div class="poster-code">18-2022</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Authors</dt>
+            <dd>Cori L Edmonds; Kristen Whelchel</dd>
+          </div>
+          <div>
+            <dt>Institution</dt>
+            <dd>Vanderbilt Specialty Pharmacy</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>Academic medical center</dd>
+          </div>
+          <div>
+            <dt>System</dt>
+            <dd>Epic SmartForms to Tableau</dd>
+          </div>
+        </dl>
+        <svg class="ehr-visual" viewBox="0 0 420 250" role="img" aria-label="Illustration of EHR documentation flowing into dashboards">
+          <defs>
+            <linearGradient id="ehrGrad" x1="0" x2="1">
+              <stop offset="0" stop-color="#187c8f"/>
+              <stop offset="1" stop-color="#4d8a67"/>
+            </linearGradient>
+            <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#243770" flood-opacity="0.13"/>
+            </filter>
+          </defs>
+          <rect x="24" y="28" width="156" height="188" rx="14" fill="#fff" stroke="#aebbd2" filter="url(#softShadow)"/>
+          <rect x="44" y="54" width="116" height="16" rx="8" fill="#eef4fb"/>
+          <rect x="44" y="88" width="96" height="12" rx="6" fill="#d9e1ef"/>
+          <rect x="44" y="112" width="116" height="12" rx="6" fill="#d9e1ef"/>
+          <rect x="44" y="136" width="70" height="12" rx="6" fill="#d9e1ef"/>
+          <rect x="44" y="166" width="54" height="26" rx="7" fill="#d12630" opacity="0.9"/>
+          <rect x="106" y="166" width="54" height="26" rx="7" fill="#e99e25" opacity="0.92"/>
+          <path d="M184 122 C218 122, 222 122, 252 122" fill="none" stroke="#d12630" stroke-width="5" stroke-linecap="round"/>
+          <path d="M240 110 L258 122 L240 134" fill="none" stroke="#d12630" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="258" y="34" width="138" height="176" rx="14" fill="#fff" stroke="#aebbd2" filter="url(#softShadow)"/>
+          <rect x="280" y="56" width="94" height="14" rx="7" fill="#eef4fb"/>
+          <rect x="282" y="90" width="25" height="82" rx="6" fill="url(#ehrGrad)" opacity="0.9"/>
+          <rect x="316" y="118" width="25" height="54" rx="6" fill="#e99e25" opacity="0.95"/>
+          <rect x="350" y="78" width="25" height="94" rx="6" fill="#7561a8" opacity="0.9"/>
+          <circle cx="294" cy="190" r="5" fill="#187c8f"/>
+          <circle cx="324" cy="190" r="5" fill="#e99e25"/>
+          <circle cx="354" cy="190" r="5" fill="#7561a8"/>
+        </svg>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key extracted metrics">
+        <div class="metric-card">
+          <span>SmartForms created</span>
+          <strong>4</strong>
+          <p>Pre-treatment, treatment details, medication reconciliation and drug interactions, and on-treatment monitoring.</p>
+        </div>
+        <div class="metric-card">
+          <span>Baseline fields captured</span>
+          <strong>9</strong>
+          <p>Pre-treatment structure included HCV type, genotype, viral load, treatment history, RAV, transplant status, and liver staging.</p>
+        </div>
+        <div class="metric-card">
+          <span>Workflow moves</span>
+          <strong>5</strong>
+          <p>Assess, harness, create, implement, and extract/display the data for reporting.</p>
+        </div>
+        <div class="metric-card">
+          <span>Dashboard outputs</span>
+          <strong>3</strong>
+          <p>Automated reporting aggregated, tabulated, and charted clinic data.</p>
+        </div>
+      </section>
+
+      <section class="panel workflow-panel" id="objective">
+        <p class="section-label">Objective</p>
+        <h2>Turn routine clinical documentation into reporting infrastructure</h2>
+        <p>The project aimed to gain real-time data collection and reporting, save staff time, and improve morale by using underutilized Epic documentation functionality inside the specialty pharmacy workflow.</p>
+        <div class="pipeline" aria-label="Methods workflow">
+          <div class="pipeline-step">
+            <span class="step-number">1</span>
+            <h3>Assess</h3>
+            <p>Map daily systems, duplicative documentation, discrete data needs, and report elements.</p>
+          </div>
+          <div class="pipeline-step">
+            <span class="step-number">2</span>
+            <h3>Harness</h3>
+            <p>Use EHR SmartForm functionality as the structured-data layer.</p>
+          </div>
+          <div class="pipeline-step">
+            <span class="step-number">3</span>
+            <h3>Create</h3>
+            <p>Build SmartForms with an EHR SuperUser for clinic-relevant documentation.</p>
+          </div>
+          <div class="pipeline-step">
+            <span class="step-number">4</span>
+            <h3>Implement</h3>
+            <p>Have PharmDs document in SmartForms as part of the care workflow.</p>
+          </div>
+          <div class="pipeline-step">
+            <span class="step-number">5</span>
+            <h3>Extract</h3>
+            <p>Feed EHR data into Tableau dashboards that aggregate, tabulate, and chart activity.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="results">
+        <p class="section-label">Results</p>
+        <h2>Four SmartForms organized the work that had been scattered across systems</h2>
+        <div class="smartform-grid" aria-label="SmartForms created">
+          <article class="smartform-card">
+            <h3><span class="form-icon">01</span>Pre-Treatment</h3>
+            <ul>
+              <li>Baseline characteristics</li>
+              <li>HCV type and genotype</li>
+              <li>Liver staging and fibrosis</li>
+            </ul>
+          </article>
+          <article class="smartform-card">
+            <h3><span class="form-icon">02</span>Treatment Details</h3>
+            <ul>
+              <li>Medication regimen</li>
+              <li>Start and end dates</li>
+              <li>SVR date tracking</li>
+            </ul>
+          </article>
+          <article class="smartform-card">
+            <h3><span class="form-icon">03</span>Med Rec &amp; Interactions</h3>
+            <ul>
+              <li>Medication reconciliation</li>
+              <li>Drug interaction management</li>
+              <li>PharmD intervention record</li>
+            </ul>
+          </article>
+          <article class="smartform-card">
+            <h3><span class="form-icon">04</span>On Treatment Monitoring</h3>
+            <ul>
+              <li>Adherence monitoring</li>
+              <li>Side effect documentation</li>
+              <li>Current treatment status</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="dashboard-compare" aria-label="Problem and dashboard solution">
+        <div class="panel">
+          <p class="section-label">Before</p>
+          <h2>Reporting burden was manual, delayed, and duplicative</h2>
+          <ul class="burden-list">
+            <li>Data lived across multiple systems and could be outdated by presentation time.</li>
+            <li>Clinical staff spent time on duplicated documentation, chart review, and aggregation.</li>
+            <li>Complex reporting work threatened morale and increased burnout risk.</li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">After</p>
+          <h2>Dashboards made clinic work visible near real time</h2>
+          <div class="dashboard-mock" aria-label="Dashboard concept">
+            <div class="dash-tile">
+              <strong>Referrals</strong>
+              <span>Pre-treatment workload</span>
+            </div>
+            <div class="dash-chart">
+              <div class="chart-row">
+                <span>Side effects</span>
+                <div class="chart-bar"><i style="width: 64%"></i></div>
+              </div>
+              <div class="chart-row">
+                <span>Adherence</span>
+                <div class="chart-bar"><i style="width: 82%"></i></div>
+              </div>
+              <div class="chart-row">
+                <span>Interventions</span>
+                <div class="chart-bar"><i style="width: 56%"></i></div>
+              </div>
+              <div class="chart-row">
+                <span>HBV monitoring</span>
+                <div class="chart-bar"><i style="width: 72%"></i></div>
+              </div>
+            </div>
+            <div class="dash-tile">
+              <strong>Patient lists</strong>
+              <span>Actionable queues</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Table pattern</p>
+        <h2>The pre-treatment table reads like a structured HCV data dictionary</h2>
+        <p>Instead of a narrative-only note, the poster shows categorical fields that can be extracted and reused across reporting views.</p>
+        <div class="data-field-cloud" aria-label="Pre-treatment data fields">
+          <span class="data-field">HCV type</span>
+          <span class="data-field">Genotype</span>
+          <span class="data-field">Baseline viral load</span>
+          <span class="data-field">Viral load date</span>
+          <span class="data-field">Prior treatment status</span>
+          <span class="data-field">Baseline RAV</span>
+          <span class="data-field">Post-transplant status</span>
+          <span class="data-field">Liver staging</span>
+          <span class="data-field">Fibrosis stage</span>
+        </div>
+      </section>
+
+      <section class="tables-grid">
+        <article class="table-card">
+          <p class="section-label">Extracted example</p>
+          <h2>SmartForm values can populate clinical note text</h2>
+          <div class="note-sample">
+            <div class="note-line"><b>Regimen</b><span>Sofosbuvir-velpatasvir 400-100 mg for 24 weeks</span></div>
+            <div class="note-line"><b>Timeline</b><span>Start 6/1/2022; anticipated EOT 11/15/2022; updated SVR12 due 2/9/2023</span></div>
+            <div class="note-line"><b>Week status</b><span>Week 3 on treatment in the sample monitoring note</span></div>
+            <div class="note-line"><b>Adherence</b><span>3 missed doses documented with patient-reported context</span></div>
+            <div class="note-line"><b>Side effects</b><span>Nausea and vomiting captured as discrete monitoring content</span></div>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Dashboard pattern</p>
+          <h2>Two reporting views covered the HCV clinic lifecycle</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Dashboard</th>
+                  <th>Signals shown in poster</th>
+                  <th>Use case</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Pre-Treatment</td>
+                  <td>Referrals, HBV monitoring, patient lists</td>
+                  <td>Track intake and preparation work</td>
+                </tr>
+                <tr>
+                  <td>Treatment and Monitoring</td>
+                  <td>Side effects, adherence, PharmD interventions</td>
+                  <td>Monitor active therapy and clinical follow-up</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Evidence flow</p>
+        <h2>What changed operationally</h2>
+        <div class="insight-grid">
+          <article class="insight-card">
+            <h3>Documentation</h3>
+            <p>Duplicative documentation and data recording were eliminated by moving key HCV fields into SmartForms.</p>
+          </article>
+          <article class="insight-card">
+            <h3>Reporting</h3>
+            <p>Data extraction, aggregation, and tabulation became automated rather than dependent on post-hoc chart review.</p>
+          </article>
+          <article class="insight-card">
+            <h3>Team experience</h3>
+            <p>The poster reports reduced delays and improved morale after clinic data became easier to collect and display.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="conclusion-band" id="conclusion">
+        <div>
+          <p class="section-label">Conclusion</p>
+          <h2>A clinical documentation rebuild became a workload and outcomes reporting system</h2>
+          <p>By pairing Epic SmartForms with Tableau extraction, the HCV clinic created near real-time dashboards while simplifying the day-to-day work of clinical pharmacy staff.</p>
+          <ul class="outcome-list">
+            <li>Eliminated duplicative documentation and data recording.</li>
+            <li>Simplified clinic reporting through automated extraction, aggregation, and tabulation.</li>
+            <li>Created near real-time workload, workflow, and outcomes dashboards.</li>
+            <li>Reduced reporting delays and improved team morale.</li>
+          </ul>
+        </div>
+        <aside class="source-box" aria-label="Sources">
+          <h3>Source files</h3>
+          <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/18-2022.pdf">Open original PDF</a>
+          <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/18-2022.md">Open extracted markdown</a>
+        </aside>
+      </section>
+
+      <footer class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/18-2022.pdf">Poster PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/18-2022.md">Source Markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

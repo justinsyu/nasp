@@ -1,0 +1,792 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OPR42-EN | Radicava ORS Real-World Claims Analysis | NASP 2024</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .claims-hero {
+      position: relative;
+      min-height: 18rem;
+      overflow: hidden;
+      border: 1px solid rgba(36, 55, 112, 0.2);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 86% 18%, rgba(117, 97, 168, 0.18), transparent 7rem),
+        linear-gradient(145deg, rgba(238, 244, 251, 0.98), #fff 58%, rgba(255, 247, 234, 0.95));
+      padding: 0.85rem;
+    }
+
+    .claims-hero svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .cohort-legend {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.45rem;
+    }
+
+    .legend-card {
+      border: 1px solid rgba(174, 187, 210, 0.82);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.82);
+      padding: 0.58rem;
+    }
+
+    .legend-card strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+
+    .legend-card span {
+      display: block;
+      margin-top: 0.22rem;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 850;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .metric-card strong small {
+      color: var(--red);
+      font-size: 0.78rem;
+    }
+
+    .metric-card em {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-style: normal;
+      font-weight: 760;
+      line-height: 1.3;
+    }
+
+    .pipeline {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.8rem;
+    }
+
+    .pipe-step {
+      position: relative;
+      min-height: 8.8rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.72rem;
+    }
+
+    .pipe-step::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -0.45rem;
+      width: 0.35rem;
+      height: 0.35rem;
+      border-top: 3px solid var(--border-strong);
+      border-right: 3px solid var(--border-strong);
+      transform: translateY(-50%) rotate(45deg);
+      background: #fff;
+    }
+
+    .pipe-step:last-child::after {
+      display: none;
+    }
+
+    .pipe-step b {
+      display: grid;
+      place-items: center;
+      width: 2.05rem;
+      height: 2.05rem;
+      border-radius: 50%;
+      background: var(--surface-blue);
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 900;
+    }
+
+    .pipe-step h3 {
+      margin-top: 0.55rem;
+    }
+
+    .pipe-step p {
+      margin: 0.35rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+      line-height: 1.35;
+    }
+
+    .split-board {
+      display: grid;
+      grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .donut-wrap {
+      display: grid;
+      place-items: center;
+      min-height: 18rem;
+    }
+
+    .donut-svg {
+      width: min(100%, 300px);
+      height: auto;
+    }
+
+    .donut-center {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-weight: 900;
+      text-anchor: middle;
+    }
+
+    .cohort-bars {
+      display: grid;
+      gap: 0.62rem;
+      margin-top: 0.75rem;
+    }
+
+    .cohort-row {
+      display: grid;
+      grid-template-columns: 8.5rem minmax(0, 1fr) 3.5rem;
+      gap: 0.65rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+
+    .cohort-row em {
+      color: var(--muted);
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .wide-track {
+      height: 0.9rem;
+      border: 1px solid rgba(174, 187, 210, 0.82);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+
+    .wide-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .cohort-row.switch .wide-track i {
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .milestone-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 0.6rem;
+      margin-top: 0.8rem;
+    }
+
+    .milestone {
+      display: grid;
+      align-content: end;
+      min-height: 11rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.55rem;
+    }
+
+    .milestone i {
+      display: block;
+      height: var(--h);
+      min-height: 0.55rem;
+      border-radius: 7px 7px 2px 2px;
+      background: linear-gradient(180deg, var(--red), var(--gold));
+    }
+
+    .milestone strong {
+      display: block;
+      margin-top: 0.48rem;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.28rem;
+      line-height: 1;
+    }
+
+    .milestone span {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--ink);
+      font-size: 0.72rem;
+      font-weight: 850;
+      line-height: 1.22;
+    }
+
+    .timeline-lanes {
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 0.8rem;
+    }
+
+    .lane {
+      display: grid;
+      grid-template-columns: 4.4rem minmax(0, 1fr);
+      gap: 0.65rem;
+      align-items: center;
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+
+    .lane-label {
+      color: var(--ink);
+    }
+
+    .lane-track {
+      position: relative;
+      height: 2.25rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: #f1f5fa;
+      overflow: hidden;
+    }
+
+    .segment {
+      position: absolute;
+      top: 0.38rem;
+      bottom: 0.38rem;
+      left: var(--x);
+      width: var(--w);
+      border-radius: 999px;
+      background: var(--c);
+    }
+
+    .lane-note {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+
+    .rank-list {
+      display: grid;
+      gap: 0.52rem;
+      margin-top: 0.75rem;
+    }
+
+    .rank-row {
+      display: grid;
+      grid-template-columns: minmax(8rem, 1fr) minmax(0, 1.4fr) 3rem;
+      gap: 0.55rem;
+      align-items: center;
+      font-size: 0.78rem;
+    }
+
+    .rank-row b {
+      color: var(--ink);
+      font-weight: 850;
+    }
+
+    .rank-row span:last-child {
+      color: var(--ink);
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .rank-track {
+      height: 0.72rem;
+      border-radius: 999px;
+      background: #e7edf6;
+      overflow: hidden;
+    }
+
+    .rank-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--purple), var(--teal));
+    }
+
+    .rank-list.procedures .rank-track i {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .callout-panel {
+      border-left: 4px solid var(--red);
+      background: linear-gradient(90deg, rgba(209, 38, 48, 0.08), #fff 62%);
+    }
+
+    .source-note {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 980px) {
+      .pipeline,
+      .milestone-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .pipe-step::after {
+        display: none;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .split-board {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .cohort-legend,
+      .pipeline,
+      .milestone-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cohort-row,
+      .lane,
+      .rank-row {
+        grid-template-columns: 1fr;
+      }
+
+      .cohort-row em,
+      .rank-row span:last-child {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/42-OPR42-EN-Poster-AM24_2024.pdf">Source PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/42-OPR42-EN-Poster-AM24_2024.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2024 / OPR42-EN / ALS real-world evidence</p>
+        <h1 id="poster-title">Radicava ORS&reg;-treated patients with ALS in a US claims database</h1>
+        <p class="hero-summary">
+          This preliminary Optum Clinformatics Data Mart analysis characterized patients with ALS treated with oral edaravone after its 2022 FDA approval, separating patients who switched from IV edaravone from those who initiated oral therapy directly.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag therapy">Amyotrophic lateral sclerosis</li>
+          <li class="tag category">Administrative claims</li>
+          <li class="tag">Oral edaravone</li>
+          <li class="tag">Real-world evidence</li>
+          <li class="tag">Optum CDM</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Study snapshot">
+        <div class="poster-code">OPR42<br>EN</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Meeting</dt>
+            <dd>NASP 2024</dd>
+          </div>
+          <div>
+            <dt>Population</dt>
+            <dd>ALS patients</dd>
+          </div>
+          <div>
+            <dt>Index date</dt>
+            <dd>First oral dose</dd>
+          </div>
+          <div>
+            <dt>Sponsor</dt>
+            <dd>MTPA</dd>
+          </div>
+        </dl>
+        <div class="claims-hero" aria-label="Claims database and cohort split illustration">
+          <svg viewBox="0 0 420 250" role="img" aria-labelledby="claims-title claims-desc">
+            <title id="claims-title">Administrative claims to oral edaravone cohort</title>
+            <desc id="claims-desc">Claims sources feed a de-identified data warehouse that yields 375 oral edaravone-treated ALS patients.</desc>
+            <defs>
+              <linearGradient id="warehouseFill" x1="0" x2="1">
+                <stop offset="0" stop-color="#eef4fb"></stop>
+                <stop offset="1" stop-color="#fff7ea"></stop>
+              </linearGradient>
+            </defs>
+            <g fill="#fff" stroke="#aebbd2" stroke-width="3">
+              <rect x="24" y="28" width="98" height="38" rx="7"></rect>
+              <rect x="24" y="82" width="98" height="38" rx="7"></rect>
+              <rect x="24" y="136" width="98" height="38" rx="7"></rect>
+              <rect x="24" y="190" width="98" height="38" rx="7"></rect>
+            </g>
+            <g fill="#243770" font-family="Arial, sans-serif" font-size="15" font-weight="800">
+              <text x="42" y="52">Physician</text>
+              <text x="43" y="106">Patient</text>
+              <text x="43" y="160">Facility</text>
+              <text x="39" y="214">Pharmacy</text>
+            </g>
+            <path d="M132 47 C165 47 172 107 196 107" fill="none" stroke="#187c8f" stroke-width="5" stroke-linecap="round"></path>
+            <path d="M132 101 C160 101 172 112 196 112" fill="none" stroke="#187c8f" stroke-width="5" stroke-linecap="round"></path>
+            <path d="M132 155 C160 155 172 122 196 122" fill="none" stroke="#187c8f" stroke-width="5" stroke-linecap="round"></path>
+            <path d="M132 209 C166 209 172 127 196 127" fill="none" stroke="#187c8f" stroke-width="5" stroke-linecap="round"></path>
+            <rect x="195" y="70" width="100" height="88" rx="12" fill="url(#warehouseFill)" stroke="#243770" stroke-width="5"></rect>
+            <path d="M214 94h62M214 116h62M214 138h42" stroke="#d12630" stroke-width="7" stroke-linecap="round"></path>
+            <path d="M300 114 C328 104 338 82 359 77" fill="none" stroke="#d12630" stroke-width="6" stroke-linecap="round"></path>
+            <path d="M300 126 C329 140 339 164 361 173" fill="none" stroke="#e99e25" stroke-width="6" stroke-linecap="round"></path>
+            <circle cx="367" cy="75" r="36" fill="#eef4fb" stroke="#d12630" stroke-width="5"></circle>
+            <circle cx="367" cy="176" r="36" fill="#fff7ea" stroke="#e99e25" stroke-width="5"></circle>
+            <text x="367" y="80" text-anchor="middle" fill="#d12630" font-family="Arial, sans-serif" font-size="25" font-weight="900">306</text>
+            <text x="367" y="181" text-anchor="middle" fill="#243770" font-family="Arial, sans-serif" font-size="25" font-weight="900">69</text>
+            <text x="245" y="49" text-anchor="middle" fill="#243770" font-family="Arial, sans-serif" font-size="17" font-weight="900">De-identified CDM</text>
+            <text x="245" y="184" text-anchor="middle" fill="#187c8f" font-family="Arial, sans-serif" font-size="18" font-weight="900">375 ALS patients</text>
+          </svg>
+          <div class="cohort-legend">
+            <div class="legend-card">
+              <strong>306</strong>
+              <span>initiated oral edaravone</span>
+            </div>
+            <div class="legend-card">
+              <strong>69</strong>
+              <span>switched from IV</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key poster numbers">
+        <article class="metric-card">
+          <span>Total oral cohort</span>
+          <strong>375</strong>
+          <em>Patients with ALS treated with MTPA oral edaravone.</em>
+        </article>
+        <article class="metric-card">
+          <span>Mean age</span>
+          <strong>64.4</strong>
+          <em>Years; median age was 65.0 years.</em>
+        </article>
+        <article class="metric-card">
+          <span>Riluzole use</span>
+          <strong>88.3<small>%</small></strong>
+          <em>Concomitant or prior ALS therapy in total cohort.</em>
+        </article>
+        <article class="metric-card">
+          <span>Medicare Advantage</span>
+          <strong>69.3<small>%</small></strong>
+          <em>Payer mix was mostly Medicare, with 30.7% commercial.</em>
+        </article>
+      </section>
+
+      <section class="visual-grid" id="objective-methods">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Characterize US patients with ALS receiving oral edaravone in administrative claims.</h2>
+          <p>
+            The poster's primary aim was descriptive: define demographics, clinical characteristics, pre-index disease progression milestones, and healthcare utilization for oral edaravone-treated patients.
+          </p>
+          <div class="number-cloud" aria-label="Database scope">
+            <div class="number-pill">17-19M<small>annual covered lives</small></div>
+            <div class="number-pill">65M+<small>unique lives</small></div>
+            <div class="number-pill">50<small>states represented</small></div>
+            <div class="number-pill">2007-2022<small>data range</small></div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Methods</p>
+          <h2>Claims streams were adjudicated, de-identified, then summarized descriptively.</h2>
+          <div class="pipeline" aria-label="Study evidence flow">
+            <div class="pipe-step">
+              <b>1</b>
+              <h3>Claims inputs</h3>
+              <p>Medical, pharmacy, facility, laboratory, and patient enrollment records.</p>
+            </div>
+            <div class="pipe-step">
+              <b>2</b>
+              <h3>De-identify</h3>
+              <p>Optum CDM data were statistically de-identified under expert determination.</p>
+            </div>
+            <div class="pipe-step">
+              <b>3</b>
+              <h3>Index</h3>
+              <p>First dosing date of MTPA oral edaravone served as the index date.</p>
+            </div>
+            <div class="pipe-step">
+              <b>4</b>
+              <h3>Split cohorts</h3>
+              <p>Patients were classified as IV switchers or oral initiators.</p>
+            </div>
+            <div class="pipe-step">
+              <b>5</b>
+              <h3>Describe</h3>
+              <p>Counts, percentages, means, medians, SDs, and ranges were reported.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="split-board" id="cohort">
+        <article class="panel">
+          <p class="section-label">Cohort architecture</p>
+          <h2>Most patients were oral edaravone initiators, not IV switchers.</h2>
+          <div class="donut-wrap" aria-label="Cohort split donut">
+            <svg class="donut-svg" viewBox="0 0 220 220" role="img">
+              <circle cx="110" cy="110" r="78" fill="none" stroke="#e7edf6" stroke-width="34"></circle>
+              <circle cx="110" cy="110" r="78" fill="none" stroke="#d12630" stroke-width="34" stroke-dasharray="408 490" stroke-linecap="round" transform="rotate(-90 110 110)"></circle>
+              <circle cx="110" cy="110" r="78" fill="none" stroke="#e99e25" stroke-width="34" stroke-dasharray="82 490" stroke-dashoffset="-408" stroke-linecap="round" transform="rotate(-90 110 110)"></circle>
+              <text x="110" y="104" class="donut-center" font-size="42">375</text>
+              <text x="110" y="130" class="donut-center" font-size="15" fill="#68758d">total patients</text>
+            </svg>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Demographic pattern</p>
+          <h2>Older, mostly Medicare cohort with high background ALS therapy use.</h2>
+          <div class="cohort-bars" aria-label="Selected total cohort characteristics">
+            <div class="cohort-row">
+              <span>Oral initiators</span>
+              <div class="wide-track"><i style="--w:81.6%;"></i></div>
+              <em>81.6%</em>
+            </div>
+            <div class="cohort-row switch">
+              <span>IV switchers</span>
+              <div class="wide-track"><i style="--w:18.4%;"></i></div>
+              <em>18.4%</em>
+            </div>
+            <div class="cohort-row">
+              <span>Age 60-79</span>
+              <div class="wide-track"><i style="--w:66.1%;"></i></div>
+              <em>66.1%</em>
+            </div>
+            <div class="cohort-row">
+              <span>Male</span>
+              <div class="wide-track"><i style="--w:54.4%;"></i></div>
+              <em>54.4%</em>
+            </div>
+            <div class="cohort-row">
+              <span>White race</span>
+              <div class="wide-track"><i style="--w:76%;"></i></div>
+              <em>76.0%</em>
+            </div>
+            <div class="cohort-row">
+              <span>South region</span>
+              <div class="wide-track"><i style="--w:39.2%;"></i></div>
+              <em>39.2%</em>
+            </div>
+          </div>
+          <p class="source-note">Total cohort values are taken from Table 1 in the extracted poster text.</p>
+        </article>
+      </section>
+
+      <section class="panel" id="milestones">
+        <p class="section-label">Pre-index disease progression milestones</p>
+        <h2>Before oral edaravone initiation, claims already showed respiratory, nutrition, mobility, and hospital-use markers.</h2>
+        <div class="milestone-grid" aria-label="Disease progression milestones before index date">
+          <div class="milestone">
+            <i style="--h:28%;"></i>
+            <strong>28.0%</strong>
+            <span>pre-index hospitalization</span>
+          </div>
+          <div class="milestone">
+            <i style="--h:24%;"></i>
+            <strong>24.0%</strong>
+            <span>non-invasive ventilation</span>
+          </div>
+          <div class="milestone">
+            <i style="--h:21.6%;"></i>
+            <strong>21.6%</strong>
+            <span>canes, walkers, or wheelchairs</span>
+          </div>
+          <div class="milestone">
+            <i style="--h:19.2%;"></i>
+            <strong>19.2%</strong>
+            <span>artificial nutrition</span>
+          </div>
+          <div class="milestone">
+            <i style="--h:13.3%;"></i>
+            <strong>13.3%</strong>
+            <span>gastrostomy tube</span>
+          </div>
+          <div class="milestone">
+            <i style="--h:1.3%;"></i>
+            <strong>1.3%</strong>
+            <span>invasive ventilation</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="evidence-map" aria-label="Poster evidence flow">
+        <article class="evidence-card">
+          <h3>Clinical context</h3>
+          <p>ALS is fatal and heterogeneous; the authors positioned real-world evidence as a supplement to randomized trials.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Therapy context</h3>
+          <p>IV edaravone was approved in 2017; oral edaravone suspension was FDA approved for ALS in May 2022.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Claims lens</h3>
+          <p>The Optum CDM enabled national-scale descriptive analysis across medical and pharmacy utilization.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Cohort readout</h3>
+          <p>Of 375 oral edaravone-treated patients, 306 initiated orally and 69 switched after IV edaravone exposure.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Interpretation</h3>
+          <p>The study was ongoing, with additional analyses expected to further inform clinicians and payers.</p>
+        </article>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">Treatment timeline examples</p>
+          <h2>Example patients began FDA-approved ALS treatments at different disease stages.</h2>
+          <div class="timeline-lanes" aria-label="Treatment timeline examples from 2016 to 2023">
+            <div class="lane">
+              <span class="lane-label">Patient 1</span>
+              <div class="lane-track">
+                <i class="segment" style="--x:0%; --w:100%; --c:rgba(24,124,143,0.68);"></i>
+                <i class="segment" style="--x:86%; --w:14%; --c:#d12630;"></i>
+              </div>
+            </div>
+            <div class="lane">
+              <span class="lane-label">Patient 2</span>
+              <div class="lane-track">
+                <i class="segment" style="--x:0%; --w:100%; --c:rgba(24,124,143,0.68);"></i>
+                <i class="segment" style="--x:14%; --w:72%; --c:#e99e25;"></i>
+                <i class="segment" style="--x:86%; --w:14%; --c:#d12630;"></i>
+                <i class="segment" style="--x:86%; --w:14%; --c:#7561a8; top:1.2rem;"></i>
+              </div>
+            </div>
+            <div class="lane">
+              <span class="lane-label">Patients 3-4</span>
+              <div class="lane-track">
+                <i class="segment" style="--x:0%; --w:100%; --c:rgba(24,124,143,0.68);"></i>
+                <i class="segment" style="--x:14%; --w:72%; --c:#e99e25;"></i>
+                <i class="segment" style="--x:86%; --w:14%; --c:#d12630;"></i>
+              </div>
+            </div>
+          </div>
+          <p class="lane-note">Color key: teal = riluzole; gold = IV edaravone; red = oral edaravone; purple = sodium phenylbutyrate-taurursodiol.</p>
+        </article>
+
+        <article class="panel callout-panel">
+          <p class="section-label">Conclusion</p>
+          <h2>Real-world data may clarify who receives oral edaravone and how care patterns cluster around treatment.</h2>
+          <p>
+            The authors concluded that these ongoing real-world analyses may help clinicians and payers better understand demographics, clinical characteristics, and healthcare utilization among patients with ALS treated with MTPA oral edaravone.
+          </p>
+          <p class="source-note">Main limitations: commercial or Medicare Advantage coverage only, claims coding limitations, possible ALS underdiagnosis, and exclusion of patients no longer enrolled post-index.</p>
+        </article>
+      </section>
+
+      <section class="tables-grid" id="patterns" aria-label="Extracted table patterns">
+        <article class="table-card">
+          <p class="section-label">Concomitant drug pattern</p>
+          <h2>Oral initiators had higher counts for CNS agents and ammonia detoxicants.</h2>
+          <div class="rank-list" aria-label="Top concomitant drugs after initial dose">
+            <div class="rank-row"><b>CNS agents, misc.</b><div class="rank-track"><i style="--w:100%;"></i></div><span>190</span></div>
+            <div class="rank-row"><b>Ammonia detoxicants</b><div class="rank-track"><i style="--w:97%;"></i></div><span>185</span></div>
+            <div class="rank-row"><b>Antibiotics</b><div class="rank-track"><i style="--w:95%;"></i></div><span>180</span></div>
+            <div class="rank-row"><b>Adrenergic agonists</b><div class="rank-track"><i style="--w:92%;"></i></div><span>175</span></div>
+            <div class="rank-row"><b>SSRIs</b><div class="rank-track"><i style="--w:89%;"></i></div><span>170</span></div>
+          </div>
+          <p class="source-note">Counts shown are for patients who initiated with oral edaravone; switchers most frequently had antibiotics listed.</p>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Procedure pattern</p>
+          <h2>Routine labs and respiratory-support procedures dominated post-dose utilization.</h2>
+          <div class="rank-list procedures" aria-label="Top procedures after initial dose">
+            <div class="rank-row"><b>Routine venipuncture</b><div class="rank-track"><i style="--w:100%;"></i></div><span>145</span></div>
+            <div class="rank-row"><b>Metabolic panel</b><div class="rank-track"><i style="--w:97%;"></i></div><span>140</span></div>
+            <div class="rank-row"><b>CBC with differential</b><div class="rank-track"><i style="--w:93%;"></i></div><span>135</span></div>
+            <div class="rank-row"><b>Home non-invasive vent</b><div class="rank-track"><i style="--w:90%;"></i></div><span>130</span></div>
+            <div class="rank-row"><b>Cough stimulation device</b><div class="rank-track"><i style="--w:86%;"></i></div><span>125</span></div>
+          </div>
+          <p class="source-note">Counts shown are for oral initiators; the poster also reported parallel counts for IV-to-oral switchers.</p>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Selected extracted table values">
+        <article class="table-card">
+          <p class="section-label">Table 1 pattern</p>
+          <h2>Selected cohort characteristics</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Characteristic</th>
+                  <th>IV to oral</th>
+                  <th>Oral initiator</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>N</td><td>69</td><td>306</td><td>375</td></tr>
+                <tr><td>Mean age, years</td><td>60.9</td><td>65.2</td><td>64.4</td></tr>
+                <tr><td>Male, n (%)</td><td>39 (56.5)</td><td>165 (53.9)</td><td>204 (54.4)</td></tr>
+                <tr><td>Medicare, n (%)</td><td>46 (66.7)</td><td>214 (69.9)</td><td>260 (69.3)</td></tr>
+                <tr><td>Mean treatment duration, months</td><td>27.0</td><td>4.26</td><td>8.45</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Table 2 pattern</p>
+          <h2>Pre-index milestones by cohort</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Milestone</th>
+                  <th>IV to oral</th>
+                  <th>Oral initiator</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Mobility aids</td><td>39.1%</td><td>17.6%</td><td>21.6%</td></tr>
+                <tr><td>Artificial nutrition</td><td>31.9%</td><td>16.3%</td><td>19.2%</td></tr>
+                <tr><td>Non-invasive ventilation</td><td>39.1%</td><td>20.6%</td><td>24.0%</td></tr>
+                <tr><td>Hospitalization</td><td>36.2%</td><td>26.1%</td><td>28.0%</td></tr>
+                <tr><td>Gastrostomy tube</td><td>20.3%</td><td>11.8%</td><td>13.3%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/42-OPR42-EN-Poster-AM24_2024.pdf">Open original PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/42-OPR42-EN-Poster-AM24_2024.md">Read extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,757 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rates and Reasons for bDMARD Switching and Cycling | NASP 2021</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .switch-hero-art {
+      min-height: 19rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 18% 14%, rgba(209, 38, 48, 0.16), transparent 7rem),
+        radial-gradient(circle at 82% 84%, rgba(24, 124, 143, 0.15), transparent 9rem),
+        linear-gradient(135deg, #fff 0%, var(--surface-blue) 54%, var(--surface-warm) 100%);
+      overflow: hidden;
+    }
+    .switch-hero-art svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 19rem;
+    }
+    .hero-card .finding {
+      margin: 0;
+      border-left: 4px solid var(--red);
+      padding-left: 0.72rem;
+      color: var(--ink);
+      font-size: 0.95rem;
+      font-weight: 850;
+    }
+    .metric-card p {
+      margin: 0.42rem 0 0;
+      color: var(--body);
+      font-size: 0.78rem;
+    }
+    .definition-split {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.72rem;
+      margin-top: 0.75rem;
+    }
+    .definition-card {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.88rem;
+    }
+    .definition-card strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      line-height: 1;
+    }
+    .definition-card p {
+      margin: 0.48rem 0 0;
+      font-size: 0.84rem;
+    }
+    .signal-layout {
+      display: grid;
+      grid-template-columns: minmax(17rem, 0.72fr) minmax(0, 1.28fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .signal-card {
+      display: grid;
+      align-content: center;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(238, 244, 251, 0.88)),
+        #fff;
+      padding: 1rem;
+    }
+    .signal-card strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 7vw, 6rem);
+      font-weight: 900;
+      line-height: 0.9;
+    }
+    .signal-card p {
+      margin: 0.6rem 0 0;
+      font-size: 0.88rem;
+    }
+    .reason-board {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 0.78rem;
+    }
+    .reason-column {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+    }
+    .reason-column h3 {
+      margin-bottom: 0.62rem;
+    }
+    .rank-bars {
+      display: grid;
+      gap: 0.48rem;
+    }
+    .rank-row {
+      display: grid;
+      grid-template-columns: 8.8rem minmax(0, 1fr) 2.5rem;
+      gap: 0.48rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.74rem;
+      font-weight: 850;
+    }
+    .rank-row span:last-child {
+      color: var(--muted);
+      text-align: right;
+    }
+    .rank-track {
+      height: 0.86rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: rgba(36, 55, 112, 0.08);
+      overflow: hidden;
+    }
+    .rank-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: var(--c, linear-gradient(90deg, var(--red), var(--gold)));
+    }
+    .km-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(16rem, 0.95fr);
+      gap: 1rem;
+      align-items: center;
+    }
+    .continuation-chart {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      overflow: hidden;
+    }
+    .continuation-chart svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .risk-list {
+      display: grid;
+      gap: 0.46rem;
+    }
+    .risk-item {
+      display: grid;
+      grid-template-columns: 3.1rem minmax(0, 1fr) 3.4rem;
+      gap: 0.5rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .risk-track {
+      height: 0.68rem;
+      border-radius: 999px;
+      background: rgba(36, 55, 112, 0.1);
+      overflow: hidden;
+    }
+    .risk-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .moa-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      gap: 0.8rem;
+    }
+    .moa-stack {
+      display: grid;
+      gap: 0.48rem;
+      margin-top: 0.65rem;
+    }
+    .moa-row {
+      display: grid;
+      grid-template-columns: 7rem minmax(0, 1fr) 4.2rem;
+      gap: 0.48rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.76rem;
+      font-weight: 850;
+    }
+    .moa-row span:last-child {
+      color: var(--muted);
+      text-align: right;
+    }
+    .moa-track {
+      height: 0.86rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: rgba(36, 55, 112, 0.08);
+      overflow: hidden;
+    }
+    .moa-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: var(--c);
+    }
+    .hazard-panel {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(209, 38, 48, 0.1), transparent 38%),
+        #fff;
+    }
+    .hazard-panel p {
+      margin: 0.55rem 0 0;
+      font-size: 0.88rem;
+    }
+    .hazard-scale {
+      position: relative;
+      height: 9.4rem;
+      margin-top: 0.85rem;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background:
+        linear-gradient(90deg, transparent 0 32%, rgba(36, 55, 112, 0.08) 32% 33%, transparent 33%),
+        var(--surface-blue);
+      overflow: hidden;
+    }
+    .hazard-axis {
+      position: absolute;
+      left: 10%;
+      right: 8%;
+      top: 50%;
+      height: 2px;
+      background: rgba(36, 55, 112, 0.36);
+    }
+    .hazard-dot {
+      position: absolute;
+      left: var(--x);
+      top: var(--y);
+      display: grid;
+      place-items: center;
+      width: 3rem;
+      height: 3rem;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      background: var(--c);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      font-weight: 900;
+      box-shadow: 0 0.4rem 1rem rgba(36, 55, 112, 0.18);
+    }
+    .hazard-dot small {
+      position: absolute;
+      top: 3.2rem;
+      left: 50%;
+      width: 8rem;
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-size: 0.68rem;
+      font-weight: 850;
+      text-align: center;
+      transform: translateX(-50%);
+    }
+    .method-river {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.75rem;
+    }
+    .method-node {
+      position: relative;
+      min-height: 10.2rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.84rem;
+      overflow: hidden;
+    }
+    .method-node::before {
+      content: attr(data-step);
+      position: absolute;
+      right: 0.45rem;
+      bottom: -0.6rem;
+      color: rgba(36, 55, 112, 0.1);
+      font-family: var(--font-display);
+      font-size: 4.8rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .method-node h3,
+    .method-node p {
+      position: relative;
+      z-index: 1;
+    }
+    .method-node p {
+      margin: 0.5rem 0 0;
+      font-size: 0.8rem;
+    }
+    .source-note {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    .takeaway {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(24, 124, 143, 0.12), transparent 42%),
+        #fff;
+    }
+    .takeaway p {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.05rem, 2vw, 1.45rem);
+      font-weight: 850;
+      line-height: 1.28;
+    }
+    @media (max-width: 940px) {
+      .signal-layout,
+      .km-panel,
+      .moa-grid {
+        grid-template-columns: 1fr;
+      }
+      .method-river {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 680px) {
+      .definition-split,
+      .reason-board {
+        grid-template-columns: 1fr;
+      }
+      .rank-row,
+      .moa-row,
+      .risk-item {
+        grid-template-columns: 1fr;
+      }
+      .risk-item span:last-child,
+      .rank-row span:last-child,
+      .moa-row span:last-child {
+        text-align: left;
+      }
+      .method-river {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/61-Rates-and-Reasons-for-bDMARD-Switching-and-Cycling_2021.pdf">Source PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/61-Rates-and-Reasons-for-bDMARD-Switching-and-Cycling_2021.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2021 abstract 61</p>
+        <h1>Rates and reasons for medication switching and cycling in rheumatoid arthritis</h1>
+        <p class="hero-summary">At two Vanderbilt rheumatology clinics with integrated specialty pharmacists, investigators followed adult RA patients after bDMARD or tsDMARD initiation to quantify therapy changes, reasons for change, and predictors of first switch or cycle.</p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag therapy">Rheumatoid arthritis</li>
+          <li class="tag category">Integrated specialty pharmacy</li>
+          <li class="tag">bDMARD / tsDMARD</li>
+          <li class="tag">Retrospective cohort</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Poster metadata and visual summary">
+        <div class="poster-code">61</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Year</dt>
+            <dd>2021</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>VUMC clinics</dd>
+          </div>
+          <div>
+            <dt>Cohort</dt>
+            <dd>772 adults</dd>
+          </div>
+          <div>
+            <dt>Primary endpoint</dt>
+            <dd>Switch or cycle</dd>
+          </div>
+        </dl>
+        <p class="finding">Most first therapy changes were driven by low efficacy or intolerable adverse effects.</p>
+        <div class="switch-hero-art" aria-hidden="true">
+          <svg viewBox="0 0 520 340" role="img">
+            <defs>
+              <marker id="arrowhead" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+                <path d="M0,0 L9,4.5 L0,9 Z" fill="#243770"></path>
+              </marker>
+              <linearGradient id="redGold" x1="0" x2="1" y1="0" y2="0">
+                <stop offset="0" stop-color="#d12630"></stop>
+                <stop offset="1" stop-color="#e99e25"></stop>
+              </linearGradient>
+              <linearGradient id="tealGreen" x1="0" x2="1" y1="0" y2="0">
+                <stop offset="0" stop-color="#187c8f"></stop>
+                <stop offset="1" stop-color="#4d8a67"></stop>
+              </linearGradient>
+            </defs>
+            <rect x="28" y="36" width="150" height="88" rx="12" fill="#fff" stroke="#aebbd2"></rect>
+            <text x="103" y="76" text-anchor="middle" fill="#243770" font-size="18" font-weight="800">Initial</text>
+            <text x="103" y="101" text-anchor="middle" fill="#68758d" font-size="14">bDMARD or tsDMARD</text>
+            <path d="M178 78 C238 42, 305 50, 350 88" fill="none" stroke="#243770" stroke-width="4" marker-end="url(#arrowhead)"></path>
+            <path d="M178 101 C235 176, 296 209, 352 216" fill="none" stroke="#243770" stroke-width="4" stroke-dasharray="10 8" marker-end="url(#arrowhead)"></path>
+            <rect x="352" y="48" width="136" height="86" rx="12" fill="#fff" stroke="#aebbd2"></rect>
+            <text x="420" y="82" text-anchor="middle" fill="#d12630" font-size="19" font-weight="900">Switch</text>
+            <text x="420" y="107" text-anchor="middle" fill="#68758d" font-size="13">Different MOA</text>
+            <rect x="352" y="181" width="136" height="86" rx="12" fill="#fff" stroke="#aebbd2"></rect>
+            <text x="420" y="215" text-anchor="middle" fill="#187c8f" font-size="19" font-weight="900">Cycle</text>
+            <text x="420" y="240" text-anchor="middle" fill="#68758d" font-size="13">Same MOA</text>
+            <circle cx="103" cy="232" r="54" fill="url(#redGold)" opacity="0.94"></circle>
+            <text x="103" y="224" text-anchor="middle" fill="#fff" font-size="26" font-weight="900">26%</text>
+            <text x="103" y="250" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">changed therapy</text>
+            <circle cx="231" cy="238" r="38" fill="url(#tealGreen)" opacity="0.95"></circle>
+            <text x="231" y="234" text-anchor="middle" fill="#fff" font-size="20" font-weight="900">309</text>
+            <text x="231" y="254" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">events</text>
+          </svg>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key results">
+        <div class="metric-card">
+          <span>Study population</span>
+          <strong>772</strong>
+          <p>Adult RA patients who filled at least two eligible prescriptions.</p>
+        </div>
+        <div class="metric-card">
+          <span>Patients changing</span>
+          <strong>204</strong>
+          <p>Twenty-six percent had at least one switch or cycle.</p>
+        </div>
+        <div class="metric-card">
+          <span>Switches</span>
+          <strong>216</strong>
+          <p>Medication changes to a different mechanism of action.</p>
+        </div>
+        <div class="metric-card">
+          <span>Cycles</span>
+          <strong>93</strong>
+          <p>Medication changes within the same mechanism of action.</p>
+        </div>
+      </section>
+
+      <section class="visual-grid" aria-label="Objective and treatment-change definitions">
+        <div class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Measure how often RA patients changed advanced therapies, and why.</h2>
+          <p>The poster assessed rates and reasons for switching and cycling in patients with rheumatoid arthritis treated in clinics with integrated specialty pharmacists.</p>
+        </div>
+        <div class="panel">
+          <p class="section-label">Operational definitions</p>
+          <h2>Two routes away from the first prescribed therapy</h2>
+          <div class="definition-split">
+            <div class="definition-card">
+              <strong>Switch</strong>
+              <p>Change to a medication with a different mechanism of action.</p>
+            </div>
+            <div class="definition-card">
+              <strong>Cycle</strong>
+              <p>Change to a medication with the same mechanism of action.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" aria-label="Methods evidence flow">
+        <p class="section-label">Methods</p>
+        <h2>Retrospective cohort from pharmacy fills to first therapy change</h2>
+        <div class="method-river">
+          <article class="method-node" data-step="1">
+            <h3>Adults with RA</h3>
+            <p>Included patients had a rheumatoid arthritis diagnosis and were treated by one of two VUMC rheumatology clinics.</p>
+          </article>
+          <article class="method-node" data-step="2">
+            <h3>Eligible fills</h3>
+            <p>Patients filled at least two eligible bDMARD or tsDMARD prescriptions through the study workflow.</p>
+          </article>
+          <article class="method-node" data-step="3">
+            <h3>Index windows</h3>
+            <p>Clinic 1 index dates began July 1, 2013; Clinic 2 began January 2, 2015; both ended June 30, 2017.</p>
+          </article>
+          <article class="method-node" data-step="4">
+            <h3>Outcome capture</h3>
+            <p>The primary outcome was rate and reason for switching or cycling bDMARDs or tsDMARDs.</p>
+          </article>
+          <article class="method-node" data-step="5">
+            <h3>Time-to-event</h3>
+            <p>Cox proportional hazards and Kaplan-Meier methods assessed predictors and continuation on the first medication.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="signal-layout" aria-label="Reasons for switches and cycles">
+        <div class="signal-card">
+          <p class="section-label">Main pattern</p>
+          <strong>60%+</strong>
+          <p>For both switch and cycle events, loss of efficacy plus no efficacy accounted for the majority of documented reasons.</p>
+        </div>
+        <div class="panel">
+          <p class="section-label">Figure 1 pattern</p>
+          <h2>Reasons were efficacy-led, with adverse effects next.</h2>
+          <div class="reason-board">
+            <div class="reason-column">
+              <h3>Switches (n=216)</h3>
+              <div class="rank-bars">
+                <div class="rank-row"><span>Loss of efficacy</span><div class="rank-track"><i style="--w:45%; --c:linear-gradient(90deg, var(--red), var(--gold));"></i></div><span>45%</span></div>
+                <div class="rank-row"><span>Adverse effect</span><div class="rank-track"><i style="--w:22%; --c:var(--teal);"></i></div><span>22%</span></div>
+                <div class="rank-row"><span>No efficacy</span><div class="rank-track"><i style="--w:15%; --c:var(--green);"></i></div><span>15%</span></div>
+                <div class="rank-row"><span>Other / unknown</span><div class="rank-track"><i style="--w:3%; --c:var(--purple);"></i></div><span>3%</span></div>
+                <div class="rank-row"><span>Insurance</span><div class="rank-track"><i style="--w:2%; --c:var(--gold);"></i></div><span>2%</span></div>
+                <div class="rank-row"><span>Preference</span><div class="rank-track"><i style="--w:1%; --c:var(--muted);"></i></div><span>1%</span></div>
+              </div>
+            </div>
+            <div class="reason-column">
+              <h3>Cycles (n=93)</h3>
+              <div class="rank-bars">
+                <div class="rank-row"><span>Loss of efficacy</span><div class="rank-track"><i style="--w:40%; --c:linear-gradient(90deg, var(--red), var(--gold));"></i></div><span>40%</span></div>
+                <div class="rank-row"><span>No efficacy</span><div class="rank-track"><i style="--w:25%; --c:var(--green);"></i></div><span>25%</span></div>
+                <div class="rank-row"><span>Adverse effect</span><div class="rank-track"><i style="--w:18%; --c:var(--teal);"></i></div><span>18%</span></div>
+                <div class="rank-row"><span>Other / unknown</span><div class="rank-track"><i style="--w:5%; --c:var(--purple);"></i></div><span>5%</span></div>
+                <div class="rank-row"><span>Insurance</span><div class="rank-track"><i style="--w:0%; --c:var(--gold);"></i></div><span>0%</span></div>
+                <div class="rank-row"><span>Preference</span><div class="rank-track"><i style="--w:0%; --c:var(--muted);"></i></div><span>0%</span></div>
+              </div>
+            </div>
+          </div>
+          <p class="source-note">Reported adverse effects included injection site reactions, recurrent infections, hives or rash, and fatigue.</p>
+        </div>
+      </section>
+
+      <section class="panel" aria-label="Time to first switch or cycle">
+        <p class="section-label">Figure 2 pattern</p>
+        <h2>Continuation on the original therapy declined steadily over four years.</h2>
+        <div class="km-panel">
+          <div class="continuation-chart">
+            <svg viewBox="0 0 660 330" role="img" aria-label="Kaplan-Meier style continuation probability: 1.00 at year 0, 0.75 at year 1, 0.65 at year 2, 0.60 at year 3, and 0.55 at year 4.">
+              <rect x="0" y="0" width="660" height="330" fill="#fff"></rect>
+              <g stroke="#d9e1ef" stroke-width="1">
+                <line x1="70" y1="40" x2="70" y2="274"></line>
+                <line x1="70" y1="274" x2="612" y2="274"></line>
+                <line x1="70" y1="99" x2="612" y2="99"></line>
+                <line x1="70" y1="157" x2="612" y2="157"></line>
+                <line x1="70" y1="216" x2="612" y2="216"></line>
+              </g>
+              <polyline points="70,40 205,99 341,122 476,134 612,146" fill="none" stroke="#d12630" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></polyline>
+              <g fill="#243770" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="800">
+                <text x="42" y="45" text-anchor="end">1.00</text>
+                <text x="42" y="104" text-anchor="end">0.75</text>
+                <text x="42" y="162" text-anchor="end">0.50</text>
+                <text x="42" y="221" text-anchor="end">0.25</text>
+                <text x="70" y="304" text-anchor="middle">0</text>
+                <text x="205" y="304" text-anchor="middle">1</text>
+                <text x="341" y="304" text-anchor="middle">2</text>
+                <text x="476" y="304" text-anchor="middle">3</text>
+                <text x="612" y="304" text-anchor="middle">4</text>
+              </g>
+              <g fill="#fff" stroke="#d12630" stroke-width="5">
+                <circle cx="70" cy="40" r="8"></circle>
+                <circle cx="205" cy="99" r="8"></circle>
+                <circle cx="341" cy="122" r="8"></circle>
+                <circle cx="476" cy="134" r="8"></circle>
+                <circle cx="612" cy="146" r="8"></circle>
+              </g>
+              <g fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800">
+                <text x="340" y="322" text-anchor="middle">Years after first fill</text>
+                <text x="12" y="162" text-anchor="middle" transform="rotate(-90 12 162)">Probability continuing</text>
+              </g>
+            </svg>
+          </div>
+          <div>
+            <h3>Patients at risk decreased as patients changed therapy, were censored, or were lost to follow-up.</h3>
+            <div class="risk-list" aria-label="Number of patients at risk">
+              <div class="risk-item"><span>Year 0</span><div class="risk-track"><i style="--w:100%;"></i></div><span>772</span></div>
+              <div class="risk-item"><span>Year 1</span><div class="risk-track"><i style="--w:66%;"></i></div><span>509</span></div>
+              <div class="risk-item"><span>Year 2</span><div class="risk-track"><i style="--w:36%;"></i></div><span>276</span></div>
+              <div class="risk-item"><span>Year 3</span><div class="risk-track"><i style="--w:16%;"></i></div><span>120</span></div>
+              <div class="risk-item"><span>Year 4</span><div class="risk-track"><i style="--w:4%;"></i></div><span>27</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="moa-grid" aria-label="Initial medication and predictors">
+        <div class="panel">
+          <p class="section-label">Initial medication mix</p>
+          <h2>TNF inhibitors dominated the first dispensed therapy pattern.</h2>
+          <div class="moa-stack">
+            <div class="moa-row"><span>Adalimumab</span><div class="moa-track"><i style="--w:38.2%; --c:var(--red);"></i></div><span>295 (38.2%)</span></div>
+            <div class="moa-row"><span>Etanercept</span><div class="moa-track"><i style="--w:33.9%; --c:var(--gold);"></i></div><span>262 (33.9%)</span></div>
+            <div class="moa-row"><span>Abatacept</span><div class="moa-track"><i style="--w:10%; --c:var(--teal);"></i></div><span>77 (10.0%)</span></div>
+            <div class="moa-row"><span>Tofacitinib</span><div class="moa-track"><i style="--w:9.8%; --c:var(--green);"></i></div><span>76 (9.8%)</span></div>
+            <div class="moa-row"><span>Certolizumab</span><div class="moa-track"><i style="--w:2.8%; --c:var(--purple);"></i></div><span>22 (2.8%)</span></div>
+            <div class="moa-row"><span>Tocilizumab</span><div class="moa-track"><i style="--w:2.6%; --c:var(--ink);"></i></div><span>20 (2.6%)</span></div>
+            <div class="moa-row"><span>Golimumab</span><div class="moa-track"><i style="--w:2.3%; --c:var(--muted);"></i></div><span>18 (2.3%)</span></div>
+            <div class="moa-row"><span>Anakinra</span><div class="moa-track"><i style="--w:0.3%; --c:var(--border-strong);"></i></div><span>2 (0.3%)</span></div>
+          </div>
+        </div>
+        <div class="panel hazard-panel">
+          <p class="section-label">Predictor signal</p>
+          <h2>IL-6 inhibitor starts had the clearest elevated hazard.</h2>
+          <p>In the Cox model, patients initially prescribed an IL-6 inhibitor were significantly more likely to switch or cycle than patients who started on TNF inhibitors.</p>
+          <div class="hazard-scale" aria-label="Selected hazard ratios versus TNF inhibitor reference">
+            <div class="hazard-axis"></div>
+            <div class="hazard-dot" style="--x:28%; --y:42%; --c:var(--green);">0.87<small>JAK inhibitor</small></div>
+            <div class="hazard-dot" style="--x:41%; --y:16%; --c:var(--teal);">1.41<small>T cell inhibitor</small></div>
+            <div class="hazard-dot" style="--x:75%; --y:36%; --c:var(--red);">2.45<small>IL-6 inhibitor, p=0.007</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tables-grid" aria-label="Extracted table patterns">
+        <div class="table-card">
+          <p class="section-label">Cohort snapshot</p>
+          <h2>Most patients were White women; median age was 56.</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Characteristic</th>
+                  <th>Extracted value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Age at first fill, median (IQR)</td>
+                  <td>56 years (48-63)</td>
+                </tr>
+                <tr>
+                  <td>Female</td>
+                  <td>79% (607)</td>
+                </tr>
+                <tr>
+                  <td>White</td>
+                  <td>89% (686)</td>
+                </tr>
+                <tr>
+                  <td>Black or African American</td>
+                  <td>8% (63)</td>
+                </tr>
+                <tr>
+                  <td>Other race</td>
+                  <td>3% (23)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="table-card">
+          <p class="section-label">Cox model table pattern</p>
+          <h2>Selected predictors of switching or cycling</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Characteristic</th>
+                  <th>Hazard ratio</th>
+                  <th>95% CI</th>
+                  <th>p-value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Age per 10 years</td>
+                  <td>0.90</td>
+                  <td>0.81, 1.00</td>
+                  <td>0.057</td>
+                </tr>
+                <tr>
+                  <td>Black / other race vs White</td>
+                  <td>1.14</td>
+                  <td>0.72, 1.78</td>
+                  <td>0.6</td>
+                </tr>
+                <tr>
+                  <td>Female vs male</td>
+                  <td>1.22</td>
+                  <td>0.84, 1.76</td>
+                  <td>0.3</td>
+                </tr>
+                <tr>
+                  <td>T cell inhibitor vs TNFi</td>
+                  <td>1.41</td>
+                  <td>0.94, 2.13</td>
+                  <td>0.1</td>
+                </tr>
+                <tr>
+                  <td>JAK inhibitor vs TNFi</td>
+                  <td>0.87</td>
+                  <td>0.51, 1.48</td>
+                  <td>0.6</td>
+                </tr>
+                <tr>
+                  <td>IL-6 inhibitor vs TNFi</td>
+                  <td>2.45</td>
+                  <td>1.28, 4.69</td>
+                  <td>0.007</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="evidence-map" aria-label="Evidence flow">
+        <article class="evidence-card">
+          <h3>Advanced RA therapy context</h3>
+          <p>bDMARDs and tsDMARDs are standard-of-care options, but many patients change therapy within the first two years.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Integrated pharmacist setting</h3>
+          <p>Clinic-embedded specialty pharmacists support access, adherence, education, and therapy-change navigation.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Observed change rate</h3>
+          <p>Two hundred four patients had 216 switch events and 93 cycle events across follow-up.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Reason hierarchy</h3>
+          <p>Loss of efficacy was the most common reason for both switches and cycles.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Predictor signal</h3>
+          <p>Starting on an IL-6 inhibitor was associated with more than double the hazard of changing therapy compared with TNFi starts.</p>
+        </article>
+      </section>
+
+      <section class="panel takeaway">
+        <p>Conclusion: Many patients with RA changed bDMARD or tsDMARD therapy, most often because efficacy was inadequate or adverse effects were intolerable; integrated specialty pharmacists remain positioned to support education, mitigation, access, and decision-making when a switch or cycle is needed.</p>
+      </section>
+    </main>
+
+    <footer class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/61-Rates-and-Reasons-for-bDMARD-Switching-and-Cycling_2021.pdf">Open original PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/61-Rates-and-Reasons-for-bDMARD-Switching-and-Cycling_2021.md">Read extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

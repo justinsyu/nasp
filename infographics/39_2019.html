@@ -1,0 +1,684 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Medication Adherence in Multiple Sclerosis Patients | NASP 2019</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .ms-hero-art {
+      min-height: 18rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 18% 20%, rgba(24, 124, 143, 0.18), transparent 8rem),
+        radial-gradient(circle at 86% 78%, rgba(209, 38, 48, 0.12), transparent 9rem),
+        linear-gradient(135deg, #ffffff 0%, var(--surface-blue) 58%, var(--surface-warm) 100%);
+      overflow: hidden;
+    }
+    .ms-hero-art svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 18rem;
+    }
+    .hero-card .finding {
+      margin: 0;
+      border-left: 4px solid var(--red);
+      padding-left: 0.72rem;
+      color: var(--ink);
+      font-size: 0.95rem;
+      font-weight: 850;
+    }
+    .metric-card p {
+      margin: 0.45rem 0 0;
+      font-size: 0.78rem;
+    }
+    .metric-card strong.teal { color: var(--teal); }
+    .metric-card strong.gold { color: var(--gold); }
+    .metric-card strong.purple { color: var(--purple); }
+    .study-dashboard {
+      display: grid;
+      grid-template-columns: minmax(17rem, 0.82fr) minmax(0, 1.18fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .funnel-panel {
+      display: grid;
+      gap: 0.72rem;
+    }
+    .funnel-step {
+      position: relative;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem 0.9rem;
+      overflow: hidden;
+    }
+    .funnel-step::after {
+      content: "";
+      position: absolute;
+      right: -1.4rem;
+      top: 50%;
+      width: 5.1rem;
+      height: 5.1rem;
+      border-radius: 50%;
+      background: rgba(24, 124, 143, 0.08);
+      transform: translateY(-50%);
+    }
+    .funnel-step strong {
+      position: relative;
+      z-index: 1;
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2.1rem;
+      line-height: 1;
+    }
+    .funnel-step span {
+      position: relative;
+      z-index: 1;
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 850;
+    }
+    .funnel-step small {
+      position: relative;
+      z-index: 1;
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 750;
+    }
+    .process-track {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.7rem;
+    }
+    .process-node {
+      position: relative;
+      min-height: 10.2rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.82rem;
+      overflow: hidden;
+    }
+    .process-node::before {
+      content: attr(data-step);
+      position: absolute;
+      right: 0.4rem;
+      bottom: -0.55rem;
+      color: rgba(36, 55, 112, 0.09);
+      font-family: var(--font-display);
+      font-size: 4.5rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .process-node h3,
+    .process-node p {
+      position: relative;
+      z-index: 1;
+    }
+    .process-node p {
+      margin: 0.5rem 0 0;
+      font-size: 0.8rem;
+    }
+    .signal-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.85rem;
+    }
+    .signal-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(238, 244, 251, 0.78)),
+        #fff;
+      padding: 0.9rem;
+    }
+    .signal-card h3 {
+      margin-bottom: 0.55rem;
+    }
+    .comparison-bars {
+      display: grid;
+      gap: 0.62rem;
+      margin-top: 0.7rem;
+    }
+    .comparison-row {
+      display: grid;
+      grid-template-columns: 7.7rem minmax(0, 1fr) 3.4rem;
+      gap: 0.5rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.76rem;
+      font-weight: 850;
+    }
+    .comparison-row span:last-child {
+      color: var(--muted);
+      text-align: right;
+    }
+    .bar-track {
+      height: 0.95rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: rgba(36, 55, 112, 0.08);
+      overflow: hidden;
+    }
+    .bar-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: var(--c, linear-gradient(90deg, var(--red), var(--gold)));
+    }
+    .donut-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.8rem;
+    }
+    .donut-card {
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.75rem;
+      text-align: center;
+    }
+    .donut {
+      --pct: 50%;
+      --c: var(--teal);
+      display: grid;
+      place-items: center;
+      width: 7.4rem;
+      height: 7.4rem;
+      margin: 0 auto 0.5rem;
+      border-radius: 50%;
+      background: conic-gradient(var(--c) var(--pct), rgba(36, 55, 112, 0.1) 0);
+    }
+    .donut span {
+      display: grid;
+      place-items: center;
+      width: 5.1rem;
+      height: 5.1rem;
+      border-radius: 50%;
+      background: #fff;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 900;
+    }
+    .donut-card p {
+      margin: 0;
+      color: var(--body);
+      font-size: 0.76rem;
+      font-weight: 780;
+    }
+    .adherence-split {
+      display: grid;
+      grid-template-columns: minmax(17rem, 0.88fr) minmax(0, 1.12fr);
+      gap: 1rem;
+      align-items: start;
+    }
+    .stacked-dose {
+      display: grid;
+      grid-template-columns: 71fr 13fr 7fr 7fr 1fr 1fr;
+      height: 2.4rem;
+      margin: 0.9rem 0 0.55rem;
+      border: 1px solid rgba(36, 55, 112, 0.15);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .stacked-dose i:nth-child(1) { background: var(--teal); }
+    .stacked-dose i:nth-child(2) { background: var(--green); }
+    .stacked-dose i:nth-child(3) { background: var(--gold); }
+    .stacked-dose i:nth-child(4) { background: var(--purple); }
+    .stacked-dose i:nth-child(5) { background: #b56a3c; }
+    .stacked-dose i:nth-child(6) { background: var(--red); }
+    .legend-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 850;
+    }
+    .legend-line i {
+      display: inline-block;
+      width: 0.68rem;
+      height: 0.68rem;
+      margin-right: 0.25rem;
+      border-radius: 999px;
+      vertical-align: -0.1rem;
+      background: var(--c);
+    }
+    .therapy-mix {
+      display: grid;
+      gap: 0.46rem;
+      margin-top: 0.72rem;
+    }
+    .therapy-row {
+      display: grid;
+      grid-template-columns: 10.4rem minmax(0, 1fr) 3.2rem;
+      gap: 0.5rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.76rem;
+      font-weight: 850;
+    }
+    .therapy-row span:last-child {
+      color: var(--muted);
+      text-align: right;
+    }
+    .pattern-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+    .pattern-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.9rem;
+    }
+    .pattern-card strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.7rem;
+      line-height: 1;
+    }
+    .pattern-card p {
+      margin: 0.5rem 0 0;
+      font-size: 0.8rem;
+    }
+    .takeaway-panel {
+      border-left: 5px solid var(--red);
+      background:
+        linear-gradient(90deg, rgba(209, 38, 48, 0.08), rgba(255, 255, 255, 0)),
+        #fff;
+    }
+    .takeaway-list {
+      margin: 0.6rem 0 0 1.05rem;
+      padding: 0;
+    }
+    .takeaway-list li {
+      margin: 0.24rem 0;
+      font-size: 0.88rem;
+    }
+    .source-note {
+      margin: 0.6rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    @media (max-width: 920px) {
+      .study-dashboard,
+      .adherence-split {
+        grid-template-columns: 1fr;
+      }
+      .process-track,
+      .pattern-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 700px) {
+      .signal-grid,
+      .donut-row,
+      .process-track,
+      .pattern-grid {
+        grid-template-columns: 1fr;
+      }
+      .comparison-row,
+      .therapy-row {
+        grid-template-columns: 1fr;
+      }
+      .comparison-row span:last-child,
+      .therapy-row span:last-child {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar" aria-label="Infographic navigation">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav>
+        <a href="#study-design">Design</a>
+        <a href="#results">Results</a>
+        <a href="#takeaways">Takeaways</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/39_2019.pdf">PDF source</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/39_2019.md">Markdown source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2019 Annual Meeting &amp; Expo</p>
+        <h1>Correlates and barriers to medication adherence in multiple sclerosis patients and their impact on clinical outcomes</h1>
+        <p class="hero-summary">Yale New Haven Health evaluated whether medication possession ratio for oral or injectable disease-modifying therapies tracked with patient factors and MS-related clinical outcomes in a specialty pharmacy population.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Retrospective descriptive study</li>
+          <li class="tag therapy">Multiple sclerosis</li>
+          <li class="tag therapy">DMT adherence</li>
+          <li class="tag">Specialty pharmacy follow-up</li>
+        </ul>
+        <div class="ms-hero-art" aria-label="Stylized multiple sclerosis adherence pathway">
+          <svg viewBox="0 0 720 320" role="img">
+            <title>Medication adherence pathway for multiple sclerosis patients</title>
+            <defs>
+              <linearGradient id="nerveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#187c8f"/>
+                <stop offset="52%" stop-color="#e99e25"/>
+                <stop offset="100%" stop-color="#d12630"/>
+              </linearGradient>
+              <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#243770" flood-opacity="0.16"/>
+              </filter>
+            </defs>
+            <rect x="0" y="0" width="720" height="320" fill="transparent"/>
+            <path d="M62 165 C128 62, 203 95, 264 158 S392 252, 472 158 S608 66, 664 154" fill="none" stroke="url(#nerveGradient)" stroke-width="18" stroke-linecap="round"/>
+            <path d="M62 165 C128 62, 203 95, 264 158 S392 252, 472 158 S608 66, 664 154" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" opacity="0.72"/>
+            <g filter="url(#softShadow)">
+              <circle cx="118" cy="94" r="38" fill="#ffffff" stroke="#187c8f" stroke-width="4"/>
+              <circle cx="285" cy="174" r="44" fill="#ffffff" stroke="#e99e25" stroke-width="4"/>
+              <circle cx="472" cy="158" r="48" fill="#ffffff" stroke="#4d8a67" stroke-width="4"/>
+              <circle cx="622" cy="92" r="38" fill="#ffffff" stroke="#d12630" stroke-width="4"/>
+            </g>
+            <g font-family="Montserrat, Arial, sans-serif" text-anchor="middle" font-weight="900">
+              <text x="118" y="91" fill="#187c8f" font-size="24">138</text>
+              <text x="118" y="113" fill="#68758d" font-size="11">included</text>
+              <text x="285" y="169" fill="#e99e25" font-size="24">MPR</text>
+              <text x="285" y="191" fill="#68758d" font-size="11">thresholds</text>
+              <text x="472" y="153" fill="#4d8a67" font-size="24">71%</text>
+              <text x="472" y="175" fill="#68758d" font-size="11">no misses</text>
+              <text x="622" y="88" fill="#d12630" font-size="24">40%</text>
+              <text x="622" y="110" fill="#68758d" font-size="11">ED/admit</text>
+            </g>
+            <g fill="#243770" opacity="0.18">
+              <circle cx="184" cy="230" r="5"/>
+              <circle cx="207" cy="246" r="4"/>
+              <circle cx="535" cy="238" r="5"/>
+              <circle cx="560" cy="220" r="4"/>
+              <circle cx="92" cy="232" r="4"/>
+              <circle cx="642" cy="226" r="5"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <div>
+          <p class="section-label">Poster file</p>
+          <div class="poster-code">39_2019</div>
+        </div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Study site</dt>
+            <dd>YNHHS OPS</dd>
+          </div>
+          <div>
+            <dt>Study year</dt>
+            <dd>2019</dd>
+          </div>
+          <div>
+            <dt>Fill window</dt>
+            <dd>Jan 1-Jul 31, 2018</dd>
+          </div>
+          <div>
+            <dt>Therapy type</dt>
+            <dd>Oral/injectable DMT</dd>
+          </div>
+        </dl>
+        <p class="finding">Lowest adherence patients had higher documented MS-related hospital admissions or ED visits, and depression diagnosis clustered in the MPR &lt;80% group.</p>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key study metrics">
+        <div class="metric-card">
+          <span>Assessed</span>
+          <strong>164</strong>
+          <p>Patients screened for eligibility.</p>
+        </div>
+        <div class="metric-card">
+          <span>Included</span>
+          <strong class="teal">138</strong>
+          <p>Adults filling MS DMTs through YNHHS OPS.</p>
+        </div>
+        <div class="metric-card">
+          <span>MPR &lt;90%</span>
+          <strong class="gold">15.2%</strong>
+          <p>21 of 138 patients below the 90% adherence threshold.</p>
+        </div>
+        <div class="metric-card">
+          <span>MPR &lt;80%</span>
+          <strong class="purple">3.6%</strong>
+          <p>5 of 138 patients in the lowest adherence group.</p>
+        </div>
+      </section>
+
+      <section class="visual-grid" id="study-design">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Find patient-level adherence signals before outcomes worsen</h2>
+          <p>Investigators examined the correlation between medication adherence and clinical outcomes, while also identifying potential barriers among MS patients receiving disease-modifying therapy prescriptions from the Yale New Haven Health outpatient specialty pharmacy.</p>
+          <div class="number-cloud" aria-label="Objective focus areas">
+            <div class="number-pill">MPR<small>Dispensing adherence</small></div>
+            <div class="number-pill">EHR<small>Admissions/ED visits</small></div>
+            <div class="number-pill">Follow-up<small>Self-reported missed doses</small></div>
+            <div class="number-pill">Factors<small>Demographics and barriers</small></div>
+          </div>
+        </article>
+        <article class="panel">
+          <p class="section-label">Eligibility flow</p>
+          <h2>From screened population to analytic cohort</h2>
+          <div class="study-dashboard">
+            <div class="funnel-panel" aria-label="Study inclusion funnel">
+              <div class="funnel-step">
+                <strong>164</strong>
+                <span>Patients assessed for eligibility</span>
+                <small>MS patients considered for the retrospective review.</small>
+              </div>
+              <div class="funnel-step">
+                <strong>26</strong>
+                <span>Excluded before analysis</span>
+                <small>Opt-outs, infusion switch, initial assessment only, discontinued DMT, or no longer filling with OPS.</small>
+              </div>
+              <div class="funnel-step">
+                <strong>138</strong>
+                <span>Patients included</span>
+                <small>Adult patients with more than one DMT fill.</small>
+              </div>
+            </div>
+            <div>
+              <p>The analytic frame combined dispensing-based MPR, pharmacist follow-up assessments, demographic and clinical variables, laboratory/history data, and system-wide EHR admissions data.</p>
+              <div class="donut-row" aria-label="Cohort composition highlights">
+                <div class="donut-card">
+                  <div class="donut" style="--pct: 90.6%; --c: var(--teal);"><span>90.6%</span></div>
+                  <p>Relapsing-remitting MS subtype.</p>
+                </div>
+                <div class="donut-card">
+                  <div class="donut" style="--pct: 63%; --c: var(--gold);"><span>63%</span></div>
+                  <p>Dimethyl fumarate in DMT mix.</p>
+                </div>
+                <div class="donut-card">
+                  <div class="donut" style="--pct: 75.4%; --c: var(--green);"><span>75.4%</span></div>
+                  <p>Mild Charlson Comorbidity Index.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Methods</p>
+        <h2>Data moved from specialty pharmacy touchpoints to correlation testing</h2>
+        <div class="process-track" aria-label="Methods evidence flow">
+          <div class="process-node" data-step="1">
+            <h3>Define cohort</h3>
+            <p>Adult MS patients filling oral or injectable DMT prescriptions at YNHHS OPS in Hamden, Connecticut.</p>
+          </div>
+          <div class="process-node" data-step="2">
+            <h3>Measure MPR</h3>
+            <p>Retrospective medication possession ratios were calculated from pharmacy dispensing records.</p>
+          </div>
+          <div class="process-node" data-step="3">
+            <h3>Capture context</h3>
+            <p>Pharmacist semi-annual follow-ups contributed subjective adherence and outcomes data.</p>
+          </div>
+          <div class="process-node" data-step="4">
+            <h3>Link outcomes</h3>
+            <p>Hospital admissions and ED visits were obtained from the system-wide electronic health record.</p>
+          </div>
+          <div class="process-node" data-step="5">
+            <h3>Test association</h3>
+            <p>Chi-squared and t-tests compared nominal and continuous variables in RStudio.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="signal-grid" id="results">
+        <article class="signal-card">
+          <p class="section-label">Clinical outcome signal</p>
+          <h2>MS-related ED or hospital use was higher at MPR &lt;80%</h2>
+          <div class="comparison-bars" aria-label="Admission or ED visit comparison">
+            <div class="comparison-row">
+              <span>MPR &lt;80%</span>
+              <div class="bar-track"><i style="--w: 40%; --c: linear-gradient(90deg, var(--red), var(--gold));"></i></div>
+              <span>40.0%</span>
+            </div>
+            <div class="comparison-row">
+              <span>MPR &ge;80%</span>
+              <div class="bar-track"><i style="--w: 11.2%; --c: linear-gradient(90deg, var(--teal), var(--green));"></i></div>
+              <span>11.2%</span>
+            </div>
+          </div>
+          <p class="source-note">The poster also reports a statistically significant cumulative MPR correlation for this outcome: -0.22; p=0.03.</p>
+        </article>
+        <article class="signal-card">
+          <p class="section-label">Adherence factor signal</p>
+          <h2>Depression diagnosis clustered in the lowest MPR group</h2>
+          <div class="comparison-bars" aria-label="Depression diagnosis comparison">
+            <div class="comparison-row">
+              <span>MPR &lt;80%</span>
+              <div class="bar-track"><i style="--w: 100%; --c: linear-gradient(90deg, var(--red), var(--purple));"></i></div>
+              <span>100%</span>
+            </div>
+            <div class="comparison-row">
+              <span>MPR &ge;80%</span>
+              <div class="bar-track"><i style="--w: 38.3%; --c: linear-gradient(90deg, var(--teal), var(--green));"></i></div>
+              <span>38.3%</span>
+            </div>
+          </div>
+          <p class="source-note">Comparison was based on MPR &lt;80% (n=5) versus MPR &ge;80% (n=133); authors described the correlation as weak but statistically significant.</p>
+        </article>
+      </section>
+
+      <section class="adherence-split">
+        <article class="panel">
+          <p class="section-label">Self-reported adherence</p>
+          <h2>Most patients reported no missed doses, but nearly one-third missed at least one dose</h2>
+          <div class="stacked-dose" aria-label="Self-reported missed doses in last 4 weeks">
+            <i title="No missed doses, 71%"></i>
+            <i title="1 missed dose, 13%"></i>
+            <i title="2 missed doses, 7%"></i>
+            <i title="3 missed doses, 7%"></i>
+            <i title="4 missed doses, 1%"></i>
+            <i title="5 missed doses, 1%"></i>
+          </div>
+          <div class="legend-line">
+            <span><i style="--c: var(--teal);"></i>0 missed: 71%</span>
+            <span><i style="--c: var(--green);"></i>1 missed: 13%</span>
+            <span><i style="--c: var(--gold);"></i>2 missed: 7%</span>
+            <span><i style="--c: var(--purple);"></i>3 missed: 7%</span>
+            <span><i style="--c: #b56a3c;"></i>4 missed: 1%</span>
+            <span><i style="--c: var(--red);"></i>5 missed: 1%</span>
+          </div>
+          <p class="source-note">Self-report came from pharmacist semi-annual follow-up assessments.</p>
+        </article>
+        <article class="panel">
+          <p class="section-label">Therapy mix pattern</p>
+          <h2>Dimethyl fumarate dominated the DMT distribution</h2>
+          <div class="therapy-mix" aria-label="Disease-modifying therapy mix">
+            <div class="therapy-row">
+              <span>Dimethyl fumarate</span>
+              <div class="bar-track"><i style="--w: 63%; --c: linear-gradient(90deg, var(--red), var(--gold));"></i></div>
+              <span>88 (63%)</span>
+            </div>
+            <div class="therapy-row">
+              <span>Glatiramer acetate</span>
+              <div class="bar-track"><i style="--w: 15%; --c: linear-gradient(90deg, var(--teal), var(--green));"></i></div>
+              <span>21 (15%)</span>
+            </div>
+            <div class="therapy-row">
+              <span>Fingolimod</span>
+              <div class="bar-track"><i style="--w: 10%; --c: linear-gradient(90deg, var(--purple), var(--teal));"></i></div>
+              <span>14 (10%)</span>
+            </div>
+            <div class="therapy-row">
+              <span>Teriflunomide</span>
+              <div class="bar-track"><i style="--w: 4%; --c: var(--gold);"></i></div>
+              <span>6 (4%)</span>
+            </div>
+            <div class="therapy-row">
+              <span>Other DMTs</span>
+              <div class="bar-track"><i style="--w: 8%; --c: var(--green);"></i></div>
+              <span>9 (8%)</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Table pattern extraction</p>
+        <h2>What the poster tables imply at a glance</h2>
+        <div class="pattern-grid">
+          <div class="pattern-card">
+            <strong>BMI</strong>
+            <p>The only patient-characteristic difference flagged in the MPR &lt;90% versus MPR &ge;90% table was BMI (p=0.05).</p>
+          </div>
+          <div class="pattern-card">
+            <strong>Not linked</strong>
+            <p>Age, gender, race, smoking, alcohol use, dose frequency, route, side effects, insurance, copay assistance, and patient copay were not significantly correlated with adherence.</p>
+          </div>
+          <div class="pattern-card">
+            <strong>PRO gap</strong>
+            <p>No significant correlation was found between adherence and patient-reported missed school, work, planned events, or healthcare visits.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-stack" id="takeaways">
+        <article class="panel takeaway-panel">
+          <p class="section-label">Conclusion</p>
+          <h2>Adherence, mental health, and utilization travel together in the low-MPR tail</h2>
+          <ul class="takeaway-list">
+            <li>Nonadherent DMT patients were associated with more hospital admissions or ED visits due to MS symptoms documented in the EHR.</li>
+            <li>The authors emphasized mental health because increasing depressive symptoms correlated with decreasing medication adherence.</li>
+            <li>Medication frequency, route, cost, and individual patient factors may still matter clinically, but were not correlated with adherence in this cohort.</li>
+          </ul>
+        </article>
+        <article class="panel">
+          <p class="section-label">Limits and next step</p>
+          <h2>Interpret as a single-center signal</h2>
+          <p>The study was retrospective and single center, included a small population, and captured ED/hospital admissions only within the Yale New Haven Health database.</p>
+          <p>Future work proposed by the authors: conduct additional initiatives to improve adherence among MS patients receiving DMTs.</p>
+        </article>
+      </section>
+
+      <footer class="footer-actions" aria-label="Source links">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/39_2019.pdf">Open source PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/39_2019.md">Open source markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Communities of Practice for Specialty Pharmacies | NASP 2022</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 1rem;
+      border: 1px solid rgba(36, 55, 112, 0.12);
+      border-radius: 8px;
+      pointer-events: none;
+    }
+    .hero-card svg {
+      position: relative;
+      z-index: 1;
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-top: 0.4rem;
+    }
+    .metric-card strong small {
+      color: var(--red);
+      font-size: 0.92rem;
+    }
+    .metric-card em {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-style: normal;
+      font-weight: 750;
+    }
+    .role-wheel {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.8rem;
+    }
+    .role-card {
+      min-height: 6.3rem;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.68rem;
+    }
+    .role-card b {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.86rem;
+      line-height: 1.15;
+    }
+    .role-card span {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 750;
+    }
+    .membership-chart {
+      display: grid;
+      gap: 0.65rem;
+      margin-top: 0.85rem;
+    }
+    .membership-row {
+      display: grid;
+      grid-template-columns: 9.5rem minmax(0, 1fr) 3.5rem;
+      gap: 0.55rem;
+      align-items: center;
+    }
+    .membership-row b {
+      color: var(--ink);
+      font-size: 0.8rem;
+      line-height: 1.15;
+    }
+    .membership-track {
+      height: 0.8rem;
+      border-radius: 999px;
+      background: #e8eef7;
+      overflow: hidden;
+    }
+    .membership-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .membership-row span {
+      color: var(--teal);
+      font-family: var(--font-display);
+      font-weight: 900;
+      text-align: right;
+    }
+    .pa-board {
+      display: grid;
+      grid-template-columns: minmax(17rem, 0.95fr) minmax(0, 1.05fr);
+      gap: 1rem;
+      align-items: start;
+    }
+    .lift-tile {
+      position: relative;
+      min-height: 18rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, rgba(24, 124, 143, 0.12), rgba(24, 124, 143, 0.03)),
+        #fff;
+      padding: 1rem;
+      overflow: hidden;
+    }
+    .lift-tile::after {
+      content: "";
+      position: absolute;
+      right: -2.5rem;
+      bottom: -3rem;
+      width: 13rem;
+      height: 13rem;
+      border: 1.2rem solid rgba(209, 38, 48, 0.1);
+      border-radius: 50%;
+    }
+    .lift-tile > * {
+      position: relative;
+      z-index: 1;
+    }
+    .lift-tile span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .lift-tile strong {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(4rem, 9vw, 7rem);
+      line-height: 0.88;
+    }
+    .lift-tile p {
+      margin: 0.75rem 0 0;
+      max-width: 22rem;
+      color: var(--ink);
+      font-weight: 850;
+    }
+    .approval-chart {
+      display: grid;
+      gap: 0.7rem;
+    }
+    .approval-row {
+      display: grid;
+      grid-template-columns: 8.8rem minmax(0, 1fr) 6rem;
+      gap: 0.55rem;
+      align-items: center;
+    }
+    .approval-row b {
+      color: var(--ink);
+      font-size: 0.82rem;
+    }
+    .paired-meter {
+      display: grid;
+      gap: 0.24rem;
+    }
+    .meter-line {
+      display: grid;
+      grid-template-columns: 2.2rem minmax(0, 1fr);
+      gap: 0.35rem;
+      align-items: center;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 850;
+    }
+    .meter-track {
+      height: 0.56rem;
+      border-radius: 999px;
+      background: #e8eef7;
+      overflow: hidden;
+    }
+    .meter-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--border-strong);
+    }
+    .meter-line.post i {
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .approval-row span {
+      color: var(--green);
+      font-size: 0.8rem;
+      font-weight: 900;
+      text-align: right;
+    }
+    .practice-flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.85rem;
+    }
+    .flow-node {
+      position: relative;
+      min-height: 8.6rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.72rem;
+    }
+    .flow-node::before {
+      content: attr(data-step);
+      display: inline-grid;
+      place-items: center;
+      width: 1.75rem;
+      height: 1.75rem;
+      margin-bottom: 0.45rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.76rem;
+      font-weight: 900;
+    }
+    .flow-node h3 {
+      margin-bottom: 0.35rem;
+    }
+    .flow-node p {
+      margin: 0;
+      color: var(--body);
+      font-size: 0.78rem;
+    }
+    .copay-cards {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.6rem;
+      margin-top: 0.85rem;
+    }
+    .copay-card {
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: linear-gradient(180deg, #fff, var(--surface-warm));
+      padding: 0.7rem;
+    }
+    .copay-card b {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+    }
+    .copay-values {
+      display: flex;
+      align-items: baseline;
+      gap: 0.4rem;
+      margin-top: 0.45rem;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-weight: 900;
+    }
+    .copay-values span {
+      color: var(--muted);
+      font-family: var(--font-body);
+      font-size: 0.74rem;
+      font-weight: 850;
+    }
+    .microcopy {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 750;
+    }
+    .source-note {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+    @media (max-width: 900px) {
+      .role-wheel,
+      .practice-flow,
+      .copay-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .pa-board {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 560px) {
+      .role-wheel,
+      .practice-flow,
+      .copay-cards,
+      .membership-row,
+      .approval-row {
+        grid-template-columns: 1fr;
+      }
+      .membership-row span,
+      .approval-row span {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#model">Model</a>
+        <a href="#outcomes">Outcomes</a>
+        <a href="#copay">Copay</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2022 / Poster 38-2022</p>
+        <h1 id="poster-title">Communities of Practice turned specialty pharmacy change into structured learning.</h1>
+        <p class="hero-summary">
+          Shields Health Solutions described a disease-state Community of Practice model that
+          connects specialty pharmacy liaisons, patient support advocates, pharmacists, nurses,
+          trainers, managers, and operations teams through recurring education and leadership roles.
+        </p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Continuing education</li>
+          <li class="tag therapy">Diabetes</li>
+          <li class="tag therapy">Infectious diseases</li>
+          <li class="tag therapy">Autoimmune</li>
+          <li class="tag therapy">Neurology</li>
+          <li class="tag">Specialty pharmacy operations</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Community of Practice snapshot">
+        <div>
+          <div class="poster-code">38-2022</div>
+          <dl class="meta-grid">
+            <div>
+              <dt>Authors</dt>
+              <dd>Kuwan Blake; Dawn DiPasquale</dd>
+            </div>
+            <div>
+              <dt>Organization</dt>
+              <dd>Shields Health Solutions</dd>
+            </div>
+            <div>
+              <dt>Launch</dt>
+              <dd>Late 2020</dd>
+            </div>
+            <div>
+              <dt>Scope</dt>
+              <dd>4 disease-state communities</dd>
+            </div>
+          </dl>
+        </div>
+        <svg viewBox="0 0 360 230" role="img" aria-label="Leadership, activities, and community connected to outcomes">
+          <defs>
+            <linearGradient id="nodeFill" x1="0" x2="1">
+              <stop offset="0" stop-color="#eef4fb"/>
+              <stop offset="1" stop-color="#fff7ea"/>
+            </linearGradient>
+          </defs>
+          <g fill="none" stroke="#aebbd2" stroke-width="4" stroke-linecap="round">
+            <path d="M180 68 C116 88 88 120 76 164"/>
+            <path d="M180 68 C244 88 272 120 284 164"/>
+            <path d="M76 164 C126 200 232 200 284 164"/>
+            <path d="M180 68 L180 168"/>
+          </g>
+          <g font-family="Inter, Arial, sans-serif" text-anchor="middle">
+            <circle cx="180" cy="62" r="42" fill="url(#nodeFill)" stroke="#243770" stroke-width="3"/>
+            <text x="180" y="53" fill="#243770" font-size="14" font-weight="900">Leadership</text>
+            <text x="180" y="73" fill="#68758d" font-size="12" font-weight="800">4 roles</text>
+            <circle cx="76" cy="166" r="39" fill="#fff" stroke="#d12630" stroke-width="3"/>
+            <text x="76" y="158" fill="#243770" font-size="13" font-weight="900">Learning</text>
+            <text x="76" y="177" fill="#68758d" font-size="11" font-weight="800">meetings + webinars</text>
+            <circle cx="180" cy="168" r="39" fill="#fff" stroke="#187c8f" stroke-width="3"/>
+            <text x="180" y="160" fill="#243770" font-size="13" font-weight="900">Community</text>
+            <text x="180" y="179" fill="#68758d" font-size="11" font-weight="800">619 members</text>
+            <circle cx="284" cy="166" r="39" fill="#fff" stroke="#4d8a67" stroke-width="3"/>
+            <text x="284" y="158" fill="#243770" font-size="13" font-weight="900">Outcomes</text>
+            <text x="284" y="177" fill="#68758d" font-size="11" font-weight="800">PA + copay</text>
+          </g>
+        </svg>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Disease-state communities</span>
+          <strong>4</strong>
+          <em>Diabetes, infectious diseases, autoimmune, and neurology.</em>
+        </article>
+        <article class="metric-card">
+          <span>Total named membership</span>
+          <strong>619</strong>
+          <em>Across the four reported communities.</em>
+        </article>
+        <article class="metric-card">
+          <span>Average PA approval lift</span>
+          <strong>27<small>%</small></strong>
+          <em>Pre-CoP 2020 Q2 compared with post-CoP 2022 Q2.</em>
+        </article>
+        <article class="metric-card">
+          <span>Partner network</span>
+          <strong>20+</strong>
+          <em>Health-system partners connected through more than 15 company roles.</em>
+        </article>
+      </section>
+
+      <section id="model" class="visual-grid">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Keep clinical operations current as specialty pharmacy changes.</h2>
+          <p>
+            The poster frames Communities of Practice as a continuous learning system for specialty
+            teams facing new medications, disease states, guidelines, payer policies, and manufacturer
+            resources.
+          </p>
+          <div class="role-wheel" aria-label="Community of Practice leadership roles">
+            <div class="role-card">
+              <b>CoP Lead</b>
+              <span>CPhT stretch assignment guiding the disease-state community.</span>
+            </div>
+            <div class="role-card">
+              <b>Training Specialist</b>
+              <span>CPhT role translating topic needs into education.</span>
+            </div>
+            <div class="role-card">
+              <b>PSA Partner</b>
+              <span>CPhT view into financial assistance and patient support workflows.</span>
+            </div>
+            <div class="role-card">
+              <b>Subject Matter Expert</b>
+              <span>PharmD expertise aligned to disease-state practice.</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Community scale</p>
+          <h2>Membership spanned operational and clinical roles.</h2>
+          <p>
+            Reported CoP membership included liaisons, technicians, pharmacists, nurses, trainers,
+            managers, and operations teams.
+          </p>
+          <div class="membership-chart" aria-label="Membership by disease-state community">
+            <div class="membership-row">
+              <b>Autoimmune</b>
+              <div class="membership-track"><i style="width: 100%;"></i></div>
+              <span>205</span>
+            </div>
+            <div class="membership-row">
+              <b>Infectious diseases</b>
+              <div class="membership-track"><i style="width: 90%;"></i></div>
+              <span>185</span>
+            </div>
+            <div class="membership-row">
+              <b>Neurology</b>
+              <div class="membership-track"><i style="width: 57%;"></i></div>
+              <span>117</span>
+            </div>
+            <div class="membership-row">
+              <b>Diabetes</b>
+              <div class="membership-track"><i style="width: 55%;"></i></div>
+              <span>112</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel" aria-labelledby="flow-title">
+        <p class="section-label">Methods</p>
+        <h2 id="flow-title">Topics moved from operational signals into recurring education.</h2>
+        <div class="practice-flow" aria-label="Community of Practice evidence flow">
+          <article class="flow-node" data-step="1">
+            <h3>Observe</h3>
+            <p>Leadership teams used observations, recommendations, and business analytics reports to select topics.</p>
+          </article>
+          <article class="flow-node" data-step="2">
+            <h3>Convene</h3>
+            <p>Monthly meetings and quarterly webinars created predictable learning touchpoints.</p>
+          </article>
+          <article class="flow-node" data-step="3">
+            <h3>Specialize</h3>
+            <p>Education focused on disease-state operations, patient outcomes, workflow efficiency, and manufacturer criteria.</p>
+          </article>
+          <article class="flow-node" data-step="4">
+            <h3>Connect</h3>
+            <p>Guest speakers and peer connections expanded learning beyond a single local team.</p>
+          </article>
+          <article class="flow-node" data-step="5">
+            <h3>Improve</h3>
+            <p>The model targeted PA approval, patient affordability, and medication refill coordination.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="outcomes" class="panel">
+        <p class="section-label">Results</p>
+        <h2>Prior authorization approval increased in every supported disease-state community.</h2>
+        <div class="pa-board">
+          <div class="lift-tile">
+            <span>Average PA approval increase</span>
+            <strong>27%</strong>
+            <p>Advanced review compared each CoP disease state from 2020 Q2 before CoP support to 2022 Q2 after implementation.</p>
+          </div>
+          <div class="approval-chart" aria-label="Prior authorization pre and post Community of Practice approval rates">
+            <div class="approval-row">
+              <b>Diabetes</b>
+              <div class="paired-meter">
+                <div class="meter-line"><span>Pre</span><div class="meter-track"><i style="width: 38%;"></i></div></div>
+                <div class="meter-line post"><span>Post</span><div class="meter-track"><i style="width: 83%;"></i></div></div>
+              </div>
+              <span>+45 pts</span>
+            </div>
+            <div class="approval-row">
+              <b>Infectious diseases</b>
+              <div class="paired-meter">
+                <div class="meter-line"><span>Pre</span><div class="meter-track"><i style="width: 70%;"></i></div></div>
+                <div class="meter-line post"><span>Post</span><div class="meter-track"><i style="width: 99%;"></i></div></div>
+              </div>
+              <span>+29 pts</span>
+            </div>
+            <div class="approval-row">
+              <b>Neurology</b>
+              <div class="paired-meter">
+                <div class="meter-line"><span>Pre</span><div class="meter-track"><i style="width: 72%;"></i></div></div>
+                <div class="meter-line post"><span>Post</span><div class="meter-track"><i style="width: 92%;"></i></div></div>
+              </div>
+              <span>+20 pts</span>
+            </div>
+            <div class="approval-row">
+              <b>Autoimmune</b>
+              <div class="paired-meter">
+                <div class="meter-line"><span>Pre</span><div class="meter-track"><i style="width: 77%;"></i></div></div>
+                <div class="meter-line post"><span>Post</span><div class="meter-track"><i style="width: 91%;"></i></div></div>
+              </div>
+              <span>+14 pts</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="copay" class="visual-grid">
+        <article class="panel">
+          <p class="section-label">Patient affordability</p>
+          <h2>Copays were maintained or reduced after CoP implementation.</h2>
+          <p>
+            Despite manufacturer, foundation, payer, and outside-pharmacy challenges, the poster
+            reports stable or lower out-of-pocket costs in CoP-supported disease states.
+          </p>
+          <div class="copay-cards" aria-label="Copayment comparison by disease state">
+            <div class="copay-card">
+              <b>Autoimmune</b>
+              <div class="copay-values">$5 <span>to</span> $5</div>
+            </div>
+            <div class="copay-card">
+              <b>Neurology</b>
+              <div class="copay-values">$5 <span>to</span> $5</div>
+            </div>
+            <div class="copay-card">
+              <b>Infectious diseases</b>
+              <div class="copay-values">$3 <span>to</span> $3</div>
+            </div>
+            <div class="copay-card">
+              <b>Diabetes</b>
+              <div class="copay-values">$25 <span>to</span> $8</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Conclusion</p>
+          <h2>The CoP became both a learning platform and a leadership pathway.</h2>
+          <p>
+            Shields concluded that Communities of Practice enhanced employee disease-state knowledge,
+            promoted professional development, and created a cross-role network aimed at improved
+            patient outcomes.
+          </p>
+          <div class="number-cloud" aria-label="Conclusion numbers">
+            <div class="number-pill">15+<small>company roles</small></div>
+            <div class="number-pill">20+<small>health system partners</small></div>
+            <div class="number-pill">3<small>activity formats</small></div>
+            <div class="number-pill">4<small>leadership roles</small></div>
+          </div>
+          <p class="source-note">
+            The authors reported no relevant financial or personal relationships with commercial entities.
+          </p>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Extracted table patterns">
+        <article class="table-card">
+          <p class="section-label">Extracted table</p>
+          <h2>PA approval rates</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Disease state</th>
+                  <th>Pre-CoP</th>
+                  <th>Post-CoP</th>
+                  <th>Increase</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Autoimmune</td><td>77%</td><td>91%</td><td>14 pts</td></tr>
+                <tr><td>Neurology</td><td>72%</td><td>92%</td><td>20 pts</td></tr>
+                <tr><td>Infectious diseases</td><td>70%</td><td>99%</td><td>29 pts</td></tr>
+                <tr><td>Diabetes</td><td>38%</td><td>83%</td><td>45 pts</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+        <article class="table-card">
+          <p class="section-label">Extracted table</p>
+          <h2>Copayment comparison</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Disease state</th>
+                  <th>Pre-CoP</th>
+                  <th>Post-CoP</th>
+                  <th>Pattern</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Autoimmune</td><td>$5</td><td>$5</td><td>Maintained</td></tr>
+                <tr><td>Neurology</td><td>$5</td><td>$5</td><td>Maintained</td></tr>
+                <tr><td>Infectious diseases</td><td>$3</td><td>$3</td><td>Maintained</td></tr>
+                <tr><td>Diabetes</td><td>$25</td><td>$8</td><td>Reduced</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/38-2022.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/38-2022.md">Source Markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

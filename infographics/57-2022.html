@@ -1,0 +1,706 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clinical Dashboards for Outcomes Measures Reporting | NASP 2022</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      right: -4rem;
+      top: -4rem;
+      width: 12rem;
+      height: 12rem;
+      border: 1.2rem solid rgba(24, 124, 143, 0.13);
+      border-radius: 50%;
+    }
+
+    .hero-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .dashboard-visual svg,
+    .workflow-visual svg,
+    .severity-visual svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .metric-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .metric-card::after {
+      content: "";
+      position: absolute;
+      right: 0.72rem;
+      bottom: 0.72rem;
+      width: 2.3rem;
+      height: 0.35rem;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+      opacity: 0.72;
+    }
+
+    .metric-card strong small {
+      color: var(--red);
+      font-size: 0.82rem;
+    }
+
+    .metric-card em {
+      display: block;
+      margin-top: 0.38rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-style: normal;
+      font-weight: 760;
+      line-height: 1.32;
+    }
+
+    .metric-card.near-target strong {
+      color: var(--gold);
+    }
+
+    .metric-card.context strong {
+      color: var(--teal);
+    }
+
+    .dashboard-board {
+      display: grid;
+      grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .target-list {
+      display: grid;
+      gap: 0.72rem;
+      margin-top: 0.82rem;
+    }
+
+    .target-card {
+      border: 1px solid rgba(174, 187, 210, 0.92);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.8rem;
+    }
+
+    .target-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.7rem;
+    }
+
+    .target-head strong {
+      color: var(--ink);
+      font-size: 0.84rem;
+      font-weight: 880;
+      line-height: 1.2;
+    }
+
+    .target-head span {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 900;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .target-track {
+      position: relative;
+      height: 0.72rem;
+      margin-top: 0.58rem;
+      overflow: hidden;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 999px;
+      background: #edf2f8;
+    }
+
+    .target-track i {
+      display: block;
+      width: var(--value);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .target-track b {
+      position: absolute;
+      top: -0.2rem;
+      left: 95%;
+      width: 0.16rem;
+      height: 1.12rem;
+      border-radius: 999px;
+      background: var(--ink);
+      transform: translateX(-50%);
+    }
+
+    .target-foot {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-top: 0.36rem;
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 820;
+    }
+
+    .target-card.miss .target-head span {
+      color: var(--gold);
+    }
+
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.72rem;
+    }
+
+    .method-card {
+      position: relative;
+      min-height: 11.5rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--surface);
+      padding: 0.84rem;
+      overflow: hidden;
+    }
+
+    .method-card::before {
+      content: attr(data-step);
+      display: grid;
+      place-items: center;
+      width: 2rem;
+      height: 2rem;
+      margin-bottom: 0.62rem;
+      border-radius: 50%;
+      background: var(--accent, var(--red));
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      font-weight: 900;
+    }
+
+    .method-card::after {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 0.3rem;
+      background: var(--accent, var(--red));
+    }
+
+    .method-card:nth-child(2) { --accent: var(--gold); }
+    .method-card:nth-child(3) { --accent: var(--teal); }
+    .method-card:nth-child(4) { --accent: var(--green); }
+    .method-card:nth-child(5) { --accent: var(--purple); }
+
+    .method-card p {
+      margin: 0.46rem 0 0;
+      color: var(--body);
+      font-size: 0.82rem;
+      line-height: 1.36;
+    }
+
+    .workflow-board {
+      display: grid;
+      grid-template-columns: minmax(16rem, 0.72fr) minmax(0, 1.28fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .loop-legend {
+      display: grid;
+      gap: 0.48rem;
+      margin: 0.78rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .loop-legend li {
+      display: flex;
+      gap: 0.52rem;
+      align-items: flex-start;
+      color: var(--ink);
+      font-size: 0.84rem;
+      font-weight: 820;
+      line-height: 1.32;
+    }
+
+    .loop-legend i {
+      flex: 0 0 auto;
+      width: 0.75rem;
+      height: 0.75rem;
+      margin-top: 0.23rem;
+      border-radius: 2px;
+      background: var(--legend, var(--red));
+    }
+
+    .loop-legend li:nth-child(2) i { --legend: var(--teal); }
+    .loop-legend li:nth-child(3) i { --legend: var(--green); }
+
+    .conclusion-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.78rem;
+      margin-top: 0.82rem;
+    }
+
+    .conclusion-card {
+      border: 1px solid rgba(174, 187, 210, 0.92);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.78);
+      padding: 0.82rem;
+    }
+
+    .conclusion-icon {
+      display: grid;
+      place-items: center;
+      width: 2.7rem;
+      height: 2.7rem;
+      margin-bottom: 0.6rem;
+      border-radius: 8px;
+      background: var(--surface-blue);
+      color: var(--teal);
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 900;
+    }
+
+    .conclusion-card:nth-child(2) .conclusion-icon {
+      background: var(--surface-warm);
+      color: var(--gold);
+    }
+
+    .conclusion-card:nth-child(3) .conclusion-icon {
+      background: rgba(117, 97, 168, 0.13);
+      color: var(--purple);
+    }
+
+    .conclusion-card p {
+      margin: 0.46rem 0 0;
+      font-size: 0.84rem;
+      line-height: 1.38;
+    }
+
+    .framework-table td:last-child,
+    .framework-table th:last-child {
+      text-align: right;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 1.45rem;
+      border-radius: 999px;
+      padding: 0.16rem 0.45rem;
+      background: rgba(77, 138, 103, 0.14);
+      color: var(--green);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .status-pill.near {
+      background: rgba(233, 158, 37, 0.14);
+      color: var(--gold);
+    }
+
+    @media (max-width: 960px) {
+      .dashboard-board,
+      .workflow-board {
+        grid-template-columns: 1fr;
+      }
+
+      .method-grid,
+      .conclusion-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 620px) {
+      .method-grid,
+      .conclusion-grid,
+      .target-head,
+      .target-foot {
+        grid-template-columns: 1fr;
+      }
+
+      .target-head,
+      .target-foot {
+        display: grid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#dashboard">Dashboard</a>
+        <a href="#workflow">Workflow</a>
+        <a href="#findings">Findings</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2022 / Poster 57-2022 / Health system specialty pharmacy</p>
+        <h1 id="poster-title">Development and Implementation of Clinical Dashboards for Clinical Outcomes Measures Reporting Within Health System Specialty Pharmacy Services</h1>
+        <p class="hero-summary">
+          Trellis Rx built disease-specific clinical dashboards in Arbor to standardize clinical outcomes measure
+          collection, automate alerts, and make specialty pharmacy results reportable to care teams and stakeholders.
+        </p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Multi-center descriptive study</li>
+          <li class="tag therapy">Clinical outcomes measures</li>
+          <li class="tag">Rheumatology PROM framework</li>
+          <li class="tag">Automated alerts</li>
+          <li class="tag">Real-time dashboards</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata and dashboard visual">
+        <div>
+          <div class="poster-code">57<br>2022</div>
+          <dl class="meta-grid">
+            <div>
+              <dt>Organization</dt>
+              <dd>Trellis Rx, now part of CPS</dd>
+            </div>
+            <div>
+              <dt>Platform</dt>
+              <dd>Arbor</dd>
+            </div>
+            <div>
+              <dt>Protocol lens</dt>
+              <dd>Rheumatology COMs</dd>
+            </div>
+            <div>
+              <dt>Core measure</dt>
+              <dd>PROM collection</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="dashboard-visual" aria-hidden="true">
+          <svg viewBox="0 0 430 255" role="img" aria-label="Clinical dashboard with outcome measures">
+            <defs>
+              <linearGradient id="screen-57" x1="0" x2="1">
+                <stop offset="0" stop-color="#eef4fb"></stop>
+                <stop offset="1" stop-color="#fff7ea"></stop>
+              </linearGradient>
+            </defs>
+            <rect x="45" y="32" width="340" height="184" rx="18" fill="url(#screen-57)" stroke="#243770" stroke-width="7"></rect>
+            <rect x="72" y="60" width="104" height="55" rx="8" fill="#fff" stroke="#aebbd2" stroke-width="2"></rect>
+            <rect x="193" y="60" width="166" height="18" rx="9" fill="#d12630"></rect>
+            <rect x="193" y="91" width="132" height="18" rx="9" fill="#187c8f"></rect>
+            <rect x="193" y="122" width="154" height="18" rx="9" fill="#4d8a67"></rect>
+            <rect x="72" y="132" width="104" height="56" rx="8" fill="#fff" stroke="#aebbd2" stroke-width="2"></rect>
+            <path d="M91 91l21 18 40-45" fill="none" stroke="#4d8a67" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M90 169h66M90 152h39" stroke="#e99e25" stroke-width="8" stroke-linecap="round"></path>
+            <circle cx="308" cy="176" r="30" fill="#fff" stroke="#7561a8" stroke-width="6"></circle>
+            <path d="M308 153v23l17 11" fill="none" stroke="#7561a8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M151 218h128M184 235h63" stroke="#243770" stroke-width="7" stroke-linecap="round"></path>
+            <text x="215" y="27" text-anchor="middle" fill="#243770" font-family="Arial, sans-serif" font-size="18" font-weight="900">COM dashboard engine</text>
+          </svg>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key dashboard measures">
+        <article class="metric-card">
+          <span>Baseline PROM</span>
+          <strong>98.8<small>%</small></strong>
+          <em>Patients with baseline patient-reported outcome measure; target was 95%.</em>
+        </article>
+        <article class="metric-card near-target">
+          <span>PROM in last 6 months</span>
+          <strong>94.4<small>%</small></strong>
+          <em>Near the 95% target, showing where dashboards identify follow-up gaps.</em>
+        </article>
+        <article class="metric-card">
+          <span>Intervention completed</span>
+          <strong>100.0<small>%</small></strong>
+          <em>Completed intervention when scores consecutively worsened; target was 95%.</em>
+        </article>
+        <article class="metric-card context">
+          <span>Severity states tracked</span>
+          <strong>4</strong>
+          <em>High, moderate, low, and near-remission RAPID3 severity categories.</em>
+        </article>
+      </section>
+
+      <section id="dashboard" class="dashboard-board">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Make outcomes measures consistent, actionable, and reportable inside the HSSP workflow.</h2>
+          <p>
+            The poster illustrates how technology-enabled clinical dashboards can optimize patient care by embedding
+            disease-specific outcomes measures into day-to-day specialty pharmacy work.
+          </p>
+          <div class="target-list" aria-label="Dashboard measures compared with targets">
+            <div class="target-card">
+              <div class="target-head">
+                <strong>Patients with baseline PROM</strong>
+                <span>98.8%</span>
+              </div>
+              <div class="target-track"><i style="--value:98.8%"></i><b aria-hidden="true"></b></div>
+              <div class="target-foot"><span>Observed</span><span>Target marker: 95%</span></div>
+            </div>
+            <div class="target-card miss">
+              <div class="target-head">
+                <strong>Patients with PROM in last 6 months</strong>
+                <span>94.4%</span>
+              </div>
+              <div class="target-track"><i style="--value:94.4%"></i><b aria-hidden="true"></b></div>
+              <div class="target-foot"><span>Observed</span><span>Target marker: 95%</span></div>
+            </div>
+            <div class="target-card">
+              <div class="target-head">
+                <strong>Completed intervention when score worsens consecutively</strong>
+                <span>100.0%</span>
+              </div>
+              <div class="target-track"><i style="--value:100%"></i><b aria-hidden="true"></b></div>
+              <div class="target-foot"><span>Observed</span><span>Target marker: 95%</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel severity-visual">
+          <p class="section-label">Results pattern</p>
+          <h2>RAPID3 severity is monitored as a baseline-to-current dashboard ladder.</h2>
+          <svg viewBox="0 0 620 430" role="img" aria-labelledby="severity-title severity-desc">
+            <title id="severity-title">RAPID3 severity categories from baseline to most recent</title>
+            <desc id="severity-desc">Four severity rows connect baseline high, moderate, low, and near remission to the same most recent categories.</desc>
+            <rect x="40" y="46" width="230" height="326" rx="14" fill="#eef4fb" stroke="#aebbd2" stroke-width="2"></rect>
+            <rect x="350" y="46" width="230" height="326" rx="14" fill="#fff7ea" stroke="#aebbd2" stroke-width="2"></rect>
+            <text x="155" y="31" text-anchor="middle" fill="#243770" font-family="Arial, sans-serif" font-size="17" font-weight="900">Baseline severity</text>
+            <text x="465" y="31" text-anchor="middle" fill="#243770" font-family="Arial, sans-serif" font-size="17" font-weight="900">Most recent severity</text>
+            <g font-family="Arial, sans-serif" font-size="15" font-weight="900">
+              <rect x="70" y="80" width="170" height="48" rx="8" fill="#fff" stroke="#d12630" stroke-width="3"></rect>
+              <text x="155" y="110" text-anchor="middle" fill="#d12630">High Severity</text>
+              <rect x="380" y="80" width="170" height="48" rx="8" fill="#fff" stroke="#d12630" stroke-width="3"></rect>
+              <text x="465" y="110" text-anchor="middle" fill="#d12630">High Severity</text>
+
+              <rect x="70" y="154" width="170" height="48" rx="8" fill="#fff" stroke="#e99e25" stroke-width="3"></rect>
+              <text x="155" y="184" text-anchor="middle" fill="#9d6509">Moderate Severity</text>
+              <rect x="380" y="154" width="170" height="48" rx="8" fill="#fff" stroke="#e99e25" stroke-width="3"></rect>
+              <text x="465" y="184" text-anchor="middle" fill="#9d6509">Moderate Severity</text>
+
+              <rect x="70" y="228" width="170" height="48" rx="8" fill="#fff" stroke="#187c8f" stroke-width="3"></rect>
+              <text x="155" y="258" text-anchor="middle" fill="#187c8f">Low Severity</text>
+              <rect x="380" y="228" width="170" height="48" rx="8" fill="#fff" stroke="#187c8f" stroke-width="3"></rect>
+              <text x="465" y="258" text-anchor="middle" fill="#187c8f">Low Severity</text>
+
+              <rect x="70" y="302" width="170" height="48" rx="8" fill="#fff" stroke="#4d8a67" stroke-width="3"></rect>
+              <text x="155" y="332" text-anchor="middle" fill="#4d8a67">Near Remission</text>
+              <rect x="380" y="302" width="170" height="48" rx="8" fill="#fff" stroke="#4d8a67" stroke-width="3"></rect>
+              <text x="465" y="332" text-anchor="middle" fill="#4d8a67">Near Remission</text>
+            </g>
+            <g fill="none" stroke-width="5" stroke-linecap="round" opacity="0.72">
+              <path d="M240 104 C282 104, 318 104, 380 104" stroke="#d12630"></path>
+              <path d="M240 178 C282 178, 318 178, 380 178" stroke="#e99e25"></path>
+              <path d="M240 252 C282 252, 318 252, 380 252" stroke="#187c8f"></path>
+              <path d="M240 326 C282 326, 318 326, 380 326" stroke="#4d8a67"></path>
+            </g>
+            <text x="310" y="402" text-anchor="middle" fill="#68758d" font-family="Arial, sans-serif" font-size="14" font-weight="800">Dashboard pattern extracted from the poster table</text>
+          </svg>
+        </article>
+      </section>
+
+      <section aria-label="Methods evidence flow">
+        <p class="section-label">Methods</p>
+        <h2>Five implementation moves converted clinical guidelines into dashboard-ready outcomes reporting.</h2>
+        <div class="method-grid">
+          <article class="method-card" data-step="1">
+            <h3>Define COMs</h3>
+            <p>Clinical subcommittees selected disease-specific outcomes measures from guidelines, research, and specialty pharmacy recommendations.</p>
+          </article>
+          <article class="method-card" data-step="2">
+            <h3>Build protocols</h3>
+            <p>Disease-state protocols encoded which measures to collect and when pharmacists or liaisons should act.</p>
+          </article>
+          <article class="method-card" data-step="3">
+            <h3>Implement in Arbor</h3>
+            <p>The protocols were embedded into Trellis Rx specialty pharmacy technology across partner health systems.</p>
+          </article>
+          <article class="method-card" data-step="4">
+            <h3>Trigger alerts</h3>
+            <p>Advanced algorithms generated automated alerts and interventions to standardize collection and response.</p>
+          </article>
+          <article class="method-card" data-step="5">
+            <h3>Report dashboards</h3>
+            <p>Real-time dashboards monitored protocol compliance, COM collection, patient care needs, and stakeholder reporting.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="workflow" class="workflow-board">
+        <article class="panel">
+          <p class="section-label">Rheumatology PROM protocol</p>
+          <h2>The protocol creates a closed loop: collect, compare, intervene, and keep monitoring.</h2>
+          <p>
+            The poster's rheumatology framework starts at specialty pharmacy enrollment, captures a baseline PROM,
+            repeats collection every 3 to 6 months, and escalates to pharmacist intervention when scores worsen consecutively.
+          </p>
+          <ul class="loop-legend">
+            <li><i></i><span>Baseline capture establishes the reference point.</span></li>
+            <li><i></i><span>Recurring PROM checks keep outcomes visible over time.</span></li>
+            <li><i></i><span>Worsening scores trigger pharmacist intervention before reporting continues.</span></li>
+          </ul>
+        </article>
+
+        <article class="panel workflow-visual">
+          <svg viewBox="0 0 720 390" role="img" aria-labelledby="flow-title flow-desc">
+            <title id="flow-title">Rheumatology outcomes measure workflow</title>
+            <desc id="flow-desc">Patient enrollment leads to baseline PROM, recurring PROM every 3 to 6 months, score review, pharmacist intervention if scores worsen, and continued monitoring if scores improve or stabilize.</desc>
+            <defs>
+              <marker id="arrow-57" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L9,3 z" fill="#243770"></path>
+              </marker>
+            </defs>
+            <g font-family="Arial, sans-serif">
+              <rect x="34" y="146" width="132" height="76" rx="12" fill="#fff" stroke="#187c8f" stroke-width="4"></rect>
+              <text x="100" y="174" text-anchor="middle" fill="#187c8f" font-size="15" font-weight="900">Patient</text>
+              <text x="100" y="194" text-anchor="middle" fill="#187c8f" font-size="15" font-weight="900">enrolled</text>
+
+              <rect x="215" y="146" width="132" height="76" rx="12" fill="#fff" stroke="#d12630" stroke-width="4"></rect>
+              <text x="281" y="174" text-anchor="middle" fill="#d12630" font-size="15" font-weight="900">Baseline</text>
+              <text x="281" y="194" text-anchor="middle" fill="#d12630" font-size="15" font-weight="900">PROM</text>
+
+              <rect x="396" y="146" width="132" height="76" rx="12" fill="#fff" stroke="#e99e25" stroke-width="4"></rect>
+              <text x="462" y="174" text-anchor="middle" fill="#9d6509" font-size="15" font-weight="900">PROM every</text>
+              <text x="462" y="194" text-anchor="middle" fill="#9d6509" font-size="15" font-weight="900">3-6 months</text>
+
+              <path d="M610 126l72 58-72 58-72-58z" fill="#fff" stroke="#7561a8" stroke-width="4"></path>
+              <text x="610" y="177" text-anchor="middle" fill="#7561a8" font-size="14" font-weight="900">Scores</text>
+              <text x="610" y="196" text-anchor="middle" fill="#7561a8" font-size="14" font-weight="900">worsened?</text>
+
+              <rect x="396" y="282" width="132" height="72" rx="12" fill="#fff" stroke="#4d8a67" stroke-width="4"></rect>
+              <text x="462" y="310" text-anchor="middle" fill="#4d8a67" font-size="15" font-weight="900">Pharmacist</text>
+              <text x="462" y="330" text-anchor="middle" fill="#4d8a67" font-size="15" font-weight="900">intervenes</text>
+
+              <path d="M166 184H215" fill="none" stroke="#243770" stroke-width="4" marker-end="url(#arrow-57)"></path>
+              <path d="M347 184H396" fill="none" stroke="#243770" stroke-width="4" marker-end="url(#arrow-57)"></path>
+              <path d="M528 184H540" fill="none" stroke="#243770" stroke-width="4" marker-end="url(#arrow-57)"></path>
+              <path d="M610 242v76H528" fill="none" stroke="#243770" stroke-width="4" marker-end="url(#arrow-57)"></path>
+              <path d="M396 318H335 C304 318, 304 248, 396 204" fill="none" stroke="#243770" stroke-width="4" marker-end="url(#arrow-57)"></path>
+              <path d="M610 126V70H462V146" fill="none" stroke="#243770" stroke-width="4" marker-end="url(#arrow-57)"></path>
+
+              <text x="631" y="284" fill="#4d8a67" font-size="15" font-weight="900">Yes</text>
+              <text x="539" y="61" fill="#187c8f" font-size="15" font-weight="900">No or improved</text>
+            </g>
+          </svg>
+        </article>
+      </section>
+
+      <section id="findings" class="section-stack">
+        <article class="panel">
+          <p class="section-label">Conclusion</p>
+          <h2>Dashboards give COMs an operating model, not just a reporting destination.</h2>
+          <div class="conclusion-grid">
+            <div class="conclusion-card">
+              <div class="conclusion-icon">1</div>
+              <h3>Defining COMs</h3>
+              <p>Disease-state COM definitions support consistent monitoring across specialty pharmacy services.</p>
+            </div>
+            <div class="conclusion-card">
+              <div class="conclusion-icon">2</div>
+              <h3>Reporting framework</h3>
+              <p>The dashboard framework helps confirm whether clinical goals and metric targets are being achieved.</p>
+            </div>
+            <div class="conclusion-card">
+              <div class="conclusion-icon">3</div>
+              <h3>Sharing information</h3>
+              <p>Standardized dashboards create a shared view for stakeholders and benchmark tracking.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Extracted table pattern</p>
+          <h2>Rheumatology dashboard reporting example</h2>
+          <div class="table-wrap">
+            <table class="framework-table">
+              <thead>
+                <tr>
+                  <th>Measure</th>
+                  <th>Value</th>
+                  <th>Target</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Patient with baseline PROM</td>
+                  <td>98.8%</td>
+                  <td>95%</td>
+                  <td><span class="status-pill">Met</span></td>
+                </tr>
+                <tr>
+                  <td>Patient with PROM in last 6 months</td>
+                  <td>94.4%</td>
+                  <td>95%</td>
+                  <td><span class="status-pill near">Near</span></td>
+                </tr>
+                <tr>
+                  <td>Completed intervention when score worsens consecutively</td>
+                  <td>100.0%</td>
+                  <td>95%</td>
+                  <td><span class="status-pill">Met</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="evidence-map" aria-label="Evidence flow">
+        <article class="evidence-card">
+          <h3>Need</h3>
+          <p>HSSP teams needed standardized COM collection methods and a reporting framework.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Protocol</h3>
+          <p>Clinical subcommittees translated guidelines and research into disease-specific measure logic.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Automation</h3>
+          <p>Arbor algorithms triggered alerts and interventions to make collection more consistent.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Dashboard</h3>
+          <p>Real-time views tracked compliance, PROM completion, worsening scores, and interventions.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Reporting</h3>
+          <p>Stakeholders receive benchmarkable outcomes data that can guide care and standardization.</p>
+        </article>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/57-2022.pdf">Open source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/57-2022.md">Open source markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2023 Infographic | ACP-Led Type 2 Diabetes Care</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .diabetes-hero {
+      position: relative;
+      min-height: 18rem;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 84% 12%, rgba(233, 158, 37, 0.32), transparent 8rem),
+        linear-gradient(145deg, rgba(36, 55, 112, 0.97), rgba(24, 124, 143, 0.9));
+      color: #fff;
+      padding: 1.1rem;
+    }
+
+    .diabetes-hero svg {
+      position: absolute;
+      right: -1.8rem;
+      bottom: -1.4rem;
+      width: min(26rem, 76%);
+      opacity: 0.82;
+    }
+
+    .diabetes-hero .kicker {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .diabetes-hero strong {
+      display: block;
+      max-width: 16rem;
+      margin-top: 0.25rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(2.9rem, 7vw, 5.4rem);
+      line-height: 0.9;
+    }
+
+    .diabetes-hero span {
+      display: block;
+      max-width: 18rem;
+      margin-top: 0.6rem;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.94rem;
+    }
+
+    .hero-card .button-link {
+      justify-content: center;
+      background: #fff;
+    }
+
+    .delta-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.75rem;
+    }
+
+    .delta-card {
+      border: 1px solid rgba(174, 187, 210, 0.86);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.78);
+      padding: 0.72rem;
+    }
+
+    .delta-card b {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+
+    .delta-card span {
+      display: block;
+      margin-top: 0.2rem;
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .care-path {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1.2fr 1fr;
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+
+    .path-node {
+      position: relative;
+      min-height: 8rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.78rem;
+    }
+
+    .path-node::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -0.5rem;
+      width: 0.72rem;
+      height: 0.72rem;
+      border-top: 2px solid var(--border-strong);
+      border-right: 2px solid var(--border-strong);
+      background: #fff;
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    .path-node:last-child::after,
+    .path-node.branch::after {
+      display: none;
+    }
+
+    .path-node b {
+      display: inline-grid;
+      place-items: center;
+      width: 1.55rem;
+      height: 1.55rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+    }
+
+    .path-node h3 {
+      margin-top: 0.45rem;
+      font-size: 0.95rem;
+    }
+
+    .path-node p {
+      margin: 0.32rem 0 0;
+      font-size: 0.78rem;
+    }
+
+    .risk-stack {
+      display: grid;
+      gap: 0.38rem;
+      margin-top: 0.55rem;
+    }
+
+    .risk-band {
+      display: grid;
+      grid-template-columns: 4rem minmax(0, 1fr);
+      gap: 0.45rem;
+      align-items: center;
+      border: 1px solid rgba(174, 187, 210, 0.75);
+      border-radius: 7px;
+      padding: 0.42rem;
+      font-size: 0.72rem;
+    }
+
+    .risk-band strong {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+    }
+
+    .risk-band span {
+      color: var(--body);
+    }
+
+    .risk-band.low { background: rgba(77, 138, 103, 0.12); }
+    .risk-band.mid { background: rgba(233, 158, 37, 0.15); }
+    .risk-band.high { background: rgba(209, 38, 48, 0.12); }
+
+    .goal-slope {
+      display: grid;
+      grid-template-columns: 10rem minmax(0, 1fr) 4.2rem;
+      gap: 0.58rem;
+      align-items: center;
+      margin-top: 0.62rem;
+    }
+
+    .goal-slope span {
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+
+    .goal-slope em {
+      color: var(--ink);
+      font-style: normal;
+      font-size: 0.78rem;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .goal-track {
+      height: 1.05rem;
+      border: 1px solid rgba(174, 187, 210, 0.78);
+      border-radius: 999px;
+      background: var(--surface-blue);
+      overflow: hidden;
+    }
+
+    .goal-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .cohort-split {
+      display: grid;
+      grid-template-columns: 38.8fr 61.2fr;
+      min-height: 2.4rem;
+      margin-top: 0.75rem;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      color: #fff;
+      font-weight: 900;
+    }
+
+    .cohort-split span {
+      display: grid;
+      place-items: center;
+      min-width: 0;
+      padding: 0.42rem;
+      font-size: 0.82rem;
+      text-align: center;
+    }
+
+    .cohort-split span:first-child { background: var(--green); }
+    .cohort-split span:last-child { background: var(--red); }
+
+    .outcome-ladder {
+      display: grid;
+      gap: 0.65rem;
+      margin-top: 0.72rem;
+    }
+
+    .ladder-row {
+      display: grid;
+      grid-template-columns: 8.2rem minmax(0, 1fr) 4rem;
+      gap: 0.55rem;
+      align-items: center;
+      font-size: 0.78rem;
+    }
+
+    .ladder-row b {
+      color: var(--ink);
+      font-weight: 850;
+    }
+
+    .ladder-track {
+      height: 1rem;
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+
+    .ladder-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .ladder-row em {
+      color: var(--ink);
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .compact-list {
+      margin: 0.58rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .compact-list li {
+      display: grid;
+      grid-template-columns: 0.8rem minmax(0, 1fr);
+      gap: 0.42rem;
+      margin-top: 0.42rem;
+      font-size: 0.88rem;
+    }
+
+    .compact-list li::before {
+      content: "";
+      width: 0.52rem;
+      height: 0.52rem;
+      margin-top: 0.43rem;
+      border-radius: 50%;
+      background: var(--teal);
+    }
+
+    .source-note {
+      margin: 0.7rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+
+    @media (max-width: 900px) {
+      .care-path {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .path-node::after {
+        display: none;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .care-path,
+      .delta-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .goal-slope,
+      .ladder-row {
+        grid-template-columns: 1fr;
+      }
+
+      .goal-slope em,
+      .ladder-row em {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#approach">Care Model</a>
+        <a href="#results">Results</a>
+        <a href="#evidence">Evidence</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2023 Annual Meeting | Poster 15</p>
+        <h1>Ambulatory pharmacist support brought specialty-pharmacy discipline to type 2 diabetes care</h1>
+        <p class="hero-summary">
+          An integrated health-system specialty pharmacy evaluated an ACP-led medication management service for adults using GLP-1RA or SGLT-2i therapy for type 2 diabetes.
+        </p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Implementation report</li>
+          <li class="tag therapy">Type 2 diabetes</li>
+          <li class="tag">Integrated HSSP</li>
+          <li class="tag">Ambulatory clinical pharmacists</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div class="poster-code">2023<br>ACP-T2D</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Population</dt>
+            <dd>103 adults</dd>
+          </div>
+          <div>
+            <dt>Service window</dt>
+            <dd>Aug 2022-Feb 2023</dd>
+          </div>
+          <div>
+            <dt>Therapies</dt>
+            <dd>GLP-1RA + SGLT-2i</dd>
+          </div>
+          <div>
+            <dt>Follow-up</dt>
+            <dd>7.26 months mean</dd>
+          </div>
+        </dl>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/15_Implementation-of-ambulatory-clinical-pharmacist-type-2-diabetes-care-services-within-an-integrated-health-system-specialty-pharmacy_2023.pdf">Open Source PDF</a>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numeric findings">
+        <article class="metric-card">
+          <span>Included patients</span>
+          <strong>103</strong>
+        </article>
+        <article class="metric-card">
+          <span>Mean A1C change</span>
+          <strong>-0.55%</strong>
+        </article>
+        <article class="metric-card">
+          <span>Mean weight change</span>
+          <strong>-1.9 kg</strong>
+        </article>
+        <article class="metric-card">
+          <span>Interventions accepted</span>
+          <strong>97%</strong>
+        </article>
+      </section>
+
+      <section id="approach" class="visual-grid" aria-label="Care model overview">
+        <article class="diabetes-hero">
+          <p class="kicker">Primary objective</p>
+          <strong>A1C moved from 7.6% to 7.0%</strong>
+          <span>Mean total-cohort A1C declined after clinical encounters with an ambulatory clinical pharmacist.</span>
+          <svg viewBox="0 0 420 260" role="img" aria-label="Illustration of pharmacist-guided diabetes trend line">
+            <defs>
+              <linearGradient id="trendGradient" x1="0" x2="1" y1="0" y2="0">
+                <stop offset="0" stop-color="#ffffff" stop-opacity="0.9"></stop>
+                <stop offset="1" stop-color="#e99e25" stop-opacity="0.95"></stop>
+              </linearGradient>
+            </defs>
+            <path d="M42 208H382" fill="none" stroke="rgba(255,255,255,.28)" stroke-width="2"></path>
+            <path d="M64 70v138M154 96v112M244 118v90M334 142v66" fill="none" stroke="rgba(255,255,255,.24)" stroke-width="2"></path>
+            <path d="M64 78 C130 98 154 130 218 136 C284 142 310 164 356 184" fill="none" stroke="url(#trendGradient)" stroke-width="11" stroke-linecap="round"></path>
+            <circle cx="64" cy="78" r="15" fill="#fff"></circle>
+            <circle cx="356" cy="184" r="15" fill="#e99e25"></circle>
+            <text x="64" y="44" text-anchor="middle" fill="#fff" font-family="Montserrat, Arial, sans-serif" font-size="28" font-weight="900">7.6</text>
+            <text x="356" y="226" text-anchor="middle" fill="#fff" font-family="Montserrat, Arial, sans-serif" font-size="28" font-weight="900">7.0</text>
+            <g fill="none" stroke="rgba(255,255,255,.72)" stroke-width="5" stroke-linecap="round">
+              <path d="M214 55c22 0 40 18 40 40s-18 40-40 40-40-18-40-40 18-40 40-40z"></path>
+              <path d="M214 72v45M191 95h46"></path>
+            </g>
+          </svg>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Risk-stratified service cadence</p>
+          <h2>ACP reassessment frequency followed A1C risk</h2>
+          <div class="care-path">
+            <div class="path-node">
+              <b>0</b>
+              <h3>Initial assessment</h3>
+              <p>Patients entered the diabetes clinical service while filling GLP-1RA or SGLT-2i therapy.</p>
+            </div>
+            <div class="path-node">
+              <b>30</b>
+              <h3>First cycle</h3>
+              <p>ACP reassessment occurred after the first month of service.</p>
+            </div>
+            <div class="path-node branch">
+              <b>A1C</b>
+              <h3>Risk tier</h3>
+              <div class="risk-stack">
+                <div class="risk-band low"><strong>&le;8</strong><span>Every 10 months</span></div>
+                <div class="risk-band mid"><strong>&gt;8-9</strong><span>Every 3-4 months</span></div>
+                <div class="risk-band high"><strong>&gt;9</strong><span>Every 60-90 days</span></div>
+              </div>
+            </div>
+            <div class="path-node">
+              <b>Y2</b>
+              <h3>Ongoing reassessment</h3>
+              <p>Patients continued into later reassessment cycles based on clinical need.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section id="results" class="visual-grid" aria-label="Results charts">
+        <article class="panel">
+          <p class="section-label">A1C response by baseline control</p>
+          <h2>The largest A1C reduction was in patients starting above goal</h2>
+          <div class="outcome-ladder">
+            <div class="ladder-row">
+              <b>Controlled T2D</b>
+              <div class="ladder-track"><i style="width: 9.4%;"></i></div>
+              <em>-0.08%</em>
+            </div>
+            <div class="ladder-row">
+              <b>Uncontrolled T2D</b>
+              <div class="ladder-track"><i style="width: 100%;"></i></div>
+              <em>-0.85%</em>
+            </div>
+            <div class="ladder-row">
+              <b>Total cohort</b>
+              <div class="ladder-track"><i style="width: 64.7%;"></i></div>
+              <em>-0.55%</em>
+            </div>
+          </div>
+          <div class="delta-grid">
+            <div class="delta-card">
+              <b>8.4% to 7.5%</b>
+              <span>Uncontrolled group mean A1C</span>
+            </div>
+            <div class="delta-card">
+              <b>6.3% to 6.2%</b>
+              <span>Controlled group mean A1C</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Goal attainment</p>
+          <h2>More patients reached target A1C after ACP care</h2>
+          <div class="goal-slope">
+            <span>Baseline at A1C &lt;7%</span>
+            <div class="goal-track"><i style="width: 38.8%;"></i></div>
+            <em>40 / 103</em>
+          </div>
+          <div class="goal-slope">
+            <span>Post-ACP at A1C &lt;7%</span>
+            <div class="goal-track"><i style="width: 53.4%;"></i></div>
+            <em>55 / 103</em>
+          </div>
+          <div class="cohort-split" aria-label="Baseline cohort split">
+            <span>38.8% controlled</span>
+            <span>61.2% uncontrolled</span>
+          </div>
+          <p class="source-note">Among patients initially above goal, 20 of 63 patients, or 31.7%, achieved A1C &lt;7% after ACP encounters.</p>
+        </article>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">Methods distilled</p>
+          <h2>Inclusion required medication exposure, ACP touchpoints, and paired A1C data</h2>
+          <ul class="compact-list">
+            <li>Adults at least 18 years old filling new or existing prescriptions for GLP-1RA or SGLT-2i for type 2 diabetes.</li>
+            <li>At least two clinical encounters with an ambulatory clinical pharmacist.</li>
+            <li>Baseline A1C collected no more than three months before enrollment plus at least one subsequent A1C during pharmacy services.</li>
+            <li>Outcomes were summarized with descriptive statistics.</li>
+          </ul>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Secondary outcomes</p>
+          <h2>Weight and intervention acceptance moved in the same direction</h2>
+          <div class="number-cloud">
+            <div class="number-pill">95.89<small>baseline kg</small></div>
+            <div class="number-pill">93.97<small>post-ACP kg</small></div>
+            <div class="number-pill">81/83<small>accepted interventions</small></div>
+            <div class="number-pill">7.26<small>months on service</small></div>
+          </div>
+          <p class="source-note">Mean weight variance was -1.0 kg in controlled T2D and -2.5 kg in uncontrolled T2D.</p>
+        </article>
+      </section>
+
+      <section id="evidence" class="evidence-map" aria-label="Extracted poster takeaways">
+        <article class="evidence-card">
+          <h3>Objective</h3>
+          <p>Describe the impact of ACP-led medication management specializing in diabetes care within an integrated HSSP.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Background</h3>
+          <p>Type 2 diabetes is not typically a specialty pharmacy disease state, but it has access, adherence, and outcome demands similar to traditional specialty care.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Primary endpoint</h3>
+          <p>Change in A1C after clinical encounters with an ambulatory clinical pharmacist.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Signal</h3>
+          <p>Total mean A1C fell by 0.55 percentage points, with a 0.85-point reduction among patients who began with uncontrolled T2D.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Conclusion</h3>
+          <p>The poster supports integrating ACPs into HSSP diabetes management to improve clinical outcomes for patients with T2D.</p>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Condensed source tables">
+        <article class="table-card">
+          <p class="section-label">Table pattern</p>
+          <h2>Primary outcome summary</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Group</th>
+                  <th>Patients</th>
+                  <th>Baseline A1C</th>
+                  <th>Post-ACP A1C</th>
+                  <th>Mean change</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Controlled T2D</td>
+                  <td>40</td>
+                  <td>6.3%</td>
+                  <td>6.2%</td>
+                  <td>-0.08%</td>
+                </tr>
+                <tr>
+                  <td>Uncontrolled T2D</td>
+                  <td>63</td>
+                  <td>8.4%</td>
+                  <td>7.5%</td>
+                  <td>-0.85%</td>
+                </tr>
+                <tr>
+                  <td>Total</td>
+                  <td>103</td>
+                  <td>7.6%</td>
+                  <td>7.0%</td>
+                  <td>-0.55%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Secondary outcome pattern</p>
+          <h2>Post-service clinical markers</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Metric</th>
+                  <th>Controlled</th>
+                  <th>Uncontrolled</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Post-ACP at goal A1C</td>
+                  <td>35 (87.5%)</td>
+                  <td>20 (31.7%)</td>
+                  <td>55 (53.4%)</td>
+                </tr>
+                <tr>
+                  <td>Weight variance</td>
+                  <td>-1.0 kg</td>
+                  <td>-2.5 kg</td>
+                  <td>-1.9 kg</td>
+                </tr>
+                <tr>
+                  <td>Length on service</td>
+                  <td>7.27 months</td>
+                  <td>7.25 months</td>
+                  <td>7.26 months</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/15_Implementation-of-ambulatory-clinical-pharmacist-type-2-diabetes-care-services-within-an-integrated-health-system-specialty-pharmacy_2023.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/15_Implementation-of-ambulatory-clinical-pharmacist-type-2-diabetes-care-services-within-an-integrated-health-system-specialty-pharmacy_2023.md">Source markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

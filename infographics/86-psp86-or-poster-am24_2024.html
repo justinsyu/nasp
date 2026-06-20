@@ -1,0 +1,624 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2024 Infographic | HSSP Role in Weight Loss Medications</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .access-hero {
+      position: relative;
+      min-height: 26rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 84% 16%, rgba(233, 158, 37, 0.34), transparent 10rem),
+        linear-gradient(135deg, rgba(36, 55, 112, 0.98), rgba(24, 124, 143, 0.88));
+      color: #fff;
+      overflow: hidden;
+      padding: 1.1rem;
+    }
+    .access-hero svg {
+      position: absolute;
+      inset: auto -2.8rem -3.2rem auto;
+      width: min(29rem, 88%);
+      height: auto;
+      opacity: 0.78;
+    }
+    .access-hero h2 {
+      max-width: 18rem;
+      color: #fff;
+      font-size: clamp(1.45rem, 2.6vw, 2.15rem);
+    }
+    .access-hero p {
+      position: relative;
+      max-width: 17.5rem;
+      margin: 0.65rem 0 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.92rem;
+    }
+    .hero-stat-row {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 1.2rem;
+      max-width: 26rem;
+    }
+    .hero-stat {
+      border: 1px solid rgba(255, 255, 255, 0.26);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 0.55rem;
+      backdrop-filter: blur(8px);
+    }
+    .hero-stat strong {
+      display: block;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      line-height: 1;
+    }
+    .hero-stat span {
+      display: block;
+      margin-top: 0.2rem;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 0.62rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .hero-card .button-link {
+      justify-content: center;
+      background: #fff;
+    }
+    .authors {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+    .spotlight-grid {
+      display: grid;
+      grid-template-columns: 0.86fr 1.14fr;
+      gap: 1rem;
+    }
+    .signal-panel {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 1rem;
+    }
+    .signal-score {
+      display: grid;
+      grid-template-columns: 7.4rem minmax(0, 1fr);
+      gap: 0.85rem;
+      align-items: center;
+      margin-top: 0.75rem;
+    }
+    .signal-score svg {
+      width: 7.4rem;
+      height: 7.4rem;
+    }
+    .signal-score strong {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2.7rem;
+      line-height: 0.95;
+    }
+    .signal-score p {
+      margin: 0.28rem 0 0;
+      font-size: 0.88rem;
+    }
+    .care-path {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.8rem;
+    }
+    .path-step {
+      position: relative;
+      min-height: 9.2rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.75rem;
+    }
+    .path-step::after {
+      content: "";
+      position: absolute;
+      top: 2rem;
+      right: -0.45rem;
+      width: 0.7rem;
+      height: 0.7rem;
+      border-top: 2px solid var(--border-strong);
+      border-right: 2px solid var(--border-strong);
+      background: #fff;
+      transform: rotate(45deg);
+      z-index: 1;
+    }
+    .path-step:last-child::after { display: none; }
+    .path-step b {
+      display: inline-grid;
+      place-items: center;
+      width: 1.72rem;
+      height: 1.72rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+    }
+    .path-step h3 {
+      margin-top: 0.45rem;
+      font-size: 0.9rem;
+    }
+    .path-step p {
+      margin: 0.3rem 0 0;
+      color: var(--body);
+      font-size: 0.75rem;
+      line-height: 1.42;
+    }
+    .triple-lane {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+    .lane-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--surface);
+      padding: 0.9rem;
+    }
+    .lane-card strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2rem;
+      line-height: 1;
+    }
+    .lane-card span {
+      display: block;
+      margin-top: 0.28rem;
+      color: var(--ink);
+      font-size: 0.86rem;
+      font-weight: 850;
+    }
+    .lane-card p {
+      margin: 0.45rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+    .bar-chart {
+      display: grid;
+      gap: 0.52rem;
+      margin-top: 0.7rem;
+    }
+    .bar-row {
+      display: grid;
+      grid-template-columns: 8.8rem minmax(0, 1fr) 2.8rem;
+      gap: 0.55rem;
+      align-items: center;
+      font-size: 0.78rem;
+    }
+    .bar-row span:first-child {
+      color: var(--ink);
+      font-weight: 850;
+    }
+    .bar-track {
+      height: 0.82rem;
+      border-radius: 999px;
+      background: var(--surface-blue);
+      overflow: hidden;
+    }
+    .bar-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .bar-row em {
+      color: var(--ink);
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+    .therapy-grid {
+      display: grid;
+      grid-template-columns: 12rem minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+      margin-top: 0.6rem;
+    }
+    .therapy-grid svg {
+      width: 100%;
+      max-width: 12rem;
+      height: auto;
+    }
+    .legend {
+      display: grid;
+      gap: 0.4rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .legend li {
+      display: grid;
+      grid-template-columns: 0.72rem minmax(0, 1fr) auto;
+      gap: 0.45rem;
+      align-items: center;
+      font-size: 0.8rem;
+    }
+    .legend i {
+      width: 0.72rem;
+      height: 0.72rem;
+      border-radius: 3px;
+      background: var(--legend-color, var(--red));
+    }
+    .pa-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.7rem;
+    }
+    .pa-tile {
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: var(--surface-blue);
+      padding: 0.7rem;
+    }
+    .pa-tile strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+    .pa-tile span {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 850;
+      line-height: 1.25;
+      text-transform: uppercase;
+    }
+    .conclusion-band {
+      border: 1px solid rgba(36, 55, 112, 0.34);
+      border-radius: 8px;
+      background:
+        linear-gradient(90deg, rgba(255, 247, 234, 0.94), rgba(238, 244, 251, 0.94)),
+        radial-gradient(circle at 9% 20%, rgba(209, 38, 48, 0.12), transparent 11rem);
+      padding: 1.05rem;
+    }
+    .conclusion-band p {
+      max-width: 62rem;
+      margin: 0.45rem 0 0;
+      color: var(--body);
+      font-size: 0.96rem;
+    }
+    .source-note {
+      margin: 0.65rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    @media (max-width: 980px) {
+      .spotlight-grid,
+      .triple-lane,
+      .care-path {
+        grid-template-columns: 1fr;
+      }
+      .path-step::after { display: none; }
+      .hero-stat-row,
+      .pa-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 640px) {
+      .hero-stat-row,
+      .pa-grid,
+      .signal-score,
+      .therapy-grid {
+        grid-template-columns: 1fr;
+      }
+      .bar-row {
+        grid-template-columns: 1fr;
+        gap: 0.25rem;
+      }
+      .bar-row em { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="NASP infographic home">NASP Infographic</a>
+      <nav aria-label="Page sections">
+        <a href="#program">Program</a>
+        <a href="#results">Results</a>
+        <a href="#access">Access</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" id="top">
+      <div class="hero-copy">
+        <h1>Health-System Specialty Pharmacy Role in Managing Medications for Weight Loss in Patients Without Evidence of Type 2 Diabetes</h1>
+        <p class="hero-summary">A 12-health-system descriptive evaluation of an HSSP-led chronic disease management program for patients prescribed FDA-approved weight-management therapies, including GLP-1 and dual GIP/GLP-1 receptor agonists.</p>
+        <p class="authors">Andrew Wash, PharmD, PhD; Lauren Bryant, PharmD; Ana I. Lopez-Medina, PharmD, PhD; Carly Giavatto, PharmD; Casey Fitzpatrick, PharmD; Elizabeth Carpenter, PharmD; Nicholas McDonald, PharmD; Brandon Hardin, PharmD; Jessica Mourani, PharmD</p>
+        <ul class="tag-row" aria-label="Poster topics">
+          <li class="tag category">Weight management</li>
+          <li class="tag therapy">GLP-1 / GIP-GLP-1</li>
+          <li class="tag">Prior authorization</li>
+          <li class="tag">Financial assistance</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div class="poster-code">PSP86<br>AM24</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Year</dt>
+            <dd>2024</dd>
+          </div>
+          <div>
+            <dt>Design</dt>
+            <dd>Descriptive study</dd>
+          </div>
+          <div>
+            <dt>Systems</dt>
+            <dd>12 nationwide</dd>
+          </div>
+          <div>
+            <dt>Program start</dt>
+            <dd>Fall 2021</dd>
+          </div>
+        </dl>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/86-PSP86-OR-Poster-AM24_2024.pdf">Open source PDF</a>
+      </aside>
+    </section>
+
+    <main>
+      <section class="visual-grid" aria-labelledby="objective-title">
+        <div class="access-hero">
+          <h2 id="objective-title">Objective: map HSSP support from referral to sustained therapy</h2>
+          <p>The program described a high-touch pharmacy model for patients without evidence of type 2 diabetes who were prescribed weight-loss medication as part of a comprehensive plan.</p>
+          <div class="hero-stat-row" aria-label="Program scale metrics">
+            <div class="hero-stat">
+              <strong>1,646</strong>
+              <span>prescribed targeted therapy</span>
+            </div>
+            <div class="hero-stat">
+              <strong>671</strong>
+              <span>active on therapy</span>
+            </div>
+            <div class="hero-stat">
+              <strong>540</strong>
+              <span>initiated in 2024</span>
+            </div>
+          </div>
+          <svg viewBox="0 0 520 360" role="img" aria-label="Abstract pharmacy access pathway">
+            <defs>
+              <linearGradient id="pulse" x1="0" x2="1" y1="0" y2="1">
+                <stop stop-color="#ffffff" stop-opacity="0.96"/>
+                <stop offset="1" stop-color="#e99e25" stop-opacity="0.82"/>
+              </linearGradient>
+            </defs>
+            <path d="M60 250 C150 165 175 322 260 212 S394 83 468 138" fill="none" stroke="rgba(255,255,255,0.38)" stroke-width="16" stroke-linecap="round"/>
+            <path d="M60 250 C150 165 175 322 260 212 S394 83 468 138" fill="none" stroke="url(#pulse)" stroke-width="5" stroke-linecap="round"/>
+            <g fill="rgba(255,255,255,0.16)" stroke="rgba(255,255,255,0.7)" stroke-width="3">
+              <circle cx="60" cy="250" r="38"/>
+              <circle cx="181" cy="242" r="52"/>
+              <circle cx="292" cy="194" r="42"/>
+              <circle cx="404" cy="116" r="60"/>
+            </g>
+            <g fill="#fff" font-family="Montserrat, Arial, sans-serif" font-weight="900" font-size="24" text-anchor="middle">
+              <text x="60" y="258">Rx</text>
+              <text x="181" y="250">PA</text>
+              <text x="292" y="202">FA</text>
+              <text x="404" y="124">CDM</text>
+            </g>
+          </svg>
+        </div>
+
+        <div class="panel" id="program">
+          <p class="section-label">Program Design</p>
+          <h2>Five-step HSSP care pathway</h2>
+          <div class="care-path">
+            <article class="path-step">
+              <b>1</b>
+              <h3>Referral</h3>
+              <p>HSSP received targeted weight-loss medication referrals, including GLP-1 and dual GIP/GLP-1 agents.</p>
+            </article>
+            <article class="path-step">
+              <b>2</b>
+              <h3>Coverage</h3>
+              <p>If patients filled with HSSP, teams navigated benefits investigation, PAs, appeals, and financial assistance.</p>
+            </article>
+            <article class="path-step">
+              <b>3</b>
+              <h3>Standard support</h3>
+              <p>Patients were monitored for medication-related issues, including adherence concerns and side effects.</p>
+            </article>
+            <article class="path-step">
+              <b>4</b>
+              <h3>Clinical support</h3>
+              <p>Additional counseling sessions and more frequent monitoring were offered to patients needing more support.</p>
+            </article>
+            <article class="path-step">
+              <b>5</b>
+              <h3>Evaluation</h3>
+              <p>Enrollment, financial, and clinical outcomes were summarized using descriptive statistics.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="metric-strip" id="results" aria-label="Key outcomes">
+        <div class="metric-card">
+          <span>Mean PDC</span>
+          <strong>97%</strong>
+          <p class="source-note">Among patients with adherence data (n=347; SD=0.07).</p>
+        </div>
+        <div class="metric-card">
+          <span>Mean weight loss</span>
+          <strong>7.5%</strong>
+          <p class="source-note">Among patients with at least one follow-up weight (n=394; SD=7.4%).</p>
+        </div>
+        <div class="metric-card">
+          <span>FA success</span>
+          <strong>88%</strong>
+          <p class="source-note">128 of 146 patients requesting financial assistance had it secured.</p>
+        </div>
+        <div class="metric-card">
+          <span>PA submission</span>
+          <strong>0.4d</strong>
+          <p class="source-note">Mean turnaround from HSSP referral to PA submission (SD=0.9 days).</p>
+        </div>
+      </section>
+
+      <section class="spotlight-grid">
+        <article class="signal-panel">
+          <p class="section-label">Patient Profile</p>
+          <h2>Active therapy cohort: 671 patients</h2>
+          <div class="signal-score">
+            <svg viewBox="0 0 120 120" role="img" aria-label="81 percent female, 19 percent male">
+              <circle cx="60" cy="60" r="48" fill="none" stroke="#eef4fb" stroke-width="18"/>
+              <circle cx="60" cy="60" r="48" fill="none" stroke="#d12630" stroke-width="18" stroke-dasharray="244 302" stroke-dashoffset="0" transform="rotate(-90 60 60)"/>
+              <circle cx="60" cy="60" r="30" fill="#fff"/>
+              <text x="60" y="58" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="20" font-weight="900">81%</text>
+              <text x="60" y="75" text-anchor="middle" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="9" font-weight="800">female</text>
+            </svg>
+            <div>
+              <strong>46.9</strong>
+              <p>Mean age in years (SD 11.9); 542 female patients and 129 male patients were active on therapy.</p>
+            </div>
+          </div>
+          <div class="therapy-grid">
+            <svg viewBox="0 0 160 160" role="img" aria-label="Therapy mix: semaglutide 59 percent, tirzepatide 39 percent, liraglutide 2 percent">
+              <circle cx="80" cy="80" r="58" fill="none" stroke="#d12630" stroke-width="26" stroke-dasharray="215 364" stroke-dashoffset="0" transform="rotate(-90 80 80)"/>
+              <circle cx="80" cy="80" r="58" fill="none" stroke="#187c8f" stroke-width="26" stroke-dasharray="142 364" stroke-dashoffset="-215" transform="rotate(-90 80 80)"/>
+              <circle cx="80" cy="80" r="58" fill="none" stroke="#e99e25" stroke-width="26" stroke-dasharray="7 364" stroke-dashoffset="-357" transform="rotate(-90 80 80)"/>
+              <circle cx="80" cy="80" r="38" fill="#fff"/>
+              <text x="80" y="78" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="18" font-weight="900">Rx</text>
+              <text x="80" y="95" text-anchor="middle" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="9" font-weight="800">mix</text>
+            </svg>
+            <ul class="legend">
+              <li style="--legend-color: var(--red)"><i></i><span>Semaglutide</span><strong>395 (59%)</strong></li>
+              <li style="--legend-color: var(--teal)"><i></i><span>Tirzepatide</span><strong>265 (39%)</strong></li>
+              <li style="--legend-color: var(--gold)"><i></i><span>Liraglutide</span><strong>11 (2%)</strong></li>
+            </ul>
+          </div>
+          <p class="source-note">Only FDA-approved products for weight management were included in the therapy mix.</p>
+        </article>
+
+        <article class="panel" id="access">
+          <p class="section-label">Access Work</p>
+          <h2>Coverage friction was the dominant barrier to starting therapy</h2>
+          <div class="bar-chart" aria-label="Reasons for not starting therapy">
+            <div class="bar-row"><span>Insurance denial</span><div class="bar-track"><i style="width:39%"></i></div><em>39%</em></div>
+            <div class="bar-row"><span>Formulary restrictions</span><div class="bar-track"><i style="width:26%"></i></div><em>26%</em></div>
+            <div class="bar-row"><span>Patient choice</span><div class="bar-track"><i style="width:19%"></i></div><em>19%</em></div>
+            <div class="bar-row"><span>Therapy not appropriate</span><div class="bar-track"><i style="width:8%"></i></div><em>8%</em></div>
+            <div class="bar-row"><span>Cost</span><div class="bar-track"><i style="width:5%"></i></div><em>5%</em></div>
+            <div class="bar-row"><span>Other</span><div class="bar-track"><i style="width:3%"></i></div><em>3%</em></div>
+          </div>
+          <p class="source-note">Reasons for not starting therapy were summarized for n=662 patients.</p>
+
+          <div class="pa-grid" aria-label="Prior authorization metrics">
+            <div class="pa-tile">
+              <strong>334</strong>
+              <span>patients with PA data available</span>
+            </div>
+            <div class="pa-tile">
+              <strong>228</strong>
+              <span>patients with more than one approved PA</span>
+            </div>
+            <div class="pa-tile">
+              <strong>31</strong>
+              <span>patients with PA approved on appeal</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="triple-lane" aria-label="Operational result cards">
+        <article class="lane-card">
+          <strong>4 days</strong>
+          <span>Typical PA approval timing</span>
+          <p>Approval was typically obtained within four days of the initial HSSP referral.</p>
+        </article>
+        <article class="lane-card">
+          <strong>128/146</strong>
+          <span>Financial assistance secured</span>
+          <p>Most patients who requested financial assistance received support through the HSSP team.</p>
+        </article>
+        <article class="lane-card">
+          <strong>223</strong>
+          <span>Discontinuations characterized</span>
+          <p>Reasons for discontinuing therapy were tracked to distinguish access, tolerability, completion, and medication changes.</p>
+        </article>
+      </section>
+
+      <section class="tables-grid">
+        <article class="table-card">
+          <p class="section-label">Discontinuation Pattern</p>
+          <h2>Switching and completion led discontinuation reasons</h2>
+          <div class="bar-chart" aria-label="Reasons for discontinuing therapy">
+            <div class="bar-row"><span>New medication</span><div class="bar-track"><i style="width:28%"></i></div><em>28%</em></div>
+            <div class="bar-row"><span>Therapy completed</span><div class="bar-track"><i style="width:21%"></i></div><em>21%</em></div>
+            <div class="bar-row"><span>Patient choice</span><div class="bar-track"><i style="width:13%"></i></div><em>13%</em></div>
+            <div class="bar-row"><span>Inability to pay</span><div class="bar-track"><i style="width:11%"></i></div><em>11%</em></div>
+            <div class="bar-row"><span>Side effects</span><div class="bar-track"><i style="width:10%"></i></div><em>10%</em></div>
+            <div class="bar-row"><span>Ineffective</span><div class="bar-track"><i style="width:10%"></i></div><em>10%</em></div>
+            <div class="bar-row"><span>Other</span><div class="bar-track"><i style="width:7%"></i></div><em>7%</em></div>
+          </div>
+          <p class="source-note">Reasons for discontinuing therapy were summarized for n=223 patients.</p>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Table Pattern</p>
+          <h2>Evaluation measures spanned enrollment, financial, and clinical domains</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Domain</th>
+                  <th>Poster examples</th>
+                  <th>Why it mattered</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Enrollment</td>
+                  <td>Baseline characteristics, therapies prescribed, reasons for not starting therapy</td>
+                  <td>Defined who entered the HSSP model and where starts failed.</td>
+                </tr>
+                <tr>
+                  <td>Financial</td>
+                  <td>Prior authorization activity, appeals, financial assistance</td>
+                  <td>Captured access barriers and HSSP navigation performance.</td>
+                </tr>
+                <tr>
+                  <td>Clinical</td>
+                  <td>Percentage weight loss, discontinuation reasons, adherence</td>
+                  <td>Connected access support to persistence and observed outcomes.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="conclusion-band">
+        <p class="section-label">Discussion and Conclusion</p>
+        <h2>HSSP teams provided integral coverage, financial, adherence, and monitoring support</h2>
+        <p>The poster concluded that the HSSP model helped patients navigate prior authorizations and financial assistance quickly, maintain high adherence, and receive monitoring for medication-related problems or therapy discontinuation while pursuing weight-loss goals within a comprehensive management plan.</p>
+      </section>
+    </main>
+
+    <footer class="footer-actions" id="sources">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/86-PSP86-OR-Poster-AM24_2024.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/86-PSP86-OR-Poster-AM24_2024.md">Source markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

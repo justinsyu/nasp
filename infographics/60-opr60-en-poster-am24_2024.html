@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2024 Infographic | Tardive Dyskinesia Burden in Long-term Care</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-visual {
+      position: relative;
+      min-height: 18.5rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        linear-gradient(145deg, rgba(36, 55, 112, 0.96), rgba(24, 124, 143, 0.88)),
+        radial-gradient(circle at 85% 18%, rgba(233, 158, 37, 0.42), transparent 13rem);
+      color: #fff;
+      overflow: hidden;
+      padding: 1rem;
+    }
+    .hero-visual svg {
+      position: absolute;
+      inset: auto -2rem -1.7rem auto;
+      width: min(25rem, 76%);
+      opacity: 0.7;
+    }
+    .hero-visual .kicker {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+    .hero-visual strong {
+      display: block;
+      margin-top: 0.32rem;
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 7vw, 5.4rem);
+      line-height: 0.88;
+    }
+    .hero-visual span {
+      display: block;
+      max-width: 19rem;
+      margin-top: 0.7rem;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.95rem;
+    }
+    .claims-funnel {
+      display: grid;
+      gap: 0.62rem;
+      margin-top: 0.75rem;
+    }
+    .funnel-step {
+      display: grid;
+      grid-template-columns: 8rem minmax(0, 1fr) 5rem;
+      gap: 0.65rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.84rem;
+      font-weight: 850;
+    }
+    .funnel-track {
+      height: 1.05rem;
+      border-radius: 999px;
+      background: var(--surface-blue);
+      overflow: hidden;
+    }
+    .funnel-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .timeline-band {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr 1fr;
+      gap: 0.55rem;
+      margin-top: 0.75rem;
+    }
+    .time-node {
+      min-height: 8.2rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.75rem;
+    }
+    .time-node b {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+    .time-node span {
+      display: block;
+      margin-top: 0.32rem;
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-weight: 850;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .time-node p {
+      margin: 0.45rem 0 0;
+      font-size: 0.82rem;
+    }
+    .burden-bars .lens-row {
+      grid-template-columns: 9.7rem minmax(0, 1fr) 4.1rem;
+    }
+    .burden-bars .lens-row em {
+      color: var(--ink);
+      font-style: normal;
+      font-size: 0.78rem;
+      font-weight: 850;
+      text-align: right;
+    }
+    .burden-bars .lens-row:nth-child(2) i { background: linear-gradient(90deg, var(--gold), var(--red)); }
+    .burden-bars .lens-row:nth-child(3) i { background: linear-gradient(90deg, var(--teal), var(--gold)); }
+    .burden-bars .lens-row:nth-child(4) i { background: linear-gradient(90deg, var(--green), var(--teal)); }
+    .burden-bars .lens-row:nth-child(5) i { background: linear-gradient(90deg, var(--purple), var(--teal)); }
+    .burden-bars .lens-row:nth-child(6) i { background: linear-gradient(90deg, var(--ink), var(--purple)); }
+    .mini-table td:first-child {
+      color: var(--ink);
+      font-weight: 850;
+    }
+    .pill-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.72rem;
+    }
+    .care-pill {
+      min-height: 6.6rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 8px;
+      background: var(--surface-blue);
+      padding: 0.62rem;
+    }
+    .care-pill strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+    .care-pill span {
+      display: block;
+      margin-top: 0.32rem;
+      color: var(--body);
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+    .ed-card {
+      background:
+        linear-gradient(160deg, #fff, var(--surface-warm)),
+        radial-gradient(circle at 82% 14%, rgba(209, 38, 48, 0.12), transparent 10rem);
+    }
+    .ed-meter {
+      display: grid;
+      grid-template-columns: 9.5rem minmax(0, 1fr);
+      gap: 0.9rem;
+      align-items: center;
+      margin-top: 0.65rem;
+    }
+    .ed-meter svg {
+      width: 100%;
+      max-width: 9.5rem;
+    }
+    .source-note {
+      margin: 0.72rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+    @media (max-width: 900px) {
+      .timeline-band,
+      .pill-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .ed-meter {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 560px) {
+      .funnel-step,
+      .burden-bars .lens-row {
+        grid-template-columns: 1fr;
+      }
+      .burden-bars .lens-row em {
+        text-align: left;
+      }
+      .timeline-band,
+      .pill-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="https://naspnet.org/" aria-label="NASP website">NASP Posters</a>
+      <nav aria-label="Page sections">
+        <a href="#snapshot">Snapshot</a>
+        <a href="#methods">Methods</a>
+        <a href="#burden">Burden</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">2024 Annual Meeting Poster | 60-OPR60-EN</p>
+        <h1>Real-world claims analysis characterizes tardive dyskinesia burden in long-term care</h1>
+        <p class="hero-summary">
+          A US claims database study identified older long-term care patients with an ICD-10 code indicative of tardive dyskinesia and summarized the clinical burden surrounding their index LTC stay.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Real-world claims analysis</li>
+          <li class="tag therapy">Tardive dyskinesia</li>
+          <li class="tag therapy">Long-term care</li>
+          <li class="tag">STATinMED database</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Poster details">
+        <div class="poster-code">AM24<br>60-OPR60-EN</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Study period</dt>
+            <dd>2016-2022</dd>
+          </div>
+          <div>
+            <dt>Analysis N</dt>
+            <dd>2,294</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>US LTC claims</dd>
+          </div>
+          <div>
+            <dt>Meeting</dt>
+            <dd>NASP 2024</dd>
+          </div>
+        </dl>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/60-OPR60-EN-Poster-AM24_2024.pdf">Open poster PDF</a>
+      </aside>
+    </section>
+
+    <main>
+      <section id="snapshot" class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>TD + LTC claims found</span>
+          <strong>20,176</strong>
+        </article>
+        <article class="metric-card">
+          <span>Analysis population</span>
+          <strong>2,294</strong>
+        </article>
+        <article class="metric-card">
+          <span>Age 65 years or older</span>
+          <strong>64.6%</strong>
+        </article>
+        <article class="metric-card">
+          <span>Any post-index ED visit</span>
+          <strong>64.8%</strong>
+        </article>
+      </section>
+
+      <section class="visual-grid" aria-label="Claims funnel and objective">
+        <article class="hero-visual">
+          <p class="kicker">Burden signal in long-term care</p>
+          <strong>83.9%</strong>
+          <span>Patients had at least one additional LTC stay after the index LTC stay, with a median of 7 additional stays.</span>
+          <svg viewBox="0 0 360 260" role="img" aria-label="Long-term care burden illustration">
+            <defs>
+              <linearGradient id="buildingGradient" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#fff" stop-opacity="0.96"></stop>
+                <stop offset="1" stop-color="#e99e25" stop-opacity="0.68"></stop>
+              </linearGradient>
+            </defs>
+            <path d="M64 224V72l116-48 116 48v152" fill="url(#buildingGradient)"></path>
+            <path d="M108 224v-84h144v84M132 92h32M196 92h32M132 124h32M196 124h32" fill="none" stroke="#243770" stroke-width="14" stroke-linecap="round"></path>
+            <path d="M178 150v48M154 174h48" fill="none" stroke="#d12630" stroke-width="17" stroke-linecap="round"></path>
+            <circle cx="286" cy="72" r="28" fill="#187c8f" opacity="0.76"></circle>
+            <circle cx="76" cy="192" r="26" fill="#d12630" opacity="0.72"></circle>
+          </svg>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Describe who carries TD burden in LTC settings</h2>
+          <p>
+            The poster analyzed demographics, comorbidities, medication use, and healthcare visits among adults with any LTC stay and ICD-10 code G24.01 indicative of tardive dyskinesia.
+          </p>
+          <div class="claims-funnel" aria-label="Cohort funnel">
+            <div class="funnel-step">
+              <span>Study pool</span>
+              <div class="funnel-track"><i style="width: 100%;"></i></div>
+              <span>20,176</span>
+            </div>
+            <div class="funnel-step">
+              <span>Analysis set</span>
+              <div class="funnel-track"><i style="width: 11.4%;"></i></div>
+              <span>2,294</span>
+            </div>
+          </div>
+          <p class="source-note">Analysis required continuous medical and pharmacy benefit capture before and after the index LTC stay.</p>
+        </article>
+      </section>
+
+      <section id="methods" class="panel">
+        <p class="section-label">Methods</p>
+        <h2>Claims timeline centered on an index LTC stay</h2>
+        <div class="timeline-band" aria-label="Study design timeline">
+          <article class="time-node">
+            <b>2016-2022</b>
+            <span>Study period</span>
+            <p>STATinMED Real-World Insights Database captured claims used to identify TD and LTC exposure.</p>
+          </article>
+          <article class="time-node">
+            <b>2017-2021</b>
+            <span>Identification window</span>
+            <p>First LTC stay during this window was defined as the index LTC stay for the analysis subset.</p>
+          </article>
+          <article class="time-node">
+            <b>1 year + 1 year</b>
+            <span>Continuous capture</span>
+            <p>Medical and pharmacy benefits were required for 1 year pre-index and 1 year post-index.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="burden" class="visual-grid" aria-label="Clinical burden summaries">
+        <article class="panel">
+          <p class="section-label">Comorbidity burden</p>
+          <h2>Psychiatric and geriatric complications were common</h2>
+          <div class="lens-chart burden-bars">
+            <div class="lens-row">
+              <span>Mood disorders</span>
+              <div class="lens-bar"><i style="width: 100%;"></i></div>
+              <em>66.1%</em>
+            </div>
+            <div class="lens-row">
+              <span>Schizophrenia</span>
+              <div class="lens-bar"><i style="width: 58.7%;"></i></div>
+              <em>38.8%</em>
+            </div>
+            <div class="lens-row">
+              <span>Sleep disorders</span>
+              <div class="lens-bar"><i style="width: 53.0%;"></i></div>
+              <em>35.0%</em>
+            </div>
+            <div class="lens-row">
+              <span>Substance abuse</span>
+              <div class="lens-bar"><i style="width: 43.0%;"></i></div>
+              <em>28.4%</em>
+            </div>
+            <div class="lens-row">
+              <span>Dysphagia</span>
+              <div class="lens-bar"><i style="width: 28.0%;"></i></div>
+              <em>18.5%</em>
+            </div>
+            <div class="lens-row">
+              <span>Dementia</span>
+              <div class="lens-bar"><i style="width: 23.8%;"></i></div>
+              <em>15.7%</em>
+            </div>
+          </div>
+          <p class="source-note">Mean Charlson Comorbidity Index was 3.72; 32.8% had CCI scores of 4-20.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Medication profile</p>
+          <h2>Polypharmacy was a central pattern</h2>
+          <div class="pill-grid">
+            <div class="care-pill"><strong>56.1%</strong><span>Antidepressants</span></div>
+            <div class="care-pill"><strong>52.3%</strong><span>Anticonvulsants</span></div>
+            <div class="care-pill"><strong>50.4%</strong><span>Antipsychotics</span></div>
+            <div class="care-pill"><strong>50.0%</strong><span>Anticholinergics</span></div>
+          </div>
+          <p class="source-note">Nearly half, 47.9%, were prescribed 3 or more CNS medications that may increase fall or cognitive-impairment risk in older adults.</p>
+        </article>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel ed-card">
+          <p class="section-label">Healthcare visits</p>
+          <h2>Emergency department use was frequent after index LTC stay</h2>
+          <div class="ed-meter">
+            <svg viewBox="0 0 190 190" role="img" aria-label="64.8 percent had at least one ED visit">
+              <circle cx="95" cy="95" r="70" fill="none" stroke="#d9e1ef" stroke-width="26"></circle>
+              <circle cx="95" cy="95" r="70" fill="none" stroke="#d12630" stroke-width="26" stroke-linecap="round" stroke-dasharray="285 440" transform="rotate(-90 95 95)"></circle>
+              <text x="95" y="91" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="28" font-weight="900">64.8%</text>
+              <text x="95" y="116" text-anchor="middle" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800">any ED visit</text>
+            </svg>
+            <div class="markdown-fragment">
+              <p>Median number of ED visits was 4, with an IQR of 6.</p>
+              <p>Median time to first ED visit was 143 days, with an IQR of 358 days.</p>
+              <p>Within the first post-index year, 47.3% had at least one ED visit.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Patient characteristics</p>
+          <h2>Older, female, and largely Medicare-enrolled</h2>
+          <div class="table-wrap">
+            <table class="mini-table">
+              <thead>
+                <tr>
+                  <th>Characteristic</th>
+                  <th>Analysis population (N=2,294)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Age &ge;65 years</td>
+                  <td>1,483 (64.6%)</td>
+                </tr>
+                <tr>
+                  <td>Female</td>
+                  <td>1,544 (67.3%)</td>
+                </tr>
+                <tr>
+                  <td>Medicare plan</td>
+                  <td>1,761 (76.8%)</td>
+                </tr>
+                <tr>
+                  <td>&ge;1 additional LTC stay</td>
+                  <td>1,924 (83.9%)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="evidence-map" aria-label="Extracted poster takeaways">
+        <article class="evidence-card">
+          <h3>Objective</h3>
+          <p>Characterize demographic and clinical characteristics of patients with TD in LTC settings using US claims data.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Methods</h3>
+          <p>Adults with LTC stays and ICD-10 G24.01 were identified; a continuous-benefit subset supported descriptive analysis.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Results</h3>
+          <p>The analyzed cohort showed high comorbidity burden, common psychoactive medication use, and frequent repeat LTC stays.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Limitations</h3>
+          <p>TD prevalence may be underestimated because of the ICD-code definition and continuous data capture requirement.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Conclusion</h3>
+          <p>The data support special attention to TD clinical burdens in LTC, including practice guidance and treatment feasibility in dysphagia.</p>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Condensed source table patterns">
+        <article class="table-card">
+          <p class="section-label">Table pattern</p>
+          <h2>CCI score distribution</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>CCI score</th>
+                  <th>Patients, %</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>0</td><td>22.7</td></tr>
+                <tr><td>1</td><td>20.8</td></tr>
+                <tr><td>2</td><td>15.0</td></tr>
+                <tr><td>3</td><td>8.7</td></tr>
+                <tr><td>4-20</td><td>32.8</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Interpretive frame</p>
+          <h2>Clinical management implications</h2>
+          <div class="markdown-fragment">
+            <p>
+              The poster connects TD burden in LTC to older age, comorbid conditions, anticholinergic exposure, dysphagia, and healthcare utilization.
+            </p>
+            <ul>
+              <li>Anticholinergic use was reported in 50.0% of patients, an important geriatric safety consideration.</li>
+              <li>Dysphagia affected 18.5%, making medication administration route and formulation relevant in LTC practice.</li>
+              <li>Further evaluation was recommended for falls, resource utilization, and appropriate VMAT2 inhibitor use.</li>
+            </ul>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/60-OPR60-EN-Poster-AM24_2024.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/60-OPR60-EN-Poster-AM24_2024.md">Source markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

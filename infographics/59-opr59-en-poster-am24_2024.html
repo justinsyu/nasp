@@ -1,0 +1,683 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2024 Infographic | Denosumab versus Zoledronic Acid</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .fracture-hero {
+      position: relative;
+      min-height: 18rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 20% 14%, rgba(255, 255, 255, 0.22), transparent 7rem),
+        radial-gradient(circle at 88% 22%, rgba(233, 158, 37, 0.28), transparent 9rem),
+        linear-gradient(145deg, rgba(36, 55, 112, 0.98), rgba(24, 124, 143, 0.92));
+      color: #fff;
+      overflow: hidden;
+      padding: 1.05rem;
+    }
+
+    .fracture-hero svg {
+      position: absolute;
+      right: -1.8rem;
+      bottom: -2.4rem;
+      width: min(23rem, 70%);
+      opacity: 0.78;
+    }
+
+    .fracture-hero .kicker {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .fracture-hero strong {
+      display: block;
+      max-width: 15rem;
+      margin-top: 0.25rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(2.35rem, 6vw, 4.75rem);
+      line-height: 0.92;
+    }
+
+    .fracture-hero span {
+      display: block;
+      max-width: 18rem;
+      margin-top: 0.65rem;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.9rem;
+    }
+
+    .cohort-split {
+      display: grid;
+      grid-template-columns: 1.45fr 0.6fr;
+      min-height: 2.2rem;
+      margin-top: 0.7rem;
+      overflow: hidden;
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 999px;
+      background: var(--surface-blue);
+    }
+
+    .cohort-split span {
+      display: grid;
+      place-items: center;
+      min-width: 0;
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 900;
+      overflow: hidden;
+      padding: 0 0.35rem;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .cohort-split span:first-child { background: var(--teal); }
+    .cohort-split span:last-child { background: var(--red); }
+
+    .split-caption {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.6rem;
+      margin-top: 0.38rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    .outcome-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .outcome-card {
+      position: relative;
+      min-height: 13.5rem;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+    }
+
+    .outcome-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 0.34rem;
+      background: var(--accent, var(--red));
+    }
+
+    .outcome-card:nth-child(2) { --accent: var(--gold); }
+    .outcome-card:nth-child(3) { --accent: var(--teal); }
+    .outcome-card:nth-child(4) { --accent: var(--green); }
+    .outcome-card:nth-child(5) { --accent: var(--purple); }
+
+    .risk-number {
+      display: block;
+      margin-top: 0.55rem;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2.35rem;
+      font-weight: 900;
+      line-height: 0.95;
+    }
+
+    .outcome-card p {
+      margin: 0.4rem 0 0;
+      color: var(--body);
+      font-size: 0.82rem;
+    }
+
+    .rr-chip {
+      display: inline-flex;
+      margin-top: 0.65rem;
+      border: 1px solid rgba(36, 55, 112, 0.2);
+      border-radius: 999px;
+      background: var(--surface-blue);
+      color: var(--ink);
+      padding: 0.22rem 0.48rem;
+      font-size: 0.72rem;
+      font-weight: 850;
+    }
+
+    .time-reduction {
+      display: grid;
+      gap: 0.65rem;
+      margin-top: 0.72rem;
+    }
+
+    .time-row {
+      display: grid;
+      grid-template-columns: 4.5rem minmax(0, 1fr) 7rem;
+      gap: 0.6rem;
+      align-items: center;
+      font-size: 0.8rem;
+    }
+
+    .time-row b {
+      color: var(--ink);
+      font-weight: 900;
+    }
+
+    .time-track {
+      height: 1rem;
+      overflow: hidden;
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 999px;
+      background: #edf2f8;
+    }
+
+    .time-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .time-row em {
+      color: var(--ink);
+      font-style: normal;
+      font-weight: 850;
+      text-align: right;
+    }
+
+    .method-flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.7rem;
+    }
+
+    .method-node {
+      position: relative;
+      min-height: 8.4rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.78rem;
+    }
+
+    .method-node::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -0.5rem;
+      width: 0.72rem;
+      height: 0.72rem;
+      border-top: 2px solid var(--border-strong);
+      border-right: 2px solid var(--border-strong);
+      background: #fff;
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    .method-node:last-child::after { display: none; }
+
+    .method-node b {
+      display: inline-grid;
+      place-items: center;
+      width: 1.55rem;
+      height: 1.55rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+    }
+
+    .method-node h3 {
+      margin-top: 0.48rem;
+      font-size: 0.95rem;
+    }
+
+    .method-node p {
+      margin: 0.35rem 0 0;
+      font-size: 0.78rem;
+    }
+
+    .followup-ladder {
+      display: grid;
+      gap: 0.48rem;
+      margin-top: 0.7rem;
+    }
+
+    .ladder-row {
+      display: grid;
+      grid-template-columns: 2.7rem minmax(0, 1fr) minmax(0, 1fr);
+      gap: 0.5rem;
+      align-items: center;
+      font-size: 0.76rem;
+    }
+
+    .ladder-row b {
+      color: var(--ink);
+      font-weight: 900;
+    }
+
+    .mini-track {
+      position: relative;
+      height: 1.35rem;
+      overflow: hidden;
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 999px;
+      background: var(--surface-blue);
+    }
+
+    .mini-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--bar-color, var(--teal));
+    }
+
+    .mini-track span {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      color: var(--ink);
+      font-size: 0.68rem;
+      font-weight: 900;
+    }
+
+    .mini-track.za { --bar-color: rgba(209, 38, 48, 0.72); }
+
+    .callout-band {
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .conclusion-panel {
+      display: grid;
+      align-content: center;
+      min-height: 13rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 92% 12%, rgba(233, 158, 37, 0.23), transparent 7rem),
+        linear-gradient(145deg, var(--surface-warm), #fff);
+      padding: 1.05rem;
+    }
+
+    .conclusion-panel strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.55rem, 3vw, 2.4rem);
+      line-height: 1.05;
+    }
+
+    .conclusion-panel p {
+      margin: 0.65rem 0 0;
+      font-size: 0.95rem;
+    }
+
+    .source-note {
+      margin: 0.8rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 980px) {
+      .outcome-grid,
+      .method-flow {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .method-node::after { display: none; }
+      .callout-band { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 620px) {
+      html,
+      body {
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+
+      .infographic-shell {
+        width: 100%;
+        max-width: 100%;
+        padding-inline: 0.45rem;
+      }
+
+      .poster-hero,
+      main,
+      .visual-grid,
+      .section-stack,
+      .callout-band {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      h1 {
+        max-width: 100%;
+        font-size: 1.82rem;
+        overflow-wrap: anywhere;
+      }
+
+      .outcome-grid,
+      .method-flow {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy,
+      .panel,
+      .conclusion-panel,
+      .outcome-card,
+      .method-node {
+        min-width: 0;
+        overflow-wrap: anywhere;
+      }
+
+      .cohort-split {
+        grid-template-columns: 1fr;
+        border-radius: 7px;
+      }
+
+      .cohort-split span {
+        min-height: 2rem;
+      }
+
+      .mini-track span {
+        padding-inline: 0.3rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .time-row,
+      .ladder-row {
+        grid-template-columns: 1fr;
+      }
+
+      .time-row em {
+        text-align: left;
+      }
+
+      .split-caption {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">NASP Infographics</a>
+      <nav aria-label="Source files">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/59-OPR59-EN-Poster-AM24_2024.pdf">Poster PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/59-OPR59-EN-Poster-AM24_2024.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">2024 NASP poster | OPR59-EN | AM24</p>
+        <h1>Comparative Effectiveness of Denosumab versus Zoledronic Acid among Postmenopausal Women with Osteoporosis in the U.S. Medicare Program</h1>
+        <p class="hero-summary">A retrospective Medicare fee-for-service cohort compared fracture outcomes after new initiation of denosumab versus zoledronic acid in treatment-naive women with postmenopausal osteoporosis.</p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag therapy">Osteoporosis</li>
+          <li class="tag category">Comparative effectiveness</li>
+          <li class="tag">Medicare FFS</li>
+          <li class="tag">Fracture outcomes</li>
+          <li class="tag">5-year follow-up</li>
+        </ul>
+      </div>
+
+      <aside class="fracture-hero" aria-label="Headline finding">
+        <p class="kicker">Headline result</p>
+        <strong>26% lower MOP risk</strong>
+        <span>Denosumab was associated with lower major osteoporotic fracture risk than zoledronic acid over the full study period.</span>
+        <svg viewBox="0 0 420 300" role="img" aria-label="Stylized bone shield">
+          <defs>
+            <linearGradient id="shieldGrad" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0" stop-color="#ffffff" stop-opacity="0.72"/>
+              <stop offset="1" stop-color="#e99e25" stop-opacity="0.72"/>
+            </linearGradient>
+          </defs>
+          <path d="M210 22 342 76v78c0 78-46 113-132 137C124 267 78 232 78 154V76L210 22Z" fill="none" stroke="url(#shieldGrad)" stroke-width="18"/>
+          <path d="M164 87c25-25 68-23 93 2 12 12 13 30 2 42l-23 23 48 48c10 10 10 27 0 37s-27 10-37 0l-48-48-23 23c-12 11-30 10-42-2-25-25-27-68-2-93l32-32Z" fill="#fff" opacity="0.7"/>
+          <circle cx="145" cy="88" r="24" fill="#fff" opacity="0.45"/>
+          <circle cx="260" cy="204" r="24" fill="#fff" opacity="0.45"/>
+        </svg>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Study metrics">
+        <div class="metric-card">
+          <span>Total cohort</span>
+          <strong>126,851</strong>
+        </div>
+        <div class="metric-card">
+          <span>Denosumab initiators</span>
+          <strong>89,990</strong>
+        </div>
+        <div class="metric-card">
+          <span>Zoledronic acid initiators</span>
+          <strong>36,861</strong>
+        </div>
+        <div class="metric-card">
+          <span>Maximum follow-up</span>
+          <strong>5 yr</strong>
+        </div>
+      </section>
+
+      <section class="visual-grid">
+        <div class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Estimate real-world fracture risk after treatment initiation</h2>
+          <p>This study evaluated whether denosumab reduced fracture risk compared with zoledronic acid among U.S. women with postmenopausal osteoporosis who had no prior osteoporosis treatment.</p>
+          <div class="cohort-split" aria-label="Treatment group split">
+            <span>Denosumab 89,990</span>
+            <span>ZA 36,861</span>
+          </div>
+          <div class="split-caption">
+            <span>New initiators from Jan 1, 2012 to Dec 31, 2018</span>
+            <span>Followed through Dec 31, 2019 or 5 years</span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Methods</p>
+          <h2>Doubly robust weighting across treatment and censoring</h2>
+          <div class="method-flow" aria-label="Study flow">
+            <div class="method-node">
+              <b>1</b>
+              <h3>Identify</h3>
+              <p>Women age 66+ in Medicare fee-for-service with PMO and new denosumab or ZA use.</p>
+            </div>
+            <div class="method-node">
+              <b>2</b>
+              <h3>Weight</h3>
+              <p>Inverse-probability treatment weights from multivariate logistic regression.</p>
+            </div>
+            <div class="method-node">
+              <b>3</b>
+              <h3>Censor</h3>
+              <p>Follow until fracture, discontinuation or switch, disenrollment, death, data end, or 5 years.</p>
+            </div>
+            <div class="method-node">
+              <b>4</b>
+              <h3>Compare</h3>
+              <p>Risk ratios for major osteoporotic, hip, nonvertebral, NHNV, and hospitalized vertebral fractures.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <p class="section-label">Results</p>
+        <h2>Overall fracture risk favored denosumab for most outcome families</h2>
+        <div class="outcome-grid">
+          <article class="outcome-card">
+            <h3>Major osteoporotic</h3>
+            <span class="risk-number">26%</span>
+            <p>lower risk versus zoledronic acid across the overall study period.</p>
+            <span class="rr-chip">RR 0.74 (95% CI 0.59-0.89)</span>
+          </article>
+          <article class="outcome-card">
+            <h3>Hip fracture</h3>
+            <span class="risk-number">34%</span>
+            <p>lower overall hip fracture risk in the weighted comparison.</p>
+            <span class="rr-chip">RR 0.66 (95% CI 0.43-0.90)</span>
+          </article>
+          <article class="outcome-card">
+            <h3>Nonvertebral</h3>
+            <span class="risk-number">33%</span>
+            <p>lower risk across hip, humerus, pelvis, radius/ulna, and other femur sites.</p>
+            <span class="rr-chip">RR 0.67 (95% CI 0.52-0.82)</span>
+          </article>
+          <article class="outcome-card">
+            <h3>Non-hip, nonvertebral</h3>
+            <span class="risk-number">31%</span>
+            <p>lower overall risk after excluding hip fractures from nonvertebral outcomes.</p>
+            <span class="rr-chip">RR 0.69 (95% CI 0.50-0.88)</span>
+          </article>
+          <article class="outcome-card">
+            <h3>Hospitalized vertebral</h3>
+            <span class="risk-number">10%</span>
+            <p>lower point estimate, with confidence interval crossing no difference.</p>
+            <span class="rr-chip">RR 0.90 (95% CI 0.56-1.24)</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="callout-band">
+        <div class="conclusion-panel">
+          <p class="section-label">Conclusion</p>
+          <strong>Clinically meaningful reductions were observed in a cohort of more than 125,000 treatment-naive women.</strong>
+          <p>The poster concluded that denosumab was associated with robust reductions in MOP, hip, NV, and NHNV fracture risk compared with ZA, with larger reductions as exposure duration increased.</p>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Time pattern</p>
+          <h2>Major osteoporotic fracture risk reduction increased after year 1</h2>
+          <div class="time-reduction" aria-label="Major osteoporotic fracture risk reduction over time">
+            <div class="time-row">
+              <b>Year 1</b>
+              <div class="time-track"><i style="width: 75%"></i></div>
+              <em>9% lower | RR 0.91</em>
+            </div>
+            <div class="time-row">
+              <b>Year 2</b>
+              <div class="time-track"><i style="width: 100%"></i></div>
+              <em>12% lower | RR 0.88</em>
+            </div>
+            <div class="time-row">
+              <b>Year 3</b>
+              <div class="time-track"><i style="width: 100%"></i></div>
+              <em>12% lower | RR 0.88</em>
+            </div>
+          </div>
+          <p class="source-note">Pattern shown for MOP outcomes; the authors also reported increasing magnitude of reduction over time for other nonvertebral outcomes.</p>
+        </div>
+      </section>
+
+      <section class="visual-grid">
+        <div class="panel">
+          <p class="section-label">Table pattern</p>
+          <h2>Follow-up denominators narrowed over time</h2>
+          <p>The poster repeated follow-up tables for each fracture type. The MOP table illustrates the same steep attrition pattern through year 5.</p>
+          <div class="followup-ladder" aria-label="Major osteoporotic fracture follow-up counts">
+            <div class="ladder-row">
+              <b>Yr 0</b>
+              <div class="mini-track"><i style="width: 100%"></i><span>Dmab 89,990</span></div>
+              <div class="mini-track za"><i style="width: 100%"></i><span>ZA 36,861</span></div>
+            </div>
+            <div class="ladder-row">
+              <b>Yr 1</b>
+              <div class="mini-track"><i style="width: 60%"></i><span>53,979</span></div>
+              <div class="mini-track za"><i style="width: 85%"></i><span>31,167</span></div>
+            </div>
+            <div class="ladder-row">
+              <b>Yr 2</b>
+              <div class="mini-track"><i style="width: 25.5%"></i><span>22,946</span></div>
+              <div class="mini-track za"><i style="width: 20.9%"></i><span>7,693</span></div>
+            </div>
+            <div class="ladder-row">
+              <b>Yr 3</b>
+              <div class="mini-track"><i style="width: 11.3%"></i><span>10,184</span></div>
+              <div class="mini-track za"><i style="width: 7.8%"></i><span>2,880</span></div>
+            </div>
+            <div class="ladder-row">
+              <b>Yr 4</b>
+              <div class="mini-track"><i style="width: 5%"></i><span>4,458</span></div>
+              <div class="mini-track za"><i style="width: 2.8%"></i><span>1,018</span></div>
+            </div>
+            <div class="ladder-row">
+              <b>Yr 5</b>
+              <div class="mini-track"><i style="width: 1.9%"></i><span>1,725</span></div>
+              <div class="mini-track za"><i style="width: 1%"></i><span>354</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Interpretation lens</p>
+          <h2>Confidence intervals separate the strongest signals</h2>
+          <div class="lens-chart" aria-label="Overall risk ratios by fracture outcome">
+            <div class="lens-row">
+              <span>Hip</span>
+              <div class="lens-bar"><i style="width: 34%"></i></div>
+            </div>
+            <div class="lens-row">
+              <span>Nonvertebral</span>
+              <div class="lens-bar"><i style="width: 33%"></i></div>
+            </div>
+            <div class="lens-row">
+              <span>NHNV</span>
+              <div class="lens-bar"><i style="width: 31%"></i></div>
+            </div>
+            <div class="lens-row">
+              <span>MOP</span>
+              <div class="lens-bar"><i style="width: 26%"></i></div>
+            </div>
+            <div class="lens-row">
+              <span>Hosp. vertebral</span>
+              <div class="lens-bar"><i style="width: 10%"></i></div>
+            </div>
+          </div>
+          <p class="source-note">Bar length encodes relative risk reduction, not event rate. MOP, hip, NV, and NHNV overall estimates were reported as statistically significant; hospitalized vertebral was not.</p>
+        </div>
+      </section>
+
+      <section class="section-stack">
+        <div class="panel markdown-fragment">
+          <p class="section-label">Outcome definitions</p>
+          <h2>Fracture families analyzed</h2>
+          <ul>
+            <li>MOP: nonvertebral and hospitalized vertebral fractures.</li>
+            <li>NV: hip, humerus, pelvis, radius/ulna, and other femur fractures.</li>
+            <li>NHNV: non-hip, nonvertebral fractures.</li>
+            <li>HV: hospitalized vertebral fractures.</li>
+          </ul>
+        </div>
+
+        <div class="panel markdown-fragment">
+          <p class="section-label">Source</p>
+          <h2>Poster attribution</h2>
+          <p>Authors: Jeffrey R. Curtis, Tarun Arora, Ye Liu, Tzu-Chieh Lin, Leslie Spangler, Vanessa C. Brunetti, Robert K. Stad, Michele McDermott, Brian D. Bradbury, and Min Kim.</p>
+          <p>Affiliations include University of Alabama at Birmingham, Foundation for Advancing Science, Technology, Education and Research, and Amgen Inc.</p>
+        </div>
+      </section>
+
+      <footer class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/59-OPR59-EN-Poster-AM24_2024.pdf">Open original poster PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/59-OPR59-EN-Poster-AM24_2024.md">Open extracted markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

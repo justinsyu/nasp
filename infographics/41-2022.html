@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2022 | Patient-reported outcomes in an IBD clinic</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .ibd-hero-art {
+      position: relative;
+      min-height: 18rem;
+      overflow: hidden;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 16% 20%, rgba(209, 38, 48, 0.16), transparent 7.5rem),
+        radial-gradient(circle at 84% 74%, rgba(24, 124, 143, 0.18), transparent 8.5rem),
+        linear-gradient(145deg, #ffffff, var(--surface-blue) 58%, var(--surface-warm));
+    }
+    .ibd-hero-art svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 18rem;
+    }
+    .hero-card .art-caption {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 750;
+    }
+    .outcome-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 1rem;
+    }
+    .scoreboard {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.8rem;
+    }
+    .score-card {
+      min-height: 10.6rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.85rem;
+      text-align: center;
+    }
+    .ring {
+      display: grid;
+      place-items: center;
+      width: 6.35rem;
+      aspect-ratio: 1;
+      margin: 0 auto;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, #fff 0 55%, transparent 56%),
+        conic-gradient(var(--tone, var(--teal)) calc(var(--pct) * 1%), #e7edf7 0);
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.72rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .score-card span {
+      display: block;
+      margin-top: 0.62rem;
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 850;
+      line-height: 1.24;
+    }
+    .score-card small {
+      display: block;
+      margin-top: 0.16rem;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 750;
+      line-height: 1.25;
+    }
+    .process-lane {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.8rem;
+    }
+    .process-step {
+      position: relative;
+      min-height: 10.2rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.78rem;
+      overflow: hidden;
+    }
+    .process-step::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 0.35rem;
+      background: var(--accent, var(--red));
+    }
+    .process-step b {
+      display: grid;
+      place-items: center;
+      width: 2.1rem;
+      height: 2.1rem;
+      margin-bottom: 0.62rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+    }
+    .process-step h3 {
+      font-size: 0.92rem;
+    }
+    .process-step p {
+      margin: 0.38rem 0 0;
+      color: var(--body);
+      font-size: 0.77rem;
+      line-height: 1.35;
+    }
+    .therapy-map {
+      display: grid;
+      grid-template-columns: minmax(16rem, 0.65fr) minmax(0, 1fr);
+      gap: 1rem;
+      align-items: start;
+    }
+    .donut-wrap {
+      display: grid;
+      place-items: center;
+      min-height: 18rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 8px;
+      background: linear-gradient(135deg, #fff, var(--surface-blue));
+    }
+    .med-bars {
+      display: grid;
+      gap: 0.58rem;
+      margin-top: 0.25rem;
+    }
+    .med-row {
+      display: grid;
+      grid-template-columns: 8.6rem minmax(0, 1fr) 2.5rem;
+      gap: 0.55rem;
+      align-items: center;
+      font-size: 0.79rem;
+    }
+    .med-row span {
+      color: var(--ink);
+      font-weight: 850;
+      line-height: 1.18;
+    }
+    .med-row i {
+      display: block;
+      height: 0.82rem;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--teal), rgba(117, 97, 168, 0.72));
+    }
+    .med-row strong {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.92rem;
+      text-align: right;
+    }
+    .mini-note {
+      margin: 0.7rem 0 0;
+      color: var(--muted);
+      font-size: 0.74rem;
+      line-height: 1.35;
+    }
+    .reason-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+    .reason-tile {
+      min-height: 8.2rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-warm));
+      padding: 0.75rem;
+    }
+    .reason-tile strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2rem;
+      line-height: 0.95;
+    }
+    .reason-tile span {
+      display: block;
+      margin-top: 0.42rem;
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+    .population-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.75rem;
+    }
+    .population-tile {
+      min-height: 8.5rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.82rem;
+    }
+    .population-tile strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2.15rem;
+      line-height: 0.95;
+    }
+    .population-tile span {
+      display: block;
+      margin-top: 0.42rem;
+      color: var(--ink);
+      font-size: 0.84rem;
+      font-weight: 850;
+      line-height: 1.24;
+    }
+    .population-tile small {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--muted);
+      font-size: 0.69rem;
+      font-weight: 750;
+      line-height: 1.25;
+    }
+    .trajectory-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 0.74fr);
+      gap: 1rem;
+      align-items: center;
+    }
+    .trajectory-legend {
+      display: grid;
+      gap: 0.55rem;
+    }
+    .legend-item {
+      border-left: 4px solid var(--line, var(--teal));
+      background: #fff;
+      padding: 0.62rem 0.74rem;
+    }
+    .legend-item strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1rem;
+    }
+    .legend-item span {
+      color: var(--body);
+      font-size: 0.78rem;
+      line-height: 1.34;
+    }
+    .callout-panel {
+      border-left: 4px solid var(--green);
+      background:
+        linear-gradient(90deg, rgba(77, 138, 103, 0.12), rgba(255, 255, 255, 0.92)),
+        var(--surface);
+    }
+    .callout-panel p {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.12rem, 2vw, 1.62rem);
+      font-weight: 850;
+      line-height: 1.25;
+    }
+    @media (max-width: 900px) {
+      .outcome-grid,
+      .therapy-map,
+      .trajectory-card {
+        grid-template-columns: 1fr;
+      }
+      .process-lane,
+      .population-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .reason-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 620px) {
+      .scoreboard,
+      .process-lane,
+      .population-grid,
+      .reason-grid {
+        grid-template-columns: 1fr;
+      }
+      .med-row {
+        grid-template-columns: 1fr;
+      }
+      .med-row strong {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">NASP Posters</a>
+      <nav aria-label="Page sections">
+        <a href="#outcomes">Outcomes</a>
+        <a href="#cohort">Cohort</a>
+        <a href="#therapy">Therapy Mix</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2022 poster 41</p>
+        <h1>Patient-reported outcomes inside an integrated IBD specialty pharmacy clinic</h1>
+        <p class="hero-summary">Vanderbilt Specialty Pharmacy analyzed monthly refill questionnaires for patients with inflammatory bowel disease to connect refill-touchpoint PROs with adherence, safety, effectiveness, and longitudinal disease-status signals.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag therapy">Inflammatory bowel disease</li>
+          <li class="tag category">Patient-reported outcomes</li>
+          <li class="tag">Integrated care model</li>
+          <li class="tag">Monthly refill questionnaire</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div class="poster-code">41-2022</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Design</dt>
+            <dd>Single-center retrospective analysis</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>Health-system outpatient IBD clinic</dd>
+          </div>
+          <div>
+            <dt>Window</dt>
+            <dd>January-March 2020</dd>
+          </div>
+          <div>
+            <dt>Primary lens</dt>
+            <dd>Adverse events, missed doses, effectiveness</dd>
+          </div>
+        </dl>
+        <div class="ibd-hero-art" role="img" aria-label="Abstract illustration linking refill questionnaire signals to IBD outcomes">
+          <svg viewBox="0 0 520 360" aria-hidden="true">
+            <defs>
+              <linearGradient id="ibdFlow" x1="62" x2="458" y1="0" y2="0" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#d12630"/>
+                <stop offset="0.48" stop-color="#187c8f"/>
+                <stop offset="1" stop-color="#e99e25"/>
+              </linearGradient>
+              <filter id="ibdShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#243770" flood-opacity="0.12"/>
+              </filter>
+            </defs>
+            <path d="M72 190 C120 92 200 104 234 178 C266 250 342 258 392 162 C414 120 444 104 468 118" fill="none" stroke="url(#ibdFlow)" stroke-width="17" stroke-linecap="round"/>
+            <path d="M72 190 C120 92 200 104 234 178 C266 250 342 258 392 162 C414 120 444 104 468 118" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity="0.75"/>
+            <g filter="url(#ibdShadow)">
+              <rect x="48" y="52" width="142" height="78" rx="8" fill="#fff" stroke="#aebbd2"/>
+              <text x="73" y="84" fill="#243770" font-family="Inter, Arial" font-size="15" font-weight="800">515 MRQs</text>
+              <text x="73" y="107" fill="#68758d" font-family="Inter, Arial" font-size="12" font-weight="700">routine refill capture</text>
+              <circle cx="218" cy="174" r="46" fill="#243770"/>
+              <path d="M199 176 h12 l8 -23 l13 49 l13 -34 h18" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="320" y="202" width="148" height="82" rx="8" fill="#fff" stroke="#aebbd2"/>
+              <text x="344" y="235" fill="#243770" font-family="Inter, Arial" font-size="15" font-weight="800">98%</text>
+              <text x="386" y="235" fill="#243770" font-family="Inter, Arial" font-size="15" font-weight="800">effective</text>
+              <text x="344" y="258" fill="#68758d" font-family="Inter, Arial" font-size="12" font-weight="700">good or excellent</text>
+              <rect x="70" y="238" width="154" height="70" rx="8" fill="#fff" stroke="#aebbd2"/>
+              <text x="96" y="269" fill="#243770" font-family="Inter, Arial" font-size="15" font-weight="800">Low signal rates</text>
+              <text x="96" y="291" fill="#68758d" font-family="Inter, Arial" font-size="12" font-weight="700">6% missed, 1% adverse</text>
+            </g>
+            <text x="260" y="338" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial" font-size="15" font-weight="900">Refill touchpoints paired PROs with lab and symptom trajectories</text>
+          </svg>
+        </div>
+        <p class="art-caption">The poster frames refill questionnaires as a recurring, patient-facing status check.</p>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <div class="metric-card">
+          <span>Patients</span>
+          <strong>181</strong>
+        </div>
+        <div class="metric-card">
+          <span>Completed MRQs</span>
+          <strong>515</strong>
+        </div>
+        <div class="metric-card">
+          <span>Good/excellent effectiveness</span>
+          <strong>98%</strong>
+        </div>
+        <div class="metric-card">
+          <span>No missed doses</span>
+          <strong>94%</strong>
+        </div>
+      </section>
+
+      <section class="outcome-grid" id="outcomes">
+        <div class="panel">
+          <p class="section-label">Primary outcomes</p>
+          <h2>Patients reported high perceived effectiveness and few therapy problems</h2>
+          <p class="hero-summary">Across the cohort, most refill questionnaires showed no missed doses or adverse effects; the medication effectiveness question was rated good or excellent in 98% of responses.</p>
+          <div class="scoreboard">
+            <div class="score-card">
+              <div class="ring" style="--pct:85; --tone: var(--green);">85%</div>
+              <span>Excellent effectiveness</span>
+              <small>MRQ effectiveness ratings, N=515</small>
+            </div>
+            <div class="score-card">
+              <div class="ring" style="--pct:94; --tone: var(--teal);">94%</div>
+              <span>No missed dose</span>
+              <small>170 of 181 patients</small>
+            </div>
+            <div class="score-card">
+              <div class="ring" style="--pct:99; --tone: var(--purple);">99%</div>
+              <span>No adverse effects</span>
+              <small>Only 2 reports, both on ustekinumab</small>
+            </div>
+          </div>
+        </div>
+        <div class="panel">
+          <p class="section-label">Study logic</p>
+          <h2>Integrated pharmacy data linked refill touchpoints to clinical context</h2>
+          <div class="process-lane">
+            <div class="process-step" style="--accent: var(--red);">
+              <b>1</b>
+              <h3>IBD specialty medication</h3>
+              <p>Patients had at least two fills through the center's specialty pharmacy.</p>
+            </div>
+            <div class="process-step" style="--accent: var(--gold);">
+              <b>2</b>
+              <h3>Monthly refill questionnaire</h3>
+              <p>At least two MRQ responses were required for inclusion.</p>
+            </div>
+            <div class="process-step" style="--accent: var(--teal);">
+              <b>3</b>
+              <h3>PRO and adherence signals</h3>
+              <p>Adverse events, missed doses, and medication effectiveness were the primary outcomes.</p>
+            </div>
+            <div class="process-step" style="--accent: var(--green);">
+              <b>4</b>
+              <h3>Secondary trend check</h3>
+              <p>SIBDQ, PHQ-9, and CRP were compared with each patient's baseline.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="visual-grid" id="cohort">
+        <div class="panel">
+          <p class="section-label">Cohort profile</p>
+          <h2>Demographics and disease characteristics clustered around Crohn's disease</h2>
+          <div class="population-grid">
+            <div class="population-tile">
+              <strong>42</strong>
+              <span>Median age</span>
+              <small>IQR 33-55 years</small>
+            </div>
+            <div class="population-tile">
+              <strong>52%</strong>
+              <span>Female</span>
+              <small>95 of 181 patients</small>
+            </div>
+            <div class="population-tile">
+              <strong>87%</strong>
+              <span>Crohn's disease</span>
+              <small>158 patients; 23 had ulcerative colitis</small>
+            </div>
+            <div class="population-tile">
+              <strong>77%</strong>
+              <span>Commercial insurance</span>
+              <small>140 of 181 patients</small>
+            </div>
+          </div>
+        </div>
+        <div class="panel">
+          <p class="section-label">IBD status</p>
+          <h2>Crohn's subtypes showed substantial complexity</h2>
+          <div class="lens-chart">
+            <div class="lens-row"><span>Previous biologic therapy</span><div class="lens-bar"><i style="width:66%"></i></div></div>
+            <div class="lens-row"><span>Previous IBD surgery</span><div class="lens-bar"><i style="width:50%"></i></div></div>
+            <div class="lens-row"><span>Fistulizing disease</span><div class="lens-bar"><i style="width:47%"></i></div></div>
+            <div class="lens-row"><span>Stricturing disease</span><div class="lens-bar"><i style="width:44%"></i></div></div>
+            <div class="lens-row"><span>Perianal disease</span><div class="lens-bar"><i style="width:38%"></i></div></div>
+          </div>
+          <p class="mini-note">Percentages for Crohn's type and prior therapy come directly from the poster's IBD status table.</p>
+        </div>
+      </section>
+
+      <section class="panel" id="therapy">
+        <p class="section-label">Therapy mix</p>
+        <h2>Two biologics accounted for nearly nine in ten patients</h2>
+        <div class="therapy-map">
+          <div class="donut-wrap" aria-label="Medication distribution donut chart">
+            <svg viewBox="0 0 300 300" width="100%" height="100%" role="img" aria-label="Adalimumab 104, ustekinumab 57, tofacitinib 8, golimumab 6, certolizumab 6">
+              <circle cx="150" cy="150" r="92" fill="none" stroke="#e7edf7" stroke-width="48"/>
+              <circle cx="150" cy="150" r="92" fill="none" stroke="#187c8f" stroke-width="48" stroke-dasharray="331.3 578.1" stroke-dashoffset="0" transform="rotate(-90 150 150)"/>
+              <circle cx="150" cy="150" r="92" fill="none" stroke="#7561a8" stroke-width="48" stroke-dasharray="181.9 578.1" stroke-dashoffset="-331.3" transform="rotate(-90 150 150)"/>
+              <circle cx="150" cy="150" r="92" fill="none" stroke="#e99e25" stroke-width="48" stroke-dasharray="25.5 578.1" stroke-dashoffset="-513.2" transform="rotate(-90 150 150)"/>
+              <circle cx="150" cy="150" r="92" fill="none" stroke="#4d8a67" stroke-width="48" stroke-dasharray="19.2 578.1" stroke-dashoffset="-538.7" transform="rotate(-90 150 150)"/>
+              <circle cx="150" cy="150" r="92" fill="none" stroke="#d12630" stroke-width="48" stroke-dasharray="19.2 578.1" stroke-dashoffset="-557.9" transform="rotate(-90 150 150)"/>
+              <circle cx="150" cy="150" r="62" fill="#fff"/>
+              <text x="150" y="142" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial" font-size="36" font-weight="900">181</text>
+              <text x="150" y="166" text-anchor="middle" fill="#68758d" font-family="Inter, Arial" font-size="12" font-weight="800">patients</text>
+            </svg>
+          </div>
+          <div>
+            <div class="med-bars" aria-label="Medication patient counts">
+              <div class="med-row"><span>Adalimumab</span><i style="width:100%"></i><strong>104</strong></div>
+              <div class="med-row"><span>Ustekinumab</span><i style="width:55%"></i><strong>57</strong></div>
+              <div class="med-row"><span>Tofacitinib</span><i style="width:8%"></i><strong>8</strong></div>
+              <div class="med-row"><span>Golimumab</span><i style="width:6%"></i><strong>6</strong></div>
+              <div class="med-row"><span>Certolizumab</span><i style="width:6%"></i><strong>6</strong></div>
+            </div>
+            <p class="mini-note">Adalimumab and ustekinumab together represented 161 of 181 patients, or 89% of the cohort.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Missed-dose reasons</p>
+        <h2>The small missed-dose group was dominated by care interruptions and hospitalization</h2>
+        <div class="reason-grid">
+          <div class="reason-tile">
+            <strong>4</strong>
+            <span>Hospitalization</span>
+          </div>
+          <div class="reason-tile">
+            <strong>3</strong>
+            <span>Held due to illness or procedure</span>
+          </div>
+          <div class="reason-tile">
+            <strong>2</strong>
+            <span>Needed follow-up appointment before refills</span>
+          </div>
+          <div class="reason-tile">
+            <strong>2</strong>
+            <span>Forgetfulness</span>
+          </div>
+          <div class="reason-tile">
+            <strong>1</strong>
+            <span>Ran out of medication</span>
+          </div>
+        </div>
+        <p class="mini-note">The source lists reasons among patients with at least one missed dose (n=11); reason counts are shown as reported.</p>
+      </section>
+
+      <section class="panel trajectory-card">
+        <div>
+          <p class="section-label">Secondary outcomes</p>
+          <h2>SIBDQ, PHQ-9, and CRP were tracked from baseline through 600 days</h2>
+          <svg viewBox="0 0 640 280" width="100%" role="img" aria-label="Line chart of SIBDQ 58 to 52, PHQ-9 stable at 5, and CRP 5 to 10">
+            <rect x="0" y="0" width="640" height="280" rx="8" fill="#ffffff" stroke="#aebbd2"/>
+            <g stroke="#d9e1ef" stroke-width="1">
+              <line x1="72" y1="42" x2="72" y2="226"/>
+              <line x1="72" y1="226" x2="588" y2="226"/>
+              <line x1="72" y1="180" x2="588" y2="180"/>
+              <line x1="72" y1="134" x2="588" y2="134"/>
+              <line x1="72" y1="88" x2="588" y2="88"/>
+            </g>
+            <g fill="#68758d" font-family="Inter, Arial" font-size="11" font-weight="700">
+              <text x="72" y="246" text-anchor="middle">0</text>
+              <text x="244" y="246" text-anchor="middle">200</text>
+              <text x="416" y="246" text-anchor="middle">400</text>
+              <text x="588" y="246" text-anchor="middle">600 days</text>
+            </g>
+            <polyline points="72,64 244,88 416,112 588,136" fill="none" stroke="#187c8f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            <polyline points="72,226 244,226 416,226 588,226" fill="none" stroke="#7561a8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            <polyline points="72,226 244,214 416,190 588,166" fill="none" stroke="#d12630" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            <g>
+              <circle cx="72" cy="64" r="5" fill="#187c8f"/><circle cx="244" cy="88" r="5" fill="#187c8f"/><circle cx="416" cy="112" r="5" fill="#187c8f"/><circle cx="588" cy="136" r="5" fill="#187c8f"/>
+              <circle cx="72" cy="226" r="5" fill="#7561a8"/><circle cx="244" cy="226" r="5" fill="#7561a8"/><circle cx="416" cy="226" r="5" fill="#7561a8"/><circle cx="588" cy="226" r="5" fill="#7561a8"/>
+              <circle cx="72" cy="226" r="5" fill="#d12630"/><circle cx="244" cy="214" r="5" fill="#d12630"/><circle cx="416" cy="190" r="5" fill="#d12630"/><circle cx="588" cy="166" r="5" fill="#d12630"/>
+            </g>
+            <g fill="#243770" font-family="Montserrat, Arial" font-size="12" font-weight="900">
+              <text x="92" y="58">SIBDQ 58</text>
+              <text x="504" y="130">52</text>
+              <text x="92" y="218">PHQ-9 5</text>
+              <text x="506" y="160">CRP 10</text>
+            </g>
+          </svg>
+        </div>
+        <div class="trajectory-legend">
+          <div class="legend-item" style="--line: var(--teal);">
+            <strong>SIBDQ: 58 to 52</strong>
+            <span>The poster states that the decrease indicated improved disease severity by patient response.</span>
+          </div>
+          <div class="legend-item" style="--line: var(--purple);">
+            <strong>PHQ-9: stable at 5</strong>
+            <span>Depression screening scores were relatively stable over time.</span>
+          </div>
+          <div class="legend-item" style="--line: var(--red);">
+            <strong>CRP: 5 to 10 mg/L</strong>
+            <span>Inflammatory lab values slightly increased over the same interval.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel callout-panel">
+        <p>Conclusion: patients receiving IBD specialty medications through an integrated care model reported high medication effectiveness, low adverse-effect and missed-dose rates, and generally stable secondary outcomes versus baseline.</p>
+      </section>
+
+      <section class="section-stack">
+        <div class="panel markdown-fragment">
+          <p class="section-label">Objective</p>
+          <h2>Question asked</h2>
+          <p>Evaluate patient-reported outcomes in patients prescribed specialty medications by a health-system outpatient IBD clinic and dispensed by an integrated specialty pharmacy.</p>
+        </div>
+        <div class="panel markdown-fragment">
+          <p class="section-label">Next research step</p>
+          <h2>What remains open</h2>
+          <p>The authors call for additional research evaluating the relationship between refill-touchpoint PROs and long-term clinical outcomes.</p>
+        </div>
+      </section>
+
+      <footer class="footer-actions" id="sources">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/41-2022.pdf">Source PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/41-2022.md">Source Markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

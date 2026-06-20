@@ -1,0 +1,675 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Crushing and Splitting DAAs for HCV Treatment | NASP 2021 Infographic</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .daa-hero-art {
+      display: grid;
+      min-height: 15rem;
+      place-items: center;
+      overflow: hidden;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 20% 22%, rgba(24, 124, 143, 0.17), transparent 8rem),
+        radial-gradient(circle at 80% 78%, rgba(209, 38, 48, 0.13), transparent 9rem),
+        linear-gradient(145deg, #fff, var(--surface-blue) 65%, var(--surface-warm));
+    }
+    .daa-hero-art svg {
+      width: min(100%, 25rem);
+      height: auto;
+      padding: 0.6rem;
+    }
+    .author-line {
+      margin: 0;
+      color: var(--body);
+      font-size: 0.82rem;
+    }
+    .finding-callout {
+      margin: 0;
+      border-left: 4px solid var(--red);
+      padding-left: 0.75rem;
+      color: var(--ink);
+      font-size: 0.95rem;
+      font-weight: 850;
+      line-height: 1.38;
+    }
+    .metric-card strong small {
+      display: inline;
+      color: inherit;
+      font-size: 0.58em;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+    .outcome-board {
+      display: grid;
+      grid-template-columns: minmax(15rem, 0.72fr) minmax(0, 1.28fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .svr-card {
+      display: grid;
+      align-content: center;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, rgba(24, 124, 143, 0.09), transparent),
+        #fff;
+      padding: 1rem;
+    }
+    .svr-card strong {
+      display: block;
+      margin: 0.15rem 0 0.45rem;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(3.2rem, 8vw, 6rem);
+      line-height: 0.9;
+    }
+    .svr-card p {
+      margin: 0;
+      color: var(--body);
+      font-size: 0.9rem;
+    }
+    .monitor-chart {
+      display: grid;
+      gap: 0.72rem;
+      margin-top: 0.75rem;
+    }
+    .monitor-row {
+      display: grid;
+      grid-template-columns: 12rem minmax(0, 1fr) 3.6rem;
+      gap: 0.6rem;
+      align-items: center;
+    }
+    .monitor-row b {
+      color: var(--ink);
+      font-size: 0.82rem;
+      line-height: 1.18;
+    }
+    .monitor-row span {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 850;
+      text-align: right;
+    }
+    .monitor-track {
+      height: 1.05rem;
+      overflow: hidden;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 999px;
+      background: rgba(36, 55, 112, 0.08);
+    }
+    .monitor-track i {
+      display: block;
+      width: var(--value);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .monitor-track i.svr {
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .manipulation-flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.7rem;
+    }
+    .flow-step {
+      position: relative;
+      min-height: 11rem;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+    }
+    .flow-step::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 0.32rem;
+      background: var(--accent, var(--red));
+    }
+    .flow-step:nth-child(2) { --accent: var(--gold); }
+    .flow-step:nth-child(3) { --accent: var(--teal); }
+    .flow-step:nth-child(4) { --accent: var(--green); }
+    .flow-step .count {
+      display: block;
+      margin: 0.3rem 0;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2.15rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .flow-step p {
+      margin: 0.45rem 0 0;
+      font-size: 0.82rem;
+    }
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+    .method-tile {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.85rem;
+    }
+    .method-tile b {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.94rem;
+      line-height: 1.18;
+    }
+    .method-tile span {
+      display: block;
+      margin-top: 0.42rem;
+      color: var(--body);
+      font-size: 0.79rem;
+    }
+    .pattern-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 0.8rem;
+    }
+    .stack-chart {
+      display: grid;
+      gap: 0.62rem;
+      margin-top: 0.75rem;
+    }
+    .stack-row {
+      display: grid;
+      grid-template-columns: 7.4rem minmax(0, 1fr) 2rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .stack-row .track {
+      height: 0.82rem;
+      overflow: hidden;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: #edf2f8;
+    }
+    .stack-row i {
+      display: block;
+      width: calc(var(--value) / 7 * 100%);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .stack-row.regimen i {
+      width: calc(var(--value) / 4 * 100%);
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .compact-table th,
+    .compact-table td {
+      font-size: 0.76rem;
+    }
+    .site-map {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.75rem;
+    }
+    .site-card {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.78rem;
+    }
+    .site-card b {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.92rem;
+      line-height: 1.16;
+    }
+    .site-card span {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 800;
+    }
+    .takeaway {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(24, 124, 143, 0.12), transparent 45%),
+        #fff;
+    }
+    .takeaway p {
+      max-width: 65rem;
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.05rem, 1.7vw, 1.42rem);
+      font-weight: 850;
+      line-height: 1.35;
+    }
+    .note {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    @media (max-width: 900px) {
+      .outcome-board,
+      .pattern-grid,
+      .method-grid,
+      .manipulation-flow,
+      .site-map {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 560px) {
+      .outcome-board,
+      .pattern-grid,
+      .method-grid,
+      .manipulation-flow,
+      .site-map,
+      .monitor-row,
+      .stack-row {
+        grid-template-columns: 1fr;
+      }
+      .monitor-row span {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP infographic home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/57-Crushing-and-Splitting-DAAs-for-HCV-A-Case-Series_2021.pdf">PDF Source</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/57-Crushing-and-Splitting-DAAs-for-HCV-A-Case-Series_2021.md">Markdown Source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP Annual Meeting 2021 | Poster 57 | Hepatitis C</p>
+        <h1 id="poster-title">Crushing and Splitting DAAs for HCV Treatment: A Case Series</h1>
+        <p class="hero-summary">
+          Three academic health systems reported real-world HCV treatment cases where direct-acting antiviral tablets were crushed, halved, or quartered for patients unable to swallow intact tablets.
+        </p>
+        <ul class="tag-row" aria-label="Poster topics">
+          <li class="tag therapy">Hepatitis C</li>
+          <li class="tag category">Tablet manipulation</li>
+          <li class="tag">Direct-acting antivirals</li>
+          <li class="tag">Retrospective case series</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div class="poster-code">57<br>2021</div>
+        <p class="author-line">Kristen Whelchel; Autumn D. Zuckerman; David E. Koren; Caroline Derrick; Jeannette Bouchard; Cody Chastain</p>
+        <dl class="meta-grid">
+          <div>
+            <dt>Design</dt>
+            <dd>Multi-site retrospective case series</dd>
+          </div>
+          <div>
+            <dt>Study period</dt>
+            <dd>Jan 2013-Dec 2019</dd>
+          </div>
+          <div>
+            <dt>Sites</dt>
+            <dd>3 academic health systems</dd>
+          </div>
+          <div>
+            <dt>Patients</dt>
+            <dd>10 adult cases</dd>
+          </div>
+        </dl>
+        <p class="finding-callout">Core finding: all patients with available follow-up data achieved SVR12, and no severe adverse effects were reported.</p>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Manipulated DAA cases</span>
+          <strong>10</strong>
+          <p>Adults treated with crushed, split, or quartered tablets.</p>
+        </article>
+        <article class="metric-card">
+          <span>Available SVR12 success</span>
+          <strong>7/7</strong>
+          <p>All patients with SVR12 follow-up achieved response.</p>
+        </article>
+        <article class="metric-card">
+          <span>Documented SVR12 rate</span>
+          <strong>70<small>%</small></strong>
+          <p>Three patients were lost to follow-up after treatment.</p>
+        </article>
+        <article class="metric-card">
+          <span>Severe adverse effects</span>
+          <strong>0</strong>
+          <p>Unpleasant taste was the reported tolerability signal.</p>
+        </article>
+      </section>
+
+      <section class="outcome-board" aria-label="Outcome monitoring">
+        <article class="svr-card">
+          <p class="section-label">Outcome signal</p>
+          <strong>100%</strong>
+          <p>Of patients with available data, sustained virologic response at 12 weeks was achieved despite tablet manipulation.</p>
+        </article>
+        <article class="panel">
+          <p class="section-label">HCV RNA monitoring</p>
+          <h2>Viral suppression was universal during and at the end of treatment.</h2>
+          <div class="monitor-chart" aria-label="HCV RNA monitoring bar chart">
+            <div class="monitor-row">
+              <b>Undetectable on treatment</b>
+              <div class="monitor-track"><i style="--value:100%"></i></div>
+              <span>100%</span>
+            </div>
+            <div class="monitor-row">
+              <b>Undetectable at end of treatment</b>
+              <div class="monitor-track"><i style="--value:100%"></i></div>
+              <span>100%</span>
+            </div>
+            <div class="monitor-row">
+              <b>Undetectable at SVR12+</b>
+              <div class="monitor-track"><i class="svr" style="--value:70%"></i></div>
+              <span>70%</span>
+            </div>
+          </div>
+          <p class="note">The SVR12 denominator includes all 10 cases; three were lost to follow-up after end of treatment.</p>
+        </article>
+      </section>
+
+      <section class="visual-grid" aria-label="Objective and manipulation illustration">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Describe safety and effectiveness when HCV DAA tablets cannot be taken intact.</h2>
+          <div class="markdown-fragment">
+            <p>DAAs commonly produce SVR rates above 90%, but evidence is limited for patients who need tablets crushed, split, mixed with food, or administered through a PEG tube.</p>
+          </div>
+          <div class="daa-hero-art" aria-hidden="true">
+            <svg viewBox="0 0 430 280" role="img">
+              <defs>
+                <linearGradient id="pillGrad" x1="0" x2="1">
+                  <stop offset="0" stop-color="#187c8f"></stop>
+                  <stop offset="1" stop-color="#d12630"></stop>
+                </linearGradient>
+                <linearGradient id="tubeGrad" x1="0" x2="1">
+                  <stop offset="0" stop-color="#e99e25"></stop>
+                  <stop offset="1" stop-color="#4d8a67"></stop>
+                </linearGradient>
+              </defs>
+              <path d="M54 190 C120 132 163 143 218 156 S318 190 376 104" fill="none" stroke="#d9e1ef" stroke-width="22" stroke-linecap="round"></path>
+              <path d="M54 190 C120 132 163 143 218 156 S318 190 376 104" fill="none" stroke="url(#tubeGrad)" stroke-width="9" stroke-linecap="round"></path>
+              <g transform="translate(74 48) rotate(-18)">
+                <rect x="0" y="0" width="154" height="58" rx="29" fill="#fff" stroke="#243770" stroke-width="5"></rect>
+                <path d="M77 4v50" stroke="#aebbd2" stroke-width="5"></path>
+                <path d="M15 29h50" stroke="#187c8f" stroke-width="8" stroke-linecap="round"></path>
+                <path d="M101 29h38" stroke="#d12630" stroke-width="8" stroke-linecap="round"></path>
+              </g>
+              <g transform="translate(248 65)">
+                <path d="M0 0l65 72" stroke="#243770" stroke-width="8" stroke-linecap="round"></path>
+                <path d="M67 0L2 72" stroke="#243770" stroke-width="8" stroke-linecap="round"></path>
+                <circle cx="34" cy="36" r="31" fill="#fff" stroke="url(#pillGrad)" stroke-width="6"></circle>
+              </g>
+              <rect x="83" y="194" width="78" height="44" rx="10" fill="#fff" stroke="#187c8f" stroke-width="4"></rect>
+              <rect x="181" y="194" width="78" height="44" rx="10" fill="#fff" stroke="#e99e25" stroke-width="4"></rect>
+              <rect x="279" y="194" width="78" height="44" rx="10" fill="#fff" stroke="#d12630" stroke-width="4"></rect>
+              <text x="122" y="222" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="17" font-weight="900">CRUSH</text>
+              <text x="220" y="222" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="17" font-weight="900">SPLIT</text>
+              <text x="318" y="222" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="17" font-weight="900">PEG</text>
+            </svg>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Methods</p>
+          <h2>A focused chart review across three specialty pharmacy practice settings.</h2>
+          <div class="method-grid" aria-label="Study method summary">
+            <div class="method-tile">
+              <b>Design</b>
+              <span>Multi-site, retrospective case series.</span>
+            </div>
+            <div class="method-tile">
+              <b>Sample</b>
+              <span>Adults receiving DAA therapy with tablet manipulation.</span>
+            </div>
+            <div class="method-tile">
+              <b>Period</b>
+              <span>January 2013 through December 2019.</span>
+            </div>
+            <div class="method-tile">
+              <b>Outcomes</b>
+              <span>SVR12, reason for manipulation, adverse effects, and adherence.</span>
+            </div>
+          </div>
+          <div class="site-map" aria-label="Practice sites">
+            <div class="site-card">
+              <b>Vanderbilt University Medical Center</b>
+              <span>Nashville, TN | Infectious Diseases Clinic</span>
+            </div>
+            <div class="site-card">
+              <b>Prisma Health-USC Immunology Center</b>
+              <span>Columbia, SC | Infectious Diseases Clinic</span>
+            </div>
+            <div class="site-card">
+              <b>Temple University</b>
+              <span>Philadelphia, PA | Internal Medicine and Infectious Diseases Clinic</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section aria-label="Reasons for tablet manipulation">
+        <p class="section-label">Why tablets were manipulated</p>
+        <h2>Swallowing difficulty related to head and neck cancer dominated the case series.</h2>
+        <div class="manipulation-flow">
+          <article class="flow-step">
+            <h3>Head and neck cancer history</h3>
+            <span class="count">6</span>
+            <p>Difficulty swallowing due to prior cancer or related anatomy.</p>
+          </article>
+          <article class="flow-step">
+            <h3>Large tablet difficulty</h3>
+            <span class="count">2</span>
+            <p>Patients could swallow medication only after splitting or using a food vehicle.</p>
+          </article>
+          <article class="flow-step">
+            <h3>Short gut syndrome</h3>
+            <span class="count">1</span>
+            <p>Enteral feeding need led to nonstandard administration.</p>
+          </article>
+          <article class="flow-step">
+            <h3>Post-transplant intubation</h3>
+            <span class="count">1</span>
+            <p>Inpatient intubation after multi-organ transplant required PEG-tube delivery.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="pattern-grid" aria-label="Treatment patterns">
+        <article class="panel">
+          <p class="section-label">Tablet handling pattern</p>
+          <h2>Most cases involved crushing rather than simple splitting.</h2>
+          <div class="stack-chart" aria-label="Administration method counts">
+            <div class="stack-row">
+              <span>Crushed</span>
+              <span class="track"><i style="--value:7"></i></span>
+              <span>7</span>
+            </div>
+            <div class="stack-row">
+              <span>Halved</span>
+              <span class="track"><i style="--value:2"></i></span>
+              <span>2</span>
+            </div>
+            <div class="stack-row">
+              <span>Quartered</span>
+              <span class="track"><i style="--value:1"></i></span>
+              <span>1</span>
+            </div>
+          </div>
+          <p class="note">Three crushed regimens were administered by PEG tube; other approaches included mouth, orange juice, applesauce, and gelatin.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Regimens used</p>
+          <h2>Four DAA regimen patterns appeared across genotype 1a and 3 cases.</h2>
+          <div class="stack-chart" aria-label="Drug regimen counts">
+            <div class="stack-row regimen">
+              <span>SOF/VEL</span>
+              <span class="track"><i style="--value:4"></i></span>
+              <span>4</span>
+            </div>
+            <div class="stack-row regimen">
+              <span>LDV/SOF</span>
+              <span class="track"><i style="--value:3"></i></span>
+              <span>3</span>
+            </div>
+            <div class="stack-row regimen">
+              <span>GLE/PIB</span>
+              <span class="track"><i style="--value:2"></i></span>
+              <span>2</span>
+            </div>
+            <div class="stack-row regimen">
+              <span>SOF/VEL + RBV</span>
+              <span class="track"><i style="--value:1"></i></span>
+              <span>1</span>
+            </div>
+          </div>
+          <p class="note">GT 1a accounted for 6 cases and GT 3 for 4 cases; 7 patients were treatment-naive.</p>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Case table patterns">
+        <article class="table-card">
+          <p class="section-label">Case-series pattern</p>
+          <h2>Follow-up, adherence, and outcomes</h2>
+          <div class="table-wrap">
+            <table class="compact-table">
+              <thead>
+                <tr>
+                  <th>Outcome category</th>
+                  <th>Cases</th>
+                  <th>Pattern from table</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>SVR12 achieved</td>
+                  <td>7</td>
+                  <td>Included patients with no missed doses and one patient reporting 31 missed doses.</td>
+                </tr>
+                <tr>
+                  <td>Lost to follow-up</td>
+                  <td>3</td>
+                  <td>All were undetectable by end of treatment but lacked SVR12 documentation.</td>
+                </tr>
+                <tr>
+                  <td>No missed doses reported</td>
+                  <td>5</td>
+                  <td>Adherence was patient-reported and varied from none to several missed doses.</td>
+                </tr>
+                <tr>
+                  <td>High non-DAA Rx burden</td>
+                  <td>0-30</td>
+                  <td>Medication burden ranged from none to 30 non-DAA prescriptions.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Clinical context</p>
+          <h2>Reasons and comorbidity context shaped administration</h2>
+          <div class="table-wrap">
+            <table class="compact-table">
+              <thead>
+                <tr>
+                  <th>Pattern</th>
+                  <th>Count</th>
+                  <th>Interpretive note</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Head and neck cancer history</td>
+                  <td>6</td>
+                  <td>Most common driver of swallowing difficulty.</td>
+                </tr>
+                <tr>
+                  <td>PEG-tube administration</td>
+                  <td>3</td>
+                  <td>Used for transplant or head and neck cancer-related swallowing barriers.</td>
+                </tr>
+                <tr>
+                  <td>Prior HCV treatment experience</td>
+                  <td>3</td>
+                  <td>Prior regimens included IFN or SMV + SOF.</td>
+                </tr>
+                <tr>
+                  <td>Potential DAA interactions noted</td>
+                  <td>5</td>
+                  <td>Examples included acid suppression, tacrolimus, atorvastatin, quetiapine, magnesium, and calcium carbonate.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section aria-label="Evidence flow">
+        <p class="section-label">Evidence flow</p>
+        <h2>From swallowing barrier to measured virologic response</h2>
+        <div class="evidence-map">
+          <article class="evidence-card">
+            <h3>1. Identify barrier</h3>
+            <p>Patients needed altered administration because intact DAA tablets were not feasible.</p>
+          </article>
+          <article class="evidence-card">
+            <h3>2. Select regimen</h3>
+            <p>GLE/PIB, LDV/SOF, SOF/VEL, or SOF/VEL + RBV were used according to clinical context.</p>
+          </article>
+          <article class="evidence-card">
+            <h3>3. Manipulate tablet</h3>
+            <p>Tablets were crushed, halved, or quartered, then delivered by mouth, vehicle, or PEG tube.</p>
+          </article>
+          <article class="evidence-card">
+            <h3>4. Monitor response</h3>
+            <p>All cases with available on-treatment and end-of-treatment labs were undetectable.</p>
+          </article>
+          <article class="evidence-card">
+            <h3>5. Confirm safety</h3>
+            <p>No severe adverse effects were observed; unpleasant taste was reported.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel takeaway">
+        <p>
+          Conclusion: this small real-world case series supports the safety and effectiveness of HCV DAA tablet manipulation when swallowing barriers require crushing, splitting, or tube administration, while highlighting the need to preserve follow-up through SVR12.
+        </p>
+      </section>
+    </main>
+
+    <footer class="footer-actions" aria-label="Source files">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/57-Crushing-and-Splitting-DAAs-for-HCV-A-Case-Series_2021.pdf">Open original poster PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/57-Crushing-and-Splitting-DAAs-for-HCV-A-Case-Series_2021.md">Open extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

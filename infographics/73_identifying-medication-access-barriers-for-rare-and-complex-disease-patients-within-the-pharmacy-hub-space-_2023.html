@@ -1,0 +1,741 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Medication Access Barriers in Pharmacy Hubs | NASP 2023</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hub-hero-art {
+      position: relative;
+      min-height: 19rem;
+      border: 1px solid rgba(36, 55, 112, 0.2);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(24, 124, 143, 0.22), transparent 8rem),
+        radial-gradient(circle at 86% 78%, rgba(233, 158, 37, 0.26), transparent 9rem),
+        linear-gradient(145deg, #ffffff 0%, var(--surface-blue) 58%, var(--surface-warm) 100%);
+      overflow: hidden;
+    }
+
+    .hub-hero-art svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 19rem;
+    }
+
+    .hero-card .finding {
+      margin: 0;
+      border-left: 4px solid var(--red);
+      padding-left: 0.72rem;
+      color: var(--ink);
+      font-size: 0.96rem;
+      font-weight: 850;
+    }
+
+    .metric-card p {
+      margin: 0.42rem 0 0;
+      font-size: 0.78rem;
+    }
+
+    .access-delta {
+      display: grid;
+      grid-template-columns: minmax(15rem, 0.76fr) minmax(0, 1.24fr);
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .delta-card {
+      display: grid;
+      align-content: center;
+      min-height: 14rem;
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background:
+        linear-gradient(145deg, rgba(209, 38, 48, 0.10), transparent 44%),
+        #fff;
+      padding: 1rem;
+    }
+
+    .delta-card span {
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .delta-card strong {
+      display: block;
+      margin-top: 0.18rem;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(3.2rem, 8vw, 5.7rem);
+      line-height: 0.9;
+    }
+
+    .delta-card p {
+      margin: 0.7rem 0 0;
+      font-size: 0.9rem;
+    }
+
+    .comparison-bars {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 0.8rem;
+    }
+
+    .comparison-row {
+      display: grid;
+      grid-template-columns: 8.3rem minmax(0, 1fr) 4rem;
+      gap: 0.65rem;
+      align-items: center;
+    }
+
+    .comparison-row b {
+      color: var(--ink);
+      font-size: 0.82rem;
+      line-height: 1.15;
+    }
+
+    .comparison-track {
+      height: 1.18rem;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+
+    .comparison-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .comparison-track .hub-fill {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .comparison-row em {
+      color: var(--ink);
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .bar-note {
+      margin: 0.65rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    .barrier-layout {
+      display: grid;
+      grid-template-columns: minmax(15rem, 0.72fr) minmax(0, 1.28fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .prevalence-donut {
+      display: grid;
+      place-items: center;
+      min-height: 16rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .donut-ring {
+      display: grid;
+      place-items: center;
+      width: min(13rem, 72vw);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, #fff 0 54%, transparent 55%),
+        conic-gradient(var(--red) 0 37%, rgba(174, 187, 210, 0.45) 37% 100%);
+      box-shadow: inset 0 0 0 1px rgba(36, 55, 112, 0.16);
+    }
+
+    .donut-ring strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 3.1rem;
+      line-height: 0.95;
+    }
+
+    .donut-ring span {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--muted);
+      font-size: 0.66rem;
+      font-weight: 900;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    .source-bars {
+      display: grid;
+      gap: 0.62rem;
+      margin-top: 0.75rem;
+    }
+
+    .source-row {
+      display: grid;
+      grid-template-columns: 7rem minmax(0, 1fr) 3rem;
+      gap: 0.55rem;
+      align-items: center;
+      font-size: 0.8rem;
+    }
+
+    .source-row b {
+      color: var(--ink);
+    }
+
+    .source-track {
+      height: 0.9rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+
+    .source-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: var(--c, var(--red));
+    }
+
+    .source-row span {
+      color: var(--muted);
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .journey-lane {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .journey-lane::before {
+      content: "";
+      position: absolute;
+      left: 8%;
+      right: 8%;
+      top: 2.05rem;
+      height: 3px;
+      background: linear-gradient(90deg, var(--teal), var(--gold), var(--red));
+    }
+
+    .journey-step {
+      position: relative;
+      z-index: 1;
+      min-height: 11.5rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+      overflow: hidden;
+    }
+
+    .journey-step::after {
+      content: attr(data-step);
+      position: absolute;
+      right: 0.45rem;
+      bottom: -0.55rem;
+      color: rgba(36, 55, 112, 0.10);
+      font-family: var(--font-display);
+      font-size: 4.6rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .step-dot {
+      display: grid;
+      place-items: center;
+      width: 2.35rem;
+      height: 2.35rem;
+      margin-bottom: 0.7rem;
+      border-radius: 50%;
+      background: var(--accent, var(--red));
+      color: #fff;
+      font-family: var(--font-display);
+      font-weight: 900;
+    }
+
+    .journey-step h3,
+    .journey-step p {
+      position: relative;
+      z-index: 1;
+    }
+
+    .journey-step p {
+      margin: 0.45rem 0 0;
+      font-size: 0.82rem;
+    }
+
+    .journey-step:nth-child(1) { --accent: var(--teal); }
+    .journey-step:nth-child(2) { --accent: var(--gold); }
+    .journey-step:nth-child(3) { --accent: var(--red); }
+    .journey-step:nth-child(4) { --accent: var(--purple); }
+    .journey-step:nth-child(5) { --accent: var(--green); }
+
+    .provider-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.75rem;
+    }
+
+    .provider-tile {
+      min-height: 7.3rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.75rem;
+    }
+
+    .provider-tile strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.65rem;
+      line-height: 1;
+    }
+
+    .provider-tile span {
+      display: block;
+      margin-top: 0.32rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 850;
+      line-height: 1.2;
+    }
+
+    .takeaway {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(24, 124, 143, 0.10), transparent 40%),
+        #fff;
+    }
+
+    .takeaway p {
+      margin: 0.45rem 0 0;
+      font-size: 0.94rem;
+    }
+
+    @media (max-width: 980px) {
+      .access-delta,
+      .barrier-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .journey-lane,
+      .provider-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .journey-lane::before {
+        display: none;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .comparison-row,
+      .source-row {
+        grid-template-columns: 1fr;
+      }
+
+      .comparison-row em,
+      .source-row span {
+        text-align: left;
+      }
+
+      .journey-lane,
+      .provider-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#access">Access impact</a>
+        <a href="#barriers">Barriers</a>
+        <a href="#evidence">Evidence</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2023 | RareMed Solutions</p>
+        <h1>Medication access barriers inside the pharmacy hub journey</h1>
+        <p class="hero-summary">A retrospective analysis of four rare and complex disease support programs found that hub utilization shortened time to therapy, while missing information remained the dominant triage delay.</p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Retrospective observational study</li>
+          <li class="tag therapy">3 neurology programs</li>
+          <li class="tag therapy">1 oncology program</li>
+          <li class="tag">Jan 2020-Dec 2022</li>
+        </ul>
+        <div class="hub-hero-art" aria-label="Illustration of referral barriers through a pharmacy hub">
+          <svg viewBox="0 0 680 360" role="img" aria-labelledby="heroTitle heroDesc">
+            <title id="heroTitle">Pharmacy hub access pathway</title>
+            <desc id="heroDesc">A referral pathway showing missing information, benefits investigation, prior authorization, and hub intervention before the filling pharmacy.</desc>
+            <defs>
+              <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#243770" flood-opacity="0.14"/>
+              </filter>
+            </defs>
+            <path d="M72 185 C154 98 220 274 306 182 S472 90 606 174" fill="none" stroke="#aebbd2" stroke-width="18" stroke-linecap="round"/>
+            <path d="M72 185 C154 98 220 274 306 182 S472 90 606 174" fill="none" stroke="#187c8f" stroke-width="6" stroke-linecap="round" stroke-dasharray="14 16"/>
+            <g filter="url(#shadow)">
+              <rect x="44" y="126" width="122" height="84" rx="8" fill="#fff" stroke="#aebbd2"/>
+              <text x="105" y="157" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial" font-size="15" font-weight="900">Referral</text>
+              <text x="105" y="181" text-anchor="middle" fill="#68758d" font-family="Inter, Arial" font-size="12" font-weight="700">intake</text>
+            </g>
+            <g filter="url(#shadow)">
+              <rect x="206" y="206" width="142" height="92" rx="8" fill="#fff7ea" stroke="#e99e25"/>
+              <text x="277" y="237" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial" font-size="15" font-weight="900">Information</text>
+              <text x="277" y="258" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial" font-size="15" font-weight="900">gap</text>
+              <text x="277" y="279" text-anchor="middle" fill="#68758d" font-family="Inter, Arial" font-size="12" font-weight="700">37% affected</text>
+            </g>
+            <g filter="url(#shadow)">
+              <rect x="334" y="82" width="142" height="92" rx="8" fill="#fff" stroke="#d12630"/>
+              <text x="405" y="113" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial" font-size="15" font-weight="900">Hub</text>
+              <text x="405" y="134" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial" font-size="15" font-weight="900">intervention</text>
+              <text x="405" y="155" text-anchor="middle" fill="#68758d" font-family="Inter, Arial" font-size="12" font-weight="700">triage acceleration</text>
+            </g>
+            <g filter="url(#shadow)">
+              <rect x="514" y="137" width="122" height="84" rx="8" fill="#eef4fb" stroke="#187c8f"/>
+              <text x="575" y="168" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial" font-size="15" font-weight="900">Filling</text>
+              <text x="575" y="189" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial" font-size="15" font-weight="900">pharmacy</text>
+            </g>
+            <circle cx="121" cy="72" r="34" fill="#d12630" opacity="0.92"/>
+            <text x="121" y="68" text-anchor="middle" fill="#fff" font-family="Montserrat, Arial" font-size="19" font-weight="900">24.9K</text>
+            <text x="121" y="87" text-anchor="middle" fill="#fff" font-family="Inter, Arial" font-size="10" font-weight="800">PATIENTS</text>
+            <circle cx="552" cy="278" r="42" fill="#187c8f" opacity="0.94"/>
+            <text x="552" y="274" text-anchor="middle" fill="#fff" font-family="Montserrat, Arial" font-size="21" font-weight="900">288K</text>
+            <text x="552" y="294" text-anchor="middle" fill="#fff" font-family="Inter, Arial" font-size="10" font-weight="800">DAYS SAVED</text>
+          </svg>
+        </div>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div class="poster-code">73</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Year</dt>
+            <dd>2023</dd>
+          </div>
+          <div>
+            <dt>Programs</dt>
+            <dd>4</dd>
+          </div>
+          <div>
+            <dt>Patients</dt>
+            <dd>24,892</dd>
+          </div>
+          <div>
+            <dt>Study span</dt>
+            <dd>2020-2022</dd>
+          </div>
+        </dl>
+        <p class="finding">Objective: identify barriers that delay referral triage to non-commercial or specialty pharmacies and recommend solutions that improve patient access to therapy.</p>
+        <p class="hero-summary">Authors: Luke Gross, Kathleen Dawson, Rami Chammas, Douglas Gebhard, Kyle Davis, and Gordon Vanscoy.</p>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key metrics">
+        <article class="metric-card">
+          <span>Observed cohort</span>
+          <strong>24,892</strong>
+          <p>Rare and complex disease patients across pediatric and adult support programs.</p>
+        </article>
+        <article class="metric-card">
+          <span>Days saved</span>
+          <strong>288,498</strong>
+          <p>Therapy days estimated as saved through specialty pharmacy hub utilization.</p>
+        </article>
+        <article class="metric-card">
+          <span>Missing info prevalence</span>
+          <strong>37%</strong>
+          <p>Triaged prescriptions with at least one missing-information barrier.</p>
+        </article>
+        <article class="metric-card">
+          <span>MHM turnaround reduction</span>
+          <strong>44%</strong>
+          <p>Lower average turnaround time versus the 2020-2022 URAC aggregate reports.</p>
+        </article>
+      </section>
+
+      <section id="access" class="access-delta">
+        <article class="delta-card">
+          <span>Hub utilization effect</span>
+          <strong>11.59</strong>
+          <p>Fewer average days to receive therapy when the hub was used: 12.66 days versus 24.25 days without hub utilization.</p>
+        </article>
+        <article class="panel">
+          <p class="section-label">Average time to receive therapy</p>
+          <h2>Hub support compressed the access timeline by nearly half</h2>
+          <div class="comparison-bars" aria-label="Average days with and without hub utilization">
+            <div class="comparison-row">
+              <b>Without hub</b>
+              <div class="comparison-track"><i style="--w: 100%"></i></div>
+              <em>24.25d</em>
+            </div>
+            <div class="comparison-row">
+              <b>With hub</b>
+              <div class="comparison-track"><i class="hub-fill" style="--w: 52.2%"></i></div>
+              <em>12.66d</em>
+            </div>
+          </div>
+          <p class="bar-note">Total days without hub utilization were 603,631; total days with hub utilization were 315,133.</p>
+        </article>
+      </section>
+
+      <section id="barriers" class="barrier-layout">
+        <article class="prevalence-donut">
+          <div>
+            <div class="donut-ring" aria-label="37 percent missing information prevalence">
+              <div>
+                <strong>37%</strong>
+                <span>missing info</span>
+              </div>
+            </div>
+            <p class="bar-note">9,318 of 24,892 triaged prescriptions had missing information; 15,574 had no missing information.</p>
+          </div>
+        </article>
+        <article class="panel">
+          <p class="section-label">Barrier source mix</p>
+          <h2>Provider-originated gaps dominated the missing-information burden</h2>
+          <div class="source-bars" aria-label="Missing information breakdown by source">
+            <div class="source-row">
+              <b>Provider</b>
+              <div class="source-track"><i style="--w: 68%; --c: var(--red)"></i></div>
+              <span>68%</span>
+            </div>
+            <div class="source-row">
+              <b>Diagnosis</b>
+              <div class="source-track"><i style="--w: 22%; --c: var(--gold)"></i></div>
+              <span>22%</span>
+            </div>
+            <div class="source-row">
+              <b>Patient</b>
+              <div class="source-track"><i style="--w: 8%; --c: var(--teal)"></i></div>
+              <span>8%</span>
+            </div>
+            <div class="source-row">
+              <b>Insurance</b>
+              <div class="source-track"><i style="--w: 0.4%; --c: var(--purple)"></i></div>
+              <span>0.4%</span>
+            </div>
+          </div>
+          <p class="bar-note">Missing information increased average time to triage from 6.86 to 8.57 days, adding 1.71 days per affected prescription.</p>
+        </article>
+      </section>
+
+      <section aria-labelledby="journey-heading">
+        <p class="section-label">Evidence flow</p>
+        <h2 id="journey-heading">Where the hub can intervene in the patient journey</h2>
+        <div class="journey-lane">
+          <article class="journey-step" data-step="01">
+            <div class="step-dot">1</div>
+            <h3>Referral arrives</h3>
+            <p>Support programs receive prescriptions for rare and complex disease patients across neurology and oncology populations.</p>
+          </article>
+          <article class="journey-step" data-step="02">
+            <div class="step-dot">2</div>
+            <h3>Access work begins</h3>
+            <p>Benefits investigations, prior authorizations, business rules, and triage criteria shape the path to filling pharmacy.</p>
+          </article>
+          <article class="journey-step" data-step="03">
+            <div class="step-dot">3</div>
+            <h3>Information gaps slow triage</h3>
+            <p>Patient demographics, signatures, provider demographics, signatures, and dosing fields were repeatedly absent.</p>
+          </article>
+          <article class="journey-step" data-step="04">
+            <div class="step-dot">4</div>
+            <h3>Mandatory hub model</h3>
+            <p>Centralized control and insight can force completion of required steps before the referral progresses.</p>
+          </article>
+          <article class="journey-step" data-step="05">
+            <div class="step-dot">5</div>
+            <h3>Faster first dispense</h3>
+            <p>The study recommends patient and provider portals or electronic enrollment to shorten time to triage.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="evidence" class="visual-grid">
+        <article class="panel">
+          <p class="section-label">Provider missing information</p>
+          <h2>Specific provider fields were fragmented across many categories</h2>
+          <div class="provider-grid" aria-label="Provider missing information categories">
+            <div class="provider-tile">
+              <strong>9%</strong>
+              <span>Prescription</span>
+            </div>
+            <div class="provider-tile">
+              <strong>6%</strong>
+              <span>Complete prescription</span>
+            </div>
+            <div class="provider-tile">
+              <strong>5%</strong>
+              <span>Signature date</span>
+            </div>
+            <div class="provider-tile">
+              <strong>4%</strong>
+              <span>Prescriber signature</span>
+            </div>
+            <div class="provider-tile">
+              <strong>3%</strong>
+              <span>Quick start Rx</span>
+            </div>
+            <div class="provider-tile">
+              <strong>3%</strong>
+              <span>Maintenance Rx</span>
+            </div>
+            <div class="provider-tile">
+              <strong>65%</strong>
+              <span>Other provider-originated gaps</span>
+            </div>
+          </div>
+        </article>
+        <article class="panel">
+          <p class="section-label">Intervention turnaround benchmark</p>
+          <h2>Mandatory hub model outperformed URAC report averages</h2>
+          <div class="comparison-bars" aria-label="Average turnaround time comparison">
+            <div class="comparison-row">
+              <b>URAC 2022</b>
+              <div class="comparison-track"><i style="--w: 100%"></i></div>
+              <em>7.68d</em>
+            </div>
+            <div class="comparison-row">
+              <b>URAC 2021</b>
+              <div class="comparison-track"><i style="--w: 65%"></i></div>
+              <em>4.99d</em>
+            </div>
+            <div class="comparison-row">
+              <b>URAC 2020</b>
+              <div class="comparison-track"><i style="--w: 90.2%"></i></div>
+              <em>6.93d</em>
+            </div>
+            <div class="comparison-row">
+              <b>MHM</b>
+              <div class="comparison-track"><i class="hub-fill" style="--w: 46.2%"></i></div>
+              <em>3.55d</em>
+            </div>
+          </div>
+          <p class="bar-note">For prescriptions requiring intervention, the poster reports MHM average turnaround time as 44% less than the 2020-2022 URAC three-year average.</p>
+        </article>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel takeaway">
+          <p class="section-label">Conclusion</p>
+          <h2>Missing information is the controllable choke point</h2>
+          <p>Across the two-year analysis, missing information was the most prevalent barrier affecting time to triage. Reducing incomplete fields would improve the hub's already enhanced ability to move patients toward first commercial dispense.</p>
+        </article>
+        <article class="panel">
+          <p class="section-label">Recommended action</p>
+          <h2>Make completion a required digital step</h2>
+          <p>The poster recommends a patient/provider portal or electronic enrollment process that manages required information sections before allowing progression, especially in a mandatory hub model.</p>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Condensed source tables">
+        <article class="table-card">
+          <h2>Access timeline pattern</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Measure</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Average time without hub utilization</td>
+                  <td>24.25 days</td>
+                </tr>
+                <tr>
+                  <td>Average time with hub utilization</td>
+                  <td>12.66 days</td>
+                </tr>
+                <tr>
+                  <td>Estimated therapy days saved</td>
+                  <td>288,498</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+        <article class="table-card">
+          <h2>Missing-information effect</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Condition</th>
+                  <th>Average time to triage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Standard average</td>
+                  <td>6.86 days</td>
+                </tr>
+                <tr>
+                  <td>With missing information</td>
+                  <td>8.57 days</td>
+                </tr>
+                <tr>
+                  <td>Additional time when incomplete</td>
+                  <td>1.71 days</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">Methods</p>
+          <h2>Retrospective hub data review</h2>
+          <p>Data generated from four rare and complex disease patient support programs between January 1, 2020 and December 1, 2022 were used to identify common barriers and the time associated with triage to filling pharmacy.</p>
+        </article>
+        <article class="panel">
+          <p class="section-label">Limitations</p>
+          <h2>Interpret results as operational evidence</h2>
+          <p>Program population sizes, disease categories, medication costs, reporting methods, and outlier handling differed across programs, limiting direct generalization.</p>
+        </article>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/73_Identifying-Medication-Access-Barriers-for-Rare-and-Complex-Disease-Patients-within-the-Pharmacy-Hub-Space-_2023.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/73_Identifying-Medication-Access-Barriers-for-Rare-and-Complex-Disease-Patients-within-the-Pharmacy-Hub-Space-_2023.md">Source markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

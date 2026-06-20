@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Difference in Persistence Between Tablets and Capsules | NASP 2023</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-summary strong,
+    .signal {
+      color: var(--ink);
+      font-weight: 900;
+    }
+    .form-hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 22rem;
+    }
+    .form-hero svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-top: 0.3rem;
+    }
+    .hero-finding {
+      margin: 0;
+      border-left: 4px solid var(--red);
+      padding-left: 0.7rem;
+      color: var(--ink);
+      font-size: 0.95rem;
+      font-weight: 850;
+      line-height: 1.38;
+    }
+    .metric-card strong {
+      color: var(--ink);
+      font-size: 1.7rem;
+    }
+    .metric-card strong em {
+      color: var(--red);
+      font-style: normal;
+    }
+    .metric-card p {
+      margin: 0.45rem 0 0;
+      color: var(--muted);
+      font-size: 0.77rem;
+      font-weight: 750;
+      line-height: 1.35;
+    }
+    .mirror-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-top: 0.75rem;
+    }
+    .cohort-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #ffffff, var(--surface-blue));
+      padding: 0.85rem;
+    }
+    .cohort-card h3 {
+      margin-bottom: 0.55rem;
+    }
+    .mix-row,
+    .adherence-row,
+    .or-row {
+      display: grid;
+      grid-template-columns: 7.2rem minmax(0, 1fr) 4rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .mix-row + .mix-row,
+    .adherence-row + .adherence-row,
+    .or-row + .or-row {
+      margin-top: 0.48rem;
+    }
+    .bar-shell {
+      height: 1rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: #e8eef7;
+      overflow: hidden;
+    }
+    .bar-shell i {
+      display: block;
+      width: var(--value);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .bar-shell i.tablet {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .bar-shell i.neutral {
+      background: linear-gradient(90deg, var(--ink), var(--purple));
+    }
+    .balance-note {
+      margin: 0.7rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+    .study-flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+    .flow-step {
+      position: relative;
+      min-height: 11.2rem;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #ffffff;
+      padding: 0.85rem;
+    }
+    .flow-step::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 0.32rem;
+      background: var(--accent, var(--red));
+    }
+    .flow-step::after {
+      content: attr(data-step);
+      position: absolute;
+      right: 0.45rem;
+      bottom: -0.62rem;
+      color: rgba(36, 55, 112, 0.09);
+      font-family: var(--font-display);
+      font-size: 4.7rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .flow-step:nth-child(2) { --accent: var(--gold); }
+    .flow-step:nth-child(3) { --accent: var(--teal); }
+    .flow-step:nth-child(4) { --accent: var(--green); }
+    .flow-step:nth-child(5) { --accent: var(--purple); }
+    .flow-step h3,
+    .flow-step p {
+      position: relative;
+      z-index: 1;
+    }
+    .flow-step p {
+      margin: 0.5rem 0 0;
+      font-size: 0.83rem;
+    }
+    .result-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 1rem;
+      align-items: start;
+    }
+    .adherence-board {
+      display: grid;
+      gap: 0.9rem;
+      margin-top: 0.7rem;
+    }
+    .adherence-block {
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.75rem;
+    }
+    .adherence-block h3 {
+      margin-bottom: 0.55rem;
+    }
+    .delta-chip {
+      display: inline-flex;
+      width: fit-content;
+      margin-top: 0.55rem;
+      border: 1px solid rgba(24, 124, 143, 0.28);
+      border-radius: 999px;
+      background: rgba(238, 244, 251, 0.8);
+      color: var(--teal);
+      padding: 0.18rem 0.5rem;
+      font-size: 0.7rem;
+      font-weight: 900;
+    }
+    .or-board {
+      margin-top: 0.7rem;
+    }
+    .or-track {
+      position: relative;
+      height: 1.1rem;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #e8eef7 0 48%, rgba(209, 38, 48, 0.18) 48% 52%, #e8eef7 52% 100%);
+      overflow: hidden;
+    }
+    .or-track i {
+      position: absolute;
+      left: var(--left);
+      width: var(--width);
+      height: 100%;
+      border-radius: inherit;
+      background: rgba(36, 55, 112, 0.7);
+    }
+    .or-track b {
+      position: absolute;
+      left: var(--point);
+      top: 50%;
+      width: 0.78rem;
+      height: 0.78rem;
+      border: 2px solid #ffffff;
+      border-radius: 50%;
+      background: var(--red);
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 0 1px rgba(36, 55, 112, 0.2);
+    }
+    .or-row span:last-child {
+      color: var(--muted);
+      font-size: 0.72rem;
+      text-align: right;
+    }
+    .table-card.featured {
+      background: linear-gradient(135deg, #ffffff, rgba(255, 247, 234, 0.86));
+    }
+    .table-wrap caption {
+      margin-bottom: 0.4rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 850;
+      text-align: left;
+    }
+    .conclusion-callout {
+      border: 2px solid var(--ink);
+      background:
+        radial-gradient(circle at 95% 20%, rgba(24, 124, 143, 0.12), transparent 10rem),
+        linear-gradient(90deg, rgba(209, 38, 48, 0.08), transparent 52%),
+        #ffffff;
+    }
+    .conclusion-callout p {
+      max-width: 68rem;
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.05rem, 1.7vw, 1.42rem);
+      font-weight: 850;
+      line-height: 1.35;
+    }
+    .source-note {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    @media (max-width: 900px) {
+      .mirror-grid,
+      .result-grid {
+        grid-template-columns: 1fr;
+      }
+      .study-flow {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 560px) {
+      .study-flow,
+      .mix-row,
+      .adherence-row,
+      .or-row {
+        grid-template-columns: 1fr;
+      }
+      .or-row span:last-child {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">NASP Posters</a>
+      <nav aria-label="Poster source links">
+        <a href="#methods">Methods</a>
+        <a href="#results">Results</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/67_Difference-in-persistence-between-tablets-and-capsules_2023.pdf">PDF Source</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/67_Difference-in-persistence-between-tablets-and-capsules_2023.md">Markdown Source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">2023 NASP Annual Meeting | Poster 67</p>
+        <h1>Tablet and capsule forms showed near-identical persistence in two oral oncology cohorts.</h1>
+        <p class="hero-summary">
+          CVS Specialty researchers compared prescription-based proportion of days covered (PDC) and adherence
+          for <strong>enzalutamide</strong> and <strong>palbociclib</strong> after manufacturers introduced tablet and capsule options.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag therapy">Oral oncology</li>
+          <li class="tag category">Dosage form comparison</li>
+          <li class="tag">PDC adherence</li>
+          <li class="tag">Retrospective cohort</li>
+          <li class="tag">Caremark members</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card form-hero" aria-label="Poster details and visual summary">
+        <div class="poster-code">67</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Index fills</dt>
+            <dd>Mar 1, 2021 to Mar 1, 2022</dd>
+          </div>
+          <div>
+            <dt>Follow-up</dt>
+            <dd>12 months post-index</dd>
+          </div>
+          <div>
+            <dt>Pre-index eligibility</dt>
+            <dd>6 continuous months</dd>
+          </div>
+          <div>
+            <dt>Adherence definition</dt>
+            <dd>PDC by prescription fills</dd>
+          </div>
+        </dl>
+        <svg viewBox="0 0 420 245" role="img" aria-labelledby="hero-art-title hero-art-desc">
+          <title id="hero-art-title">Tablet and capsule adherence comparison</title>
+          <desc id="hero-art-desc">Two dosage forms converge on similar PDC and adherence results for enzalutamide and palbociclib.</desc>
+          <defs>
+            <linearGradient id="capsuleGrad" x1="0" x2="1">
+              <stop offset="0" stop-color="#d12630"/>
+              <stop offset="1" stop-color="#e99e25"/>
+            </linearGradient>
+            <linearGradient id="tabletGrad" x1="0" x2="1">
+              <stop offset="0" stop-color="#187c8f"/>
+              <stop offset="1" stop-color="#4d8a67"/>
+            </linearGradient>
+            <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#243770" flood-opacity=".16"/>
+            </filter>
+          </defs>
+          <rect x="20" y="24" width="380" height="184" rx="22" fill="#ffffff" stroke="#aebbd2"/>
+          <path d="M64 170 C112 92 172 82 211 124 C253 170 310 163 360 76" fill="none" stroke="#d9e1ef" stroke-width="18" stroke-linecap="round"/>
+          <path d="M64 170 C112 92 172 82 211 124 C253 170 310 163 360 76" fill="none" stroke="url(#tabletGrad)" stroke-width="7" stroke-linecap="round" stroke-dasharray="5 16"/>
+          <g filter="url(#softShadow)">
+            <rect x="62" y="76" width="118" height="44" rx="22" fill="url(#capsuleGrad)" transform="rotate(-18 121 98)"/>
+            <path d="M119 59 L132 102" stroke="#ffffff" stroke-width="3" opacity=".72"/>
+            <circle cx="276" cy="113" r="35" fill="url(#tabletGrad)"/>
+            <circle cx="276" cy="113" r="20" fill="none" stroke="#ffffff" stroke-width="4" opacity=".75"/>
+            <rect x="236" y="151" width="112" height="42" rx="21" fill="#fff7ea" stroke="#243770" stroke-width="3" transform="rotate(9 292 172)"/>
+            <path d="M292 151 L286 193" stroke="#243770" stroke-width="3" opacity=".45"/>
+          </g>
+          <g font-family="Montserrat, Arial, sans-serif" font-weight="900" text-anchor="middle">
+            <text x="122" y="156" fill="#243770" font-size="25">94%-95%</text>
+            <text x="122" y="176" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800">adherent in both forms</text>
+            <text x="292" y="62" fill="#243770" font-size="26">~0.96</text>
+            <text x="292" y="82" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800">mean PDC in both drugs</text>
+          </g>
+        </svg>
+        <p class="hero-finding">Adjusted analyses found no adherence difference between tablet and capsule dosage forms.</p>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key poster numbers">
+        <article class="metric-card">
+          <span>Enzalutamide cohort</span>
+          <strong><em>5,997</em></strong>
+          <p>80.0% capsules and 20.0% tablets.</p>
+        </article>
+        <article class="metric-card">
+          <span>Palbociclib cohort</span>
+          <strong><em>5,361</em></strong>
+          <p>16.5% capsules and 83.5% tablets.</p>
+        </article>
+        <article class="metric-card">
+          <span>Mean PDC range</span>
+          <strong>0.960-0.964</strong>
+          <p>Capsule and tablet means clustered tightly in both cohorts.</p>
+        </article>
+        <article class="metric-card">
+          <span>Adherent share</span>
+          <strong>94.2%-95.2%</strong>
+          <p>No significant tablet-capsule difference in either drug.</p>
+        </article>
+      </section>
+
+      <section class="visual-grid" aria-label="Dosage form mix and objective">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Test whether formulation choice changes persistence</h2>
+          <p>
+            Because capsule and tablet products are expected to be bioequivalent, the study asked whether members
+            prescribed different dosage forms had similar adherence after accounting for observable confounders.
+          </p>
+          <div class="mirror-grid" aria-label="Capsule and tablet mix">
+            <div class="cohort-card">
+              <h3>Enzalutamide mix</h3>
+              <div class="mix-row">
+                <span>Capsules</span>
+                <div class="bar-shell"><i style="--value: 80%;"></i></div>
+                <span>80.0%</span>
+              </div>
+              <div class="mix-row">
+                <span>Tablets</span>
+                <div class="bar-shell"><i class="tablet" style="--value: 20%;"></i></div>
+                <span>20.0%</span>
+              </div>
+            </div>
+            <div class="cohort-card">
+              <h3>Palbociclib mix</h3>
+              <div class="mix-row">
+                <span>Capsules</span>
+                <div class="bar-shell"><i style="--value: 16.5%;"></i></div>
+                <span>16.5%</span>
+              </div>
+              <div class="mix-row">
+                <span>Tablets</span>
+                <div class="bar-shell"><i class="tablet" style="--value: 83.5%;"></i></div>
+                <span>83.5%</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Table pattern</p>
+          <h2>One cohort was balanced; the other needed more adjustment</h2>
+          <div class="number-cloud">
+            <div class="number-pill">p &gt; 0.05<small>Enzalutamide insurance/region</small></div>
+            <div class="number-pill">p &lt; 0.05<small>Palbociclib demographics</small></div>
+            <div class="number-pill">100%<small>Male, enzalutamide</small></div>
+            <div class="number-pill">100%<small>Female, palbociclib</small></div>
+          </div>
+          <p class="balance-note">
+            Enzalutamide tablet and capsule groups had no insurance type or regional differences. Palbociclib groups
+            differed by age, gender, insurance type, and region, making the regression adjustment especially important.
+          </p>
+        </article>
+      </section>
+
+      <section id="methods" class="panel">
+        <p class="section-label">Methods</p>
+        <h2>Retrospective cohort logic</h2>
+        <div class="study-flow" aria-label="Study methods flow">
+          <article class="flow-step" data-step="01">
+            <h3>Identify</h3>
+            <p>Adult Caremark members with enzalutamide or palbociclib fills from Mar 1, 2021 through Mar 1, 2022.</p>
+          </article>
+          <article class="flow-step" data-step="02">
+            <h3>Require coverage</h3>
+            <p>Members needed 6 months continuous eligibility before index and 12 months after index.</p>
+          </article>
+          <article class="flow-step" data-step="03">
+            <h3>Exclude switches</h3>
+            <p>Members were removed for a gap greater than 60 days or switching from capsule to tablet, or vice versa.</p>
+          </article>
+          <article class="flow-step" data-step="04">
+            <h3>Measure PDC</h3>
+            <p>PDC was days with medication on hand divided by days between index fill and exhaust of last fill.</p>
+          </article>
+          <article class="flow-step" data-step="05">
+            <h3>Compare</h3>
+            <p>t-tests, Mann-U tests, chi-square tests, and logistic regression evaluated dosage-form differences.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="results" class="result-grid" aria-label="Results summary">
+        <article class="panel">
+          <p class="section-label">Results</p>
+          <h2>Adherence rates moved in lockstep</h2>
+          <div class="adherence-board">
+            <div class="adherence-block">
+              <h3>Enzalutamide: capsules vs tablets</h3>
+              <div class="adherence-row">
+                <span>Mean PDC</span>
+                <div class="bar-shell"><i class="neutral" style="--value: 96.3%;"></i></div>
+                <span>0.963</span>
+              </div>
+              <div class="adherence-row">
+                <span>Mean PDC</span>
+                <div class="bar-shell"><i class="tablet" style="--value: 96.4%;"></i></div>
+                <span>0.964</span>
+              </div>
+              <div class="adherence-row">
+                <span>Adherent</span>
+                <div class="bar-shell"><i style="--value: 94.2%;"></i></div>
+                <span>94.2%</span>
+              </div>
+              <div class="adherence-row">
+                <span>Adherent</span>
+                <div class="bar-shell"><i class="tablet" style="--value: 95.2%;"></i></div>
+                <span>95.2%</span>
+              </div>
+              <span class="delta-chip">PDC p = 0.521 | adherence p = 0.215</span>
+            </div>
+            <div class="adherence-block">
+              <h3>Palbociclib: capsules vs tablets</h3>
+              <div class="adherence-row">
+                <span>Mean PDC</span>
+                <div class="bar-shell"><i class="neutral" style="--value: 96.2%;"></i></div>
+                <span>0.962</span>
+              </div>
+              <div class="adherence-row">
+                <span>Mean PDC</span>
+                <div class="bar-shell"><i class="tablet" style="--value: 96.0%;"></i></div>
+                <span>0.960</span>
+              </div>
+              <div class="adherence-row">
+                <span>Adherent</span>
+                <div class="bar-shell"><i style="--value: 94.9%;"></i></div>
+                <span>94.9%</span>
+              </div>
+              <div class="adherence-row">
+                <span>Adherent</span>
+                <div class="bar-shell"><i class="tablet" style="--value: 94.9%;"></i></div>
+                <span>94.9%</span>
+              </div>
+              <span class="delta-chip">PDC p = 0.534 | adherence p = 1.0</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Adjusted signal</p>
+          <h2>Tablet odds ratios crossed null</h2>
+          <div class="or-board" aria-label="Logistic regression tablet odds ratios">
+            <div class="or-row">
+              <span>Enzalutamide tablets</span>
+              <div class="or-track">
+                <i style="--left: 39%; --width: 18%;"></i>
+                <b style="--point: 53%;"></b>
+              </div>
+              <span>OR 1.24<br>0.93-1.66</span>
+            </div>
+            <div class="or-row">
+              <span>Palbociclib tablets</span>
+              <div class="or-track">
+                <i style="--left: 32%; --width: 29%;"></i>
+                <b style="--point: 49%;"></b>
+              </div>
+              <span>OR 0.98<br>0.70-1.36</span>
+            </div>
+          </div>
+          <p class="balance-note">
+            The notable non-formulation signal was age in the enzalutamide model: members younger than 65 had lower
+            odds of adherence than those aged 65-74 (OR 0.50; 95% CI, 0.35-0.71).
+          </p>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Compact table extraction">
+        <article class="table-card featured">
+          <h2>Adherence table distilled</h2>
+          <div class="table-wrap">
+            <table>
+              <caption>Capsule-to-tablet comparisons from the poster tables.</caption>
+              <thead>
+                <tr>
+                  <th>Drug</th>
+                  <th>Capsule PDC</th>
+                  <th>Tablet PDC</th>
+                  <th>Capsule adherent</th>
+                  <th>Tablet adherent</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Enzalutamide</td>
+                  <td>0.963</td>
+                  <td>0.964</td>
+                  <td>94.2%</td>
+                  <td>95.2%</td>
+                </tr>
+                <tr>
+                  <td>Palbociclib</td>
+                  <td>0.962</td>
+                  <td>0.960</td>
+                  <td>94.9%</td>
+                  <td>94.9%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <h2>Demographic contrast</h2>
+          <div class="table-wrap">
+            <table>
+              <caption>Patterns that shaped the interpretation.</caption>
+              <thead>
+                <tr>
+                  <th>Cohort</th>
+                  <th>Mean age</th>
+                  <th>Dominant payer</th>
+                  <th>Regional balance</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Enzalutamide</td>
+                  <td>74.7 overall</td>
+                  <td>Medicare 68.2%</td>
+                  <td>No significant regional difference</td>
+                </tr>
+                <tr>
+                  <td>Palbociclib</td>
+                  <td>66.1 overall</td>
+                  <td>Medicare 52.5%</td>
+                  <td>Significant regional differences</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel conclusion-callout">
+        <p>
+          Conclusion: capsule and tablet forms of enzalutamide and palbociclib had similar adherence rates after
+          adjustment, supporting dosage-form choice without evidence of reduced persistence in these cohorts.
+        </p>
+      </section>
+
+      <footer id="sources" class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/67_Difference-in-persistence-between-tablets-and-capsules_2023.pdf">Open poster PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/67_Difference-in-persistence-between-tablets-and-capsules_2023.md">Open source markdown</a>
+        <p class="source-note">
+          Source: Shehla Zaidi et al. Presented at the 2023 National Association of Specialty Pharmacies Annual Meeting,
+          September 19-21, 2023, Grapevine, TX.
+        </p>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

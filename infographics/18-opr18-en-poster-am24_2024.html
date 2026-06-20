@@ -1,0 +1,764 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2024 Infographic | SDOH Screening and Closed-Loop Referral</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .sdoh-hero-art {
+      position: relative;
+      min-height: 21rem;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 78% 18%, rgba(233, 158, 37, 0.28), transparent 8rem),
+        linear-gradient(145deg, rgba(36, 55, 112, 0.98), rgba(24, 124, 143, 0.94));
+      color: #fff;
+      padding: 1rem;
+    }
+
+    .sdoh-hero-art svg {
+      position: absolute;
+      inset: auto -1rem -1.4rem auto;
+      width: min(25rem, 82%);
+      height: auto;
+      opacity: 0.92;
+    }
+
+    .sdoh-hero-art .kicker {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .sdoh-hero-art strong {
+      display: block;
+      max-width: 14rem;
+      margin-top: 0.28rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(2.35rem, 5vw, 4.6rem);
+      line-height: 0.92;
+    }
+
+    .sdoh-hero-art span {
+      display: block;
+      max-width: 16.5rem;
+      margin-top: 0.65rem;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.92rem;
+    }
+
+    .hero-card .button-link {
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    .care-funnel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 16rem;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .funnel-list {
+      display: grid;
+      gap: 0.65rem;
+      margin-top: 0.65rem;
+    }
+
+    .funnel-row {
+      display: grid;
+      grid-template-columns: 8.5rem minmax(0, 1fr) 4.2rem;
+      gap: 0.65rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 850;
+    }
+
+    .funnel-track {
+      height: 1.15rem;
+      overflow: hidden;
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 999px;
+      background: #edf2f8;
+    }
+
+    .funnel-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .funnel-row:nth-child(2) .funnel-track i {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .funnel-row:nth-child(3) .funnel-track i {
+      background: linear-gradient(90deg, var(--purple), var(--teal));
+    }
+
+    .funnel-row em {
+      color: var(--ink);
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .callout-dial {
+      display: grid;
+      place-items: center;
+      min-height: 13rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at center, #fff 0 48%, transparent 49%),
+        conic-gradient(var(--teal) 0 79%, rgba(174, 187, 210, 0.5) 79% 100%);
+      text-align: center;
+    }
+
+    .callout-dial strong {
+      display: block;
+      color: var(--teal);
+      font-family: var(--font-display);
+      font-size: 3.5rem;
+      line-height: 0.95;
+    }
+
+    .callout-dial span {
+      display: block;
+      max-width: 8rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .loop-flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.75rem;
+    }
+
+    .loop-step {
+      position: relative;
+      min-height: 9.8rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.82rem;
+    }
+
+    .loop-step::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -0.52rem;
+      width: 0.76rem;
+      height: 0.76rem;
+      border-top: 2px solid var(--border-strong);
+      border-right: 2px solid var(--border-strong);
+      background: #fff;
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    .loop-step:last-child::after { display: none; }
+
+    .loop-step b {
+      display: inline-grid;
+      place-items: center;
+      width: 1.7rem;
+      height: 1.7rem;
+      border-radius: 50%;
+      background: var(--step-color, var(--red));
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+    }
+
+    .loop-step:nth-child(2) { --step-color: var(--gold); }
+    .loop-step:nth-child(3) { --step-color: var(--teal); }
+    .loop-step:nth-child(4) { --step-color: var(--green); }
+    .loop-step:nth-child(5) { --step-color: var(--purple); }
+
+    .loop-step h3 {
+      margin-top: 0.5rem;
+      font-size: 0.92rem;
+    }
+
+    .loop-step p {
+      margin: 0.35rem 0 0;
+      font-size: 0.78rem;
+    }
+
+    .intervention-board {
+      display: grid;
+      grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
+      gap: 1rem;
+    }
+
+    .rank-bars {
+      display: grid;
+      gap: 0.72rem;
+      margin-top: 0.7rem;
+    }
+
+    .rank-row {
+      display: grid;
+      grid-template-columns: 8.4rem minmax(0, 1fr) 3.8rem;
+      gap: 0.6rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 850;
+    }
+
+    .rank-track {
+      height: 1rem;
+      overflow: hidden;
+      border-radius: 999px;
+      background: var(--surface-blue);
+    }
+
+    .rank-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--bar-color, var(--red));
+    }
+
+    .rank-row:nth-child(2) { --bar-color: var(--gold); }
+    .rank-row:nth-child(3) { --bar-color: var(--teal); }
+    .rank-row:nth-child(4) { --bar-color: var(--green); }
+
+    .rank-row em {
+      color: var(--ink);
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .support-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.75rem;
+    }
+
+    .support-tile {
+      min-height: 7.6rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface-blue);
+      padding: 0.72rem;
+    }
+
+    .support-tile strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      line-height: 0.95;
+    }
+
+    .support-tile:nth-child(2) strong { color: var(--teal); }
+    .support-tile:nth-child(3) strong { color: var(--purple); }
+
+    .support-tile span {
+      display: block;
+      margin-top: 0.42rem;
+      color: var(--ink);
+      font-size: 0.76rem;
+      font-weight: 850;
+    }
+
+    .cohort-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.65rem;
+    }
+
+    .cohort-card {
+      border: 1px solid rgba(174, 187, 210, 0.8);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.7rem;
+    }
+
+    .cohort-card strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.85rem;
+      line-height: 0.95;
+    }
+
+    .cohort-card span {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .insight-strip {
+      display: grid;
+      grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+      gap: 0.8rem;
+    }
+
+    .quote-panel {
+      display: grid;
+      align-content: center;
+      min-height: 13rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 86% 18%, rgba(233, 158, 37, 0.18), transparent 7rem),
+        var(--ink);
+      color: #fff;
+      padding: 1rem;
+    }
+
+    .quote-panel p {
+      margin: 0.35rem 0 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 1rem;
+    }
+
+    .quote-panel strong {
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+      line-height: 1.08;
+    }
+
+    .plain-list {
+      margin: 0.5rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .plain-list li {
+      display: grid;
+      grid-template-columns: 0.72rem minmax(0, 1fr);
+      gap: 0.45rem;
+      margin-top: 0.42rem;
+      font-size: 0.88rem;
+    }
+
+    .plain-list li::before {
+      content: "";
+      width: 0.52rem;
+      height: 0.52rem;
+      margin-top: 0.44rem;
+      border-radius: 50%;
+      background: var(--red);
+    }
+
+    .mini-table td:first-child {
+      color: var(--ink);
+      font-weight: 850;
+    }
+
+    .source-note {
+      margin: 0.7rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 900px) {
+      .care-funnel,
+      .intervention-board,
+      .insight-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .loop-flow {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .loop-step::after { display: none; }
+    }
+
+    @media (max-width: 560px) {
+      .funnel-row,
+      .rank-row {
+        grid-template-columns: 1fr;
+      }
+
+      .funnel-row em,
+      .rank-row em {
+        text-align: left;
+      }
+
+      .loop-flow,
+      .support-grid,
+      .cohort-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">NASP Posters</a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/18-OPR18-EN-Poster-AM24_2024.pdf">Poster PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/18-OPR18-EN-Poster-AM24_2024.md">Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP Annual Meeting 2024 | 18-OPR18-EN-Poster-AM24</p>
+        <h1>Evaluation of a Social Determinants of Health Screening and Intervention Framework within an Integrated Health System Specialty Pharmacy Care Model</h1>
+        <p class="hero-summary">A four-health-system pilot tested a standardized SDOH screening, pharmacist action planning, resource referral, and follow-up process for specialty pharmacy patients not meeting HIV, rheumatoid arthritis, or hyperlipidemia outcomes.</p>
+        <ul class="tag-row" aria-label="Poster focus tags">
+          <li class="tag category">SDOH screening</li>
+          <li class="tag therapy">HIV</li>
+          <li class="tag therapy">Rheumatoid arthritis</li>
+          <li class="tag therapy">Hyperlipidemia</li>
+          <li class="tag">Closed-loop referral</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div class="poster-code">SDOH<br>loop</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Year</dt>
+            <dd>2024</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>4 health systems</dd>
+          </div>
+          <div>
+            <dt>Population</dt>
+            <dd>50 enrolled</dd>
+          </div>
+          <div>
+            <dt>Sponsor logo</dt>
+            <dd>Shields Health Solutions</dd>
+          </div>
+        </dl>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/18-OPR18-EN-Poster-AM24_2024.pdf">Open original poster</a>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key study metrics">
+        <article class="metric-card">
+          <span>Enrolled patients</span>
+          <strong>50</strong>
+        </article>
+        <article class="metric-card">
+          <span>Completed screening</span>
+          <strong>56%</strong>
+        </article>
+        <article class="metric-card">
+          <span>Accepted recommendations</span>
+          <strong>79%</strong>
+        </article>
+        <article class="metric-card">
+          <span>Benefited at follow-up</span>
+          <strong>67%</strong>
+        </article>
+      </section>
+
+      <section class="visual-grid">
+        <article class="sdoh-hero-art" aria-label="Closed-loop referral illustration">
+          <p class="kicker">Core idea</p>
+          <strong>Screen, refer, follow up.</strong>
+          <span>Pharmacists used a structured care loop to identify social barriers and connect patients with tailored resources.</span>
+          <svg viewBox="0 0 420 300" role="img" aria-label="Circular closed-loop workflow connecting screening, action plan, resource guide, and follow-up">
+            <defs>
+              <linearGradient id="loopGradient" x1="0" x2="1">
+                <stop offset="0" stop-color="#d12630"/>
+                <stop offset="1" stop-color="#e99e25"/>
+              </linearGradient>
+            </defs>
+            <path d="M94 168c0-66 54-120 120-120 40 0 75 20 97 51" fill="none" stroke="rgba(255,255,255,.42)" stroke-width="18" stroke-linecap="round"/>
+            <path d="M323 132c7 64-43 120-107 120-42 0-79-22-100-56" fill="none" stroke="url(#loopGradient)" stroke-width="18" stroke-linecap="round"/>
+            <path d="M304 85l25 48-54-5" fill="rgba(255,255,255,.85)"/>
+            <path d="M121 215l-30-45 55 0" fill="#e99e25"/>
+            <circle cx="214" cy="151" r="58" fill="rgba(255,255,255,.96)"/>
+            <path d="M190 151h48M214 127v48" stroke="#243770" stroke-width="12" stroke-linecap="round"/>
+            <g fill="rgba(255,255,255,.92)">
+              <rect x="35" y="70" width="98" height="42" rx="8"/>
+              <rect x="286" y="52" width="96" height="42" rx="8"/>
+              <rect x="290" y="205" width="98" height="42" rx="8"/>
+              <rect x="44" y="221" width="106" height="42" rx="8"/>
+            </g>
+            <g fill="#243770" font-family="Arial, sans-serif" font-size="13" font-weight="700">
+              <text x="58" y="96">Screen</text>
+              <text x="304" y="78">Plan</text>
+              <text x="309" y="231">Refer</text>
+              <text x="62" y="247">Follow up</text>
+            </g>
+          </svg>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Screening outcomes</p>
+          <h2>Acceptance held high after a selective screen</h2>
+          <div class="care-funnel">
+            <div>
+              <div class="funnel-list">
+                <div class="funnel-row">
+                  <span>Screened</span>
+                  <div class="funnel-track" aria-hidden="true"><i style="width:56%"></i></div>
+                  <em>28 / 50</em>
+                </div>
+                <div class="funnel-row">
+                  <span>Accepted</span>
+                  <div class="funnel-track" aria-hidden="true"><i style="width:79%"></i></div>
+                  <em>22 / 28</em>
+                </div>
+                <div class="funnel-row">
+                  <span>Helpful</span>
+                  <div class="funnel-track" aria-hidden="true"><i style="width:67%"></i></div>
+                  <em>10 / 15</em>
+                </div>
+              </div>
+              <p class="source-note">Follow-up assessments were completed for 15 of 22 patients who accepted recommendations.</p>
+            </div>
+            <div class="callout-dial" aria-label="79 percent accepted pharmacist recommendations">
+              <div>
+                <strong>79%</strong>
+                <span>accepted pharmacist recommendations</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Methods as workflow</p>
+        <h2>The framework moved from standardized questions to action and reassessment</h2>
+        <div class="loop-flow">
+          <article class="loop-step">
+            <b>1</b>
+            <h3>Identify eligible patients</h3>
+            <p>Patients were selected when disease markers suggested unmet clinical goals in HIV, RA, or hyperlipidemia.</p>
+          </article>
+          <article class="loop-step">
+            <b>2</b>
+            <h3>Ask standardized SDOH questions</h3>
+            <p>Screening questions were based on the CMS Accountable Health Communities Screening Tool.</p>
+          </article>
+          <article class="loop-step">
+            <b>3</b>
+            <h3>Create a personalized action plan</h3>
+            <p>Pharmacists matched identified barriers with targeted mitigation steps for each patient.</p>
+          </article>
+          <article class="loop-step">
+            <b>4</b>
+            <h3>Use a resource guide</h3>
+            <p>Community and social service connections supported food, transportation, financial, and activity barriers.</p>
+          </article>
+          <article class="loop-step">
+            <b>5</b>
+            <h3>Close the loop</h3>
+            <p>Follow-up assessments occurred one to two months after screening to check progress and new needs.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="intervention-board">
+        <article class="panel">
+          <p class="section-label">Most impactful interventions</p>
+          <h2>Food security dominated the support mix</h2>
+          <div class="rank-bars">
+            <div class="rank-row">
+              <span>Food security</span>
+              <div class="rank-track" aria-hidden="true"><i style="width:61%"></i></div>
+              <em>61%</em>
+            </div>
+            <div class="rank-row">
+              <span>Transportation</span>
+              <div class="rank-track" aria-hidden="true"><i style="width:15.5%"></i></div>
+              <em>15.5%</em>
+            </div>
+            <div class="rank-row">
+              <span>Financial strain</span>
+              <div class="rank-track" aria-hidden="true"><i style="width:15.5%"></i></div>
+              <em>15.5%</em>
+            </div>
+            <div class="rank-row">
+              <span>Physical activity</span>
+              <div class="rank-track" aria-hidden="true"><i style="width:8%"></i></div>
+              <em>8%</em>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Follow-up support</p>
+          <h2>Most completed intervention goals, but ongoing need remained visible</h2>
+          <div class="support-grid">
+            <div class="support-tile">
+              <strong>70%</strong>
+              <span>completed the intervention without ongoing support</span>
+            </div>
+            <div class="support-tile">
+              <strong>30%</strong>
+              <span>required additional assistance at follow-up</span>
+            </div>
+            <div class="support-tile">
+              <strong>5%</strong>
+              <span>had a new barrier identified during follow-up</span>
+            </div>
+          </div>
+          <p class="source-note">Average pharmacist time was 60 minutes per intervention, with a 15 to 180 minute range.</p>
+        </article>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">Eligible clinical cohorts</p>
+          <h2>Patients entered the pilot through three unmet-outcome signals</h2>
+          <div class="cohort-grid">
+            <div class="cohort-card">
+              <strong>6</strong>
+              <span>HIV patients</span>
+            </div>
+            <div class="cohort-card">
+              <strong>27</strong>
+              <span>RA patients</span>
+            </div>
+            <div class="cohort-card">
+              <strong>17</strong>
+              <span>Hyperlipidemia patients</span>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table class="mini-table">
+              <thead>
+                <tr>
+                  <th>Condition</th>
+                  <th>Inclusion signal</th>
+                  <th>Baseline mean</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>HIV</td>
+                  <td>Viral load &gt; 200 copies/mL</td>
+                  <td>218,810 copies/mL</td>
+                </tr>
+                <tr>
+                  <td>Rheumatoid arthritis</td>
+                  <td>RAPID3 score indicating high disease activity</td>
+                  <td>17.3</td>
+                </tr>
+                <tr>
+                  <td>Hyperlipidemia</td>
+                  <td>LDL &gt; 100 mg/dL</td>
+                  <td>114.4 mg/dL</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Patient profile pattern</p>
+          <h2>Demographics show a predominantly female, older, insured specialty cohort</h2>
+          <div class="number-cloud" aria-label="Selected demographic and clinical characteristics">
+            <div class="number-pill">56<small>mean age</small></div>
+            <div class="number-pill">72%<small>female</small></div>
+            <div class="number-pill">70%<small>White/Caucasian</small></div>
+            <div class="number-pill">52%<small>Michigan</small></div>
+            <div class="number-pill">40%<small>Medicare</small></div>
+            <div class="number-pill">42%<small>BMI 30+</small></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="insight-strip">
+        <article class="quote-panel">
+          <p class="section-label">Conclusion signal</p>
+          <strong>Specialty pharmacists can convert social risk screening into actionable support.</strong>
+          <p>The pilot linked tailored education, facilitated community connections, and follow-up to barriers that can affect medication use and outcomes.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">What the poster adds</p>
+          <h2>A practical model for HSSP-based SDOH intervention</h2>
+          <ul class="plain-list">
+            <li>Acceptance of pharmacist recommendations was high among screened patients, supporting feasibility of pharmacist-led SDOH intervention.</li>
+            <li>Food security and nutrition needs were the largest intervention category, followed by transportation and financial strain.</li>
+            <li>Follow-up remained important because nearly one-third needed additional assistance and one patient had a new barrier identified.</li>
+            <li>The authors call for future research on clinical outcomes, satisfaction, adherence, and absenteeism.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="tables-grid">
+        <article class="table-card">
+          <p class="section-label">Insurance mix</p>
+          <h2>Coverage distribution</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Insurance type</th>
+                  <th>Patients, n (%)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Commercial</td><td>10 (20)</td></tr>
+                <tr><td>Medicare</td><td>20 (40)</td></tr>
+                <tr><td>Medicaid</td><td>14 (28)</td></tr>
+                <tr><td>Other</td><td>6 (12)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Comorbidity pattern</p>
+          <h2>Common conditions</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Comorbidity</th>
+                  <th>Patients, n (%)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Hypertension</td><td>19 (38)</td></tr>
+                <tr><td>Hyperlipidemia</td><td>14 (28)</td></tr>
+                <tr><td>Heart disease</td><td>9 (18)</td></tr>
+                <tr><td>Diabetes</td><td>6 (12)</td></tr>
+                <tr><td>Pulmonary disease</td><td>6 (12)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <footer class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/18-OPR18-EN-Poster-AM24_2024.pdf">Source PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/18-OPR18-EN-Poster-AM24_2024.md">Source markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

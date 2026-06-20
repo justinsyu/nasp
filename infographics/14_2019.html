@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hepatitis C Therapy Outcomes Supported by Technology | NASP 2019</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .platform-visual {
+      display: grid;
+      grid-template-columns: 9rem minmax(0, 1fr);
+      gap: 0.9rem;
+      align-items: center;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(24, 124, 143, 0.1), rgba(233, 158, 37, 0.12)),
+        #fff;
+      padding: 0.85rem;
+    }
+    .platform-icon {
+      display: grid;
+      place-items: center;
+      width: 8.2rem;
+      aspect-ratio: 1;
+      border: 2px solid rgba(24, 124, 143, 0.26);
+      border-radius: 50%;
+      background: #fff;
+    }
+    .platform-icon svg {
+      width: 6.4rem;
+      height: 6.4rem;
+    }
+    .platform-visual p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+    .cure-card {
+      position: relative;
+      min-height: 18rem;
+      overflow: hidden;
+    }
+    .cure-card::after {
+      content: "";
+      position: absolute;
+      right: -5rem;
+      bottom: -5rem;
+      width: 14rem;
+      aspect-ratio: 1;
+      border: 2rem solid rgba(24, 124, 143, 0.08);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .cure-gauge {
+      display: grid;
+      place-items: center;
+      width: min(13rem, 80vw);
+      aspect-ratio: 1;
+      margin: 0.75rem auto 0;
+      border-radius: 50%;
+      background:
+        conic-gradient(var(--green) 0 98%, rgba(209, 38, 48, 0.28) 98% 100%);
+      box-shadow: inset 0 0 0 1px rgba(36, 55, 112, 0.18);
+    }
+    .cure-gauge span {
+      display: grid;
+      place-items: center;
+      width: 72%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: #fff;
+      color: var(--green);
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 900;
+      line-height: 1;
+      text-align: center;
+    }
+    .cure-gauge small {
+      display: block;
+      margin-top: 0.2rem;
+      color: var(--muted);
+      font-family: var(--font-body);
+      font-size: 0.62rem;
+      font-weight: 900;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+    .flow-board {
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 0.85rem;
+    }
+    .flow-step {
+      display: grid;
+      grid-template-columns: 5.6rem minmax(0, 1fr);
+      gap: 0.7rem;
+      align-items: center;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-left: 0.45rem solid var(--step-color, var(--red));
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.58rem 0.65rem;
+    }
+    .flow-step strong {
+      color: var(--step-color, var(--red));
+      font-family: var(--font-display);
+      font-size: 1.65rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .flow-step span {
+      color: var(--ink);
+      font-size: 0.84rem;
+      font-weight: 820;
+    }
+    .flow-step small {
+      display: block;
+      margin-top: 0.08rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+    .flow-step:nth-child(2) { --step-color: var(--gold); }
+    .flow-step:nth-child(3) { --step-color: var(--teal); }
+    .flow-step:nth-child(4) { --step-color: var(--green); }
+    .flow-step:nth-child(5) { --step-color: var(--purple); }
+    .outcome-stack {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.85rem;
+    }
+    .outcome-tile {
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 7px;
+      background: var(--surface-blue);
+      padding: 0.7rem;
+    }
+    .outcome-tile strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      line-height: 1;
+    }
+    .outcome-tile span {
+      display: block;
+      margin-top: 0.22rem;
+      color: var(--body);
+      font-size: 0.76rem;
+      font-weight: 790;
+    }
+    .mini-bars {
+      display: grid;
+      gap: 0.62rem;
+      margin-top: 0.75rem;
+    }
+    .mini-bar {
+      display: grid;
+      grid-template-columns: minmax(7.4rem, 0.8fr) minmax(0, 1fr) 4.2rem;
+      gap: 0.55rem;
+      align-items: center;
+    }
+    .mini-bar .label {
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .track {
+      height: 0.95rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .fill {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .fill.relapse {
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .mini-bar .value {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 900;
+      text-align: right;
+    }
+    .matrix {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+    .intervention-list {
+      display: grid;
+      gap: 0.45rem;
+      margin: 0.75rem 0 0;
+    }
+    .intervention-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 3rem;
+      gap: 0.6rem;
+      align-items: center;
+      border-bottom: 1px solid rgba(36, 55, 112, 0.12);
+      padding-bottom: 0.42rem;
+    }
+    .intervention-row span {
+      color: var(--body);
+      font-size: 0.82rem;
+      font-weight: 760;
+    }
+    .intervention-row strong {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 900;
+      text-align: right;
+    }
+    .takeaway {
+      border-left: 5px solid var(--red);
+      background:
+        linear-gradient(90deg, rgba(209, 38, 48, 0.08), rgba(255, 255, 255, 0)),
+        #fff;
+    }
+    .source-note {
+      margin: 0.58rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    @media (max-width: 760px) {
+      .platform-visual,
+      .flow-step,
+      .mini-bar,
+      .matrix,
+      .outcome-stack {
+        grid-template-columns: 1fr;
+      }
+      .platform-icon {
+        width: 6.8rem;
+      }
+      .mini-bar .value {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar" aria-label="Infographic navigation">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav>
+        <a href="#cohort">Cohort</a>
+        <a href="#results">Results</a>
+        <a href="#interventions">Interventions</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/14_2019.pdf">PDF source</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/14_2019.md">Markdown source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2019 Annual Meeting &amp; Expo</p>
+        <h1>Coupling Patient Care Operations with Technology to Optimize Hepatitis C Outcomes</h1>
+        <p class="hero-summary">University of Alabama Specialty Pharmacy paired standardized HCV patient management with TherigySTM documentation to measure therapy completion, SVR12 capture, and cure outcomes across a 2018 patient cohort.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Observational cohort</li>
+          <li class="tag therapy">Hepatitis C</li>
+          <li class="tag therapy">SVR12</li>
+          <li class="tag">Specialty pharmacy</li>
+          <li class="tag">Technology platform</li>
+        </ul>
+      </div>
+      <aside class="hero-card">
+        <div>
+          <p class="section-label">Poster file</p>
+          <div class="poster-code">14_2019</div>
+        </div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Data window</dt>
+            <dd>Jan 1-Sep 30, 2018</dd>
+          </div>
+          <div>
+            <dt>Managed cohort</dt>
+            <dd>209 HCV patients</dd>
+          </div>
+          <div>
+            <dt>Primary measure</dt>
+            <dd>SVR12 cure rate</dd>
+          </div>
+          <div>
+            <dt>Platform</dt>
+            <dd>TherigySTM</dd>
+          </div>
+        </dl>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key study numbers">
+        <div class="metric-card">
+          <span>Patients created</span>
+          <strong>209</strong>
+        </div>
+        <div class="metric-card">
+          <span>Initial assessments</span>
+          <strong>178</strong>
+        </div>
+        <div class="metric-card">
+          <span>Reported completion</span>
+          <strong>84%</strong>
+        </div>
+        <div class="metric-card">
+          <span>SVR12 cure rate</span>
+          <strong>98%</strong>
+        </div>
+      </section>
+
+      <section class="visual-grid" id="cohort">
+        <div class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Make cure-rate measurement operational</h2>
+          <div class="platform-visual">
+            <div class="platform-icon" aria-hidden="true">
+              <svg viewBox="0 0 120 120" role="img">
+                <circle cx="60" cy="60" r="50" fill="#eef4fb" stroke="#187c8f" stroke-width="3"/>
+                <path d="M34 63h18V38h16v25h18v16H68v25H52V79H34z" fill="#d12630"/>
+                <path d="M28 28h64v14H28zM28 82h64v10H28z" fill="#243770" opacity=".16"/>
+                <circle cx="88" cy="32" r="9" fill="#e99e25"/>
+              </svg>
+            </div>
+            <p>Standard practice, pharmacist-clinic collaboration, initial education, and monthly monitoring were routed through a shared technology platform to capture longitudinal HCV outcomes.</p>
+          </div>
+          <div class="number-cloud" aria-label="Methods snapshot">
+            <div class="number-pill">HCV<small>therapy focus</small></div>
+            <div class="number-pill">Monthly<small>monitoring</small></div>
+            <div class="number-pill">SVR12<small>lab endpoint</small></div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Patient selection flow</p>
+          <h2>Where the cohort narrowed</h2>
+          <div class="flow-board">
+            <div class="flow-step">
+              <strong>209</strong>
+              <span>Patients created in TherigySTM<small>January 1-September 30, 2018</small></span>
+            </div>
+            <div class="flow-step">
+              <strong>178</strong>
+              <span>Completed clinical initial assessment<small>31 had no clinical initial assessment</small></span>
+            </div>
+            <div class="flow-step">
+              <strong>150</strong>
+              <span>Reported therapy completion<small>28 had no documented therapy completion</small></span>
+            </div>
+            <div class="flow-step">
+              <strong>104</strong>
+              <span>Completed therapy with SVR12 lab collected<small>46 completed therapy without 12-week post-treatment labs</small></span>
+            </div>
+            <div class="flow-step">
+              <strong>102</strong>
+              <span>Achieved SVR12<small>2 treatment relapses among patients with SVR12 labs</small></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="visual-grid" id="results">
+        <div class="panel cure-card">
+          <p class="section-label">Primary result</p>
+          <h2>High cure rate among patients with SVR12 labs</h2>
+          <div class="cure-gauge" aria-label="98 percent SVR12 cure rate">
+            <span>98%<small>SVR12</small></span>
+          </div>
+          <div class="outcome-stack">
+            <div class="outcome-tile">
+              <strong>104</strong>
+              <span>SVR12 labs available</span>
+            </div>
+            <div class="outcome-tile">
+              <strong>102</strong>
+              <span>Achieved sustained virologic response</span>
+            </div>
+            <div class="outcome-tile">
+              <strong>2</strong>
+              <span>Treatment relapses</span>
+            </div>
+          </div>
+          <p class="source-note">SVR12 labs were available for 69% of patients who reported therapy completion.</p>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Therapy outcome capture</p>
+          <h2>The platform separated completion from measurable cure</h2>
+          <div class="lens-chart" aria-label="Therapy outcomes N equals 178">
+            <div class="lens-row">
+              <span>Lost to follow-up</span>
+              <div class="lens-bar"><i style="width:16%"></i></div>
+            </div>
+            <div class="lens-row">
+              <span>Completed, no lab</span>
+              <div class="lens-bar"><i style="width:26%"></i></div>
+            </div>
+            <div class="lens-row">
+              <span>Completed, lab collected</span>
+              <div class="lens-bar"><i style="width:58%"></i></div>
+            </div>
+          </div>
+          <div class="number-cloud">
+            <div class="number-pill">16%<small>lost to follow-up</small></div>
+            <div class="number-pill">26%<small>no 12-week lab</small></div>
+            <div class="number-pill">58%<small>lab captured</small></div>
+            <div class="number-pill">99%<small>dispensing-confirmed completion</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Evidence flow</p>
+        <h2>Clinical operation translated into measurable outcome data</h2>
+        <div class="evidence-map">
+          <div class="evidence-card">
+            <h3>Standardize</h3>
+            <p>Establish a consistent care process for HCV patients.</p>
+          </div>
+          <div class="evidence-card">
+            <h3>Optimize</h3>
+            <p>Pharmacists collaborate with clinic teams on regimen selection, guidelines, and coverage constraints.</p>
+          </div>
+          <div class="evidence-card">
+            <h3>Educate</h3>
+            <p>Initial assessment and patient education are documented and delivered in clinic.</p>
+          </div>
+          <div class="evidence-card">
+            <h3>Monitor</h3>
+            <p>Monthly follow-up addresses adherence and side effect management.</p>
+          </div>
+          <div class="evidence-card">
+            <h3>Measure</h3>
+            <p>TherigySTM captures treatment history, liver status, genotype, viral load, completion, end-of-treatment labs, and SVR12.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="matrix" aria-label="SVR12 outcomes by medication and genotype">
+        <div class="table-card">
+          <p class="section-label">SVR12 by medication</p>
+          <h2>Most documented relapses were in Harvoni users</h2>
+          <div class="mini-bars">
+            <div class="mini-bar">
+              <span class="label">Harvoni</span>
+              <div class="track"><span class="fill" style="width:96.7%"></span></div>
+              <span class="value">59 / 2</span>
+            </div>
+            <div class="mini-bar">
+              <span class="label">Epclusa</span>
+              <div class="track"><span class="fill" style="width:100%"></span></div>
+              <span class="value">26 / 0</span>
+            </div>
+            <div class="mini-bar">
+              <span class="label">Mavyret</span>
+              <div class="track"><span class="fill" style="width:100%"></span></div>
+              <span class="value">11 / 0</span>
+            </div>
+            <div class="mini-bar">
+              <span class="label">Vosevi</span>
+              <div class="track"><span class="fill" style="width:100%"></span></div>
+              <span class="value">6 / 0</span>
+            </div>
+          </div>
+          <p class="source-note">Values show sustained viral response / treatment relapse.</p>
+        </div>
+
+        <div class="table-card">
+          <p class="section-label">SVR12 by genotype</p>
+          <h2>Genotype 1a dominated the measured cohort</h2>
+          <div class="mini-bars">
+            <div class="mini-bar">
+              <span class="label">1a</span>
+              <div class="track"><span class="fill" style="width:98.5%"></span></div>
+              <span class="value">66 / 1</span>
+            </div>
+            <div class="mini-bar">
+              <span class="label">1b</span>
+              <div class="track"><span class="fill" style="width:100%"></span></div>
+              <span class="value">13 / 0</span>
+            </div>
+            <div class="mini-bar">
+              <span class="label">2</span>
+              <div class="track"><span class="fill" style="width:100%"></span></div>
+              <span class="value">11 / 0</span>
+            </div>
+            <div class="mini-bar">
+              <span class="label">3</span>
+              <div class="track"><span class="fill" style="width:100%"></span></div>
+              <span class="value">9 / 0</span>
+            </div>
+            <div class="mini-bar">
+              <span class="label">4</span>
+              <div class="track"><span class="fill" style="width:100%"></span></div>
+              <span class="value">2 / 0</span>
+            </div>
+            <div class="mini-bar">
+              <span class="label">1</span>
+              <div class="track"><span class="fill relapse" style="width:50%"></span></div>
+              <span class="value">1 / 1</span>
+            </div>
+          </div>
+          <p class="source-note">Values show sustained viral response / treatment relapse.</p>
+        </div>
+      </section>
+
+      <section class="section-stack" id="interventions">
+        <div class="panel">
+          <p class="section-label">Intervention pattern</p>
+          <h2>Drug interactions were the leading documented challenge</h2>
+          <div class="intervention-list">
+            <div class="intervention-row"><span>Drug interaction</span><strong>8</strong></div>
+            <div class="intervention-row"><span>Duration of therapy</span><strong>2</strong></div>
+            <div class="intervention-row"><span>Appropriate drug administration</span><strong>2</strong></div>
+            <div class="intervention-row"><span>Therapeutic dosage</span><strong>1</strong></div>
+            <div class="intervention-row"><span>Side effect management</span><strong>1</strong></div>
+            <div class="intervention-row"><span>Dosage adjustment</span><strong>1</strong></div>
+            <div class="intervention-row"><span>Does not meet treatment guidelines</span><strong>1</strong></div>
+          </div>
+        </div>
+        <div class="panel">
+          <p class="section-label">Resolved outcomes</p>
+          <h2>Pharmacy actions converted issues into documented value</h2>
+          <div class="intervention-list">
+            <div class="intervention-row"><span>Elimination of drug interaction</span><strong>5</strong></div>
+            <div class="intervention-row"><span>Prevented therapy complications</span><strong>3</strong></div>
+            <div class="intervention-row"><span>Elimination of therapy inappropriateness</span><strong>3</strong></div>
+            <div class="intervention-row"><span>Prevented premature therapy discontinuation</span><strong>2</strong></div>
+            <div class="intervention-row"><span>Resolved side effect challenges</span><strong>1</strong></div>
+            <div class="intervention-row"><span>Potentially improved therapy adherence</span><strong>1</strong></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel takeaway">
+        <p class="section-label">Conclusion</p>
+        <h2>Technology made a complex HCV care process auditable</h2>
+        <div class="markdown-fragment">
+          <p>Standardized pharmacy clinical operations supported by a data platform streamlined patient management across clinic collaboration, adherence monitoring, documentation, and longitudinal follow-up. The poster concludes that robust platform capture can improve HCV cure-rate measurement while highlighting the operational importance of SVR12 lab completion and follow-up documentation.</p>
+        </div>
+      </section>
+
+      <section class="table-card">
+        <p class="section-label">Source table snapshot</p>
+        <h2>Therapy outcomes, N=178</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Count</th>
+                <th>Percentage</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Lost to follow-up</td>
+                <td>28</td>
+                <td>16%</td>
+              </tr>
+              <tr>
+                <td>Completed therapy with no lab collected 12 weeks post-treatment</td>
+                <td>46</td>
+                <td>26%</td>
+              </tr>
+              <tr>
+                <td>Completed therapy with lab collected 12 weeks post-treatment</td>
+                <td>104</td>
+                <td>58%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <footer class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/14_2019.pdf">View original PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/14_2019.md">View extracted markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

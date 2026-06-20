@@ -1,0 +1,717 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2024 Infographic | Clinical Outcomes Dashboards in HSSP</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .dashboard-hero {
+      position: relative;
+      min-height: 19rem;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 12% 16%, rgba(209, 38, 48, 0.18), transparent 9rem),
+        radial-gradient(circle at 84% 8%, rgba(233, 158, 37, 0.22), transparent 10rem),
+        linear-gradient(150deg, #ffffff 0%, var(--surface-blue) 52%, var(--surface-warm) 100%);
+      padding: 1rem;
+    }
+
+    .dashboard-hero svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .hero-card .button-link {
+      justify-content: center;
+      background: #fff;
+    }
+
+    .dash-screens {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.65rem;
+    }
+
+    .dash-mini {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.78);
+      padding: 0.55rem;
+    }
+
+    .dash-mini b {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.86rem;
+      line-height: 1.1;
+    }
+
+    .dash-mini span {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .thesis-band {
+      display: grid;
+      grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .big-claim {
+      display: grid;
+      align-content: center;
+      min-height: 13rem;
+      padding: 1.1rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        linear-gradient(155deg, rgba(36, 55, 112, 0.98), rgba(24, 124, 143, 0.9)),
+        radial-gradient(circle at 80% 15%, rgba(233, 158, 37, 0.36), transparent 9rem);
+      color: #fff;
+    }
+
+    .big-claim span {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .big-claim strong {
+      margin-top: 0.25rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(3.1rem, 8vw, 6rem);
+      line-height: 0.9;
+    }
+
+    .big-claim p {
+      margin: 0.72rem 0 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.95rem;
+    }
+
+    .cycle-wrap {
+      display: grid;
+      grid-template-columns: 18rem minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+      margin-top: 0.7rem;
+    }
+
+    .cycle-wrap svg {
+      width: 100%;
+      height: auto;
+    }
+
+    .cycle-list {
+      display: grid;
+      gap: 0.48rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .cycle-list li {
+      display: grid;
+      grid-template-columns: 2.1rem minmax(0, 1fr);
+      gap: 0.52rem;
+      align-items: start;
+      border: 1px solid rgba(174, 187, 210, 0.75);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.52rem;
+      font-size: 0.82rem;
+    }
+
+    .cycle-list b {
+      display: inline-grid;
+      place-items: center;
+      width: 1.65rem;
+      height: 1.65rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.76rem;
+    }
+
+    .domain-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.7rem;
+    }
+
+    .domain-card {
+      position: relative;
+      min-height: 11.2rem;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.86rem;
+    }
+
+    .domain-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 0.34rem;
+      background: var(--domain-color, var(--red));
+    }
+
+    .domain-card:nth-child(2) { --domain-color: var(--gold); }
+    .domain-card:nth-child(3) { --domain-color: var(--teal); }
+    .domain-card:nth-child(4) { --domain-color: var(--purple); }
+
+    .domain-icon {
+      display: inline-grid;
+      place-items: center;
+      width: 2.4rem;
+      height: 2.4rem;
+      margin-bottom: 0.55rem;
+      border-radius: 7px;
+      background: var(--surface-blue);
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 900;
+    }
+
+    .domain-card p {
+      margin: 0.5rem 0 0;
+      color: var(--body);
+      font-size: 0.84rem;
+    }
+
+    .data-pipeline {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+
+    .pipeline-node {
+      position: relative;
+      min-height: 8.6rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.82rem;
+    }
+
+    .pipeline-node::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -0.49rem;
+      width: 0.72rem;
+      height: 0.72rem;
+      border-top: 2px solid var(--border-strong);
+      border-right: 2px solid var(--border-strong);
+      background: #fff;
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    .pipeline-node:last-child::after { display: none; }
+
+    .pipeline-node b {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+
+    .pipeline-node h3 {
+      margin-top: 0.38rem;
+      font-size: 0.93rem;
+    }
+
+    .pipeline-node p {
+      margin: 0.36rem 0 0;
+      font-size: 0.78rem;
+    }
+
+    .value-bars {
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 0.72rem;
+    }
+
+    .value-row {
+      display: grid;
+      grid-template-columns: 7.2rem minmax(0, 1fr);
+      gap: 0.65rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 850;
+    }
+
+    .value-track {
+      height: 1.08rem;
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 999px;
+      background: var(--surface-blue);
+      overflow: hidden;
+    }
+
+    .value-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .value-row:nth-child(2) .value-track i {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .value-row:nth-child(3) .value-track i {
+      background: linear-gradient(90deg, var(--purple), var(--teal));
+    }
+
+    .callout-list {
+      display: grid;
+      gap: 0.55rem;
+      margin: 0.7rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .callout-list li {
+      border-left: 4px solid var(--teal);
+      background: var(--surface-blue);
+      padding: 0.56rem 0.7rem;
+      color: var(--body);
+      font-size: 0.86rem;
+    }
+
+    .callout-list li:nth-child(2) { border-color: var(--gold); background: var(--surface-warm); }
+    .callout-list li:nth-child(3) { border-color: var(--red); }
+
+    .compact-table td:last-child,
+    .compact-table th:last-child {
+      text-align: left;
+    }
+
+    .source-note {
+      margin: 0.72rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 980px) {
+      .thesis-band,
+      .cycle-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .domain-grid,
+      .data-pipeline {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .pipeline-node::after { display: none; }
+    }
+
+    @media (max-width: 620px) {
+      .dash-screens,
+      .domain-grid,
+      .data-pipeline {
+        grid-template-columns: 1fr;
+      }
+
+      .value-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/75-DTS75-OR-Poster-AM24_2024.pdf">Poster PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/75-DTS75-OR-Poster-AM24_2024.md">Markdown Source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">2024 Annual Meeting Poster | 75-DTS75-OR</p>
+        <h1>Enhancing specialty pharmacy care through data-driven clinical outcomes dashboards</h1>
+        <p class="hero-summary">
+          Shields Health Solutions describes a repeatable dashboard build model for health system specialty pharmacies:
+          define meaningful outcomes, automate de-identified data feeds, validate the numbers, and use real-time views to show quality and value.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Dashboard development</li>
+          <li class="tag therapy">Health system specialty pharmacy</li>
+          <li class="tag therapy">Clinical outcomes</li>
+          <li class="tag">Real-time monitoring</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster details">
+        <div class="poster-code">AM24<br>75-DTS75-OR</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Poster year</dt>
+            <dd>2024</dd>
+          </div>
+          <div>
+            <dt>Organization</dt>
+            <dd>Shields Health Solutions</dd>
+          </div>
+          <div>
+            <dt>Dashboard types</dt>
+            <dd>4 core views</dd>
+          </div>
+          <div>
+            <dt>Build cycle</dt>
+            <dd>6 stages</dd>
+          </div>
+        </dl>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/75-DTS75-OR-Poster-AM24_2024.pdf">Open poster PDF</a>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key extracted numbers">
+        <article class="metric-card">
+          <span>Development stages</span>
+          <strong>6</strong>
+        </article>
+        <article class="metric-card">
+          <span>Dashboard views shown</span>
+          <strong>4</strong>
+        </article>
+        <article class="metric-card">
+          <span>Poster figures</span>
+          <strong>5</strong>
+        </article>
+        <article class="metric-card">
+          <span>Disclosure conflicts</span>
+          <strong>0</strong>
+        </article>
+      </section>
+
+      <section class="thesis-band" id="snapshot">
+        <article class="big-claim">
+          <span>Central objective</span>
+          <strong>Make outcomes visible</strong>
+          <p>Move HSSP value measurement from scattered reports toward validated, live dashboards that combine clinical, humanistic, and economic signals.</p>
+        </article>
+
+        <article class="dashboard-hero" aria-label="Clinical outcomes dashboard illustration">
+          <svg viewBox="0 0 620 310" role="img" aria-labelledby="dash-title dash-desc">
+            <title id="dash-title">Real-time clinical outcomes dashboard</title>
+            <desc id="dash-desc">A stylized analytics screen connects patient data, clinical outcomes, interventions, efficacy status, and discontinuation monitoring.</desc>
+            <defs>
+              <linearGradient id="screenGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ffffff"></stop>
+                <stop offset="1" stop-color="#eef4fb"></stop>
+              </linearGradient>
+              <filter id="softShadow" x="-10%" y="-10%" width="120%" height="130%">
+                <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#243770" flood-opacity="0.18"></feDropShadow>
+              </filter>
+            </defs>
+            <rect x="38" y="34" width="544" height="226" rx="18" fill="url(#screenGrad)" stroke="#aebbd2" stroke-width="3" filter="url(#softShadow)"></rect>
+            <rect x="38" y="34" width="544" height="38" rx="18" fill="#243770"></rect>
+            <circle cx="70" cy="54" r="6" fill="#d12630"></circle>
+            <circle cx="91" cy="54" r="6" fill="#e99e25"></circle>
+            <circle cx="112" cy="54" r="6" fill="#4d8a67"></circle>
+            <rect x="66" y="96" width="118" height="72" rx="10" fill="#fff" stroke="#d9e1ef" stroke-width="2"></rect>
+            <rect x="212" y="96" width="118" height="72" rx="10" fill="#fff" stroke="#d9e1ef" stroke-width="2"></rect>
+            <rect x="358" y="96" width="156" height="72" rx="10" fill="#fff" stroke="#d9e1ef" stroke-width="2"></rect>
+            <path d="M88 144h16l14-30 17 44 15-26h16" fill="none" stroke="#d12630" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path>
+            <rect x="233" y="132" width="18" height="22" fill="#187c8f" rx="4"></rect>
+            <rect x="261" y="114" width="18" height="40" fill="#e99e25" rx="4"></rect>
+            <rect x="289" y="124" width="18" height="30" fill="#7561a8" rx="4"></rect>
+            <circle cx="401" cy="132" r="29" fill="none" stroke="#187c8f" stroke-width="13" stroke-dasharray="128 54" transform="rotate(-90 401 132)"></circle>
+            <circle cx="468" cy="132" r="29" fill="none" stroke="#e99e25" stroke-width="13" stroke-dasharray="96 86" transform="rotate(-90 468 132)"></circle>
+            <rect x="66" y="198" width="448" height="18" rx="9" fill="#d9e1ef"></rect>
+            <rect x="66" y="198" width="140" height="18" rx="9" fill="#d12630"></rect>
+            <rect x="218" y="198" width="112" height="18" rx="9" fill="#e99e25"></rect>
+            <rect x="342" y="198" width="94" height="18" rx="9" fill="#187c8f"></rect>
+            <path d="M102 260v30M310 260v30M518 260v30" stroke="#243770" stroke-width="5" stroke-linecap="round"></path>
+            <path d="M102 290h416" stroke="#243770" stroke-width="5" stroke-linecap="round"></path>
+            <text x="67" y="124" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="15" font-weight="900">Outcomes</text>
+            <text x="213" y="124" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="15" font-weight="900">Interventions</text>
+            <text x="359" y="124" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="15" font-weight="900">Medication status</text>
+          </svg>
+          <div class="dash-screens">
+            <div class="dash-mini"><b>Clinical outcomes</b><span>labs and benchmarks</span></div>
+            <div class="dash-mini"><b>Interventions</b><span>safety, efficacy, appropriateness</span></div>
+            <div class="dash-mini"><b>Efficacy status</b><span>therapy response tracking</span></div>
+            <div class="dash-mini"><b>Discontinuation</b><span>therapy stop patterns</span></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel" id="methods">
+        <p class="section-label">Figure 1 translated</p>
+        <h2>A six-stage dashboard cycle turns clinical questions into maintained analytics</h2>
+        <div class="cycle-wrap">
+          <svg viewBox="0 0 360 360" role="img" aria-label="Circular six stage dashboard development process">
+            <defs>
+              <marker id="cycleArrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L9,3 z" fill="#243770"></path>
+              </marker>
+            </defs>
+            <circle cx="180" cy="180" r="104" fill="#fff" stroke="#d9e1ef" stroke-width="28"></circle>
+            <path d="M180 58 A122 122 0 0 1 285 119" fill="none" stroke="#d12630" stroke-width="12" stroke-linecap="round" marker-end="url(#cycleArrow)"></path>
+            <path d="M302 180 A122 122 0 0 1 241 285" fill="none" stroke="#e99e25" stroke-width="12" stroke-linecap="round" marker-end="url(#cycleArrow)"></path>
+            <path d="M180 302 A122 122 0 0 1 75 241" fill="none" stroke="#187c8f" stroke-width="12" stroke-linecap="round" marker-end="url(#cycleArrow)"></path>
+            <path d="M58 180 A122 122 0 0 1 119 75" fill="none" stroke="#7561a8" stroke-width="12" stroke-linecap="round" marker-end="url(#cycleArrow)"></path>
+            <circle cx="180" cy="180" r="68" fill="#243770"></circle>
+            <text x="180" y="171" text-anchor="middle" fill="#fff" font-family="Montserrat, Arial, sans-serif" font-size="20" font-weight="900">CO</text>
+            <text x="180" y="197" text-anchor="middle" fill="#fff" font-family="Montserrat, Arial, sans-serif" font-size="20" font-weight="900">Dashboard</text>
+            <g font-family="Montserrat, Arial, sans-serif" font-size="13" font-weight="900" fill="#243770">
+              <text x="171" y="41">Purpose</text>
+              <text x="288" y="113">Plan</text>
+              <text x="304" y="246">Data</text>
+              <text x="136" y="336">Validate</text>
+              <text x="19" y="246">Deploy</text>
+              <text x="23" y="113">Maintain</text>
+            </g>
+          </svg>
+
+          <ol class="cycle-list">
+            <li><b>1</b><span><strong>Purpose:</strong> define key metrics and end users before building the screen.</span></li>
+            <li><b>2</b><span><strong>Plan:</strong> identify the team, stakeholders, and governance needed to sustain the work.</span></li>
+            <li><b>3</b><span><strong>Data:</strong> choose software, create feeds, centralize data, and apply clear inclusion and exclusion rules.</span></li>
+            <li><b>4</b><span><strong>Build and validate:</strong> design visualizations, check calculations, and confirm the dashboard reflects the source data.</span></li>
+            <li><b>5</b><span><strong>Deploy:</strong> use dashboards to improve outcomes and demonstrate HSSP value.</span></li>
+            <li><b>6</b><span><strong>Maintain:</strong> refine based on feedback and automate updates for real-time use.</span></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="panel" id="dashboard-views">
+        <p class="section-label">Dashboard architecture</p>
+        <h2>Four dashboard views create a more complete HSSP performance picture</h2>
+        <div class="domain-grid">
+          <article class="domain-card">
+            <span class="domain-icon">01</span>
+            <h3>Disease-specific outcomes</h3>
+            <p>Tracks clinical outcomes such as disease-specific laboratory values and corresponding benchmarks.</p>
+          </article>
+          <article class="domain-card">
+            <span class="domain-icon">02</span>
+            <h3>Clinical interventions</h3>
+            <p>Captures safety, effectiveness, appropriateness, acceptance rate, and cost-avoidance activity.</p>
+          </article>
+          <article class="domain-card">
+            <span class="domain-icon">03</span>
+            <h3>Medication efficacy</h3>
+            <p>Organizes patient-level medication efficacy status, including unique patient identifier views.</p>
+          </article>
+          <article class="domain-card">
+            <span class="domain-icon">04</span>
+            <h3>Discontinuation</h3>
+            <p>Surfaces medication stop patterns to guide follow-up, quality improvement, and patient journey review.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="visual-grid" id="evaluation">
+        <article class="panel">
+          <p class="section-label">Evaluation signal</p>
+          <h2>The result is not one endpoint. It is a monitoring system.</h2>
+          <div class="value-bars" aria-label="Dashboard value lenses">
+            <div class="value-row">
+              <span>Clinical</span>
+              <div class="value-track"><i style="width: 94%;"></i></div>
+            </div>
+            <div class="value-row">
+              <span>Humanistic</span>
+              <div class="value-track"><i style="width: 78%;"></i></div>
+            </div>
+            <div class="value-row">
+              <span>Economic</span>
+              <div class="value-track"><i style="width: 86%;"></i></div>
+            </div>
+          </div>
+          <p class="source-note">Bars represent dashboard coverage emphasis from the poster narrative, not measured comparative percentages.</p>
+        </article>
+
+        <article class="panel markdown-fragment">
+          <p class="section-label">Extracted conclusion</p>
+          <h2>Dashboards make quality, value, and improvement work easier to act on</h2>
+          <ul class="callout-list">
+            <li>Real-time monitoring supports faster recognition of outcome patterns and performance gaps.</li>
+            <li>Shared dashboards can improve interdisciplinary communication around patient-centered measures.</li>
+            <li>Validated, automated views help HSSPs demonstrate value beyond traditional operational metrics.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="panel" id="evidence">
+        <p class="section-label">Data-to-action flow</p>
+        <h2>How the poster frames dashboard development from source data to decisions</h2>
+        <div class="data-pipeline">
+          <article class="pipeline-node">
+            <b>1</b>
+            <h3>Literature and committee input</h3>
+            <p>Best practices for clinical outcomes dashboards were selected through published evidence and stakeholder review.</p>
+          </article>
+          <article class="pipeline-node">
+            <b>2</b>
+            <h3>Outcome definitions</h3>
+            <p>Each clinical outcome calculation used defined inclusion and exclusion criteria.</p>
+          </article>
+          <article class="pipeline-node">
+            <b>3</b>
+            <h3>De-identified feeds</h3>
+            <p>Clinical analytics partners built real-time outcome tracking with de-identified data.</p>
+          </article>
+          <article class="pipeline-node">
+            <b>4</b>
+            <h3>Validation and filters</h3>
+            <p>After validation, filters and visuals were applied to highlight findings and improve usability.</p>
+          </article>
+          <article class="pipeline-node">
+            <b>5</b>
+            <h3>Improvement use</h3>
+            <p>The resulting dashboards support research, outcomes analysis, value demonstration, and patient journey review.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="evidence-map" aria-label="Extracted poster takeaways">
+        <article class="evidence-card">
+          <h3>Background</h3>
+          <p>Integrated HSSPs are increasingly used to improve care and reduce costs for complex specialty-medication conditions.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Objective</h3>
+          <p>Create comprehensive clinical outcomes dashboards that track patient-centered measures and HSSP service value.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Methods</h3>
+          <p>Combine literature review, committee input, clinical analytics work, de-identified data, validation, filters, and user-centered graphics.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Results</h3>
+          <p>Comprehensive dashboards expand evaluation from operational metrics to outcomes, interventions, efficacy, and discontinuation patterns.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Conclusion</h3>
+          <p>Clinical outcomes dashboards enable data-driven decision-making, patient-care optimization, and organizational performance improvement.</p>
+        </article>
+      </section>
+
+      <section class="tables-grid" id="tables">
+        <article class="table-card">
+          <p class="section-label">Table pattern</p>
+          <h2>Dashboard metric matrix</h2>
+          <div class="table-wrap">
+            <table class="compact-table">
+              <thead>
+                <tr>
+                  <th>Dashboard view</th>
+                  <th>Example measure pattern</th>
+                  <th>Value question answered</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Disease-specific outcomes</td>
+                  <td>Labs plus benchmarks</td>
+                  <td>Are patients meeting clinically meaningful targets?</td>
+                </tr>
+                <tr>
+                  <td>Clinical interventions</td>
+                  <td>Safety, effectiveness, appropriateness, acceptance</td>
+                  <td>Where is pharmacist care changing treatment?</td>
+                </tr>
+                <tr>
+                  <td>Medication efficacy</td>
+                  <td>Status by unique patient identifier</td>
+                  <td>Which therapies appear effective, insufficient, or uncertain?</td>
+                </tr>
+                <tr>
+                  <td>Discontinuation</td>
+                  <td>Medication stop tracking</td>
+                  <td>Why do patient journeys change course?</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Governance pattern</p>
+          <h2>From build choices to sustainable use</h2>
+          <div class="table-wrap">
+            <table class="compact-table">
+              <thead>
+                <tr>
+                  <th>Need</th>
+                  <th>Poster response</th>
+                  <th>Why it matters</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Reliable definitions</td>
+                  <td>Clear inclusion and exclusion criteria</td>
+                  <td>Reduces ambiguity in outcome calculations.</td>
+                </tr>
+                <tr>
+                  <td>Usable analytics</td>
+                  <td>Filters and graphics after validation</td>
+                  <td>Improves interpretation for clinical users.</td>
+                </tr>
+                <tr>
+                  <td>Timely insight</td>
+                  <td>Automated real-time dashboards</td>
+                  <td>Supports ongoing monitoring instead of periodic static reporting.</td>
+                </tr>
+                <tr>
+                  <td>Continuous improvement</td>
+                  <td>Feedback-based refinement and maintenance</td>
+                  <td>Keeps the dashboard aligned with practice needs.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel markdown-fragment" id="bottom-line">
+        <p class="section-label">Bottom line</p>
+        <h2>The poster argues for dashboards as specialty pharmacy infrastructure</h2>
+        <p>
+          The key contribution is a practical dashboard-development framework for HSSPs. By integrating clinical outcomes, interventions, efficacy, and discontinuation measures into validated real-time views, the model helps teams understand care quality, communicate across disciplines, support research, and demonstrate the value of integrated specialty pharmacy services.
+        </p>
+      </section>
+
+      <footer class="footer-actions" id="sources">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/75-DTS75-OR-Poster-AM24_2024.pdf">Open original PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/75-DTS75-OR-Poster-AM24_2024.md">Open extracted markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

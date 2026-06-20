@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2022 | Real-world survival in edaravone-treated ALS</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -3.2rem;
+      bottom: -3.2rem;
+      width: 11rem;
+      height: 11rem;
+      border: 1.2rem solid rgba(24, 124, 143, 0.13);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-card svg {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .survival-delta {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .delta-meter {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 0.8rem;
+      min-height: 18rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(145deg, #ffffff, var(--surface-blue));
+      padding: 1rem;
+    }
+    .delta-bars {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.7rem;
+      align-items: end;
+      min-height: 12rem;
+    }
+    .delta-bar {
+      position: relative;
+      display: grid;
+      align-items: end;
+      height: 100%;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 8px;
+      background: #fff;
+      overflow: hidden;
+    }
+    .delta-bar i {
+      display: block;
+      height: var(--height);
+      background: linear-gradient(180deg, rgba(209, 38, 48, 0.9), rgba(209, 38, 48, 0.42));
+    }
+    .delta-bar.treatment i {
+      background: linear-gradient(180deg, rgba(24, 124, 143, 0.9), rgba(24, 124, 143, 0.34));
+    }
+    .delta-bar span {
+      position: absolute;
+      inset: auto 0 0;
+      padding: 0.58rem 0.44rem;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+      line-height: 1.12;
+      text-align: center;
+    }
+    .big-compare {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+    .compare-tile {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.9rem;
+    }
+    .compare-tile span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.64rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .compare-tile strong {
+      display: block;
+      margin-top: 0.2rem;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 4.6rem);
+      line-height: 0.92;
+    }
+    .compare-tile em {
+      display: block;
+      margin-top: 0.38rem;
+      color: var(--body);
+      font-size: 0.82rem;
+      font-style: normal;
+      font-weight: 800;
+    }
+    .km-card {
+      min-width: 0;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 1rem;
+    }
+    .km-card svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-top: 0.55rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 850;
+    }
+    .legend i {
+      display: inline-block;
+      width: 0.84rem;
+      height: 0.84rem;
+      border-radius: 99px;
+      margin-right: 0.28rem;
+      vertical-align: -0.12rem;
+    }
+    .treated-dot { background: var(--teal); }
+    .control-dot { background: var(--red); }
+    .method-ribbon {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.7rem;
+    }
+    .method-step {
+      position: relative;
+      min-height: 8.4rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #ffffff, var(--surface-blue));
+      padding: 0.82rem;
+    }
+    .method-step b {
+      display: grid;
+      place-items: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.86rem;
+    }
+    .method-step h3 {
+      margin-top: 0.6rem;
+      font-size: 0.92rem;
+    }
+    .method-step p {
+      margin: 0.36rem 0 0;
+      font-size: 0.78rem;
+      line-height: 1.35;
+    }
+    .balance-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 0.75rem;
+      margin-top: 0.7rem;
+    }
+    .balance-card {
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.72rem;
+    }
+    .balance-card strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      line-height: 1;
+    }
+    .balance-card span {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--muted);
+      font-size: 0.73rem;
+      font-weight: 800;
+    }
+    .source-note {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+    .takeaway-band {
+      border-left: 4px solid var(--teal);
+      background:
+        linear-gradient(90deg, rgba(24, 124, 143, 0.1), rgba(255, 255, 255, 0.86)),
+        var(--surface);
+    }
+    .limitation-band {
+      border-left: 4px solid var(--gold);
+      background:
+        linear-gradient(90deg, rgba(233, 158, 37, 0.12), rgba(255, 255, 255, 0.86)),
+        var(--surface);
+    }
+    @media (max-width: 900px) {
+      .survival-delta,
+      .method-ribbon,
+      .balance-grid {
+        grid-template-columns: 1fr;
+      }
+      .method-step {
+        min-height: auto;
+      }
+    }
+    @media (max-width: 560px) {
+      .big-compare {
+        grid-template-columns: 1fr;
+      }
+      .delta-meter {
+        min-height: auto;
+      }
+      .delta-bars {
+        min-height: 10rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/39-2022.pdf">Source PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/39-2022.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2022 / Poster 39-2022</p>
+        <h1>Real-world IV edaravone use was associated with longer survival in ALS.</h1>
+        <p class="hero-summary">A retrospective Optum Clinformatics Data Mart analysis matched adults with ALS who initiated IV edaravone to non-IV edaravone controls, then compared all-cause mortality and median survival through March 31, 2021.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag therapy">Amyotrophic lateral sclerosis</li>
+          <li class="tag category">Real-world evidence</li>
+          <li class="tag">1:1 propensity matching</li>
+          <li class="tag">Kaplan-Meier survival analysis</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Study snapshot">
+        <div class="poster-code">39<br>2022</div>
+        <svg viewBox="0 0 420 210" role="img" aria-label="Stylized survival curve showing higher survival for IV edaravone than matched controls">
+          <rect x="18" y="24" width="384" height="146" rx="8" fill="#ffffff" stroke="#aebbd2"/>
+          <path d="M52 48 H382 M52 88 H382 M52 128 H382 M52 168 H382" stroke="#d9e1ef" stroke-width="1"/>
+          <path d="M52 56 C98 62 132 78 170 94 C214 112 258 128 382 150" fill="none" stroke="#d12630" stroke-width="5" stroke-linecap="round"/>
+          <path d="M52 48 C108 50 151 61 193 78 C236 96 286 112 382 129" fill="none" stroke="#187c8f" stroke-width="5" stroke-linecap="round"/>
+          <circle cx="208" cy="82" r="22" fill="#eef4fb" stroke="#187c8f" stroke-width="3"/>
+          <text x="208" y="79" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="17" font-weight="900">+6</text>
+          <text x="208" y="96" text-anchor="middle" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="800">months</text>
+          <text x="52" y="190" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800">0</text>
+          <text x="187" y="190" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800">12</text>
+          <text x="318" y="190" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800">24</text>
+          <text x="364" y="190" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800">30 mo</text>
+          <text x="260" y="42" fill="#187c8f" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="900">IV edaravone</text>
+          <text x="259" y="158" fill="#d12630" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="900">matched control</text>
+        </svg>
+        <dl class="meta-grid">
+          <div>
+            <dt>Authors</dt>
+            <dd>Brooks, Berry, Ciepielewska, Zhang, Liu, Zambrano, Hagan</dd>
+          </div>
+          <div>
+            <dt>Data source</dt>
+            <dd>Optum CDM claims</dd>
+          </div>
+          <div>
+            <dt>Index window</dt>
+            <dd>Aug 8, 2017-Mar 31, 2020</dd>
+          </div>
+          <div>
+            <dt>Follow-up</dt>
+            <dd>Mortality through Mar 31, 2021</dd>
+          </div>
+        </dl>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key study numbers">
+        <div class="metric-card">
+          <span>Matched cohorts</span>
+          <strong>318</strong>
+          <p>IV edaravone cases and 318 non-IV edaravone controls after 1:1 matching.</p>
+        </div>
+        <div class="metric-card">
+          <span>Median survival</span>
+          <strong>+6</strong>
+          <p>Months longer for IV edaravone: 29.5 vs 23.5 months.</p>
+        </div>
+        <div class="metric-card">
+          <span>Death risk</span>
+          <strong>27%</strong>
+          <p>Lower hazard of death; HR 0.73, 95% CI 0.59-0.91, P = 0.005.</p>
+        </div>
+        <div class="metric-card">
+          <span>Sensitivity check</span>
+          <strong>0.65</strong>
+          <p>IPW HR 0.65; 95% CI 0.53-0.79; P &lt; 0.0001.</p>
+        </div>
+      </section>
+
+      <section class="survival-delta" id="results">
+        <div class="delta-meter">
+          <div>
+            <p class="section-label">Primary outcome</p>
+            <h2>All-cause deaths were lower in the IV edaravone cohort.</h2>
+          </div>
+          <div class="delta-bars" aria-label="All-cause death comparison">
+            <div class="delta-bar treatment" style="--height:48.7%">
+              <i></i>
+              <span>48.7%<br>IV edaravone</span>
+            </div>
+            <div class="delta-bar" style="--height:61.6%">
+              <i></i>
+              <span>61.6%<br>matched control</span>
+            </div>
+          </div>
+        </div>
+        <div class="km-card">
+          <p class="section-label">Survival curve pattern</p>
+          <h2>The number-at-risk table stayed higher for treated patients through 12 months.</h2>
+          <svg viewBox="0 0 720 330" role="img" aria-label="Kaplan-Meier style number at risk visualization">
+            <rect x="48" y="24" width="620" height="214" rx="8" fill="#ffffff" stroke="#aebbd2"/>
+            <path d="M86 62 H636 M86 110 H636 M86 158 H636 M86 206 H636" stroke="#d9e1ef" stroke-width="1"/>
+            <path d="M86 56 L180 66 L273 86 L366 129 L460 155 L636 182" fill="none" stroke="#187c8f" stroke-width="5" stroke-linecap="round"/>
+            <path d="M86 62 L180 101 L273 132 L366 153 L460 174 L636 191" fill="none" stroke="#d12630" stroke-width="5" stroke-linecap="round"/>
+            <g fill="#243770" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="850">
+              <text x="82" y="260">0</text>
+              <text x="176" y="260">6</text>
+              <text x="266" y="260">12</text>
+              <text x="358" y="260">18</text>
+              <text x="452" y="260">24</text>
+              <text x="628" y="260">30</text>
+            </g>
+            <text x="358" y="294" text-anchor="middle" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="850">Months postindex</text>
+            <g fill="#187c8f" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="900">
+              <text x="82" y="80">318</text><text x="171" y="89">292</text><text x="263" y="110">242</text><text x="354" y="151">159</text><text x="448" y="177">122</text><text x="629" y="202">82</text>
+            </g>
+            <g fill="#d12630" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="900">
+              <text x="82" y="98">318</text><text x="171" y="123">246</text><text x="263" y="153">191</text><text x="354" y="174">152</text><text x="448" y="195">118</text><text x="629" y="213">96</text>
+            </g>
+          </svg>
+          <div class="legend">
+            <span><i class="treated-dot"></i>IV edaravone treated</span>
+            <span><i class="control-dot"></i>Non-IV edaravone control</span>
+          </div>
+          <p class="source-note">Numbers shown are the reported number-at-risk values from the poster's Kaplan-Meier table.</p>
+        </div>
+      </section>
+
+      <section class="panel" id="methods">
+        <p class="section-label">Evidence flow</p>
+        <h2>Claims data were filtered, matched, and tested for survival signal.</h2>
+        <div class="method-ribbon" aria-label="Study method sequence">
+          <div class="method-step">
+            <b>1</b>
+            <h3>Start with Optum CDM</h3>
+            <p>Administrative claims from a geographically diverse database with more than 65 million unique lives over 13 years.</p>
+          </div>
+          <div class="method-step">
+            <b>2</b>
+            <h3>Identify ALS adults</h3>
+            <p>Adults &ge;18 years with ALS diagnosis codes and either IV edaravone initiation or no IV edaravone treatment.</p>
+          </div>
+          <div class="method-step">
+            <b>3</b>
+            <h3>Match cohorts</h3>
+            <p>Nearest-neighbor 1:1 propensity score matching balanced demographics, disease duration, insurance, riluzole, and clinical markers.</p>
+          </div>
+          <div class="method-step">
+            <b>4</b>
+            <h3>Model survival</h3>
+            <p>Kaplan-Meier and log-rank testing visualized survival; shared-frailty Cox regression estimated hazard ratio.</p>
+          </div>
+          <div class="method-step">
+            <b>5</b>
+            <h3>Stress-test result</h3>
+            <p>IPW sensitivity analysis evaluated potential unmeasured confounding and noninformative censoring assumptions.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="visual-grid">
+        <div class="panel">
+          <p class="section-label">Matched cohort balance</p>
+          <h2>Baseline features were closely aligned after matching.</h2>
+          <div class="balance-grid">
+            <div class="balance-card">
+              <strong>62.9 vs 62.7</strong>
+              <span>Mean age, IV edaravone vs control</span>
+            </div>
+            <div class="balance-card">
+              <strong>57.9%</strong>
+              <span>Male in both cohorts</span>
+            </div>
+            <div class="balance-card">
+              <strong>65.4%</strong>
+              <span>Riluzole use in both cohorts</span>
+            </div>
+            <div class="balance-card">
+              <strong>&lt;0.1</strong>
+              <span>All standardized mean differences</span>
+            </div>
+          </div>
+          <p class="source-note">The largest displayed standardized mean difference in the table was below 0.1, supporting acceptable balance.</p>
+        </div>
+        <div class="panel takeaway-band">
+          <p class="section-label">Conclusion</p>
+          <h2>Real-world survival findings complemented the pivotal functional-decline trial.</h2>
+          <div class="markdown-fragment">
+            <p>Patients with ALS prescribed IV edaravone demonstrated increased survival compared with matched patients not prescribed IV edaravone.</p>
+            <p>The authors connected this survival result with the phase 3 finding that IV edaravone slowed ALSFRS-R functional decline by 33% at 24 weeks compared with placebo.</p>
+          </div>
+          <div class="big-compare" aria-label="Median survival comparison">
+            <div class="compare-tile">
+              <span>IV edaravone median</span>
+              <strong>29.5</strong>
+              <em>months, 95% CI 25.4-35.9</em>
+            </div>
+            <div class="compare-tile">
+              <span>Control median</span>
+              <strong>23.5</strong>
+              <em>months, 95% CI 20.0-28.0</em>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tables-grid">
+        <div class="table-card">
+          <p class="section-label">Disposition pattern</p>
+          <h2>Large control pool, small treated pool, balanced final analysis set.</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Stage</th>
+                  <th>IV edaravone</th>
+                  <th>Non-IV control</th>
+                  <th>Pattern</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Before matching</td>
+                  <td>320</td>
+                  <td>12,572</td>
+                  <td>Controls drawn from a much larger ALS claims pool</td>
+                </tr>
+                <tr>
+                  <td>After matching</td>
+                  <td>318</td>
+                  <td>318</td>
+                  <td>1:1 matched survival comparison</td>
+                </tr>
+                <tr>
+                  <td>Deaths by Mar 31, 2021</td>
+                  <td>155 (48.7%)</td>
+                  <td>196 (61.6%)</td>
+                  <td>Fewer all-cause deaths in treated cohort</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="table-card">
+          <p class="section-label">Number at risk</p>
+          <h2>Treated cohort retained more patients at risk early in follow-up.</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Months</th>
+                  <th>IV edaravone</th>
+                  <th>Non-IV control</th>
+                  <th>Difference</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>0</td><td>318</td><td>318</td><td>0</td></tr>
+                <tr><td>6</td><td>292</td><td>246</td><td>+46</td></tr>
+                <tr><td>12</td><td>242</td><td>191</td><td>+51</td></tr>
+                <tr><td>18</td><td>159</td><td>152</td><td>+7</td></tr>
+                <tr><td>24</td><td>122</td><td>118</td><td>+4</td></tr>
+                <tr><td>30</td><td>82</td><td>96</td><td>-14</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-stack">
+        <div class="panel limitation-band">
+          <p class="section-label">Limitations</p>
+          <h2>Claims data sharpened scale but constrained interpretation.</h2>
+          <div class="markdown-fragment">
+            <p>The study was limited to commercially covered patients and relied on administrative coding, enrollment, and claims-captured covariates.</p>
+            <p>Propensity matching adjusted measured differences, but unmeasured confounding could not be fully eliminated in a nonrandomized design.</p>
+          </div>
+        </div>
+        <div class="panel">
+          <p class="section-label">Why it matters</p>
+          <h2>Rare-disease real-world evidence can extend what short trials cannot show.</h2>
+          <p>The authors framed the analysis as a complement to prospective trials, especially where rare diseases make survival endpoints difficult to evaluate in conventional clinical studies.</p>
+          <p class="source-note">Presented at the National Association of Specialty Pharmacy 2022 Annual Meeting & Expo, Orlando, Florida, September 19-22, 2022. Poster code: MA-RC-US-0340.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/39-2022.pdf">Open original PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/39-2022.md">Read extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

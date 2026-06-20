@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VMAT2i Persistence for Chronic Tic Disorders | NASP 2022</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -2.2rem;
+      bottom: -2.4rem;
+      width: 11rem;
+      height: 11rem;
+      border: 1rem solid rgba(117, 97, 168, 0.13);
+      border-radius: 50%;
+    }
+
+    .hero-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .therapy-ring {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 0.55rem;
+    }
+
+    .ring-wrap {
+      display: grid;
+      grid-template-columns: 8.5rem minmax(0, 1fr);
+      gap: 0.8rem;
+      align-items: center;
+    }
+
+    .ring-wrap svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .ring-note {
+      margin: 0;
+      color: var(--body);
+      font-size: 0.84rem;
+      font-weight: 750;
+    }
+
+    .metric-card strong small {
+      color: var(--red);
+      font-size: 0.82rem;
+    }
+
+    .metric-card em {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-style: normal;
+      font-weight: 750;
+      line-height: 1.3;
+    }
+
+    .persistence-board {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.9fr);
+      gap: 1rem;
+    }
+
+    .month-axis {
+      display: grid;
+      gap: 0.62rem;
+      margin-top: 0.8rem;
+    }
+
+    .axis-header,
+    .patient-row {
+      display: grid;
+      grid-template-columns: 5.2rem repeat(6, minmax(0, 1fr));
+      gap: 0.35rem;
+      align-items: center;
+    }
+
+    .axis-header span {
+      color: var(--muted);
+      font-size: 0.64rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .patient-row b {
+      color: var(--ink);
+      font-size: 0.78rem;
+    }
+
+    .month-cell {
+      min-height: 1rem;
+      border: 1px solid rgba(174, 187, 210, 0.75);
+      border-radius: 999px;
+      background: #edf2f8;
+    }
+
+    .month-cell.live {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+      border-color: rgba(24, 124, 143, 0.45);
+    }
+
+    .month-cell.stop {
+      background: linear-gradient(90deg, var(--red), var(--gold));
+      border-color: rgba(209, 38, 48, 0.45);
+    }
+
+    .month-cell.adjust {
+      background: linear-gradient(90deg, var(--purple), var(--teal));
+      border-color: rgba(117, 97, 168, 0.45);
+    }
+
+    .legend-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 850;
+    }
+
+    .legend-row i {
+      display: inline-block;
+      width: 1.4rem;
+      height: 0.55rem;
+      margin-right: 0.25rem;
+      border-radius: 999px;
+      vertical-align: -0.06rem;
+      background: #edf2f8;
+      border: 1px solid var(--border-strong);
+    }
+
+    .legend-row .live i { background: var(--teal); }
+    .legend-row .stop i { background: var(--red); }
+    .legend-row .adjust i { background: var(--purple); }
+
+    .story-stack {
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 0.8rem;
+    }
+
+    .story-item {
+      border-left: 4px solid var(--red);
+      background: var(--surface-blue);
+      padding: 0.65rem 0.75rem;
+    }
+
+    .story-item:nth-child(2) { border-color: var(--gold); background: var(--surface-warm); }
+    .story-item:nth-child(3) { border-color: var(--teal); }
+    .story-item:nth-child(4) { border-color: var(--purple); background: #f4f1fb; }
+
+    .story-item strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      line-height: 1;
+    }
+
+    .story-item span {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--body);
+      font-size: 0.8rem;
+      font-weight: 750;
+      line-height: 1.35;
+    }
+
+    .trial-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 1rem;
+    }
+
+    .prior-bars {
+      display: grid;
+      gap: 0.52rem;
+      margin-top: 0.7rem;
+    }
+
+    .prior-row {
+      display: grid;
+      grid-template-columns: 7.2rem minmax(0, 1fr) 2rem;
+      gap: 0.5rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+
+    .prior-track {
+      height: 0.72rem;
+      overflow: hidden;
+      border: 1px solid rgba(174, 187, 210, 0.8);
+      border-radius: 999px;
+      background: #edf2f8;
+    }
+
+    .prior-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .event-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+
+    .event-card {
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.68rem;
+    }
+
+    .event-card strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      line-height: 1;
+    }
+
+    .event-card span {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
+    .cohort-stripes {
+      display: grid;
+      gap: 0.56rem;
+      margin-top: 0.75rem;
+    }
+
+    .stripe-row {
+      display: grid;
+      grid-template-columns: 10rem minmax(0, 1fr) 3.6rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+
+    .stripe-track {
+      height: 0.8rem;
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+
+    .stripe-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .compact-table th:last-child,
+    .compact-table td:last-child {
+      text-align: right;
+    }
+
+    .note {
+      margin: 0.7rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 750;
+    }
+
+    @media (max-width: 900px) {
+      .persistence-board,
+      .trial-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .ring-wrap,
+      .axis-header,
+      .patient-row,
+      .prior-row,
+      .stripe-row {
+        grid-template-columns: 1fr;
+      }
+
+      .axis-header {
+        display: none;
+      }
+
+      .event-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#persistence">Persistence</a>
+        <a href="#methods">Methods</a>
+        <a href="#events">Events</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2022 poster 51-2022</p>
+        <h1 id="poster-title">Persistence of VMAT2 inhibitor therapy for Tourette syndrome and chronic tic disorders</h1>
+        <p class="hero-summary">
+          Vanderbilt Specialty Pharmacy reviewed newly initiated VMAT2 inhibitor therapy in adults with chronic tic disorders.
+          The core signal was not initiation, but durability: half discontinued before 12 months, usually after adverse events early in therapy.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Retrospective cohort</li>
+          <li class="tag therapy">Tourette syndrome</li>
+          <li class="tag therapy">Chronic tic disorders</li>
+          <li class="tag">January 2018 to December 2020</li>
+          <li class="tag">12-month follow-up</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div class="poster-code">51-2022</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Setting</dt>
+            <dd>Academic medical center</dd>
+          </div>
+          <div>
+            <dt>Sample</dt>
+            <dd>N = 14</dd>
+          </div>
+          <div>
+            <dt>Therapies</dt>
+            <dd>3 VMAT2i agents</dd>
+          </div>
+          <div>
+            <dt>Endpoint</dt>
+            <dd>12-month persistence</dd>
+          </div>
+        </dl>
+        <div class="therapy-ring">
+          <div class="ring-wrap">
+            <svg viewBox="0 0 120 120" role="img" aria-label="Thirty-six percent persisted for 12 months">
+              <circle cx="60" cy="60" r="45" fill="none" stroke="#d9e1ef" stroke-width="16"></circle>
+              <circle cx="60" cy="60" r="45" fill="none" stroke="#187c8f" stroke-width="16" stroke-linecap="round" stroke-dasharray="102 283" transform="rotate(-90 60 60)"></circle>
+              <text x="60" y="56" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="26" font-weight="900">36%</text>
+              <text x="60" y="75" text-anchor="middle" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="800">persistent</text>
+            </svg>
+            <p class="ring-note">
+              Five patients remained persistent across the full study period; seven discontinued before the 12-month assessment.
+            </p>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Total cohort</span>
+          <strong>14</strong>
+          <em>Adults newly initiated on VMAT2 inhibitor therapy.</em>
+        </article>
+        <article class="metric-card">
+          <span>Persistent at 12 months</span>
+          <strong>5 <small>(36%)</small></strong>
+          <em>Primary objective: persistence after initiation.</em>
+        </article>
+        <article class="metric-card">
+          <span>Discontinued</span>
+          <strong>7 <small>(50%)</small></strong>
+          <em>Most discontinuations were linked to reported adverse events.</em>
+        </article>
+        <article class="metric-card">
+          <span>Prior medication trials</span>
+          <strong>3</strong>
+          <em>Median prior trials, IQR 2 to 4.</em>
+        </article>
+      </section>
+
+      <section id="persistence" class="persistence-board">
+        <article class="panel">
+          <p class="section-label">12-month therapy course</p>
+          <h2>Discontinuations clustered in the first half of follow-up</h2>
+          <p>
+            Patient-level timelines show early discontinuations around 10 to 60 days, later discontinuations around 180 days,
+            and several remaining patients requiring switches or dose adjustments instead of straightforward continuation.
+          </p>
+          <div class="month-axis" aria-label="Patient timeline by approximate months">
+            <div class="axis-header">
+              <span>Patient</span><span>0-1</span><span>2</span><span>3-4</span><span>5-6</span><span>7-9</span><span>10-12</span>
+            </div>
+            <div class="patient-row"><b>P1-P3</b><i class="month-cell stop"></i><i class="month-cell"></i><i class="month-cell"></i><i class="month-cell"></i><i class="month-cell"></i><i class="month-cell"></i></div>
+            <div class="patient-row"><b>P4-P5</b><i class="month-cell live"></i><i class="month-cell stop"></i><i class="month-cell"></i><i class="month-cell"></i><i class="month-cell"></i><i class="month-cell"></i></div>
+            <div class="patient-row"><b>P7-P8</b><i class="month-cell live"></i><i class="month-cell live"></i><i class="month-cell live"></i><i class="month-cell stop"></i><i class="month-cell"></i><i class="month-cell"></i></div>
+            <div class="patient-row"><b>P6/P9</b><i class="month-cell live"></i><i class="month-cell live"></i><i class="month-cell adjust"></i><i class="month-cell adjust"></i><i class="month-cell adjust"></i><i class="month-cell live"></i></div>
+            <div class="patient-row"><b>P10-P14</b><i class="month-cell adjust"></i><i class="month-cell live"></i><i class="month-cell adjust"></i><i class="month-cell adjust"></i><i class="month-cell adjust"></i><i class="month-cell live"></i></div>
+          </div>
+          <div class="legend-row">
+            <span class="live"><i></i>Still on therapy</span>
+            <span class="stop"><i></i>Discontinuation</span>
+            <span class="adjust"><i></i>Switch or dose change</span>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Evidence flow</p>
+          <h2>The poster's logic in four moves</h2>
+          <div class="story-stack">
+            <div class="story-item">
+              <strong>Clinical gap</strong>
+              <span>Traditional tic pharmacotherapy can be limited by tolerability and efficacy concerns.</span>
+            </div>
+            <div class="story-item">
+              <strong>Study question</strong>
+              <span>How often do adults newly started on deutetrabenazine, tetrabenazine, or valbenazine remain on therapy at 12 months?</span>
+            </div>
+            <div class="story-item">
+              <strong>Observed pattern</strong>
+              <span>Only 5 of 14 were persistent through the full study period; 7 discontinued before follow-up ended.</span>
+            </div>
+            <div class="story-item">
+              <strong>Interpretation</strong>
+              <span>Adverse events were the main driver, with most events reported within 100 days of initiation.</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section id="methods" class="evidence-map" aria-label="Methods flow">
+        <article class="evidence-card">
+          <h3>Setting</h3>
+          <p>Academic medical center with an integrated specialty pharmacy.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Design</h3>
+          <p>Retrospective cohort using data from January 1, 2018 through December 31, 2020.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Included</h3>
+          <p>Adults at least 18 years old with chronic tic disorder diagnosis and VMAT2i prescribed during the study period.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Sources</h3>
+          <p>Electronic health record, specialty pharmacy management system, and pharmacy claims.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Outcomes</h3>
+          <p>Time to discontinuation, reason for discontinuation, and adverse events resulting from therapy.</p>
+        </article>
+      </section>
+
+      <section id="events" class="trial-grid">
+        <article class="panel">
+          <p class="section-label">Treatment resistance context</p>
+          <h2>Most patients arrived after multiple prior medication trials</h2>
+          <p>
+            The medication history table reads like a treatment-resistance profile: median 3 prior medication trials,
+            with aripiprazole and pimozide each documented in 8 patients.
+          </p>
+          <div class="prior-bars" aria-label="Prior medication trial counts">
+            <div class="prior-row"><span>Aripiprazole</span><span class="prior-track"><i style="width:100%"></i></span><b>8</b></div>
+            <div class="prior-row"><span>Pimozide</span><span class="prior-track"><i style="width:100%"></i></span><b>8</b></div>
+            <div class="prior-row"><span>Clonidine</span><span class="prior-track"><i style="width:87.5%"></i></span><b>7</b></div>
+            <div class="prior-row"><span>Haloperidol</span><span class="prior-track"><i style="width:75%"></i></span><b>6</b></div>
+            <div class="prior-row"><span>Risperidone</span><span class="prior-track"><i style="width:75%"></i></span><b>6</b></div>
+            <div class="prior-row"><span>Topiramate</span><span class="prior-track"><i style="width:62.5%"></i></span><b>5</b></div>
+            <div class="prior-row"><span>Fluphenazine</span><span class="prior-track"><i style="width:50%"></i></span><b>4</b></div>
+            <div class="prior-row"><span>Guanfacine</span><span class="prior-track"><i style="width:50%"></i></span><b>4</b></div>
+          </div>
+          <p class="note">Two patients had no documented medication trials before VMAT2i initiation.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Adverse-event signal</p>
+          <h2>Drowsiness, fatigue, and musculoskeletal events led the safety table</h2>
+          <p>
+            The adverse-event table counted event categories rather than mutually exclusive patients. Reported rates were lower
+            among patients with higher persistence.
+          </p>
+          <div class="event-grid">
+            <div class="event-card"><strong>6 (21%)</strong><span>Drowsiness or sedation</span></div>
+            <div class="event-card"><strong>4 (14%)</strong><span>Fatigue</span></div>
+            <div class="event-card"><strong>4 (14%)</strong><span>Musculoskeletal</span></div>
+            <div class="event-card"><strong>3 (11%)</strong><span>Depression</span></div>
+            <div class="event-card"><strong>3 (11%)</strong><span>Gastrointestinal</span></div>
+            <div class="event-card"><strong>2 (7%)</strong><span>Worsening movements</span></div>
+          </div>
+          <div class="cohort-stripes" aria-label="Selected cohort demographics">
+            <div class="stripe-row"><span>Male</span><span class="stripe-track"><i style="width:57%"></i></span><b>8 (57%)</b></div>
+            <div class="stripe-row"><span>White</span><span class="stripe-track"><i style="width:100%"></i></span><b>14 (100%)</b></div>
+            <div class="stripe-row"><span>Anxiety</span><span class="stripe-track"><i style="width:50%"></i></span><b>7 (50%)</b></div>
+            <div class="stripe-row"><span>Depression</span><span class="stripe-track"><i style="width:50%"></i></span><b>7 (50%)</b></div>
+            <div class="stripe-row"><span>OCD</span><span class="stripe-track"><i style="width:50%"></i></span><b>7 (50%)</b></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel markdown-fragment">
+          <p class="section-label">Objective</p>
+          <h2>What the authors set out to measure</h2>
+          <p>
+            Assess the persistence rate of newly initiated VMAT2 inhibitor therapy for chronic tic management at 12 months
+            after initiation.
+          </p>
+          <h3>Agents captured</h3>
+          <p>Deutetrabenazine, tetrabenazine, and valbenazine.</p>
+        </article>
+
+        <article class="panel markdown-fragment">
+          <p class="section-label">Conclusion</p>
+          <h2>Persistence was limited by early tolerability problems</h2>
+          <p>
+            Half of patients discontinued VMAT2i therapy before the end of 12-month follow-up, and adverse events were the main
+            driver of discontinuation. The authors called for further studies in patients with common comorbid conditions.
+          </p>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Extracted table patterns">
+        <article class="table-card">
+          <p class="section-label">Patient demographics</p>
+          <h2>Compact cohort profile</h2>
+          <div class="table-wrap">
+            <table class="compact-table">
+              <thead>
+                <tr>
+                  <th>Characteristic</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Median age, years (IQR)</td><td>37 (32-44)</td></tr>
+                <tr><td>Male</td><td>8 (57%)</td></tr>
+                <tr><td>White</td><td>14 (100%)</td></tr>
+                <tr><td>Tourette disorder only (F95.2)</td><td>4 (29%)</td></tr>
+                <tr><td>Unspecified tic disorder only (F95.9)</td><td>3 (21%)</td></tr>
+                <tr><td>Both F95.2 and F95.9</td><td>7 (50%)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Therapy changes</p>
+          <h2>Key timeline patterns</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Pattern</th>
+                  <th>Poster detail</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Very early discontinuation</td><td>Patients discontinued at approximately 10, 30, and 60 days after adverse events.</td></tr>
+                <tr><td>Midpoint discontinuation</td><td>Two patients discontinued at approximately 180 days with musculoskeletal adverse events.</td></tr>
+                <tr><td>Switches</td><td>Switches occurred near 60, 120, and 220 days in the patient timeline.</td></tr>
+                <tr><td>Dose adjustments</td><td>Dose increases and decreases were documented through approximately 300 days.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/51-2022.pdf">Open original PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/51-2022.md">Open extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

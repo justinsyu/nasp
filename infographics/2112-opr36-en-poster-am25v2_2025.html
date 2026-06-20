@@ -1,0 +1,617 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2025 Infographic | Neurology Specialty Pharmacist Interventions</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    html,
+    body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+    .poster-hero {
+      grid-template-columns: minmax(0, 1.25fr) minmax(19rem, 0.75fr);
+      align-items: start;
+      border-bottom-color: rgba(36, 55, 112, 0.35);
+    }
+    .hero-summary strong {
+      color: var(--ink);
+      font-weight: 900;
+    }
+    .hero-copy {
+      min-width: 0;
+    }
+    .hero-copy h1,
+    .hero-summary {
+      overflow-wrap: anywhere;
+    }
+    .care-map {
+      position: relative;
+      min-height: 21rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 82% 14%, rgba(233, 158, 37, 0.28), transparent 10rem),
+        linear-gradient(145deg, rgba(36, 55, 112, 0.97), rgba(24, 124, 143, 0.9));
+      color: #fff;
+      overflow: hidden;
+      padding: 1rem;
+    }
+    .care-map svg {
+      position: absolute;
+      inset: auto -2.5rem -2.2rem auto;
+      width: min(25rem, 74%);
+      opacity: 0.62;
+    }
+    .care-map .kicker {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+    .care-map strong {
+      display: block;
+      max-width: 16rem;
+      margin-top: 0.25rem;
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 6vw, 4.7rem);
+      line-height: 0.93;
+    }
+    .care-map span {
+      display: block;
+      max-width: 18.5rem;
+      margin-top: 0.62rem;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.94rem;
+    }
+    .hero-card .button-link {
+      justify-content: center;
+      background: #fff;
+    }
+    .split-note {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.55rem;
+    }
+    .split-note div {
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.74);
+      padding: 0.58rem;
+    }
+    .split-note b {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+    .split-note small {
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    .flow-band {
+      display: grid;
+      grid-template-columns: 1.25fr 0.8fr 0.8fr;
+      gap: 0.8rem;
+      align-items: stretch;
+    }
+    .visual-grid {
+      align-items: start;
+    }
+    .flow-card {
+      position: relative;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.9rem;
+      overflow: hidden;
+    }
+    .flow-card::after {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 0.34rem;
+      background: var(--accent, var(--red));
+    }
+    .flow-card.total { --accent: var(--red); }
+    .flow-card.ihssp { --accent: var(--teal); }
+    .flow-card.external { --accent: var(--gold); }
+    .flow-card strong {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 5vw, 4.1rem);
+      line-height: 0.95;
+    }
+    .flow-card span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+    .flow-card p {
+      margin: 0.55rem 0 0;
+      font-size: 0.88rem;
+    }
+    .acceptance-meter {
+      margin-top: 0.75rem;
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .acceptance-meter i {
+      display: block;
+      width: 98%;
+      height: 0.75rem;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--green), var(--teal));
+    }
+    .paired-bars {
+      display: grid;
+      gap: 0.78rem;
+      margin-top: 0.72rem;
+    }
+    .paired-row {
+      display: grid;
+      grid-template-columns: 9.7rem minmax(0, 1fr) 3rem;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    .paired-row b {
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+    .paired-row em {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-style: normal;
+      font-weight: 850;
+      text-align: right;
+    }
+    .paired-track {
+      display: grid;
+      gap: 0.18rem;
+    }
+    .paired-track i {
+      display: block;
+      height: 0.42rem;
+      border-radius: 999px;
+    }
+    .paired-track i:first-child {
+      background: var(--teal);
+    }
+    .paired-track i:last-child {
+      background: var(--gold);
+    }
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-top: 0.62rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 850;
+    }
+    .legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .legend i {
+      width: 0.72rem;
+      height: 0.72rem;
+      border-radius: 50%;
+    }
+    .clinical { background: var(--teal); }
+    .external { background: var(--gold); }
+    .impact-matrix {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.72rem;
+    }
+    .impact-tile {
+      border: 1px solid rgba(36, 55, 112, 0.15);
+      border-radius: 7px;
+      background: var(--surface-blue);
+      padding: 0.62rem;
+    }
+    .impact-tile strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+    .impact-tile span {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--body);
+      font-size: 0.76rem;
+      font-weight: 800;
+    }
+    .time-compare {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.72rem;
+    }
+    .time-card {
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 7px;
+      padding: 0.7rem;
+      background: #fff;
+    }
+    .time-card strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      line-height: 1;
+    }
+    .time-card span {
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 850;
+      text-transform: uppercase;
+    }
+    .finding-list {
+      margin: 0.65rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .finding-list li {
+      display: grid;
+      grid-template-columns: 0.8rem minmax(0, 1fr);
+      gap: 0.45rem;
+      margin-top: 0.45rem;
+      font-size: 0.88rem;
+    }
+    .finding-list li::before {
+      content: "";
+      width: 0.5rem;
+      height: 0.5rem;
+      margin-top: 0.48rem;
+      border-radius: 50%;
+      background: var(--red);
+    }
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+    .mini-table td:first-child {
+      color: var(--ink);
+      font-weight: 850;
+    }
+    .signal-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.65rem;
+    }
+    .signal {
+      border-left: 3px solid var(--signal, var(--teal));
+      background: rgba(238, 244, 251, 0.76);
+      padding: 0.55rem 0.6rem;
+    }
+    .signal:nth-child(2) { --signal: var(--gold); }
+    .signal:nth-child(3) { --signal: var(--green); }
+    .signal:nth-child(4) { --signal: var(--purple); }
+    .signal b {
+      display: block;
+      color: var(--ink);
+      font-size: 0.84rem;
+    }
+    .signal span {
+      color: var(--muted);
+      font-size: 0.74rem;
+    }
+    @media (max-width: 900px) {
+      .poster-hero {
+        grid-template-columns: 1fr;
+      }
+      .flow-band,
+      .comparison-grid {
+        grid-template-columns: 1fr;
+      }
+      .signal-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 620px) {
+      .infographic-shell {
+        width: calc(100vw - 1rem);
+        max-width: calc(100vw - 1rem);
+      }
+      .poster-hero,
+      main {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+      }
+      .hero-copy h1 {
+        font-size: 1.7rem;
+        line-height: 1.08;
+      }
+      .hero-summary {
+        font-size: 0.92rem;
+      }
+      .split-note,
+      .impact-matrix,
+      .time-compare,
+      .signal-grid {
+        grid-template-columns: 1fr;
+      }
+      .paired-row {
+        grid-template-columns: 1fr;
+      }
+      .paired-row em {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/2112-OPR36-EN-Poster-AM25v2_2025.pdf">Poster PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/2112-OPR36-EN-Poster-AM25v2_2025.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2025 | 2112-OPR36-EN-Poster-AM25v2</p>
+        <h1>Neurology Specialty Pharmacist Interventions Across Integrated and External Fill Sites</h1>
+        <p class="hero-summary">
+          Vanderbilt Specialty Pharmacy compared pharmacist interventions for non-MS neurology patients filling through an
+          <strong>integrated health system specialty pharmacy (IHSSP)</strong> versus non-integrated pharmacies.
+          The signal: pharmacists intervened often regardless of fill site, but external fills shifted work toward access,
+          transfers, and longer intervention time.
+        </p>
+        <ul class="tag-row">
+          <li class="tag therapy">Neurology</li>
+          <li class="tag category">Specialty Pharmacy</li>
+          <li class="tag">Retrospective Study</li>
+          <li class="tag">Vanderbilt University Medical Center</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card">
+        <div class="poster-code">2112<br>OPR36</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Study Window</dt>
+            <dd>Jan 1-Mar 31, 2023</dd>
+          </div>
+          <div>
+            <dt>Year</dt>
+            <dd>2025</dd>
+          </div>
+          <div>
+            <dt>Patients</dt>
+            <dd>741 total</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>Single center</dd>
+          </div>
+        </dl>
+        <div class="split-note">
+          <div><b>511</b><small>IHSSP patients</small></div>
+          <div><b>230</b><small>Non-IHSSP patients</small></div>
+        </div>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/2112-OPR36-EN-Poster-AM25v2_2025.pdf">Open original poster</a>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key study metrics">
+        <article class="metric-card">
+          <span>Total interventions</span>
+          <strong>2,244</strong>
+        </article>
+        <article class="metric-card">
+          <span>IHSSP interventions</span>
+          <strong>1,477</strong>
+        </article>
+        <article class="metric-card">
+          <span>Non-IHSSP interventions</span>
+          <strong>767</strong>
+        </article>
+        <article class="metric-card">
+          <span>Recommendations accepted</span>
+          <strong>98%</strong>
+        </article>
+      </section>
+
+      <section class="visual-grid">
+        <div class="care-map">
+          <p class="kicker">Workload Pattern</p>
+          <strong>Access work concentrated outside the IHSSP.</strong>
+          <span>External pharmacy patients required more financial assistance referrals, more prescription transfers, and a higher median intervention time.</span>
+          <svg viewBox="0 0 420 300" role="img" aria-label="Abstract specialty pharmacy network">
+            <defs>
+              <linearGradient id="nodeGradient" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#ffffff" stop-opacity="0.95"></stop>
+                <stop offset="1" stop-color="#e99e25" stop-opacity="0.86"></stop>
+              </linearGradient>
+            </defs>
+            <path d="M68 210 C126 114 185 258 251 128 C286 59 347 81 384 35" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" opacity="0.28"></path>
+            <path d="M60 242 C142 152 179 168 231 205 C284 245 327 164 389 136" fill="none" stroke="#e99e25" stroke-width="7" stroke-linecap="round" opacity="0.58"></path>
+            <circle cx="70" cy="210" r="34" fill="url(#nodeGradient)"></circle>
+            <circle cx="156" cy="146" r="22" fill="#ffffff" opacity="0.9"></circle>
+            <circle cx="244" cy="133" r="41" fill="#ffffff" opacity="0.84"></circle>
+            <circle cx="338" cy="84" r="27" fill="#e99e25" opacity="0.9"></circle>
+            <circle cx="300" cy="222" r="18" fill="#ffffff" opacity="0.76"></circle>
+          </svg>
+        </div>
+
+        <article class="panel">
+          <p class="section-label">Objective and Methods</p>
+          <h2>Compare what pharmacists do, how long it takes, and whether recommendations are accepted.</h2>
+          <p>
+            The study extracted interventions from the electronic health record and specialty pharmacy software for all
+            eligible non-MS neurology patients with at least one pharmacist intervention.
+          </p>
+          <div class="signal-grid" aria-label="Study design signals">
+            <div class="signal"><b>Design</b><span>Single-center retrospective review</span></div>
+            <div class="signal"><b>Population</b><span>Specialty medication patients in non-MS neurology clinics</span></div>
+            <div class="signal"><b>Comparator</b><span>IHSSP fill site versus non-IHSSP fill site</span></div>
+            <div class="signal"><b>Outcomes</b><span>Number, type, impact, time, recommendations</span></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="flow-band" aria-label="Intervention flow">
+        <article class="flow-card total">
+          <span>Documented intervention flow</span>
+          <strong>2,244</strong>
+          <p>Interventions split into 1,477 for IHSSP patients and 767 for non-IHSSP patients.</p>
+          <div class="acceptance-meter" aria-hidden="true"><i></i></div>
+          <p><b>385 of 392</b> provider recommendations were accepted across both groups.</p>
+        </article>
+        <article class="flow-card ihssp">
+          <span>IHSSP pathway</span>
+          <strong>303</strong>
+          <p>Recommendations made from IHSSP interventions; 298 were accepted.</p>
+        </article>
+        <article class="flow-card external">
+          <span>Non-IHSSP pathway</span>
+          <strong>89</strong>
+          <p>Recommendations made from external-fill interventions; 87 were accepted.</p>
+        </article>
+      </section>
+
+      <section class="comparison-grid">
+        <article class="panel">
+          <p class="section-label">Intervention Type</p>
+          <h2>Clinical services leaned IHSSP; access and transfer work leaned non-IHSSP.</h2>
+          <div class="legend">
+            <span><i class="clinical"></i>IHSSP percent</span>
+            <span><i class="external"></i>Non-IHSSP percent</span>
+          </div>
+          <div class="paired-bars">
+            <div class="paired-row">
+              <b>Therapy change</b>
+              <span class="paired-track"><i style="width:34%"></i><i style="width:31%"></i></span>
+              <em>34 / 31</em>
+            </div>
+            <div class="paired-row">
+              <b>Safety monitoring</b>
+              <span class="paired-track"><i style="width:7%"></i><i style="width:2%"></i></span>
+              <em>7 / 2</em>
+            </div>
+            <div class="paired-row">
+              <b>Financial assistance</b>
+              <span class="paired-track"><i style="width:14%"></i><i style="width:24%"></i></span>
+              <em>14 / 24</em>
+            </div>
+            <div class="paired-row">
+              <b>Appointment made</b>
+              <span class="paired-track"><i style="width:8%"></i><i style="width:3%"></i></span>
+              <em>8 / 3</em>
+            </div>
+            <div class="paired-row">
+              <b>Patient counseling</b>
+              <span class="paired-track"><i style="width:10%"></i><i style="width:5%"></i></span>
+              <em>10 / 5</em>
+            </div>
+            <div class="paired-row">
+              <b>Prescription transfer</b>
+              <span class="paired-track"><i style="width:3%"></i><i style="width:8%"></i></span>
+              <em>3 / 8</em>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Impact and Time</p>
+          <h2>Most interventions targeted quality of life, while IHSSP status predicted shorter time.</h2>
+          <div class="impact-matrix">
+            <div class="impact-tile">
+              <strong>73%</strong>
+              <span>IHSSP interventions rated Level 2: quality-of-life impact.</span>
+            </div>
+            <div class="impact-tile">
+              <strong>81%</strong>
+              <span>Non-IHSSP interventions rated Level 2.</span>
+            </div>
+            <div class="impact-tile">
+              <strong>0</strong>
+              <span>Level 4 impact scores were required.</span>
+            </div>
+          </div>
+          <div class="time-compare">
+            <div class="time-card">
+              <strong>8 min</strong>
+              <span>IHSSP median, IQR 5-15</span>
+            </div>
+            <div class="time-card">
+              <strong>10 min</strong>
+              <span>Non-IHSSP median, IQR 5-15</span>
+            </div>
+          </div>
+          <p>Regression analysis showed VSP/IHSSP patients had lower odds of greater intervention time; Medicaid, Medicare, no insurance, Tricare/other insurance, and several clinic categories trended toward greater time.</p>
+        </article>
+      </section>
+
+      <section class="tables-grid">
+        <article class="table-card">
+          <p class="section-label">Baseline Snapshot</p>
+          <h3>Patient mix by fill site</h3>
+          <div class="table-wrap">
+            <table class="mini-table">
+              <thead>
+                <tr>
+                  <th>Characteristic</th>
+                  <th>Non-IHSSP</th>
+                  <th>IHSSP</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Patients</td><td>230</td><td>511</td></tr>
+                <tr><td>Age, median [IQR]</td><td>58 [25-71]</td><td>61 [20-73]</td></tr>
+                <tr><td>Female</td><td>100 (44%)</td><td>234 (46%)</td></tr>
+                <tr><td>White</td><td>181 (82%)</td><td>418 (84%)</td></tr>
+                <tr><td>Commercial insurance</td><td>120 (52%)</td><td>111 (22%)</td></tr>
+                <tr><td>Government/other insurance</td><td>110 (48%)</td><td>400 (78%)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Conclusion</p>
+          <h3>Three operational takeaways</h3>
+          <ul class="finding-list">
+            <li>Non-IHSSP patients needed more financial assistance and prescription transfer support.</li>
+            <li>Non-IHSSP interventions required more pharmacist time, with a 10-minute median versus 8 minutes for IHSSP.</li>
+            <li>Provider acceptance was high: almost all intervention recommendations were accepted.</li>
+          </ul>
+          <div class="footer-actions">
+            <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/2112-OPR36-EN-Poster-AM25v2_2025.pdf">Source PDF</a>
+            <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/2112-OPR36-EN-Poster-AM25v2_2025.md">Source Markdown</a>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

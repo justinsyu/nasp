@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pharmacist Interventions in Specialty Pharmacy | NASP 2021</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .intervention-hero-card {
+      position: relative;
+      min-height: 21rem;
+      border: 1px solid rgba(36, 55, 112, 0.20);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 23% 24%, rgba(209, 38, 48, 0.14), transparent 7rem),
+        radial-gradient(circle at 78% 72%, rgba(24, 124, 143, 0.18), transparent 8rem),
+        linear-gradient(145deg, #ffffff 0%, var(--surface-blue) 56%, var(--surface-warm) 100%);
+      overflow: hidden;
+    }
+    .intervention-hero-card svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 21rem;
+    }
+    .hero-card .finding {
+      margin: 0;
+      border-left: 4px solid var(--red);
+      padding-left: 0.7rem;
+      color: var(--ink);
+      font-size: 0.95rem;
+      font-weight: 800;
+    }
+    .metric-card p {
+      margin: 0.45rem 0 0;
+      font-size: 0.8rem;
+    }
+    .workflow-strip {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.85rem;
+    }
+    .workflow-step {
+      position: relative;
+      min-height: 9.5rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+      overflow: hidden;
+    }
+    .workflow-step::after {
+      content: attr(data-step);
+      position: absolute;
+      right: 0.5rem;
+      bottom: -0.65rem;
+      color: rgba(36, 55, 112, 0.10);
+      font-family: var(--font-display);
+      font-size: 4.8rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .workflow-step h3,
+    .category-card h3,
+    .outcome-card h3 {
+      margin-bottom: 0.42rem;
+    }
+    .workflow-step p,
+    .category-card p,
+    .outcome-card p,
+    .callout-list li {
+      margin: 0;
+      font-size: 0.84rem;
+    }
+    .chart-duo {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 1rem;
+    }
+    .donut-panel {
+      display: grid;
+      grid-template-columns: 11rem minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+    }
+    .donut {
+      width: 11rem;
+      height: 11rem;
+      border-radius: 50%;
+      background: conic-gradient(var(--red) 0 53%, var(--teal) 53% 97.8%, var(--gold) 97.8% 100%);
+      display: grid;
+      place-items: center;
+    }
+    .donut::after {
+      content: "95.2%";
+      display: grid;
+      place-items: center;
+      width: 6.7rem;
+      height: 6.7rem;
+      border-radius: 50%;
+      background: #fff;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      font-weight: 900;
+      box-shadow: inset 0 0 0 1px rgba(174, 187, 210, 0.8);
+    }
+    .legend {
+      display: grid;
+      gap: 0.45rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .legend li {
+      display: grid;
+      grid-template-columns: 0.7rem minmax(0, 1fr) auto;
+      gap: 0.45rem;
+      align-items: center;
+      color: var(--body);
+      font-size: 0.83rem;
+      font-weight: 750;
+    }
+    .legend i {
+      width: 0.7rem;
+      height: 0.7rem;
+      border-radius: 2px;
+      background: var(--swatch);
+    }
+    .bar-list {
+      display: grid;
+      gap: 0.58rem;
+      margin-top: 0.8rem;
+    }
+    .bar-row {
+      display: grid;
+      grid-template-columns: 11.5rem minmax(0, 1fr) 6.4rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .bar-track {
+      height: 1.05rem;
+      border: 1px solid rgba(36, 55, 112, 0.12);
+      border-radius: 999px;
+      background: rgba(36, 55, 112, 0.08);
+      overflow: hidden;
+    }
+    .bar-fill {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .bar-row:nth-child(2) .bar-fill { background: linear-gradient(90deg, var(--teal), var(--green)); }
+    .bar-row:nth-child(3) .bar-fill { background: linear-gradient(90deg, var(--purple), var(--teal)); }
+    .bar-row:nth-child(4) .bar-fill { background: linear-gradient(90deg, var(--gold), var(--red)); }
+    .bar-row:nth-child(5) .bar-fill { background: linear-gradient(90deg, var(--green), var(--purple)); }
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.8rem;
+    }
+    .category-card {
+      position: relative;
+      min-height: 12.5rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+      overflow: hidden;
+    }
+    .category-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 0.32rem;
+      background: var(--accent, var(--red));
+    }
+    .category-card strong {
+      display: block;
+      margin-top: 0.65rem;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.38rem;
+      line-height: 1;
+    }
+    .category-card small {
+      display: block;
+      margin-top: 0.2rem;
+      color: var(--muted);
+      font-size: 0.67rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .outcome-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.6rem;
+      margin-top: 0.8rem;
+    }
+    .outcome-card {
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 8px;
+      background: var(--surface-blue);
+      padding: 0.78rem;
+    }
+    .outcome-card b {
+      display: inline-flex;
+      margin-bottom: 0.45rem;
+      border-radius: 999px;
+      background: rgba(209, 38, 48, 0.11);
+      padding: 0.14rem 0.44rem;
+      color: var(--red);
+      font-size: 0.64rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .callout-list {
+      display: grid;
+      gap: 0.5rem;
+      margin: 0.75rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .callout-list li {
+      border-left: 3px solid var(--teal);
+      padding-left: 0.6rem;
+    }
+    .takeaway {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(209, 38, 48, 0.10), transparent 44%),
+        #fff;
+    }
+    .takeaway p {
+      max-width: 62rem;
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.05rem, 1.8vw, 1.45rem);
+      font-weight: 850;
+      line-height: 1.35;
+    }
+    @media (max-width: 980px) {
+      .workflow-strip,
+      .category-grid,
+      .outcome-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .chart-duo,
+      .donut-panel {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 640px) {
+      .workflow-strip,
+      .category-grid,
+      .outcome-grid {
+        grid-template-columns: 1fr;
+      }
+      .bar-row {
+        grid-template-columns: 1fr;
+      }
+      .donut {
+        width: 9rem;
+        height: 9rem;
+      }
+      .donut::after {
+        width: 5.5rem;
+        height: 5.5rem;
+        font-size: 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="https://naspnet.org/" aria-label="National Association of Specialty Pharmacy">
+        NASP 2021
+      </a>
+      <nav aria-label="Poster sections">
+        <a href="#objective">Objective</a>
+        <a href="#results">Results</a>
+        <a href="#outcomes">Outcomes</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Integrated specialty pharmacy | pharmacist-led interventions</p>
+        <h1 id="poster-title">Pharmacist Interventions in Specialty Pharmacy</h1>
+        <p class="hero-summary">
+          Shields Health Solutions evaluated clinical pharmacist interventions across health-system specialty pharmacies to estimate likely patient-care outcomes and associated cost avoidance across disease states.
+        </p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag therapy">Specialty medications</li>
+          <li class="tag category">Medication therapy management</li>
+          <li class="tag">Cost avoidance</li>
+          <li class="tag">Clinical workflow</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div class="poster-code">15<br>2021</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Study period</dt>
+            <dd>Jan 1-Dec 31, 2020</dd>
+          </div>
+          <div>
+            <dt>Network</dt>
+            <dd>26 specialty pharmacies</dd>
+          </div>
+          <div>
+            <dt>Program</dt>
+            <dd>Clinical PMP enrollment</dd>
+          </div>
+          <div>
+            <dt>Acceptance</dt>
+            <dd>95.2%</dd>
+          </div>
+        </dl>
+        <p class="finding">Headline finding: pharmacist-led specialty pharmacy interventions were associated with $15.29M in total cost avoidance across all disease states.</p>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <div class="metric-card">
+          <span>Total cost avoidance</span>
+          <strong>$15.29M</strong>
+          <p>Across all captured disease states.</p>
+        </div>
+        <div class="metric-card">
+          <span>Health systems</span>
+          <strong>26</strong>
+          <p>Specialty pharmacies using the integrated model.</p>
+        </div>
+        <div class="metric-card">
+          <span>Acceptance rate</span>
+          <strong>95.2%</strong>
+          <p>Accepted pharmacist recommendations.</p>
+        </div>
+        <div class="metric-card">
+          <span>Top-5 category value</span>
+          <strong>$9.90M</strong>
+          <p>Oncology, RA, HIV, hepatitis C, and rare inflammatory conditions.</p>
+        </div>
+      </section>
+
+      <section id="objective" class="visual-grid" aria-label="Objective and care model">
+        <div class="intervention-hero-card" role="img" aria-label="Illustration of specialty pharmacy intervention loop from engagement through retention">
+          <svg viewBox="0 0 700 500" aria-hidden="true">
+            <defs>
+              <linearGradient id="circleFill" x1="0%" x2="100%" y1="0%" y2="100%">
+                <stop offset="0%" stop-color="#ffffff"/>
+                <stop offset="100%" stop-color="#eef4fb"/>
+              </linearGradient>
+              <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="14" stdDeviation="13" flood-color="#243770" flood-opacity="0.16"/>
+              </filter>
+              <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+                <path d="M0,0 L9,4.5 L0,9 Z" fill="#243770"/>
+              </marker>
+            </defs>
+            <circle cx="350" cy="250" r="118" fill="#ffffff" stroke="#243770" stroke-width="3" filter="url(#softShadow)"/>
+            <path d="M350 185 v130 M285 250 h130" stroke="#d12630" stroke-width="22" stroke-linecap="round"/>
+            <path d="M350 82 C463 82 555 156 587 254" fill="none" stroke="#187c8f" stroke-width="10" stroke-linecap="round" marker-end="url(#arrow)" opacity="0.62"/>
+            <path d="M585 259 C554 359 461 424 350 424" fill="none" stroke="#e99e25" stroke-width="10" stroke-linecap="round" marker-end="url(#arrow)" opacity="0.68"/>
+            <path d="M350 424 C237 424 144 358 113 259" fill="none" stroke="#7561a8" stroke-width="10" stroke-linecap="round" marker-end="url(#arrow)" opacity="0.60"/>
+            <path d="M113 241 C145 149 235 82 350 82" fill="none" stroke="#4d8a67" stroke-width="10" stroke-linecap="round" marker-end="url(#arrow)" opacity="0.66"/>
+            <g fill="url(#circleFill)" stroke-width="3">
+              <circle cx="350" cy="72" r="55" stroke="#4d8a67"/>
+              <circle cx="605" cy="250" r="55" stroke="#187c8f"/>
+              <circle cx="350" cy="428" r="55" stroke="#e99e25"/>
+              <circle cx="95" cy="250" r="55" stroke="#7561a8"/>
+            </g>
+            <g fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="20" font-weight="900" text-anchor="middle">
+              <text x="350" y="66">Engage</text>
+              <text x="605" y="244">Intervene</text>
+              <text x="350" y="422">Coordinate</text>
+              <text x="95" y="244">Improve</text>
+            </g>
+            <g fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" text-anchor="middle">
+              <text x="350" y="88">patient outreach</text>
+              <text x="605" y="266">provider action</text>
+              <text x="350" y="444">care plan support</text>
+              <text x="95" y="266">adherence and safety</text>
+            </g>
+            <text x="350" y="486" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="22" font-weight="900">Integrated pharmacist intervention cycle</text>
+          </svg>
+        </div>
+
+        <div class="panel markdown-fragment">
+          <p class="section-label">Objective</p>
+          <h2>Quantify the clinical and economic signal of pharmacist interventions</h2>
+          <p>
+            The poster evaluated likely outcomes from pharmacist interventions across all disease states within health-system specialty pharmacies, then matched standardized outcomes to published cost-avoidance estimates.
+          </p>
+          <ul>
+            <li>Retrospective observational study of patients on specialty medications.</li>
+            <li>Clinical outcomes captured in a patient management platform.</li>
+            <li>Interventions supported by EMR integration, board-certified pharmacists, and clinic-embedded liaisons.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Evidence flow</p>
+        <h2>How the integrated model turned routine interventions into measurable value</h2>
+        <div class="workflow-strip" aria-label="Study and intervention workflow">
+          <article class="workflow-step" data-step="1">
+            <h3>Risk stratify</h3>
+            <p>Patients enrolled into the clinical program were supported through standardized specialty pharmacy workflows.</p>
+          </article>
+          <article class="workflow-step" data-step="2">
+            <h3>Engage</h3>
+            <p>Clinical pharmacists provided MTM through patient engagements and medication education.</p>
+          </article>
+          <article class="workflow-step" data-step="3">
+            <h3>Intervene</h3>
+            <p>Pharmacists addressed interactions, adherence gaps, adverse effects, and therapy appropriateness.</p>
+          </article>
+          <article class="workflow-step" data-step="4">
+            <h3>Document</h3>
+            <p>Likely outcomes were selected in the PMP from a standardized outcome menu.</p>
+          </article>
+          <article class="workflow-step" data-step="5">
+            <h3>Value</h3>
+            <p>Clinical outcomes were paired with literature-based cost avoidance figures.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="results" class="chart-duo" aria-label="Intervention mix and top therapeutic category results">
+        <div class="panel donut-panel">
+          <div class="donut" aria-hidden="true"></div>
+          <div>
+            <p class="section-label">Figure 1 pattern</p>
+            <h2>Most interventions involved physicians or patients</h2>
+            <ul class="legend" aria-label="Intervention type and acceptance legend">
+              <li><i style="--swatch: var(--red)"></i><span>Physician interventions</span><strong>53.0%</strong></li>
+              <li><i style="--swatch: var(--teal)"></i><span>Patient interventions</span><strong>44.8%</strong></li>
+              <li><i style="--swatch: var(--gold)"></i><span>Other HCP interventions</span><strong>2.2%</strong></li>
+              <li><i style="--swatch: var(--green)"></i><span>Accepted recommendations</span><strong>95.2%</strong></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Figure 2 pattern</p>
+          <h2>Oncology drove the largest top-category cost avoidance</h2>
+          <div class="bar-list" aria-label="Top five therapeutic categories by cost avoidance">
+            <div class="bar-row">
+              <span>Oncology</span>
+              <div class="bar-track"><i class="bar-fill" style="width:100%"></i></div>
+              <span>$5,684,405</span>
+            </div>
+            <div class="bar-row">
+              <span>Rheumatoid arthritis</span>
+              <div class="bar-track"><i class="bar-fill" style="width:26.3%"></i></div>
+              <span>$1,496,593</span>
+            </div>
+            <div class="bar-row">
+              <span>HIV</span>
+              <div class="bar-track"><i class="bar-fill" style="width:19.9%"></i></div>
+              <span>$1,128,832</span>
+            </div>
+            <div class="bar-row">
+              <span>Hepatitis C</span>
+              <div class="bar-track"><i class="bar-fill" style="width:14.6%"></i></div>
+              <span>$831,922</span>
+            </div>
+            <div class="bar-row">
+              <span>Rare inflammatory</span>
+              <div class="bar-track"><i class="bar-fill" style="width:13.3%"></i></div>
+              <span>$754,683</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Top therapeutic categories</p>
+        <h2>Volume and value clustered in specialty-heavy disease areas</h2>
+        <div class="category-grid" aria-label="Top five therapeutic category cards">
+          <article class="category-card" style="--accent: var(--red)">
+            <h3>Oncology</h3>
+            <p>2,819 pharmacist interventions.</p>
+            <strong>$2,016</strong>
+            <small>Average cost avoidance</small>
+          </article>
+          <article class="category-card" style="--accent: var(--teal)">
+            <h3>Rheumatoid arthritis</h3>
+            <p>743 pharmacist interventions.</p>
+            <strong>$2,014</strong>
+            <small>Average cost avoidance</small>
+          </article>
+          <article class="category-card" style="--accent: var(--purple)">
+            <h3>HIV</h3>
+            <p>529 pharmacist interventions.</p>
+            <strong>$2,133</strong>
+            <small>Average cost avoidance</small>
+          </article>
+          <article class="category-card" style="--accent: var(--gold)">
+            <h3>Hepatitis C</h3>
+            <p>484 pharmacist interventions.</p>
+            <strong>$1,718</strong>
+            <small>Average cost avoidance</small>
+          </article>
+          <article class="category-card" style="--accent: var(--green)">
+            <h3>Rare inflammatory conditions</h3>
+            <p>282 pharmacist interventions.</p>
+            <strong>$2,676</strong>
+            <small>Average cost avoidance</small>
+          </article>
+        </div>
+      </section>
+
+      <section id="outcomes" class="section-stack" aria-label="Outcome patterns and conclusion">
+        <div class="panel">
+          <p class="section-label">Standardized outcome menu</p>
+          <h2>The most common outcome types were prevention and optimization</h2>
+          <div class="outcome-grid" aria-label="Top five marked outcomes">
+            <article class="outcome-card">
+              <b>Top outcome</b>
+              <h3>Improved adherence</h3>
+              <p>Potentially improved therapy adherence.</p>
+            </article>
+            <article class="outcome-card">
+              <b>Top outcome</b>
+              <h3>Avoided discontinuation</h3>
+              <p>Prevented premature therapy discontinuation.</p>
+            </article>
+            <article class="outcome-card">
+              <b>Top outcome</b>
+              <h3>Prevented complications</h3>
+              <p>Prevented therapy complications.</p>
+            </article>
+            <article class="outcome-card">
+              <b>Top outcome</b>
+              <h3>Resolved side effects</h3>
+              <p>Resolved side effect challenges.</p>
+            </article>
+            <article class="outcome-card">
+              <b>Top outcome</b>
+              <h3>Reduced inappropriateness</h3>
+              <p>Elimination of therapy inappropriateness.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Interpretation</p>
+          <h2>Why the pharmacist workflow mattered</h2>
+          <ul class="callout-list">
+            <li>Interventions were embedded in the standard clinical workflow, not treated as isolated events.</li>
+            <li>Provider-facing interventions focused on proactive mitigation of drug interactions, adverse events, and care-plan gaps.</li>
+            <li>Patient-facing interventions supported medication handling, administration, adherence, and disease-state management.</li>
+            <li>Economic value was estimated by pairing documented outcomes with cost-avoidance values from the literature.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="panel takeaway">
+        <p>
+          Conclusion: an integrated health-system specialty pharmacy model with pharmacist-led interventions was associated with favorable clinical and economic benefits, including $15,292,883 in total cost avoidance across all disease states.
+        </p>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/15-Pharmacist-Interventions-in-Specialty-Pharmacy_2021.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/15-Pharmacist-Interventions-in-Specialty-Pharmacy_2021.md">Source markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

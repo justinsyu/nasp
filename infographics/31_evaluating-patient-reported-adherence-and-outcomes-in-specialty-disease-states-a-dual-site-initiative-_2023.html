@@ -1,0 +1,683 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Evaluating Patient-Reported Adherence and Outcomes | NASP 2023</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .dual-site-art {
+      position: relative;
+      min-height: 18rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 16% 20%, rgba(24, 124, 143, 0.18), transparent 8rem),
+        radial-gradient(circle at 88% 78%, rgba(209, 38, 48, 0.15), transparent 9rem),
+        linear-gradient(135deg, #fff 0%, var(--surface-blue) 52%, var(--surface-warm) 100%);
+      overflow: hidden;
+    }
+    .dual-site-art svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 18rem;
+    }
+    .hero-card .finding {
+      margin: 0;
+      border-left: 4px solid var(--red);
+      padding-left: 0.7rem;
+      color: var(--ink);
+      font-size: 0.94rem;
+      font-weight: 850;
+    }
+    .metric-card p {
+      margin: 0.45rem 0 0;
+      font-size: 0.78rem;
+    }
+    .outcome-board {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+    .outcome-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.9rem;
+    }
+    .outcome-ring {
+      --pct: 50%;
+      --c: var(--teal);
+      display: grid;
+      place-items: center;
+      width: 8rem;
+      height: 8rem;
+      margin: 0.45rem auto 0.65rem;
+      border-radius: 50%;
+      background: conic-gradient(var(--c) var(--pct), rgba(36, 55, 112, 0.11) 0);
+    }
+    .outcome-ring span {
+      display: grid;
+      place-items: center;
+      width: 5.75rem;
+      height: 5.75rem;
+      border-radius: 50%;
+      background: #fff;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.72rem;
+      font-weight: 900;
+      line-height: 1;
+      text-align: center;
+    }
+    .outcome-ring small {
+      display: block;
+      margin-top: 0.16rem;
+      color: var(--muted);
+      font-family: var(--font-body);
+      font-size: 0.56rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .compact-note {
+      margin: 0;
+      color: var(--body);
+      font-size: 0.81rem;
+    }
+    .flow-line {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.68rem;
+      margin-top: 0.75rem;
+    }
+    .flow-node {
+      position: relative;
+      min-height: 10rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.82rem;
+      overflow: hidden;
+    }
+    .flow-node::before {
+      content: attr(data-step);
+      position: absolute;
+      right: 0.48rem;
+      bottom: -0.6rem;
+      color: rgba(36, 55, 112, 0.1);
+      font-family: var(--font-display);
+      font-size: 4.6rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .flow-node h3,
+    .flow-node p {
+      position: relative;
+      z-index: 1;
+    }
+    .flow-node p {
+      margin: 0.45rem 0 0;
+      font-size: 0.8rem;
+    }
+    .split-panel {
+      display: grid;
+      grid-template-columns: minmax(16rem, 0.65fr) minmax(0, 1.35fr);
+      gap: 1rem;
+      align-items: center;
+    }
+    .clinic-split {
+      display: grid;
+      gap: 0.6rem;
+      margin-top: 0.75rem;
+    }
+    .split-row {
+      display: grid;
+      grid-template-columns: 9rem minmax(0, 1fr) 4.8rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+    .split-track {
+      height: 1rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: var(--surface-blue);
+      overflow: hidden;
+    }
+    .split-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: var(--c, var(--teal));
+    }
+    .reason-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+    .reason-tile {
+      min-height: 7.5rem;
+      border: 1px solid rgba(174, 187, 210, 0.95);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.8rem;
+    }
+    .reason-tile strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.65rem;
+      line-height: 1;
+    }
+    .reason-tile span {
+      display: block;
+      margin-top: 0.45rem;
+      color: var(--ink);
+      font-size: 0.76rem;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+    .association-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+    .association-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.9rem;
+    }
+    .association-card strong {
+      display: block;
+      margin: 0.25rem 0;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(2.25rem, 5vw, 3.85rem);
+      line-height: 0.95;
+    }
+    .association-card p {
+      margin: 0.45rem 0 0;
+      font-size: 0.84rem;
+    }
+    .stacked {
+      display: grid;
+      height: 2.2rem;
+      margin-top: 0.7rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .stacked.effect-yes { grid-template-columns: 5% 15% 40% 40%; }
+    .stacked.effect-no { grid-template-columns: 1% 4% 35% 60%; }
+    .stacked.tol-yes { grid-template-columns: 10% 20% 40% 30%; }
+    .stacked.tol-no { grid-template-columns: 1% 4% 35% 60%; }
+    .stacked i:nth-child(1) { background: var(--red); }
+    .stacked i:nth-child(2) { background: var(--gold); }
+    .stacked i:nth-child(3) { background: var(--teal); }
+    .stacked i:nth-child(4) { background: var(--green); }
+    .legend-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.62rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 850;
+    }
+    .legend-line i {
+      display: inline-block;
+      width: 0.72rem;
+      height: 0.72rem;
+      margin-right: 0.24rem;
+      border-radius: 999px;
+      vertical-align: -0.1rem;
+    }
+    .table-card h2 {
+      font-size: 1.18rem;
+    }
+    .takeaway {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(24, 124, 143, 0.12), transparent 46%),
+        #fff;
+    }
+    .takeaway p {
+      max-width: 65rem;
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.05rem, 1.7vw, 1.42rem);
+      font-weight: 850;
+      line-height: 1.35;
+    }
+    .source-note {
+      margin: 0.65rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    @media (max-width: 900px) {
+      .outcome-board,
+      .flow-line,
+      .reason-grid,
+      .association-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .split-panel {
+        grid-template-columns: 1fr;
+      }
+      .topbar {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+    @media (max-width: 560px) {
+      .outcome-board,
+      .flow-line,
+      .reason-grid,
+      .association-grid,
+      .split-row {
+        grid-template-columns: 1fr;
+      }
+      .split-row span:last-child {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/31_Evaluating-Patient-Reported-Adherence-and-Outcomes-in-Specialty-Disease-States-A-Dual-Site-Initiative-_2023.pdf">Source PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/31_Evaluating-Patient-Reported-Adherence-and-Outcomes-in-Specialty-Disease-States-A-Dual-Site-Initiative-_2023.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2023 / Poster 31</p>
+        <h1 id="poster-title">Evaluating patient-reported adherence and outcomes in specialty disease states</h1>
+        <p class="hero-summary">
+          A dual-site health-system specialty pharmacy initiative examined whether monthly patient-reported refill assessments could connect missed doses, medication tolerability, perceived effectiveness, and emergency room or hospital use.
+        </p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Dual-center retrospective review</li>
+          <li class="tag therapy">Rheumatology</li>
+          <li class="tag therapy">Multiple sclerosis</li>
+          <li class="tag">Patient-reported outcomes</li>
+          <li class="tag">Health-system specialty pharmacy</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Study snapshot">
+        <div class="poster-code">31<br>2023</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Sites</dt>
+            <dd>UI Health and Vanderbilt</dd>
+          </div>
+          <div>
+            <dt>Window</dt>
+            <dd>Oct 2019-Mar 2022</dd>
+          </div>
+          <div>
+            <dt>Patients</dt>
+            <dd>3,677</dd>
+          </div>
+          <div>
+            <dt>Assessments</dt>
+            <dd>61,926 monthly calls</dd>
+          </div>
+        </dl>
+        <p class="finding">Core signal: tolerability issues and lower perceived effectiveness were linked with higher odds of a missed dose.</p>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Patients reviewed</span>
+          <strong>3,677</strong>
+          <p>Required at least three qualifying fills in rheumatology or MS clinics.</p>
+        </article>
+        <article class="metric-card">
+          <span>Monthly assessments</span>
+          <strong>61,926</strong>
+          <p>Clinical refill assessments supplied the outcome measures.</p>
+        </article>
+        <article class="metric-card">
+          <span>Rheumatology mix</span>
+          <strong>76%</strong>
+          <p>2,795 patients were in rheumatology clinics overall.</p>
+        </article>
+        <article class="metric-card">
+          <span>Female patients</span>
+          <strong>72%</strong>
+          <p>Overall median age at first assessment was 50 years.</p>
+        </article>
+      </section>
+
+      <section class="visual-grid" aria-label="Study overview">
+        <div class="dual-site-art" role="img" aria-label="Illustration of two specialty pharmacy sites feeding monthly assessment data into patient outcome measures">
+          <svg viewBox="0 0 700 470" aria-hidden="true">
+            <defs>
+              <linearGradient id="assessmentGradient" x1="0" x2="1">
+                <stop offset="0" stop-color="#187c8f"/>
+                <stop offset="0.52" stop-color="#e99e25"/>
+                <stop offset="1" stop-color="#d12630"/>
+              </linearGradient>
+              <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#243770" flood-opacity="0.15"/>
+              </filter>
+            </defs>
+            <rect x="72" y="72" width="170" height="118" rx="18" fill="#fff" stroke="#187c8f" stroke-width="5" filter="url(#shadow)"/>
+            <rect x="458" y="72" width="170" height="118" rx="18" fill="#fff" stroke="#d12630" stroke-width="5" filter="url(#shadow)"/>
+            <text x="157" y="122" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="22" font-weight="900">Site 1</text>
+            <text x="157" y="151" text-anchor="middle" fill="#68758d" font-family="Inter, sans-serif" font-size="13" font-weight="800">3,346 patients</text>
+            <text x="543" y="122" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="22" font-weight="900">Site 2</text>
+            <text x="543" y="151" text-anchor="middle" fill="#68758d" font-family="Inter, sans-serif" font-size="13" font-weight="800">331 patients</text>
+            <path d="M242 138 C292 138 308 228 350 228 C392 228 408 138 458 138" fill="none" stroke="url(#assessmentGradient)" stroke-width="11" stroke-linecap="round"/>
+            <circle cx="350" cy="228" r="72" fill="#fff" stroke="#243770" stroke-width="6" filter="url(#shadow)"/>
+            <path d="M320 226 h60 M320 204 h60 M320 248 h42" stroke="#e99e25" stroke-width="8" stroke-linecap="round"/>
+            <text x="350" y="330" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="24" font-weight="900">Monthly refill assessment</text>
+            <g fill="#fff" stroke-width="4">
+              <circle cx="122" cy="386" r="38" stroke="#4d8a67"/>
+              <circle cx="274" cy="386" r="38" stroke="#187c8f"/>
+              <circle cx="426" cy="386" r="38" stroke="#e99e25"/>
+              <circle cx="578" cy="386" r="38" stroke="#7561a8"/>
+            </g>
+            <g fill="none" stroke="#243770" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M107 386 l10 11 22-26"/>
+              <path d="M259 386 l10 11 22-26"/>
+              <path d="M411 386 l10 11 22-26"/>
+              <path d="M563 386 l10 11 22-26"/>
+            </g>
+            <g fill="#68758d" font-family="Inter, sans-serif" font-size="12" font-weight="900" text-anchor="middle">
+              <text x="122" y="446">Adherence</text>
+              <text x="274" y="446">Tolerability</text>
+              <text x="426" y="446">Effectiveness</text>
+              <text x="578" y="446">HCRU</text>
+            </g>
+          </svg>
+        </div>
+
+        <article class="panel markdown-fragment">
+          <p class="section-label">Objective</p>
+          <h2>Connect patient characteristics and monthly PROs to missed doses and healthcare resource use.</h2>
+          <p>The poster examined associations among patient-reported missed doses, medication tolerance, perceived effectiveness, and HCRU, defined as emergency room visits or hospitalizations.</p>
+          <div class="number-cloud" aria-label="Study lenses">
+            <div class="number-pill">4<small>PRO domains</small></div>
+            <div class="number-pill">2<small>HSSPs</small></div>
+            <div class="number-pill">3+<small>fills required</small></div>
+            <div class="number-pill">50<small>median age</small></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="outcome-board" aria-label="Patient-reported outcome dashboard">
+        <article class="outcome-card">
+          <h3>No missed doses</h3>
+          <div class="outcome-ring" style="--pct: 96%; --c: var(--green);">
+            <span>96%<small>n=59,190</small></span>
+          </div>
+          <p class="compact-note">Monthly assessments most often found no patient-reported missed doses.</p>
+        </article>
+        <article class="outcome-card">
+          <h3>No tolerability issues</h3>
+          <div class="outcome-ring" style="--pct: 99%; --c: var(--teal);">
+            <span>99%<small>n=60,892</small></span>
+          </div>
+          <p class="compact-note">Reported side effect or tolerance problems were uncommon.</p>
+        </article>
+        <article class="outcome-card">
+          <h3>Good or excellent effect</h3>
+          <div class="outcome-ring" style="--pct: 94%; --c: var(--gold);">
+            <span>94%<small>n=58,116</small></span>
+          </div>
+          <p class="compact-note">Patients generally perceived specialty medications as working well.</p>
+        </article>
+        <article class="outcome-card">
+          <h3>No ER or hospital use</h3>
+          <div class="outcome-ring" style="--pct: 97%; --c: var(--purple);">
+            <span>97%<small>n=59,991</small></span>
+          </div>
+          <p class="compact-note">HCRU events were rare in the monthly assessment data.</p>
+        </article>
+      </section>
+
+      <section class="panel" aria-label="Methods flow">
+        <p class="section-label">Methods</p>
+        <h2>Two HSSPs converted routine refill outreach into a structured outcomes dataset.</h2>
+        <div class="flow-line">
+          <article class="flow-node" data-step="1">
+            <h3>Select clinics</h3>
+            <p>Patients came from rheumatology or multiple sclerosis specialty clinics.</p>
+          </article>
+          <article class="flow-node" data-step="2">
+            <h3>Apply fill rules</h3>
+            <p>Included patients had at least three fills, excluding any individual refill above a 30-day supply.</p>
+          </article>
+          <article class="flow-node" data-step="3">
+            <h3>Call monthly</h3>
+            <p>Specialty pharmacy teams proactively completed clinical assessments before refilling medication.</p>
+          </article>
+          <article class="flow-node" data-step="4">
+            <h3>Ask PRO questions</h3>
+            <p>Questions covered missed doses, side effects or tolerance, perceived effectiveness, and ER or hospital use.</p>
+          </article>
+          <article class="flow-node" data-step="5">
+            <h3>Model links</h3>
+            <p>Associations were evaluated across missed dose, tolerability, and perceived effectiveness patterns.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="split-panel panel" aria-label="Population and medication patterns">
+        <div>
+          <p class="section-label">Population mix</p>
+          <h2>Rheumatology dominated the cohort and assessment volume.</h2>
+          <p class="compact-note">Overall, 2,795 patients were in rheumatology clinics and 880 were in multiple sclerosis clinics; two patients had both clinic types reported.</p>
+          <div class="clinic-split">
+            <div class="split-row"><span>Rheumatology patients</span><div class="split-track"><i style="--w:76%; --c: var(--teal);"></i></div><span>76%</span></div>
+            <div class="split-row"><span>MS patients</span><div class="split-track"><i style="--w:24%; --c: var(--purple);"></i></div><span>24%</span></div>
+            <div class="split-row"><span>Female patients</span><div class="split-track"><i style="--w:72%; --c: var(--red);"></i></div><span>72%</span></div>
+          </div>
+        </div>
+        <div>
+          <p class="section-label">Top medications assessed</p>
+          <h2>Assessment volume concentrated in a few therapies.</h2>
+          <div class="lens-chart">
+            <div class="lens-row"><span>Adalimumab</span><div class="lens-bar"><i style="width: 100%;"></i></div></div>
+            <div class="lens-row"><span>Etanercept</span><div class="lens-bar"><i style="width: 66%;"></i></div></div>
+            <div class="lens-row"><span>Tofacitinib</span><div class="lens-bar"><i style="width: 26%;"></i></div></div>
+            <div class="lens-row"><span>Dimethyl fumarate</span><div class="lens-bar"><i style="width: 20%;"></i></div></div>
+            <div class="lens-row"><span>Fingolimod</span><div class="lens-bar"><i style="width: 18%;"></i></div></div>
+            <div class="lens-row"><span>Glatiramer acetate</span><div class="lens-bar"><i style="width: 18%;"></i></div></div>
+          </div>
+          <p class="source-note">Bars are scaled to the largest medication count, adalimumab with 16,643 rheumatology assessments.</p>
+        </div>
+      </section>
+
+      <section class="panel" aria-label="Reasons for missed doses">
+        <p class="section-label">Missed-dose pattern</p>
+        <h2>Forgetfulness and purposeful holds accounted for more than half of reported missed-dose reasons.</h2>
+        <div class="reason-grid">
+          <div class="reason-tile"><strong>29%</strong><span>Forgetfulness</span></div>
+          <div class="reason-tile"><strong>26%</strong><span>Purposefully held</span></div>
+          <div class="reason-tile"><strong>12%</strong><span>Other reason</span></div>
+          <div class="reason-tile"><strong>10%</strong><span>Ran out of medication</span></div>
+          <div class="reason-tile"><strong>3%</strong><span>Hospitalized</span></div>
+        </div>
+      </section>
+
+      <section class="association-grid" aria-label="Associations among patient-reported outcomes">
+        <article class="association-card">
+          <p class="section-label">Effectiveness to missed dose</p>
+          <strong>1.6x</strong>
+          <h3>Fair effectiveness raised missed-dose odds.</h3>
+          <p>Compared with good or excellent effectiveness, a fair rating was associated with higher odds of a missed dose (95% CI 1.3-1.9).</p>
+        </article>
+        <article class="association-card">
+          <p class="section-label">Effectiveness to tolerance</p>
+          <strong>5.4x</strong>
+          <h3>Fair effectiveness tracked with tolerability issues.</h3>
+          <p>Patients rating effectiveness as fair were more likely to report tolerability issues (95% CI 4.2-7.0).</p>
+        </article>
+        <article class="association-card">
+          <p class="section-label">Tolerance to missed dose</p>
+          <strong>2.5x</strong>
+          <h3>Tolerability issues raised missed-dose odds.</h3>
+          <p>Patients reporting tolerability issues were more likely to report a missed dose (95% CI 1.9-3.2).</p>
+        </article>
+      </section>
+
+      <section class="visual-grid" aria-label="Association table patterns">
+        <article class="panel">
+          <p class="section-label">Effectiveness distribution</p>
+          <h2>Missed-dose reports shifted ratings away from excellent.</h2>
+          <h3>Missed dose: yes</h3>
+          <div class="stacked effect-yes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          <h3>Missed dose: no</h3>
+          <div class="stacked effect-no" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          <div class="legend-line" style="margin-top:0.7rem;">
+            <span><i style="background: var(--red);"></i>Poor</span>
+            <span><i style="background: var(--gold);"></i>Fair</span>
+            <span><i style="background: var(--teal);"></i>Good</span>
+            <span><i style="background: var(--green);"></i>Excellent</span>
+          </div>
+        </article>
+        <article class="panel">
+          <p class="section-label">Tolerability distribution</p>
+          <h2>Patients with tolerability issues had fewer excellent effectiveness ratings.</h2>
+          <h3>Tolerability issue: yes</h3>
+          <div class="stacked tol-yes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          <h3>Tolerability issue: no</h3>
+          <div class="stacked tol-no" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          <div class="legend-line" style="margin-top:0.7rem;">
+            <span><i style="background: var(--red);"></i>Poor</span>
+            <span><i style="background: var(--gold);"></i>Fair</span>
+            <span><i style="background: var(--teal);"></i>Good</span>
+            <span><i style="background: var(--green);"></i>Excellent</span>
+          </div>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Condensed source tables">
+        <article class="table-card">
+          <p class="section-label">Demographic table pattern</p>
+          <h2>Overall cohort characteristics</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Characteristic</th>
+                  <th>Overall</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Patients</td>
+                  <td>3,677</td>
+                </tr>
+                <tr>
+                  <td>Age at first assessment, median (IQR)</td>
+                  <td>50 years (37-61)</td>
+                </tr>
+                <tr>
+                  <td>Female</td>
+                  <td>2,638 (72%)</td>
+                </tr>
+                <tr>
+                  <td>White / Black</td>
+                  <td>2,780 (76%) / 471 (13%)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+        <article class="table-card">
+          <p class="section-label">Medication table pattern</p>
+          <h2>Largest medication assessment categories</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Clinic</th>
+                  <th>Medication</th>
+                  <th>Assessments</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Rheumatology</td>
+                  <td>Adalimumab</td>
+                  <td>16,643 (37%)</td>
+                </tr>
+                <tr>
+                  <td>Rheumatology</td>
+                  <td>Etanercept</td>
+                  <td>11,060 (24%)</td>
+                </tr>
+                <tr>
+                  <td>Multiple sclerosis</td>
+                  <td>Dimethyl fumarate</td>
+                  <td>3,373 (20%)</td>
+                </tr>
+                <tr>
+                  <td>Multiple sclerosis</td>
+                  <td>Fingolimod</td>
+                  <td>3,065 (19%)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="evidence-map" aria-label="Extracted poster takeaways">
+        <article class="evidence-card">
+          <h3>Objective</h3>
+          <p>Examine associations between patient characteristics, adherence, tolerance, perceived effectiveness, and HCRU.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Setting</h3>
+          <p>Two health-system specialty pharmacies used monthly refill assessments as the data source.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Main outcome</h3>
+          <p>Most assessments reported no missed doses, no tolerability issues, favorable effectiveness, and no HCRU.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Risk signal</h3>
+          <p>Tolerability issues and lower perceived effectiveness were associated with missed doses.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Practice implication</h3>
+          <p>Routine PRO collection can flag patients who may benefit from targeted adherence or tolerability follow-up.</p>
+        </article>
+      </section>
+
+      <section class="panel takeaway">
+        <p>
+          Conclusion: In rheumatology and MS specialty pharmacy patients, monthly refill assessments showed high reported effectiveness and low missed-dose, tolerability, and HCRU rates, while poorer tolerability or lower perceived effectiveness identified patients more likely to report missed doses.
+        </p>
+      </section>
+    </main>
+
+    <footer class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/31_Evaluating-Patient-Reported-Adherence-and-Outcomes-in-Specialty-Disease-States-A-Dual-Site-Initiative-_2023.pdf">Open original PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/31_Evaluating-Patient-Reported-Adherence-and-Outcomes-in-Specialty-Disease-States-A-Dual-Site-Initiative-_2023.md">Read extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

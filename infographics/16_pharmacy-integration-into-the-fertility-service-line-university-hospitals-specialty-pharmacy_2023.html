@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pharmacy Integration into the Fertility Service Line | NASP 2023 Infographic</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .fertility-hero-art {
+      display: grid;
+      min-height: 19rem;
+      place-items: center;
+      overflow: hidden;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 20% 22%, rgba(233, 158, 37, 0.2), transparent 7rem),
+        radial-gradient(circle at 86% 82%, rgba(24, 124, 143, 0.16), transparent 8rem),
+        linear-gradient(145deg, #ffffff, var(--surface-blue));
+    }
+    .fertility-hero-art svg {
+      width: min(100%, 27rem);
+      height: auto;
+      padding: 1rem;
+    }
+    .hero-card .author-line {
+      margin: 0;
+      color: var(--body);
+      font-size: 0.82rem;
+    }
+    .metric-card p {
+      margin: 0.45rem 0 0;
+      font-size: 0.82rem;
+    }
+    .metric-card strong small {
+      display: inline;
+      color: inherit;
+      font-size: 0.56em;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+    .phase-timeline {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+    .phase {
+      position: relative;
+      min-height: 12.5rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.85rem;
+      overflow: hidden;
+    }
+    .phase::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 0.35rem;
+      background: var(--accent, var(--red));
+    }
+    .phase:nth-child(2) { --accent: var(--gold); }
+    .phase:nth-child(3) { --accent: var(--teal); }
+    .phase time {
+      display: inline-flex;
+      margin-bottom: 0.55rem;
+      color: var(--red);
+      font-size: 0.66rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .phase p {
+      margin: 0.45rem 0 0;
+      font-size: 0.82rem;
+    }
+    .volume-chart {
+      display: grid;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+    .volume-row {
+      display: grid;
+      grid-template-columns: 4.1rem minmax(0, 1fr) 3.1rem 3.3rem;
+      gap: 0.5rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.74rem;
+      font-weight: 850;
+    }
+    .volume-track {
+      height: 0.7rem;
+      overflow: hidden;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: #edf2f8;
+    }
+    .volume-track i {
+      display: block;
+      width: calc(var(--value) / 227 * 100%);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .volume-row .referral {
+      color: var(--teal);
+      text-align: right;
+    }
+    .ivf-stack {
+      display: grid;
+      gap: 0.72rem;
+      margin-top: 0.75rem;
+    }
+    .ivf-row {
+      display: grid;
+      grid-template-columns: 10rem minmax(0, 1fr) 3rem;
+      gap: 0.65rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 850;
+    }
+    .ivf-track {
+      height: 1rem;
+      overflow: hidden;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: #edf2f8;
+    }
+    .ivf-track i {
+      display: block;
+      width: calc(var(--value) / 433 * 100%);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .ivf-row:nth-child(2) .ivf-track i {
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .ivf-row:nth-child(3) .ivf-track i {
+      background: linear-gradient(90deg, var(--purple), var(--teal));
+    }
+    .care-model {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.7rem;
+    }
+    .care-node {
+      border-left: 4px solid var(--accent, var(--red));
+      background: rgba(238, 244, 251, 0.74);
+      padding: 0.62rem 0.68rem;
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 850;
+    }
+    .care-node:nth-child(2) { --accent: var(--gold); }
+    .care-node:nth-child(3) { --accent: var(--teal); }
+    .care-node:nth-child(4) { --accent: var(--green); }
+    .mini-table td:nth-child(2),
+    .mini-table td:nth-child(3),
+    .mini-table th:nth-child(2),
+    .mini-table th:nth-child(3) {
+      text-align: right;
+    }
+    .insight-callout {
+      border: 1px solid rgba(209, 38, 48, 0.3);
+      border-left: 5px solid var(--red);
+      border-radius: 8px;
+      background: #fff;
+      padding: 1rem;
+    }
+    .insight-callout p {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 850;
+      line-height: 1.35;
+    }
+    @media (max-width: 900px) {
+      .phase-timeline,
+      .care-model {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 620px) {
+      .volume-row,
+      .ivf-row {
+        grid-template-columns: 1fr;
+      }
+      .volume-row .referral {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP infographic home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/16_Pharmacy-Integration-into-the-Fertility-Service-Line-University-Hospitals-Specialty-Pharmacy_2023.pdf">PDF Source</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/16_Pharmacy-Integration-into-the-Fertility-Service-Line-University-Hospitals-Specialty-Pharmacy_2023.md">Markdown Source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2023 | Poster 16 | Fertility service line integration</p>
+        <h1 id="poster-title">Pharmacy Integration into the Fertility Service Line</h1>
+        <p class="hero-summary">University Hospitals Specialty Pharmacy phased a pharmacy technician and clinic-embedded pharmacist into fertility care to support medication access, patient education, IVF coordination, and specialty pharmacy services.</p>
+        <ul class="tag-row" aria-label="Poster topics">
+          <li class="tag category">Integrated care model</li>
+          <li class="tag therapy">Fertility</li>
+          <li class="tag">Medication access</li>
+          <li class="tag">IVF support</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div class="poster-code">2023<br>UHSP</div>
+        <p class="author-line">Catherine N. Seeco, PharmD; Alayna Manalo, CPhT; Allene Naples, PharmD, MBA, CSP</p>
+        <dl class="meta-grid">
+          <div>
+            <dt>Site</dt>
+            <dd>University Hospitals Specialty Pharmacy</dd>
+          </div>
+          <div>
+            <dt>Clinic</dt>
+            <dd>University Hospitals Fertility Clinic</dd>
+          </div>
+          <div>
+            <dt>Study window</dt>
+            <dd>May 17, 2021-July 31, 2022</dd>
+          </div>
+          <div>
+            <dt>Model</dt>
+            <dd>Phased clinic integration</dd>
+          </div>
+        </dl>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Patients supported</span>
+          <strong>605</strong>
+          <p>patients received care from the clinical pharmacy specialist or pharmacy support liaison.</p>
+        </article>
+        <article class="metric-card">
+          <span>Referral growth</span>
+          <strong>4.15<small>%</small></strong>
+          <p>increase in new patient referrals comparing 2022 total with 2021 total.</p>
+        </article>
+        <article class="metric-card">
+          <span>Prescription growth</span>
+          <strong>27.24<small>%</small></strong>
+          <p>increase in prescriptions sent to UHSP comparing 2022 total with 2021 total.</p>
+        </article>
+        <article class="metric-card">
+          <span>IVF activity tracked</span>
+          <strong>924</strong>
+          <p>retrievals, frozen embryo transfers, and fresh embryo transfers reported in aggregate.</p>
+        </article>
+      </section>
+
+      <section class="visual-grid" aria-label="Objective and visual concept">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Evaluate and strengthen a collaborative fertility pharmacy model</h2>
+          <div class="markdown-fragment">
+            <p>The poster evaluates the current impact of pharmacy integration and identifies ways to enhance comprehensive pharmaceutical care, disease-state management, and specialty pharmacy support within a fertility service line.</p>
+            <p>Fertility medications were framed as a high-touch category because they are costly, may have limited insurance coverage, require strict adherence, often change dose, may be self-mixed and self-administered, and need specific storage guidance.</p>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Integrated service concept</p>
+          <h2>Access, education, coordination, and continuity in one clinic loop</h2>
+          <div class="fertility-hero-art" aria-hidden="true">
+            <svg viewBox="0 0 460 320">
+              <defs>
+                <linearGradient id="fertilityGrad" x1="0" x2="1" y1="0" y2="1">
+                  <stop offset="0" stop-color="#d12630"></stop>
+                  <stop offset="0.48" stop-color="#e99e25"></stop>
+                  <stop offset="1" stop-color="#187c8f"></stop>
+                </linearGradient>
+              </defs>
+              <circle cx="230" cy="158" r="104" fill="#ffffff" stroke="#d9e1ef" stroke-width="18"></circle>
+              <path d="M230 58a100 100 0 0 1 92 61" fill="none" stroke="#d12630" stroke-width="18" stroke-linecap="round"></path>
+              <path d="M327 170a100 100 0 0 1-93 88" fill="none" stroke="#187c8f" stroke-width="18" stroke-linecap="round"></path>
+              <path d="M183 247a100 100 0 0 1-52-91" fill="none" stroke="#e99e25" stroke-width="18" stroke-linecap="round"></path>
+              <rect x="174" y="114" width="112" height="88" rx="16" fill="#eef4fb" stroke="#aebbd2" stroke-width="3"></rect>
+              <path d="M230 134v48M206 158h48" stroke="#243770" stroke-width="12" stroke-linecap="round"></path>
+              <circle cx="114" cy="80" r="34" fill="#fff" stroke="#d12630" stroke-width="6"></circle>
+              <path d="M96 80h36M114 62v36" stroke="#d12630" stroke-width="7" stroke-linecap="round"></path>
+              <circle cx="354" cy="86" r="34" fill="#fff" stroke="#187c8f" stroke-width="6"></circle>
+              <path d="M338 88l10 10 22-26" fill="none" stroke="#187c8f" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path>
+              <rect x="70" y="226" width="92" height="44" rx="12" fill="url(#fertilityGrad)"></rect>
+              <rect x="298" y="226" width="92" height="44" rx="12" fill="#243770"></rect>
+              <circle cx="116" cy="248" r="10" fill="#fff"></circle>
+              <path d="M326 248h36" stroke="#fff" stroke-width="8" stroke-linecap="round"></path>
+            </svg>
+          </div>
+        </article>
+      </section>
+
+      <section aria-label="Integration timeline">
+        <p class="section-label">Methods | phased build</p>
+        <h2>Three implementation milestones created the service line</h2>
+        <div class="phase-timeline">
+          <article class="phase">
+            <time datetime="2021-05-17">May 17, 2021</time>
+            <h3>Service line creation</h3>
+            <p>Integration began with background research, stakeholder analysis, and assessment of clinician interest.</p>
+          </article>
+          <article class="phase">
+            <time datetime="2021-08-16">August 16, 2021</time>
+            <h3>Pharmacy technician integration</h3>
+            <p>A pharmacy support liaison was created to provide benefit investigation, prior authorization support, and patient care coordination.</p>
+          </article>
+          <article class="phase">
+            <time datetime="2022-03-28">March 28, 2022</time>
+            <h3>Pharmacist integration</h3>
+            <p>The clinical pharmacy specialist embedded in clinic, joined daily IVF meetings, followed treatment start to finish, and managed third-party patients.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="visual-grid" aria-label="Results charts">
+        <article class="panel">
+          <p class="section-label">Monthly volume pattern</p>
+          <h2>Prescription volume climbed after integration began</h2>
+          <div class="volume-chart" aria-label="Monthly prescription and referral volume from May 2021 through July 2022">
+            <div class="volume-row"><span>May-21</span><span class="volume-track"><i style="--value:22"></i></span><span>22 Rx</span><span class="referral">14 ref</span></div>
+            <div class="volume-row"><span>Jun-21</span><span class="volume-track"><i style="--value:50"></i></span><span>50 Rx</span><span class="referral">20 ref</span></div>
+            <div class="volume-row"><span>Jul-21</span><span class="volume-track"><i style="--value:80"></i></span><span>80 Rx</span><span class="referral">41 ref</span></div>
+            <div class="volume-row"><span>Aug-21</span><span class="volume-track"><i style="--value:100"></i></span><span>100 Rx</span><span class="referral">41 ref</span></div>
+            <div class="volume-row"><span>Sep-21</span><span class="volume-track"><i style="--value:120"></i></span><span>120 Rx</span><span class="referral">40 ref</span></div>
+            <div class="volume-row"><span>Oct-21</span><span class="volume-track"><i style="--value:145"></i></span><span>145 Rx</span><span class="referral">35 ref</span></div>
+            <div class="volume-row"><span>Nov-21</span><span class="volume-track"><i style="--value:227"></i></span><span>227 Rx</span><span class="referral">47 ref</span></div>
+            <div class="volume-row"><span>Dec-21</span><span class="volume-track"><i style="--value:106"></i></span><span>106 Rx</span><span class="referral">47 ref</span></div>
+            <div class="volume-row"><span>Jan-22</span><span class="volume-track"><i style="--value:180"></i></span><span>180 Rx</span><span class="referral">38 ref</span></div>
+            <div class="volume-row"><span>Feb-22</span><span class="volume-track"><i style="--value:184"></i></span><span>184 Rx</span><span class="referral">47 ref</span></div>
+            <div class="volume-row"><span>Mar-22</span><span class="volume-track"><i style="--value:171"></i></span><span>171 Rx</span><span class="referral">39 ref</span></div>
+            <div class="volume-row"><span>Apr-22</span><span class="volume-track"><i style="--value:202"></i></span><span>202 Rx</span><span class="referral">37 ref</span></div>
+            <div class="volume-row"><span>May-22</span><span class="volume-track"><i style="--value:184"></i></span><span>184 Rx</span><span class="referral">39 ref</span></div>
+            <div class="volume-row"><span>Jun-22</span><span class="volume-track"><i style="--value:172"></i></span><span>172 Rx</span><span class="referral">57 ref</span></div>
+            <div class="volume-row"><span>Jul-22</span><span class="volume-track"><i style="--value:176"></i></span><span>176 Rx</span><span class="referral">48 ref</span></div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">IVF cycle totals</p>
+          <h2>Pharmacy support sat alongside sustained IVF activity</h2>
+          <div class="ivf-stack" aria-label="Reported IVF cycle component totals">
+            <div class="ivf-row"><span>Egg retrievals</span><span class="ivf-track"><i style="--value:429"></i></span><span>429</span></div>
+            <div class="ivf-row"><span>Frozen transfers</span><span class="ivf-track"><i style="--value:433"></i></span><span>433</span></div>
+            <div class="ivf-row"><span>Fresh transfers</span><span class="ivf-track"><i style="--value:62"></i></span><span>62</span></div>
+          </div>
+          <div class="number-cloud" aria-label="Additional key numbers">
+            <div class="number-pill">57<small>peak monthly referrals</small></div>
+            <div class="number-pill">227<small>peak monthly Rx</small></div>
+            <div class="number-pill">2,177<small>Rx in annual totals</small></div>
+            <div class="number-pill">590<small>annual referrals</small></div>
+          </div>
+        </article>
+      </section>
+
+      <section aria-label="Care model">
+        <p class="section-label">Embedded pharmacist value</p>
+        <h2>The pharmacy role connected access work to treatment completion</h2>
+        <div class="care-model">
+          <div class="care-node">Daily IVF meeting participation</div>
+          <div class="care-node">Medication access and distribution support</div>
+          <div class="care-node">Patient management program development</div>
+          <div class="care-node">Gestational carrier, egg donor, and embryo donor management</div>
+        </div>
+      </section>
+
+      <section class="tables-grid" aria-label="Table summaries">
+        <article class="table-card">
+          <p class="section-label">Annual table pattern</p>
+          <h2>Both key volumes rose in 2022 totals</h2>
+          <div class="table-wrap">
+            <table class="mini-table">
+              <thead>
+                <tr>
+                  <th>Measure</th>
+                  <th>2021 total</th>
+                  <th>2022 total</th>
+                  <th>Reported change</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>New patient referrals</td>
+                  <td>289</td>
+                  <td>301</td>
+                  <td>+4.15%</td>
+                </tr>
+                <tr>
+                  <td>New prescriptions sent to UHSP</td>
+                  <td>958</td>
+                  <td>1,219</td>
+                  <td>+27.24%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+        <article class="table-card">
+          <p class="section-label">Context for variation</p>
+          <h2>Operational factors shaped the trend line</h2>
+          <div class="markdown-fragment">
+            <ul>
+              <li>Andrology and embryology laboratory closure each December for quality improvement.</li>
+              <li>Provider retirement.</li>
+              <li>Phased rollout designed to maintain patient satisfaction.</li>
+              <li>Electronic medical record and technology availability.</li>
+            </ul>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-stack" aria-label="Conclusion and future opportunities">
+        <article class="insight-callout">
+          <p>Conclusion: since launch, new patient referrals and prescription volume increased, supporting the value of a clinic-based pharmacist in optimizing fertility treatment and medication safety for IVF-cycle completion.</p>
+        </article>
+        <article class="panel markdown-fragment">
+          <p class="section-label">Future opportunities</p>
+          <h2>Next steps extend pharmacy scope</h2>
+          <p>The poster points to a collaborative practice agreement, continuous improvement of the patient management program, broader access to women's health medications, appeal support for off-label medication use, pharmacist appointments, and clinical interventions.</p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer-actions" aria-label="Source files">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/16_Pharmacy-Integration-into-the-Fertility-Service-Line-University-Hospitals-Specialty-Pharmacy_2023.pdf">Open original poster PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/16_Pharmacy-Integration-into-the-Fertility-Service-Line-University-Hospitals-Specialty-Pharmacy_2023.md">Open extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

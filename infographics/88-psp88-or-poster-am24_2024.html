@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PSP88 | Medically Integrated Pharmacy Cost Avoidance</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .money-hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 18rem;
+      border: 1px solid rgba(36, 55, 112, 0.2);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 22% 18%, rgba(24, 124, 143, 0.18), transparent 8rem),
+        radial-gradient(circle at 84% 70%, rgba(233, 158, 37, 0.22), transparent 9rem),
+        linear-gradient(145deg, #fff, var(--surface-blue) 58%, var(--surface-warm));
+      padding: 0.8rem;
+    }
+
+    .money-hero svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .finding-ribbon {
+      border-left: 4px solid var(--teal);
+      background: rgba(255, 255, 255, 0.72);
+      padding: 0.62rem 0.72rem;
+      color: var(--ink);
+      font-size: 0.9rem;
+      font-weight: 850;
+    }
+
+    .dual-signal {
+      display: grid;
+      grid-template-columns: minmax(15rem, 0.82fr) minmax(0, 1.18fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .savings-card {
+      display: grid;
+      align-content: center;
+      min-height: 14rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, rgba(209, 38, 48, 0.92), rgba(36, 55, 112, 0.96)),
+        var(--ink);
+      padding: 1rem;
+      color: #fff;
+    }
+
+    .savings-card span,
+    .source-note {
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+
+    .savings-card span {
+      color: rgba(255, 255, 255, 0.72);
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .savings-card strong {
+      margin-top: 0.2rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 7vw, 5.7rem);
+      line-height: 0.92;
+    }
+
+    .savings-card p {
+      margin: 0.65rem 0 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.92rem;
+    }
+
+    .comparison-bars {
+      display: grid;
+      gap: 0.72rem;
+      margin-top: 0.75rem;
+    }
+
+    .comparison-row {
+      display: grid;
+      grid-template-columns: 8.4rem minmax(0, 1fr) 6.2rem;
+      gap: 0.65rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+
+    .comparison-row em {
+      color: var(--muted);
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .comparison-track {
+      height: 1rem;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+
+    .comparison-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .comparison-track i.teal {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .workflow-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+
+    .workflow-step {
+      position: relative;
+      min-height: 11rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.88rem;
+    }
+
+    .workflow-step b {
+      display: grid;
+      place-items: center;
+      width: 2.1rem;
+      height: 2.1rem;
+      margin-bottom: 0.55rem;
+      border-radius: 999px;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+    }
+
+    .workflow-step h3 {
+      margin-bottom: 0.38rem;
+    }
+
+    .workflow-step p {
+      margin: 0;
+      font-size: 0.82rem;
+    }
+
+    .reason-board {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(17rem, 0.95fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .reason-bars {
+      display: grid;
+      gap: 0.58rem;
+      margin-top: 0.75rem;
+    }
+
+    .reason-row {
+      display: grid;
+      grid-template-columns: 10rem minmax(0, 1fr) 2.8rem;
+      gap: 0.55rem;
+      align-items: center;
+      font-size: 0.78rem;
+    }
+
+    .reason-row span:first-child {
+      color: var(--ink);
+      font-weight: 850;
+      line-height: 1.15;
+    }
+
+    .reason-row span:last-child {
+      color: var(--ink);
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .reason-track {
+      height: 0.78rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: rgba(36, 55, 112, 0.08);
+      overflow: hidden;
+    }
+
+    .reason-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .payer-cloud {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.75rem;
+    }
+
+    .payer-chip {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: var(--surface-blue);
+      padding: 0.7rem;
+      color: var(--ink);
+      font-weight: 850;
+      text-align: center;
+    }
+
+    .takeaway-panel {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(24, 124, 143, 0.12), transparent 46%),
+        #fff;
+    }
+
+    .takeaway-panel p {
+      max-width: 66rem;
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.04rem, 1.75vw, 1.45rem);
+      font-weight: 850;
+      line-height: 1.35;
+    }
+
+    .source-note {
+      margin: 0.6rem 0 0;
+    }
+
+    .compact-table td:last-child,
+    .compact-table th:last-child {
+      text-align: right;
+    }
+
+    @media (max-width: 900px) {
+      .dual-signal,
+      .reason-board {
+        grid-template-columns: 1fr;
+      }
+
+      .workflow-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 620px) {
+      .workflow-grid,
+      .comparison-row,
+      .reason-row,
+      .payer-cloud {
+        grid-template-columns: 1fr;
+      }
+
+      .comparison-row em,
+      .reason-row span:last-child {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/88-PSP88-OR-Poster-AM24_2024.pdf">Source PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/88-PSP88-OR-Poster-AM24_2024.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">AM24 2024 / PSP88-OR / Oral oncology cost avoidance</p>
+        <h1 id="poster-title">The value of a medically integrated pharmacy to maximize cost avoidance and reduce waste of oral oncolytic medications.</h1>
+        <p class="hero-summary">
+          AON Pharmacy describes a nurse-led reassessment process before oral oncology refills ship. The workflow uses EMR review, shipment holds, and provider intervention to prevent unnecessary fills and reduce waste.
+        </p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag therapy">Oral oncolytics</li>
+          <li class="tag category">Medically integrated pharmacy</li>
+          <li class="tag">Refill reassessment</li>
+          <li class="tag">Cost avoidance</li>
+          <li class="tag">Waste reduction</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Study snapshot">
+        <div class="poster-code">PSP88<br>2024</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Organization</dt>
+            <dd>AON Pharmacy</dd>
+          </div>
+          <div>
+            <dt>Data window</dt>
+            <dd>Feb-Sep 2023</dd>
+          </div>
+          <div>
+            <dt>Interventions</dt>
+            <dd>152 documented</dd>
+          </div>
+          <div>
+            <dt>Clinical team</dt>
+            <dd>Oncology-trained nurses</dd>
+          </div>
+        </dl>
+        <div class="finding-ribbon">Central message: holding refills when reassessment finds a discrepancy can avoid clinically and financially significant waste.</div>
+        <div class="money-hero" role="img" aria-label="Illustration of prescription refill review converting shipment holds into avoided drug waste">
+          <svg viewBox="0 0 430 270" aria-hidden="true">
+            <defs>
+              <linearGradient id="coinGrad" x1="0" x2="1">
+                <stop offset="0" stop-color="#e99e25"/>
+                <stop offset="1" stop-color="#d12630"/>
+              </linearGradient>
+              <marker id="flowArrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L9,3 z" fill="#243770"></path>
+              </marker>
+            </defs>
+            <rect x="28" y="50" width="92" height="124" rx="10" fill="#fff" stroke="#aebbd2" stroke-width="3"></rect>
+            <path d="M48 84h50M48 108h42M48 132h55" stroke="#187c8f" stroke-width="8" stroke-linecap="round"></path>
+            <circle cx="78" cy="205" r="29" fill="#fff" stroke="#243770" stroke-width="4"></circle>
+            <path d="M63 205h30M78 190v30" stroke="#d12630" stroke-width="8" stroke-linecap="round"></path>
+            <path d="M132 104 C183 64 244 64 294 104" fill="none" stroke="#243770" stroke-width="7" stroke-linecap="round" marker-end="url(#flowArrow)"></path>
+            <path d="M132 160 C190 206 250 210 322 178" fill="none" stroke="#187c8f" stroke-width="7" stroke-linecap="round" stroke-dasharray="1 15" marker-end="url(#flowArrow)"></path>
+            <circle cx="322" cy="106" r="42" fill="#fff" stroke="#187c8f" stroke-width="5"></circle>
+            <path d="M302 107l13 13 29-35" fill="none" stroke="#187c8f" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></path>
+            <circle cx="344" cy="178" r="38" fill="url(#coinGrad)" opacity="0.95"></circle>
+            <text x="344" y="191" text-anchor="middle" fill="#fff" font-family="Montserrat, Arial, sans-serif" font-size="36" font-weight="900">$</text>
+            <text x="214" y="38" text-anchor="middle" fill="#243770" font-family="Inter, sans-serif" font-size="15" font-weight="900">chart review before shipment</text>
+            <text x="214" y="246" text-anchor="middle" fill="#68758d" font-family="Inter, sans-serif" font-size="14" font-weight="850">hold, intervene, avoid unnecessary fill</text>
+          </svg>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key metrics">
+        <article class="metric-card">
+          <span>Reported saved</span>
+          <strong>$1.9M</strong>
+          <p>Cost avoidance from withholding shipments</p>
+        </article>
+        <article class="metric-card">
+          <span>Expense table</span>
+          <strong>$2.73M</strong>
+          <p>Extracted AON cost-avoidance row</p>
+        </article>
+        <article class="metric-card">
+          <span>Interventions</span>
+          <strong>152</strong>
+          <p>Documented during Feb-Sep 2023</p>
+        </article>
+        <article class="metric-card">
+          <span>External waste context</span>
+          <strong>$8.94M</strong>
+          <p>Waste attributed to external mail order pharmacies in cited MIP tracker data</p>
+        </article>
+      </section>
+
+      <section class="dual-signal" id="results">
+        <div class="savings-card">
+          <span>Poster result</span>
+          <strong>$1.9M</strong>
+          <p>Withholding shipment after nurse reassessment generated reported cost avoidance for cancer patients and the healthcare system.</p>
+        </div>
+        <div class="panel">
+          <p class="section-label">Why the workflow matters</p>
+          <h2>Published tracker context showed larger cost avoidance for medically integrated pharmacies than external mail order.</h2>
+          <div class="comparison-bars" aria-label="Cost avoidance and waste context from background section">
+            <div class="comparison-row">
+              <span>MIP cost avoidance</span>
+              <div class="comparison-track"><i class="teal" style="width:100%"></i></div>
+              <em>$6.51M</em>
+            </div>
+            <div class="comparison-row">
+              <span>External avoidance</span>
+              <div class="comparison-track"><i style="width:8.4%"></i></div>
+              <em>$0.55M</em>
+            </div>
+            <div class="comparison-row">
+              <span>External waste</span>
+              <div class="comparison-track"><i style="width:100%"></i></div>
+              <em>$8.94M</em>
+            </div>
+            <div class="comparison-row">
+              <span>MIP waste</span>
+              <div class="comparison-track"><i class="teal" style="width:27.2%"></i></div>
+              <em>$2.43M</em>
+            </div>
+          </div>
+          <p class="source-note">Context values are from the poster background's medically integrated pharmacy cost avoidance and waste tracker summary.</p>
+        </div>
+      </section>
+
+      <section class="panel" id="methods">
+        <p class="section-label">Objective and method</p>
+        <h2>Quantify avoidable oral oncology waste by reviewing every specialty oncology refill before shipment.</h2>
+        <div class="workflow-grid" aria-label="Nurse-led reassessment workflow">
+          <article class="workflow-step">
+            <b>1</b>
+            <h3>Refill due</h3>
+            <p>Specialty oncology medications due for refill are queued for nurse review.</p>
+          </article>
+          <article class="workflow-step">
+            <b>2</b>
+            <h3>EMR review</h3>
+            <p>Nurses review office notes, labs, scans, pathology, and upcoming appointments.</p>
+          </article>
+          <article class="workflow-step">
+            <b>3</b>
+            <h3>Care plan check</h3>
+            <p>A reassessment care plan is completed before medication is shipped.</p>
+          </article>
+          <article class="workflow-step">
+            <b>4</b>
+            <h3>Hold and intervene</h3>
+            <p>When a discrepancy is found, shipment is held and the provider receives a clinical intervention.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="reason-board" aria-label="Reasons for shipment hold and payer types">
+        <div class="panel">
+          <p class="section-label">Shipment-hold reasons</p>
+          <h2>Treatment held dominated the extracted reason-count table.</h2>
+          <div class="reason-bars">
+            <div class="reason-row">
+              <span>Treatment held</span>
+              <div class="reason-track"><i style="width:100%"></i></div>
+              <span>154</span>
+            </div>
+            <div class="reason-row">
+              <span>Progression of disease</span>
+              <div class="reason-track"><i style="width:11.7%"></i></div>
+              <span>18</span>
+            </div>
+            <div class="reason-row">
+              <span>Dose changed</span>
+              <div class="reason-track"><i style="width:9.1%"></i></div>
+              <span>14</span>
+            </div>
+            <div class="reason-row">
+              <span>Therapy changed</span>
+              <div class="reason-track"><i style="width:5.8%"></i></div>
+              <span>9</span>
+            </div>
+            <div class="reason-row">
+              <span>Patient deceased</span>
+              <div class="reason-track"><i style="width:3.2%; background:var(--red)"></i></div>
+              <span>5</span>
+            </div>
+            <div class="reason-row">
+              <span>Other / accumulation</span>
+              <div class="reason-track"><i style="width:2.6%; background:var(--gold)"></i></div>
+              <span>4</span>
+            </div>
+          </div>
+          <p class="source-note">The markdown states 152 documented interventions; the extracted reason table contains 204 counted rows. The chart preserves the table pattern rather than forcing reconciliation.</p>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Payer-type pattern</p>
+          <h2>Cost avoidance appeared across payer categories, but the extracted table lists types without amounts.</h2>
+          <div class="payer-cloud" aria-label="Payer types listed in the markdown">
+            <div class="payer-chip">Commercial</div>
+            <div class="payer-chip">Medicaid</div>
+            <div class="payer-chip">Medicare</div>
+            <div class="payer-chip">PAP</div>
+          </div>
+          <div class="number-cloud" aria-label="Additional context numbers">
+            <div class="number-pill">$11.28M<small>total drug waste in cited tracker data</small></div>
+            <div class="number-pill">768<small>waste events in cited tracker data</small></div>
+            <div class="number-pill">37<small>practices reporting waste</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="evidence-map" aria-label="Evidence flow">
+        <article class="evidence-card">
+          <h3>Problem</h3>
+          <p>Unnecessary oral oncolytic refills can create high-cost medication waste.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Clinical lens</h3>
+          <p>Oncology nurses can identify therapy holds, dose changes, disease progression, and end-of-life status before shipment.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Intervention</h3>
+          <p>The pharmacy holds shipment when reassessment finds a discrepancy and communicates with the provider.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Measured result</h3>
+          <p>AON documented 152 interventions and reported $1.9M in cost avoidance from February through September 2023.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Conclusion</h3>
+          <p>Nurse-pharmacist collaboration through the cancer care continuum can improve care quality while reducing avoidable waste.</p>
+        </article>
+      </section>
+
+      <section class="tables-grid" id="tables">
+        <article class="table-card">
+          <p class="section-label">Extracted data table</p>
+          <h3>American Oncology Network Data</h3>
+          <div class="table-wrap">
+            <table class="compact-table">
+              <thead>
+                <tr>
+                  <th>Expense type</th>
+                  <th>Cost avoidance</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Cost Avoidance</td>
+                  <td>$2,730,754.90</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Clinical reasons table</p>
+          <h3>Hold reasons with counts</h3>
+          <div class="table-wrap">
+            <table class="compact-table">
+              <thead>
+                <tr>
+                  <th>Reason</th>
+                  <th>Count</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Treatment held</td><td>154</td></tr>
+                <tr><td>Progression of disease</td><td>18</td></tr>
+                <tr><td>Dose changed</td><td>14</td></tr>
+                <tr><td>Therapy changed</td><td>9</td></tr>
+                <tr><td>Patient deceased</td><td>5</td></tr>
+                <tr><td>Other</td><td>3</td></tr>
+                <tr><td>Patient accumulation of medication</td><td>1</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel takeaway-panel" id="conclusion">
+        <p>
+          Bottom line: AON's medically integrated pharmacy model used oncology nurse reassessment to stop questionable refills before shipment, converting clinical review into documented cost avoidance and lower oral oncolytic waste.
+        </p>
+      </section>
+    </main>
+
+    <footer class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/88-PSP88-OR-Poster-AM24_2024.pdf">Open original PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/88-PSP88-OR-Poster-AM24_2024.md">Read extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

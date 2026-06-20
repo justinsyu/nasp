@@ -1,0 +1,686 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>61-2022 | Oral Oncolytics Adherence, Cost and Utilization</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .oncology-hero {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .oncology-hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -4rem -5rem auto;
+      width: 18rem;
+      height: 18rem;
+      border: 1.15rem solid rgba(24, 124, 143, 0.1);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .cycle-visual {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 0.25rem;
+    }
+
+    .cycle-visual svg,
+    .cost-chart svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .hero-verdict {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.55rem;
+    }
+
+    .verdict-cell {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.78);
+      padding: 0.65rem;
+    }
+
+    .verdict-cell strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      line-height: 1;
+    }
+
+    .verdict-cell span {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .metric-card p {
+      margin: 0.42rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 750;
+      line-height: 1.35;
+    }
+
+    .outcome-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .cost-chart {
+      margin-top: 0.75rem;
+      border: 1px solid rgba(174, 187, 210, 0.75);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #ffffff, var(--surface-blue));
+      padding: 0.75rem;
+    }
+
+    .chart-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 0.55rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 850;
+    }
+
+    .chart-legend i {
+      display: inline-block;
+      width: 1.5rem;
+      height: 0.25rem;
+      margin-right: 0.3rem;
+      border-radius: 999px;
+      vertical-align: middle;
+      background: var(--red);
+    }
+
+    .chart-legend span:last-child i {
+      background: var(--teal);
+    }
+
+    .odds-card {
+      display: grid;
+      grid-template-columns: 6.5rem minmax(0, 1fr);
+      gap: 0.8rem;
+      align-items: center;
+      margin-top: 0.8rem;
+      border: 1px solid rgba(209, 38, 48, 0.28);
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(209, 38, 48, 0.08), #fff);
+      padding: 0.78rem;
+    }
+
+    .odds-card strong {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2.65rem;
+      line-height: 0.9;
+    }
+
+    .odds-card p {
+      margin: 0;
+      color: var(--body);
+      font-size: 0.86rem;
+    }
+
+    .duration-ladder {
+      display: grid;
+      gap: 0.6rem;
+      margin-top: 0.85rem;
+    }
+
+    .duration-row {
+      display: grid;
+      grid-template-columns: 6rem minmax(0, 1fr) 4.2rem;
+      gap: 0.55rem;
+      align-items: center;
+      font-size: 0.78rem;
+    }
+
+    .duration-row b {
+      color: var(--ink);
+      font-weight: 900;
+    }
+
+    .duration-track {
+      height: 0.78rem;
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+
+    .duration-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .flow-ribbon {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.85rem;
+    }
+
+    .flow-step {
+      position: relative;
+      min-height: 10.5rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.75rem;
+      overflow: hidden;
+    }
+
+    .flow-step::before {
+      content: attr(data-step);
+      display: inline-grid;
+      place-items: center;
+      width: 1.85rem;
+      height: 1.85rem;
+      margin-bottom: 0.55rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 900;
+    }
+
+    .flow-step::after {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 0.28rem;
+      background: var(--flow-accent, var(--red));
+    }
+
+    .flow-step:nth-child(2) { --flow-accent: var(--gold); }
+    .flow-step:nth-child(3) { --flow-accent: var(--teal); }
+    .flow-step:nth-child(4) { --flow-accent: var(--green); }
+    .flow-step:nth-child(5) { --flow-accent: var(--purple); }
+
+    .flow-step p {
+      margin: 0.38rem 0 0;
+      color: var(--body);
+      font-size: 0.8rem;
+    }
+
+    .therapy-bars {
+      display: grid;
+      gap: 0.58rem;
+      margin-top: 0.75rem;
+    }
+
+    .therapy-row {
+      display: grid;
+      grid-template-columns: 12rem minmax(0, 1fr) 3.8rem;
+      gap: 0.55rem;
+      align-items: center;
+    }
+
+    .therapy-row span:first-child {
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+
+    .therapy-track {
+      height: 0.78rem;
+      border-radius: 999px;
+      background: #e9eff7;
+      overflow: hidden;
+    }
+
+    .therapy-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .therapy-row b {
+      color: var(--ink);
+      font-size: 0.78rem;
+      text-align: right;
+    }
+
+    .covariate-cloud {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.75rem;
+    }
+
+    .covariate-tile {
+      min-height: 4.8rem;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 7px;
+      background: var(--surface-blue);
+      padding: 0.55rem;
+    }
+
+    .covariate-tile strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      line-height: 1;
+    }
+
+    .covariate-tile span {
+      display: block;
+      margin-top: 0.28rem;
+      color: var(--muted);
+      font-size: 0.66rem;
+      font-weight: 850;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .summary-callout {
+      border-left: 5px solid var(--teal);
+      background: linear-gradient(90deg, rgba(24, 124, 143, 0.1), #fff);
+      padding: 0.85rem 1rem;
+    }
+
+    .summary-callout p {
+      margin: 0;
+      color: var(--body);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 980px) {
+      .outcome-grid,
+      .flow-ribbon {
+        grid-template-columns: 1fr;
+      }
+
+      .covariate-cloud {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 620px) {
+      .hero-verdict,
+      .covariate-cloud {
+        grid-template-columns: 1fr;
+      }
+
+      .odds-card,
+      .duration-row,
+      .therapy-row {
+        grid-template-columns: 1fr;
+      }
+
+      .therapy-row b {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#outcomes">Outcomes</a>
+        <a href="#methods">Methods</a>
+        <a href="#tables">Tables</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2022 poster 61-2022 | Oral oncology adherence</p>
+        <h1 id="poster-title">Oral oncolytics: adherence, cost and utilization</h1>
+        <p class="hero-summary">
+          Walgreens researchers tested whether discontinuation gaps in cycled oral antineoplastic therapy were associated with higher medical costs and hospitalization events. The poster frames discontinuation as an adherence metric for medications whose monthly supply and cycle timing can vary.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Retrospective cohort</li>
+          <li class="tag therapy">Oral antineoplastics</li>
+          <li class="tag">MarketScan 2017-2019</li>
+          <li class="tag">Repeated measures</li>
+          <li class="tag">Logistic regression</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card oncology-hero" aria-label="Poster metadata and discontinuation visual">
+        <div>
+          <div class="poster-code">61-2022</div>
+          <dl class="meta-grid">
+            <div>
+              <dt>Year</dt>
+              <dd>2022</dd>
+            </div>
+            <div>
+              <dt>Patients</dt>
+              <dd>4,872</dd>
+            </div>
+            <div>
+              <dt>Products</dt>
+              <dd>8 generics</dd>
+            </div>
+            <div>
+              <dt>Classes</dt>
+              <dd>6 therapy classes</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="cycle-visual" aria-hidden="true">
+          <svg viewBox="0 0 430 255" role="img" aria-label="Cycled oral oncolytic refill gap visualization">
+            <defs>
+              <linearGradient id="pillFill" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#d12630"></stop>
+                <stop offset="1" stop-color="#e99e25"></stop>
+              </linearGradient>
+            </defs>
+            <rect x="20" y="35" width="390" height="170" rx="16" fill="#fff" stroke="#aebbd2" stroke-width="3"></rect>
+            <path d="M54 86h76M54 128h62M54 170h92" stroke="#243770" stroke-width="10" stroke-linecap="round" opacity="0.24"></path>
+            <g transform="translate(168 56)">
+              <rect x="0" y="0" width="58" height="25" rx="13" fill="url(#pillFill)"></rect>
+              <rect x="72" y="0" width="58" height="25" rx="13" fill="url(#pillFill)" opacity="0.8"></rect>
+              <rect x="144" y="0" width="58" height="25" rx="13" fill="#eef4fb" stroke="#187c8f" stroke-width="3"></rect>
+              <rect x="0" y="54" width="58" height="25" rx="13" fill="url(#pillFill)" opacity="0.78"></rect>
+              <rect x="96" y="54" width="58" height="25" rx="13" fill="#fff7ea" stroke="#d12630" stroke-width="3" stroke-dasharray="7 7"></rect>
+              <rect x="0" y="108" width="58" height="25" rx="13" fill="url(#pillFill)" opacity="0.58"></rect>
+              <rect x="72" y="108" width="58" height="25" rx="13" fill="url(#pillFill)" opacity="0.88"></rect>
+              <rect x="144" y="108" width="58" height="25" rx="13" fill="url(#pillFill)"></rect>
+            </g>
+            <path d="M181 221h136" stroke="#187c8f" stroke-width="7" stroke-linecap="round"></path>
+            <path d="M251 221h75" stroke="#d12630" stroke-width="7" stroke-linecap="round" stroke-dasharray="1 14"></path>
+            <text x="44" y="228" fill="#243770" font-family="Arial, sans-serif" font-size="18" font-weight="800">discontinuation = gap after 1.5x last supply</text>
+          </svg>
+          <div class="hero-verdict">
+            <div class="verdict-cell">
+              <strong>25.6%</strong>
+              <span>2018 discontinuation rate</span>
+            </div>
+            <div class="verdict-cell">
+              <strong>2.32x</strong>
+              <span>2019 hospitalization odds</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key study numbers">
+        <article class="metric-card">
+          <span>2018 cohort</span>
+          <strong>4,872</strong>
+          <p>Cancer-diagnosed commercially insured patients meeting oral oncolytic criteria.</p>
+        </article>
+        <article class="metric-card">
+          <span>Discontinued in 2018</span>
+          <strong>25.6%</strong>
+          <p>Patients with an indicated gap in therapy during the later half-year.</p>
+        </article>
+        <article class="metric-card">
+          <span>Repeated-year sample</span>
+          <strong>1,534</strong>
+          <p>Patients eligible for the 2019 discontinuation measure.</p>
+        </article>
+        <article class="metric-card">
+          <span>Discontinued both years</span>
+          <strong>3.5%</strong>
+          <p>Only 53 patients discontinued in both 2018 and 2019.</p>
+        </article>
+      </section>
+
+      <section id="outcomes" class="outcome-grid">
+        <article class="panel">
+          <p class="section-label">Cost signal</p>
+          <h2>Discontinuation groups showed steeper adjusted medical cost growth.</h2>
+          <p>
+            In the repeated-measures models, the discontinued groups had higher adjusted 2019 medical costs and larger year-over-year increases than the non-discontinued groups.
+          </p>
+          <div class="cost-chart" aria-label="Adjusted total medical cost values by discontinuation group">
+            <svg viewBox="0 0 560 300" role="img" aria-labelledby="cost-title cost-desc">
+              <title id="cost-title">Medical cost trajectories</title>
+              <desc id="cost-desc">Two small line charts show 2018 and 2019 costs by discontinuation status for the 2018 and 2019 discontinuation definitions.</desc>
+              <g font-family="Inter, Arial, sans-serif">
+                <rect x="24" y="20" width="236" height="210" rx="8" fill="#ffffff" stroke="#d9e1ef"></rect>
+                <rect x="300" y="20" width="236" height="210" rx="8" fill="#ffffff" stroke="#d9e1ef"></rect>
+                <g fill="#243770" font-size="15" font-weight="800">
+                  <text x="44" y="48">2018 discontinuation</text>
+                  <text x="320" y="48">2019 discontinuation</text>
+                </g>
+                <g stroke="#d9e1ef" stroke-width="1">
+                  <line x1="55" y1="76" x2="238" y2="76"></line>
+                  <line x1="55" y1="119" x2="238" y2="119"></line>
+                  <line x1="55" y1="162" x2="238" y2="162"></line>
+                  <line x1="331" y1="76" x2="514" y2="76"></line>
+                  <line x1="331" y1="119" x2="514" y2="119"></line>
+                  <line x1="331" y1="162" x2="514" y2="162"></line>
+                </g>
+                <g fill="#68758d" font-size="11" font-weight="700">
+                  <text x="55" y="250">2018</text><text x="210" y="250">2019</text>
+                  <text x="331" y="250">2018</text><text x="486" y="250">2019</text>
+                </g>
+                <polyline points="64,92 222,75" fill="none" stroke="#d12630" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                <polyline points="64,164 222,96" fill="none" stroke="#187c8f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                <polyline points="340,141 498,70" fill="none" stroke="#d12630" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                <polyline points="340,116 498,102" fill="none" stroke="#187c8f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                <g fill="#d12630" font-size="11" font-weight="800">
+                  <text x="47" y="86">$146.7k</text><text x="198" y="68">$159.0k</text>
+                  <text x="318" y="136">$112.3k</text><text x="474" y="63">$162.9k</text>
+                </g>
+                <g fill="#187c8f" font-size="11" font-weight="800">
+                  <text x="47" y="178">$96.2k</text><text x="198" y="91">$143.7k</text>
+                  <text x="318" y="110">$130.6k</text><text x="474" y="97">$139.8k</text>
+                </g>
+              </g>
+            </svg>
+            <div class="chart-legend">
+              <span><i></i>Discontinued</span>
+              <span><i></i>Not discontinued</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Utilization signal</p>
+          <h2>Hospitalization odds rose with current-year discontinuation.</h2>
+          <p>
+            Logistic regression found that 2019 discontinuation was associated with significantly higher odds of 2019 hospitalization. Longer medication coverage in the prior year reduced hospitalization odds.
+          </p>
+          <div class="odds-card">
+            <strong>2.32x</strong>
+            <p>Odds of 2019 hospitalization for patients with 2019 discontinuation, p &lt; .0001.</p>
+          </div>
+          <div class="duration-ladder" aria-label="Prior-year medication coverage and hospitalization odds">
+            <div class="duration-row">
+              <b>1-89 days</b>
+              <span class="duration-track"><i style="width:66%"></i></span>
+              <span>OR 0.66</span>
+            </div>
+            <div class="duration-row">
+              <b>150+ days</b>
+              <span class="duration-track"><i style="width:51%"></i></span>
+              <span>OR 0.51</span>
+            </div>
+          </div>
+          <div class="odds-card">
+            <strong>3.43x</strong>
+            <p>Comorbidity indication was the other significant covariate in the hospitalization model, p &lt; .0001.</p>
+          </div>
+        </article>
+      </section>
+
+      <section id="methods" class="panel">
+        <p class="section-label">Evidence flow</p>
+        <h2>How the poster translated refill gaps into medical cost and hospitalization outcomes.</h2>
+        <div class="flow-ribbon" aria-label="Study methods flow">
+          <article class="flow-step" data-step="1">
+            <h3>Claims cohort</h3>
+            <p>Commercially insured MarketScan patients were observed across 2017 to 2019.</p>
+          </article>
+          <article class="flow-step" data-step="2">
+            <h3>Therapy scope</h3>
+            <p>Eight generic products across six oral oncology therapy classes were included as single-therapy use.</p>
+          </article>
+          <article class="flow-step" data-step="3">
+            <h3>Gap metric</h3>
+            <p>Discontinuation was calculated as a medication supply gap at 1.5 times the last supply in the last six months.</p>
+          </article>
+          <article class="flow-step" data-step="4">
+            <h3>Filters</h3>
+            <p>Exclusions removed under-18 patients, missing cancer diagnosis or enrollment, late starts, death, hospice, and transplant indicators.</p>
+          </article>
+          <article class="flow-step" data-step="5">
+            <h3>Models</h3>
+            <p>Repeated-measures models evaluated total medical costs; logistic regression evaluated 2019 hospitalization odds.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="visual-grid">
+        <article class="panel">
+          <p class="section-label">Therapy class mix</p>
+          <h2>Antimetabolites, MDS immunomodulators, and CDK inhibitors dominated 2018 fills.</h2>
+          <div class="therapy-bars" aria-label="Therapy class distribution">
+            <div class="therapy-row">
+              <span>Antimetabolites</span>
+              <span class="therapy-track"><i style="width:100%"></i></span>
+              <b>31.0%</b>
+            </div>
+            <div class="therapy-row">
+              <span>Immunomodulators for MDS</span>
+              <span class="therapy-track"><i style="width:81%"></i></span>
+              <b>25.2%</b>
+            </div>
+            <div class="therapy-row">
+              <span>CDK inhibitors</span>
+              <span class="therapy-track"><i style="width:76%"></i></span>
+              <b>23.6%</b>
+            </div>
+            <div class="therapy-row">
+              <span>Imidazotetrazines</span>
+              <span class="therapy-track"><i style="width:39%"></i></span>
+              <b>12.1%</b>
+            </div>
+            <div class="therapy-row">
+              <span>Immunomodulators</span>
+              <span class="therapy-track"><i style="width:14%"></i></span>
+              <b>4.2%</b>
+            </div>
+            <div class="therapy-row">
+              <span>Multikinase inhibitors</span>
+              <span class="therapy-track"><i style="width:12%"></i></span>
+              <b>3.8%</b>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel markdown-fragment">
+          <p class="section-label">Objective and conclusion</p>
+          <h2>The central question was economic and clinical.</h2>
+          <p><strong>Objective:</strong> Identify significant associations between cycled oncolytic medication discontinuation and total medical cost and hospitalizations.</p>
+          <p><strong>Conclusion:</strong> Medication adherence, represented by fewer gaps in cycled oral antineoplastic coverage, was associated with lower medical costs and fewer hospitalization events in current-year and following-year outcomes.</p>
+          <div class="summary-callout">
+            <p>The poster also positions the discontinuation method as a reportable annual metric when filters account for end of therapy, late starts, and product switching within therapy classes.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Covariate profile</p>
+        <h2>The repeated-year sample was mostly female, metropolitan, and single therapy class.</h2>
+        <div class="covariate-cloud" aria-label="Distribution of dichotomous covariates">
+          <div class="covariate-tile"><strong>66.2%</strong><span>Female</span></div>
+          <div class="covariate-tile"><strong>87.4%</strong><span>Metro area</span></div>
+          <div class="covariate-tile"><strong>71.3%</strong><span>Single therapy</span></div>
+          <div class="covariate-tile"><strong>50.8%</strong><span>Mail order</span></div>
+          <div class="covariate-tile"><strong>49.9%</strong><span>Age 56+ years</span></div>
+          <div class="covariate-tile"><strong>37.9%</strong><span>New to therapy</span></div>
+          <div class="covariate-tile"><strong>26.0%</strong><span>Hospitalized</span></div>
+          <div class="covariate-tile"><strong>21.0%</strong><span>Comorbidity</span></div>
+          <div class="covariate-tile"><strong>20.7%</strong><span>North-east</span></div>
+          <div class="covariate-tile"><strong>18.8%</strong><span>Provider ratio 0.48+</span></div>
+        </div>
+      </section>
+
+      <section id="tables" class="tables-grid" aria-label="Extracted table patterns">
+        <article class="table-card">
+          <p class="section-label">Table pattern 1</p>
+          <h2>Therapy classes and generic products</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Therapy class</th>
+                  <th>Generic product</th>
+                  <th>Patients</th>
+                  <th>%</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Antimetabolites</td><td>capecitabine</td><td>1,510</td><td>31.0%</td></tr>
+                <tr><td>Immunomodulators for MDS</td><td>lenalidomide</td><td>1,229</td><td>25.2%</td></tr>
+                <tr><td>CDK inhibitors</td><td>palbociclib, ribociclib</td><td>1,153</td><td>23.6%</td></tr>
+                <tr><td>Imidazotetrazines</td><td>temozolomide</td><td>591</td><td>12.1%</td></tr>
+                <tr><td>Immunomodulators</td><td>pomalidomide</td><td>207</td><td>4.2%</td></tr>
+                <tr><td>Multikinase inhibitors</td><td>sunitinib, lapatinib</td><td>182</td><td>3.8%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Table pattern 2</p>
+          <h2>Adjusted total medical cost values</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Comparison</th>
+                  <th>2018</th>
+                  <th>2019</th>
+                  <th>Directional result</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>2018 discontinued</td><td>$146,723</td><td>$159,012</td><td>Higher in both years</td></tr>
+                <tr><td>2018 not discontinued</td><td>$96,165</td><td>$143,675</td><td>Lower baseline, rising costs</td></tr>
+                <tr><td>2019 discontinued</td><td>$112,282</td><td>$162,883</td><td>Largest year-over-year increase</td></tr>
+                <tr><td>2019 not discontinued</td><td>$130,605</td><td>$139,803</td><td>Smaller increase</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/61-2022.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/61-2022.md">Source Markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

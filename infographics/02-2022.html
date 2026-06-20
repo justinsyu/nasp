@@ -1,0 +1,613 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Impact of an Adherence Texting Program | NASP 2022</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -2.8rem;
+      bottom: -3.2rem;
+      width: 13rem;
+      height: 13rem;
+      border: 1.1rem solid rgba(24, 124, 143, 0.12);
+      border-radius: 50%;
+    }
+    .program-visual {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 0.2rem;
+    }
+    .phone-shell {
+      width: min(100%, 18rem);
+      margin: 0 auto;
+      border: 3px solid var(--ink);
+      border-radius: 1.35rem;
+      background: #fbfdff;
+      padding: 0.85rem 0.75rem 1rem;
+      box-shadow: 0 16px 30px rgba(36, 55, 112, 0.12);
+    }
+    .phone-notch {
+      width: 4.2rem;
+      height: 0.35rem;
+      margin: 0 auto 0.8rem;
+      border-radius: 999px;
+      background: rgba(36, 55, 112, 0.2);
+    }
+    .message {
+      width: 86%;
+      margin: 0.45rem 0;
+      border-radius: 0.85rem;
+      padding: 0.48rem 0.62rem;
+      color: var(--ink);
+      font-size: 0.74rem;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+    .message.left {
+      background: var(--surface-blue);
+      border-bottom-left-radius: 0.25rem;
+    }
+    .message.right {
+      margin-left: auto;
+      background: rgba(209, 38, 48, 0.1);
+      border-bottom-right-radius: 0.25rem;
+      color: var(--red);
+    }
+    .mini-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      justify-content: center;
+    }
+    .mini-chip {
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 999px;
+      background: #fff;
+      padding: 0.25rem 0.48rem;
+      color: var(--ink);
+      font-size: 0.68rem;
+      font-weight: 850;
+    }
+    .metric-card strong small {
+      color: var(--red);
+      font-size: 0.92rem;
+    }
+    .metric-card em {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-style: normal;
+      font-weight: 750;
+    }
+    .comparison-list {
+      display: grid;
+      gap: 0.72rem;
+      margin-top: 0.85rem;
+    }
+    .comparison-row {
+      display: grid;
+      grid-template-columns: 4.2rem minmax(0, 1fr) 4.1rem;
+      gap: 0.55rem;
+      align-items: center;
+    }
+    .comparison-row .label {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 900;
+    }
+    .paired-bars {
+      display: grid;
+      gap: 0.22rem;
+    }
+    .bar-line {
+      display: grid;
+      grid-template-columns: 2rem minmax(0, 1fr) 2.3rem;
+      gap: 0.35rem;
+      align-items: center;
+      font-size: 0.68rem;
+      font-weight: 850;
+      color: var(--muted);
+    }
+    .bar-track {
+      height: 0.55rem;
+      border-radius: 999px;
+      background: #e7edf6;
+      overflow: hidden;
+    }
+    .bar-fill {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--border-strong);
+    }
+    .bar-fill.participant {
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .p-value {
+      color: var(--teal);
+      font-size: 0.74rem;
+      font-weight: 900;
+      text-align: right;
+    }
+    .gap-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.9rem;
+    }
+    .gap-card {
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.65rem;
+    }
+    .gap-card h3 {
+      margin-bottom: 0.42rem;
+    }
+    .gap-card .delta {
+      color: var(--green);
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .gap-card p {
+      margin: 0.32rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 750;
+    }
+    .flow-ribbon {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.85rem;
+    }
+    .flow-step {
+      position: relative;
+      min-height: 7.6rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.75rem;
+    }
+    .flow-step::before {
+      content: attr(data-step);
+      display: inline-grid;
+      place-items: center;
+      width: 1.75rem;
+      height: 1.75rem;
+      margin-bottom: 0.5rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+    .flow-step p {
+      margin: 0.32rem 0 0;
+      color: var(--body);
+      font-size: 0.8rem;
+    }
+    .curve-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.85rem;
+    }
+    .curve-card {
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.7rem;
+    }
+    .curve-card h3 {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.35rem;
+    }
+    .curve-card h3 span {
+      color: var(--teal);
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 900;
+    }
+    .curve-card svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.45rem;
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 850;
+    }
+    .legend i {
+      display: inline-block;
+      width: 1.4rem;
+      height: 0.22rem;
+      margin-right: 0.25rem;
+      vertical-align: middle;
+      border-radius: 999px;
+      background: var(--border-strong);
+    }
+    .legend .participant i {
+      background: var(--red);
+    }
+    .baseline-callout {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.75rem;
+    }
+    .baseline-callout div {
+      border-left: 3px solid var(--gold);
+      background: var(--surface-warm);
+      padding: 0.55rem;
+    }
+    .baseline-callout strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      line-height: 1;
+    }
+    .baseline-callout span {
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+    @media (max-width: 900px) {
+      .flow-ribbon,
+      .gap-grid,
+      .baseline-callout {
+        grid-template-columns: 1fr;
+      }
+      .curve-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 560px) {
+      .comparison-row {
+        grid-template-columns: 1fr;
+      }
+      .p-value {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#outcomes">Outcomes</a>
+        <a href="#methods">Methods</a>
+        <a href="#evidence">Evidence</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2022 poster 02-2022</p>
+        <h1 id="poster-title">Impact of an adherence texting program in a large national specialty pharmacy</h1>
+        <p class="hero-summary">
+          Optum Specialty Pharmacy evaluated whether adherence texts - dose reminders, motivational
+          prompts, and adherence feedback - improved medication coverage and time on therapy for
+          patients using texting as a preferred communication channel.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Retrospective cohort</li>
+          <li class="tag therapy">Multiple sclerosis</li>
+          <li class="tag therapy">Inflammatory diseases</li>
+          <li class="tag therapy">Oncology</li>
+          <li class="tag">June 2021 to April 2022</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata and program visual">
+        <div>
+          <div class="poster-code">02-2022</div>
+          <dl class="meta-grid">
+            <div>
+              <dt>Year</dt>
+              <dd>2022</dd>
+            </div>
+            <div>
+              <dt>Setting</dt>
+              <dd>OSP</dd>
+            </div>
+            <div>
+              <dt>Comparison</dt>
+              <dd>P vs NP</dd>
+            </div>
+            <div>
+              <dt>Primary metric</dt>
+              <dd>PDC</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="program-visual" aria-hidden="true">
+          <div class="phone-shell">
+            <div class="phone-notch"></div>
+            <div class="message left">Dose reminder: keep today's specialty medication on track.</div>
+            <div class="message right">Confirmed</div>
+            <div class="message left">Feedback: refills without long gaps support continuity.</div>
+          </div>
+          <div class="mini-chip-row">
+            <span class="mini-chip">Reminder</span>
+            <span class="mini-chip">Motivation</span>
+            <span class="mini-chip">Feedback</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Combined PDC</span>
+          <strong>91<small>% to</small> 93<small>%</small></strong>
+          <em>Participants improved vs non-participants; p &lt; 0.001.</em>
+        </article>
+        <article class="metric-card">
+          <span>MS gap days</span>
+          <strong>16<small> to</small> 11</strong>
+          <em>Five fewer gap days over 8 months; p = 0.002.</em>
+        </article>
+        <article class="metric-card">
+          <span>INF gap days</span>
+          <strong>12<small> to</small> 9</strong>
+          <em>Three fewer gap days over 6 months; p &lt; 0.001.</em>
+        </article>
+        <article class="metric-card">
+          <span>ONC gap days</span>
+          <strong>10<small> to</small> 8</strong>
+          <em>Two fewer gap days over 6 months; p = 0.03.</em>
+        </article>
+      </section>
+
+      <section id="outcomes" class="visual-grid">
+        <article class="panel">
+          <p class="section-label">Primary endpoint</p>
+          <h2>PDC shifted upward in every cohort</h2>
+          <p>
+            Across MS, inflammatory disease, oncology, and the combined cohort, adherence texting
+            participants had statistically higher 6-month proportion of days covered.
+          </p>
+          <div class="comparison-list" aria-label="PDC comparison by cohort">
+            <div class="comparison-row">
+              <span class="label">MS</span>
+              <div class="paired-bars">
+                <div class="bar-line"><span>NP</span><div class="bar-track"><i class="bar-fill" style="width:91%"></i></div><span>91%</span></div>
+                <div class="bar-line"><span>P</span><div class="bar-track"><i class="bar-fill participant" style="width:94%"></i></div><span>94%</span></div>
+              </div>
+              <span class="p-value">p &lt; 0.002</span>
+            </div>
+            <div class="comparison-row">
+              <span class="label">INF</span>
+              <div class="paired-bars">
+                <div class="bar-line"><span>NP</span><div class="bar-track"><i class="bar-fill" style="width:91%"></i></div><span>91%</span></div>
+                <div class="bar-line"><span>P</span><div class="bar-track"><i class="bar-fill participant" style="width:93%"></i></div><span>93%</span></div>
+              </div>
+              <span class="p-value">p &lt; 0.001</span>
+            </div>
+            <div class="comparison-row">
+              <span class="label">ONC</span>
+              <div class="paired-bars">
+                <div class="bar-line"><span>NP</span><div class="bar-track"><i class="bar-fill" style="width:92%"></i></div><span>92%</span></div>
+                <div class="bar-line"><span>P</span><div class="bar-track"><i class="bar-fill participant" style="width:93%"></i></div><span>93%</span></div>
+              </div>
+              <span class="p-value">p = 0.01</span>
+            </div>
+            <div class="comparison-row">
+              <span class="label">All</span>
+              <div class="paired-bars">
+                <div class="bar-line"><span>NP</span><div class="bar-track"><i class="bar-fill" style="width:91%"></i></div><span>91%</span></div>
+                <div class="bar-line"><span>P</span><div class="bar-track"><i class="bar-fill participant" style="width:93%"></i></div><span>93%</span></div>
+              </div>
+              <span class="p-value">p &lt; 0.001</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Gap days</p>
+          <h2>Texting was associated with fewer interruptions</h2>
+          <p>
+            Participants had fewer medication gap days in all three disease cohorts, with the
+            largest absolute reduction in multiple sclerosis.
+          </p>
+          <div class="gap-grid" aria-label="Gap day reductions">
+            <div class="gap-card">
+              <h3>MS</h3>
+              <div class="delta">-5 days</div>
+              <p>16 NP vs 11 P; 8-month window.</p>
+            </div>
+            <div class="gap-card">
+              <h3>INF</h3>
+              <div class="delta">-3 days</div>
+              <p>12 NP vs 9 P; 6-month window.</p>
+            </div>
+            <div class="gap-card">
+              <h3>ONC</h3>
+              <div class="delta">-2 days</div>
+              <p>10 NP vs 8 P; 6-month window.</p>
+            </div>
+          </div>
+          <div class="baseline-callout">
+            <div><strong>47</strong><span>Median age in MS, both groups</span></div>
+            <div><strong>48</strong><span>Median age in INF, both groups</span></div>
+            <div><strong>58-59</strong><span>Median age range in ONC</span></div>
+          </div>
+        </article>
+      </section>
+
+      <section id="methods" class="panel">
+        <p class="section-label">Study architecture</p>
+        <h2>From eligible texting patients to matched adherence outcomes</h2>
+        <div class="flow-ribbon" aria-label="Methods flow">
+          <article class="flow-step" data-step="1">
+            <h3>Population</h3>
+            <p>Patients serviced by Optum Specialty Pharmacy with texting as a preferred communication method.</p>
+          </article>
+          <article class="flow-step" data-step="2">
+            <h3>Groups</h3>
+            <p>ATP enrollees who had not opted out were compared with non-participants.</p>
+          </article>
+          <article class="flow-step" data-step="3">
+            <h3>Controls</h3>
+            <p>Propensity score matching reduced measured differences between participant groups.</p>
+          </article>
+          <article class="flow-step" data-step="4">
+            <h3>Analysis</h3>
+            <p>PDC, days on therapy, fills, persistency, and gap days were tested with p &lt; 0.05 significant.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="evidence" class="visual-grid">
+        <article class="panel">
+          <p class="section-label">Persistency pattern</p>
+          <h2>Participant curves stayed higher in INF and ONC</h2>
+          <p>
+            The reported persistency curves separated after month 2, with participants retaining
+            higher persistency through month 6 in both cohorts.
+          </p>
+          <div class="curve-grid">
+            <div class="curve-card">
+              <h3>INF <span>p = 0.04</span></h3>
+              <svg viewBox="0 0 260 140" role="img" aria-label="INF persistency curve">
+                <rect x="34" y="14" width="204" height="96" fill="#f6f9fe" stroke="#d9e1ef"/>
+                <g stroke="#d9e1ef" stroke-width="1">
+                  <line x1="34" y1="38" x2="238" y2="38"/>
+                  <line x1="34" y1="62" x2="238" y2="62"/>
+                  <line x1="34" y1="86" x2="238" y2="86"/>
+                </g>
+                <polyline points="34,14 85,34 136,54 187,67 238,77" fill="none" stroke="#d12630" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <polyline points="34,14 85,38 136,62 187,77 238,86" fill="none" stroke="#aebbd2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <g fill="#243770" font-size="10" font-family="Inter, Arial, sans-serif">
+                  <text x="30" y="126">2</text><text x="81" y="126">3</text><text x="132" y="126">4</text><text x="183" y="126">5</text><text x="234" y="126">6</text>
+                </g>
+              </svg>
+              <div class="legend"><span class="participant"><i></i>Participant</span><span><i></i>Non-participant</span></div>
+            </div>
+            <div class="curve-card">
+              <h3>ONC <span>p = 0.001</span></h3>
+              <svg viewBox="0 0 260 140" role="img" aria-label="ONC persistency curve">
+                <rect x="34" y="14" width="204" height="96" fill="#f6f9fe" stroke="#d9e1ef"/>
+                <g stroke="#d9e1ef" stroke-width="1">
+                  <line x1="34" y1="38" x2="238" y2="38"/>
+                  <line x1="34" y1="62" x2="238" y2="62"/>
+                  <line x1="34" y1="86" x2="238" y2="86"/>
+                </g>
+                <polyline points="34,14 85,34 136,54 187,62 238,77" fill="none" stroke="#d12630" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <polyline points="34,14 85,38 136,62 187,72 238,91" fill="none" stroke="#aebbd2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <g fill="#243770" font-size="10" font-family="Inter, Arial, sans-serif">
+                  <text x="30" y="126">2</text><text x="81" y="126">3</text><text x="132" y="126">4</text><text x="183" y="126">5</text><text x="234" y="126">6</text>
+                </g>
+              </svg>
+              <div class="legend"><span class="participant"><i></i>Participant</span><span><i></i>Non-participant</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel markdown-fragment">
+          <p class="section-label">Interpretation</p>
+          <h2>What the poster concluded</h2>
+          <h3>Conclusion</h3>
+          <p>
+            Text technology can be used to improve specialty medication adherence and reduce gap
+            days, with the longer-term goal of improving health outcomes.
+          </p>
+          <h3>Secondary endpoints</h3>
+          <p>
+            Days on therapy and additional fills did not significantly increase in the MS, INF, or
+            ONC cohorts.
+          </p>
+          <h3>Limitations</h3>
+          <ul>
+            <li>Baseline language, race, and insurance type were unavailable for deeper cohort definition.</li>
+            <li>The observation period was short: 6 months for INF and ONC, 8 months for MS.</li>
+            <li>Participants with at least one refill were included even if they later withdrew from ATP.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Extracted table patterns">
+        <article class="table-card">
+          <p class="section-label">Baseline balance</p>
+          <h2>Age and sex profiles were similar after matching</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Cohort</th>
+                  <th>Female NP/P</th>
+                  <th>Male NP/P</th>
+                  <th>Median age NP/P</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>MS</td><td>87% / 83%</td><td>13% / 17%</td><td>47 / 47</td></tr>
+                <tr><td>INF</td><td>70% / 71%</td><td>30% / 29%</td><td>48 / 48</td></tr>
+                <tr><td>ONC</td><td>64% / 64%</td><td>36% / 36%</td><td>59 / 58</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+        <article class="table-card">
+          <p class="section-label">Program effect</p>
+          <h2>The repeated pattern: higher PDC, fewer gaps</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Cohort</th>
+                  <th>PDC NP/P</th>
+                  <th>Gap days NP/P</th>
+                  <th>Signal</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>MS</td><td>91% / 94%</td><td>16 / 11</td><td>Higher coverage and fewer gaps</td></tr>
+                <tr><td>INF</td><td>91% / 93%</td><td>12 / 9</td><td>Higher coverage, fewer gaps, higher persistency</td></tr>
+                <tr><td>ONC</td><td>92% / 93%</td><td>10 / 8</td><td>Higher coverage, fewer gaps, higher persistency</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/02-2022.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/02-2022.md">Source Markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

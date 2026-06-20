@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Medication Adherence and Graft Survival Among Kidney Transplant Recipients | NASP 2019</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .transplant-hero {
+      position: relative;
+      min-height: 100%;
+      overflow: hidden;
+    }
+    .transplant-hero::after {
+      content: "";
+      position: absolute;
+      right: -3.5rem;
+      bottom: -4.5rem;
+      width: 13rem;
+      aspect-ratio: 1;
+      border: 1.35rem solid rgba(209, 38, 48, 0.12);
+      border-radius: 50%;
+    }
+    .organ-mark {
+      position: relative;
+      display: grid;
+      place-items: center;
+      min-height: 11rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 35% 26%, rgba(255, 255, 255, 0.92), transparent 3.8rem),
+        linear-gradient(135deg, rgba(209, 38, 48, 0.14), rgba(24, 124, 143, 0.13));
+      z-index: 1;
+    }
+    .organ-mark svg {
+      width: min(15rem, 90%);
+      height: auto;
+      filter: drop-shadow(0 0.8rem 1rem rgba(36, 55, 112, 0.12));
+    }
+    .signal-list {
+      display: grid;
+      gap: 0.5rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      position: relative;
+      z-index: 1;
+    }
+    .signal-list li {
+      display: grid;
+      grid-template-columns: 1.65rem minmax(0, 1fr);
+      gap: 0.55rem;
+      align-items: start;
+      color: var(--body);
+      font-size: 0.86rem;
+    }
+    .signal-list b {
+      display: grid;
+      place-items: center;
+      width: 1.65rem;
+      height: 1.65rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      line-height: 1;
+    }
+    .metric-card.emphasis {
+      background:
+        linear-gradient(180deg, rgba(209, 38, 48, 0.08), transparent 60%),
+        var(--surface);
+    }
+    .metric-card small {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 750;
+      line-height: 1.25;
+    }
+    .split-board {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-top: 0.8rem;
+    }
+    .status-card {
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.85rem;
+    }
+    .status-card.failed {
+      background: linear-gradient(180deg, #fff, var(--surface-warm));
+    }
+    .status-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.7rem;
+      margin-bottom: 0.65rem;
+    }
+    .status-head h3 {
+      font-size: 0.95rem;
+    }
+    .status-head strong {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      line-height: 1;
+    }
+    .stacked-bar {
+      display: grid;
+      grid-template-columns: var(--yes) var(--no);
+      height: 2rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 999px;
+      overflow: hidden;
+      background: #edf2f8;
+    }
+    .stacked-bar span:first-child {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .stacked-bar span:last-child {
+      background: linear-gradient(90deg, var(--gold), var(--red));
+    }
+    .legend-pair {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem 0.85rem;
+      margin-top: 0.62rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 850;
+    }
+    .legend-pair i {
+      display: inline-block;
+      width: 0.75rem;
+      height: 0.75rem;
+      margin-right: 0.28rem;
+      border-radius: 2px;
+      vertical-align: -0.1rem;
+    }
+    .legend-pair .yes { background: var(--green); }
+    .legend-pair .no { background: var(--red); }
+    .data-pair {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.5rem;
+      margin-top: 0.72rem;
+    }
+    .data-pair div {
+      border-left: 3px solid rgba(24, 124, 143, 0.42);
+      padding-left: 0.55rem;
+    }
+    .data-pair div:last-child {
+      border-color: rgba(209, 38, 48, 0.36);
+    }
+    .data-pair span {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .data-pair small {
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    .pipeline {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.8rem;
+    }
+    .pipe-step {
+      position: relative;
+      min-height: 10.5rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--surface);
+      padding: 0.78rem;
+      overflow: hidden;
+    }
+    .pipe-step::before {
+      content: attr(data-step);
+      display: grid;
+      place-items: center;
+      width: 2rem;
+      height: 2rem;
+      margin-bottom: 0.58rem;
+      border-radius: 50%;
+      background: var(--step-color, var(--red));
+      color: #fff;
+      font-family: var(--font-display);
+      font-weight: 900;
+    }
+    .pipe-step::after {
+      content: "";
+      position: absolute;
+      right: -1.1rem;
+      top: 2.2rem;
+      width: 2rem;
+      height: 2rem;
+      border-top: 2px solid rgba(36, 55, 112, 0.22);
+      border-right: 2px solid rgba(36, 55, 112, 0.22);
+      transform: rotate(45deg);
+    }
+    .pipe-step:last-child::after {
+      display: none;
+    }
+    .pipe-step:nth-child(2) { --step-color: var(--gold); }
+    .pipe-step:nth-child(3) { --step-color: var(--teal); }
+    .pipe-step:nth-child(4) { --step-color: var(--green); }
+    .pipe-step:nth-child(5) { --step-color: var(--purple); }
+    .pipe-step h3 {
+      margin-bottom: 0.35rem;
+      font-size: 0.92rem;
+    }
+    .pipe-step p {
+      margin: 0;
+      color: var(--body);
+      font-size: 0.78rem;
+    }
+    .or-board {
+      display: grid;
+      gap: 0.62rem;
+      margin-top: 0.8rem;
+    }
+    .or-row {
+      display: grid;
+      grid-template-columns: minmax(9rem, 0.65fr) minmax(0, 1fr) 3.2rem;
+      gap: 0.65rem;
+      align-items: center;
+    }
+    .or-row .factor {
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+      line-height: 1.2;
+    }
+    .or-track {
+      position: relative;
+      height: 1rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .or-track::before {
+      content: "";
+      position: absolute;
+      left: 28.6%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: rgba(36, 55, 112, 0.45);
+    }
+    .or-fill {
+      display: block;
+      width: var(--width);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .or-fill.low {
+      background: linear-gradient(90deg, var(--purple), var(--teal));
+    }
+    .or-row .value {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.96rem;
+      font-weight: 900;
+      text-align: right;
+    }
+    .note-card {
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background: linear-gradient(90deg, rgba(117, 97, 168, 0.1), rgba(24, 124, 143, 0.08));
+      padding: 0.85rem;
+    }
+    .note-card p {
+      margin: 0;
+      font-size: 0.86rem;
+    }
+    .source-note {
+      margin-top: 0.65rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+    }
+    @media (max-width: 900px) {
+      .pipeline,
+      .split-board {
+        grid-template-columns: 1fr;
+      }
+      .pipe-step {
+        min-height: 0;
+      }
+      .pipe-step::after {
+        display: none;
+      }
+    }
+    @media (max-width: 560px) {
+      .or-row {
+        grid-template-columns: 1fr;
+      }
+      .or-row .value {
+        text-align: left;
+      }
+      .data-pair {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/6_2019.pdf">Source PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/6_2019.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2019 | Kidney transplant outcomes</p>
+        <h1 id="poster-title">Medication adherence and graft survival among kidney transplant recipients</h1>
+        <p class="hero-summary">A retrospective claims-plus-OPTN cohort analysis linked immunosuppressant refill adherence with kidney graft survival. Patients meeting the PDC threshold had substantially higher adjusted odds of a surviving graft.</p>
+        <ul class="tag-row" aria-label="Poster themes">
+          <li class="tag therapy">Kidney transplant</li>
+          <li class="tag category">Medication adherence</li>
+          <li class="tag">Immunosuppressants</li>
+          <li class="tag">Claims + OPTN data</li>
+        </ul>
+      </div>
+      <aside class="hero-card transplant-hero" aria-label="Poster metadata">
+        <div class="poster-code">6_2019</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Presented</dt>
+            <dd>NASP 2019</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>Washington, DC</dd>
+          </div>
+          <div>
+            <dt>Data window</dt>
+            <dd>2013-2016</dd>
+          </div>
+          <div>
+            <dt>Adherence cut</dt>
+            <dd>PDC >=80%</dd>
+          </div>
+        </dl>
+        <div class="organ-mark" aria-hidden="true">
+          <svg viewBox="0 0 260 170" role="img">
+            <title>Stylized kidney transplant adherence mark</title>
+            <path d="M104 24c-30 0-54 31-54 69 0 34 18 54 41 54 21 0 31-15 31-35V72c0-16-5-27-18-27-8 0-14 4-19 10" fill="#fff" stroke="#d12630" stroke-width="8" stroke-linecap="round"/>
+            <path d="M156 24c30 0 54 31 54 69 0 34-18 54-41 54-21 0-31-15-31-35V72c0-16 5-27 18-27 8 0 14 4 19 10" fill="#fff" stroke="#187c8f" stroke-width="8" stroke-linecap="round"/>
+            <path d="M130 61v85" fill="none" stroke="#243770" stroke-width="8" stroke-linecap="round"/>
+            <path d="M96 105c13 10 25 15 34 15s21-5 34-15" fill="none" stroke="#e99e25" stroke-width="7" stroke-linecap="round"/>
+            <circle cx="130" cy="44" r="10" fill="#243770"/>
+          </svg>
+        </div>
+        <ul class="signal-list">
+          <li><b>1</b><span>Objective: test whether refill-based immunosuppressant adherence is associated with graft survival.</span></li>
+          <li><b>2</b><span>Conclusion: adherent patients were more likely to have a surviving graft than non-adherent patients.</span></li>
+        </ul>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key poster numbers">
+        <article class="metric-card emphasis">
+          <span>Eligible recipients</span>
+          <strong>14,703</strong>
+          <small>Adult deceased-donor, kidney-only transplant recipients in the analytic cohort.</small>
+        </article>
+        <article class="metric-card">
+          <span>Adherent</span>
+          <strong>73%</strong>
+          <small>Poster-reported proportion meeting PDC >=80% over 12 months after first fill.</small>
+        </article>
+        <article class="metric-card emphasis">
+          <span>Adjusted survival odds</span>
+          <strong>2.75x</strong>
+          <small>OR for graft survival among adherent vs non-adherent recipients; p&lt;.001.</small>
+        </article>
+        <article class="metric-card">
+          <span>Surviving graft</span>
+          <strong>85%</strong>
+          <small>Poster-reported share with a surviving graft at study end; Figure 1 counts are visualized below.</small>
+        </article>
+      </section>
+
+      <section class="visual-grid">
+        <article class="panel">
+          <p class="section-label">Figure 1 pattern</p>
+          <h2>Surviving grafts had the higher adherence share</h2>
+          <p class="hero-summary">The unadjusted table separates recipients by graft status, then shows the proportion adherent within each outcome group.</p>
+          <div class="split-board">
+            <div class="status-card">
+              <div class="status-head">
+                <h3>Graft survived</h3>
+                <strong>76.8%</strong>
+              </div>
+              <div class="stacked-bar" style="--yes: 76.8%; --no: 23.2%;" aria-label="Graft survived: 76.8 percent adherent and 23.2 percent non-adherent">
+                <span></span><span></span>
+              </div>
+              <div class="data-pair">
+                <div><span>8,747</span><small>Adherent</small></div>
+                <div><span>2,638</span><small>Non-adherent</small></div>
+              </div>
+            </div>
+            <div class="status-card failed">
+              <div class="status-head">
+                <h3>Graft failed</h3>
+                <strong>64.0%</strong>
+              </div>
+              <div class="stacked-bar" style="--yes: 64%; --no: 36%;" aria-label="Graft failed: 64 percent adherent and 36 percent non-adherent">
+                <span></span><span></span>
+              </div>
+              <div class="data-pair">
+                <div><span>2,124</span><small>Adherent</small></div>
+                <div><span>1,194</span><small>Non-adherent</small></div>
+              </div>
+            </div>
+          </div>
+          <div class="legend-pair" aria-hidden="true">
+            <span><i class="yes"></i>Adherent</span>
+            <span><i class="no"></i>Non-adherent</span>
+          </div>
+          <p class="source-note">Poster text also reports that 85% had a surviving graft; the displayed Figure 1 counts sum to 11,385 survived and 3,318 failed.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Adjusted model</p>
+          <h2>Adherence remained a strong survival signal after covariate adjustment</h2>
+          <div class="or-board" aria-label="Selected odds ratios from logistic regression">
+            <div class="or-row">
+              <span class="factor">No post-index chronic-condition prescriptions</span>
+              <span class="or-track"><i class="or-fill" style="--width: 99.4%;"></i></span>
+              <span class="value">3.48</span>
+            </div>
+            <div class="or-row">
+              <span class="factor">Adherent, PDC >=80%</span>
+              <span class="or-track"><i class="or-fill" style="--width: 78.6%;"></i></span>
+              <span class="value">2.75</span>
+            </div>
+            <div class="or-row">
+              <span class="factor">Commercial payor vs Medicare B</span>
+              <span class="or-track"><i class="or-fill" style="--width: 38.6%;"></i></span>
+              <span class="value">1.35</span>
+            </div>
+            <div class="or-row">
+              <span class="factor">Multiple insurance vs Medicare B</span>
+              <span class="or-track"><i class="or-fill" style="--width: 35.7%;"></i></span>
+              <span class="value">1.25</span>
+            </div>
+            <div class="or-row">
+              <span class="factor">Digital fill patient</span>
+              <span class="or-track"><i class="or-fill" style="--width: 34.6%;"></i></span>
+              <span class="value">1.21</span>
+            </div>
+            <div class="or-row">
+              <span class="factor">Black race</span>
+              <span class="or-track"><i class="or-fill low" style="--width: 21.7%;"></i></span>
+              <span class="value">0.76</span>
+            </div>
+            <div class="or-row">
+              <span class="factor">Other insurance vs Medicare B</span>
+              <span class="or-track"><i class="or-fill low" style="--width: 20.6%;"></i></span>
+              <span class="value">0.72</span>
+            </div>
+          </div>
+          <p class="source-note">Reference line marks OR=1 on a 0-3.5 visual scale; selected factors are taken from Figure 2.</p>
+        </article>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Evidence flow</p>
+        <h2>How the poster connected pharmacy behavior to graft status</h2>
+        <div class="pipeline">
+          <article class="pipe-step" data-step="1">
+            <h3>Pharmacy claims</h3>
+            <p>Single large national pharmacy chain claims were used to identify immunosuppressant fills from 2013-2016.</p>
+          </article>
+          <article class="pipe-step" data-step="2">
+            <h3>Recipient cohort</h3>
+            <p>Adults with deceased-donor kidney-only transplant history and at least two immunosuppressant claims 150+ days apart were included.</p>
+          </article>
+          <article class="pipe-step" data-step="3">
+            <h3>PDC adherence</h3>
+            <p>Proportion of days covered over 12 months after first fill defined adherence at a PDC threshold of 80% or higher.</p>
+          </article>
+          <article class="pipe-step" data-step="4">
+            <h3>OPTN follow-up</h3>
+            <p>Post-transplant follow-up data through 2016 supplied the graft-survival endpoint; median follow-up was 969 days.</p>
+          </article>
+          <article class="pipe-step" data-step="5">
+            <h3>Adjusted model</h3>
+            <p>Logistic regression estimated graft-survival odds while controlling for demographics, payor, copay, fills, assistance, pharmacy type, and interactions.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel markdown-fragment">
+          <p class="section-label">Study question</p>
+          <h2>Objective and methods</h2>
+          <h3>Objective</h3>
+          <p>Examine the association between graft survival and adherence in kidney transplant recipients.</p>
+          <h3>Methods lens</h3>
+          <ul>
+            <li>Retrospective observational cohort using pharmacy claims and OPTN follow-up data.</li>
+            <li>Adherence measured as PDC for any immunosuppressant in the 12 months after first fill.</li>
+            <li>Graft survival defined as a surviving graft at the end of the study period.</li>
+          </ul>
+        </article>
+        <article class="panel markdown-fragment">
+          <p class="section-label">Interpretation</p>
+          <h2>Conclusion</h2>
+          <p>Adherent patients were more likely to have a surviving graft than those not adherent to immunosuppressants.</p>
+          <div class="note-card">
+            <p>The poster frames adherence as a modifiable behavior worth studying across patient populations to identify which behaviors contribute to sustained medication adherence.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Source table patterns">
+        <article class="table-card">
+          <p class="section-label">Table pattern</p>
+          <h3>Graft status by adherence</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Graft status</th><th>Adherent</th><th>Non-adherent</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Failed</td><td>2,124 (64.0%)</td><td>1,194 (36.0%)</td></tr>
+                <tr><td>Survived</td><td>8,747 (76.8%)</td><td>2,638 (23.2%)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+        <article class="table-card">
+          <p class="section-label">Key adjusted findings</p>
+          <h3>Odds ratios highlighted by poster text</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Factor</th><th>OR</th><th>95% CI</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Adherent, PDC >=80%</td><td>2.75</td><td>1.95-3.87</td></tr>
+                <tr><td>No chronic-condition prescriptions</td><td>3.48</td><td>2.95-4.11</td></tr>
+                <tr><td>Commercial vs Medicare B</td><td>1.35</td><td>1.16-1.56</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <footer class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/6_2019.pdf">Open original PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/6_2019.md">Open extracted markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

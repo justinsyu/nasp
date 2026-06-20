@@ -1,0 +1,716 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Expansion of Outpatient Pharmacy Services Through Rapid-Start ART | NASP 2020</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .rsat-hero-art {
+      position: relative;
+      min-height: 18rem;
+      overflow: hidden;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 82% 22%, rgba(233, 158, 37, 0.25), transparent 6rem),
+        linear-gradient(150deg, rgba(238, 244, 251, 0.98), #fff 56%, rgba(255, 247, 234, 0.95));
+      padding: 0.9rem;
+    }
+
+    .rsat-hero-art svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .hero-verdict {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.55rem;
+    }
+
+    .verdict-cell {
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.84);
+      padding: 0.68rem;
+    }
+
+    .verdict-cell strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+
+    .verdict-cell span {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .workflow-contrast {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: 1rem;
+    }
+
+    .clinic-lanes {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 0.8rem;
+    }
+
+    .clinic-lane {
+      display: grid;
+      grid-template-columns: 7rem minmax(0, 1fr);
+      gap: 0.7rem;
+      align-items: start;
+      border: 1px solid rgba(174, 187, 210, 0.8);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.7rem;
+    }
+
+    .clinic-lane b {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.86rem;
+      line-height: 1.15;
+    }
+
+    .lane-track {
+      display: grid;
+      gap: 0.4rem;
+    }
+
+    .lane-step {
+      display: grid;
+      grid-template-columns: 4.2rem minmax(0, 1fr);
+      gap: 0.45rem;
+      align-items: stretch;
+    }
+
+    .lane-step span,
+    .lane-step em {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.38rem 0.45rem;
+      font-size: 0.72rem;
+      font-style: normal;
+    }
+
+    .lane-step span {
+      display: grid;
+      place-items: center;
+      background: var(--surface-blue);
+      color: var(--ink);
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .lane-step em {
+      background: #fff;
+      color: var(--body);
+      font-weight: 760;
+    }
+
+    .lane-step.optimized span {
+      background: rgba(24, 124, 143, 0.12);
+      color: var(--teal);
+    }
+
+    .difference-board {
+      display: grid;
+      gap: 0.6rem;
+      margin-top: 0.75rem;
+    }
+
+    .difference-row {
+      display: grid;
+      grid-template-columns: 7.5rem minmax(0, 1fr) 4.2rem;
+      gap: 0.55rem;
+      align-items: center;
+    }
+
+    .difference-row b {
+      color: var(--ink);
+      font-size: 0.78rem;
+    }
+
+    .difference-track {
+      height: 1rem;
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+
+    .difference-fill {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .difference-fill.after {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .difference-row em {
+      color: var(--ink);
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .methods-river {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+
+    .river-step {
+      position: relative;
+      min-height: 8.2rem;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.72rem;
+    }
+
+    .river-step::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -0.48rem;
+      width: 0.75rem;
+      height: 0.75rem;
+      border-top: 2px solid rgba(36, 55, 112, 0.36);
+      border-right: 2px solid rgba(36, 55, 112, 0.36);
+      transform: translateY(-50%) rotate(45deg);
+      background: #fff;
+    }
+
+    .river-step:last-child::after {
+      display: none;
+    }
+
+    .river-step span {
+      display: grid;
+      place-items: center;
+      width: 2rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-weight: 900;
+    }
+
+    .river-step p {
+      margin: 0.55rem 0 0;
+      color: var(--body);
+      font-size: 0.8rem;
+      font-weight: 760;
+    }
+
+    .barrier-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.75rem;
+    }
+
+    .barrier-card {
+      min-height: 10rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.78rem;
+    }
+
+    .barrier-card i {
+      display: block;
+      width: 2.4rem;
+      height: 0.32rem;
+      margin-bottom: 0.6rem;
+      border-radius: 999px;
+      background: var(--red);
+    }
+
+    .barrier-card:nth-child(2) i { background: var(--gold); }
+    .barrier-card:nth-child(3) i { background: var(--teal); }
+    .barrier-card:nth-child(4) i { background: var(--green); }
+    .barrier-card:nth-child(5) i { background: var(--purple); }
+
+    .barrier-card h3 {
+      font-size: 0.92rem;
+    }
+
+    .barrier-card p {
+      margin: 0.45rem 0 0;
+      color: var(--body);
+      font-size: 0.78rem;
+    }
+
+    .eligibility-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-top: 0.72rem;
+    }
+
+    .eligibility-box {
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.8rem;
+    }
+
+    .eligibility-box.include {
+      background: linear-gradient(180deg, rgba(24, 124, 143, 0.08), #fff);
+    }
+
+    .eligibility-box.exclude {
+      background: linear-gradient(180deg, rgba(209, 38, 48, 0.08), #fff);
+    }
+
+    .eligibility-box ul {
+      margin: 0.5rem 0 0 1rem;
+      padding: 0;
+    }
+
+    .eligibility-box li {
+      margin: 0.22rem 0;
+      font-size: 0.84rem;
+    }
+
+    .pharmacy-chain {
+      margin-top: 0.8rem;
+    }
+
+    .pharmacy-chain svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .source-note {
+      margin: 0.65rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    .compact-table td:first-child {
+      color: var(--ink);
+      font-weight: 850;
+    }
+
+    @media (max-width: 980px) {
+      .workflow-contrast,
+      .methods-river,
+      .barrier-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .river-step::after {
+        display: none;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .hero-verdict,
+      .clinic-lane,
+      .lane-step,
+      .difference-row,
+      .eligibility-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .difference-row em {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar" aria-label="Infographic navigation">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav aria-label="Source links">
+        <a href="#workflow">Workflow</a>
+        <a href="#barriers">Barriers</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-16_2020.pdf">Poster PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-16_2020.md">Markdown Source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2020 Annual Meeting &amp; Expo Virtual Experience</p>
+        <h1>Expansion of outpatient pharmacy services through rapid-start antiretroviral therapy</h1>
+        <p class="hero-summary">
+          Yale New Haven Health mapped two infectious disease clinic pathways and two outpatient pharmacy sites to build a rapid-start ART program designed to put medication in hand on the day of HIV diagnosis.
+        </p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Implementation workflow</li>
+          <li class="tag therapy">HIV care</li>
+          <li class="tag therapy">Rapid-start ART</li>
+          <li class="tag">Outpatient pharmacy</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card">
+        <div>
+          <p class="section-label">Poster file</p>
+          <div class="poster-code">Poster-16_2020</div>
+        </div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Health system</dt>
+            <dd>Yale New Haven Health</dd>
+          </div>
+          <div>
+            <dt>Program goal</dt>
+            <dd>ART in hand on Day 1</dd>
+          </div>
+          <div>
+            <dt>Clinics mapped</dt>
+            <dd>2 ID clinics</dd>
+          </div>
+          <div>
+            <dt>Pharmacy sites</dt>
+            <dd>OPS + AWC</dd>
+          </div>
+        </dl>
+        <div class="rsat-hero-art" aria-label="Rapid-start ART service pathway illustration">
+          <svg viewBox="0 0 430 250" role="img" aria-labelledby="hero-svg-title hero-svg-desc">
+            <title id="hero-svg-title">Rapid-start antiretroviral therapy pathway</title>
+            <desc id="hero-svg-desc">A stylized patient route connects clinic, pharmacy verification, coverage assistance, delivery, and medication pickup on day one.</desc>
+            <defs>
+              <marker id="arrow-rsat" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L9,3 z" fill="#243770"></path>
+              </marker>
+              <linearGradient id="rsat-grad" x1="0" x2="1" y1="0" y2="0">
+                <stop offset="0" stop-color="#d12630"></stop>
+                <stop offset="0.52" stop-color="#e99e25"></stop>
+                <stop offset="1" stop-color="#187c8f"></stop>
+              </linearGradient>
+            </defs>
+            <rect x="18" y="38" width="92" height="120" rx="10" fill="#fff" stroke="#aebbd2" stroke-width="3"></rect>
+            <path d="M39 70h48M39 94h34M39 118h44" stroke="#187c8f" stroke-width="7" stroke-linecap="round"></path>
+            <circle cx="65" cy="184" r="26" fill="#fff" stroke="#243770" stroke-width="4"></circle>
+            <path d="M53 184h24M65 172v24" stroke="#d12630" stroke-width="7" stroke-linecap="round"></path>
+            <path d="M122 96 C162 44, 230 46, 275 86 S352 129, 384 82" fill="none" stroke="url(#rsat-grad)" stroke-width="10" stroke-linecap="round" marker-end="url(#arrow-rsat)"></path>
+            <path d="M122 146 C178 188, 250 195, 350 166" fill="none" stroke="#243770" stroke-width="6" stroke-linecap="round" stroke-dasharray="2 14" marker-end="url(#arrow-rsat)"></path>
+            <circle cx="198" cy="68" r="24" fill="#eef4fb" stroke="#187c8f" stroke-width="4"></circle>
+            <path d="M187 68l8 8 18-22" fill="none" stroke="#187c8f" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path>
+            <circle cx="294" cy="108" r="26" fill="#fff7ea" stroke="#e99e25" stroke-width="4"></circle>
+            <path d="M282 108h24M294 96v24" stroke="#e99e25" stroke-width="6" stroke-linecap="round"></path>
+            <rect x="342" y="54" width="58" height="58" rx="12" fill="#fff" stroke="#d12630" stroke-width="4"></rect>
+            <path d="M356 77h30M356 91h21" stroke="#d12630" stroke-width="6" stroke-linecap="round"></path>
+            <text x="142" y="32" fill="#243770" font-family="Arial, sans-serif" font-size="19" font-weight="800">Day 1 RSAT start</text>
+            <text x="142" y="224" fill="#33415c" font-family="Arial, sans-serif" font-size="15" font-weight="800">clinic + pharmacy + assistance + delivery</text>
+          </svg>
+          <div class="hero-verdict">
+            <div class="verdict-cell">
+              <strong>1 day</strong>
+              <span>intended medication access</span>
+            </div>
+            <div class="verdict-cell">
+              <strong>5</strong>
+              <span>barriers optimized</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Connecticut residents living with HIV, 2018</span>
+          <strong>10,574</strong>
+        </article>
+        <article class="metric-card">
+          <span>Infectious disease clinics</span>
+          <strong>2</strong>
+        </article>
+        <article class="metric-card">
+          <span>Outpatient pharmacy sites</span>
+          <strong>2</strong>
+        </article>
+        <article class="metric-card">
+          <span>Delivery target named as barrier</span>
+          <strong>1-2h</strong>
+        </article>
+      </section>
+
+      <section class="workflow-contrast" id="workflow">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Turn fragmented first-contact workflows into a Day 1 medication pathway.</h2>
+          <div class="markdown-fragment">
+            <p><strong>Objective 1:</strong> Identify and address barriers to initiating a rapid-start ART program.</p>
+            <p><strong>Objective 2:</strong> Develop new workflow processes across pharmacy sub-specialties for successful implementation.</p>
+          </div>
+          <div class="eligibility-grid" aria-label="Inclusion and exclusion criteria">
+            <div class="eligibility-box include">
+              <h3>Eligible patient profile</h3>
+              <ul>
+                <li>New HIV diagnosis</li>
+                <li>Likely adherent by provider assessment</li>
+                <li>Ready to initiate therapy</li>
+              </ul>
+            </div>
+            <div class="eligibility-box exclude">
+              <h3>Excluded scenarios</h3>
+              <ul>
+                <li>Active opportunistic infection or high suspicion</li>
+                <li>Emotional reluctance to initiate therapy</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Before vs after</p>
+          <h2>The Nathan Smith Clinic pathway moved prescription access from week two to Day 1.</h2>
+          <div class="difference-board" aria-label="Initial and optimized medication availability timing">
+            <div class="difference-row">
+              <b>Initial NSC</b>
+              <span class="difference-track"><span class="difference-fill" style="width:100%"></span></span>
+              <em>Day 7-14</em>
+            </div>
+            <div class="difference-row">
+              <b>Optimized NSC</b>
+              <span class="difference-track"><span class="difference-fill after" style="width:12%"></span></span>
+              <em>Day 1</em>
+            </div>
+            <div class="difference-row">
+              <b>Haelen Center</b>
+              <span class="difference-track"><span class="difference-fill after" style="width:12%"></span></span>
+              <em>Day 1</em>
+            </div>
+          </div>
+          <p class="source-note">NSC = Nathan Smith Clinic. The optimized map added same-day prescribing and on-site or clinic-delivered medication access.</p>
+        </article>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Methods as implementation sequence</p>
+        <h2>Five steps converted poster mapping into a service blueprint.</h2>
+        <div class="methods-river" aria-label="Methods workflow">
+          <div class="river-step">
+            <span>1</span>
+            <p>Identify current provider and patient needs.</p>
+          </div>
+          <div class="river-step">
+            <span>2</span>
+            <p>Assess existing workflows and implementation barriers.</p>
+          </div>
+          <div class="river-step">
+            <span>3</span>
+            <p>Identify resources for prescription coverage.</p>
+          </div>
+          <div class="river-step">
+            <span>4</span>
+            <p>Optimize clinic and pharmacy processing workflows.</p>
+          </div>
+          <div class="river-step">
+            <span>5</span>
+            <p>Develop the communication and monitoring plan.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="barriers">
+        <p class="section-label">Results</p>
+        <h2>Five barriers defined the operational redesign.</h2>
+        <div class="barrier-grid" aria-label="Identified barriers requiring optimization">
+          <article class="barrier-card">
+            <i aria-hidden="true"></i>
+            <h3>Prescriber coverage</h3>
+            <p>No readily available prescriber existed for on-call requests.</p>
+          </article>
+          <article class="barrier-card">
+            <i aria-hidden="true"></i>
+            <h3>Financial resources</h3>
+            <p>Prescription coverage resources were not yet coordinated across workflows.</p>
+          </article>
+          <article class="barrier-card">
+            <i aria-hidden="true"></i>
+            <h3>Delivery speed</h3>
+            <p>Medication delivery needed to meet a 1 to 2 hour timeliness goal.</p>
+          </article>
+          <article class="barrier-card">
+            <i aria-hidden="true"></i>
+            <h3>Processing flow</h3>
+            <p>Medication processing needed optimization between OPS and AWC.</p>
+          </article>
+          <article class="barrier-card">
+            <i aria-hidden="true"></i>
+            <h3>Point personnel</h3>
+            <p>The RSAT program needed dedicated point personnel for management.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="visual-grid">
+        <article class="panel">
+          <p class="section-label">Clinic workflow pattern</p>
+          <h2>Optimized lanes standardized Day 1 prescribing and medication access.</h2>
+          <div class="clinic-lanes">
+            <div class="clinic-lane">
+              <b>Haelen Center</b>
+              <div class="lane-track">
+                <div class="lane-step optimized"><span>Day 1</span><em>Referral, MD visit, benefits investigation, prescription sent, medication available on site, labs</em></div>
+                <div class="lane-step"><span>Day 2-7</span><em>Follow-up MD appointment</em></div>
+              </div>
+            </div>
+            <div class="clinic-lane">
+              <b>Nathan Smith Clinic</b>
+              <div class="lane-track">
+                <div class="lane-step optimized"><span>Day 1</span><em>Referral, social work, benefits investigation, prescription sent, M2B delivery to clinic, labs</em></div>
+                <div class="lane-step"><span>Day 2-7</span><em>Follow-up MD appointment</em></div>
+              </div>
+            </div>
+            <div class="clinic-lane">
+              <b>On-call PA or MD</b>
+              <div class="lane-track">
+                <div class="lane-step optimized"><span>Day 1</span><em>Prescribing support for newly diagnosed patients when needed</em></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Medication processing workflow</p>
+          <h2>Pharmacy sub-specialties were linked into one rapid handoff.</h2>
+          <div class="pharmacy-chain" aria-label="Optimized medication processing workflow">
+            <svg viewBox="0 0 720 300" role="img" aria-labelledby="chain-title chain-desc">
+              <title id="chain-title">Optimized medication processing chain</title>
+              <desc id="chain-desc">Prescription is sent to OPS, benefits investigation is completed by a certified pharmacy technician, verification is handled by an HIV-dedicated pharmacist, medication is dispensed at AWC, delivered to Nathan Smith Clinic, and available at Haelen Center.</desc>
+              <defs>
+                <marker id="chain-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                  <path d="M0,0 L0,6 L9,3 z" fill="#243770"></path>
+                </marker>
+              </defs>
+              <rect x="18" y="34" width="125" height="72" rx="10" fill="#eef4fb" stroke="#aebbd2" stroke-width="3"></rect>
+              <rect x="164" y="34" width="150" height="72" rx="10" fill="#fff" stroke="#e99e25" stroke-width="3"></rect>
+              <rect x="337" y="34" width="150" height="72" rx="10" fill="#fff" stroke="#187c8f" stroke-width="3"></rect>
+              <rect x="510" y="34" width="125" height="72" rx="10" fill="#fff7ea" stroke="#d12630" stroke-width="3"></rect>
+              <rect x="200" y="176" width="150" height="72" rx="10" fill="#fff" stroke="#4d8a67" stroke-width="3"></rect>
+              <rect x="392" y="176" width="150" height="72" rx="10" fill="#eef4fb" stroke="#7561a8" stroke-width="3"></rect>
+              <path d="M144 70h18" stroke="#243770" stroke-width="4" marker-end="url(#chain-arrow)"></path>
+              <path d="M315 70h20" stroke="#243770" stroke-width="4" marker-end="url(#chain-arrow)"></path>
+              <path d="M488 70h20" stroke="#243770" stroke-width="4" marker-end="url(#chain-arrow)"></path>
+              <path d="M573 108 C573 156, 342 144, 310 174" fill="none" stroke="#243770" stroke-width="4" marker-end="url(#chain-arrow)"></path>
+              <path d="M352 212h38" stroke="#243770" stroke-width="4" marker-end="url(#chain-arrow)"></path>
+              <text x="80" y="64" text-anchor="middle" fill="#243770" font-family="Arial, sans-serif" font-size="17" font-weight="800">Rx sent</text>
+              <text x="80" y="86" text-anchor="middle" fill="#33415c" font-family="Arial, sans-serif" font-size="13">to OPS</text>
+              <text x="239" y="58" text-anchor="middle" fill="#243770" font-family="Arial, sans-serif" font-size="15" font-weight="800">Benefits +</text>
+              <text x="239" y="78" text-anchor="middle" fill="#243770" font-family="Arial, sans-serif" font-size="15" font-weight="800">assistance</text>
+              <text x="239" y="96" text-anchor="middle" fill="#33415c" font-family="Arial, sans-serif" font-size="12">CPhT</text>
+              <text x="412" y="58" text-anchor="middle" fill="#243770" font-family="Arial, sans-serif" font-size="15" font-weight="800">Order</text>
+              <text x="412" y="78" text-anchor="middle" fill="#243770" font-family="Arial, sans-serif" font-size="15" font-weight="800">verification</text>
+              <text x="412" y="96" text-anchor="middle" fill="#33415c" font-family="Arial, sans-serif" font-size="12">HIV pharmacist</text>
+              <text x="573" y="65" text-anchor="middle" fill="#243770" font-family="Arial, sans-serif" font-size="16" font-weight="800">Dispense</text>
+              <text x="573" y="87" text-anchor="middle" fill="#33415c" font-family="Arial, sans-serif" font-size="13">at AWC</text>
+              <text x="275" y="205" text-anchor="middle" fill="#243770" font-family="Arial, sans-serif" font-size="15" font-weight="800">RSAT-CPhT</text>
+              <text x="275" y="226" text-anchor="middle" fill="#33415c" font-family="Arial, sans-serif" font-size="13">delivers to NSC</text>
+              <text x="467" y="205" text-anchor="middle" fill="#243770" font-family="Arial, sans-serif" font-size="15" font-weight="800">Immediate</text>
+              <text x="467" y="226" text-anchor="middle" fill="#33415c" font-family="Arial, sans-serif" font-size="13">pickup at Haelen</text>
+            </svg>
+          </div>
+          <p class="source-note">CPhT = certified pharmacy technician; OPS = Outpatient Pharmacy Services; AWC = Apothecary &amp; Wellness Center; M2B = Meds-to-Beds.</p>
+        </article>
+      </section>
+
+      <section class="evidence-map" aria-label="Evidence flow">
+        <article class="evidence-card">
+          <h3>Need</h3>
+          <p>WHO and HRSA recommendations supported immediate ART initiation, but YNHH had no established RSAT program.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Mapping</h3>
+          <p>Two clinics had different initial workflows, including delayed MD and prescription timing at Nathan Smith Clinic.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Optimization</h3>
+          <p>On-call prescriber coverage, assistance resources, and pharmacy processing were redesigned as connected work.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Implementation</h3>
+          <p>The program used existing OPS, AWC, HIV pharmacist, CPhT, and Meds-to-Beds capacity to speed medication access.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Next study</h3>
+          <p>Future analyses were planned for time to viral suppression and retention in care before and after implementation.</p>
+        </article>
+      </section>
+
+      <section class="tables-grid">
+        <article class="table-card">
+          <p class="section-label">Table pattern</p>
+          <h2>Initial workflow differences</h2>
+          <div class="table-wrap">
+            <table class="compact-table">
+              <thead>
+                <tr>
+                  <th>Clinic</th>
+                  <th>Initial access pattern</th>
+                  <th>Optimized access pattern</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Haelen Center</td>
+                  <td>Day 1 MD visit, labs, benefits investigation, Rx sent, mail delivery or physical pickup</td>
+                  <td>Day 1 Rx sent, medication available on site, labs; MD follow-up Day 2-7</td>
+                </tr>
+                <tr>
+                  <td>Nathan Smith Clinic</td>
+                  <td>Day 1 social work, labs, benefits investigation; Day 7 MD visit and Rx; Day 7-14 delivery or pickup</td>
+                  <td>Day 1 Rx sent, M2B delivery to clinic, labs; MD follow-up Day 2-7</td>
+                </tr>
+                <tr>
+                  <td>On-call PA or MD</td>
+                  <td>Not part of initial map</td>
+                  <td>Added to support newly diagnosed patients and urgent prescribing needs</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Conclusion</p>
+          <h2>Successful RSAT implementation was the reported endpoint.</h2>
+          <div class="markdown-fragment">
+            <p>The poster concluded that YNHH implemented a successful RSAT program for patients to receive drug in hand on the day of diagnosis.</p>
+            <p>The authors anticipated enhanced access to vital ART within comprehensive HIV care, with clinical outcome evaluation planned for future work.</p>
+            <p><strong>Disclosure:</strong> Authors reported nothing to disclose.</p>
+          </div>
+          <div class="footer-actions">
+            <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-16_2020.pdf">Open original PDF</a>
+            <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-16_2020.md">Open extracted markdown</a>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

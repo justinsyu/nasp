@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2024 Infographic | Pharmacist Interventions and Cost Avoidance</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .value-ribbon {
+      position: relative;
+      min-height: 17rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(36, 55, 112, 0.96), rgba(24, 124, 143, 0.9)),
+        radial-gradient(circle at 88% 14%, rgba(233, 158, 37, 0.42), transparent 18rem);
+      color: #fff;
+      overflow: hidden;
+      padding: 1.1rem;
+    }
+    .value-ribbon svg {
+      position: absolute;
+      inset: auto -1.4rem -2.8rem auto;
+      width: min(24rem, 62%);
+      opacity: 0.72;
+    }
+    .value-ribbon .kicker {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+    .value-ribbon strong {
+      display: block;
+      margin-top: 0.2rem;
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      line-height: 0.95;
+    }
+    .value-ribbon span {
+      display: block;
+      max-width: 18rem;
+      margin-top: 0.55rem;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.94rem;
+    }
+    .hero-card .button-link {
+      justify-content: center;
+      background: #fff;
+    }
+    .compact-list {
+      margin: 0.55rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .compact-list li {
+      display: grid;
+      grid-template-columns: 0.8rem minmax(0, 1fr);
+      gap: 0.42rem;
+      margin-top: 0.42rem;
+      font-size: 0.88rem;
+    }
+    .compact-list li::before {
+      content: "";
+      width: 0.52rem;
+      height: 0.52rem;
+      margin-top: 0.43rem;
+      border-radius: 50%;
+      background: var(--red);
+    }
+    .impact-stack {
+      display: grid;
+      gap: 0.65rem;
+      margin-top: 0.65rem;
+    }
+    .impact-row {
+      display: grid;
+      grid-template-columns: 6.8rem minmax(0, 1fr) 4.2rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+    .impact-track {
+      height: 1.05rem;
+      border-radius: 999px;
+      background: var(--surface-blue);
+      overflow: hidden;
+    }
+    .impact-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+    }
+    .impact-low i { width: 31.5%; background: var(--green); }
+    .impact-med i { width: 55%; background: var(--gold); }
+    .impact-high i { width: 13.4%; background: var(--red); }
+    .flow-line {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+    .flow-node {
+      position: relative;
+      min-height: 8rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.82rem;
+    }
+    .flow-node::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -0.51rem;
+      width: 0.75rem;
+      height: 0.75rem;
+      border-top: 2px solid var(--border-strong);
+      border-right: 2px solid var(--border-strong);
+      background: #fff;
+      transform: translateY(-50%) rotate(45deg);
+    }
+    .flow-node:last-child::after { display: none; }
+    .flow-node b {
+      display: inline-grid;
+      place-items: center;
+      width: 1.65rem;
+      height: 1.65rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+    }
+    .flow-node h3 {
+      margin-top: 0.48rem;
+      font-size: 0.94rem;
+    }
+    .flow-node p {
+      margin: 0.35rem 0 0;
+      font-size: 0.78rem;
+    }
+    .donut-grid {
+      display: grid;
+      grid-template-columns: 13rem minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+      margin-top: 0.4rem;
+    }
+    .donut-grid svg {
+      width: 100%;
+      max-width: 13rem;
+      height: auto;
+    }
+    .legend {
+      display: grid;
+      gap: 0.45rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .legend li {
+      display: grid;
+      grid-template-columns: 0.8rem minmax(0, 1fr) auto;
+      gap: 0.45rem;
+      align-items: center;
+      font-size: 0.8rem;
+    }
+    .legend i {
+      width: 0.8rem;
+      height: 0.8rem;
+      border-radius: 3px;
+      background: var(--legend-color, var(--red));
+    }
+    .money-bars .lens-row {
+      grid-template-columns: 10.8rem minmax(0, 1fr) 5.4rem;
+    }
+    .money-bars .lens-row em {
+      color: var(--ink);
+      font-style: normal;
+      font-size: 0.78rem;
+      font-weight: 850;
+      text-align: right;
+    }
+    .time-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.45rem;
+      margin-top: 0.65rem;
+    }
+    .time-cell {
+      min-height: 5.8rem;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: var(--surface-blue);
+      padding: 0.5rem;
+    }
+    .time-cell strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+    .time-cell span {
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 850;
+    }
+    .source-note {
+      margin: 0.8rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+    @media (max-width: 900px) {
+      .flow-line,
+      .time-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .flow-node::after { display: none; }
+      .donut-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .impact-row,
+      .money-bars .lens-row {
+        grid-template-columns: 1fr;
+      }
+      .impact-row span:last-child,
+      .money-bars .lens-row em {
+        text-align: left;
+      }
+      .flow-line,
+      .time-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="https://naspnet.org/" aria-label="NASP website">NASP Posters</a>
+      <nav aria-label="Page sections">
+        <a href="#snapshot">Snapshot</a>
+        <a href="#evidence">Evidence</a>
+        <a href="#results">Results</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">2024 Annual Meeting Poster | 1-OPR1-OR</p>
+        <h1>Assessing value of pharmacist interventions through cost avoidance estimation</h1>
+        <p class="hero-summary">
+          An integrated pediatric health-system specialty pharmacy quantified pharmacist interventions across cystic fibrosis,
+          growth hormone, inflammatory bowel disease, and rheumatology/inflammatory conditions during 2023.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Single-center retrospective cohort</li>
+          <li class="tag therapy">Pediatric specialty pharmacy</li>
+          <li class="tag therapy">Cost avoidance</li>
+          <li class="tag">CHOC Specialty Pharmacy</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Poster details">
+        <div class="poster-code">AM24<br>1-OPR1-OR</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Study year</dt>
+            <dd>2023</dd>
+          </div>
+          <div>
+            <dt>Poster year</dt>
+            <dd>2024</dd>
+          </div>
+          <div>
+            <dt>Population</dt>
+            <dd>180 patients</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>CHOC, CA</dd>
+          </div>
+        </dl>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/1-OPR1-OR-Poster-AM24-v2_2024.pdf">Open poster PDF</a>
+      </aside>
+    </section>
+
+    <main>
+      <section id="snapshot" class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Patients included</span>
+          <strong>180</strong>
+        </article>
+        <article class="metric-card">
+          <span>Total interventions</span>
+          <strong>312</strong>
+        </article>
+        <article class="metric-card">
+          <span>Cost-avoidance interventions</span>
+          <strong>149</strong>
+        </article>
+        <article class="metric-card">
+          <span>Estimated cost avoidance</span>
+          <strong>$473K</strong>
+        </article>
+      </section>
+
+      <section class="visual-grid" aria-label="Value summary and impact mix">
+        <article class="value-ribbon">
+          <p class="kicker">Quantified avoided cost</p>
+          <strong>$473,292.35</strong>
+          <span>Medication monitoring and adverse drug event prevention/management accounted for roughly three quarters of quantified savings.</span>
+          <svg viewBox="0 0 320 220" role="img" aria-label="Layered clinical value illustration">
+            <defs>
+              <linearGradient id="shieldGradient" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#fff" stop-opacity="0.95"></stop>
+                <stop offset="1" stop-color="#e99e25" stop-opacity="0.72"></stop>
+              </linearGradient>
+            </defs>
+            <path d="M164 18l104 34v64c0 62-42 96-104 126C102 212 60 178 60 116V52l104-34z" fill="url(#shieldGradient)"></path>
+            <path d="M163 62v96M115 110h96" fill="none" stroke="#243770" stroke-width="18" stroke-linecap="round"></path>
+            <circle cx="246" cy="62" r="22" fill="#d12630" opacity="0.84"></circle>
+            <circle cx="72" cy="172" r="30" fill="#187c8f" opacity="0.64"></circle>
+          </svg>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Clinical impact of cost-saving interventions</p>
+          <h2>Most value was tied to preventing clinic visits</h2>
+          <div class="impact-stack">
+            <div class="impact-row impact-low">
+              <span>Low</span>
+              <div class="impact-track" aria-label="Low impact 31.5 percent"><i></i></div>
+              <span>47 (31.5%)</span>
+            </div>
+            <div class="impact-row impact-med">
+              <span>Medium</span>
+              <div class="impact-track" aria-label="Medium impact 55 percent"><i></i></div>
+              <span>82 (55.0%)</span>
+            </div>
+            <div class="impact-row impact-high">
+              <span>High</span>
+              <div class="impact-track" aria-label="High impact 13.4 percent"><i></i></div>
+              <span>20 (13.4%)</span>
+            </div>
+          </div>
+          <p class="source-note">Impact levels: coordinated care, prevented clinic visit, and prevented emergency department visit or hospital admission.</p>
+        </article>
+      </section>
+
+      <section id="evidence" class="panel">
+        <p class="section-label">Study design</p>
+        <h2>Evidence flow from specialty pharmacy documentation to avoided-cost estimate</h2>
+        <div class="flow-line">
+          <article class="flow-node">
+            <b>1</b>
+            <h3>Identify cohort</h3>
+            <p>Patients followed by CHOC specialty providers for CF, GH, IBD, or RIC who opted into specialty pharmacy clinical management.</p>
+          </article>
+          <article class="flow-node">
+            <b>2</b>
+            <h3>Capture interventions</h3>
+            <p>Pharmacist-documented clinical interventions were extracted from therapy management software for January 1 to December 31, 2023.</p>
+          </article>
+          <article class="flow-node">
+            <b>3</b>
+            <h3>Classify severity</h3>
+            <p>Naranjo, Nesbit, and CTCAE frameworks supported adverse event probability, impact, and care-intensity classification.</p>
+          </article>
+          <article class="flow-node">
+            <b>4</b>
+            <h3>Estimate value</h3>
+            <p>Published cost models and Pediatric Health Information System charge data were used to assign avoidable-cost estimates.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="results" class="visual-grid" aria-label="Primary result charts">
+        <article class="panel">
+          <p class="section-label">Cost avoidance by disease state</p>
+          <h2>Growth hormone care dominated avoided-cost estimates</h2>
+          <div class="donut-grid">
+            <svg viewBox="0 0 240 240" role="img" aria-label="Donut chart showing cost avoidance by disease state">
+              <circle cx="120" cy="120" r="76" fill="none" stroke="#d9e1ef" stroke-width="36"></circle>
+              <circle cx="120" cy="120" r="76" fill="none" stroke="#d12630" stroke-width="36" stroke-dasharray="413.4 64.1" stroke-dashoffset="0" transform="rotate(-90 120 120)"></circle>
+              <circle cx="120" cy="120" r="76" fill="none" stroke="#e99e25" stroke-width="36" stroke-dasharray="32.5 445" stroke-dashoffset="-413.4" transform="rotate(-90 120 120)"></circle>
+              <circle cx="120" cy="120" r="76" fill="none" stroke="#187c8f" stroke-width="36" stroke-dasharray="25.8 451.7" stroke-dashoffset="-445.9" transform="rotate(-90 120 120)"></circle>
+              <circle cx="120" cy="120" r="76" fill="none" stroke="#7561a8" stroke-width="36" stroke-dasharray="5.8 471.7" stroke-dashoffset="-471.7" transform="rotate(-90 120 120)"></circle>
+              <circle cx="120" cy="120" r="49" fill="#fff"></circle>
+              <text x="120" y="113" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="21" font-weight="900">86%</text>
+              <text x="120" y="136" text-anchor="middle" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="800">from GH</text>
+            </svg>
+            <ul class="legend">
+              <li style="--legend-color: var(--red);"><i></i><span>Growth hormone</span><b>$408,687.64</b></li>
+              <li style="--legend-color: var(--gold);"><i></i><span>Cystic fibrosis</span><b>$32,234.27</b></li>
+              <li style="--legend-color: var(--teal);"><i></i><span>Rheumatology/inflammatory</span><b>$25,534.30</b></li>
+              <li style="--legend-color: var(--purple);"><i></i><span>Inflammatory bowel disease</span><b>$6,836.14</b></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Cost avoidance by intervention type</p>
+          <h2>Monitoring and ADE work created the largest financial signal</h2>
+          <div class="lens-chart money-bars">
+            <div class="lens-row">
+              <span>Medication monitoring</span>
+              <div class="lens-bar"><i style="width: 100%;"></i></div>
+              <em>$223,838</em>
+            </div>
+            <div class="lens-row">
+              <span>Adverse drug event</span>
+              <div class="lens-bar"><i style="width: 62.9%;"></i></div>
+              <em>$140,804</em>
+            </div>
+            <div class="lens-row">
+              <span>Sub-optimal dosing</span>
+              <div class="lens-bar"><i style="width: 31.4%;"></i></div>
+              <em>$70,274</em>
+            </div>
+            <div class="lens-row">
+              <span>Undertreatment</span>
+              <div class="lens-bar"><i style="width: 14.2%;"></i></div>
+              <em>$31,866</em>
+            </div>
+            <div class="lens-row">
+              <span>Drug availability</span>
+              <div class="lens-bar"><i style="width: 2.8%;"></i></div>
+              <em>$6,350</em>
+            </div>
+            <div class="lens-row">
+              <span>Drug interaction</span>
+              <div class="lens-bar"><i style="width: 0.1%;"></i></div>
+              <em>$160</em>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">Population mix</p>
+          <h2>Four pediatric specialty populations</h2>
+          <div class="number-cloud">
+            <div class="number-pill">89<small>GH patients</small></div>
+            <div class="number-pill">32<small>CF patients</small></div>
+            <div class="number-pill">30<small>IBD patients</small></div>
+            <div class="number-pill">29<small>RIC patients</small></div>
+          </div>
+          <ul class="compact-list">
+            <li>Mean age was 11.5 years, with a reported range from 1.3 months to 22.9 years.</li>
+            <li>Male patients accounted for 82 of 180 patients, or 46% of the cohort.</li>
+          </ul>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Pharmacist time</p>
+          <h2>Most interventions were resolved within 15 minutes</h2>
+          <div class="time-grid">
+            <div class="time-cell"><strong>221</strong><span>0-15 min</span></div>
+            <div class="time-cell"><strong>71</strong><span>16-30 min</span></div>
+            <div class="time-cell"><strong>9</strong><span>31-45 min</span></div>
+            <div class="time-cell"><strong>3</strong><span>46-60 min</span></div>
+            <div class="time-cell"><strong>8</strong><span>&gt;60 min</span></div>
+          </div>
+          <p class="source-note">Some interventions lacked documented time or quantifiable cost-avoidance metrics.</p>
+        </article>
+      </section>
+
+      <section class="evidence-map" aria-label="Extracted poster takeaways">
+        <article class="evidence-card">
+          <h3>Objective</h3>
+          <p>Quantify pharmacist clinical interventions and associated cost avoidance in pediatric ambulatory specialty clinics.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Secondary lens</h3>
+          <p>Classify severity, adverse drug event prevention, and estimated pharmacist time spent.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Methods</h3>
+          <p>Retrospective review of documented interventions in TherigySTM for CHOC specialty pharmacy patients.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Signal</h3>
+          <p>149 of 312 interventions had quantifiable cost-avoidance implications.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Conclusion</h3>
+          <p>Documented intervention value can support specialty pharmacy service expansion, while models and review committees can reduce subjectivity.</p>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Condensed source tables">
+        <article class="table-card">
+          <p class="section-label">Table pattern</p>
+          <h2>Clinical impact distribution</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Impact category</th>
+                  <th>Operational meaning</th>
+                  <th>Interventions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Low</td>
+                  <td>Coordinated care</td>
+                  <td>47 (31.5%)</td>
+                </tr>
+                <tr>
+                  <td>Medium</td>
+                  <td>Prevented clinic visit</td>
+                  <td>82 (55.0%)</td>
+                </tr>
+                <tr>
+                  <td>High</td>
+                  <td>Prevented ED or hospital admission</td>
+                  <td>20 (13.4%)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Poster caveat</p>
+          <h2>Unpriced work still mattered</h2>
+          <div class="markdown-fragment">
+            <p>
+              The poster notes that coordination of care, drug shortage management, and similar activities often could not be assigned a cost-avoidance value.
+            </p>
+            <ul>
+              <li>Coordination of care was described as a large share of clinical work without assigned avoided cost.</li>
+              <li>Estimated value varied by protocols, practice area, and contemporary challenges such as shortages and recalls.</li>
+              <li>Five adverse drug events, representing 16% of ADEs, were reported to MedWatch because of high severity.</li>
+            </ul>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/1-OPR1-OR-Poster-AM24-v2_2024.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/1-OPR1-OR-Poster-AM24-v2_2024.md">Source markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

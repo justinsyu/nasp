@@ -1,0 +1,690 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Enhancing Asthma Management | OPR65-OR NASP 2024</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .asthma-hero-art {
+      display: grid;
+      gap: 0.85rem;
+      margin-top: 0.25rem;
+    }
+
+    .act-gauge {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .gauge-caption {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.45rem;
+    }
+
+    .gauge-caption span {
+      border: 1px solid rgba(174, 187, 210, 0.78);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.78);
+      padding: 0.48rem;
+      color: var(--ink);
+      font-size: 0.7rem;
+      font-weight: 850;
+      line-height: 1.25;
+      text-align: center;
+    }
+
+    .metric-card strong small {
+      color: var(--red);
+      font-size: 0.82rem;
+    }
+
+    .metric-card em {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-style: normal;
+      font-weight: 760;
+    }
+
+    .study-frame {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .objective-card {
+      display: grid;
+      align-content: center;
+      min-height: 14rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--ink);
+      padding: 1.2rem;
+      color: #fff;
+    }
+
+    .objective-card .section-label,
+    .objective-card h2 {
+      color: #fff;
+    }
+
+    .objective-card .section-label {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .objective-card p {
+      margin: 0.65rem 0 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.96rem;
+    }
+
+    .flowline {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 0.8rem;
+    }
+
+    .flow-step {
+      display: grid;
+      grid-template-columns: 4.3rem minmax(0, 1fr);
+      gap: 0.7rem;
+      align-items: center;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.68rem;
+    }
+
+    .flow-step strong {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      line-height: 1;
+      text-align: center;
+    }
+
+    .flow-step p {
+      margin: 0;
+      font-size: 0.84rem;
+    }
+
+    .control-board {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .stack-bars {
+      display: grid;
+      gap: 0.72rem;
+      margin-top: 0.85rem;
+    }
+
+    .stack-row {
+      display: grid;
+      grid-template-columns: 9.4rem minmax(0, 1fr) 3.2rem;
+      gap: 0.65rem;
+      align-items: center;
+    }
+
+    .stack-row b {
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 850;
+    }
+
+    .stack-track {
+      height: 1.05rem;
+      border: 1px solid rgba(174, 187, 210, 0.8);
+      border-radius: 999px;
+      background: #e7edf6;
+      overflow: hidden;
+    }
+
+    .stack-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: var(--bar-color, linear-gradient(90deg, var(--red), var(--gold)));
+    }
+
+    .stack-row em {
+      color: var(--ink);
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .improvement-card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 88% 18%, rgba(24, 124, 143, 0.18), transparent 7rem),
+        linear-gradient(145deg, var(--surface-blue), #fff 56%, var(--surface-warm));
+      padding: 1rem;
+    }
+
+    .improvement-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -2.5rem -3.5rem auto;
+      width: 11rem;
+      height: 11rem;
+      border: 1.1rem solid rgba(209, 38, 48, 0.08);
+      border-radius: 50%;
+    }
+
+    .improvement-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .half-ring {
+      display: grid;
+      place-items: center;
+      min-height: 11rem;
+    }
+
+    .half-ring strong {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(3.2rem, 8vw, 5.3rem);
+      line-height: 0.9;
+    }
+
+    .half-ring span {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--ink);
+      font-size: 0.88rem;
+      font-weight: 850;
+      text-align: center;
+    }
+
+    .intervention-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.85rem;
+    }
+
+    .intervention-card {
+      min-height: 8.9rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.72rem;
+    }
+
+    .intervention-card strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.9rem;
+      line-height: 1;
+    }
+
+    .intervention-card span {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 860;
+      line-height: 1.25;
+    }
+
+    .adherence-strip {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+      margin-top: 0.8rem;
+    }
+
+    .adherence-meter {
+      display: grid;
+      grid-template-columns: 95.8fr 3.78fr 0.42fr;
+      height: 2rem;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      border-radius: 999px;
+      background: var(--surface-blue);
+    }
+
+    .adherence-meter span:nth-child(1) { background: var(--teal); }
+    .adherence-meter span:nth-child(2) { background: var(--gold); }
+    .adherence-meter span:nth-child(3) { background: var(--red); }
+
+    .legend-inline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem 0.85rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 820;
+    }
+
+    .legend-inline i {
+      display: inline-block;
+      width: 0.68rem;
+      height: 0.68rem;
+      margin-right: 0.25rem;
+      border-radius: 2px;
+      vertical-align: -0.06rem;
+      background: var(--swatch);
+    }
+
+    .driver-panel {
+      border-left: 4px solid var(--teal);
+      background: linear-gradient(90deg, rgba(24, 124, 143, 0.08), #fff 66%);
+    }
+
+    .driver-split {
+      display: grid;
+      grid-template-columns: 13fr 9fr;
+      height: 1.2rem;
+      margin: 0.8rem 0 0.55rem;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      border-radius: 999px;
+      background: var(--surface-blue);
+    }
+
+    .driver-split span:first-child { background: var(--green); }
+    .driver-split span:last-child { background: var(--purple); }
+
+    .source-note {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    .callout-list {
+      display: grid;
+      gap: 0.55rem;
+      margin: 0.75rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .callout-list li {
+      border-left: 4px solid var(--teal);
+      background: var(--surface-blue);
+      padding: 0.56rem 0.7rem;
+      color: var(--body);
+      font-size: 0.86rem;
+    }
+
+    .callout-list li:nth-child(2) {
+      border-color: var(--gold);
+      background: var(--surface-warm);
+    }
+
+    .callout-list li:nth-child(3) {
+      border-color: var(--red);
+      background: rgba(209, 38, 48, 0.07);
+    }
+
+    .compact-table td:last-child,
+    .compact-table th:last-child {
+      text-align: right;
+    }
+
+    @media (max-width: 900px) {
+      .study-frame,
+      .control-board,
+      .intervention-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .gauge-caption,
+      .stack-row,
+      .flow-step {
+        grid-template-columns: 1fr;
+      }
+
+      .stack-row em {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/65-OPR65-OR-Poster-AM24-v2_2024.pdf">Source PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/65-OPR65-OR-Poster-AM24-v2_2024.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP Annual Meeting &amp; Expo 2024 / OPR65-OR</p>
+        <h1 id="poster-title">Enhancing asthma management with ACT screening and pharmacist follow-up</h1>
+        <p class="hero-summary">
+          Yale New Haven Health specialty pharmacists used Asthma Control Test screening in an integrated health system specialty pharmacy to identify control status, adherence patterns, and barriers among patients filling asthma biologics.
+        </p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag therapy">Asthma biologics</li>
+          <li class="tag category">Clinical assessment</li>
+          <li class="tag">ACT screening</li>
+          <li class="tag">Specialty pharmacy PMP</li>
+          <li class="tag">May 2023-Mar 2024</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Study snapshot">
+        <div class="poster-code">OPR65<br>OR</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Meeting</dt>
+            <dd>NASP 2024</dd>
+          </div>
+          <div>
+            <dt>Site</dt>
+            <dd>Yale New Haven Health</dd>
+          </div>
+          <div>
+            <dt>Charts reviewed</dt>
+            <dd>245</dd>
+          </div>
+          <div>
+            <dt>Filled at IHSSP</dt>
+            <dd>238</dd>
+          </div>
+        </dl>
+        <div class="asthma-hero-art" aria-label="ACT control gauge">
+          <svg class="act-gauge" viewBox="0 0 420 250" role="img" aria-labelledby="gauge-title gauge-desc">
+            <title id="gauge-title">Asthma Control Test category gauge</title>
+            <desc id="gauge-desc">A stylized gauge divides ACT screening into very poorly controlled, not well controlled, and well controlled categories.</desc>
+            <defs>
+              <linearGradient id="breathGradient" x1="0" x2="1">
+                <stop offset="0" stop-color="#eef4fb"/>
+                <stop offset="1" stop-color="#fff7ea"/>
+              </linearGradient>
+            </defs>
+            <path d="M72 192a138 138 0 0 1 276 0" fill="none" stroke="#e7edf6" stroke-width="38" stroke-linecap="round"/>
+            <path d="M72 192a138 138 0 0 1 53-108" fill="none" stroke="#d12630" stroke-width="38" stroke-linecap="round"/>
+            <path d="M140 73a138 138 0 0 1 101-16" fill="none" stroke="#e99e25" stroke-width="38" stroke-linecap="round"/>
+            <path d="M263 62a138 138 0 0 1 85 130" fill="none" stroke="#187c8f" stroke-width="38" stroke-linecap="round"/>
+            <circle cx="210" cy="192" r="53" fill="url(#breathGradient)" stroke="#243770" stroke-width="4"/>
+            <path d="M210 134v43" fill="none" stroke="#243770" stroke-width="9" stroke-linecap="round"/>
+            <path d="M210 171c-23 9-35 28-41 58-3 12-13 16-24 12-18-7-22-31-16-55 6-25 21-45 43-52 16-5 30 6 38 37Z" fill="#fff" stroke="#187c8f" stroke-width="4"/>
+            <path d="M210 171c23 9 35 28 41 58 3 12 13 16 24 12 18-7 22-31 16-55-6-25-21-45-43-52-16-5-30 6-38 37Z" fill="#fff" stroke="#187c8f" stroke-width="4"/>
+            <path d="M196 165l-36-64" stroke="#d12630" stroke-width="7" stroke-linecap="round"/>
+            <circle cx="160" cy="101" r="9" fill="#d12630"/>
+            <text x="46" y="222" fill="#d12630" font-family="Arial, sans-serif" font-size="17" font-weight="800">&lt;16</text>
+            <text x="183" y="41" fill="#e99e25" font-family="Arial, sans-serif" font-size="17" font-weight="800">16-19</text>
+            <text x="332" y="222" fill="#187c8f" font-family="Arial, sans-serif" font-size="17" font-weight="800">&gt;19</text>
+          </svg>
+          <div class="gauge-caption">
+            <span>Very poorly controlled</span>
+            <span>Not well controlled</span>
+            <span>Well controlled</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key poster numbers">
+        <article class="metric-card">
+          <span>ACT assessments</span>
+          <strong>245</strong>
+          <em>Charts reviewed with clinical assessments.</em>
+        </article>
+        <article class="metric-card">
+          <span>Asthma biologic fills</span>
+          <strong>238</strong>
+          <em>Patients filled at the IHSSP.</em>
+        </article>
+        <article class="metric-card">
+          <span>Intervention subgroup</span>
+          <strong>22</strong>
+          <em>Multiple ACT assessments and pharmacist interventions.</em>
+        </article>
+        <article class="metric-card">
+          <span>Improved after intervention</span>
+          <strong>50<small>%</small></strong>
+          <em>Patients with improved ACT scores after pharmacist interventions.</em>
+        </article>
+      </section>
+
+      <section class="study-frame" id="methods">
+        <article class="objective-card">
+          <p class="section-label">Objective</p>
+          <h2>Use ACT scores to evaluate asthma control in patients taking biologics.</h2>
+          <p>
+            The stated goal was to optimize therapeutic strategies by combining ACT screening, adherence assessment, and pharmacist review of barriers in an integrated specialty pharmacy program.
+          </p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Patient flow</p>
+          <h2>Retrospective review from May 1, 2023 to March 31, 2024.</h2>
+          <div class="flowline" aria-label="Study workflow">
+            <div class="flow-step">
+              <strong>245</strong>
+              <p>Charts reviewed and received clinical assessments.</p>
+            </div>
+            <div class="flow-step">
+              <strong>238</strong>
+              <p>Patients filled an asthma biologic at the integrated health system specialty pharmacy.</p>
+            </div>
+            <div class="flow-step">
+              <strong>74</strong>
+              <p>Patients were flagged in the extracted workflow as very poorly controlled for deeper review.</p>
+            </div>
+            <div class="flow-step">
+              <strong>22</strong>
+              <p>Patients received multiple ACT assessments and pharmacist-driven clinical interventions.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="control-board" id="results">
+        <article class="panel">
+          <p class="section-label">ACT category pattern</p>
+          <h2>About half of assessed patients were reported as well controlled.</h2>
+          <div class="stack-bars" aria-label="ACT score category percentages">
+            <div class="stack-row">
+              <b>Well controlled</b>
+              <span class="stack-track"><i style="--w:51%; --bar-color:linear-gradient(90deg, var(--teal), var(--green));"></i></span>
+              <em>51%</em>
+            </div>
+            <div class="stack-row">
+              <b>Not well controlled</b>
+              <span class="stack-track"><i style="--w:30%; --bar-color:linear-gradient(90deg, var(--gold), #f2c06d);"></i></span>
+              <em>30%</em>
+            </div>
+            <div class="stack-row">
+              <b>Very poorly controlled</b>
+              <span class="stack-track"><i style="--w:19%; --bar-color:linear-gradient(90deg, var(--red), #e66b71);"></i></span>
+              <em>19%</em>
+            </div>
+          </div>
+          <p class="source-note">ACT categories from the extracted poster text: well controlled &gt;19, not well controlled 16-19, very poorly controlled &lt;16.</p>
+        </article>
+
+        <article class="improvement-card">
+          <p class="section-label">Pharmacist follow-up signal</p>
+          <h2>Clinical management was associated with ACT score improvement.</h2>
+          <div class="half-ring" aria-label="Fifty percent improved">
+            <div>
+              <strong>50%</strong>
+              <span>of intervention patients improved ACT scores after pharmacist interventions.</span>
+            </div>
+          </div>
+          <p class="source-note">The poster discussion links improvement with frequent clinical management and intervention by specialty pharmacists.</p>
+        </article>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Clinical interventions</p>
+        <h2>Technique counseling was the dominant intervention type in the 22-patient subgroup.</h2>
+        <div class="intervention-grid" aria-label="Clinical intervention counts">
+          <article class="intervention-card">
+            <strong>9</strong>
+            <span>Inhaler and injection counseling</span>
+          </article>
+          <article class="intervention-card">
+            <strong>6</strong>
+            <span>Injection technique counseling</span>
+          </article>
+          <article class="intervention-card">
+            <strong>4</strong>
+            <span>Inhaler counseling</span>
+          </article>
+          <article class="intervention-card">
+            <strong>3</strong>
+            <span>No intervention documented</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">Biologic adherence</p>
+          <h2>Patient-reported missed doses were uncommon.</h2>
+          <div class="adherence-strip" aria-label="Adherence to biologics">
+            <div class="adherence-meter" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="legend-inline">
+              <span><i style="--swatch:var(--teal);"></i>No doses missed: 95.80%</span>
+              <span><i style="--swatch:var(--gold);"></i>Missed 1-3 doses: 3.78%</span>
+              <span><i style="--swatch:var(--red);"></i>Missed 4+ doses: 0.42%</span>
+            </div>
+          </div>
+          <p class="source-note">Adherence denominator reported as n=238.</p>
+        </article>
+
+        <article class="panel driver-panel">
+          <p class="section-label">Social drivers of health</p>
+          <h2>Barriers were present in 9 of 22 reviewed patients.</h2>
+          <div class="driver-split" aria-hidden="true">
+            <span></span>
+            <span></span>
+          </div>
+          <div class="legend-inline">
+            <span><i style="--swatch:var(--green);"></i>No social drivers: 13</span>
+            <span><i style="--swatch:var(--purple);"></i>Social drivers: 9</span>
+          </div>
+          <p class="source-note">Identified drivers included language, finance, transportation, and tobacco use.</p>
+        </article>
+      </section>
+
+      <section class="evidence-map" aria-label="Evidence flow">
+        <article class="evidence-card">
+          <h3>Background need</h3>
+          <p>Medication adherence in asthma is associated with better disease control and health outcomes.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Documentation shift</h3>
+          <p>A May 2023 platform transition improved reporting visibility and clinical management.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>ACT screen</h3>
+          <p>Pharmacists categorized asthma control using ACT thresholds and reviewed very poor control for barriers.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Intervention</h3>
+          <p>Counseling centered on adherence, appropriate biologic use, inhaler technique, and injection technique.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>PMP opportunity</h3>
+          <p>The authors recommend incorporating ACT scores into the patient management program follow-up cadence.</p>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Extracted table patterns">
+        <article class="table-card">
+          <p class="section-label">Demographics</p>
+          <h2>Reviewed asthma biologic cohort</h2>
+          <div class="table-wrap">
+            <table class="compact-table">
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Count</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Female sex assigned at birth</td><td>179</td></tr>
+                <tr><td>Male sex assigned at birth</td><td>66</td></tr>
+                <tr><td>Non-smokers in reviewed subgroup</td><td>10</td></tr>
+                <tr><td>Current smokers in reviewed subgroup</td><td>2</td></tr>
+                <tr><td>Former smokers in reviewed subgroup</td><td>10</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Operational readouts</p>
+          <h2>Control, adherence, and follow-up levers</h2>
+          <div class="table-wrap">
+            <table class="compact-table">
+              <thead>
+                <tr>
+                  <th>Readout</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Well controlled by ACT</td><td>51%</td></tr>
+                <tr><td>Not well controlled by ACT</td><td>30%</td></tr>
+                <tr><td>Very poorly controlled by ACT</td><td>19%</td></tr>
+                <tr><td>No missed biologic doses</td><td>95.80%</td></tr>
+                <tr><td>Improved ACT after intervention</td><td>50%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-stack" id="conclusion">
+        <article class="panel">
+          <p class="section-label">Conclusion</p>
+          <h2>ACT-informed pharmacist interventions can improve asthma control.</h2>
+          <p>
+            The poster concludes that specialty clinical pharmacist interventions can improve ACT scores, but closer monitoring and follow-up are warranted by incorporating ACT scores into the IHSSP patient management program.
+          </p>
+        </article>
+        <article class="panel">
+          <p class="section-label">Future direction</p>
+          <h2>Turn ACT status into follow-up cadence.</h2>
+          <ul class="callout-list">
+            <li>Evaluate whether ACT score should determine clinical assessment follow-up timing.</li>
+            <li>Analyze adherence using missed-dose reports collected during technician refill outreach.</li>
+            <li>Continue reviewing adherence, biologic use, technique, and written asthma action plans during interventions.</li>
+          </ul>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/65-OPR65-OR-Poster-AM24-v2_2024.pdf">Open original PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/65-OPR65-OR-Poster-AM24-v2_2024.md">Read extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

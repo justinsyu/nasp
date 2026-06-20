@@ -1,0 +1,795 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>37-2023 | SDOH, MS Adherence, and Persistence</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .sdoh-hero-art {
+      position: relative;
+      min-height: 23rem;
+      overflow: hidden;
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(24, 124, 143, 0.2), transparent 7rem),
+        radial-gradient(circle at 86% 16%, rgba(233, 158, 37, 0.24), transparent 7rem),
+        linear-gradient(155deg, #ffffff 0%, var(--surface-blue) 52%, var(--surface-warm) 100%);
+      padding: 0.9rem;
+    }
+
+    .sdoh-hero-art svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .hero-legend {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.35rem;
+    }
+
+    .legend-tile {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.76);
+      padding: 0.62rem;
+    }
+
+    .legend-tile strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.28rem;
+      line-height: 1;
+    }
+
+    .legend-tile span {
+      display: block;
+      margin-top: 0.2rem;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .study-frame {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .method-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--ink);
+      color: #fff;
+      padding: 1.1rem;
+    }
+
+    .method-card h2,
+    .method-card h3 {
+      color: #fff;
+    }
+
+    .method-card p {
+      color: rgba(255, 255, 255, 0.84);
+    }
+
+    .method-steps {
+      display: grid;
+      gap: 0.65rem;
+      margin: 0.85rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .method-steps li {
+      display: grid;
+      grid-template-columns: 2.2rem minmax(0, 1fr);
+      gap: 0.65rem;
+      align-items: start;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 0.88rem;
+    }
+
+    .step-dot {
+      display: inline-grid;
+      width: 2.1rem;
+      height: 2.1rem;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--red);
+      color: #fff;
+      font-family: var(--font-display);
+      font-weight: 900;
+    }
+
+    .definition-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.7rem;
+    }
+
+    .definition-card {
+      min-height: 8.7rem;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.9rem;
+    }
+
+    .definition-card strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2.1rem;
+      line-height: 1;
+    }
+
+    .definition-card span {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--ink);
+      font-weight: 850;
+    }
+
+    .definition-card p {
+      margin: 0.38rem 0 0;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .insurance-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(17rem, 0.9fr);
+      gap: 1rem;
+    }
+
+    .payer-bars {
+      display: grid;
+      gap: 0.58rem;
+      margin-top: 0.75rem;
+    }
+
+    .payer-row {
+      display: grid;
+      grid-template-columns: 11rem minmax(0, 1fr) 4rem;
+      gap: 0.65rem;
+      align-items: center;
+      font-size: 0.78rem;
+    }
+
+    .payer-row b {
+      color: var(--ink);
+      font-weight: 850;
+    }
+
+    .payer-track {
+      height: 0.92rem;
+      overflow: hidden;
+      border: 1px solid rgba(174, 187, 210, 0.8);
+      border-radius: 999px;
+      background: #edf2f8;
+    }
+
+    .payer-fill {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .payer-row:nth-child(2) .payer-fill { background: linear-gradient(90deg, var(--red), var(--gold)); }
+    .payer-row:nth-child(3) .payer-fill { background: linear-gradient(90deg, var(--purple), var(--teal)); }
+    .payer-row:nth-child(4) .payer-fill { background: linear-gradient(90deg, var(--gold), var(--red)); }
+
+    .payer-row em {
+      color: var(--ink);
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .population-wheel {
+      display: grid;
+      place-items: center;
+      min-height: 18rem;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle, #fff 0 35%, transparent 36%),
+        conic-gradient(var(--teal) 0 38.8%, var(--red) 38.8% 68.9%, var(--gold) 68.9% 79.3%, var(--purple) 79.3% 89.4%, var(--green) 89.4% 96.3%, #aebbd2 96.3% 100%);
+      color: var(--ink);
+      text-align: center;
+    }
+
+    .population-wheel strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      line-height: 1;
+    }
+
+    .population-wheel span {
+      display: block;
+      margin-top: 0.28rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .regression-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .signal-list {
+      display: grid;
+      gap: 0.55rem;
+      margin: 0.75rem 0 0;
+    }
+
+    .signal-row {
+      display: grid;
+      grid-template-columns: 9.6rem minmax(0, 1fr) 4.5rem;
+      gap: 0.55rem;
+      align-items: center;
+      font-size: 0.78rem;
+    }
+
+    .signal-row b {
+      color: var(--ink);
+      font-weight: 850;
+    }
+
+    .or-axis {
+      position: relative;
+      height: 1.1rem;
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(209, 38, 48, 0.16), #fff 50%, rgba(24, 124, 143, 0.18));
+    }
+
+    .or-axis::after {
+      content: "";
+      position: absolute;
+      top: -0.2rem;
+      bottom: -0.2rem;
+      left: 50%;
+      width: 2px;
+      background: rgba(36, 55, 112, 0.45);
+    }
+
+    .or-dot {
+      position: absolute;
+      top: 50%;
+      left: var(--x);
+      width: 0.86rem;
+      height: 0.86rem;
+      transform: translate(-50%, -50%);
+      border: 2px solid #fff;
+      border-radius: 50%;
+      background: var(--dot, var(--red));
+      box-shadow: 0 0 0 1px rgba(36, 55, 112, 0.3);
+    }
+
+    .signal-row em {
+      color: var(--ink);
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .effect-note {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.8rem;
+    }
+
+    .effect-note div {
+      border-left: 4px solid var(--teal);
+      background: var(--surface-blue);
+      padding: 0.65rem 0.7rem;
+      color: var(--body);
+      font-size: 0.82rem;
+    }
+
+    .effect-note div:nth-child(2) {
+      border-color: var(--red);
+      background: #fff;
+    }
+
+    .effect-note div:nth-child(3) {
+      border-color: var(--gold);
+      background: var(--surface-warm);
+    }
+
+    .takeaway-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+
+    .takeaway {
+      position: relative;
+      overflow: hidden;
+      min-height: 12rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.95rem;
+    }
+
+    .takeaway::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 0.32rem;
+      background: var(--accent, var(--red));
+    }
+
+    .takeaway:nth-child(2) { --accent: var(--teal); }
+    .takeaway:nth-child(3) { --accent: var(--gold); }
+
+    .takeaway p {
+      margin: 0.55rem 0 0;
+      font-size: 0.86rem;
+    }
+
+    .next-flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+
+    .flow-step {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: var(--surface-blue);
+      padding: 0.8rem;
+    }
+
+    .flow-step strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.7rem;
+      line-height: 1;
+    }
+
+    .flow-step span {
+      display: block;
+      margin-top: 0.36rem;
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 850;
+    }
+
+    @media (max-width: 900px) {
+      .study-frame,
+      .insurance-layout,
+      .regression-grid,
+      .takeaway-grid,
+      .next-flow {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-legend,
+      .definition-grid,
+      .effect-note {
+        grid-template-columns: 1fr;
+      }
+
+      .payer-row,
+      .signal-row {
+        grid-template-columns: 1fr;
+      }
+
+      .payer-row em,
+      .signal-row em {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/37_Impact-of-social-determinants-of-health-on-multiple-sclerosis-adherence-and-persistence-for-patients-using-a-national-mail-order-specialty-pharmacy_2023.pdf">Poster PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/37_Impact-of-social-determinants-of-health-on-multiple-sclerosis-adherence-and-persistence-for-patients-using-a-national-mail-order-specialty-pharmacy_2023.md">Markdown Source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">2023 poster 37 | Multiple sclerosis specialty pharmacy</p>
+        <h1>Social determinants shape different signals for MS adherence and persistence.</h1>
+        <p class="hero-summary">
+          In a national mail-order specialty pharmacy cohort of patients receiving disease-modifying therapy, demographic, medication-complexity, cost, and payer variables pointed to distinct risks for optimal adherence and therapy persistence.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag therapy">Multiple sclerosis</li>
+          <li class="tag category">Social determinants</li>
+          <li class="tag">PDC &ge;80%</li>
+          <li class="tag">60-day gap persistence</li>
+          <li class="tag">Logistic regression</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card">
+        <div class="poster-code">37-2023</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Patients</dt>
+            <dd>30,965</dd>
+          </div>
+          <div>
+            <dt>Study design</dt>
+            <dd>Retrospective cohort</dd>
+          </div>
+          <div>
+            <dt>Index year</dt>
+            <dd>2021 DMT starts</dd>
+          </div>
+          <div>
+            <dt>Follow-up</dt>
+            <dd>12 months per patient</dd>
+          </div>
+        </dl>
+        <div class="sdoh-hero-art" aria-label="Social determinant and medication journey illustration">
+          <svg viewBox="0 0 430 300" role="img" aria-labelledby="journey-title journey-desc">
+            <title id="journey-title">Medication adherence and persistence pathway</title>
+            <desc id="journey-desc">A patient-centered pathway connects payer type, medication complexity, age, cost, adherence, and persistence.</desc>
+            <defs>
+              <linearGradient id="path-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#d12630"></stop>
+                <stop offset="52%" stop-color="#e99e25"></stop>
+                <stop offset="100%" stop-color="#187c8f"></stop>
+              </linearGradient>
+              <marker id="hero-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L9,3 z" fill="#243770"></path>
+              </marker>
+            </defs>
+            <path d="M64 219 C118 116, 184 92, 251 139 S348 213, 384 82" fill="none" stroke="url(#path-gradient)" stroke-width="10" stroke-linecap="round" marker-end="url(#hero-arrow)"></path>
+            <circle cx="82" cy="215" r="36" fill="#fff" stroke="#d12630" stroke-width="5"></circle>
+            <path d="M68 217c7 12 22 12 29 0M82 205a13 13 0 1 0 0-1" fill="none" stroke="#d12630" stroke-width="6" stroke-linecap="round"></path>
+            <circle cx="170" cy="118" r="34" fill="#fff7ea" stroke="#e99e25" stroke-width="5"></circle>
+            <path d="M153 118h34M170 101v34" stroke="#e99e25" stroke-width="7" stroke-linecap="round"></path>
+            <circle cx="262" cy="148" r="35" fill="#eef4fb" stroke="#187c8f" stroke-width="5"></circle>
+            <rect x="244" y="132" width="36" height="32" rx="7" fill="#187c8f"></rect>
+            <path d="M253 148h18M262 139v18" stroke="#fff" stroke-width="5" stroke-linecap="round"></path>
+            <circle cx="371" cy="83" r="36" fill="#fff" stroke="#243770" stroke-width="5"></circle>
+            <path d="M350 84l13 13 28-33" fill="none" stroke="#4d8a67" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path>
+            <g fill="#243770" font-family="Arial, sans-serif" font-weight="800">
+              <text x="42" y="274" font-size="18">Patient factors</text>
+              <text x="128" y="62" font-size="18">Complexity</text>
+              <text x="224" y="212" font-size="18">Payer/cost</text>
+              <text x="323" y="136" font-size="18">Therapy use</text>
+            </g>
+          </svg>
+          <div class="hero-legend">
+            <div class="legend-tile">
+              <strong>89%</strong>
+              <span>average PDC</span>
+            </div>
+            <div class="legend-tile">
+              <strong>315.7d</strong>
+              <span>average DOT</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key cohort metrics">
+        <article class="metric-card">
+          <span>Patient count</span>
+          <strong>30,965</strong>
+        </article>
+        <article class="metric-card">
+          <span>Average age</span>
+          <strong>51.4</strong>
+        </article>
+        <article class="metric-card">
+          <span>Female sex</span>
+          <strong>75.9%</strong>
+        </article>
+        <article class="metric-card">
+          <span>Out-of-pocket per fill</span>
+          <strong>$104</strong>
+        </article>
+      </section>
+
+      <section class="study-frame" id="methods">
+        <article class="method-card">
+          <p class="section-label">Objective and design</p>
+          <h2>Assess who is at risk for gaps in MS therapy use.</h2>
+          <p>
+            The study evaluated associations between demographic and socioeconomic factors and medication adherence or persistence among MS patients using a national mail-order specialty pharmacy.
+          </p>
+          <ul class="method-steps">
+            <li><span class="step-dot">1</span><span>Adult patients with MS diagnosis code G35 and DMT initial dispense from January 1 to December 31, 2021.</span></li>
+            <li><span class="step-dot">2</span><span>Transactional, demographic, and clinical data were collected from pharmacy prescription processing systems.</span></li>
+            <li><span class="step-dot">3</span><span>Logistic regression modeled optimal adherence and persistence using age, sex, disease burden, medication count, cost, and payer type.</span></li>
+          </ul>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Outcome definitions</p>
+          <h2>Two endpoints, two different risk profiles.</h2>
+          <div class="definition-grid">
+            <div class="definition-card">
+              <strong>PDC</strong>
+              <span>Optimal adherence</span>
+              <p>Primary outcome: proportion of days covered, with optimal adherence defined as PDC of at least 80%.</p>
+            </div>
+            <div class="definition-card">
+              <strong>DOT</strong>
+              <span>Persistence</span>
+              <p>Secondary outcome: days on therapy, with discontinuation defined as a therapy gap of at least 60 days.</p>
+            </div>
+            <div class="definition-card">
+              <strong>2.3</strong>
+              <span>mean comorbidity count</span>
+              <p>Comorbidity count was included as a clinical complexity marker in the models.</p>
+            </div>
+            <div class="definition-card">
+              <strong>3.8</strong>
+              <span>mean concomitant meds</span>
+              <p>Medication-list complexity showed statistically significant associations in both models.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="insurance-layout" id="results">
+        <article class="panel">
+          <p class="section-label">Payer mix</p>
+          <h2>Commercial and PBM plans represented most observed patients.</h2>
+          <div class="payer-bars" aria-label="Insurance type distribution">
+            <div class="payer-row">
+              <b>Non-health plan PBM</b>
+              <span class="payer-track"><span class="payer-fill" style="width:100%"></span></span>
+              <em>12,020</em>
+            </div>
+            <div class="payer-row">
+              <b>Commercial</b>
+              <span class="payer-track"><span class="payer-fill" style="width:77.6%"></span></span>
+              <em>9,331</em>
+            </div>
+            <div class="payer-row">
+              <b>Medicare Part D</b>
+              <span class="payer-track"><span class="payer-fill" style="width:26.9%"></span></span>
+              <em>3,228</em>
+            </div>
+            <div class="payer-row">
+              <b>External plans</b>
+              <span class="payer-track"><span class="payer-fill" style="width:26.0%"></span></span>
+              <em>3,122</em>
+            </div>
+            <div class="payer-row">
+              <b>Medicare Advantage</b>
+              <span class="payer-track"><span class="payer-fill" style="width:17.7%"></span></span>
+              <em>2,123</em>
+            </div>
+            <div class="payer-row">
+              <b>Medicaid</b>
+              <span class="payer-track"><span class="payer-fill" style="width:9.2%"></span></span>
+              <em>1,106</em>
+            </div>
+            <div class="payer-row">
+              <b>Dual eligible</b>
+              <span class="payer-track"><span class="payer-fill" style="width:7.7%"></span></span>
+              <em>921</em>
+            </div>
+          </div>
+        </article>
+
+        <aside class="population-wheel" aria-label="Insurance distribution wheel">
+          <div>
+            <strong>30.9k</strong>
+            <span>patients in payer table</span>
+          </div>
+        </aside>
+      </section>
+
+      <section class="regression-grid" aria-label="Regression findings">
+        <article class="panel">
+          <p class="section-label">Adherence model</p>
+          <h2>Signals below 1.0 indicated lower odds of optimal PDC.</h2>
+          <div class="signal-list">
+            <div class="signal-row">
+              <b>Mean age</b>
+              <span class="or-axis"><span class="or-dot" style="--x:47%; --dot:var(--red)"></span></span>
+              <em>0.988</em>
+            </div>
+            <div class="signal-row">
+              <b>Male sex</b>
+              <span class="or-axis"><span class="or-dot" style="--x:36%; --dot:var(--red)"></span></span>
+              <em>0.931</em>
+            </div>
+            <div class="signal-row">
+              <b>Concomitant meds</b>
+              <span class="or-axis"><span class="or-dot" style="--x:31%; --dot:var(--red)"></span></span>
+              <em>0.901</em>
+            </div>
+            <div class="signal-row">
+              <b>Medicaid</b>
+              <span class="or-axis"><span class="or-dot" style="--x:90%; --dot:var(--teal)"></span></span>
+              <em>1.276</em>
+            </div>
+            <div class="signal-row">
+              <b>Commercial</b>
+              <span class="or-axis"><span class="or-dot" style="--x:22%; --dot:var(--red)"></span></span>
+              <em>0.848</em>
+            </div>
+            <div class="signal-row">
+              <b>Non-health PBM</b>
+              <span class="or-axis"><span class="or-dot" style="--x:27%; --dot:var(--red)"></span></span>
+              <em>0.878</em>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Persistence model</p>
+          <h2>Age and medication count moved in the opposite direction.</h2>
+          <div class="signal-list">
+            <div class="signal-row">
+              <b>Mean age</b>
+              <span class="or-axis"><span class="or-dot" style="--x:52%; --dot:var(--teal)"></span></span>
+              <em>1.009</em>
+            </div>
+            <div class="signal-row">
+              <b>Male sex</b>
+              <span class="or-axis"><span class="or-dot" style="--x:61%; --dot:var(--gold)"></span></span>
+              <em>1.062</em>
+            </div>
+            <div class="signal-row">
+              <b>Concomitant meds</b>
+              <span class="or-axis"><span class="or-dot" style="--x:56%; --dot:var(--teal)"></span></span>
+              <em>1.035</em>
+            </div>
+            <div class="signal-row">
+              <b>Medicaid</b>
+              <span class="or-axis"><span class="or-dot" style="--x:31%; --dot:var(--gold)"></span></span>
+              <em>0.899</em>
+            </div>
+            <div class="signal-row">
+              <b>Commercial</b>
+              <span class="or-axis"><span class="or-dot" style="--x:77%; --dot:var(--teal)"></span></span>
+              <em>1.177</em>
+            </div>
+            <div class="signal-row">
+              <b>Non-health PBM</b>
+              <span class="or-axis"><span class="or-dot" style="--x:69%; --dot:var(--teal)"></span></span>
+              <em>1.128</em>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">How to read the split signal</p>
+        <h2>Adherence risk and persistence risk were not interchangeable.</h2>
+        <div class="effect-note">
+          <div><strong>Complexity:</strong> more concomitant medications were associated with lower adherence odds but higher persistence odds.</div>
+          <div><strong>Age:</strong> older age was associated with lower optimal PDC odds but higher persistence odds.</div>
+          <div><strong>Payer:</strong> Medicaid increased adherence odds versus external plans, while commercial and non-health PBM increased persistence odds.</div>
+        </div>
+      </section>
+
+      <section class="takeaway-grid">
+        <article class="takeaway">
+          <h3>Clinically meaningful findings</h3>
+          <p>Medication-list complexity, age, and male sex may reduce the likelihood of remaining adherent, while age and medication-list complexity may increase the likelihood of remaining persistent.</p>
+        </article>
+        <article class="takeaway">
+          <h3>Strength of evidence</h3>
+          <p>The analysis used a large specialty pharmacy cohort and multivariable logistic regression to account for multiple demographic, clinical, and payer factors at the same time.</p>
+        </article>
+        <article class="takeaway">
+          <h3>Boundaries</h3>
+          <p>Findings were limited to Optum Specialty Pharmacy patients, available demographic data were limited, and drug switches were counted as separate subjects in regression analysis.</p>
+        </article>
+      </section>
+
+      <section class="panel" id="conclusion">
+        <p class="section-label">Next-step pathway</p>
+        <h2>Use the model signals to target proactive clinical support.</h2>
+        <div class="next-flow" aria-label="Recommended next steps">
+          <div class="flow-step">
+            <strong>1</strong>
+            <span>Flag patient profiles linked with poor adherence or persistence.</span>
+          </div>
+          <div class="flow-step">
+            <strong>2</strong>
+            <span>Build predictive analytics into specialty pharmacy workflows.</span>
+          </div>
+          <div class="flow-step">
+            <strong>3</strong>
+            <span>Increase clinical touchpoints for patients at higher risk.</span>
+          </div>
+          <div class="flow-step">
+            <strong>4</strong>
+            <span>Adjust program design using adherence and persistence separately.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="tables-grid" id="tables">
+        <article class="table-card">
+          <p class="section-label">Cohort profile</p>
+          <h3>Demographic and therapy metrics</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Measure</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Average PDC</td><td>89% +/- 51</td></tr>
+                <tr><td>Average DOT</td><td>315.7 +/- 107.1 days</td></tr>
+                <tr><td>Comorbidity count</td><td>2.3 +/- 2.0</td></tr>
+                <tr><td>Concomitant medications</td><td>3.8 +/- 2.4</td></tr>
+                <tr><td>Average out-of-pocket per fill</td><td>$104.35 +/- $436.95</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Significant model signals</p>
+          <h3>Selected p-values from regression</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Adherence</th>
+                  <th>Persistence</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Mean age</td><td>&lt;0.001</td><td>&lt;0.001</td></tr>
+                <tr><td>Concomitant meds</td><td>&lt;0.001</td><td>&lt;0.001</td></tr>
+                <tr><td>Commercial vs external plans</td><td>&lt;0.001</td><td>&lt;0.001</td></tr>
+                <tr><td>Non-health PBM vs external plans</td><td>&lt;0.001</td><td>&lt;0.001</td></tr>
+                <tr><td>Medicaid vs external plans</td><td>0.002</td><td>0.07</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <footer class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/37_Impact-of-social-determinants-of-health-on-multiple-sclerosis-adherence-and-persistence-for-patients-using-a-national-mail-order-specialty-pharmacy_2023.pdf">Open original PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/37_Impact-of-social-determinants-of-health-on-multiple-sclerosis-adherence-and-persistence-for-patients-using-a-national-mail-order-specialty-pharmacy_2023.md">Open extracted markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

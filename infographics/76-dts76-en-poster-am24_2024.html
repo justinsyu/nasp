@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DTS76-EN AM24 2024 | Digital Patient Engagement and Biosimilar Adoption</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23243770'/%3E%3Cpath d='M8 22V10h4l8 8v-8h4v12h-4l-8-8v8z' fill='%23fff'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .switch-hero {
+      position: relative;
+      min-height: 19rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(24, 124, 143, 0.20), transparent 9rem),
+        radial-gradient(circle at 88% 78%, rgba(233, 158, 37, 0.22), transparent 11rem),
+        linear-gradient(145deg, #ffffff 0%, var(--surface-blue) 58%, var(--surface-warm) 100%);
+    }
+
+    .switch-hero svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 19rem;
+    }
+
+    .hero-card .finding {
+      margin: 0;
+      border-left: 4px solid var(--teal);
+      padding-left: 0.72rem;
+      color: var(--ink);
+      font-size: 0.94rem;
+      font-weight: 850;
+    }
+
+    .metric-card p {
+      margin: 0.45rem 0 0;
+      color: var(--body);
+      font-size: 0.78rem;
+    }
+
+    .comparison-panel {
+      display: grid;
+      grid-template-columns: minmax(15rem, 0.72fr) minmax(0, 1.28fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .conversion-score {
+      display: grid;
+      align-content: center;
+      min-height: 15rem;
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background:
+        linear-gradient(150deg, rgba(209, 38, 48, 0.10), transparent 46%),
+        #fff;
+      padding: 1rem;
+    }
+
+    .conversion-score small {
+      color: var(--red);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .conversion-score strong {
+      display: block;
+      margin-top: 0.2rem;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(3.2rem, 8vw, 5.8rem);
+      line-height: 0.9;
+    }
+
+    .conversion-score p {
+      margin: 0.65rem 0 0;
+      color: var(--body);
+      font-size: 0.92rem;
+    }
+
+    .bar-compare {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 0.8rem;
+    }
+
+    .compare-row {
+      display: grid;
+      grid-template-columns: 8.4rem minmax(0, 1fr) 4.2rem;
+      gap: 0.7rem;
+      align-items: center;
+    }
+
+    .compare-row b {
+      color: var(--ink);
+      font-size: 0.82rem;
+      line-height: 1.15;
+    }
+
+    .compare-track {
+      height: 1.12rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+
+    .compare-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .compare-track.call i {
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .compare-row span:last-child {
+      color: var(--ink);
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .method-lanes {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+
+    .lane-card {
+      position: relative;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.9rem;
+      overflow: hidden;
+    }
+
+    .lane-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 0.34rem;
+      background: var(--lane, var(--red));
+    }
+
+    .lane-card.digital { --lane: var(--teal); }
+
+    .lane-card ol {
+      display: grid;
+      gap: 0.45rem;
+      margin: 0.75rem 0 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: lane;
+    }
+
+    .lane-card li {
+      position: relative;
+      min-height: 2.35rem;
+      border-left: 3px solid rgba(174, 187, 210, 0.8);
+      padding-left: 2.1rem;
+      color: var(--body);
+      font-size: 0.82rem;
+    }
+
+    .lane-card li::before {
+      counter-increment: lane;
+      content: counter(lane);
+      position: absolute;
+      left: 0.42rem;
+      top: 0;
+      display: grid;
+      place-items: center;
+      width: 1.1rem;
+      height: 1.1rem;
+      border-radius: 50%;
+      background: var(--lane, var(--red));
+      color: #fff;
+      font-size: 0.62rem;
+      font-weight: 900;
+    }
+
+    .savings-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .savings-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.85rem;
+    }
+
+    .savings-card small {
+      color: var(--muted);
+      font-size: 0.65rem;
+      font-weight: 900;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .savings-card strong {
+      display: block;
+      margin-top: 0.18rem;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.45rem, 3vw, 2.2rem);
+      line-height: 1;
+    }
+
+    .savings-card p {
+      margin: 0.45rem 0 0;
+      color: var(--body);
+      font-size: 0.8rem;
+    }
+
+    .labor-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.12fr) minmax(14rem, 0.88fr);
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .labor-bars {
+      display: grid;
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+
+    .labor-row {
+      display: grid;
+      grid-template-columns: 8.8rem minmax(0, 1fr) 4rem;
+      gap: 0.6rem;
+      align-items: center;
+      font-size: 0.8rem;
+    }
+
+    .labor-row b {
+      color: var(--ink);
+    }
+
+    .labor-meter {
+      height: 1rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+
+    .labor-meter i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: var(--c, var(--red));
+    }
+
+    .labor-row span {
+      color: var(--ink);
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .big-hours {
+      border: 2px solid var(--teal);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 78% 18%, rgba(24, 124, 143, 0.14), transparent 7rem),
+        #fff;
+      padding: 1rem;
+    }
+
+    .big-hours strong {
+      display: block;
+      color: var(--teal);
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 7vw, 4.8rem);
+      line-height: 0.9;
+    }
+
+    .big-hours span {
+      display: block;
+      margin-top: 0.45rem;
+      color: var(--ink);
+      font-weight: 900;
+    }
+
+    .takeaway {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(24, 124, 143, 0.12), transparent 40%),
+        #fff;
+    }
+
+    .takeaway p {
+      max-width: 63rem;
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.08rem, 1.8vw, 1.45rem);
+      font-weight: 850;
+      line-height: 1.35;
+    }
+
+    .table-card h2 {
+      font-size: 1.25rem;
+    }
+
+    @media (max-width: 900px) {
+      .comparison-panel,
+      .method-lanes,
+      .savings-grid,
+      .labor-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .compare-row,
+      .labor-row {
+        grid-template-columns: 1fr;
+      }
+
+      .compare-row span:last-child,
+      .labor-row span {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/76-DTS76-EN-Poster-AM24_2024.pdf">Source PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/76-DTS76-EN-Poster-AM24_2024.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2024 / DTS76-EN AM24</p>
+        <h1 id="poster-title">Digital Patient Engagement and Improved Biosimilar Adoption Outcomes in Specialty Pharmacy</h1>
+        <p class="hero-summary">
+          Lumicera Health Services compared a conventional telephone outreach program with a secure digital portal workflow for adalimumab biosimilar conversion. The digital pathway produced more conversions per 100 patients, larger projected savings, and less labor per successful switch.
+        </p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag therapy">Adalimumab biosimilars</li>
+          <li class="tag category">Digital patient engagement</li>
+          <li class="tag">Specialty pharmacy operations</li>
+          <li class="tag">FTE burden</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Study snapshot">
+        <div class="poster-code">DTS76<br>2024</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Organization</dt>
+            <dd>Lumicera Health Services</dd>
+          </div>
+          <div>
+            <dt>Design</dt>
+            <dd>Retrospective cohort</dd>
+          </div>
+          <div>
+            <dt>Period</dt>
+            <dd>May to July 2023</dd>
+          </div>
+          <div>
+            <dt>Comparison</dt>
+            <dd>Call center vs digital portal</dd>
+          </div>
+        </dl>
+        <p class="finding">Objective: analyze how patient engagement strategy affected biosimilar adoption, cost savings, and pharmacy operations.</p>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Conversion lift</span>
+          <strong>109.5%</strong>
+          <p>Digital conversion rate versus conventional outreach, normalized to 100 patients.</p>
+        </article>
+        <article class="metric-card">
+          <span>Digital conversions</span>
+          <strong>7.5</strong>
+          <p>Successful transitions per 100 patients, compared with 3.6 in Cohort 1.</p>
+        </article>
+        <article class="metric-card">
+          <span>High-concentration savings</span>
+          <strong>$477K</strong>
+          <p>Incremental projected net savings versus Cohort 1 using actual WAC prices.</p>
+        </article>
+        <article class="metric-card">
+          <span>Labor reduction</span>
+          <strong>7.6h</strong>
+          <p>Total labor hours saved per successful conversion in the digital cohort.</p>
+        </article>
+      </section>
+
+      <section class="visual-grid" aria-label="Hero visual and objective">
+        <div class="switch-hero" role="img" aria-label="Digital engagement pathway turning patient interest into biosimilar conversion">
+          <svg viewBox="0 0 690 470" aria-hidden="true">
+            <defs>
+              <linearGradient id="phoneGradient" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#ffffff"/>
+                <stop offset="1" stop-color="#eef4fb"/>
+              </linearGradient>
+              <marker id="arrowTip" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L9,3 z" fill="#243770"></path>
+              </marker>
+              <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="14" stdDeviation="13" flood-color="#243770" flood-opacity="0.16"/>
+              </filter>
+            </defs>
+            <path d="M92 236 C178 94 423 66 595 174" fill="none" stroke="#187c8f" stroke-width="9" stroke-linecap="round" opacity="0.22"/>
+            <path d="M91 292 C225 397 459 405 604 282" fill="none" stroke="#d12630" stroke-width="9" stroke-linecap="round" opacity="0.16"/>
+            <rect x="252" y="54" width="188" height="354" rx="34" fill="url(#phoneGradient)" stroke="#243770" stroke-width="5" filter="url(#softShadow)"/>
+            <rect x="278" y="102" width="136" height="242" rx="15" fill="#fff" stroke="#aebbd2" stroke-width="2"/>
+            <circle cx="346" cy="370" r="14" fill="#eef4fb" stroke="#aebbd2" stroke-width="3"/>
+            <rect x="302" y="132" width="88" height="25" rx="12.5" fill="#187c8f"/>
+            <rect x="302" y="174" width="66" height="22" rx="11" fill="#e99e25"/>
+            <rect x="302" y="215" width="98" height="22" rx="11" fill="#4d8a67"/>
+            <rect x="302" y="256" width="78" height="22" rx="11" fill="#7561a8"/>
+            <circle cx="142" cy="250" r="48" fill="#fff" stroke="#d12630" stroke-width="5"/>
+            <path d="M120 250h44M142 228v44" stroke="#d12630" stroke-width="8" stroke-linecap="round"/>
+            <circle cx="560" cy="212" r="54" fill="#fff" stroke="#187c8f" stroke-width="5"/>
+            <path d="M532 214l18 18 40-50" fill="none" stroke="#187c8f" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M190 247 C226 218 250 209 279 198" fill="none" stroke="#243770" stroke-width="5" stroke-linecap="round" marker-end="url(#arrowTip)"/>
+            <path d="M414 198 C456 190 491 192 516 204" fill="none" stroke="#243770" stroke-width="5" stroke-linecap="round" marker-end="url(#arrowTip)"/>
+            <text x="346" y="438" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="22" font-weight="900">Patient portal signal -> pharmacist education -> biosimilar transition</text>
+          </svg>
+        </div>
+
+        <div class="panel markdown-fragment">
+          <p class="section-label">Why this mattered</p>
+          <h2>A 2023 market opening created an operational conversion challenge.</h2>
+          <p>Nine adalimumab biosimilars launched in 2023, creating new treatment options and potential cost savings. The poster evaluated whether a digital assessment could identify interested patients and reduce the work required to complete successful biosimilar transitions.</p>
+          <div class="number-cloud" aria-label="Context numbers">
+            <div class="number-pill">$38.4B<small>projected US biosimilar savings, 2021-2025</small></div>
+            <div class="number-pill">$21B<small>adalimumab reference product 2021 global sales</small></div>
+            <div class="number-pill">9<small>adalimumab biosimilars launched in 2023</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel comparison-panel" id="results" aria-label="Primary result comparison">
+        <div class="conversion-score">
+          <small>Central result</small>
+          <strong>3.6 -> 7.5</strong>
+          <p>Successful biosimilar transitions per 100 patients increased by 109.5% when digital patient engagement replaced the conventional call-center front end.</p>
+        </div>
+        <div>
+          <p class="section-label">Normalized outcomes per 100 patients</p>
+          <h2>Digital engagement doubled conversion yield while lowering cost per switch.</h2>
+          <div class="bar-compare">
+            <div class="compare-row">
+              <b>Cohort 1 conversions</b>
+              <div class="compare-track call"><i style="--w:48%;"></i></div>
+              <span>3.6</span>
+            </div>
+            <div class="compare-row">
+              <b>Cohort 2 conversions</b>
+              <div class="compare-track"><i style="--w:100%;"></i></div>
+              <span>7.5</span>
+            </div>
+            <div class="compare-row">
+              <b>Cohort 1 cost</b>
+              <div class="compare-track call"><i style="--w:100%;"></i></div>
+              <span>$194.80</span>
+            </div>
+            <div class="compare-row">
+              <b>Cohort 2 cost</b>
+              <div class="compare-track"><i style="--w:40%;"></i></div>
+              <span>$77.60</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="method-lanes" id="methods" aria-label="Cohort workflow comparison">
+        <article class="lane-card">
+          <p class="section-label">Cohort 1: standard call-center conversion</p>
+          <h2>Phone-first pathway for patients with copay greater than $50.</h2>
+          <ol>
+            <li>Identify adalimumab reference product patients with copay above $50.</li>
+            <li>Run coverage determination and copay comparison.</li>
+            <li>Conduct non-clinician patient outreach for cost-saving opportunity.</li>
+            <li>Use clinician outreach and education to confirm patient acceptance.</li>
+            <li>Send provider fax for a new biosimilar prescription.</li>
+          </ol>
+        </article>
+        <article class="lane-card digital">
+          <p class="section-label">Cohort 2: digital patient engagement conversion</p>
+          <h2>Portal-first pathway for patients showing interest digitally.</h2>
+          <ol>
+            <li>Invite secure portal users to complete a biosimilar education assessment.</li>
+            <li>Identify patients interested in biosimilar conversion.</li>
+            <li>Run coverage determination and start provider fax outreach earlier.</li>
+            <li>Use clinician education to confirm patient acceptance.</li>
+            <li>Complete provider phone outreach and new biosimilar prescription screening.</li>
+          </ol>
+        </article>
+      </section>
+
+      <section class="evidence-map" aria-label="Evidence flow">
+        <article class="evidence-card">
+          <h3>Opportunity</h3>
+          <p>Adalimumab biosimilar launches created new options for lower-cost biologic therapy.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Question</h3>
+          <p>Could digital engagement improve adoption and reduce specialty pharmacy workload?</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Design</h3>
+          <p>Retrospective cohorts compared conventional outreach with a secure portal assessment.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Signal</h3>
+          <p>Digital engagement yielded 7.5 conversions per 100 patients versus 3.6 by standard outreach.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Operational value</h3>
+          <p>Total labor dropped from 9.6 hours to 2.0 hours per successful conversion.</p>
+        </article>
+      </section>
+
+      <section class="savings-grid" aria-label="Savings highlights">
+        <article class="savings-card">
+          <small>High-concentration adalimumab reference product</small>
+          <strong>$477,212</strong>
+          <p>Incremental savings improvement for Cohort 2 versus Cohort 1, normalized to 100 patients.</p>
+        </article>
+        <article class="savings-card">
+          <small>Low-concentration adalimumab reference product</small>
+          <strong>$172,291</strong>
+          <p>Incremental savings improvement for Cohort 2 versus Cohort 1, normalized to 100 patients.</p>
+        </article>
+        <article class="savings-card">
+          <small>Estimated FTE time savings</small>
+          <strong>$11,720</strong>
+          <p>Reported Cohort 2 FTE time savings scaled to 100 patients.</p>
+        </article>
+      </section>
+
+      <section class="panel labor-layout" aria-label="Labor and FTE comparison">
+        <div>
+          <p class="section-label">Labor pattern per successful conversion</p>
+          <h2>The digital pathway shifted work away from high-volume manual outreach.</h2>
+          <div class="labor-bars">
+            <div class="labor-row">
+              <b>C1 low-cost labor</b>
+              <div class="labor-meter"><i style="--w:100%; --c: var(--red);"></i></div>
+              <span>9.3h</span>
+            </div>
+            <div class="labor-row">
+              <b>C2 low-cost labor</b>
+              <div class="labor-meter"><i style="--w:12%; --c: var(--teal);"></i></div>
+              <span>1.1h</span>
+            </div>
+            <div class="labor-row">
+              <b>C1 total labor</b>
+              <div class="labor-meter"><i style="--w:100%; --c: var(--gold);"></i></div>
+              <span>9.6h</span>
+            </div>
+            <div class="labor-row">
+              <b>C2 total labor</b>
+              <div class="labor-meter"><i style="--w:21%; --c: var(--green);"></i></div>
+              <span>2.0h</span>
+            </div>
+          </div>
+        </div>
+        <aside class="big-hours">
+          <strong>7.6h</strong>
+          <span>Total labor saved per successful conversion</span>
+          <p>Lower-cost labor decreased by 8.2 hours, while higher-cost clinician labor increased by 0.6 hours.</p>
+        </aside>
+      </section>
+
+      <section class="tables-grid" aria-label="Extracted table patterns">
+        <article class="table-card">
+          <p class="section-label">Table pattern 1</p>
+          <h2>Conversions and savings</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Metric</th>
+                  <th>Cohort 1</th>
+                  <th>Cohort 2</th>
+                  <th>Improvement</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Conversions out of 100</td><td>3.6</td><td>7.5</td><td>109.5%</td></tr>
+                <tr><td>HC savings</td><td>$433,498</td><td>$910,711</td><td>$477,212</td></tr>
+                <tr><td>LC savings</td><td>$156,509</td><td>$328,800</td><td>$172,291</td></tr>
+                <tr><td>Cost per conversion</td><td>$194.80</td><td>$77.60</td><td>251%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Table pattern 2</p>
+          <h2>Labor and FTE cost</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Group</th>
+                  <th>Cohort 1</th>
+                  <th>Cohort 2</th>
+                  <th>Improvement</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Low-cost labor</td><td>9.3h</td><td>1.1h</td><td>8.2h</td></tr>
+                <tr><td>High-cost labor</td><td>0.3h</td><td>0.9h</td><td>-0.6h</td></tr>
+                <tr><td>Total labor</td><td>9.6h</td><td>2.0h</td><td>7.6h</td></tr>
+                <tr><td>Total FTE/conversion</td><td>$194.80</td><td>$77.60</td><td>$117.20</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel markdown-fragment">
+          <p class="section-label">Limitations</p>
+          <h2>Read the signal as operational, not definitive.</h2>
+          <p>The poster noted a retrospective design, limited study duration, and a small patient sample size, each of which may affect the certainty of conclusions.</p>
+        </article>
+        <article class="panel markdown-fragment">
+          <p class="section-label">Future directions</p>
+          <h2>Extend the model beyond the initial adalimumab program.</h2>
+          <p>Next steps included expanding to other formulary adalimumab biosimilars and applying digital engagement services to other biologic biosimilars in the pipeline.</p>
+        </article>
+      </section>
+
+      <section class="panel takeaway" id="conclusion">
+        <p>
+          Conclusion: Digital patient engagement in a specialty pharmacy adalimumab biosimilar adoption program was associated with higher conversion rates, projected cost savings, and reduced FTE burden compared with conventional non-digital outreach.
+        </p>
+      </section>
+
+      <footer class="footer-actions" id="sources">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/76-DTS76-EN-Poster-AM24_2024.pdf">Open original PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/76-DTS76-EN-Poster-AM24_2024.md">Read extracted markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

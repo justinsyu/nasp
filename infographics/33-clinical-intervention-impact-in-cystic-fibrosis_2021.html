@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clinical Intervention Impact in Cystic Fibrosis | NASP 2021</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .cf-hero-art {
+      min-height: 19rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(24, 124, 143, 0.16), transparent 8rem),
+        radial-gradient(circle at 84% 78%, rgba(209, 38, 48, 0.14), transparent 9rem),
+        linear-gradient(135deg, #ffffff 0%, var(--surface-blue) 58%, var(--surface-warm) 100%);
+      overflow: hidden;
+    }
+    .cf-hero-art svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 19rem;
+    }
+    .hero-card .finding {
+      margin: 0;
+      border-left: 4px solid var(--red);
+      padding-left: 0.72rem;
+      color: var(--ink);
+      font-size: 0.94rem;
+      font-weight: 850;
+    }
+    .metric-card p {
+      margin: 0.45rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+    .metric-card strong small {
+      display: inline;
+      color: inherit;
+      font-size: 0.55em;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+    .cost-board {
+      display: grid;
+      grid-template-columns: minmax(16rem, 0.72fr) minmax(0, 1.28fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .total-card {
+      display: grid;
+      align-content: center;
+      min-height: 17rem;
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background:
+        linear-gradient(145deg, rgba(209, 38, 48, 0.1), transparent 42%),
+        #fff;
+      padding: 1.05rem;
+    }
+    .total-card span {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 8vw, 6.6rem);
+      font-weight: 900;
+      line-height: 0.9;
+    }
+    .total-card b {
+      display: block;
+      margin-top: 0.45rem;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.18rem;
+      line-height: 1.15;
+    }
+    .total-card p {
+      margin: 0.65rem 0 0;
+      font-size: 0.86rem;
+    }
+    .intervention-bars {
+      display: grid;
+      gap: 0.68rem;
+      margin-top: 0.75rem;
+    }
+    .intervention-row {
+      display: grid;
+      grid-template-columns: 10.5rem minmax(0, 1fr) 7rem;
+      gap: 0.6rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .intervention-row span:last-child {
+      color: var(--muted);
+      text-align: right;
+    }
+    .track {
+      height: 1.05rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .track i {
+      display: block;
+      width: var(--value);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .track.teal i {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .program-flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.72rem;
+      margin-top: 0.78rem;
+    }
+    .flow-step {
+      position: relative;
+      min-height: 12rem;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+    }
+    .flow-step::before {
+      content: attr(data-step);
+      position: absolute;
+      right: 0.4rem;
+      bottom: -0.7rem;
+      color: rgba(36, 55, 112, 0.1);
+      font-family: var(--font-display);
+      font-size: 5rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .flow-step::after {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 0.34rem;
+      background: var(--accent, var(--red));
+    }
+    .flow-step:nth-child(2) { --accent: var(--gold); }
+    .flow-step:nth-child(3) { --accent: var(--teal); }
+    .flow-step:nth-child(4) { --accent: var(--green); }
+    .flow-step:nth-child(5) { --accent: var(--purple); }
+    .flow-step h3,
+    .flow-step p {
+      position: relative;
+      z-index: 1;
+    }
+    .flow-step p {
+      margin: 0.52rem 0 0;
+      font-size: 0.82rem;
+    }
+    .connection-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-top: 0.75rem;
+    }
+    .connection-card {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.9rem;
+    }
+    .stack-bar {
+      display: grid;
+      grid-template-columns: var(--accepted) var(--declined) 1fr;
+      height: 1.55rem;
+      margin: 0.68rem 0;
+      overflow: hidden;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: #edf2f8;
+    }
+    .stack-bar i:nth-child(1) { background: var(--teal); }
+    .stack-bar i:nth-child(2) { background: var(--gold); }
+    .stack-bar i:nth-child(3) { background: rgba(36, 55, 112, 0.18); }
+    .legend-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 850;
+    }
+    .legend-line i {
+      display: inline-block;
+      width: 0.72rem;
+      height: 0.72rem;
+      border-radius: 99px;
+      margin-right: 0.28rem;
+      vertical-align: -0.1rem;
+    }
+    .accepted-dot { background: var(--teal); }
+    .declined-dot { background: var(--gold); }
+    .unreached-dot { background: rgba(36, 55, 112, 0.18); }
+    .source-note {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    .cost-table {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 0.75rem;
+    }
+    .cost-row {
+      display: grid;
+      grid-template-columns: minmax(9rem, 1fr) 5rem 7rem;
+      gap: 0.55rem;
+      align-items: center;
+      border: 1px solid rgba(174, 187, 210, 0.78);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.62rem;
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 850;
+    }
+    .cost-row b {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      text-align: right;
+    }
+    .cost-row .group {
+      display: inline-flex;
+      width: fit-content;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 999px;
+      padding: 0.13rem 0.45rem;
+      color: var(--muted);
+      font-size: 0.64rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .takeaway {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(24, 124, 143, 0.12), transparent 42%),
+        #fff;
+    }
+    .takeaway p {
+      max-width: 64rem;
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.06rem, 1.75vw, 1.46rem);
+      font-weight: 850;
+      line-height: 1.35;
+    }
+    @media (max-width: 900px) {
+      .cost-board,
+      .connection-grid {
+        grid-template-columns: 1fr;
+      }
+      .program-flow {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 620px) {
+      .program-flow,
+      .intervention-row,
+      .cost-row {
+        grid-template-columns: 1fr;
+      }
+      .intervention-row span:last-child,
+      .cost-row b {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP infographic home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/33-Clinical-Intervention-Impact-in-Cystic-Fibrosis_2021.pdf">PDF Source</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/33-Clinical-Intervention-Impact-in-Cystic-Fibrosis_2021.md">Markdown Source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2021 | Poster 33 | AcariaHealth</p>
+        <h1 id="poster-title">Clinical Intervention Impact in Cystic Fibrosis</h1>
+        <p class="hero-summary">A multidisciplinary specialty-pharmacy program evaluated cost avoidance for patients with cystic fibrosis initiating elexacaftor-tezacaftor-ivacaftor therapy.</p>
+        <ul class="tag-row" aria-label="Poster topics">
+          <li class="tag therapy">Cystic fibrosis</li>
+          <li class="tag category">Clinical interventions</li>
+          <li class="tag">Cost avoidance</li>
+          <li class="tag">ELX/TEZ/IVA initiation</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Study snapshot">
+        <div class="poster-code">33<br>2021</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Patients</dt>
+            <dd>944</dd>
+          </div>
+          <div>
+            <dt>Therapy start window</dt>
+            <dd>10/21/19-4/21/20</dd>
+          </div>
+          <div>
+            <dt>Primary lens</dt>
+            <dd>Cost avoidance</dd>
+          </div>
+          <div>
+            <dt>Care model</dt>
+            <dd>Pharmacist + nurse</dd>
+          </div>
+        </dl>
+        <p class="finding">The program generated $91,654.18 in estimated cost avoidance across therapy consultation, medication reconciliation, DDI detection, and ADE detection.</p>
+      </aside>
+    </section>
+
+    <main>
+      <section class="visual-grid" aria-label="Program concept and objective">
+        <div class="cf-hero-art" aria-hidden="true">
+          <svg viewBox="0 0 680 430" role="img">
+            <defs>
+              <linearGradient id="lungFlow" x1="0%" x2="100%" y1="0%" y2="100%">
+                <stop offset="0%" stop-color="#187c8f"/>
+                <stop offset="55%" stop-color="#e99e25"/>
+                <stop offset="100%" stop-color="#d12630"/>
+              </linearGradient>
+              <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#243770" flood-opacity="0.14"/>
+              </filter>
+            </defs>
+            <path d="M340 72 v236" stroke="#243770" stroke-width="18" stroke-linecap="round" opacity="0.16"/>
+            <path d="M338 138 C276 112 218 140 195 207 C177 260 166 310 118 330 C94 340 83 314 101 290 C132 249 132 201 157 154 C184 102 242 75 310 101" fill="#fff" stroke="#187c8f" stroke-width="5" filter="url(#softShadow)"/>
+            <path d="M342 138 C404 112 462 140 485 207 C503 260 514 310 562 330 C586 340 597 314 579 290 C548 249 548 201 523 154 C496 102 438 75 370 101" fill="#fff" stroke="#d12630" stroke-width="5" filter="url(#softShadow)"/>
+            <path d="M260 176 C292 190 318 215 336 250 M420 176 C388 190 362 215 344 250" fill="none" stroke="url(#lungFlow)" stroke-width="10" stroke-linecap="round"/>
+            <circle cx="340" cy="296" r="72" fill="#fff" stroke="#e99e25" stroke-width="5" filter="url(#softShadow)"/>
+            <text x="340" y="283" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="19" font-weight="900">ELX/TEZ/IVA</text>
+            <text x="340" y="310" text-anchor="middle" fill="#68758d" font-family="Inter, sans-serif" font-size="14" font-weight="800">new therapy start</text>
+            <circle cx="154" cy="76" r="44" fill="#fff" stroke="#187c8f" stroke-width="4"/>
+            <text x="154" y="71" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="15" font-weight="900">Chart</text>
+            <text x="154" y="92" text-anchor="middle" fill="#68758d" font-family="Inter, sans-serif" font-size="12" font-weight="800">review</text>
+            <circle cx="526" cy="76" r="44" fill="#fff" stroke="#d12630" stroke-width="4"/>
+            <text x="526" y="71" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="15" font-weight="900">ADE</text>
+            <text x="526" y="92" text-anchor="middle" fill="#68758d" font-family="Inter, sans-serif" font-size="12" font-weight="800">follow-up</text>
+            <path d="M198 83 C247 86 283 98 314 126" fill="none" stroke="#187c8f" stroke-width="5" stroke-linecap="round" stroke-dasharray="9 10"/>
+            <path d="M482 83 C433 86 397 98 366 126" fill="none" stroke="#d12630" stroke-width="5" stroke-linecap="round" stroke-dasharray="9 10"/>
+            <text x="340" y="392" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="22" font-weight="900">Clinical services turn therapy starts into measurable avoided costs</text>
+          </svg>
+        </div>
+
+        <div class="panel markdown-fragment">
+          <p class="section-label">Objective</p>
+          <h2>Determine overall cost avoidance from a pharmacy-based clinical services program.</h2>
+          <p>The intervention targeted patients initiating ELX/TEZ/IVA, a CFTR modulator for patients with at least one F508del mutation. The poster frames the need around a high-relevance population: 84.7% of genotyped cystic fibrosis patients in the cited registry had at least one F508del copy.</p>
+          <div class="number-cloud" aria-label="Background numbers">
+            <div class="number-pill">84.7%<small>F508del copy</small></div>
+            <div class="number-pill">944<small>included patients</small></div>
+            <div class="number-pill">6 mo<small>dispense window</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="metric-strip" aria-label="Key numbers">
+        <div class="metric-card">
+          <span>Total cost avoidance</span>
+          <strong>$91.6K</strong>
+          <p>Sum of documented pharmacist- and nurse-led interventions.</p>
+        </div>
+        <div class="metric-card">
+          <span>Therapy consultations</span>
+          <strong>910</strong>
+          <p>Pharmacist-led counseling interventions.</p>
+        </div>
+        <div class="metric-card">
+          <span>Medication reconciliations</span>
+          <strong>331</strong>
+          <p>Requests initiated when needed.</p>
+        </div>
+        <div class="metric-card">
+          <span>ADE detections</span>
+          <strong>133</strong>
+          <p>Nurse follow-up calls identifying adverse drug events.</p>
+        </div>
+      </section>
+
+      <section class="cost-board" aria-label="Cost avoidance composition">
+        <div class="total-card">
+          <span>$91.6K</span>
+          <b>Total estimated cost avoidance</b>
+          <p>Costs were assigned using published average cost-avoidance estimates by intervention type.</p>
+        </div>
+        <div class="panel">
+          <p class="section-label">Contribution by intervention type</p>
+          <h2>Therapy consultation and ADE detection carried the largest dollar impact.</h2>
+          <div class="intervention-bars">
+            <div class="intervention-row">
+              <span>Therapy consultation</span>
+              <div class="track"><i style="--value:100%"></i></div>
+              <span>$43,579.90</span>
+            </div>
+            <div class="intervention-row">
+              <span>ADE detection</span>
+              <div class="track teal"><i style="--value:84.3%"></i></div>
+              <span>$36,723.96</span>
+            </div>
+            <div class="intervention-row">
+              <span>Medication reconciliation</span>
+              <div class="track"><i style="--value:22.9%"></i></div>
+              <span>$9,969.72</span>
+            </div>
+            <div class="intervention-row">
+              <span>DDI detection</span>
+              <div class="track teal"><i style="--value:3.2%"></i></div>
+              <span>$1,380.60</span>
+            </div>
+          </div>
+          <p class="source-note">Bars are scaled to the largest cost-avoidance category.</p>
+        </div>
+      </section>
+
+      <section class="panel" aria-label="Clinical program flow">
+        <p class="section-label">Methods flow</p>
+        <h2>Each therapy start moved through a multidisciplinary intervention pathway.</h2>
+        <div class="program-flow">
+          <article class="flow-step" data-step="1">
+            <h3>Initial dispense</h3>
+            <p>Patients were included after an initial ELX/TEZ/IVA dispense between October 21, 2019 and April 21, 2020.</p>
+          </article>
+          <article class="flow-step" data-step="2">
+            <h3>Chart review</h3>
+            <p>A pharmacist reviewed the chart before outreach, looking for consultation, DDI, and reconciliation needs.</p>
+          </article>
+          <article class="flow-step" data-step="3">
+            <h3>Counseling call</h3>
+            <p>Pharmacist-led counseling supported therapy initiation, with very low decline rates among reached patients.</p>
+          </article>
+          <article class="flow-step" data-step="4">
+            <h3>Medication reconciliation</h3>
+            <p>Reconciliation requests were initiated when gaps or updates were identified during review.</p>
+          </article>
+          <article class="flow-step" data-step="5">
+            <h3>Nurse follow-up</h3>
+            <p>About one week after shipment, nurse calls assessed adverse drug events related to ELX/TEZ/IVA.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-stack" aria-label="Results and connection rates">
+        <div class="panel">
+          <p class="section-label">Cost table pattern</p>
+          <h2>Most intervention volume was pharmacist-led; nurse calls concentrated on ADE detection.</h2>
+          <div class="cost-table">
+            <div class="cost-row">
+              <span><span class="group">Pharmacist-led</span><br>Therapy consultation</span>
+              <b>910</b>
+              <b>$43,579.90</b>
+            </div>
+            <div class="cost-row">
+              <span><span class="group">Pharmacist-led</span><br>Medication reconciliation</span>
+              <b>331</b>
+              <b>$9,969.72</b>
+            </div>
+            <div class="cost-row">
+              <span><span class="group">Pharmacist-led</span><br>Drug-drug interaction detection</span>
+              <b>5</b>
+              <b>$1,380.60</b>
+            </div>
+            <div class="cost-row">
+              <span><span class="group">Nurse-led</span><br>Adverse drug event detection</span>
+              <b>133</b>
+              <b>$36,723.96</b>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Connection rates</p>
+          <h2>Pharmacist outreach connected with nearly all patients; nurse follow-up reached fewer patients.</h2>
+          <div class="connection-grid">
+            <div class="connection-card">
+              <h3>Pharmacist-led</h3>
+              <div class="stack-bar" style="--accepted:96.4%; --declined:2%">
+                <i></i><i></i><i></i>
+              </div>
+              <p><b>96.4%</b> connected and accepted counseling; <b>2.0%</b> connected and declined; <b>1.6%</b> were unable to reach or awaiting contact.</p>
+            </div>
+            <div class="connection-card">
+              <h3>Nurse-led</h3>
+              <div class="stack-bar" style="--accepted:22.2%; --declined:4.3%">
+                <i></i><i></i><i></i>
+              </div>
+              <p><b>22.2%</b> connected and accepted counseling; <b>4.3%</b> connected and declined; <b>73.5%</b> were unable to reach or awaiting contact.</p>
+            </div>
+          </div>
+          <div class="legend-line" aria-label="Stacked bar legend">
+            <span><i class="accepted-dot"></i>Accepted counseling</span>
+            <span><i class="declined-dot"></i>Declined counseling</span>
+            <span><i class="unreached-dot"></i>Unable to reach / awaiting</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="evidence-map" aria-label="Evidence flow">
+        <article class="evidence-card">
+          <h3>High-need start</h3>
+          <p>ELX/TEZ/IVA initiation created a clear point for specialty pharmacy intervention.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Pharmacist review</h3>
+          <p>Chart review and counseling produced 910 therapy consultations and 331 reconciliation requests.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Safety surveillance</h3>
+          <p>Drug interaction detection was uncommon, while nurse follow-up identified 133 ADEs.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Economic translation</h3>
+          <p>Published cost-avoidance estimates converted intervention types into avoided-cost totals.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Patient value signal</h3>
+          <p>Low counseling-decline rates suggested perceived value of clinician counseling in pharmacy settings.</p>
+        </article>
+      </section>
+
+      <section class="panel takeaway">
+        <p>Conclusion: integrating pharmacist-led initiation support with nurse-led follow-up enhanced patient care during CFTR modulator starts and produced an estimated $91.6K in cost avoidance.</p>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/33-Clinical-Intervention-Impact-in-Cystic-Fibrosis_2021.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/33-Clinical-Intervention-Impact-in-Cystic-Fibrosis_2021.md">Source markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

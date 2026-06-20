@@ -1,0 +1,833 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A Model for Medication Therapy Management Service Implementation | NASP 2023</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -5rem -4rem auto auto;
+      width: 16rem;
+      height: 16rem;
+      border: 1.4rem solid rgba(24, 124, 143, 0.12);
+      border-radius: 50%;
+    }
+
+    .hero-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-note {
+      margin: 0;
+      border-left: 4px solid var(--teal);
+      padding-left: 0.72rem;
+      color: var(--ink);
+      font-size: 0.9rem;
+      font-weight: 850;
+    }
+
+    .mtm-hero-art,
+    .trend-card,
+    .pdc-card,
+    .story-card {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .mtm-hero-art {
+      margin-top: 0.1rem;
+      padding: 0.7rem;
+      background:
+        radial-gradient(circle at 16% 18%, rgba(209, 38, 48, 0.13), transparent 7rem),
+        radial-gradient(circle at 84% 82%, rgba(233, 158, 37, 0.22), transparent 7rem),
+        linear-gradient(145deg, #fff, var(--surface-blue) 58%, var(--surface-warm));
+    }
+
+    .mtm-hero-art svg,
+    .trend-card svg,
+    .pdc-card svg,
+    .funnel-card svg,
+    .service-map svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .metric-card p,
+    .panel p,
+    .table-card p,
+    .story-card p {
+      margin: 0.45rem 0 0;
+    }
+
+    .metric-card strong small {
+      color: var(--red);
+      font-size: 0.92rem;
+    }
+
+    .metric-card.green strong { color: var(--green); }
+    .metric-card.teal strong { color: var(--teal); }
+    .metric-card.gold strong { color: var(--gold); }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.85fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .trend-card {
+      padding: 1rem;
+      background:
+        linear-gradient(180deg, rgba(238, 244, 251, 0.82), #fff 46%),
+        #fff;
+    }
+
+    .trend-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: start;
+      margin-bottom: 0.6rem;
+    }
+
+    .trend-legend {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 0.45rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .trend-legend li {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.32rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 850;
+    }
+
+    .legend-swatch {
+      width: 0.85rem;
+      height: 0.85rem;
+      border-radius: 999px;
+      background: var(--swatch);
+    }
+
+    .funnel-card {
+      display: grid;
+      align-content: center;
+      min-height: 22rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 85% 12%, rgba(255, 255, 255, 0.16), transparent 8rem),
+        linear-gradient(155deg, rgba(36, 55, 112, 0.98), rgba(36, 55, 112, 0.9));
+      color: #fff;
+      padding: 1rem;
+    }
+
+    .funnel-card h2,
+    .funnel-card h3 {
+      color: #fff;
+    }
+
+    .funnel-card .section-label {
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .funnel-caption {
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 0.84rem;
+    }
+
+    .service-map {
+      display: grid;
+      grid-template-columns: minmax(18rem, 0.9fr) minmax(0, 1.1fr);
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .method-list {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.85rem;
+    }
+
+    .method-step {
+      position: relative;
+      min-height: 12rem;
+      overflow: hidden;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.78rem;
+    }
+
+    .method-step::before {
+      content: attr(data-step);
+      display: inline-grid;
+      place-items: center;
+      width: 1.9rem;
+      height: 1.9rem;
+      margin-bottom: 0.5rem;
+      border-radius: 50%;
+      background: var(--step-color, var(--ink));
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+
+    .method-step:nth-child(2) { --step-color: var(--red); }
+    .method-step:nth-child(3) { --step-color: var(--gold); }
+    .method-step:nth-child(4) { --step-color: var(--teal); }
+    .method-step:nth-child(5) { --step-color: var(--green); }
+
+    .method-step p {
+      margin: 0.35rem 0 0;
+      color: var(--body);
+      font-size: 0.78rem;
+      line-height: 1.35;
+    }
+
+    .pdc-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+
+    .pdc-card {
+      padding: 0.88rem;
+      background:
+        linear-gradient(180deg, #fff, rgba(238, 244, 251, 0.72)),
+        #fff;
+    }
+
+    .pdc-card strong {
+      display: block;
+      margin-top: 0.1rem;
+      color: var(--value-color, var(--teal));
+      font-family: var(--font-display);
+      font-size: 2.3rem;
+      line-height: 1;
+    }
+
+    .pdc-card small {
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-weight: 800;
+    }
+
+    .pdc-card.cholesterol { --value-color: var(--teal); }
+    .pdc-card.rasa { --value-color: var(--green); }
+    .pdc-card.diabetes { --value-color: var(--gold); }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+
+    .story-card {
+      padding: 0.9rem;
+      background:
+        linear-gradient(180deg, rgba(255, 247, 234, 0.7), #fff 55%),
+        #fff;
+    }
+
+    .story-card b {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+
+    .bar-stack {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 0.75rem;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 7rem minmax(0, 1fr) 3rem;
+      gap: 0.55rem;
+      align-items: center;
+    }
+
+    .bar-row b {
+      color: var(--ink);
+      font-size: 0.78rem;
+      line-height: 1.2;
+    }
+
+    .bar-track {
+      height: 0.92rem;
+      overflow: hidden;
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 999px;
+      background: #edf2f8;
+    }
+
+    .bar-track span {
+      display: block;
+      width: var(--value);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .bar-row.diabetes .bar-track span {
+      background: linear-gradient(90deg, var(--gold), var(--red));
+    }
+
+    .bar-row em {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .interpretation-band {
+      border: 2px solid rgba(36, 55, 112, 0.9);
+      background:
+        radial-gradient(circle at 95% 12%, rgba(233, 158, 37, 0.18), transparent 8rem),
+        #fff;
+    }
+
+    .callout-list {
+      display: grid;
+      gap: 0.55rem;
+      margin: 0.75rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .callout-list li {
+      border-left: 4px solid var(--teal);
+      background: var(--surface-blue);
+      padding: 0.58rem 0.72rem;
+      color: var(--body);
+      font-size: 0.86rem;
+    }
+
+    .callout-list li:nth-child(2n) {
+      border-color: var(--gold);
+      background: var(--surface-warm);
+    }
+
+    .compact-table td:last-child,
+    .compact-table th:last-child,
+    .compact-table td:nth-child(2),
+    .compact-table th:nth-child(2) {
+      text-align: right;
+    }
+
+    .source-note {
+      margin: 0.62rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 760;
+    }
+
+    @media (max-width: 900px) {
+      .dashboard-grid,
+      .service-map,
+      .pdc-grid,
+      .story-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .method-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 620px) {
+      .trend-header {
+        display: block;
+      }
+
+      .trend-legend {
+        justify-content: flex-start;
+        margin-top: 0.55rem;
+      }
+
+      .method-list {
+        grid-template-columns: 1fr;
+      }
+
+      .bar-row {
+        grid-template-columns: 1fr;
+      }
+
+      .bar-row em {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#model">Model</a>
+        <a href="#results">Results</a>
+        <a href="#adherence">PDC</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP Annual Meeting 2023 / Poster 54</p>
+        <h1 id="poster-title">A Model for Medication Therapy Management Service Implementation in a Health System Specialty Pharmacy</h1>
+        <p class="hero-summary">
+          Yale New Haven Health Outpatient Pharmacy Services built an MTM service to increase pharmacist interventions, close adherence gaps, and reduce exposure to Medicare Part D DIR fee pressure.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Medication therapy management</li>
+          <li class="tag therapy">Specialty pharmacy</li>
+          <li class="tag">CMR and TIP completion</li>
+          <li class="tag">PDC adherence</li>
+          <li class="tag">DIR fee mitigation</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div class="poster-code">54<br>2023</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Institution</dt>
+            <dd>Yale New Haven Health</dd>
+          </div>
+          <div>
+            <dt>Team</dt>
+            <dd>Outpatient Pharmacy Services</dd>
+          </div>
+          <div>
+            <dt>Program start</dt>
+            <dd>2023</dd>
+          </div>
+          <div>
+            <dt>Focus classes</dt>
+            <dd>Cholesterol, diabetes, RASA</dd>
+          </div>
+        </dl>
+        <p class="hero-note">Objective: develop and implement an effective MTM service within a health system specialty pharmacy.</p>
+        <div class="mtm-hero-art">
+          <svg viewBox="0 0 430 280" role="img" aria-labelledby="mtm-title mtm-desc">
+            <title id="mtm-title">MTM service implementation loop</title>
+            <desc id="mtm-desc">Specialty pharmacists use a platform to identify patients, close gaps, and improve completion rates.</desc>
+            <defs>
+              <marker id="arrow54" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L9,3 z" fill="#243770"></path>
+              </marker>
+              <linearGradient id="mtmGrad54" x1="0" x2="1">
+                <stop offset="0" stop-color="#187c8f"></stop>
+                <stop offset="1" stop-color="#4d8a67"></stop>
+              </linearGradient>
+            </defs>
+            <path d="M215 138 L92 76 M215 138 L338 76 M215 138 L360 204 M215 138 L70 204" stroke="#aebbd2" stroke-width="5" stroke-linecap="round"></path>
+            <circle cx="215" cy="138" r="60" fill="#fff" stroke="#243770" stroke-width="5"></circle>
+            <path d="M184 139l23 24 43-57" fill="none" stroke="url(#mtmGrad54)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"></path>
+            <text x="215" y="207" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="15" font-weight="900">MTM hub</text>
+            <circle cx="78" cy="72" r="39" fill="#fff" stroke="#d12630" stroke-width="5"></circle>
+            <path d="M61 81c8-22 28-29 39-13 8-10 22-10 31 1" fill="none" stroke="#d12630" stroke-width="7" stroke-linecap="round"></path>
+            <text x="78" y="126" text-anchor="middle" fill="#243770" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="850">patients</text>
+            <circle cx="352" cy="72" r="39" fill="#fff" stroke="#e99e25" stroke-width="5"></circle>
+            <rect x="331" y="53" width="42" height="30" rx="5" fill="#fff7ea" stroke="#243770" stroke-width="4"></rect>
+            <path d="M339 63h25M339 73h18" stroke="#e99e25" stroke-width="5" stroke-linecap="round"></path>
+            <text x="352" y="126" text-anchor="middle" fill="#243770" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="850">platform</text>
+            <circle cx="60" cy="212" r="39" fill="#fff" stroke="#7561a8" stroke-width="5"></circle>
+            <path d="M43 211h34M60 194v34" stroke="#7561a8" stroke-width="7" stroke-linecap="round"></path>
+            <text x="60" y="266" text-anchor="middle" fill="#243770" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="850">CMR/TIP</text>
+            <circle cx="370" cy="212" r="39" fill="#fff" stroke="#4d8a67" stroke-width="5"></circle>
+            <path d="M348 224h44M352 213l13-18 12 12 12-28" fill="none" stroke="#4d8a67" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path>
+            <text x="370" y="266" text-anchor="middle" fill="#243770" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="850">scores</text>
+            <path d="M114 73 C160 27 270 27 316 73" fill="none" stroke="#243770" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow54)"></path>
+            <path d="M342 198 C286 250 144 250 84 199" fill="none" stroke="#243770" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow54)"></path>
+          </svg>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key poster numbers">
+        <article class="metric-card">
+          <span>DIR fee growth cited</span>
+          <strong>91,500<small>%</small></strong>
+          <p>Increase in pharmacy DIR fees between 2010 and 2019, motivating active MTM initiatives.</p>
+        </article>
+        <article class="metric-card teal">
+          <span>Initial MTM-eligible patients</span>
+          <strong>412</strong>
+          <p>Patients eligible for MTM services at the start of 2023, with 0% CMR/TIP completion.</p>
+        </article>
+        <article class="metric-card green">
+          <span>Three-month CMR completion</span>
+          <strong>80<small>%</small></strong>
+          <p>Reported at the three-month mark, paired with 61% TIP completion.</p>
+        </article>
+        <article class="metric-card gold">
+          <span>Current center rating</span>
+          <strong>5/5</strong>
+          <p>Top 20% percentile performance compared with other MTM centers.</p>
+        </article>
+      </section>
+
+      <section id="results" class="dashboard-grid">
+        <article class="trend-card">
+          <div class="trend-header">
+            <div>
+              <p class="section-label">Results trend</p>
+              <h2>Completion rates rose quickly after the service launch.</h2>
+            </div>
+            <ul class="trend-legend" aria-label="Chart legend">
+              <li><span class="legend-swatch" style="--swatch:#187c8f"></span>CMR</li>
+              <li><span class="legend-swatch" style="--swatch:#d12630"></span>TIPs</li>
+              <li><span class="legend-swatch" style="--swatch:#e99e25"></span>Performance score</li>
+            </ul>
+          </div>
+          <svg viewBox="0 0 760 360" role="img" aria-label="Line chart of CMR, TIPs, and pharmacy performance score from June 9 to August 11, 2023">
+            <rect x="0" y="0" width="760" height="360" rx="14" fill="#ffffff"></rect>
+            <g stroke="#d9e1ef" stroke-width="1">
+              <line x1="74" y1="290" x2="722" y2="290"></line>
+              <line x1="74" y1="234" x2="722" y2="234"></line>
+              <line x1="74" y1="178" x2="722" y2="178"></line>
+              <line x1="74" y1="122" x2="722" y2="122"></line>
+              <line x1="74" y1="66" x2="722" y2="66"></line>
+            </g>
+            <g fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800">
+              <text x="28" y="294">0%</text>
+              <text x="22" y="238">25%</text>
+              <text x="22" y="182">50%</text>
+              <text x="22" y="126">75%</text>
+              <text x="14" y="70">100%</text>
+            </g>
+            <path d="M74 189.2 L146 166.8 L218 160.1 L290 166.8 L362 137.7 L434 122 L506 110.8 L578 106.3 L650 99.6 L722 99.6" fill="none" stroke="#187c8f" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M74 211.6 L146 189.2 L218 173.5 L290 166.8 L362 166.8 L434 160.1 L506 155.6 L578 151.1 L650 144.4 L722 144.4" fill="none" stroke="#d12630" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M74 178 L146 133.2 L218 133.2 L290 133.2 L362 133.2 L434 133.2 L506 88.4 L578 88.4 L650 88.4 L722 88.4" fill="none" stroke="#e99e25" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path>
+            <g fill="#fff" stroke-width="4">
+              <circle cx="74" cy="189.2" r="6" stroke="#187c8f"></circle>
+              <circle cx="722" cy="99.6" r="7" stroke="#187c8f"></circle>
+              <circle cx="74" cy="211.6" r="6" stroke="#d12630"></circle>
+              <circle cx="722" cy="144.4" r="7" stroke="#d12630"></circle>
+              <circle cx="74" cy="178" r="6" stroke="#e99e25"></circle>
+              <circle cx="722" cy="88.4" r="7" stroke="#e99e25"></circle>
+            </g>
+            <g fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="16" font-weight="900">
+              <text x="642" y="77">90%</text>
+              <text x="642" y="96" fill="#e99e25">score</text>
+              <text x="642" y="121">85%</text>
+              <text x="642" y="140" fill="#187c8f">CMR</text>
+              <text x="642" y="166">65%</text>
+              <text x="642" y="185" fill="#d12630">TIPs</text>
+            </g>
+            <g fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800">
+              <text x="52" y="322">6/9</text>
+              <text x="198" y="322">6/23</text>
+              <text x="344" y="322">7/7</text>
+              <text x="490" y="322">7/21</text>
+              <text x="636" y="322">8/4</text>
+              <text x="704" y="322">8/11</text>
+            </g>
+          </svg>
+          <p class="source-note">CMR completion reached 85% and TIPs completion reached 65% by August 11, 2023; the discussion reports 80% CMR and 61% TIP completion at the three-month mark.</p>
+        </article>
+
+        <aside class="funnel-card">
+          <p class="section-label">STAR TIP opportunity</p>
+          <h2>Eligible STAR TIP patients declined across the first three months.</h2>
+          <svg viewBox="0 0 360 280" role="img" aria-label="Funnel showing eligible STAR TIPS patients dropping from 49 in June to 27 in July and 19 in August 2023">
+            <polygon points="42,48 318,48 270,118 90,118" fill="#d12630"></polygon>
+            <polygon points="90,134 270,134 234,196 126,196" fill="#e99e25"></polygon>
+            <polygon points="126,212 234,212 214,252 146,252" fill="#187c8f"></polygon>
+            <g fill="#fff" font-family="Montserrat, Arial, sans-serif" font-weight="900" text-anchor="middle">
+              <text x="180" y="86" font-size="42">49</text>
+              <text x="180" y="108" font-size="15">June 2023</text>
+              <text x="180" y="172" font-size="35">27</text>
+              <text x="180" y="191" font-size="14">July 2023</text>
+              <text x="180" y="240" font-size="27">19</text>
+            </g>
+            <text x="180" y="269" text-anchor="middle" fill="rgba(255,255,255,0.82)" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="850">August 2023</text>
+          </svg>
+          <p class="funnel-caption">The poster frames STAR TIP and PDC adherence work as likely high-impact levers for DIR fee reduction.</p>
+        </aside>
+      </section>
+
+      <section id="model" class="panel">
+        <p class="section-label">Implementation model</p>
+        <h2>A specialty pharmacy team turned MTM into a structured intervention workflow.</h2>
+        <div class="service-map">
+          <svg viewBox="0 0 560 300" role="img" aria-label="MTM service workflow from training to platform identification to intervention and outcome tracking">
+            <defs>
+              <marker id="flowArrow54" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L9,3 z" fill="#243770"></path>
+              </marker>
+            </defs>
+            <rect x="26" y="104" width="105" height="82" rx="9" fill="#eef4fb" stroke="#187c8f" stroke-width="4"></rect>
+            <rect x="166" y="74" width="110" height="142" rx="10" fill="#fff7ea" stroke="#e99e25" stroke-width="4"></rect>
+            <rect x="314" y="104" width="100" height="82" rx="9" fill="#fff" stroke="#d12630" stroke-width="4"></rect>
+            <rect x="450" y="104" width="86" height="82" rx="9" fill="#eef8f2" stroke="#4d8a67" stroke-width="4"></rect>
+            <path d="M131 145h32M276 145h35M414 145h33" stroke="#243770" stroke-width="5" stroke-linecap="round" marker-end="url(#flowArrow54)"></path>
+            <text x="79" y="135" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="14" font-weight="900">Train</text>
+            <text x="79" y="156" text-anchor="middle" fill="#33415c" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800">pharmacists</text>
+            <text x="221" y="108" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="14" font-weight="900">Identify</text>
+            <text x="221" y="131" text-anchor="middle" fill="#33415c" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800">PDC gaps</text>
+            <text x="221" y="150" text-anchor="middle" fill="#33415c" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800">CMRs</text>
+            <text x="221" y="169" text-anchor="middle" fill="#33415c" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800">TIPs</text>
+            <text x="364" y="135" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="14" font-weight="900">Act</text>
+            <text x="364" y="156" text-anchor="middle" fill="#33415c" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800">close gaps</text>
+            <text x="493" y="135" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="14" font-weight="900">Track</text>
+            <text x="493" y="156" text-anchor="middle" fill="#33415c" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800">scores</text>
+            <path d="M93 229 C181 275 377 275 468 229" fill="none" stroke="#aebbd2" stroke-width="5" stroke-linecap="round"></path>
+            <path d="M466 229l-18-2 11-14" fill="none" stroke="#aebbd2" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path>
+            <text x="280" y="268" text-anchor="middle" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="850">monthly performance feedback loop</text>
+          </svg>
+          <div>
+            <p>
+              Specialty clinical pharmacists were trained in an online MTM platform and a performance information management tool. Patients with PDC gaps in cholesterol, diabetes, and RASA therapy classes were targeted for adherence counseling.
+            </p>
+            <ul class="callout-list">
+              <li>Clinical interventions included therapy-gap closure, patient consults, cost-effective alternatives, and superior therapy alternatives.</li>
+              <li>Direct outcomes were targeted intervention program completion and comprehensive medication review completion.</li>
+              <li>Indirect measures included anticipated reduction in DIR fees, although fee impact was not yet known due to lag time in DIR fee collection.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="method-list" aria-label="MTM implementation components">
+          <article class="method-step" data-step="1">
+            <h3>Train</h3>
+            <p>Prepare specialty clinical pharmacists to use the MTM platform and performance management tool.</p>
+          </article>
+          <article class="method-step" data-step="2">
+            <h3>Target</h3>
+            <p>Identify patients with PDC gaps across cholesterol, diabetes, and RASA therapy classes.</p>
+          </article>
+          <article class="method-step" data-step="3">
+            <h3>Intervene</h3>
+            <p>Close therapy gaps, counsel patients, and recommend cost-effective or superior alternatives.</p>
+          </article>
+          <article class="method-step" data-step="4">
+            <h3>Measure</h3>
+            <p>Track CMR and TIP completion as direct MTM service outcomes.</p>
+          </article>
+          <article class="method-step" data-step="5">
+            <h3>Expand</h3>
+            <p>Plan service expansion to two retail locations and ambulatory sites within the health system.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="adherence" class="pdc-grid" aria-label="PDC adherence class trends">
+        <article class="pdc-card cholesterol">
+          <p class="section-label">Cholesterol PDC</p>
+          <strong>91.8%</strong>
+          <small>June 2023, goal 91%</small>
+          <svg viewBox="0 0 330 142" role="img" aria-label="Cholesterol PDC from January to June 2023">
+            <line x1="28" y1="104" x2="310" y2="104" stroke="#aebbd2" stroke-width="2"></line>
+            <line x1="28" y1="56" x2="310" y2="56" stroke="#d12630" stroke-width="2" stroke-dasharray="6 6"></line>
+            <path d="M28 46.4 L84 67.2 L140 83.2 L196 59.2 L252 46.4 L308 46.4" fill="none" stroke="#187c8f" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path>
+            <g fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="800">
+              <text x="18" y="126">Jan</text><text x="75" y="126">Feb</text><text x="132" y="126">Mar</text><text x="188" y="126">Apr</text><text x="244" y="126">May</text><text x="298" y="126">Jun</text>
+              <text x="234" y="51" fill="#d12630">91% goal</text>
+            </g>
+          </svg>
+        </article>
+
+        <article class="pdc-card rasa">
+          <p class="section-label">RASA PDC</p>
+          <strong>94.3%</strong>
+          <small>June 2023, above goal</small>
+          <svg viewBox="0 0 330 142" role="img" aria-label="RASA PDC from January to June 2023">
+            <line x1="28" y1="104" x2="310" y2="104" stroke="#aebbd2" stroke-width="2"></line>
+            <line x1="28" y1="56" x2="310" y2="56" stroke="#d12630" stroke-width="2" stroke-dasharray="6 6"></line>
+            <path d="M28 88 L84 104 L140 72 L196 40 L252 24 L308 3.2" fill="none" stroke="#4d8a67" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path>
+            <g fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="800">
+              <text x="18" y="126">Jan</text><text x="75" y="126">Feb</text><text x="132" y="126">Mar</text><text x="188" y="126">Apr</text><text x="244" y="126">May</text><text x="298" y="126">Jun</text>
+              <text x="234" y="51" fill="#d12630">91% goal</text>
+            </g>
+          </svg>
+        </article>
+
+        <article class="pdc-card diabetes">
+          <p class="section-label">Diabetes PDC</p>
+          <strong>87.2%</strong>
+          <small>June 2023, below goal</small>
+          <svg viewBox="0 0 330 142" role="img" aria-label="Diabetes PDC from January to June 2023">
+            <line x1="28" y1="104" x2="310" y2="104" stroke="#aebbd2" stroke-width="2"></line>
+            <line x1="28" y1="56" x2="310" y2="56" stroke="#d12630" stroke-width="2" stroke-dasharray="6 6"></line>
+            <path d="M28 104 L84 104 L140 104 L196 104 L252 88 L308 104" fill="none" stroke="#e99e25" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path>
+            <g fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="800">
+              <text x="18" y="126">Jan</text><text x="75" y="126">Feb</text><text x="132" y="126">Mar</text><text x="188" y="126">Apr</text><text x="244" y="126">May</text><text x="298" y="126">Jun</text>
+              <text x="234" y="51" fill="#d12630">91% goal</text>
+            </g>
+          </svg>
+        </article>
+      </section>
+
+      <section class="story-grid" aria-label="Interpretation and limitations">
+        <article class="story-card">
+          <p class="section-label">Baseline</p>
+          <b>0%</b>
+          <p>At the start of 2023, eligible patients had 0% CMR completion, 0% TIP completion, and 0% pharmacy performance ranking.</p>
+        </article>
+        <article class="story-card">
+          <p class="section-label">Discussion</p>
+          <b>Top 20%</b>
+          <p>The team reported top 20% percentile MTM center performance with a 5/5 rating after implementation.</p>
+        </article>
+        <article class="story-card">
+          <p class="section-label">Limitation</p>
+          <b>Lag</b>
+          <p>The effect on DIR fees was unknown because fee collection timing lags the measured service improvements.</p>
+        </article>
+      </section>
+
+      <section class="section-stack" aria-label="Objective and conclusion">
+        <article class="panel interpretation-band">
+          <p class="section-label">Why it mattered</p>
+          <h2>DIR pressure made MTM operationally relevant for specialty pharmacy.</h2>
+          <p>
+            The poster notes that pharmacy DIR fees increased sharply from 2010 to 2019 and that pharmacies can reduce fee exposure through MTM initiatives that also address nonadherence, readmissions, and patient-pharmacy relationships.
+          </p>
+          <div class="bar-stack" aria-label="June 2023 PDC comparison against goal">
+            <div class="bar-row">
+              <b>Cholesterol</b>
+              <div class="bar-track"><span style="--value:91.8%"></span></div>
+              <em>91.8%</em>
+            </div>
+            <div class="bar-row">
+              <b>RASA</b>
+              <div class="bar-track"><span style="--value:94.3%"></span></div>
+              <em>94.3%</em>
+            </div>
+            <div class="bar-row diabetes">
+              <b>Diabetes</b>
+              <div class="bar-track"><span style="--value:87.2%"></span></div>
+              <em>87.2%</em>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Conclusion</p>
+          <h2>A health system specialty pharmacy implemented an MTM service within a few months.</h2>
+          <p>
+            The authors concluded that the model demonstrated practical implementation of MTM within a health system specialty pharmacy, with rapid gains in intervention completion and pharmacy performance score.
+          </p>
+          <p>
+            Future work focuses on development and expansion of MTM services to two retail locations and ambulatory sites across the health system.
+          </p>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Extracted table patterns">
+        <article class="table-card">
+          <p class="section-label">Table pattern</p>
+          <h2>Intervention completion snapshot</h2>
+          <div class="table-wrap">
+            <table class="compact-table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>CMR</th>
+                  <th>TIPs</th>
+                  <th>Performance</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>6/9/23</td>
+                  <td>45%</td>
+                  <td>35%</td>
+                  <td>50%</td>
+                </tr>
+                <tr>
+                  <td>7/14/23</td>
+                  <td>75%</td>
+                  <td>58%</td>
+                  <td>70%</td>
+                </tr>
+                <tr>
+                  <td>8/11/23</td>
+                  <td>85%</td>
+                  <td>65%</td>
+                  <td>90%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Therapy class pattern</p>
+          <h2>June 2023 PDC vs goal</h2>
+          <div class="table-wrap">
+            <table class="compact-table">
+              <thead>
+                <tr>
+                  <th>Class</th>
+                  <th>June PDC</th>
+                  <th>Goal</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Cholesterol</td>
+                  <td>91.8%</td>
+                  <td>91%</td>
+                  <td>Met</td>
+                </tr>
+                <tr>
+                  <td>RASA</td>
+                  <td>94.3%</td>
+                  <td>91%</td>
+                  <td>Met</td>
+                </tr>
+                <tr>
+                  <td>Diabetes</td>
+                  <td>87.2%</td>
+                  <td>91%</td>
+                  <td>Below</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="source-note">Diabetes PDC was affected by GLP-1 receptor agonist supply issues and inclusion of metabolic-indication GLP-1 products.</p>
+        </article>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/54_A-model-for-medication-therapy-management-service-implementation-in-a-health-system-specialty-pharmacy-_2023.pdf">Open original PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/54_A-model-for-medication-therapy-management-service-implementation-in-a-health-system-specialty-pharmacy-_2023.md">Read extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

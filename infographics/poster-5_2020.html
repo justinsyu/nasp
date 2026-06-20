@@ -1,0 +1,755 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Comparative Cost-Effectiveness Study of Hyperkalemia Management With Patiromer | NASP 2020</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 29rem;
+    }
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -4rem -5rem auto auto;
+      width: 18rem;
+      height: 18rem;
+      border: 1.15rem solid rgba(24, 124, 143, 0.1);
+      border-radius: 50%;
+    }
+    .hero-card > * {
+      position: relative;
+      z-index: 1;
+    }
+    .cost-visual {
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 0.4rem;
+    }
+    .cost-visual svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      filter: drop-shadow(0 14px 22px rgba(36, 55, 112, 0.13));
+    }
+    .hero-finding {
+      margin: 0;
+      border-left: 4px solid var(--red);
+      background: rgba(255, 255, 255, 0.76);
+      padding: 0.7rem 0.85rem;
+      color: var(--ink);
+      font-weight: 850;
+      line-height: 1.35;
+    }
+    .metric-card strong small {
+      color: var(--red);
+      font-size: 0.82rem;
+    }
+    .metric-card p,
+    .table-card p,
+    .panel p {
+      margin: 0.45rem 0 0;
+    }
+    .cost-stage {
+      display: grid;
+      grid-template-columns: minmax(15rem, 0.82fr) minmax(0, 1.18fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .savings-tile {
+      display: grid;
+      place-items: center;
+      min-height: 21rem;
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 78% 18%, rgba(77, 138, 103, 0.16), transparent 8rem),
+        linear-gradient(145deg, #ffffff 0%, var(--surface-blue) 62%, var(--surface-warm) 100%);
+      padding: 1.1rem;
+      text-align: center;
+    }
+    .savings-tile strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(3.2rem, 8vw, 6.1rem);
+      line-height: 0.9;
+    }
+    .savings-tile span {
+      display: block;
+      margin-top: 0.4rem;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 900;
+    }
+    .savings-tile p {
+      max-width: 20rem;
+      margin: 0.62rem auto 0;
+      color: var(--body);
+      font-size: 0.9rem;
+    }
+    .paired-costs {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 0.8rem;
+    }
+    .cost-row {
+      display: grid;
+      grid-template-columns: 6rem minmax(0, 1fr) 5.4rem;
+      gap: 0.65rem;
+      align-items: center;
+    }
+    .cost-row b {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.88rem;
+    }
+    .cost-row span {
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 900;
+      text-align: right;
+    }
+    .cost-track {
+      height: 1.2rem;
+      border: 1px solid rgba(36, 55, 112, 0.15);
+      border-radius: 999px;
+      background: #e8eef7;
+      overflow: hidden;
+    }
+    .cost-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .cost-row.nopat .cost-track i {
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .offset-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.8rem;
+    }
+    .offset-card {
+      min-height: 9rem;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.75rem;
+    }
+    .offset-card b {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.96rem;
+      line-height: 1.15;
+    }
+    .offset-card strong {
+      display: block;
+      margin-top: 0.55rem;
+      color: var(--green);
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      line-height: 1;
+    }
+    .offset-card.pharmacy strong {
+      color: var(--red);
+    }
+    .offset-bar {
+      height: 0.62rem;
+      margin-top: 0.55rem;
+      border-radius: 999px;
+      background: #e7edf6;
+      overflow: hidden;
+    }
+    .offset-bar i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: var(--green);
+    }
+    .offset-card.pharmacy .offset-bar i {
+      background: var(--red);
+    }
+    .method-flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.75rem;
+    }
+    .method-step {
+      position: relative;
+      min-height: 11.5rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.78rem;
+      overflow: hidden;
+    }
+    .method-step::before {
+      content: attr(data-step);
+      display: inline-grid;
+      place-items: center;
+      width: 1.8rem;
+      height: 1.8rem;
+      margin-bottom: 0.52rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.76rem;
+      font-weight: 900;
+    }
+    .method-step:nth-child(2)::before { background: var(--teal); }
+    .method-step:nth-child(3)::before { background: var(--gold); }
+    .method-step:nth-child(4)::before { background: var(--red); }
+    .method-step:nth-child(5)::before { background: var(--green); }
+    .method-step p {
+      font-size: 0.8rem;
+    }
+    .cohort-board {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: 1rem;
+      align-items: start;
+    }
+    .funnel {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 0.75rem;
+    }
+    .funnel-step {
+      display: grid;
+      grid-template-columns: 7.2rem minmax(0, 1fr) 5.2rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+    .funnel-step span:last-child {
+      color: var(--muted);
+      text-align: right;
+    }
+    .funnel-track {
+      height: 1.1rem;
+      border-radius: 999px;
+      background: rgba(36, 55, 112, 0.1);
+      overflow: hidden;
+    }
+    .funnel-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .funnel-step.pat .funnel-track i {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .balance-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+    .balance-card {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.72rem;
+    }
+    .balance-card b {
+      display: block;
+      color: var(--ink);
+      font-size: 0.84rem;
+    }
+    .balance-card span {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .balance-card small {
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+    .kidney-map {
+      display: grid;
+      gap: 0.62rem;
+      margin-top: 0.8rem;
+    }
+    .kidney-row {
+      display: grid;
+      grid-template-columns: 7.3rem minmax(0, 1fr) 4rem;
+      gap: 0.6rem;
+      align-items: center;
+    }
+    .kidney-row b {
+      color: var(--ink);
+      font-size: 0.78rem;
+      line-height: 1.15;
+    }
+    .kidney-row span {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 900;
+      text-align: right;
+    }
+    .kidney-track {
+      height: 0.82rem;
+      border-radius: 999px;
+      background: #e7edf6;
+      overflow: hidden;
+    }
+    .kidney-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--purple));
+    }
+    .takeaway-panel {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(77, 138, 103, 0.12), transparent 48%),
+        #fff;
+    }
+    .takeaway-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin: 0.85rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .takeaway-list li {
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.78);
+      padding: 0.72rem;
+      color: var(--ink);
+      font-size: 0.84rem;
+      font-weight: 820;
+    }
+    .source-note {
+      margin: 0.6rem 0 0;
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+    .compact-table td:first-child,
+    .compact-table th:first-child {
+      width: 44%;
+    }
+    @media (max-width: 900px) {
+      .cost-stage,
+      .cohort-board,
+      .method-flow {
+        grid-template-columns: 1fr;
+      }
+      .offset-grid,
+      .takeaway-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 560px) {
+      .offset-grid,
+      .balance-grid,
+      .takeaway-list,
+      .cost-row,
+      .funnel-step,
+      .kidney-row {
+        grid-template-columns: 1fr;
+      }
+      .cost-row span,
+      .funnel-step span:last-child,
+      .kidney-row span {
+        text-align: left;
+      }
+      .savings-tile strong {
+        font-size: 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-5_2020.pdf">Source PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-5_2020.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP Annual Meeting &amp; Expo Virtual Experience 2020 / Poster 5</p>
+        <h1 id="poster-title">Comparative Cost-Effectiveness Study of Hyperkalemia Management With Patiromer</h1>
+        <p class="hero-summary">
+          A matched Medicare Advantage claims analysis compared hyperkalemia patients exposed to patiromer with similar patients not receiving patiromer. At 6 months, the patiromer cohort showed lower total mean costs despite higher outpatient pharmacy spending.
+        </p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag therapy">Hyperkalemia</li>
+          <li class="tag category">Cost-effectiveness</li>
+          <li class="tag">Medicare Advantage claims</li>
+          <li class="tag">Propensity score + CEM matching</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Study snapshot">
+        <div class="poster-code">5<br>2020</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Database</dt>
+            <dd>Optum Clinformatics Datamart</dd>
+          </div>
+          <div>
+            <dt>Claims period</dt>
+            <dd>Jan 2016-Dec 2018</dd>
+          </div>
+          <div>
+            <dt>Matched cohorts</dt>
+            <dd>1,002 PAT + 1,002 NoPAT</dd>
+          </div>
+          <div>
+            <dt>6-month cost set</dt>
+            <dd>150 patients per cohort</dd>
+          </div>
+        </dl>
+        <p class="hero-finding">Core finding: mean 6-month total cost was $19,311 with patiromer versus $26,531 without patiromer, a 27% reduction.</p>
+        <div class="cost-visual" aria-hidden="true">
+          <svg viewBox="0 0 360 210" role="img" aria-label="Illustration of patiromer cost offset">
+            <defs>
+              <linearGradient id="costRed" x1="0" x2="1">
+                <stop offset="0" stop-color="#d12630"/>
+                <stop offset="1" stop-color="#e99e25"/>
+              </linearGradient>
+              <linearGradient id="costGreen" x1="0" x2="1">
+                <stop offset="0" stop-color="#187c8f"/>
+                <stop offset="1" stop-color="#4d8a67"/>
+              </linearGradient>
+            </defs>
+            <rect x="28" y="34" width="304" height="142" rx="18" fill="#fff" stroke="#aebbd2" stroke-width="3"/>
+            <path d="M70 145 V88" stroke="url(#costGreen)" stroke-width="36" stroke-linecap="round"/>
+            <path d="M152 145 V55" stroke="url(#costRed)" stroke-width="36" stroke-linecap="round"/>
+            <path d="M218 116 C242 88 268 79 300 74" fill="none" stroke="#243770" stroke-width="7" stroke-linecap="round"/>
+            <path d="M279 58 L306 73 L284 94" fill="none" stroke="#243770" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="259" cy="138" r="28" fill="#eef4fb" stroke="#187c8f" stroke-width="4"/>
+            <path d="M247 139 l9 9 l18 -24" fill="none" stroke="#4d8a67" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="70" y="188" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="15" font-weight="900">PAT</text>
+            <text x="152" y="188" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="15" font-weight="900">NoPAT</text>
+            <text x="248" y="39" fill="#68758d" font-family="Inter, sans-serif" font-size="13" font-weight="850">lower 6-mo cost</text>
+          </svg>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Matched patients</span>
+          <strong>2,004</strong>
+          <p>1,002 patients in each matched cohort at index.</p>
+        </article>
+        <article class="metric-card">
+          <span>Mean total cost</span>
+          <strong>$19,311</strong>
+          <p>6-month cost among continuously treated PAT patients.</p>
+        </article>
+        <article class="metric-card">
+          <span>Comparator cost</span>
+          <strong>$26,531</strong>
+          <p>6-month mean total cost in the matched NoPAT cohort.</p>
+        </article>
+        <article class="metric-card">
+          <span>Observed reduction</span>
+          <strong>27<small>%</small></strong>
+          <p>$7,220 lower mean total cost with PAT; p=0.012.</p>
+        </article>
+      </section>
+
+      <section class="cost-stage" aria-label="Six-month cost result">
+        <article class="savings-tile">
+          <div>
+            <strong>$7,220</strong>
+            <span>lower mean total cost at 6 months</span>
+            <p>The poster reports that the patiromer cohort's higher pharmacy spend was offset by larger reductions in medical costs.</p>
+          </div>
+        </article>
+        <article class="panel">
+          <p class="section-label">Primary Result</p>
+          <h2>Patiromer shifted the cost profile from acute medical utilization toward pharmacy spend.</h2>
+          <div class="paired-costs" aria-label="Mean total cost comparison">
+            <div class="cost-row pat">
+              <b>PAT</b>
+              <div class="cost-track"><i style="--w: 73%"></i></div>
+              <span>$19,311</span>
+            </div>
+            <div class="cost-row nopat">
+              <b>NoPAT</b>
+              <div class="cost-track"><i style="--w: 100%"></i></div>
+              <span>$26,531</span>
+            </div>
+          </div>
+          <p class="source-note">Bars are scaled to the NoPAT 6-month mean total cost. Cost population: N=300, with 150 patients in each cohort.</p>
+          <div class="offset-grid" aria-label="Mean cost difference by category">
+            <div class="offset-card pharmacy">
+              <b>Pharmacy</b>
+              <strong>+$3,094</strong>
+              <div class="offset-bar"><i style="--w: 65%"></i></div>
+            </div>
+            <div class="offset-card">
+              <b>Outpatient</b>
+              <strong>-$815</strong>
+              <div class="offset-bar"><i style="--w: 17%"></i></div>
+            </div>
+            <div class="offset-card">
+              <b>ED</b>
+              <strong>-$4,718</strong>
+              <div class="offset-bar"><i style="--w: 99%"></i></div>
+            </div>
+            <div class="offset-card">
+              <b>Inpatient</b>
+              <strong>-$4,781</strong>
+              <div class="offset-bar"><i style="--w: 100%"></i></div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Evidence Flow</p>
+        <h2>From hyperkalemia event to 6-month cost comparison.</h2>
+        <div class="method-flow" aria-label="Study methods flow">
+          <article class="method-step" data-step="1">
+            <h3>Identify events</h3>
+            <p>Medicare Advantage patients with a hyperkalemia event and potassium at least 5.0 mEq/L.</p>
+          </article>
+          <article class="method-step" data-step="2">
+            <h3>Define exposure</h3>
+            <p>PAT index was a patiromer dispensed date; NoPAT index was a hyperkalemia diagnosis date.</p>
+          </article>
+          <article class="method-step" data-step="3">
+            <h3>Match cohorts</h3>
+            <p>Propensity score matching and coarsened exact matching balanced baseline variables.</p>
+          </article>
+          <article class="method-step" data-step="4">
+            <h3>Follow forward</h3>
+            <p>Follow-up ran from index until disenrollment, death, study end, treatment switch, or discontinuation.</p>
+          </article>
+          <article class="method-step" data-step="5">
+            <h3>Compare cost</h3>
+            <p>Total, inpatient, ED, outpatient, and pharmacy costs were measured at 6 months post-index.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="cohort-board" aria-label="Study population and baseline balance">
+        <article class="panel">
+          <p class="section-label">Table 1 Pattern</p>
+          <h2>Matching condensed a very large unexposed pool into parallel cohorts.</h2>
+          <div class="funnel" aria-label="Unmatched and matched patient counts">
+            <div class="funnel-step nopat">
+              <span>NoPAT HKE</span>
+              <div class="funnel-track"><i style="--w: 100%"></i></div>
+              <span>226,282</span>
+            </div>
+            <div class="funnel-step nopat">
+              <span>NoPAT patients</span>
+              <div class="funnel-track"><i style="--w: 40%"></i></div>
+              <span>89,636</span>
+            </div>
+            <div class="funnel-step pat">
+              <span>PAT patients</span>
+              <div class="funnel-track"><i style="--w: 0.5%"></i></div>
+              <span>1,111</span>
+            </div>
+            <div class="funnel-step pat">
+              <span>Matched each</span>
+              <div class="funnel-track"><i style="--w: 0.45%"></i></div>
+              <span>1,002</span>
+            </div>
+          </div>
+          <p class="source-note">The tiny PAT bars reflect the scale difference versus unmatched NoPAT hyperkalemia events.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Baseline Balance</p>
+          <h2>The matched groups were older and heavily cardiorenal.</h2>
+          <div class="balance-grid">
+            <div class="balance-card">
+              <b>Mean age</b>
+              <span>74.4</span>
+              <small>PAT years; NoPAT was 74.1</small>
+            </div>
+            <div class="balance-card">
+              <b>Female</b>
+              <span>40%</span>
+              <small>PAT; NoPAT was 38%</small>
+            </div>
+            <div class="balance-card">
+              <b>Chronic kidney disease</b>
+              <span>96%</span>
+              <small>PAT; NoPAT was 97%</small>
+            </div>
+            <div class="balance-card">
+              <b>Diabetes mellitus</b>
+              <span>73%</span>
+              <small>Both cohorts</small>
+            </div>
+          </div>
+          <div class="kidney-map" aria-label="PAT eGFR categories">
+            <div class="kidney-row">
+              <b>eGFR 30-59</b>
+              <div class="kidney-track"><i style="--w: 100%"></i></div>
+              <span>40%</span>
+            </div>
+            <div class="kidney-row">
+              <b>eGFR 15-29</b>
+              <div class="kidney-track"><i style="--w: 85%"></i></div>
+              <span>34%</span>
+            </div>
+            <div class="kidney-row">
+              <b>eGFR &lt;15</b>
+              <div class="kidney-track"><i style="--w: 33%"></i></div>
+              <span>13%</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-stack" aria-label="Clinical and cost context">
+        <article class="table-card">
+          <p class="section-label">Hyperkalemia Severity</p>
+          <h2>Baseline potassium distribution was exactly matched across cohorts.</h2>
+          <div class="table-wrap">
+            <table class="compact-table">
+              <thead>
+                <tr>
+                  <th>Baseline K+ category</th>
+                  <th>NoPAT</th>
+                  <th>PAT</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>5.0-&lt;5.5 mEq/L</td>
+                  <td>389 (39%)</td>
+                  <td>389 (39%)</td>
+                </tr>
+                <tr>
+                  <td>5.5-&lt;6.0 mEq/L</td>
+                  <td>471 (47%)</td>
+                  <td>471 (47%)</td>
+                </tr>
+                <tr>
+                  <td>6.0-&lt;6.5 mEq/L</td>
+                  <td>114 (11%)</td>
+                  <td>114 (11%)</td>
+                </tr>
+                <tr>
+                  <td>&ge;6.5 mEq/L</td>
+                  <td>28 (3%)</td>
+                  <td>28 (3%)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Pre-index Utilization</p>
+          <h2>Baseline medical use was similar before the cost comparison.</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>12-month pre-index HRU</th>
+                  <th>NoPAT</th>
+                  <th>PAT</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>ED visit</td>
+                  <td>356 (36%)</td>
+                  <td>333 (33%)</td>
+                </tr>
+                <tr>
+                  <td>Inpatient admission</td>
+                  <td>313 (31%)</td>
+                  <td>312 (31%)</td>
+                </tr>
+                <tr>
+                  <td>Surgical claim</td>
+                  <td>342 (34%)</td>
+                  <td>326 (33%)</td>
+                </tr>
+                <tr>
+                  <td>SNF admission</td>
+                  <td>68 (7%)</td>
+                  <td>65 (6%)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="evidence-map" aria-label="Main interpretation">
+        <article class="evidence-card">
+          <h3>Clinical problem</h3>
+          <p>Hyperkalemia can limit RAAS inhibitor use and is associated with serious cardiac risk.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Claims lens</h3>
+          <p>The analysis used deidentified national commercial and Medicare Advantage claims.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Matched comparison</h3>
+          <p>PAT and NoPAT groups were matched on demographics, comorbidities, potassium, and medication factors.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Cost offset</h3>
+          <p>Pharmacy costs rose, while inpatient, ED, and outpatient medical costs fell more.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Study caution</h3>
+          <p>The poster describes observational associations, not causal proof.</p>
+        </article>
+      </section>
+
+      <section class="panel takeaway-panel">
+        <p class="section-label">Conclusion</p>
+        <h2>Six months of continuous patiromer therapy was associated with lower total mean cost in this matched claims study.</h2>
+        <ul class="takeaway-list" aria-label="Conclusions">
+          <li>Mean total 6-month cost was 27% lower for PAT versus NoPAT.</li>
+          <li>Medical-cost reductions exceeded the increased outpatient pharmacy budget.</li>
+          <li>The authors called for further studies to confirm the observed cost-effectiveness signal.</li>
+        </ul>
+      </section>
+
+      <footer class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-5_2020.pdf">Open original PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-5_2020.md">Read extracted markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

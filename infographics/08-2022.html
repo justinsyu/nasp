@@ -1,0 +1,743 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>08-2022 | Patient-Tailored Pharmacist Interventions</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -4rem -5rem auto;
+      width: 15rem;
+      height: 15rem;
+      border: 1.2rem solid rgba(24, 124, 143, 0.12);
+      border-radius: 50%;
+    }
+
+    .trial-badge {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 0.25rem;
+    }
+
+    .assignment-visual {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.55rem;
+    }
+
+    .arm-card {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.82);
+      padding: 0.7rem;
+    }
+
+    .arm-card strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.65rem;
+      line-height: 1;
+    }
+
+    .arm-card span {
+      display: block;
+      margin-top: 0.24rem;
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .arm-card.intervention {
+      border-color: rgba(24, 124, 143, 0.5);
+      background: rgba(238, 244, 251, 0.8);
+    }
+
+    .arm-card.intervention strong {
+      color: var(--teal);
+    }
+
+    .metric-card strong small {
+      color: var(--red);
+      font-size: 0.88rem;
+    }
+
+    .metric-card em {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-style: normal;
+      font-weight: 750;
+    }
+
+    .central-claim {
+      display: grid;
+      grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+      gap: 1rem;
+    }
+
+    .claim-block {
+      display: grid;
+      align-content: center;
+      min-height: 18rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 80% 18%, rgba(233, 158, 37, 0.22), transparent 6rem),
+        linear-gradient(150deg, var(--ink), #172654);
+      padding: 1.15rem;
+      color: #fff;
+    }
+
+    .claim-block span {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .claim-block strong {
+      display: block;
+      margin-top: 0.25rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(3.1rem, 8vw, 6rem);
+      line-height: 0.9;
+    }
+
+    .claim-block p {
+      margin: 0.7rem 0 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.95rem;
+    }
+
+    .pdc-chart {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 0.85rem;
+    }
+
+    .pdc-row {
+      display: grid;
+      grid-template-columns: 8.5rem minmax(0, 1fr) 3.4rem;
+      gap: 0.65rem;
+      align-items: center;
+    }
+
+    .pdc-row b {
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 900;
+    }
+
+    .paired-track {
+      display: grid;
+      gap: 0.22rem;
+    }
+
+    .track-line {
+      display: grid;
+      grid-template-columns: 2.4rem minmax(0, 1fr);
+      gap: 0.4rem;
+      align-items: center;
+      color: var(--muted);
+      font-size: 0.66rem;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .track {
+      height: 0.62rem;
+      border-radius: 999px;
+      background: #e7edf6;
+      overflow: hidden;
+    }
+
+    .fill {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--border-strong);
+    }
+
+    .fill.intervention {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .pdc-row em {
+      color: var(--teal);
+      font-size: 0.72rem;
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .flow-board {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr 1fr;
+      gap: 0.75rem;
+      align-items: stretch;
+      margin-top: 0.85rem;
+    }
+
+    .flow-node {
+      position: relative;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+    }
+
+    .flow-node.filtered {
+      background: var(--surface-warm);
+      border-color: rgba(233, 158, 37, 0.55);
+    }
+
+    .flow-node.randomized {
+      background: var(--surface-blue);
+      border-color: rgba(24, 124, 143, 0.38);
+    }
+
+    .flow-node h3 {
+      margin-bottom: 0.35rem;
+    }
+
+    .flow-node strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2.1rem;
+      line-height: 1;
+    }
+
+    .flow-node p {
+      margin: 0.35rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 750;
+    }
+
+    .screening-list {
+      display: grid;
+      gap: 0.38rem;
+      margin: 0.6rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .screening-list li {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.6rem;
+      border-bottom: 1px solid rgba(174, 187, 210, 0.45);
+      padding-bottom: 0.32rem;
+      color: var(--body);
+      font-size: 0.76rem;
+      font-weight: 800;
+    }
+
+    .intervention-ladder {
+      display: grid;
+      gap: 0.62rem;
+      margin-top: 0.75rem;
+    }
+
+    .ladder-step {
+      display: grid;
+      grid-template-columns: 2rem minmax(0, 1fr);
+      gap: 0.6rem;
+      align-items: start;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.65rem;
+    }
+
+    .ladder-step b {
+      display: grid;
+      place-items: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      line-height: 1;
+    }
+
+    .ladder-step h3 {
+      margin-bottom: 0.16rem;
+    }
+
+    .ladder-step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 750;
+    }
+
+    .reason-bars {
+      display: grid;
+      gap: 0.48rem;
+      margin-top: 0.75rem;
+    }
+
+    .reason-row {
+      display: grid;
+      grid-template-columns: 9.8rem minmax(0, 1fr) 2.2rem;
+      gap: 0.55rem;
+      align-items: center;
+      font-size: 0.78rem;
+    }
+
+    .reason-row span:first-child {
+      color: var(--ink);
+      font-weight: 900;
+    }
+
+    .reason-row i {
+      height: 0.8rem;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .reason-row b {
+      color: var(--ink);
+      text-align: right;
+    }
+
+    .clinic-heat {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 0.45rem;
+      margin-top: 0.8rem;
+    }
+
+    .clinic-tile {
+      min-height: 5.8rem;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.52rem;
+    }
+
+    .clinic-tile strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+
+    .clinic-tile span {
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 850;
+    }
+
+    .clinic-tile.rheum { background: rgba(209, 38, 48, 0.08); border-color: rgba(209, 38, 48, 0.22); }
+    .clinic-tile.ms { background: rgba(24, 124, 143, 0.09); border-color: rgba(24, 124, 143, 0.28); }
+    .clinic-tile.lipids { background: rgba(233, 158, 37, 0.13); border-color: rgba(233, 158, 37, 0.28); }
+
+    .two-up {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .compact-list {
+      display: grid;
+      gap: 0.48rem;
+      margin: 0.75rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .compact-list li {
+      border-left: 4px solid var(--teal);
+      background: var(--surface-blue);
+      padding: 0.55rem 0.65rem;
+      color: var(--body);
+      font-size: 0.84rem;
+    }
+
+    .compact-list li:nth-child(2n) {
+      border-color: var(--gold);
+      background: var(--surface-warm);
+    }
+
+    .note {
+      margin: 0.65rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 750;
+    }
+
+    .mini-table td:last-child,
+    .mini-table th:last-child {
+      text-align: right;
+    }
+
+    @media (max-width: 900px) {
+      .central-claim,
+      .two-up,
+      .flow-board {
+        grid-template-columns: 1fr;
+      }
+
+      .clinic-heat {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 620px) {
+      .assignment-visual,
+      .clinic-heat {
+        grid-template-columns: 1fr;
+      }
+
+      .pdc-row,
+      .reason-row {
+        grid-template-columns: 1fr;
+      }
+
+      .pdc-row em,
+      .reason-row b {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#outcomes">Outcomes</a>
+        <a href="#methods">Methods</a>
+        <a href="#drivers">Drivers</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2022 poster 08-2022 | Randomized controlled trial</p>
+        <h1 id="poster-title">Patient-Tailored Pharmacist Interventions to Improve Specialty Medication Adherence</h1>
+        <p class="hero-summary">
+          Vanderbilt investigators tested whether pharmacist review, baseline assessment, and patient-specific adherence support could outperform usual care among specialty pharmacy patients with low prior PDC.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Pragmatic RCT</li>
+          <li class="tag therapy">Specialty pharmacy</li>
+          <li class="tag">Medication adherence</li>
+          <li class="tag">PDC outcome</li>
+          <li class="tag">Vanderbilt University Medical Center</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div class="poster-code">08-2022</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Screened</dt>
+            <dd>1,300</dd>
+          </div>
+          <div>
+            <dt>Randomized</dt>
+            <dd>439</dd>
+          </div>
+          <div>
+            <dt>Primary endpoint</dt>
+            <dd>8-month PDC</dd>
+          </div>
+          <div>
+            <dt>Analysis set</dt>
+            <dd>401 patients</dd>
+          </div>
+        </dl>
+        <div class="trial-badge" aria-hidden="true">
+          <svg viewBox="0 0 420 210" role="img" aria-label="Tailored intervention pathway">
+            <defs>
+              <marker id="arrow-08" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L9,3 z" fill="#243770"></path>
+              </marker>
+            </defs>
+            <rect x="22" y="35" width="100" height="116" rx="10" fill="#fff" stroke="#aebbd2" stroke-width="3"></rect>
+            <path d="M43 65h58M43 88h42M43 111h51" stroke="#187c8f" stroke-width="8" stroke-linecap="round"></path>
+            <circle cx="72" cy="162" r="18" fill="#fff7ea" stroke="#e99e25" stroke-width="4"></circle>
+            <path d="M66 162h12M72 156v12" stroke="#e99e25" stroke-width="5" stroke-linecap="round"></path>
+            <path d="M132 87 C176 45, 225 45, 270 82" fill="none" stroke="#243770" stroke-width="6" stroke-linecap="round" marker-end="url(#arrow-08)"></path>
+            <path d="M132 123 C184 158, 239 160, 294 127" fill="none" stroke="#243770" stroke-width="6" stroke-linecap="round" stroke-dasharray="1 13" marker-end="url(#arrow-08)"></path>
+            <circle cx="315" cy="84" r="37" fill="#eef4fb" stroke="#187c8f" stroke-width="5"></circle>
+            <path d="M297 84l13 13 25-31" fill="none" stroke="#187c8f" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path>
+            <circle cx="325" cy="133" r="30" fill="#fff" stroke="#d12630" stroke-width="5"></circle>
+            <path d="M310 133h30M325 118v30" stroke="#d12630" stroke-width="6" stroke-linecap="round"></path>
+            <text x="147" y="35" fill="#243770" font-family="Arial, sans-serif" font-size="18" font-weight="800">Assess</text>
+            <text x="146" y="184" fill="#243770" font-family="Arial, sans-serif" font-size="18" font-weight="800">Tailor + follow up</text>
+          </svg>
+          <div class="assignment-visual">
+            <div class="arm-card">
+              <strong>220</strong>
+              <span>Usual care arm</span>
+            </div>
+            <div class="arm-card intervention">
+              <strong>219</strong>
+              <span>Intervention arm</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Primary result</span>
+          <strong>94<small>% vs</small> 88<small>%</small></strong>
+          <em>8-month PDC, intervention vs usual care; p &lt; 0.001.</em>
+        </article>
+        <article class="metric-card">
+          <span>Randomized cohort</span>
+          <strong>439</strong>
+          <em>Patients assigned 1:1 after pharmacist review.</em>
+        </article>
+        <article class="metric-card">
+          <span>Most common barrier</span>
+          <strong>82</strong>
+          <em>Memory-related nonadherence reasons recorded.</em>
+        </article>
+        <article class="metric-card">
+          <span>Largest clinic group</span>
+          <strong>35<small>%</small></strong>
+          <em>Rheumatology patients at baseline.</em>
+        </article>
+      </section>
+
+      <section id="outcomes" class="central-claim">
+        <div class="claim-block">
+          <span>Bottom-line outcome</span>
+          <strong>+6 pts</strong>
+          <p>At 8 months, tailored pharmacist intervention increased median PDC from 0.88 under usual care to 0.94.</p>
+        </div>
+
+        <article class="panel">
+          <p class="section-label">PDC by treatment group and time</p>
+          <h2>The intervention advantage persisted across follow-up windows.</h2>
+          <p>
+            Baseline adherence was nearly identical, then the intervention group separated by 6 months and maintained a higher PDC at 8 and 12 months.
+          </p>
+          <div class="pdc-chart" aria-label="PDC comparison over time">
+            <div class="pdc-row">
+              <b>Baseline 12 mo</b>
+              <div class="paired-track">
+                <div class="track-line"><span>UC</span><span class="track"><i class="fill" style="width:86%"></i></span></div>
+                <div class="track-line"><span>INT</span><span class="track"><i class="fill intervention" style="width:87%"></i></span></div>
+              </div>
+              <em>p = 0.21</em>
+            </div>
+            <div class="pdc-row">
+              <b>Prospective 6 mo</b>
+              <div class="paired-track">
+                <div class="track-line"><span>UC</span><span class="track"><i class="fill" style="width:90%"></i></span></div>
+                <div class="track-line"><span>INT</span><span class="track"><i class="fill intervention" style="width:95%"></i></span></div>
+              </div>
+              <em>p = 0.003</em>
+            </div>
+            <div class="pdc-row">
+              <b>Prospective 8 mo</b>
+              <div class="paired-track">
+                <div class="track-line"><span>UC</span><span class="track"><i class="fill" style="width:88%"></i></span></div>
+                <div class="track-line"><span>INT</span><span class="track"><i class="fill intervention" style="width:94%"></i></span></div>
+              </div>
+              <em>p &lt; 0.001</em>
+            </div>
+            <div class="pdc-row">
+              <b>Prospective 12 mo</b>
+              <div class="paired-track">
+                <div class="track-line"><span>UC</span><span class="track"><i class="fill" style="width:87%"></i></span></div>
+                <div class="track-line"><span>INT</span><span class="track"><i class="fill intervention" style="width:93%"></i></span></div>
+              </div>
+              <em>p &lt; 0.001</em>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section id="methods" class="panel">
+        <p class="section-label">Study methods</p>
+        <h2>A high-noise adherence screen was narrowed by pharmacist review before randomization.</h2>
+        <div class="flow-board" aria-label="Study screening and allocation flow">
+          <article class="flow-node">
+            <h3>Screened</h3>
+            <strong>1,300</strong>
+            <p>Patients with PDC &lt; 0.9 over prior 4 and 12 months and at least 4 specialty fills in the prior year.</p>
+          </article>
+          <article class="flow-node filtered">
+            <h3>Excluded after review</h3>
+            <strong>861</strong>
+            <ul class="screening-list">
+              <li><span>Misidentified as nonadherent</span><b>775</b></li>
+              <li><span>Planned discontinuation</span><b>82</b></li>
+              <li><span>Outside provider</span><b>40</b></li>
+              <li><span>Deceased</span><b>17</b></li>
+            </ul>
+            <p>Patients could meet more than one exclusion criterion.</p>
+          </article>
+          <article class="flow-node randomized">
+            <h3>Randomized</h3>
+            <strong>439</strong>
+            <p>Usual care n = 220; intervention n = 219. Analyzed: 199 usual care and 202 intervention patients.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="two-up">
+        <article class="panel">
+          <p class="section-label">Intervention architecture</p>
+          <h2>Assessment translated barriers into practical support.</h2>
+          <div class="intervention-ladder" aria-label="Tailored intervention steps">
+            <div class="ladder-step">
+              <b>1</b>
+              <div>
+                <h3>Baseline assessment</h3>
+                <p>Pharmacists asked how patients took medication, remembered doses, understood indication, and handled missed doses or side effects.</p>
+              </div>
+            </div>
+            <div class="ladder-step">
+              <b>2</b>
+              <div>
+                <h3>Reason coding</h3>
+                <p>Nonadherence was categorized into memory, access, clinical, social, financial, health literacy, and system determinants.</p>
+              </div>
+            </div>
+            <div class="ladder-step">
+              <b>3</b>
+              <div>
+                <h3>Tailored response</h3>
+                <p>Support included smartphone reminders, pill boxes, action plans, follow-up recommendations, error resolution, encouragement, and financial assistance.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article id="drivers" class="panel">
+          <p class="section-label">Reasons for nonadherence</p>
+          <h2>Memory and reachability dominated the barrier profile.</h2>
+          <div class="reason-bars" aria-label="Ranked nonadherence reasons">
+            <div class="reason-row"><span>Memory</span><i style="width:100%"></i><b>82</b></div>
+            <div class="reason-row"><span>Unreachable</span><i style="width:73%"></i><b>60</b></div>
+            <div class="reason-row"><span>No known reason</span><i style="width:43%"></i><b>35</b></div>
+            <div class="reason-row"><span>Unresponsive</span><i style="width:39%"></i><b>32</b></div>
+            <div class="reason-row"><span>Clinical</span><i style="width:30%"></i><b>25</b></div>
+            <div class="reason-row"><span>Social issues</span><i style="width:28%"></i><b>23</b></div>
+            <div class="reason-row"><span>Health literacy</span><i style="width:23%"></i><b>19</b></div>
+            <div class="reason-row"><span>Health-system determinant</span><i style="width:18%"></i><b>15</b></div>
+            <div class="reason-row"><span>Financial</span><i style="width:10%"></i><b>8</b></div>
+          </div>
+          <p class="note">Unresponsive indicates patients who did not comply with requirements for continuing treatment; health-system determinants include clinic or pharmacy errors causing refill delays.</p>
+        </article>
+      </section>
+
+      <section class="visual-grid">
+        <article class="panel">
+          <p class="section-label">Baseline sample pattern</p>
+          <h2>Rheumatology and multiple sclerosis contributed the largest clinic groups.</h2>
+          <div class="clinic-heat" aria-label="Clinic distribution">
+            <div class="clinic-tile rheum"><strong>152</strong><span>Rheumatology, 35%</span></div>
+            <div class="clinic-tile ms"><strong>86</strong><span>Multiple sclerosis, 20%</span></div>
+            <div class="clinic-tile lipids"><strong>75</strong><span>Lipids, 17%</span></div>
+            <div class="clinic-tile"><strong>57</strong><span>Adult miscellaneous, 13%</span></div>
+            <div class="clinic-tile"><strong>38</strong><span>Pulmonary, 9%</span></div>
+            <div class="clinic-tile"><strong>31</strong><span>Pediatric, 7%</span></div>
+          </div>
+          <p class="note">Baseline cohort: mean age 51 years, 68% female, 82% White, 58% commercially insured, and 67% on therapy for at least 1 year.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Objective and conclusion</p>
+          <h2>Target nonadherent patients, then match the support to the reason.</h2>
+          <ul class="compact-list">
+            <li><strong>Objective:</strong> Evaluate patient-tailored complex interventions against usual care for specialty medication adherence.</li>
+            <li><strong>Setting:</strong> Single-center, pragmatic randomized trial at an integrated health-system specialty pharmacy.</li>
+            <li><strong>Conclusion:</strong> Patient-tailored interventions significantly improved adherence compared with usual care.</li>
+            <li><strong>Practice signal:</strong> Specialty pharmacies should target nonadherent patients for adherence interventions.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Extracted table patterns">
+        <article class="table-card">
+          <p class="section-label">Baseline characteristics</p>
+          <h2>Randomized population snapshot</h2>
+          <div class="table-wrap">
+            <table class="mini-table">
+              <thead>
+                <tr>
+                  <th>Characteristic</th>
+                  <th>N = 439</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Age, mean (SD)</td><td>51 (&plusmn;18)</td></tr>
+                <tr><td>Female</td><td>299 (68%)</td></tr>
+                <tr><td>White</td><td>360 (82%)</td></tr>
+                <tr><td>Commercial insurance</td><td>255 (58%)</td></tr>
+                <tr><td>Therapy duration &ge; 1 year</td><td>292 (67%)</td></tr>
+                <tr><td>Baseline 12-month PDC, median (IQR)</td><td>0.87 (0.78, 0.90)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Outcome table pattern</p>
+          <h2>Median PDC by timeframe</h2>
+          <div class="table-wrap">
+            <table class="mini-table">
+              <thead>
+                <tr>
+                  <th>Timeframe</th>
+                  <th>Usual care</th>
+                  <th>Intervention</th>
+                  <th>P-value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Baseline 12-month</td><td>0.86</td><td>0.87</td><td>0.21</td></tr>
+                <tr><td>Prospective 6-month</td><td>0.90</td><td>0.95</td><td>0.003</td></tr>
+                <tr><td>Prospective 8-month</td><td>0.88</td><td>0.94</td><td>&lt;0.001</td></tr>
+                <tr><td>Prospective 12-month</td><td>0.87</td><td>0.93</td><td>&lt;0.001</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/08-2022.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/08-2022.md">Source Markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

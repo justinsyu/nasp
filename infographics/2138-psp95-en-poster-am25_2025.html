@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2025 Infographic | Hypertrophic Cardiomyopathy Clinical Pharmacy Management</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hcm-orbit {
+      position: relative;
+      min-height: 20rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 82% 14%, rgba(233, 158, 37, 0.36), transparent 10rem),
+        linear-gradient(145deg, rgba(36, 55, 112, 0.98), rgba(24, 124, 143, 0.94));
+      color: #fff;
+      overflow: hidden;
+      padding: 1rem;
+    }
+    .hcm-orbit svg {
+      position: absolute;
+      inset: auto -1.1rem -2rem auto;
+      width: min(25rem, 70%);
+      opacity: 0.82;
+    }
+    .hcm-orbit .kicker {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.74);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+    .hcm-orbit strong {
+      display: block;
+      margin-top: 0.2rem;
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 7vw, 5.4rem);
+      line-height: 0.9;
+    }
+    .hcm-orbit span {
+      display: block;
+      max-width: 17rem;
+      margin-top: 0.58rem;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 0.92rem;
+    }
+    .hero-card .button-link {
+      justify-content: center;
+      background: #fff;
+    }
+    .clinical-frame {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .workflow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.6rem;
+      margin-top: 0.7rem;
+    }
+    .workflow-step {
+      position: relative;
+      min-height: 9.2rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.78rem;
+    }
+    .workflow-step::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -0.47rem;
+      width: 0.68rem;
+      height: 0.68rem;
+      border-top: 2px solid var(--border-strong);
+      border-right: 2px solid var(--border-strong);
+      background: #fff;
+      transform: translateY(-50%) rotate(45deg);
+    }
+    .workflow-step:last-child::after { display: none; }
+    .workflow-step b {
+      display: inline-grid;
+      place-items: center;
+      width: 1.7rem;
+      height: 1.7rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+    }
+    .workflow-step h3 {
+      margin-top: 0.5rem;
+      font-size: 0.92rem;
+    }
+    .workflow-step p {
+      margin: 0.36rem 0 0;
+      color: var(--body);
+      font-size: 0.78rem;
+    }
+    .split-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.7rem;
+    }
+    .mini-metric {
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: var(--surface-blue);
+      padding: 0.62rem;
+    }
+    .mini-metric strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      line-height: 1;
+    }
+    .mini-metric span {
+      display: block;
+      margin-top: 0.2rem;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 850;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .nyha-grid {
+      display: grid;
+      grid-template-columns: 12.5rem minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+      margin-top: 0.4rem;
+    }
+    .nyha-grid svg {
+      width: 100%;
+      height: auto;
+    }
+    .class-bars {
+      display: grid;
+      gap: 0.62rem;
+    }
+    .class-row {
+      display: grid;
+      grid-template-columns: 5.6rem minmax(0, 1fr) 3.6rem;
+      gap: 0.52rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .class-track {
+      height: 0.9rem;
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .class-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .intervention-board {
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 1rem;
+    }
+    .intervention-bars {
+      display: grid;
+      gap: 0.62rem;
+      margin-top: 0.7rem;
+    }
+    .intervention-row {
+      display: grid;
+      grid-template-columns: 8.3rem minmax(0, 1fr) 3rem;
+      gap: 0.52rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+    .intervention-track {
+      height: 1rem;
+      border: 1px solid rgba(36, 55, 112, 0.12);
+      border-radius: 999px;
+      background: var(--surface-blue);
+      overflow: hidden;
+    }
+    .intervention-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .dose-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.45rem;
+      margin-top: 0.65rem;
+    }
+    .dose-cell {
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.55rem;
+      text-align: center;
+    }
+    .dose-cell strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.18rem;
+    }
+    .dose-cell span {
+      color: var(--muted);
+      font-size: 0.66rem;
+      font-weight: 850;
+      text-transform: uppercase;
+    }
+    .safety-stack {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 0.65rem;
+    }
+    .safety-item {
+      display: grid;
+      grid-template-columns: 3.4rem minmax(0, 1fr);
+      gap: 0.6rem;
+      align-items: center;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: var(--surface-warm);
+      padding: 0.56rem;
+    }
+    .safety-item strong {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.65rem;
+      line-height: 1;
+      text-align: center;
+    }
+    .safety-item span {
+      color: var(--body);
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+    .conclusion-band {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        linear-gradient(90deg, rgba(238, 244, 251, 0.94), rgba(255, 247, 234, 0.86)),
+        #fff;
+      padding: 1rem;
+    }
+    .conclusion-band ul {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin: 0.65rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .conclusion-band li {
+      border-left: 4px solid var(--red);
+      background: #fff;
+      padding: 0.7rem 0.82rem;
+      color: var(--ink);
+      font-weight: 800;
+    }
+    .source-note {
+      margin: 0.75rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+    @media (max-width: 900px) {
+      .clinical-frame,
+      .intervention-board,
+      .nyha-grid {
+        grid-template-columns: 1fr;
+      }
+      .workflow,
+      .conclusion-band ul {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .workflow-step::after { display: none; }
+    }
+    @media (max-width: 560px) {
+      .workflow,
+      .split-metrics,
+      .dose-grid,
+      .conclusion-band ul {
+        grid-template-columns: 1fr;
+      }
+      .class-row,
+      .intervention-row {
+        grid-template-columns: 1fr;
+      }
+      .class-row strong,
+      .intervention-row strong {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="NASP infographic home">NASP 2025</a>
+      <nav aria-label="Page sections">
+        <a href="#model">Model</a>
+        <a href="#outcomes">Outcomes</a>
+        <a href="#interventions">Interventions</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow">Poster 2138-PSP95-EN | AM25</p>
+        <h1>Clinical, Safety, and Quality Outcomes of a Hypertrophic Cardiomyopathy Clinical Pharmacy Management Program</h1>
+        <p class="hero-summary">A pharmacist-led health system specialty pharmacy program embedded REMS refill screening, heart-failure symptom checks, interaction review, reassessment, and adherence monitoring for NYU Langone Health patients newly prescribed mavacamten.</p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag therapy">Hypertrophic cardiomyopathy</li>
+          <li class="tag category">Mavacamten</li>
+          <li class="tag">REMS-integrated care</li>
+          <li class="tag">May 2022-Dec 2024</li>
+        </ul>
+      </div>
+      <aside class="hero-card">
+        <div class="hcm-orbit" aria-label="Study population highlight">
+          <p class="kicker">Analyzed cohort</p>
+          <strong>92</strong>
+          <span>HCM patients new to mavacamten therapy, with NYHA documentation and at least six months in the patient management program.</span>
+          <svg viewBox="0 0 360 300" role="img" aria-label="Stylized heart and monitoring orbit">
+            <defs>
+              <linearGradient id="heartGrad" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#e99e25"/>
+                <stop offset="1" stop-color="#d12630"/>
+              </linearGradient>
+            </defs>
+            <path d="M178 246C108 187 62 151 62 101c0-32 24-55 55-55 24 0 43 14 53 35 10-21 30-35 54-35 31 0 55 23 55 55 0 50-46 86-101 145z" fill="url(#heartGrad)" opacity=".92"/>
+            <path d="M42 160c46 42 206 45 274-13" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" opacity=".72"/>
+            <circle cx="93" cy="185" r="12" fill="#fff"/>
+            <circle cx="257" cy="121" r="10" fill="#fff"/>
+            <path d="M80 159h45l14-36 23 74 24-96 17 58h78" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Setting</dt>
+            <dd>NYU Langone Health</dd>
+          </div>
+          <div>
+            <dt>Model</dt>
+            <dd>HSSP clinical services</dd>
+          </div>
+          <div>
+            <dt>Primary endpoint</dt>
+            <dd>Change in NYHA class</dd>
+          </div>
+          <div>
+            <dt>Therapy</dt>
+            <dd>Mavacamten</dd>
+          </div>
+        </dl>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key outcomes">
+        <article class="metric-card">
+          <span>NYHA class improved by >=1</span>
+          <strong>67.4%</strong>
+        </article>
+        <article class="metric-card">
+          <span>Proportion of days covered</span>
+          <strong>96%</strong>
+        </article>
+        <article class="metric-card">
+          <span>Clinical interventions</span>
+          <strong>465</strong>
+        </article>
+        <article class="metric-card">
+          <span>Successful REMS audits</span>
+          <strong>3</strong>
+        </article>
+      </section>
+
+      <section class="clinical-frame" id="model">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Evaluate whether a pharmacist-led HCM management program supports clinical, safety, and quality outcomes.</h2>
+          <p>The program translated REMS requirements into repeatable specialty pharmacy touchpoints: monthly refill screening, heart-failure symptom assessment, drug-interaction review, and periodic clinical reassessment.</p>
+          <div class="split-metrics" aria-label="Baseline population characteristics">
+            <div class="mini-metric">
+              <strong>71</strong>
+              <span>Mean age, years</span>
+            </div>
+            <div class="mini-metric">
+              <strong>66%</strong>
+              <span>Female</span>
+            </div>
+            <div class="mini-metric">
+              <strong>67%</strong>
+              <span>Initial NYHA III</span>
+            </div>
+          </div>
+        </article>
+        <article class="panel">
+          <p class="section-label">Evidence flow</p>
+          <h2>From first dispense to annual reassessment</h2>
+          <div class="workflow" aria-label="HCM specialty pharmacist workflow">
+            <div class="workflow-step">
+              <b>1</b>
+              <h3>First dispense</h3>
+              <p>REMS screening, prescreening, and initial assessment at month 0.</p>
+            </div>
+            <div class="workflow-step">
+              <b>2</b>
+              <h3>Monthly refills</h3>
+              <p>REMS refill screening and first-cycle clinical assessment through month 5.</p>
+            </div>
+            <div class="workflow-step">
+              <b>3</b>
+              <h3>Clinical reassessment</h3>
+              <p>Documented review around month 6, with continued monthly screening.</p>
+            </div>
+            <div class="workflow-step">
+              <b>4</b>
+              <h3>Annual cadence</h3>
+              <p>Ongoing reassessment after month 12 and every 10 months thereafter.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="visual-grid" id="outcomes">
+        <article class="panel">
+          <p class="section-label">Clinical outcome</p>
+          <h2>NYHA status shifted toward lower symptom burden</h2>
+          <div class="nyha-grid">
+            <svg viewBox="0 0 220 220" role="img" aria-label="Sixty seven point four percent improved by at least one NYHA class">
+              <circle cx="110" cy="110" r="82" fill="none" stroke="#eef4fb" stroke-width="28"/>
+              <circle cx="110" cy="110" r="82" fill="none" stroke="#187c8f" stroke-width="28" stroke-linecap="round" stroke-dasharray="347 515" transform="rotate(-90 110 110)"/>
+              <circle cx="110" cy="110" r="58" fill="#fff"/>
+              <text x="110" y="105" text-anchor="middle" fill="#d12630" font-family="Montserrat, Arial, sans-serif" font-size="38" font-weight="900">67.4%</text>
+              <text x="110" y="132" text-anchor="middle" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800">improved >=1 class</text>
+            </svg>
+            <div class="class-bars">
+              <div class="class-row">
+                <span>Baseline I</span>
+                <div class="class-track"><i style="width:1.1%"></i></div>
+                <strong>1</strong>
+              </div>
+              <div class="class-row">
+                <span>Baseline II</span>
+                <div class="class-track"><i style="width:31.5%"></i></div>
+                <strong>29</strong>
+              </div>
+              <div class="class-row">
+                <span>Baseline III</span>
+                <div class="class-track"><i style="width:67.4%"></i></div>
+                <strong>62</strong>
+              </div>
+              <div class="class-row">
+                <span>Follow-up I</span>
+                <div class="class-track"><i style="width:15%"></i></div>
+                <strong>6</strong>
+              </div>
+            </div>
+          </div>
+          <p class="source-note">Follow-up NYHA distribution was reported as Class I: 6 (15%), Class II: 22, and Class III: 58.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Safety and quality</p>
+          <h2>High adherence with tracked acute-care events</h2>
+          <div class="safety-stack">
+            <div class="safety-item">
+              <strong>5</strong>
+              <span>Emergency room visits due to HCM</span>
+            </div>
+            <div class="safety-item">
+              <strong>8</strong>
+              <span>Hospitalizations due to HCM</span>
+            </div>
+            <div class="safety-item">
+              <strong>12</strong>
+              <span>Serious adverse events as defined in the poster</span>
+            </div>
+            <div class="safety-item">
+              <strong>96%</strong>
+              <span>PDC calculated from prescription fill data</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="intervention-board" id="interventions">
+        <article class="panel">
+          <p class="section-label">Clinical interventions</p>
+          <h2>Drug-safety work dominated pharmacist intervention volume</h2>
+          <div class="intervention-bars" aria-label="Clinical intervention categories">
+            <div class="intervention-row">
+              <span>Drug safety</span>
+              <div class="intervention-track"><i style="width:100%"></i></div>
+              <strong>275</strong>
+            </div>
+            <div class="intervention-row">
+              <span>Education</span>
+              <div class="intervention-track"><i style="width:20%"></i></div>
+              <strong>55</strong>
+            </div>
+            <div class="intervention-row">
+              <span>Effectiveness</span>
+              <div class="intervention-track"><i style="width:14.5%"></i></div>
+              <strong>40</strong>
+            </div>
+            <div class="intervention-row">
+              <span>Adherence</span>
+              <div class="intervention-track"><i style="width:12.7%"></i></div>
+              <strong>35</strong>
+            </div>
+            <div class="intervention-row">
+              <span>Appropriateness</span>
+              <div class="intervention-track"><i style="width:9.1%"></i></div>
+              <strong>25</strong>
+            </div>
+            <div class="intervention-row">
+              <span>Other</span>
+              <div class="intervention-track"><i style="width:3.6%"></i></div>
+              <strong>10</strong>
+            </div>
+          </div>
+          <p class="source-note">The poster labels Figure 3 as N=465; the displayed category counts total 440.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Treatment pattern</p>
+          <h2>Mavacamten dose distribution</h2>
+          <div class="dose-grid" aria-label="Mavacamten dose distribution">
+            <div class="dose-cell">
+              <strong>2.5 mg</strong>
+              <span>24 patients | 26%</span>
+            </div>
+            <div class="dose-cell">
+              <strong>5 mg</strong>
+              <span>33 patients | 36%</span>
+            </div>
+            <div class="dose-cell">
+              <strong>10 mg</strong>
+              <span>29 patients | 32%</span>
+            </div>
+            <div class="dose-cell">
+              <strong>15 mg</strong>
+              <span>6 patients | 6%</span>
+            </div>
+          </div>
+          <div class="number-cloud" aria-label="Insurance type distribution">
+            <div class="number-pill">65%<small>Medicare</small></div>
+            <div class="number-pill">32%<small>Commercial</small></div>
+            <div class="number-pill">3%<small>Medicaid</small></div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Analysis inputs</th>
+                  <th>Source in poster</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Clinical, safety, quality outcomes</td>
+                  <td>Specialty pharmacy patient management platform</td>
+                </tr>
+                <tr>
+                  <td>Adherence by PDC</td>
+                  <td>Prescription fill records</td>
+                </tr>
+                <tr>
+                  <td>Eligibility window</td>
+                  <td>May 2022 through December 2024</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="conclusion-band">
+        <p class="section-label">Conclusion</p>
+        <h2>Integrated specialty pharmacy management aligned real-world care with REMS-dependent mavacamten monitoring.</h2>
+        <ul>
+          <li>Real-world HSSP management demonstrated positive clinical outcomes and NYHA class reduction consistent with clinical trial results.</li>
+          <li>A pharmacist-led patient management program promoted clinical, safety, and quality outcomes for patients prescribed mavacamten.</li>
+        </ul>
+      </section>
+
+      <footer class="footer-actions" id="sources">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/2138-PSP95-EN-Poster-AM25_2025.pdf">Source PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/2138-PSP95-EN-Poster-AM25_2025.md">Source markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

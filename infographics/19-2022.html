@@ -1,0 +1,734 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>19-2022 | Proactive Oral Oncolytic Prior Authorization</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -4.5rem -5.2rem auto;
+      width: 15rem;
+      height: 15rem;
+      border: 1.2rem solid rgba(24, 124, 143, 0.14);
+      border-radius: 50%;
+    }
+
+    .hero-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .queue-visual {
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 0.2rem;
+    }
+
+    .queue-screen {
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background: #fbfdff;
+      box-shadow: 0 18px 34px rgba(36, 55, 112, 0.13);
+      overflow: hidden;
+    }
+
+    .queue-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      padding: 0.55rem 0.7rem;
+      background: var(--ink);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .queue-title span {
+      width: 0.62rem;
+      height: 0.62rem;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: -1rem 0 0 var(--red), -2rem 0 0 var(--teal);
+    }
+
+    .queue-list {
+      display: grid;
+      gap: 0.45rem;
+      padding: 0.75rem;
+    }
+
+    .queue-row {
+      display: grid;
+      grid-template-columns: 2.1rem minmax(0, 1fr) 3rem;
+      gap: 0.48rem;
+      align-items: center;
+      border: 1px solid rgba(174, 187, 210, 0.7);
+      border-radius: 6px;
+      background: #fff;
+      padding: 0.44rem;
+    }
+
+    .queue-icon {
+      display: grid;
+      place-items: center;
+      width: 2.1rem;
+      height: 2.1rem;
+      border-radius: 6px;
+      background: rgba(209, 38, 48, 0.1);
+      color: var(--red);
+      font-family: var(--font-display);
+      font-weight: 900;
+    }
+
+    .queue-text b,
+    .queue-text span {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .queue-text b {
+      color: var(--ink);
+      font-size: 0.78rem;
+    }
+
+    .queue-text span {
+      color: var(--muted);
+      font-size: 0.64rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+
+    .queue-status {
+      border-radius: 999px;
+      background: rgba(77, 138, 103, 0.14);
+      color: var(--green);
+      padding: 0.18rem 0.3rem;
+      font-size: 0.62rem;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .hero-mini {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.55rem;
+    }
+
+    .hero-mini div {
+      border: 1px solid rgba(174, 187, 210, 0.8);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.76);
+      padding: 0.62rem;
+    }
+
+    .hero-mini strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+
+    .hero-mini span {
+      display: block;
+      margin-top: 0.22rem;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 850;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .metric-card strong small {
+      color: var(--red);
+      font-size: 0.88rem;
+    }
+
+    .metric-card em {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-style: normal;
+      font-weight: 750;
+    }
+
+    .thesis-band {
+      display: grid;
+      grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .big-shift {
+      display: grid;
+      align-content: center;
+      min-height: 14rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(233, 158, 37, 0.22), transparent 7rem),
+        linear-gradient(145deg, var(--ink), #1c2a58);
+      padding: 1.1rem;
+      color: #fff;
+    }
+
+    .big-shift span {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .big-shift strong {
+      margin-top: 0.35rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(3.1rem, 8vw, 5.4rem);
+      line-height: 0.86;
+    }
+
+    .big-shift p {
+      margin: 0.7rem 0 0;
+      color: rgba(255, 255, 255, 0.84);
+      font-size: 0.94rem;
+    }
+
+    .turnaround-grid {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 0.85rem;
+    }
+
+    .turnaround-row {
+      display: grid;
+      grid-template-columns: 10.5rem minmax(0, 1fr) 4.6rem;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .turnaround-row h3 {
+      font-size: 0.9rem;
+    }
+
+    .turnaround-row h3 span {
+      display: block;
+      margin-top: 0.18rem;
+      color: var(--muted);
+      font-family: var(--font-body);
+      font-size: 0.68rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .paired-bars {
+      display: grid;
+      gap: 0.25rem;
+    }
+
+    .bar-line {
+      display: grid;
+      grid-template-columns: 2.8rem minmax(0, 1fr) 4.1rem;
+      gap: 0.42rem;
+      align-items: center;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 850;
+    }
+
+    .bar-track {
+      height: 0.68rem;
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--border-strong);
+    }
+
+    .bar-fill.post {
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .p-note {
+      color: var(--teal);
+      font-size: 0.72rem;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .workflow-panel {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(238, 244, 251, 0.92), rgba(255, 255, 255, 0.9)),
+        repeating-linear-gradient(90deg, rgba(36, 55, 112, 0.06) 0 1px, transparent 1px 3.7rem);
+    }
+
+    .workflow-line {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.9rem;
+    }
+
+    .workflow-step {
+      position: relative;
+      min-height: 8.3rem;
+      border: 1px solid rgba(174, 187, 210, 0.86);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.88);
+      padding: 0.72rem;
+    }
+
+    .workflow-step::before {
+      content: attr(data-step);
+      display: inline-grid;
+      place-items: center;
+      width: 1.7rem;
+      height: 1.7rem;
+      margin-bottom: 0.5rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.76rem;
+      font-weight: 900;
+    }
+
+    .workflow-step h3 {
+      font-size: 0.86rem;
+    }
+
+    .workflow-step p {
+      margin: 0.35rem 0 0;
+      color: var(--body);
+      font-size: 0.75rem;
+    }
+
+    .workflow-step:nth-child(2)::before { background: var(--red); }
+    .workflow-step:nth-child(3)::before { background: var(--gold); }
+    .workflow-step:nth-child(4)::before { background: var(--teal); }
+    .workflow-step:nth-child(5)::before { background: var(--green); }
+    .workflow-step:nth-child(6)::before { background: var(--purple); }
+
+    .study-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-top: 0.85rem;
+    }
+
+    .study-card {
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.75rem;
+    }
+
+    .study-card b {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      line-height: 1.1;
+    }
+
+    .study-card span {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 800;
+    }
+
+    .evidence-table th:nth-child(2),
+    .evidence-table th:nth-child(3),
+    .evidence-table td:nth-child(2),
+    .evidence-table td:nth-child(3),
+    .evidence-table td:nth-child(4) {
+      text-align: right;
+    }
+
+    .conclusion-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      gap: 1rem;
+      align-items: stretch;
+      border-color: var(--ink);
+      background:
+        radial-gradient(circle at 92% 18%, rgba(209, 38, 48, 0.12), transparent 8rem),
+        #fff;
+    }
+
+    .callout-quote {
+      display: grid;
+      align-content: center;
+      border-left: 0.35rem solid var(--red);
+      padding-left: 1rem;
+    }
+
+    .callout-quote p {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.35rem, 2.8vw, 2.2rem);
+      font-weight: 850;
+      line-height: 1.08;
+    }
+
+    .takeaway-list {
+      display: grid;
+      gap: 0.55rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .takeaway-list li {
+      border: 1px solid rgba(174, 187, 210, 0.7);
+      border-radius: 7px;
+      background: var(--surface-blue);
+      padding: 0.62rem 0.7rem;
+      color: var(--body);
+      font-size: 0.86rem;
+      font-weight: 750;
+    }
+
+    @media (max-width: 980px) {
+      .thesis-band,
+      .conclusion-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .workflow-line {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .turnaround-row {
+        grid-template-columns: 1fr;
+      }
+
+      .p-note {
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .workflow-line,
+      .study-grid,
+      .hero-mini {
+        grid-template-columns: 1fr;
+      }
+
+      .bar-line {
+        grid-template-columns: 2.8rem minmax(0, 1fr) 3.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/19-2022.pdf">PDF Source</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/19-2022.md">Markdown Source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2022 poster 19</p>
+        <h1>Implementation of an electronic multistep order transmittal process for proactive oral oncolytic prior authorization in an oncology clinic</h1>
+        <p class="hero-summary">Atrium Health Wake Forest Baptist evaluated whether MSOT, an EHR-enabled order queue, could move medication access work upstream for oral oncolytic prescriptions.</p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Medication access</li>
+          <li class="tag therapy">Oncology</li>
+          <li class="tag">Prior authorization</li>
+          <li class="tag">Integrated specialty pharmacy</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div class="poster-code">19-2022</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Setting</dt>
+            <dd>Hayworth Hematology & Oncology Clinic</dd>
+          </div>
+          <div>
+            <dt>Site</dt>
+            <dd>Atrium Health Wake Forest Baptist</dd>
+          </div>
+          <div>
+            <dt>Design</dt>
+            <dd>Retrospective pre/post chart review</dd>
+          </div>
+          <div>
+            <dt>Focus</dt>
+            <dd>Oral oncolytic PAs</dd>
+          </div>
+        </dl>
+
+        <div class="queue-visual" aria-hidden="true">
+          <div class="queue-screen">
+            <div class="queue-title">MSOT work queue <span></span></div>
+            <div class="queue-list">
+              <div class="queue-row">
+                <div class="queue-icon">Rx</div>
+                <div class="queue-text"><b>Order signed</b><span>EHR specialty grouper</span></div>
+                <div class="queue-status">Auto</div>
+              </div>
+              <div class="queue-row">
+                <div class="queue-icon">BI</div>
+                <div class="queue-text"><b>Benefits check</b><span>MAS begins access work</span></div>
+                <div class="queue-status">Open</div>
+              </div>
+              <div class="queue-row">
+                <div class="queue-icon">PA</div>
+                <div class="queue-text"><b>Decision routed</b><span>Provider and pharmacy notified</span></div>
+                <div class="queue-status">Done</div>
+              </div>
+            </div>
+          </div>
+          <div class="hero-mini">
+            <div><strong>56</strong><span>Total PA records</span></div>
+            <div><strong>Apr 2021</strong><span>MSOT enabled</span></div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key outcome metrics">
+        <div class="metric-card">
+          <span>PA determination</span>
+          <strong>2.3<small> days faster</small></strong>
+          <em>3.1 to 0.8 average days; p=0.06</em>
+        </div>
+        <div class="metric-card">
+          <span>BI/PA initiation</span>
+          <strong>61.4<small> hours faster</small></strong>
+          <em>66.6 to 5.2 average hours; p=0.04</em>
+        </div>
+        <div class="metric-card">
+          <span>Internal dispense</span>
+          <strong>5.2<small> days faster</small></strong>
+          <em>11.9 to 6.7 average days; p=0.004</em>
+        </div>
+        <div class="metric-card">
+          <span>Delay rate</span>
+          <strong>9<small> pp lower</small></strong>
+          <em>22% pre-MSOT to 13% post-MSOT</em>
+        </div>
+      </section>
+
+      <section class="thesis-band" aria-labelledby="objective-heading">
+        <div class="big-shift">
+          <span>Objective</span>
+          <strong>Reactive to proactive</strong>
+          <p>Evaluate the impact of an electronic multistep order transmittal process on oral oncolytic medication prior authorizations.</p>
+        </div>
+
+        <div class="panel" id="objective-heading">
+          <p class="section-label">Results pattern</p>
+          <h2>Turnaround compressed most where access work started earlier</h2>
+          <div class="turnaround-grid" aria-label="Pre and post MSOT outcome comparisons">
+            <article class="turnaround-row">
+              <h3>PA determination <span>Average days</span></h3>
+              <div class="paired-bars">
+                <div class="bar-line"><b>Pre</b><div class="bar-track"><i class="bar-fill" style="width: 100%"></i></div><span>3.1</span></div>
+                <div class="bar-line"><b>Post</b><div class="bar-track"><i class="bar-fill post" style="width: 25.8%"></i></div><span>0.8</span></div>
+              </div>
+              <div class="p-note">p=0.06</div>
+            </article>
+            <article class="turnaround-row">
+              <h3>BI/PA initiation <span>Average hours</span></h3>
+              <div class="paired-bars">
+                <div class="bar-line"><b>Pre</b><div class="bar-track"><i class="bar-fill" style="width: 100%"></i></div><span>66.6</span></div>
+                <div class="bar-line"><b>Post</b><div class="bar-track"><i class="bar-fill post" style="width: 7.8%"></i></div><span>5.2</span></div>
+              </div>
+              <div class="p-note">p=0.04</div>
+            </article>
+            <article class="turnaround-row">
+              <h3>Internal dispense <span>Average days</span></h3>
+              <div class="paired-bars">
+                <div class="bar-line"><b>Pre</b><div class="bar-track"><i class="bar-fill" style="width: 100%"></i></div><span>11.9</span></div>
+                <div class="bar-line"><b>Post</b><div class="bar-track"><i class="bar-fill post" style="width: 56.3%"></i></div><span>6.7</span></div>
+              </div>
+              <div class="p-note">p=0.004</div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel workflow-panel" aria-labelledby="workflow-heading">
+        <p class="section-label">MSOT workflow</p>
+        <h2 id="workflow-heading">The EHR queue made access tasks visible before pharmacy handoff</h2>
+        <div class="workflow-line">
+          <article class="workflow-step" data-step="1">
+            <h3>Target department enabled</h3>
+            <p>Specialty medication grouper pairs the oncology department to MSOT routing.</p>
+          </article>
+          <article class="workflow-step" data-step="2">
+            <h3>Provider signs order</h3>
+            <p>The medication order begins as normal clinical prescribing workflow.</p>
+          </article>
+          <article class="workflow-step" data-step="3">
+            <h3>Order enters queue</h3>
+            <p>The order is automatically directed into a specified MSOT work queue.</p>
+          </article>
+          <article class="workflow-step" data-step="4">
+            <h3>MAS completes BI/PA</h3>
+            <p>Benefits investigation, prior authorization, financial assistance, and network needs are addressed.</p>
+          </article>
+          <article class="workflow-step" data-step="5">
+            <h3>Order released</h3>
+            <p>The MAS releases the medication order to the patient's preferred specialty pharmacy.</p>
+          </article>
+          <article class="workflow-step" data-step="6">
+            <h3>Decision documented</h3>
+            <p>Provider receives PA determination and pharmacy destination through the EHR note.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="visual-grid" aria-label="Study design and operational context">
+        <div class="panel">
+          <p class="section-label">Methods</p>
+          <h2>Single-center pre/post chart review</h2>
+          <div class="study-grid">
+            <div class="study-card">
+              <b>Pre-MSOT</b>
+              <span>November 1, 2020 to January 31, 2021; n=23 PAs.</span>
+            </div>
+            <div class="study-card">
+              <b>Post-MSOT</b>
+              <span>November 1, 2021 to January 31, 2022; n=33 PAs.</span>
+            </div>
+            <div class="study-card">
+              <b>Endpoints</b>
+              <span>PA determination, BI/PA submission timing, referral rate, internal dispense timing, and delay rate.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Access system</p>
+          <h2>Integrated medication access team</h2>
+          <div class="number-cloud" aria-label="Program context figures">
+            <div class="number-pill">2003<small>Clinic established</small></div>
+            <div class="number-pill">5<small>Attending physicians</small></div>
+            <div class="number-pill">2018<small>Reactive MAC services</small></div>
+            <div class="number-pill">2021<small>MSOT launch</small></div>
+            <div class="number-pill">91%<small>Pre referral rate</small></div>
+            <div class="number-pill">85%<small>Post referral rate</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="table-card" aria-labelledby="evidence-heading">
+        <p class="section-label">Evidence table</p>
+        <h2 id="evidence-heading">Poster table values condensed for comparison</h2>
+        <div class="table-wrap">
+          <table class="evidence-table">
+            <thead>
+              <tr>
+                <th>Outcome</th>
+                <th>Pre-MSOT</th>
+                <th>Post-MSOT</th>
+                <th>Observed change</th>
+                <th>Poster p-value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Average days from prescribing to PA determination</td>
+                <td>3.1 days (n=23)</td>
+                <td>0.8 days (n=33)</td>
+                <td>2.3 days faster</td>
+                <td>0.06</td>
+              </tr>
+              <tr>
+                <td>Average hours from prescribing to BI/PA initiation</td>
+                <td>66.6 hours (n=23)</td>
+                <td>5.2 hours (n=33)</td>
+                <td>61.4 hours faster</td>
+                <td>0.04</td>
+              </tr>
+              <tr>
+                <td>Average days from prescribing to internal dispense</td>
+                <td>11.9 days (n=18)</td>
+                <td>6.7 days (n=25)</td>
+                <td>5.2 days faster</td>
+                <td>0.004</td>
+              </tr>
+              <tr>
+                <td>Internal dispensing delays related to clinical, financial, or administrative causes</td>
+                <td>22%</td>
+                <td>13%</td>
+                <td>9 percentage points lower</td>
+                <td>&gt;0.05</td>
+              </tr>
+              <tr>
+                <td>Internal prescription referral rate</td>
+                <td>91%</td>
+                <td>85%</td>
+                <td>Remained high</td>
+                <td>&gt;0.05</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel conclusion-panel" aria-labelledby="conclusion-heading">
+        <div class="callout-quote">
+          <p id="conclusion-heading">MSOT improved medication access timing while preserving high internal referral performance.</p>
+        </div>
+        <div>
+          <p class="section-label">Conclusion and discussion</p>
+          <ul class="takeaway-list">
+            <li>Proactive MAS review sharply reduced time from prescribing to BI/PA initiation.</li>
+            <li>Earlier access work corresponded with faster PA determination and internal dispensing timelines.</li>
+            <li>The authors noted workflow enhancements and fewer EHR communications across MAS, pharmacy, providers, and clinic staff.</li>
+            <li>Small pilot sample size and payer variability were cited as important limitations.</li>
+            <li>Future opportunities include expanding MSOT to additional specialty clinics and service lines.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/19-2022.pdf">Open original PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/19-2022.md">Open extracted markdown</a>
+      <a class="button-link" href="#top">Back to top</a>
+    </footer>
+  </div>
+</body>
+</html>

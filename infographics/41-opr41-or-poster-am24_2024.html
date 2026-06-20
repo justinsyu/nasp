@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2024 Infographic | HSSP Services and IBD Outcomes</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .ibd-hero-art {
+      position: relative;
+      min-height: 21rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 80% 18%, rgba(233, 158, 37, 0.26), transparent 8rem),
+        radial-gradient(circle at 18% 80%, rgba(24, 124, 143, 0.18), transparent 8rem),
+        linear-gradient(145deg, rgba(36, 55, 112, 0.98), rgba(24, 124, 143, 0.88));
+      color: #fff;
+      overflow: hidden;
+      padding: 1rem;
+    }
+    .ibd-hero-art svg {
+      position: absolute;
+      inset: auto -1.1rem -1.2rem auto;
+      width: min(24rem, 84%);
+      height: auto;
+      opacity: 0.9;
+    }
+    .ibd-hero-art .kicker {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+    .ibd-hero-art strong {
+      display: block;
+      margin-top: 0.28rem;
+      max-width: 15rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(2.45rem, 6vw, 5rem);
+      line-height: 0.92;
+    }
+    .ibd-hero-art span {
+      display: block;
+      max-width: 15rem;
+      margin-top: 0.55rem;
+      color: rgba(255, 255, 255, 0.84);
+      font-size: 0.92rem;
+    }
+    .metric-card.good strong { color: var(--teal); }
+    .metric-card.warn strong { color: var(--gold); }
+    .method-band {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 1rem;
+    }
+    .timeline {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.45rem;
+      margin-top: 0.75rem;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 2.1rem;
+      left: 7%;
+      right: 7%;
+      height: 0.18rem;
+      background: linear-gradient(90deg, var(--red), var(--gold), var(--teal), var(--green));
+    }
+    .time-stop {
+      position: relative;
+      z-index: 1;
+      min-height: 8.4rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.72rem;
+    }
+    .time-stop b {
+      display: inline-grid;
+      place-items: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+    }
+    .time-stop h3 {
+      margin-top: 0.52rem;
+      font-size: 0.9rem;
+    }
+    .time-stop p {
+      margin: 0.35rem 0 0;
+      font-size: 0.76rem;
+    }
+    .outcome-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+    .outcome-card {
+      min-width: 0;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--surface);
+      padding: 0.9rem;
+    }
+    .outcome-card header {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      align-items: start;
+      margin-bottom: 0.68rem;
+    }
+    .outcome-card header span {
+      color: var(--muted);
+      font-size: 0.62rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .outcome-card header strong {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2.1rem;
+      line-height: 0.9;
+      white-space: nowrap;
+    }
+    .paired-bars {
+      display: grid;
+      gap: 0.62rem;
+    }
+    .paired-row {
+      display: grid;
+      grid-template-columns: 7.2rem minmax(0, 1fr);
+      gap: 0.55rem;
+      align-items: center;
+    }
+    .paired-row span {
+      color: var(--ink);
+      font-size: 0.76rem;
+      font-weight: 850;
+    }
+    .bar-pair {
+      display: grid;
+      gap: 0.2rem;
+    }
+    .bar-pair i {
+      display: block;
+      height: 0.66rem;
+      border-radius: 999px;
+      background: var(--surface-blue);
+      overflow: hidden;
+    }
+    .bar-pair i::before {
+      content: "";
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: var(--c, var(--red));
+    }
+    .bar-pair small {
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 750;
+    }
+    .factor-board {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+    }
+    .factor-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+    }
+    .factor-card.featured {
+      background:
+        linear-gradient(135deg, rgba(238, 244, 251, 0.94), rgba(255, 255, 255, 0.96)),
+        var(--surface);
+    }
+    .factor-card h3 {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.6rem;
+      align-items: baseline;
+    }
+    .factor-card h3 em {
+      color: var(--red);
+      font-style: normal;
+      font-size: 0.78rem;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+    .factor-card p {
+      margin: 0.5rem 0 0;
+      font-size: 0.84rem;
+    }
+    .split-bar {
+      display: grid;
+      grid-template-columns: var(--a) var(--b);
+      height: 1.2rem;
+      margin-top: 0.7rem;
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 999px;
+      background: var(--surface-blue);
+      overflow: hidden;
+    }
+    .split-bar span:first-child { background: var(--teal); }
+    .split-bar span:last-child { background: rgba(209, 38, 48, 0.72); }
+    .mini-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 0.9rem;
+      margin-top: 0.45rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+    .mini-legend i {
+      display: inline-block;
+      width: 0.64rem;
+      height: 0.64rem;
+      margin-right: 0.25rem;
+      border-radius: 2px;
+      background: var(--teal);
+      vertical-align: -0.04rem;
+    }
+    .mini-legend span:last-child i { background: rgba(209, 38, 48, 0.72); }
+    .takeaway-panel {
+      display: grid;
+      grid-template-columns: 0.75fr 1.25fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .big-conclusion {
+      display: grid;
+      align-content: center;
+      min-height: 13rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--ink);
+      color: #fff;
+      padding: 1rem;
+    }
+    .big-conclusion span {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+    .big-conclusion strong {
+      display: block;
+      margin-top: 0.25rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(2.3rem, 5vw, 4rem);
+      line-height: 0.95;
+    }
+    .big-conclusion p {
+      margin: 0.65rem 0 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.92rem;
+    }
+    .conclusion-list {
+      margin: 0.55rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .conclusion-list li {
+      display: grid;
+      grid-template-columns: 0.8rem minmax(0, 1fr);
+      gap: 0.45rem;
+      margin-top: 0.5rem;
+      font-size: 0.88rem;
+    }
+    .conclusion-list li::before {
+      content: "";
+      width: 0.54rem;
+      height: 0.54rem;
+      margin-top: 0.43rem;
+      border-radius: 50%;
+      background: var(--red);
+    }
+    .source-note {
+      margin: 0.8rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    @media (max-width: 900px) {
+      .method-band,
+      .takeaway-panel,
+      .outcome-grid,
+      .factor-board {
+        grid-template-columns: 1fr;
+      }
+      .timeline {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .timeline::before { display: none; }
+    }
+    @media (max-width: 560px) {
+      .timeline,
+      .paired-row {
+        grid-template-columns: 1fr;
+      }
+      .outcome-card header {
+        display: block;
+      }
+      .outcome-card header strong {
+        display: block;
+        margin-top: 0.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">NASP Infographics</a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/41-OPR41-OR-Poster-AM24_2024.pdf">Poster PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/41-OPR41-OR-Poster-AM24_2024.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">AM24 &bull; OPR41 &bull; 2024</p>
+        <h1>Integrated specialty pharmacy services tracked with better IBD outcome signals.</h1>
+        <p class="hero-summary">This multi-center retrospective analysis evaluated adult and pediatric inflammatory bowel disease patients receiving biologic or small molecule therapy through integrated health system specialty pharmacies from January 2022 through December 2023.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag therapy">Inflammatory bowel disease</li>
+          <li class="tag category">Health system specialty pharmacy</li>
+          <li class="tag">Retrospective observational study</li>
+          <li class="tag">N = 1,373</li>
+        </ul>
+      </div>
+      <aside class="ibd-hero-art" aria-label="Illustration of pharmacy service and IBD outcomes">
+        <p class="kicker">Core finding</p>
+        <strong>69% fewer steroid users</strong>
+        <span>From 312 patients at baseline to 95 at follow-up while mean adherence remained 94.5%.</span>
+        <svg viewBox="0 0 420 320" role="img" aria-label="Abstract intestine and pharmacy pathway illustration">
+          <defs>
+            <linearGradient id="pathGrad" x1="0" x2="1">
+              <stop offset="0" stop-color="#e99e25"/>
+              <stop offset="1" stop-color="#ffffff"/>
+            </linearGradient>
+          </defs>
+          <path d="M70 210 C35 120 90 45 175 72 C230 90 231 145 177 157 C126 168 110 228 161 249 C235 279 323 234 319 162 C316 104 269 68 223 89" fill="none" stroke="rgba(255,255,255,.38)" stroke-width="26" stroke-linecap="round"/>
+          <path d="M70 210 C35 120 90 45 175 72 C230 90 231 145 177 157 C126 168 110 228 161 249 C235 279 323 234 319 162 C316 104 269 68 223 89" fill="none" stroke="url(#pathGrad)" stroke-width="8" stroke-linecap="round"/>
+          <circle cx="72" cy="210" r="20" fill="#d12630"/>
+          <circle cx="319" cy="162" r="20" fill="#4d8a67"/>
+          <path d="M314 150 h10 v8 h8 v10 h-8 v8 h-10 v-8 h-8 v-10 h8z" fill="#fff"/>
+          <path d="M57 205 h30 v10 h-30z" fill="#fff"/>
+          <g fill="none" stroke="rgba(255,255,255,.64)" stroke-width="2">
+            <path d="M198 246 l48 -42"/>
+            <path d="M235 232 l45 -38"/>
+            <path d="M142 80 l39 48"/>
+          </g>
+        </svg>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key study numbers">
+        <div class="metric-card">
+          <span>Patients analyzed</span>
+          <strong>1,373</strong>
+        </div>
+        <div class="metric-card good">
+          <span>Mean PDC adherence</span>
+          <strong>94.5%</strong>
+        </div>
+        <div class="metric-card">
+          <span>Corticosteroid use</span>
+          <strong>-69%</strong>
+        </div>
+        <div class="metric-card warn">
+          <span>Median days on service</span>
+          <strong>428</strong>
+        </div>
+      </section>
+
+      <section class="method-band">
+        <div class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Measure whether embedded specialty pharmacy services are associated with IBD control.</h2>
+          <p>The poster assessed the impact of integrated health system specialty pharmacy services on corticosteroid use, IBD flares, and average pain score after at least four months of HSSP enrollment.</p>
+          <div class="number-cloud">
+            <div class="number-pill">71%<small>Crohn's disease</small></div>
+            <div class="number-pill">29%<small>Ulcerative colitis</small></div>
+            <div class="number-pill">82%<small>Treatment experienced</small></div>
+            <div class="number-pill">77%<small>Steroid-free baseline</small></div>
+          </div>
+        </div>
+        <div class="panel">
+          <p class="section-label">HSSP patient journey</p>
+          <h2>Structured follow-up created repeated clinical touchpoints.</h2>
+          <div class="timeline" aria-label="HSSP IBD patient journey timeline">
+            <article class="time-stop">
+              <b>1</b>
+              <h3>Day 1</h3>
+              <p>Initial assessment at specialty pharmacy enrollment.</p>
+            </article>
+            <article class="time-stop">
+              <b>2</b>
+              <h3>Month 1</h3>
+              <p>First-cycle follow-up with pharmacist and care liaison interaction.</p>
+            </article>
+            <article class="time-stop">
+              <b>3</b>
+              <h3>Months 2-3</h3>
+              <p>Ongoing access, adherence, and symptom support.</p>
+            </article>
+            <article class="time-stop">
+              <b>4</b>
+              <h3>Month 4</h3>
+              <p>Re-assessment captured follow-up outcomes.</p>
+            </article>
+            <article class="time-stop">
+              <b>5</b>
+              <h3>Ongoing</h3>
+              <p>Clinical assessment and monitoring approximately every 10 months.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <p class="section-label">Outcome shifts</p>
+        <h2>Baseline-to-follow-up patterns favored lower steroid use and fewer flares.</h2>
+        <div class="outcome-grid">
+          <article class="outcome-card">
+            <header>
+              <div>
+                <span>Figure 2</span>
+                <h3>Corticosteroid use</h3>
+              </div>
+              <strong>-69%</strong>
+            </header>
+            <div class="paired-bars">
+              <div class="paired-row">
+                <span>Total</span>
+                <div class="bar-pair">
+                  <i style="--w:100%; --c:var(--red);"></i>
+                  <i style="--w:30%; --c:var(--teal);"></i>
+                  <small>312 baseline &rarr; 95 follow-up</small>
+                </div>
+              </div>
+              <div class="paired-row">
+                <span>Naive</span>
+                <div class="bar-pair">
+                  <i style="--w:26%; --c:var(--red);"></i>
+                  <i style="--w:7%; --c:var(--teal);"></i>
+                  <small>81 &rarr; 22</small>
+                </div>
+              </div>
+              <div class="paired-row">
+                <span>Experienced</span>
+                <div class="bar-pair">
+                  <i style="--w:74%; --c:var(--red);"></i>
+                  <i style="--w:23%; --c:var(--teal);"></i>
+                  <small>231 &rarr; 73</small>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="outcome-card">
+            <header>
+              <div>
+                <span>Figure 3</span>
+                <h3>IBD flares</h3>
+              </div>
+              <strong>-62%</strong>
+            </header>
+            <div class="paired-bars">
+              <div class="paired-row">
+                <span>Total</span>
+                <div class="bar-pair">
+                  <i style="--w:100%; --c:var(--red);"></i>
+                  <i style="--w:38%; --c:var(--teal);"></i>
+                  <small>491 baseline &rarr; 186 follow-up</small>
+                </div>
+              </div>
+              <div class="paired-row">
+                <span>Naive</span>
+                <div class="bar-pair">
+                  <i style="--w:25%; --c:var(--red);"></i>
+                  <i style="--w:10%; --c:var(--teal);"></i>
+                  <small>124 &rarr; 47</small>
+                </div>
+              </div>
+              <div class="paired-row">
+                <span>Experienced</span>
+                <div class="bar-pair">
+                  <i style="--w:75%; --c:var(--red);"></i>
+                  <i style="--w:29%; --c:var(--teal);"></i>
+                  <small>367 &rarr; 140</small>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="outcome-card">
+            <header>
+              <div>
+                <span>Figure 4</span>
+                <h3>Average pain score</h3>
+              </div>
+              <strong>-16%</strong>
+            </header>
+            <div class="paired-bars">
+              <div class="paired-row">
+                <span>Total</span>
+                <div class="bar-pair">
+                  <i style="--w:70%; --c:var(--red);"></i>
+                  <i style="--w:59%; --c:var(--teal);"></i>
+                  <small>1.9 baseline &rarr; 1.6 follow-up</small>
+                </div>
+              </div>
+              <div class="paired-row">
+                <span>Naive</span>
+                <div class="bar-pair">
+                  <i style="--w:81%; --c:var(--red);"></i>
+                  <i style="--w:100%; --c:var(--gold);"></i>
+                  <small>2.2 &rarr; 2.7</small>
+                </div>
+              </div>
+              <div class="paired-row">
+                <span>Experienced</span>
+                <div class="bar-pair">
+                  <i style="--w:67%; --c:var(--red);"></i>
+                  <i style="--w:56%; --c:var(--teal);"></i>
+                  <small>1.8 &rarr; 1.5</small>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="factor-board">
+        <article class="factor-card featured">
+          <p class="section-label">Associated factors</p>
+          <h2>Baseline control was the strongest visual signal.</h2>
+          <p>Steroid-free patients at baseline were more likely to maintain positive steroid outcomes, while symptom-free patients at baseline were more likely to maintain positive flare and pain outcomes at follow-up.</p>
+          <div class="number-cloud">
+            <div class="number-pill">2.115<small>Steroid-free baseline coefficient</small></div>
+            <div class="number-pill">0.940<small>Symptom-free flare coefficient</small></div>
+            <div class="number-pill">1.845<small>Symptom-free pain coefficient</small></div>
+          </div>
+        </article>
+        <article class="factor-card">
+          <p class="section-label">Population mix</p>
+          <h2>Large real-world HSSP cohort.</h2>
+          <div class="split-bar" style="--a:71%; --b:29%;" aria-label="Diagnosis split: 71 percent Crohn's disease, 29 percent ulcerative colitis">
+            <span></span><span></span>
+          </div>
+          <div class="mini-legend">
+            <span><i></i>Crohn's disease 975 (71%)</span>
+            <span><i></i>Ulcerative colitis 398 (29%)</span>
+          </div>
+          <div class="split-bar" style="--a:82%; --b:18%;" aria-label="Treatment status split: 82 percent experienced, 18 percent naive">
+            <span></span><span></span>
+          </div>
+          <div class="mini-legend">
+            <span><i></i>Treatment experienced 1,119 (82%)</span>
+            <span><i></i>Treatment naive 254 (18%)</span>
+          </div>
+          <p class="source-note">Other table patterns: 87% were younger than 65, 46% had commercial insurance, and 38% had a $0 copay.</p>
+        </article>
+      </section>
+
+      <section class="takeaway-panel">
+        <aside class="big-conclusion">
+          <span>Conclusion</span>
+          <strong>Signals of sustained disease control</strong>
+          <p>Reduced corticosteroid use, fewer flares, lower average pain, and high adherence support the potential value of integrated HSSP care for IBD.</p>
+        </aside>
+        <div class="panel">
+          <p class="section-label">Interpretation</p>
+          <h2>The study frames HSSP care as both access support and longitudinal disease monitoring.</h2>
+          <ul class="conclusion-list">
+            <li>Patients enrolled in HSSP services demonstrated clinically meaningful reductions in corticosteroid use, IBD flares, and average pain score.</li>
+            <li>The 94.5% mean PDC suggests a consistent adherence signal for specialty therapies delivered through the HSSP model.</li>
+            <li>Baseline steroid-free and symptom-free status were associated with positive follow-up outcomes, but the poster notes that additional analysis is needed to identify contributing factors.</li>
+            <li>Lower steroid exposure may help mitigate risks associated with long-term corticosteroid use while supporting improved quality of life.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/41-OPR41-OR-Poster-AM24_2024.pdf">Open source PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/41-OPR41-OR-Poster-AM24_2024.md">Open source markdown</a>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

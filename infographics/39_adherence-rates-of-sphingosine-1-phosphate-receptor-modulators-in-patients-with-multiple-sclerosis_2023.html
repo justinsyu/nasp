@@ -1,0 +1,689 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Adherence Rates of S1P Receptor Modulators in Multiple Sclerosis | NASP 2023</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card.adherence-pulse {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 20% 15%, rgba(24, 124, 143, 0.22), transparent 7rem),
+        radial-gradient(circle at 88% 78%, rgba(233, 158, 37, 0.22), transparent 8rem),
+        linear-gradient(150deg, #ffffff 0%, var(--surface-blue) 56%, var(--surface-warm) 100%);
+    }
+
+    .hero-card.adherence-pulse svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .finding-line {
+      margin: 0;
+      border-left: 4px solid var(--red);
+      padding-left: 0.75rem;
+      color: var(--ink);
+      font-size: 1rem;
+      font-weight: 850;
+    }
+
+    .metric-card strong.teal { color: var(--teal); }
+    .metric-card strong.gold { color: var(--gold); }
+    .metric-card strong.green { color: var(--green); }
+
+    .cohort-board {
+      display: grid;
+      grid-template-columns: minmax(16rem, 0.72fr) minmax(0, 1.28fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .cohort-ring {
+      display: grid;
+      gap: 0.85rem;
+      align-content: center;
+      min-height: 19rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--ink);
+      color: #fff;
+      padding: 1rem;
+    }
+
+    .cohort-ring svg {
+      display: block;
+      width: min(15rem, 100%);
+      height: auto;
+      margin: 0 auto;
+    }
+
+    .ring-caption {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.55rem;
+    }
+
+    .ring-caption div {
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 7px;
+      padding: 0.55rem;
+    }
+
+    .ring-caption strong {
+      display: block;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+
+    .ring-caption span {
+      display: block;
+      margin-top: 0.2rem;
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 0.68rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .comparison-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 1rem;
+    }
+
+    .paired-bars {
+      display: grid;
+      gap: 0.76rem;
+      margin-top: 0.85rem;
+    }
+
+    .paired-row {
+      display: grid;
+      grid-template-columns: 8.2rem minmax(0, 1fr) 6.2rem;
+      gap: 0.65rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 850;
+    }
+
+    .paired-row em {
+      color: var(--muted);
+      font-style: normal;
+      font-weight: 850;
+      text-align: right;
+    }
+
+    .double-track {
+      display: grid;
+      gap: 0.22rem;
+    }
+
+    .double-track i {
+      display: block;
+      height: 0.62rem;
+      border-radius: 999px;
+      background: var(--teal);
+    }
+
+    .double-track i.oot {
+      background: rgba(209, 38, 48, 0.74);
+    }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem 0.9rem;
+      margin-top: 0.75rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 850;
+    }
+
+    .legend i {
+      display: inline-block;
+      width: 0.7rem;
+      height: 0.7rem;
+      margin-right: 0.25rem;
+      border-radius: 2px;
+      vertical-align: -0.08rem;
+      background: var(--teal);
+    }
+
+    .legend .oot-dot { background: rgba(209, 38, 48, 0.74); }
+
+    .study-path {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .path-card {
+      position: relative;
+      min-height: 12.2rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.9rem;
+      overflow: hidden;
+    }
+
+    .path-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 0.34rem;
+      background: var(--path-color, var(--red));
+    }
+
+    .path-card:nth-child(2) { --path-color: var(--gold); }
+    .path-card:nth-child(3) { --path-color: var(--teal); }
+    .path-card:nth-child(4) { --path-color: var(--green); }
+    .path-card:nth-child(5) { --path-color: var(--purple); }
+
+    .path-card b {
+      display: inline-grid;
+      place-items: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 999px;
+      background: var(--surface-blue);
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+    }
+
+    .path-card h3 {
+      margin-top: 0.6rem;
+    }
+
+    .path-card p {
+      margin: 0.45rem 0 0;
+      font-size: 0.83rem;
+    }
+
+    .signal-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .forest-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 1rem;
+    }
+
+    .forest-card svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-top: 0.55rem;
+    }
+
+    .new-user-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 1rem;
+    }
+
+    .new-user-stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+
+    .new-user-stats div {
+      border: 1px solid rgba(174, 187, 210, 0.86);
+      border-radius: 7px;
+      background: var(--surface-blue);
+      padding: 0.75rem;
+    }
+
+    .new-user-stats strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2.1rem;
+      line-height: 1;
+    }
+
+    .new-user-stats span {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--ink);
+      font-size: 0.76rem;
+      font-weight: 850;
+    }
+
+    .table-mini th,
+    .table-mini td {
+      font-size: 0.76rem;
+    }
+
+    .takeaway-panel {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(24, 124, 143, 0.12), transparent 42%),
+        #fff;
+    }
+
+    .takeaway-panel p {
+      margin: 0;
+      color: var(--ink);
+      font-size: 1rem;
+      font-weight: 850;
+    }
+
+    .source-note {
+      margin: 0.7rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 900px) {
+      .cohort-board,
+      .signal-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .study-path {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .paired-row {
+        grid-template-columns: 1fr;
+      }
+
+      .paired-row em {
+        text-align: left;
+      }
+
+      .study-path,
+      .ring-caption,
+      .new-user-stats {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source navigation">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/39_Adherence-Rates-of-Sphingosine-1-Phosphate-Receptor-Modulators-in-Patients-with-Multiple-Sclerosis_2023.pdf">PDF Source</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/39_Adherence-Rates-of-Sphingosine-1-Phosphate-Receptor-Modulators-in-Patients-with-Multiple-Sclerosis_2023.md">Markdown Source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP Annual Meeting 2023 | Multiple sclerosis | CVS Specialty</p>
+        <h1>Adherence Rates of Sphingosine-1-Phosphate Receptor Modulators in Patients with Multiple Sclerosis</h1>
+        <p class="hero-summary">A retrospective claims cohort asked whether oral S1P receptor modulators produced better medication adherence than other oral MS disease-modifying therapies.</p>
+        <p class="finding-line">Main finding: adherence was high across oral therapies, and S1PRM patients did not have significantly different PDC or adherence than OOT patients.</p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Retrospective cohort</li>
+          <li class="tag therapy">S1PRM vs OOT</li>
+          <li class="tag">Commercial + Medicare</li>
+          <li class="tag">PDC &ge; 0.8 adherence threshold</li>
+        </ul>
+      </div>
+      <aside class="hero-card adherence-pulse" aria-label="Poster metadata and visual summary">
+        <div class="poster-code">39</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Year</dt>
+            <dd>2023</dd>
+          </div>
+          <div>
+            <dt>Cohort</dt>
+            <dd>1,420 adults</dd>
+          </div>
+          <div>
+            <dt>Index Window</dt>
+            <dd>4/15/21-4/15/23</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>US national payor</dd>
+          </div>
+        </dl>
+        <svg viewBox="0 0 420 240" role="img" aria-label="High overlapping adherence profile for S1PRM and other oral therapy cohorts">
+          <defs>
+            <linearGradient id="s1pLine" x1="0" x2="1">
+              <stop offset="0" stop-color="#187c8f"/>
+              <stop offset="1" stop-color="#4d8a67"/>
+            </linearGradient>
+            <linearGradient id="ootLine" x1="0" x2="1">
+              <stop offset="0" stop-color="#d12630"/>
+              <stop offset="1" stop-color="#e99e25"/>
+            </linearGradient>
+          </defs>
+          <rect x="18" y="28" width="384" height="166" rx="12" fill="rgba(255,255,255,.72)" stroke="#aebbd2"/>
+          <line x1="50" y1="158" x2="370" y2="158" stroke="#d9e1ef" stroke-width="2"/>
+          <line x1="50" y1="118" x2="370" y2="118" stroke="#d9e1ef" stroke-width="2"/>
+          <line x1="50" y1="78" x2="370" y2="78" stroke="#d9e1ef" stroke-width="2"/>
+          <path d="M50 154 C105 142, 139 100, 184 79 S278 68, 370 70" fill="none" stroke="url(#s1pLine)" stroke-width="10" stroke-linecap="round"/>
+          <path d="M50 158 C112 147, 145 107, 188 83 S274 74, 370 75" fill="none" stroke="url(#ootLine)" stroke-width="7" stroke-linecap="round" opacity=".86"/>
+          <circle cx="305" cy="72" r="30" fill="#243770"/>
+          <text x="305" y="68" text-anchor="middle" fill="#fff" font-family="Montserrat, Arial" font-size="22" font-weight="900">~99%</text>
+          <text x="305" y="88" text-anchor="middle" fill="#fff" font-family="Inter, Arial" font-size="10" font-weight="800">median PDC</text>
+          <text x="50" y="214" fill="#243770" font-family="Inter, Arial" font-size="12" font-weight="800">Early coverage</text>
+          <text x="283" y="214" fill="#243770" font-family="Inter, Arial" font-size="12" font-weight="800">Sustained coverage</text>
+          <circle cx="56" cy="20" r="5" fill="#187c8f"/>
+          <text x="68" y="24" fill="#243770" font-family="Inter, Arial" font-size="12" font-weight="850">S1PRM</text>
+          <circle cx="132" cy="20" r="5" fill="#d12630"/>
+          <text x="144" y="24" fill="#243770" font-family="Inter, Arial" font-size="12" font-weight="850">OOT</text>
+        </svg>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key study metrics">
+        <article class="metric-card">
+          <span>Total patients</span>
+          <strong>1,420</strong>
+        </article>
+        <article class="metric-card">
+          <span>S1PRM share</span>
+          <strong class="teal">37.2%</strong>
+        </article>
+        <article class="metric-card">
+          <span>Overall adherent</span>
+          <strong class="green">87.1%</strong>
+        </article>
+        <article class="metric-card">
+          <span>Median PDC overall</span>
+          <strong class="gold">0.987</strong>
+        </article>
+      </section>
+
+      <section class="cohort-board" aria-labelledby="cohort-title">
+        <div class="cohort-ring">
+          <p class="section-label">Cohort mix</p>
+          <h2 id="cohort-title" style="color:#fff;">Two oral therapy groups, similar baseline profile</h2>
+          <svg viewBox="0 0 220 220" role="img" aria-label="Donut chart showing 892 OOT patients and 528 S1PRM patients">
+            <circle cx="110" cy="110" r="82" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="34"/>
+            <circle cx="110" cy="110" r="82" fill="none" stroke="#d12630" stroke-width="34" stroke-dasharray="324 515" stroke-dashoffset="0" transform="rotate(-90 110 110)"/>
+            <circle cx="110" cy="110" r="82" fill="none" stroke="#187c8f" stroke-width="34" stroke-dasharray="191 515" stroke-dashoffset="-324" transform="rotate(-90 110 110)"/>
+            <circle cx="110" cy="110" r="48" fill="#243770"/>
+            <text x="110" y="105" text-anchor="middle" fill="#fff" font-family="Montserrat, Arial" font-size="24" font-weight="900">1,420</text>
+            <text x="110" y="126" text-anchor="middle" fill="rgba(255,255,255,.78)" font-family="Inter, Arial" font-size="11" font-weight="800">patients</text>
+          </svg>
+          <div class="ring-caption">
+            <div>
+              <strong>892</strong>
+              <span>OOT | 62.8%</span>
+            </div>
+            <div>
+              <strong>528</strong>
+              <span>S1PRM | 37.2%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="comparison-card">
+          <p class="section-label">Primary adherence comparison</p>
+          <h2>S1PRM and OOT curves nearly overlap on PDC and adherence</h2>
+          <div class="paired-bars" aria-label="Primary outcomes comparing S1PRM and OOT">
+            <div class="paired-row">
+              <span>Median PDC</span>
+              <span class="double-track">
+                <i style="width:98.9%"></i>
+                <i class="oot" style="width:98.6%"></i>
+              </span>
+              <em>0.989 vs 0.986</em>
+            </div>
+            <div class="paired-row">
+              <span>Mean PDC</span>
+              <span class="double-track">
+                <i style="width:93%"></i>
+                <i class="oot" style="width:91.8%"></i>
+              </span>
+              <em>0.930 vs 0.918</em>
+            </div>
+            <div class="paired-row">
+              <span>Adherent</span>
+              <span class="double-track">
+                <i style="width:88.3%"></i>
+                <i class="oot" style="width:86.4%"></i>
+              </span>
+              <em>88.3% vs 86.4%</em>
+            </div>
+            <div class="paired-row">
+              <span>New starts</span>
+              <span class="double-track">
+                <i style="width:15%"></i>
+                <i class="oot" style="width:21.5%"></i>
+              </span>
+              <em>15.0% vs 21.5%</em>
+            </div>
+          </div>
+          <div class="legend" aria-label="Bar legend">
+            <span><i></i>S1PRM</span>
+            <span><i class="oot-dot"></i>Other oral therapies</span>
+          </div>
+          <p class="source-note">PDC and adherence differences were not statistically significant; new medication starts were more common among OOT patients (p = 0.003).</p>
+        </div>
+      </section>
+
+      <section aria-labelledby="path-title">
+        <p class="section-label">Evidence flow</p>
+        <h2 id="path-title">How the poster moved from claims to conclusion</h2>
+        <div class="study-path">
+          <article class="path-card">
+            <b>1</b>
+            <h3>Population</h3>
+            <p>Adults with MS in fully insured commercial or Medicare data from a large US payor.</p>
+          </article>
+          <article class="path-card">
+            <b>2</b>
+            <h3>Exposure</h3>
+            <p>Oral S1P receptor modulators compared with other oral MS disease-modifying therapies.</p>
+          </article>
+          <article class="path-card">
+            <b>3</b>
+            <h3>Filters</h3>
+            <p>Excluded class switchers, cladribine users, and patients with less than 6 months of eligibility.</p>
+          </article>
+          <article class="path-card">
+            <b>4</b>
+            <h3>Measure</h3>
+            <p>Medication adherence was assessed by proportion of days covered; optimal adherence used PDC &ge; 0.8.</p>
+          </article>
+          <article class="path-card">
+            <b>5</b>
+            <h3>Validation</h3>
+            <p>A secondary analysis repeated the comparison in newly initiated patients only.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="signal-grid" aria-label="Adjusted odds and newly initiated patients">
+        <article class="forest-card">
+          <p class="section-label">Adjusted signal</p>
+          <h2>Logistic regression showed no clear adherence advantage for S1PRM</h2>
+          <svg viewBox="0 0 620 330" role="img" aria-label="Simplified forest plot of selected odds ratios">
+            <line x1="148" y1="40" x2="148" y2="286" stroke="#d9e1ef" stroke-width="2"/>
+            <line x1="300" y1="40" x2="300" y2="286" stroke="#243770" stroke-width="2"/>
+            <line x1="520" y1="40" x2="520" y2="286" stroke="#d9e1ef" stroke-width="2"/>
+            <text x="300" y="24" text-anchor="middle" fill="#243770" font-family="Inter, Arial" font-size="12" font-weight="900">OR 1.0</text>
+            <text x="148" y="306" text-anchor="middle" fill="#68758d" font-family="Inter, Arial" font-size="11" font-weight="800">Lower odds</text>
+            <text x="520" y="306" text-anchor="middle" fill="#68758d" font-family="Inter, Arial" font-size="11" font-weight="800">Higher odds</text>
+            <g font-family="Inter, Arial" font-size="13" font-weight="850" fill="#243770">
+              <text x="24" y="70">S1PRM</text>
+              <text x="24" y="116">Male gender</text>
+              <text x="24" y="162">Age/year</text>
+              <text x="24" y="208">New start</text>
+              <text x="24" y="254">South Atlantic</text>
+            </g>
+            <g stroke-linecap="round" stroke-width="8">
+              <line x1="258" y1="66" x2="398" y2="66" stroke="#187c8f"/>
+              <line x1="247" y1="112" x2="368" y2="112" stroke="#7561a8"/>
+              <line x1="306" y1="158" x2="322" y2="158" stroke="#4d8a67"/>
+              <line x1="270" y1="204" x2="430" y2="204" stroke="#e99e25"/>
+              <line x1="230" y1="250" x2="320" y2="250" stroke="#d12630"/>
+            </g>
+            <g fill="#fff" stroke="#243770" stroke-width="2">
+              <circle cx="324" cy="66" r="7"/>
+              <circle cx="294" cy="112" r="7"/>
+              <circle cx="306" cy="158" r="7"/>
+              <circle cx="345" cy="204" r="7"/>
+              <circle cx="252" cy="250" r="7"/>
+            </g>
+            <g font-family="Inter, Arial" font-size="12" font-weight="850" fill="#68758d">
+              <text x="415" y="70">1.21 (0.87, 1.69)</text>
+              <text x="385" y="116">0.96 (0.67, 1.37)</text>
+              <text x="335" y="162">1.02 (1.01, 1.04)</text>
+              <text x="447" y="208">1.37 (0.90, 2.09)</text>
+              <text x="337" y="254">0.68 (0.38, 1.22)</text>
+            </g>
+          </svg>
+          <p class="source-note">Most selected confidence intervals cross 1.0; age per year was the narrow adjusted signal above 1.0 in the forest plot.</p>
+        </article>
+
+        <article class="new-user-card">
+          <p class="section-label">Secondary cohort</p>
+          <h2>Newly initiated patients told the same story</h2>
+          <p>Among 271 patients with no prescription claims in the 6 months before initial fill, adherence remained high and differences between S1PRM and OOT were not significant.</p>
+          <div class="new-user-stats">
+            <div>
+              <strong>91.1%</strong>
+              <span>S1PRM adherent, new users</span>
+            </div>
+            <div>
+              <strong>87.5%</strong>
+              <span>OOT adherent, new users</span>
+            </div>
+            <div>
+              <strong>0.985</strong>
+              <span>S1PRM median PDC</span>
+            </div>
+            <div>
+              <strong>0.992</strong>
+              <span>OOT median PDC</span>
+            </div>
+          </div>
+          <p class="source-note">Secondary p-values: adherence p = 0.519; median PDC p = 0.808.</p>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Condensed table patterns">
+        <article class="table-card">
+          <p class="section-label">Baseline pattern</p>
+          <h2>Groups were broadly similar demographically</h2>
+          <div class="table-wrap">
+            <table class="table-mini">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>OOT</th>
+                  <th>S1PRM</th>
+                  <th>p-value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Male gender</td>
+                  <td>219 (24.6%)</td>
+                  <td>148 (28.0%)</td>
+                  <td>0.166</td>
+                </tr>
+                <tr>
+                  <td>Age, mean (SD)</td>
+                  <td>48.0 (11.4)</td>
+                  <td>47.8 (10.5)</td>
+                  <td>0.756</td>
+                </tr>
+                <tr>
+                  <td>Covered months, mean (SD)</td>
+                  <td>38.8 (9.7)</td>
+                  <td>38.2 (9.9)</td>
+                  <td>0.260</td>
+                </tr>
+                <tr>
+                  <td>New medication start</td>
+                  <td>192 (21.5%)</td>
+                  <td>79 (15.0%)</td>
+                  <td>0.003</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Adherence pattern</p>
+          <h2>Coverage days differed, but adherence thresholds did not</h2>
+          <div class="table-wrap">
+            <table class="table-mini">
+              <thead>
+                <tr>
+                  <th>Metric</th>
+                  <th>OOT</th>
+                  <th>S1PRM</th>
+                  <th>p-value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Days covered, mean (SD)</td>
+                  <td>366.5 (211.6)</td>
+                  <td>395.8 (208.1)</td>
+                  <td>0.011</td>
+                </tr>
+                <tr>
+                  <td>Eligible days, mean (SD)</td>
+                  <td>401.5 (219.7)</td>
+                  <td>428.6 (217.0)</td>
+                  <td>0.024</td>
+                </tr>
+                <tr>
+                  <td>Median PDC [Q1, Q3]</td>
+                  <td>0.986 [0.899, 1.0]</td>
+                  <td>0.989 [0.912, 1.0]</td>
+                  <td>0.284</td>
+                </tr>
+                <tr>
+                  <td>Adherent, n (%)</td>
+                  <td>771 (86.4%)</td>
+                  <td>466 (88.3%)</td>
+                  <td>0.363</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel takeaway-panel" aria-labelledby="conclusion-title">
+        <p class="section-label">Conclusion</p>
+        <h2 id="conclusion-title">High adherence, no meaningful separation by oral therapy class</h2>
+        <p>No differences in PDC or adherence were found between patients prescribed S1PRMs and those prescribed other oral therapies, and the conclusion was consistent in newly initiated patients.</p>
+      </section>
+    </main>
+
+    <footer class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/39_Adherence-Rates-of-Sphingosine-1-Phosphate-Receptor-Modulators-in-Patients-with-Multiple-Sclerosis_2023.pdf">Open original PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/39_Adherence-Rates-of-Sphingosine-1-Phosphate-Receptor-Modulators-in-Patients-with-Multiple-Sclerosis_2023.md">Open extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

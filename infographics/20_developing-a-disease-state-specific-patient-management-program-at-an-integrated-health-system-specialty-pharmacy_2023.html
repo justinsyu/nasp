@@ -1,0 +1,840 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>20-2023 | Disease-State Specific Patient Management Program</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 86% 8%, rgba(24, 124, 143, 0.2), transparent 8rem),
+        radial-gradient(circle at 12% 88%, rgba(233, 158, 37, 0.2), transparent 7rem),
+        linear-gradient(145deg, var(--surface-blue), #fff 54%, var(--surface-warm));
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -3.8rem;
+      bottom: -5rem;
+      width: 15rem;
+      height: 15rem;
+      border: 1.1rem solid rgba(36, 55, 112, 0.08);
+      border-radius: 50%;
+    }
+
+    .hero-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-diagram {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 0.1rem;
+    }
+
+    .module-stack {
+      display: grid;
+      gap: 0.45rem;
+      min-height: 12.2rem;
+      padding: 0.75rem;
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.78);
+      box-shadow: 0 18px 34px rgba(36, 55, 112, 0.13);
+    }
+
+    .module-sheet {
+      display: grid;
+      grid-template-columns: 2.2rem minmax(0, 1fr) 3.3rem;
+      gap: 0.55rem;
+      align-items: center;
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-left: 0.3rem solid var(--accent, var(--red));
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.48rem 0.55rem;
+    }
+
+    .module-sheet:nth-child(2) { --accent: var(--gold); }
+    .module-sheet:nth-child(3) { --accent: var(--teal); }
+    .module-sheet:nth-child(4) { --accent: var(--green); }
+
+    .module-icon {
+      display: grid;
+      place-items: center;
+      width: 2.2rem;
+      height: 2.2rem;
+      border-radius: 7px;
+      background: rgba(36, 55, 112, 0.08);
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      font-weight: 900;
+    }
+
+    .module-sheet b,
+    .module-sheet span {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .module-sheet b {
+      color: var(--ink);
+      font-size: 0.8rem;
+    }
+
+    .module-sheet span {
+      color: var(--muted);
+      font-size: 0.64rem;
+      font-weight: 850;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .module-count {
+      color: var(--accent, var(--red));
+      font-family: var(--font-display);
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .hero-mini {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.55rem;
+    }
+
+    .hero-mini div {
+      border: 1px solid rgba(174, 187, 210, 0.82);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.78);
+      padding: 0.65rem;
+    }
+
+    .hero-mini strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      line-height: 1;
+    }
+
+    .hero-mini span {
+      display: block;
+      margin-top: 0.2rem;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .metric-card p {
+      margin: 0.35rem 0 0;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 750;
+    }
+
+    .thesis-band {
+      display: grid;
+      grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .big-claim {
+      display: grid;
+      align-content: center;
+      min-height: 15rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 88% 14%, rgba(233, 158, 37, 0.25), transparent 8rem),
+        linear-gradient(145deg, var(--ink), #1d2a58);
+      padding: 1.15rem;
+      color: #fff;
+    }
+
+    .big-claim span {
+      color: rgba(255, 255, 255, 0.74);
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .big-claim strong {
+      margin-top: 0.28rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(3.4rem, 8vw, 5.8rem);
+      line-height: 0.86;
+    }
+
+    .big-claim p {
+      margin: 0.72rem 0 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.95rem;
+    }
+
+    .timeline-panel {
+      background:
+        linear-gradient(90deg, rgba(238, 244, 251, 0.9), rgba(255, 255, 255, 0.92)),
+        repeating-linear-gradient(90deg, rgba(36, 55, 112, 0.06) 0 1px, transparent 1px 4rem);
+    }
+
+    .timeline-svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-top: 0.55rem;
+    }
+
+    .timeline-note {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 750;
+    }
+
+    .factory-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+
+    .factory-card {
+      position: relative;
+      min-height: 15rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.9rem;
+      overflow: hidden;
+    }
+
+    .factory-card::before {
+      content: attr(data-step);
+      display: inline-grid;
+      place-items: center;
+      width: 2rem;
+      height: 2rem;
+      margin-bottom: 0.65rem;
+      border-radius: 50%;
+      background: var(--accent, var(--red));
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 900;
+    }
+
+    .factory-card:nth-child(2) { --accent: var(--teal); }
+    .factory-card:nth-child(3) { --accent: var(--green); }
+
+    .factory-card ul,
+    .template-list,
+    .chip-list {
+      margin: 0.58rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .factory-card li,
+    .template-list li {
+      margin-top: 0.36rem;
+      border-left: 3px solid rgba(36, 55, 112, 0.22);
+      padding-left: 0.55rem;
+      color: var(--body);
+      font-size: 0.82rem;
+    }
+
+    .ehr-map {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 4.5rem minmax(0, 1fr);
+      gap: 0.75rem;
+      align-items: center;
+      margin-top: 0.75rem;
+    }
+
+    .map-column {
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+    }
+
+    .map-column h3 {
+      margin-bottom: 0.55rem;
+    }
+
+    .map-node {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.55rem;
+      border: 1px solid rgba(174, 187, 210, 0.75);
+      border-radius: 7px;
+      background: var(--surface-blue);
+      padding: 0.5rem 0.6rem;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+
+    .map-node + .map-node {
+      margin-top: 0.42rem;
+    }
+
+    .map-node b {
+      color: var(--red);
+      font-family: var(--font-display);
+    }
+
+    .map-connector {
+      display: grid;
+      place-items: center;
+      min-height: 7rem;
+      color: var(--ink);
+    }
+
+    .map-connector svg {
+      width: 100%;
+      height: auto;
+      max-width: 4.5rem;
+    }
+
+    .table-card.accent {
+      background:
+        radial-gradient(circle at 100% 0%, rgba(209, 38, 48, 0.08), transparent 9rem),
+        #fff;
+    }
+
+    .compact-table td:last-child,
+    .compact-table th:last-child {
+      text-align: right;
+    }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+
+    .tool-card {
+      border: 1px solid rgba(174, 187, 210, 0.82);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.8rem;
+    }
+
+    .tool-card strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+    }
+
+    .chip-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.38rem;
+      margin-top: 0.6rem;
+    }
+
+    .chip-list li {
+      border: 1px solid rgba(24, 124, 143, 0.3);
+      border-radius: 999px;
+      background: var(--surface-blue);
+      color: var(--teal);
+      padding: 0.2rem 0.44rem;
+      font-size: 0.68rem;
+      font-weight: 850;
+    }
+
+    .oncology-list {
+      columns: 2;
+      column-gap: 1rem;
+      margin: 0.65rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .oncology-list li {
+      break-inside: avoid;
+      margin: 0 0 0.32rem;
+      border-bottom: 1px solid rgba(174, 187, 210, 0.55);
+      padding-bottom: 0.32rem;
+      color: var(--body);
+      font-size: 0.78rem;
+    }
+
+    .conclusion-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+      gap: 1rem;
+      align-items: stretch;
+      border-color: var(--ink);
+      background:
+        radial-gradient(circle at 90% 18%, rgba(209, 38, 48, 0.12), transparent 8rem),
+        #fff;
+    }
+
+    .callout-quote {
+      display: grid;
+      align-content: center;
+      border-left: 0.36rem solid var(--red);
+      padding-left: 1rem;
+    }
+
+    .callout-quote p {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.38rem, 2.8vw, 2.25rem);
+      font-weight: 850;
+      line-height: 1.08;
+    }
+
+    .takeaway-list {
+      display: grid;
+      gap: 0.55rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .takeaway-list li {
+      border: 1px solid rgba(174, 187, 210, 0.75);
+      border-radius: 7px;
+      background: var(--surface-blue);
+      padding: 0.62rem 0.7rem;
+      color: var(--body);
+      font-size: 0.86rem;
+      font-weight: 750;
+    }
+
+    .source-line {
+      margin: 0.65rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+
+    @media (max-width: 980px) {
+      .thesis-band,
+      .conclusion-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .factory-grid,
+      .tool-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .ehr-map {
+        grid-template-columns: 1fr;
+      }
+
+      .map-connector {
+        min-height: 2.7rem;
+        transform: rotate(90deg);
+      }
+
+      .oncology-list {
+        columns: 1;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero-mini {
+        grid-template-columns: 1fr;
+      }
+
+      .module-sheet {
+        grid-template-columns: 2.2rem minmax(0, 1fr);
+      }
+
+      .module-count {
+        grid-column: 1 / -1;
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/20_Developing-a-disease-state-specific-patient-management-program-at-an-integrated-health-system-specialty-pharmacy_2023.pdf">PDF Source</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/20_Developing-a-disease-state-specific-patient-management-program-at-an-integrated-health-system-specialty-pharmacy_2023.md">Markdown Source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP Annual Meeting &amp; Expo 2023 | Poster 20</p>
+        <h1>Developing a disease-state specific patient management program at an integrated health system specialty pharmacy</h1>
+        <p class="hero-summary">
+          Yale New Haven Health Outpatient Pharmacy Services created a repeatable module-building process so a specialty pharmacy patient management program could scale from broad workflows to condition-specific care pathways.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Patient management program</li>
+          <li class="tag therapy">Health system specialty pharmacy</li>
+          <li class="tag">Disease-state modules</li>
+          <li class="tag">EHR care management</li>
+          <li class="tag">Accreditation support</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div class="poster-code">20-2023</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Organization</dt>
+            <dd>Yale New Haven Health</dd>
+          </div>
+          <div>
+            <dt>Program</dt>
+            <dd>Outpatient Pharmacy Services</dd>
+          </div>
+          <div>
+            <dt>Core asset</dt>
+            <dd>PMP disease modules</dd>
+          </div>
+          <div>
+            <dt>Authors</dt>
+            <dd>Riccardi, Tong, Cooperman, Wright, Rubino, Do, Sawant</dd>
+          </div>
+        </dl>
+
+        <div class="hero-diagram" aria-hidden="true">
+          <div class="module-stack">
+            <div class="module-sheet">
+              <div class="module-icon">PMP</div>
+              <div><b>Standard operating procedure</b><span>Best-practice workflow</span></div>
+              <div class="module-count">50</div>
+            </div>
+            <div class="module-sheet">
+              <div class="module-icon">EDU</div>
+              <div><b>In-service presentation</b><span>Staff training resource</span></div>
+              <div class="module-count">85</div>
+            </div>
+            <div class="module-sheet">
+              <div class="module-icon">QA</div>
+              <div><b>Learning assessment</b><span>Annual committee review</span></div>
+              <div class="module-count">10</div>
+            </div>
+            <div class="module-sheet">
+              <div class="module-icon">EHR</div>
+              <div><b>Episode mapping</b><span>Clinical documentation support</span></div>
+              <div class="module-count">85</div>
+            </div>
+          </div>
+          <div class="hero-mini">
+            <div><strong>2019 to 2023</strong><span>Module growth period</span></div>
+            <div><strong>URAC + ACHC</strong><span>Accreditation alignment</span></div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key program metrics">
+        <article class="metric-card">
+          <span>PMP modules in 2019</span>
+          <strong>10</strong>
+          <p>Baseline before the disease-state module initiative matured.</p>
+        </article>
+        <article class="metric-card">
+          <span>PMP modules in 2023</span>
+          <strong>50</strong>
+          <p>Fivefold growth in standardized program modules.</p>
+        </article>
+        <article class="metric-card">
+          <span>Disease states managed</span>
+          <strong>85</strong>
+          <p>Current OPS disease-state coverage after EHR redesign.</p>
+        </article>
+        <article class="metric-card">
+          <span>Screening tools</span>
+          <strong>10</strong>
+          <p>Clinical instruments embedded across module workflows.</p>
+        </article>
+      </section>
+
+      <section class="thesis-band" aria-labelledby="objective-heading">
+        <div class="big-claim">
+          <span>Objective</span>
+          <strong>Standardize scale</strong>
+          <p id="objective-heading">Create a repeatable HSSP patient management program development approach that can address the diversity and unique needs of specialty conditions.</p>
+        </div>
+
+        <div class="panel timeline-panel">
+          <p class="section-label">Results timeline</p>
+          <h2>Module development accelerated when the process became repeatable.</h2>
+          <svg class="timeline-svg" viewBox="0 0 820 270" role="img" aria-labelledby="timeline-title timeline-desc">
+            <title id="timeline-title">PMP module growth timeline</title>
+            <desc id="timeline-desc">PMP modules increased from 10 in 2019 to 50 in 2023, with 41 modules created in 2021 and EHR redesign supporting 85 disease states.</desc>
+            <defs>
+              <linearGradient id="growthGradient" x1="0" x2="1" y1="0" y2="0">
+                <stop offset="0%" stop-color="#d12630"></stop>
+                <stop offset="52%" stop-color="#e99e25"></stop>
+                <stop offset="100%" stop-color="#187c8f"></stop>
+              </linearGradient>
+              <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#243770" flood-opacity="0.16"></feDropShadow>
+              </filter>
+            </defs>
+            <rect x="16" y="24" width="788" height="214" rx="12" fill="#ffffff" stroke="#aebbd2"></rect>
+            <path d="M88 174 C232 158, 316 148, 430 88 S660 64, 734 58" fill="none" stroke="url(#growthGradient)" stroke-width="8" stroke-linecap="round"></path>
+            <line x1="74" y1="198" x2="746" y2="198" stroke="#d9e1ef" stroke-width="3"></line>
+            <g filter="url(#softShadow)" font-family="Arial, sans-serif" text-anchor="middle">
+              <g transform="translate(88 174)">
+                <circle r="24" fill="#d12630"></circle>
+                <text y="7" fill="#fff" font-size="20" font-weight="800">10</text>
+                <text y="60" fill="#243770" font-size="18" font-weight="800">2019</text>
+              </g>
+              <g transform="translate(242 154)">
+                <circle r="24" fill="#e99e25"></circle>
+                <text y="7" fill="#fff" font-size="20" font-weight="800">15</text>
+                <text y="80" fill="#243770" font-size="18" font-weight="800">2020</text>
+              </g>
+              <g transform="translate(405 90)">
+                <circle r="30" fill="#187c8f"></circle>
+                <text y="8" fill="#fff" font-size="22" font-weight="800">41</text>
+                <text y="82" fill="#243770" font-size="18" font-weight="800">2021</text>
+              </g>
+              <g transform="translate(568 72)">
+                <circle r="28" fill="#4d8a67"></circle>
+                <text y="8" fill="#fff" font-size="22" font-weight="800">48</text>
+                <text y="98" fill="#243770" font-size="18" font-weight="800">2022</text>
+              </g>
+              <g transform="translate(734 58)">
+                <circle r="31" fill="#7561a8"></circle>
+                <text y="8" fill="#fff" font-size="23" font-weight="800">50</text>
+                <text y="112" fill="#243770" font-size="18" font-weight="800">2023</text>
+              </g>
+            </g>
+            <g font-family="Arial, sans-serif">
+              <rect x="318" y="21" width="174" height="36" rx="18" fill="#eef4fb" stroke="#aebbd2"></rect>
+              <text x="405" y="45" text-anchor="middle" fill="#243770" font-size="14" font-weight="800">41 modules developed</text>
+              <rect x="515" y="116" width="214" height="46" rx="8" fill="#fff7ea" stroke="#e99e25"></rect>
+              <text x="622" y="136" text-anchor="middle" fill="#243770" font-size="14" font-weight="800">New care management EHR</text>
+              <text x="622" y="153" text-anchor="middle" fill="#68758d" font-size="13" font-weight="700">mapped to 85 disease states</text>
+            </g>
+          </svg>
+          <p class="timeline-note">The poster states that modules grew during process development in 2020, 41 modules were developed in 2021, and the 2022 EHR redesign enabled disease-specific workflow and documentation customization.</p>
+        </div>
+      </section>
+
+      <section class="factory-grid" aria-label="Development process">
+        <article class="factory-card" data-step="1">
+          <h3>Gap analysis prioritized need</h3>
+          <ul>
+            <li>Surveyed pharmacy staff.</li>
+            <li>Assessed specialty medication utilization to find patient-management gaps.</li>
+            <li>Stratified module priority by historical and current patient volumes.</li>
+            <li>Used standards of care and guidelines to frame disease-state needs.</li>
+          </ul>
+        </article>
+        <article class="factory-card" data-step="2">
+          <h3>Template design made modules reproducible</h3>
+          <ul>
+            <li>Defined disease overview, inclusion criteria, onboarding, education, ongoing management, interventions, goals, and references.</li>
+            <li>Subject matter experts created evidence-based module content.</li>
+            <li>Each module packaged an SOP, in-service presentation, and learning assessment.</li>
+          </ul>
+        </article>
+        <article class="factory-card" data-step="3">
+          <h3>Quality assurance kept content governed</h3>
+          <ul>
+            <li>Internal clinical oversight committee vetted modules.</li>
+            <li>Modules were reviewed and approved annually.</li>
+            <li>Select PMP modules were vetted with physician specialists.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="panel" aria-labelledby="ehr-heading">
+        <p class="section-label">EHR care management redesign</p>
+        <h2 id="ehr-heading">Disease modules became the foundation for EHR episodes and documentation.</h2>
+        <div class="ehr-map">
+          <div class="map-column">
+            <h3>PMP module template</h3>
+            <div class="map-node">Disease-specific process <b>single source</b></div>
+            <div class="map-node">Onboarding and education <b>standard</b></div>
+            <div class="map-node">Intervention triggers <b>defined</b></div>
+            <div class="map-node">Therapeutic goals <b>measured</b></div>
+          </div>
+          <div class="map-connector" aria-hidden="true">
+            <svg viewBox="0 0 88 88">
+              <path d="M10 44h58" fill="none" stroke="#243770" stroke-width="8" stroke-linecap="round"></path>
+              <path d="M51 22l23 22-23 22" fill="none" stroke="#d12630" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <div class="map-column">
+            <h3>Care management EHR</h3>
+            <div class="map-node">Disease-state customization <b>85</b></div>
+            <div class="map-node">Case-management episode types <b>85</b></div>
+            <div class="map-node">Screening tools <b>10</b></div>
+            <div class="map-node">Clinical documentation <b>shared</b></div>
+          </div>
+        </div>
+        <p class="source-line">Discussion emphasized that shared EHR tools support interdisciplinary condition-specific evaluations, reduce redundant assessments, and improve clinical decision making.</p>
+      </section>
+
+      <section class="evidence-map" aria-label="Evidence flow">
+        <article class="evidence-card">
+          <h3>Pressure</h3>
+          <p>Specialty pharmacies face diverse conditions, medications, accreditation requirements, and payor expectations.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Design choice</h3>
+          <p>OPS moved from a universal process toward standardized, disease-specific module development.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Build system</h3>
+          <p>Gap analysis, template design, SME authorship, and committee governance created repeatable modules.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Operational embed</h3>
+          <p>Modules informed EHR workflows, screening tools, care episodes, and clinical documentation.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Result</h3>
+          <p>The program grew from 10 PMP modules in 2019 to coverage across 85 disease states.</p>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Condensed source tables">
+        <article class="table-card accent">
+          <p class="section-label">Module template pattern</p>
+          <h3>Common elements extracted from the poster table</h3>
+          <ul class="template-list">
+            <li>Covers a single disease or a group of related diseases.</li>
+            <li>Defines patient inclusion criteria and onboarding education.</li>
+            <li>Documents ongoing management, intervention triggers, and escalation process.</li>
+            <li>States program goals, measures, references, and evidence base.</li>
+            <li>Supports URAC, ACHC, and third-party payor requirements.</li>
+          </ul>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Screening tools</p>
+          <h3>Clinical instruments grouped by disease lens</h3>
+          <div class="tool-grid">
+            <div class="tool-card">
+              <strong>Quality of life</strong>
+              <ul class="chip-list">
+                <li>CDC HRQOL</li>
+                <li>Multiple Sclerosis</li>
+              </ul>
+            </div>
+            <div class="tool-card">
+              <strong>Inflammatory</strong>
+              <ul class="chip-list">
+                <li>RAPID3</li>
+                <li>Flares</li>
+                <li>BASDAI</li>
+                <li>DLQI</li>
+                <li>CDLQI</li>
+                <li>IDQOL</li>
+              </ul>
+            </div>
+            <div class="tool-card">
+              <strong>Asthma</strong>
+              <ul class="chip-list">
+                <li>ACT Adult</li>
+                <li>ACT Children</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="visual-grid" aria-label="Representative oncology mapping and future directions">
+        <div class="panel">
+          <p class="section-label">Representative EHR mapping</p>
+          <h2>One oncology PMP mapped many episode types.</h2>
+          <ul class="oncology-list">
+            <li>Acute leukemia (ALL, AML)</li>
+            <li>Anemia-Hematology/Oncology</li>
+            <li>Basal cell carcinoma of skin</li>
+            <li>Bladder malignancy</li>
+            <li>Breast cancer</li>
+            <li>Central nervous system tumor</li>
+            <li>Cervical cancer</li>
+            <li>Chronic lymphocytic leukemia</li>
+            <li>Chronic myeloid leukemia</li>
+            <li>Colorectal cancer</li>
+            <li>Lung cancer</li>
+            <li>Multiple myeloma</li>
+            <li>Non-Hodgkin lymphoma</li>
+            <li>Ovarian cancer</li>
+            <li>Pancreatic adenocarcinoma</li>
+            <li>Prostate cancer</li>
+            <li>Renal cell carcinoma</li>
+            <li>Thyroid carcinoma</li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Future directions</p>
+          <h2>Next step: translate modules into clinical pathways.</h2>
+          <div class="lens-chart" aria-label="Future direction emphasis">
+            <div class="lens-row">
+              <span>Electronic pathways</span>
+              <div class="lens-bar"><i style="width: 96%"></i></div>
+            </div>
+            <div class="lens-row">
+              <span>Module consolidation</span>
+              <div class="lens-bar"><i style="width: 72%"></i></div>
+            </div>
+            <div class="lens-row">
+              <span>Rare disease depth</span>
+              <div class="lens-bar"><i style="width: 64%"></i></div>
+            </div>
+            <div class="lens-row">
+              <span>Oncology distinction</span>
+              <div class="lens-bar"><i style="width: 82%"></i></div>
+            </div>
+          </div>
+          <p class="source-line">The authors identified electronic clinical pathways, thoughtful consolidation, and further development of rare disease and oncology content for ACHC distinction as future work.</p>
+        </div>
+      </section>
+
+      <section class="panel conclusion-panel" aria-labelledby="conclusion-heading">
+        <div class="callout-quote">
+          <p id="conclusion-heading">A governed template turned specialty pharmacy complexity into scalable disease-state care infrastructure.</p>
+        </div>
+        <div>
+          <p class="section-label">Conclusion</p>
+          <ul class="takeaway-list">
+            <li>A standardized module-development approach grew the HSSP patient management program from 10 modules to coverage across 85 disease states.</li>
+            <li>The new EHR care-management build allowed disease-specific workflows, documentation, and screening tools that were previously unattainable.</li>
+            <li>Patients outside specific PMP scope remain supported through a standard specialty pharmacy module that meets accreditation requirements.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/20_Developing-a-disease-state-specific-patient-management-program-at-an-integrated-health-system-specialty-pharmacy_2023.pdf">Open original PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/20_Developing-a-disease-state-specific-patient-management-program-at-an-integrated-health-system-specialty-pharmacy_2023.md">Open extracted markdown</a>
+      <a class="button-link" href="#top">Back to top</a>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Integrating PGY-2 Ambulatory Care Residents into Specialty Clinics | NASP 2019</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -4rem;
+      bottom: -4.2rem;
+      width: 14rem;
+      height: 14rem;
+      border: 1.2rem solid rgba(24, 124, 143, 0.12);
+      border-radius: 50%;
+    }
+    .clinic-badge {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.2rem;
+    }
+    .clinic-badge div {
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.82);
+      padding: 0.62rem;
+    }
+    .clinic-badge strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+    .clinic-badge span {
+      display: block;
+      margin-top: 0.18rem;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .metric-card strong small {
+      color: var(--red);
+      font-size: 0.9rem;
+    }
+    .metric-card em {
+      display: block;
+      margin-top: 0.32rem;
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-style: normal;
+      font-weight: 760;
+    }
+    .clinic-comparison {
+      display: grid;
+      gap: 0.85rem;
+      margin-top: 0.8rem;
+    }
+    .comparison-head,
+    .clinic-row {
+      display: grid;
+      grid-template-columns: 8rem repeat(4, minmax(0, 1fr));
+      gap: 0.45rem;
+      align-items: stretch;
+    }
+    .comparison-head span {
+      color: var(--muted);
+      font-size: 0.64rem;
+      font-weight: 900;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+    .clinic-row > div {
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.55rem;
+    }
+    .clinic-name {
+      display: grid;
+      align-content: center;
+      border-color: rgba(36, 55, 112, 0.24) !important;
+      background: var(--surface-blue) !important;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-weight: 900;
+    }
+    .clinic-row strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+    .clinic-row small {
+      display: block;
+      margin-top: 0.18rem;
+      color: var(--body);
+      font-size: 0.72rem;
+      font-weight: 780;
+    }
+    .coverage-svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-top: 0.8rem;
+    }
+    .methods-flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.85rem;
+    }
+    .flow-card {
+      position: relative;
+      min-height: 9rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.76rem;
+    }
+    .flow-card::before {
+      content: attr(data-step);
+      display: inline-grid;
+      place-items: center;
+      width: 1.8rem;
+      height: 1.8rem;
+      margin-bottom: 0.55rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+    .flow-card p {
+      margin: 0.35rem 0 0;
+      color: var(--body);
+      font-size: 0.8rem;
+    }
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.85rem;
+    }
+    .service-chip {
+      min-height: 4.8rem;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.62rem;
+    }
+    .service-chip i {
+      display: block;
+      width: 1.4rem;
+      height: 0.26rem;
+      margin-bottom: 0.45rem;
+      border-radius: 999px;
+      background: var(--chip-color, var(--red));
+    }
+    .service-chip span {
+      display: block;
+      color: var(--ink);
+      font-size: 0.76rem;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+    .service-chip:nth-child(2n) { --chip-color: var(--gold); }
+    .service-chip:nth-child(3n) { --chip-color: var(--teal); }
+    .service-chip:nth-child(4n) { --chip-color: var(--green); }
+    .service-chip:nth-child(5n) { --chip-color: var(--purple); }
+    .objective-list {
+      display: grid;
+      gap: 0.5rem;
+      margin: 0.75rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .objective-list li {
+      border-left: 4px solid var(--gold);
+      background: var(--surface-warm);
+      padding: 0.52rem 0.65rem;
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 830;
+    }
+    .outcome-ring {
+      display: grid;
+      place-items: center;
+      min-height: 16rem;
+    }
+    .ring-svg {
+      width: min(100%, 24rem);
+      height: auto;
+    }
+    .takeaway {
+      border-left: 5px solid var(--red);
+      background: linear-gradient(90deg, rgba(209, 38, 48, 0.08), rgba(255, 255, 255, 0));
+    }
+    .source-note {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    @media (max-width: 900px) {
+      .methods-flow,
+      .service-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .comparison-head {
+        display: none;
+      }
+      .clinic-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .clinic-name {
+        grid-column: 1 / -1;
+      }
+    }
+    @media (max-width: 560px) {
+      .clinic-badge,
+      .clinic-row,
+      .methods-flow,
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar" aria-label="Infographic navigation">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#impact">Impact</a>
+        <a href="#methods">Methods</a>
+        <a href="#services">Services</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2019 poster 29_2019</p>
+        <h1 id="poster-title">Measuring the impact of integrating PGY-2 ambulatory care residents into specialty clinics</h1>
+        <p class="hero-summary">
+          University of Louisville Hospital assessed whether PGY-2 ambulatory care residents could extend
+          specialty pharmacy services in Hepatitis C and Multiple Sclerosis clinics while meeting residency
+          learning objectives.
+        </p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Residency training model</li>
+          <li class="tag therapy">Hepatitis C clinic</li>
+          <li class="tag therapy">Multiple Sclerosis clinic</li>
+          <li class="tag">6-month service period</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div>
+          <p class="section-label">Poster file</p>
+          <div class="poster-code">29_2019</div>
+        </div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Year</dt>
+            <dd>2019</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>Academic medical center</dd>
+          </div>
+          <div>
+            <dt>Residents</dt>
+            <dd>PGY-2 ambulatory care</dd>
+          </div>
+          <div>
+            <dt>Primary lens</dt>
+            <dd>Service availability</dd>
+          </div>
+        </dl>
+        <div class="clinic-badge" aria-label="Clinic focus">
+          <div><strong>HCV</strong><span>Hepatitis C</span></div>
+          <div><strong>MS</strong><span>Neurology specialty</span></div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Added pharmacist coverage</span>
+          <strong>188<small> hrs</small></strong>
+          <em>104 HCV hours plus 84 MS hours.</em>
+        </article>
+        <article class="metric-card">
+          <span>Patients served</span>
+          <strong>216</strong>
+          <em>114 in HCV and 102 in MS clinics.</em>
+        </article>
+        <article class="metric-card">
+          <span>Therapy discontinued</span>
+          <strong>5</strong>
+          <em>3 HCV and 2 MS patients.</em>
+        </article>
+        <article class="metric-card">
+          <span>Provider satisfaction</span>
+          <strong>5<small>/5</small></strong>
+          <em>Average rating in both clinics.</em>
+        </article>
+      </section>
+
+      <section class="visual-grid" id="impact">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Measure whether resident integration expands specialty pharmacy capacity</h2>
+          <p>
+            The poster paired service outcomes with provider satisfaction and ASHP learning objectives to
+            evaluate a clinic-based PGY-2 experience from both patient-care and education perspectives.
+          </p>
+          <svg class="coverage-svg" viewBox="0 0 660 230" role="img" aria-label="Coverage comparison for Hepatitis C and Multiple Sclerosis clinics">
+            <defs>
+              <linearGradient id="residentGrad" x1="0" x2="1" y1="0" y2="0">
+                <stop offset="0" stop-color="#d12630"/>
+                <stop offset="0.55" stop-color="#e99e25"/>
+                <stop offset="1" stop-color="#187c8f"/>
+              </linearGradient>
+            </defs>
+            <rect x="16" y="18" width="628" height="182" rx="16" fill="#eef4fb" stroke="#aebbd2"/>
+            <line x1="118" y1="74" x2="560" y2="74" stroke="#d9e1ef" stroke-width="18" stroke-linecap="round"/>
+            <line x1="118" y1="74" x2="558" y2="74" stroke="url(#residentGrad)" stroke-width="18" stroke-linecap="round"/>
+            <line x1="118" y1="145" x2="560" y2="145" stroke="#d9e1ef" stroke-width="18" stroke-linecap="round"/>
+            <line x1="118" y1="145" x2="474" y2="145" stroke="url(#residentGrad)" stroke-width="18" stroke-linecap="round"/>
+            <text x="42" y="80" fill="#243770" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="900">HCV</text>
+            <text x="42" y="151" fill="#243770" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="900">MS</text>
+            <text x="574" y="80" fill="#d12630" font-family="Montserrat, Arial, sans-serif" font-size="22" font-weight="900">104h</text>
+            <text x="488" y="151" fill="#d12630" font-family="Montserrat, Arial, sans-serif" font-size="22" font-weight="900">84h</text>
+            <circle cx="118" cy="74" r="25" fill="#fff" stroke="#243770" stroke-width="3"/>
+            <circle cx="118" cy="145" r="25" fill="#fff" stroke="#243770" stroke-width="3"/>
+            <path d="M106 73 h24 M118 61 v24" stroke="#187c8f" stroke-width="5" stroke-linecap="round"/>
+            <path d="M106 144 h24 M118 132 v24" stroke="#187c8f" stroke-width="5" stroke-linecap="round"/>
+            <text x="42" y="196" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800">Additional pharmacist coverage delivered by residents over 6 months</text>
+          </svg>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Results by clinic</p>
+          <h2>Similar patient reach, high satisfaction, few discontinuations</h2>
+          <div class="clinic-comparison" aria-label="Results table by clinic">
+            <div class="comparison-head">
+              <span>Clinic</span>
+              <span>Coverage</span>
+              <span>Patients</span>
+              <span>Discontinued</span>
+              <span>Satisfaction</span>
+            </div>
+            <div class="clinic-row">
+              <div class="clinic-name">Hepatitis C</div>
+              <div><strong>104</strong><small>additional hours</small></div>
+              <div><strong>114</strong><small>patients served</small></div>
+              <div><strong>3</strong><small>therapy stopped</small></div>
+              <div><strong>5/5</strong><small>provider rating</small></div>
+            </div>
+            <div class="clinic-row">
+              <div class="clinic-name">Multiple Sclerosis</div>
+              <div><strong>84</strong><small>additional hours</small></div>
+              <div><strong>102</strong><small>patients served</small></div>
+              <div><strong>2</strong><small>therapy stopped</small></div>
+              <div><strong>5/5</strong><small>provider rating</small></div>
+            </div>
+          </div>
+          <p class="source-note">Table pattern extracted from the poster results section.</p>
+        </article>
+      </section>
+
+      <section class="panel" id="methods">
+        <p class="section-label">Methods flow</p>
+        <h2>Residents moved from training to supported independent service</h2>
+        <div class="methods-flow" aria-label="Study methods flow">
+          <article class="flow-card" data-step="1">
+            <h3>Train</h3>
+            <p>PGY-2 residents were prepared to provide ambulatory care pharmacy services in two specialty clinics.</p>
+          </article>
+          <article class="flow-card" data-step="2">
+            <h3>Embed</h3>
+            <p>Residents delivered clinic services over 6 months with peripheral support from a preceptor.</p>
+          </article>
+          <article class="flow-card" data-step="3">
+            <h3>Measure</h3>
+            <p>Hours covered, patients served, discontinuations, and provider satisfaction were collected.</p>
+          </article>
+          <article class="flow-card" data-step="4">
+            <h3>Map learning</h3>
+            <p>The experience was compared with ASHP residency objectives to document educational value.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="visual-grid" id="services">
+        <article class="panel">
+          <p class="section-label">Specialty pharmacy service mix</p>
+          <h2>Residents covered operational, clinical, and access-to-care work</h2>
+          <div class="service-grid" aria-label="Specialty pharmacy services">
+            <div class="service-chip"><i></i><span>Medication reconciliation</span></div>
+            <div class="service-chip"><i></i><span>Medication education</span></div>
+            <div class="service-chip"><i></i><span>Vaccination review and administration</span></div>
+            <div class="service-chip"><i></i><span>Drug information questions</span></div>
+            <div class="service-chip"><i></i><span>Prior authorizations</span></div>
+            <div class="service-chip"><i></i><span>Appeals and peer-to-peer reviews</span></div>
+            <div class="service-chip"><i></i><span>Side effect management</span></div>
+            <div class="service-chip"><i></i><span>Adherence counseling</span></div>
+            <div class="service-chip"><i></i><span>Laboratory review</span></div>
+            <div class="service-chip"><i></i><span>Prescription review</span></div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Educational signal</p>
+          <h2>Seven ASHP learning objectives were met</h2>
+          <div class="outcome-ring" aria-hidden="true">
+            <svg class="ring-svg" viewBox="0 0 300 260">
+              <circle cx="150" cy="122" r="82" fill="#fff" stroke="#d9e1ef" stroke-width="28"/>
+              <circle cx="150" cy="122" r="82" fill="none" stroke="#d12630" stroke-width="28" stroke-dasharray="124 392" transform="rotate(-90 150 122)"/>
+              <circle cx="150" cy="122" r="82" fill="none" stroke="#e99e25" stroke-width="28" stroke-dasharray="31 392" stroke-dashoffset="-124" transform="rotate(-90 150 122)"/>
+              <circle cx="150" cy="122" r="82" fill="none" stroke="#187c8f" stroke-width="28" stroke-dasharray="62 392" stroke-dashoffset="-155" transform="rotate(-90 150 122)"/>
+              <text x="150" y="112" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="52" font-weight="900">7</text>
+              <text x="150" y="138" text-anchor="middle" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="900">OBJECTIVES</text>
+              <text x="28" y="238" fill="#243770" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800">R1: patient care</text>
+              <text x="132" y="238" fill="#243770" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800">R2: advancement</text>
+              <text x="232" y="238" fill="#243770" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800">R3: education</text>
+            </svg>
+          </div>
+          <ul class="objective-list">
+            <li>R1.1.3, R1.1.4, R1.1.6, R1.1.7</li>
+            <li>R2.1.2</li>
+            <li>R3.3.1, R3.3.2</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel takeaway">
+          <p class="section-label">Conclusion</p>
+          <h2>A resident-supported model expanded reach for patients and providers</h2>
+          <div class="markdown-fragment">
+            <p>
+              The authors concluded that patients, providers, and PGY-2 ambulatory care residents benefit
+              when residents are integrated into specialty clinic settings.
+            </p>
+            <p>
+              The model increased access to individualized care for specialty conditions while giving residents
+              a meaningful learning experience relevant to future pharmacy practice.
+            </p>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Authors and institution</p>
+          <h2>University of Louisville Hospital specialty pharmacy program</h2>
+          <div class="markdown-fragment">
+            <p>
+              Chelsea Maier, PharmD; Cathy Spencer, PharmD, BCPS, BCACP, AAHIVP;
+              Michelle Woosley, PharmD; Amanda Brenske, PharmD; Emily O'Reilly, PharmD.
+            </p>
+            <p>
+              The poster describes an academic medical center that trains two PGY-2 ambulatory care pharmacy
+              residents annually.
+            </p>
+          </div>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Extracted table patterns">
+        <article class="table-card">
+          <p class="section-label">Extracted results table</p>
+          <h2>Clinic-level outputs</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Metric</th>
+                  <th>Hepatitis C</th>
+                  <th>Multiple Sclerosis</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Additional pharmacist coverage</td><td>104 hours</td><td>84 hours</td></tr>
+                <tr><td>Patients served</td><td>114</td><td>102</td></tr>
+                <tr><td>Therapy discontinued</td><td>3</td><td>2</td></tr>
+                <tr><td>Provider satisfaction</td><td>5/5</td><td>5/5</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card" id="sources">
+          <p class="section-label">Source links</p>
+          <h2>Poster materials</h2>
+          <div class="markdown-fragment">
+            <p>
+              Source poster: Measuring the Impact of Integrating PGY-2 Ambulatory Care Residents into
+              Specialty Clinics, NASP 2019.
+            </p>
+          </div>
+          <div class="footer-actions">
+            <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/29_2019.pdf">Open poster PDF</a>
+            <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/29_2019.md">Open extracted markdown</a>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

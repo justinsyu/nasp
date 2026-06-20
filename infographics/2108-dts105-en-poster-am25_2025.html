@@ -1,0 +1,656 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Implementation of Oral Anticancer Early Monitoring | NASP 2025</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .monitor-hero-art {
+      min-height: 20rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(209, 38, 48, 0.15), transparent 8rem),
+        radial-gradient(circle at 86% 76%, rgba(24, 124, 143, 0.18), transparent 9rem),
+        linear-gradient(135deg, #fff 0%, var(--surface-blue) 58%, var(--surface-warm) 100%);
+      overflow: hidden;
+    }
+    .monitor-hero-art svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 20rem;
+    }
+    .hero-card .finding {
+      margin: 0;
+      border-left: 4px solid var(--red);
+      padding-left: 0.75rem;
+      color: var(--ink);
+      font-size: 0.95rem;
+      font-weight: 850;
+    }
+    .metric-card strong small {
+      display: inline;
+      color: inherit;
+      font-size: 0.5em;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+    .study-grid {
+      display: grid;
+      grid-template-columns: minmax(16rem, 0.82fr) minmax(0, 1.18fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .study-snapshot {
+      display: grid;
+      gap: 0.7rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 1rem;
+    }
+    .snapshot-total {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 8vw, 6.2rem);
+      font-weight: 900;
+      line-height: 0.9;
+    }
+    .snapshot-total small {
+      display: block;
+      margin-top: 0.32rem;
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .arm-split {
+      display: grid;
+      gap: 0.55rem;
+    }
+    .split-row {
+      display: grid;
+      grid-template-columns: 7.6rem minmax(0, 1fr) 3.8rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .split-row span:last-child {
+      color: var(--muted);
+      text-align: right;
+    }
+    .split-track {
+      height: 1rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: rgba(36, 55, 112, 0.08);
+      overflow: hidden;
+    }
+    .split-track i {
+      display: block;
+      width: var(--value);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .split-row.usual .split-track i {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .method-pipeline {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+    .pipeline-step {
+      position: relative;
+      min-height: 11rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.82rem;
+      overflow: hidden;
+    }
+    .pipeline-step::before {
+      content: attr(data-step);
+      position: absolute;
+      right: 0.42rem;
+      bottom: -0.7rem;
+      color: rgba(36, 55, 112, 0.1);
+      font-family: var(--font-display);
+      font-size: 4.8rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .pipeline-step b {
+      position: relative;
+      z-index: 1;
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      line-height: 1.15;
+    }
+    .pipeline-step span {
+      position: relative;
+      z-index: 1;
+      display: block;
+      margin-top: 0.45rem;
+      font-size: 0.78rem;
+      line-height: 1.38;
+    }
+    .signal-board {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 0.9rem;
+    }
+    .signal-panel {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.95rem;
+    }
+    .signal-panel.highlight {
+      background:
+        linear-gradient(90deg, rgba(209, 38, 48, 0.08), transparent 55%),
+        #fff;
+      border-color: rgba(209, 38, 48, 0.45);
+    }
+    .paired-bars {
+      display: grid;
+      gap: 0.68rem;
+      margin-top: 0.75rem;
+    }
+    .paired-row {
+      display: grid;
+      grid-template-columns: 8.6rem minmax(0, 1fr) 4.2rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .paired-row span:last-child {
+      color: var(--muted);
+      text-align: right;
+    }
+    .paired-track {
+      height: 1.15rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: rgba(36, 55, 112, 0.08);
+      overflow: hidden;
+    }
+    .paired-track i {
+      display: block;
+      width: var(--value);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .paired-row.hot .paired-track i {
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .result-note {
+      margin: 0.75rem 0 0;
+      border-top: 1px solid var(--border);
+      padding-top: 0.65rem;
+      color: var(--body);
+      font-size: 0.82rem;
+    }
+    .outcome-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 1rem;
+      align-items: start;
+    }
+    .outcome-callout {
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background:
+        linear-gradient(120deg, rgba(24, 124, 143, 0.12), transparent 48%),
+        #fff;
+      padding: 1rem;
+    }
+    .outcome-callout strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 7vw, 5.4rem);
+      line-height: 0.9;
+    }
+    .outcome-callout span {
+      display: block;
+      margin-top: 0.45rem;
+      color: var(--ink);
+      font-weight: 850;
+    }
+    .mini-matrix {
+      display: grid;
+      grid-template-columns: 1.1fr repeat(2, minmax(0, 0.7fr));
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      font-size: 0.78rem;
+    }
+    .mini-matrix div {
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 0.55rem;
+    }
+    .mini-matrix div:nth-child(3n) {
+      border-right: 0;
+    }
+    .mini-matrix div:nth-last-child(-n+3) {
+      border-bottom: 0;
+    }
+    .mini-matrix .head {
+      background: var(--surface-blue);
+      color: var(--ink);
+      font-weight: 900;
+    }
+    .mini-matrix b {
+      color: var(--ink);
+      font-family: var(--font-display);
+    }
+    .demographic-tiles {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+    .demo-tile {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.72rem;
+    }
+    .demo-tile b {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+    .demo-tile span {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--body);
+      font-size: 0.74rem;
+      line-height: 1.3;
+    }
+    .takeaway-panel {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(209, 38, 48, 0.09), transparent 42%),
+        #fff;
+    }
+    .takeaway-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+    .takeaway-item {
+      border-left: 4px solid var(--red);
+      background: var(--surface-blue);
+      padding: 0.72rem;
+    }
+    .takeaway-item:nth-child(2) {
+      border-left-color: var(--teal);
+    }
+    .takeaway-item:nth-child(3) {
+      border-left-color: var(--gold);
+    }
+    .takeaway-item p {
+      margin: 0;
+      font-size: 0.85rem;
+    }
+    @media (max-width: 900px) {
+      .study-grid,
+      .signal-board,
+      .outcome-grid {
+        grid-template-columns: 1fr;
+      }
+      .method-pipeline,
+      .demographic-tiles {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .takeaway-list {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 560px) {
+      .method-pipeline,
+      .demographic-tiles {
+        grid-template-columns: 1fr;
+      }
+      .split-row,
+      .paired-row {
+        grid-template-columns: 1fr;
+      }
+      .split-row span:last-child,
+      .paired-row span:last-child {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP infographic index">NASP Posters</a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/2108-DTS105-EN-Poster-AM25_2025.pdf">Source PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/2108-DTS105-EN-Poster-AM25_2025.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2025 poster infographic | 2108-DTS105-EN</p>
+        <h1>Implementation of oral anticancer early monitoring using electronic questionnaires</h1>
+        <p class="hero-summary">Vanderbilt Specialty Pharmacy evaluated whether portal-based early monitoring could surface adverse effects soon enough for pharmacists to intervene during new oral anticancer therapy.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Oral oncology</li>
+          <li class="tag therapy">Patient portal</li>
+          <li class="tag">Early adverse-effect monitoring</li>
+          <li class="tag">Randomized pragmatic cohort</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Poster summary">
+        <div class="poster-code">2108<br>DTS105<br>EN</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Venue</dt>
+            <dd>AM25</dd>
+          </div>
+          <div>
+            <dt>Year</dt>
+            <dd>2025</dd>
+          </div>
+          <div>
+            <dt>Site</dt>
+            <dd>Vanderbilt</dd>
+          </div>
+          <div>
+            <dt>Window</dt>
+            <dd>45 &amp; 90 days</dd>
+          </div>
+        </dl>
+        <p class="finding">The randomized-arm comparison was modest, but patients who actually completed the questionnaire had faster and more frequent pharmacist intervention.</p>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key study metrics">
+        <article class="metric-card">
+          <span>Study sample</span>
+          <strong>387</strong>
+          <p>Adults starting oral anticancer therapy with an active patient portal.</p>
+        </article>
+        <article class="metric-card">
+          <span>Questionnaire response</span>
+          <strong>47<small>%</small></strong>
+          <p>85 of 182 intervention patients completed the early monitoring questionnaire.</p>
+        </article>
+        <article class="metric-card">
+          <span>Responder intervention rate</span>
+          <strong>38<small>%</small></strong>
+          <p>Versus 16% among non-responders in the secondary analysis.</p>
+        </article>
+        <article class="metric-card">
+          <span>Time to AE intervention</span>
+          <strong>HR 2.5</strong>
+          <p>Responders had faster time to first adverse-event-related intervention.</p>
+        </article>
+      </section>
+
+      <section class="visual-grid" aria-label="Study objective and monitoring visual">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Test whether early portal monitoring changes pharmacist detection of adverse effects</h2>
+          <p>The study asked whether electronic questionnaires sent shortly after oral anticancer therapy initiation improved the timing and frequency of adverse-effect identification requiring pharmacist intervention, and whether downstream medication changes or clinical outcomes differed by 90 days.</p>
+          <div class="number-cloud" aria-label="Study design details">
+            <div class="number-pill">1:1<small>Randomization</small></div>
+            <div class="number-pill">7-14<small>Days to survey</small></div>
+            <div class="number-pill">45<small>AE window</small></div>
+            <div class="number-pill">90<small>Outcome window</small></div>
+          </div>
+        </article>
+        <article class="monitor-hero-art" aria-label="Illustration of questionnaire monitoring workflow">
+          <svg viewBox="0 0 760 420" role="img" aria-labelledby="workflowTitle workflowDesc">
+            <title id="workflowTitle">Portal questionnaire workflow</title>
+            <desc id="workflowDesc">A patient portal questionnaire routes patient responses to a pharmacist who identifies adverse events and closes the loop with interventions.</desc>
+            <defs>
+              <linearGradient id="screenGrad" x1="0" x2="1">
+                <stop offset="0" stop-color="#187c8f"/>
+                <stop offset="1" stop-color="#4d8a67"/>
+              </linearGradient>
+              <linearGradient id="alertGrad" x1="0" x2="1">
+                <stop offset="0" stop-color="#d12630"/>
+                <stop offset="1" stop-color="#e99e25"/>
+              </linearGradient>
+            </defs>
+            <rect x="66" y="74" width="210" height="276" rx="28" fill="#fff" stroke="#243770" stroke-width="4"/>
+            <rect x="91" y="112" width="160" height="198" rx="14" fill="#eef4fb" stroke="#aebbd2" stroke-width="2"/>
+            <circle cx="171" cy="329" r="10" fill="#d9e1ef"/>
+            <rect x="114" y="136" width="114" height="14" rx="7" fill="#243770"/>
+            <rect x="114" y="171" width="80" height="10" rx="5" fill="#aebbd2"/>
+            <rect x="114" y="195" width="104" height="10" rx="5" fill="#aebbd2"/>
+            <rect x="114" y="219" width="68" height="10" rx="5" fill="#aebbd2"/>
+            <rect x="114" y="255" width="96" height="28" rx="14" fill="url(#screenGrad)"/>
+            <path d="M306 162 C386 122, 420 118, 504 148" fill="none" stroke="#187c8f" stroke-width="8" stroke-linecap="round"/>
+            <path d="M504 148 l-22 -4 l15 17 z" fill="#187c8f"/>
+            <path d="M308 260 C396 314, 450 317, 540 265" fill="none" stroke="#d12630" stroke-width="8" stroke-linecap="round"/>
+            <path d="M540 265 l-18 15 l3 -23 z" fill="#d12630"/>
+            <g transform="translate(500 92)">
+              <circle cx="92" cy="86" r="52" fill="#fff" stroke="#243770" stroke-width="4"/>
+              <path d="M58 82 h68 M58 100 h48" stroke="#aebbd2" stroke-width="8" stroke-linecap="round"/>
+              <circle cx="72" cy="58" r="11" fill="#d12630"/>
+              <circle cx="94" cy="58" r="11" fill="#e99e25"/>
+              <circle cx="116" cy="58" r="11" fill="#187c8f"/>
+              <path d="M92 138 v42" stroke="#243770" stroke-width="4" stroke-linecap="round"/>
+              <path d="M44 208 C64 168, 120 166, 146 208" fill="#fff" stroke="#243770" stroke-width="4"/>
+              <rect x="54" y="198" width="84" height="50" rx="12" fill="#eef4fb" stroke="#aebbd2" stroke-width="3"/>
+            </g>
+            <g transform="translate(358 242)">
+              <rect x="0" y="0" width="152" height="76" rx="18" fill="#fff" stroke="#d12630" stroke-width="4"/>
+              <path d="M29 39 h40 M29 55 h85" stroke="#aebbd2" stroke-width="7" stroke-linecap="round"/>
+              <circle cx="117" cy="28" r="16" fill="url(#alertGrad)"/>
+              <path d="M117 18 v14 M117 40 v2" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+            </g>
+            <text x="88" y="54" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="22" font-weight="900">Patient portal</text>
+            <text x="520" y="54" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="22" font-weight="900">Pharmacist review</text>
+            <text x="356" y="350" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="18" font-weight="900">AE signal to intervention</text>
+          </svg>
+        </article>
+      </section>
+
+      <section class="study-grid" aria-label="Study sample and procedures">
+        <article class="study-snapshot">
+          <p class="section-label">Methods</p>
+          <div class="snapshot-total">387<small>New oral anticancer starts</small></div>
+          <div class="arm-split" aria-label="Randomized arms">
+            <div class="split-row">
+              <span>Intervention</span>
+              <div class="split-track"><i style="--value: 47%"></i></div>
+              <span>n=182</span>
+            </div>
+            <div class="split-row usual">
+              <span>Usual care</span>
+              <div class="split-track"><i style="--value: 53%"></i></div>
+              <span>n=205</span>
+            </div>
+          </div>
+          <p>Single-center randomized pragmatic cohort study at Vanderbilt Ingram Cancer Center and Vanderbilt Specialty Pharmacy. Randomization was stratified by age and sex.</p>
+        </article>
+        <article class="panel">
+          <p class="section-label">Evidence flow</p>
+          <h2>From new counseling to early questionnaire to refill assessment</h2>
+          <div class="method-pipeline">
+            <div class="pipeline-step" data-step="1">
+              <b>New medication counseling</b>
+              <span>Specialty pharmacist documentation triggered randomization.</span>
+            </div>
+            <div class="pipeline-step" data-step="2">
+              <b>Intervention assignment</b>
+              <span>182 patients entered the questionnaire arm; 205 continued usual care.</span>
+            </div>
+            <div class="pipeline-step" data-step="3">
+              <b>7-14 day prompt</b>
+              <span>Patients appeared on an EHR report and received the portal questionnaire.</span>
+            </div>
+            <div class="pipeline-step" data-step="4">
+              <b>Response split</b>
+              <span>85 responded and 97 did not respond, creating an engagement-dependent signal.</span>
+            </div>
+            <div class="pipeline-step" data-step="5">
+              <b>Refill assessment</b>
+              <span>Both arms continued to monthly refill assessment and 90-day outcome review.</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel" aria-label="Primary and secondary results">
+        <p class="section-label">Results</p>
+        <h2>The intervention signal sharpened when viewed through questionnaire completion</h2>
+        <div class="signal-board">
+          <article class="signal-panel">
+            <h3>Randomized-arm comparison</h3>
+            <div class="paired-bars">
+              <div class="paired-row hot">
+                <span>Intervention</span>
+                <div class="paired-track"><i style="--value: 61%"></i></div>
+                <span>23%</span>
+              </div>
+              <div class="paired-row">
+                <span>Usual care</span>
+                <div class="paired-track"><i style="--value: 50%"></i></div>
+                <span>19%</span>
+              </div>
+            </div>
+            <p class="result-note">AE-related pharmacist interventions within 45 days were not significantly different by randomized arm (OR 1.2, p=0.394).</p>
+          </article>
+          <article class="signal-panel highlight">
+            <h3>Engagement comparison</h3>
+            <div class="paired-bars">
+              <div class="paired-row hot">
+                <span>Responders</span>
+                <div class="paired-track"><i style="--value: 100%"></i></div>
+                <span>38%</span>
+              </div>
+              <div class="paired-row">
+                <span>Non-responders</span>
+                <div class="paired-track"><i style="--value: 42%"></i></div>
+                <span>16%</span>
+              </div>
+            </div>
+            <p class="result-note">Responders had more AE-related pharmacist interventions (OR 2.8, p&lt;0.001) and faster time to first intervention (HR 2.5, p&lt;0.001).</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="outcome-grid" aria-label="90-day outcomes and intervention types">
+        <article class="outcome-callout">
+          <p class="section-label">90-day outcome</p>
+          <strong>2x</strong>
+          <span>Usual-care patients were reported as twice as likely to have more than one healthcare-utilization instance than intervention patients.</span>
+          <div class="paired-bars" aria-label="Healthcare utilization comparison">
+            <div class="paired-row hot">
+              <span>Usual care &gt;1</span>
+              <div class="paired-track"><i style="--value: 100%"></i></div>
+              <span>10%</span>
+            </div>
+            <div class="paired-row">
+              <span>Intervention &gt;1</span>
+              <div class="paired-track"><i style="--value: 40%"></i></div>
+              <span>4%</span>
+            </div>
+          </div>
+        </article>
+        <article class="panel">
+          <p class="section-label">Intervention pattern</p>
+          <h2>Alerts mainly translated into counseling, chart review, and prescriber contact</h2>
+          <div class="mini-matrix" role="table" aria-label="Top intervention categories">
+            <div class="head" role="columnheader">Pattern</div>
+            <div class="head" role="columnheader">Intervention</div>
+            <div class="head" role="columnheader">Usual care</div>
+            <div>Adverse-event alert</div>
+            <div><b>28%</b></div>
+            <div><b>22%</b></div>
+            <div>Patient counseling</div>
+            <div><b>22%</b></div>
+            <div><b>18%</b></div>
+            <div>Chart reviewed</div>
+            <div><b>18%</b></div>
+            <div><b>15%</b></div>
+            <div>Prescriber contacted</div>
+            <div><b>12%</b></div>
+            <div><b>10%</b></div>
+            <div>Issue resolved</div>
+            <div><b>18%</b></div>
+            <div><b>15%</b></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel" aria-label="Population pattern">
+        <p class="section-label">Table pattern</p>
+        <h2>The cohort skewed older, male, stage IV, and genitourinary</h2>
+        <p>Demographic table patterns were broadly similar across arms, with age 60 or older and stage IV disease representing the largest strata.</p>
+        <div class="demographic-tiles">
+          <div class="demo-tile">
+            <b>68-70%</b>
+            <span>Age 60 or older across the two study arms.</span>
+          </div>
+          <div class="demo-tile">
+            <b>57-61%</b>
+            <span>Male patients in each randomized group.</span>
+          </div>
+          <div class="demo-tile">
+            <b>40-46%</b>
+            <span>Genitourinary diagnoses, the largest diagnosis category.</span>
+          </div>
+          <div class="demo-tile">
+            <b>59-69%</b>
+            <span>Stage IV cancer documented in the study arms.</span>
+          </div>
+          <div class="demo-tile">
+            <b>7-8</b>
+            <span>Median Charlson Comorbidity Index by arm.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel takeaway-panel" aria-label="Conclusions">
+        <p class="section-label">Conclusion</p>
+        <h2>Portal-based early monitoring appears most useful when patients respond</h2>
+        <div class="takeaway-list">
+          <div class="takeaway-item">
+            <p>Questionnaire responders had higher and faster pharmacist identification and action on adverse events after oral anticancer therapy initiation.</p>
+          </div>
+          <div class="takeaway-item">
+            <p>The intervention arm showed lower repeat healthcare utilization at 90 days than usual care.</p>
+          </div>
+          <div class="takeaway-item">
+            <p>The operational bottleneck is response rate: improving completion is central to increasing impact.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/2108-DTS105-EN-Poster-AM25_2025.pdf">Open original PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/2108-DTS105-EN-Poster-AM25_2025.md">Open extracted Markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

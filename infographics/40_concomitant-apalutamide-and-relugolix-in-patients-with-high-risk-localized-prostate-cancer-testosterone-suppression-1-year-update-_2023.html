@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2023 | Apalutamide + relugolix 1-year testosterone suppression</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .suppression-hero {
+      position: relative;
+      min-height: 20rem;
+      overflow: hidden;
+      border: 1px solid rgba(36, 55, 112, 0.2);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 78% 18%, rgba(233, 158, 37, 0.28), transparent 7rem),
+        radial-gradient(circle at 20% 78%, rgba(24, 124, 143, 0.16), transparent 9rem),
+        linear-gradient(145deg, #fff, var(--surface-blue) 58%, var(--surface-warm));
+      padding: 1rem;
+    }
+
+    .suppression-hero svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .hero-stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.55rem;
+    }
+
+    .hero-stat {
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.82);
+      padding: 0.65rem;
+    }
+
+    .hero-stat strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+
+    .hero-stat span {
+      display: block;
+      margin-top: 0.22rem;
+      color: var(--muted);
+      font-size: 0.66rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      line-height: 1.25;
+      text-transform: uppercase;
+    }
+
+    .anchor-claim {
+      display: grid;
+      grid-template-columns: minmax(15rem, 0.78fr) minmax(0, 1.22fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .claim-card {
+      display: grid;
+      align-content: center;
+      min-height: 15rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--ink);
+      color: #fff;
+      padding: 1.1rem;
+    }
+
+    .claim-card span {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .claim-card strong {
+      display: block;
+      margin-top: 0.28rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 9vw, 6rem);
+      line-height: 0.9;
+    }
+
+    .claim-card p {
+      margin: 0.65rem 0 0;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 0.95rem;
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.7rem;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 1.2rem;
+      right: 1.2rem;
+      left: 1.2rem;
+      height: 0.18rem;
+      background: linear-gradient(90deg, var(--red), var(--gold), var(--teal), var(--green));
+    }
+
+    .timeline-step {
+      position: relative;
+      min-height: 9rem;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.88);
+      padding: 2rem 0.75rem 0.75rem;
+    }
+
+    .timeline-step::before {
+      content: "";
+      position: absolute;
+      top: 0.72rem;
+      left: 0.75rem;
+      width: 1rem;
+      height: 1rem;
+      border: 3px solid #fff;
+      border-radius: 50%;
+      background: var(--step-color, var(--red));
+      box-shadow: 0 0 0 1px rgba(36, 55, 112, 0.2);
+    }
+
+    .timeline-step:nth-child(2) { --step-color: var(--gold); }
+    .timeline-step:nth-child(3) { --step-color: var(--teal); }
+    .timeline-step:nth-child(4) { --step-color: var(--green); }
+
+    .timeline-step b {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      line-height: 1.15;
+    }
+
+    .timeline-step p {
+      margin: 0.38rem 0 0;
+      font-size: 0.8rem;
+    }
+
+    .trajectory-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(13rem, 0.95fr);
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .trajectory-panel svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .checkpoint-list {
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .checkpoint {
+      display: grid;
+      grid-template-columns: 4.7rem minmax(0, 1fr) 3.4rem;
+      gap: 0.55rem;
+      align-items: center;
+      font-size: 0.78rem;
+    }
+
+    .checkpoint b {
+      color: var(--ink);
+      line-height: 1.15;
+    }
+
+    .checkpoint-bar {
+      height: 0.85rem;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+
+    .checkpoint-bar i {
+      display: block;
+      width: var(--value);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .checkpoint em {
+      color: var(--ink);
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .safety-board {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 1rem;
+    }
+
+    .safety-bars {
+      display: grid;
+      gap: 0.58rem;
+      margin-top: 0.7rem;
+    }
+
+    .safety-row {
+      display: grid;
+      grid-template-columns: 7.3rem minmax(0, 1fr) 3.4rem;
+      gap: 0.55rem;
+      align-items: center;
+      font-size: 0.78rem;
+    }
+
+    .safety-row b {
+      color: var(--ink);
+      line-height: 1.15;
+    }
+
+    .safety-track {
+      height: 0.92rem;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+
+    .safety-track i {
+      display: block;
+      width: var(--value);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .safety-row em {
+      color: var(--ink);
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .conclusion-ribbon {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+
+    .ribbon-tile {
+      min-height: 8rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.9rem;
+    }
+
+    .ribbon-tile b {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1rem;
+      line-height: 1.18;
+    }
+
+    .ribbon-tile p {
+      margin: 0.42rem 0 0;
+      font-size: 0.84rem;
+    }
+
+    .source-note {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+
+    @media (max-width: 900px) {
+      .anchor-claim,
+      .trajectory-panel,
+      .safety-board {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline,
+      .conclusion-ribbon {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .timeline,
+      .conclusion-ribbon,
+      .checkpoint,
+      .safety-row,
+      .hero-stat-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline::before { display: none; }
+      .checkpoint em,
+      .safety-row em { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/40_Concomitant-Apalutamide-and-Relugolix-in-Patients-With-High-Risk-Localized-Prostate-Cancer-Testosterone-Suppression-1-Year-Update-_2023.pdf">Source PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/40_Concomitant-Apalutamide-and-Relugolix-in-Patients-With-High-Risk-Localized-Prostate-Cancer-Testosterone-Suppression-1-Year-Update-_2023.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2023 / Poster 40</p>
+        <h1>Apalutamide plus relugolix maintained castrate testosterone through 1 year.</h1>
+        <p class="hero-summary">In a 12-patient Apa-RP substudy of high-risk localized prostate cancer after radical prostatectomy, oral ADT with relugolix was coadministered with apalutamide without relugolix dose escalation; all 10 patients completing 1 year maintained testosterone &lt;50 ng/dL.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag therapy">Prostate cancer</li>
+          <li class="tag category">Apa-RP substudy</li>
+          <li class="tag">Open-label phase 2</li>
+          <li class="tag">Oral AR inhibitor + oral ADT</li>
+        </ul>
+      </div>
+      <aside class="hero-card suppression-hero" aria-label="Testosterone suppression visual summary">
+        <div class="poster-code">40<br>2023</div>
+        <svg viewBox="0 0 420 220" role="img" aria-label="Median testosterone dropped from 348.5 ng/dL at day -14 to 8.5 ng/dL at 1 year, then recovered after discontinuation.">
+          <defs>
+            <linearGradient id="lineGradient" x1="0" x2="1" y1="0" y2="0">
+              <stop offset="0" stop-color="#d12630"/>
+              <stop offset="0.5" stop-color="#187c8f"/>
+              <stop offset="1" stop-color="#4d8a67"/>
+            </linearGradient>
+            <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="7" stdDeviation="7" flood-color="#243770" flood-opacity="0.16"/>
+            </filter>
+          </defs>
+          <rect x="28" y="24" width="364" height="162" rx="16" fill="#ffffff" opacity="0.74"/>
+          <line x1="54" y1="152" x2="366" y2="152" stroke="#aebbd2" stroke-width="2"/>
+          <line x1="54" y1="86" x2="366" y2="86" stroke="#d9e1ef" stroke-width="2" stroke-dasharray="6 8"/>
+          <text x="58" y="80" fill="#68758d" font-family="Inter, Arial" font-size="11" font-weight="800">castration threshold: 50 ng/dL</text>
+          <path d="M62 48 C104 148, 116 153, 136 150 S195 151, 222 151 S278 150, 302 151 C332 152, 342 91, 360 72" fill="none" stroke="url(#lineGradient)" stroke-width="9" stroke-linecap="round" filter="url(#softShadow)"/>
+          <g fill="#ffffff" stroke="#243770" stroke-width="3">
+            <circle cx="62" cy="48" r="8"/>
+            <circle cx="136" cy="150" r="8"/>
+            <circle cx="222" cy="151" r="8"/>
+            <circle cx="302" cy="151" r="8"/>
+            <circle cx="360" cy="72" r="8"/>
+          </g>
+          <g fill="#243770" font-family="Montserrat, Arial" font-weight="900" font-size="14">
+            <text x="38" y="206">Day -14</text>
+            <text x="120" y="206">Day 1</text>
+            <text x="204" y="206">Day 28</text>
+            <text x="286" y="206">1 year</text>
+          </g>
+          <text x="312" y="33" fill="#187c8f" font-family="Montserrat, Arial" font-size="22" font-weight="900">8.5</text>
+          <text x="350" y="33" fill="#68758d" font-family="Inter, Arial" font-size="11" font-weight="800">ng/dL</text>
+          <text x="38" y="36" fill="#d12630" font-family="Montserrat, Arial" font-size="22" font-weight="900">348.5</text>
+        </svg>
+        <div class="hero-stat-grid" aria-label="Study snapshot">
+          <div class="hero-stat">
+            <strong>N=12</strong>
+            <span>Relugolix substudy</span>
+          </div>
+          <div class="hero-stat">
+            <strong>10/10</strong>
+            <span>Maintained castration at 1 year</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Completed therapy</span>
+          <strong>10</strong>
+          <p class="source-note">of 12 enrolled patients</p>
+        </article>
+        <article class="metric-card">
+          <span>Castration rate</span>
+          <strong>100%</strong>
+          <p class="source-note">at Day 1, Day 28, and 1 year among evaluable patients</p>
+        </article>
+        <article class="metric-card">
+          <span>Dose increases</span>
+          <strong>0</strong>
+          <p class="source-note">no relugolix escalation required</p>
+        </article>
+        <article class="metric-card">
+          <span>T recovery</span>
+          <strong>8</strong>
+          <p class="source-note">patients recovered &gt;50 ng/dL by 1 month after discontinuation</p>
+        </article>
+      </section>
+
+      <section class="anchor-claim">
+        <div class="claim-card">
+          <span>Objective</span>
+          <strong>1 year</strong>
+          <p>Assess maintenance of castration with apalutamide plus relugolix through 12 months of coadministration.</p>
+        </div>
+        <div class="panel">
+          <p class="section-label">Evidence Flow</p>
+          <h2>Run-in, combination, continuation, recovery.</h2>
+          <div class="timeline" aria-label="Study flow">
+            <div class="timeline-step">
+              <b>Eligible high-risk localized PC</b>
+              <p>Radical prostatectomy, post-operative PSA &le;0.2 ng/mL, and high-risk features.</p>
+            </div>
+            <div class="timeline-step">
+              <b>Relugolix run-in</b>
+              <p>360 mg at Day -14, then 120 mg daily through Day -1.</p>
+            </div>
+            <div class="timeline-step">
+              <b>Combination start</b>
+              <p>Apalutamide 240 mg daily plus relugolix 120 mg daily from Day 1.</p>
+            </div>
+            <div class="timeline-step">
+              <b>12-month assessment</b>
+              <p>Testosterone measured every 3 months and 30 days after discontinuation.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="visual-grid">
+        <article class="panel trajectory-panel">
+          <div>
+            <p class="section-label">Testosterone Trajectory</p>
+            <h2>Median T moved rapidly below the castration threshold.</h2>
+            <p>Median testosterone fell from 348.5 ng/dL at Day -14 to single digits at Day 1 and remained low at 1 year, then rose after treatment discontinuation.</p>
+            <div class="number-cloud" aria-label="Median testosterone values">
+              <div class="number-pill">348.5<small>Day -14</small></div>
+              <div class="number-pill">8.7<small>Day 1</small></div>
+              <div class="number-pill">10<small>Day 28</small></div>
+              <div class="number-pill">8.5<small>1 year</small></div>
+              <div class="number-pill">229.5<small>1 month post-Tx</small></div>
+            </div>
+          </div>
+          <svg viewBox="0 0 390 240" role="img" aria-label="Stylized median testosterone chart">
+            <rect x="20" y="18" width="350" height="178" rx="14" fill="#eef4fb"/>
+            <line x1="52" y1="160" x2="340" y2="160" stroke="#aebbd2" stroke-width="2"/>
+            <line x1="52" y1="138" x2="340" y2="138" stroke="#d12630" stroke-width="2" stroke-dasharray="7 6"/>
+            <text x="56" y="132" fill="#d12630" font-family="Inter, Arial" font-size="11" font-weight="800">50 ng/dL</text>
+            <path d="M58 44 L128 155 L198 154 L268 155 L338 93" fill="none" stroke="#243770" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+            <path d="M58 44 L128 155 L198 154 L268 155" fill="none" stroke="#187c8f" stroke-width="9" stroke-linecap="round" opacity="0.35"/>
+            <path d="M268 155 L338 93" fill="none" stroke="#e99e25" stroke-width="9" stroke-linecap="round" opacity="0.5"/>
+            <g fill="#ffffff" stroke="#243770" stroke-width="3">
+              <circle cx="58" cy="44" r="7"/>
+              <circle cx="128" cy="155" r="7"/>
+              <circle cx="198" cy="154" r="7"/>
+              <circle cx="268" cy="155" r="7"/>
+              <circle cx="338" cy="93" r="7"/>
+            </g>
+            <g fill="#243770" font-family="Inter, Arial" font-size="11" font-weight="800">
+              <text x="38" y="218">Day -14</text>
+              <text x="114" y="218">Day 1</text>
+              <text x="180" y="218">Day 28</text>
+              <text x="254" y="218">1 year</text>
+              <text x="306" y="218">Post-Tx</text>
+            </g>
+          </svg>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Castration Checkpoints</p>
+          <h2>Every evaluable follow-up checkpoint was at 100%.</h2>
+          <div class="checkpoint-list" aria-label="Rates of testosterone below 50 ng/dL">
+            <div class="checkpoint">
+              <b>Day -14</b>
+              <div class="checkpoint-bar"><i style="--value: 0%"></i></div>
+              <em>0%</em>
+            </div>
+            <div class="checkpoint">
+              <b>Day 1</b>
+              <div class="checkpoint-bar"><i style="--value: 100%"></i></div>
+              <em>100%</em>
+            </div>
+            <div class="checkpoint">
+              <b>Day 28</b>
+              <div class="checkpoint-bar"><i style="--value: 100%"></i></div>
+              <em>100%</em>
+            </div>
+            <div class="checkpoint">
+              <b>1 year</b>
+              <div class="checkpoint-bar"><i style="--value: 100%"></i></div>
+              <em>100%</em>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Time point</th>
+                  <th>Patients with T &lt;50 ng/dL</th>
+                  <th>n</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Day -14</td><td>0%</td><td>12</td></tr>
+                <tr><td>Day 1</td><td>100%</td><td>12</td></tr>
+                <tr><td>Day 28</td><td>100%</td><td>11*</td></tr>
+                <tr><td>1 year</td><td>100%</td><td>10*</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="source-note">*One missing Day 28 measurement; two patients withdrew before 1 year.</p>
+        </article>
+      </section>
+
+      <section class="safety-board">
+        <article class="panel">
+          <p class="section-label">Safety Pattern</p>
+          <h2>TEAEs were common; discontinuation-related TEAEs occurred in 17%.</h2>
+          <div class="safety-bars" aria-label="Treatment-emergent adverse event summary">
+            <div class="safety-row">
+              <b>Any TEAE</b>
+              <div class="safety-track"><i style="--value: 100%"></i></div>
+              <em>100%</em>
+            </div>
+            <div class="safety-row">
+              <b>Grade 3-4</b>
+              <div class="safety-track"><i style="--value: 50%"></i></div>
+              <em>50%</em>
+            </div>
+            <div class="safety-row">
+              <b>Serious</b>
+              <div class="safety-track"><i style="--value: 25%"></i></div>
+              <em>25%</em>
+            </div>
+            <div class="safety-row">
+              <b>Tx change</b>
+              <div class="safety-track"><i style="--value: 17%"></i></div>
+              <em>17%</em>
+            </div>
+            <div class="safety-row">
+              <b>Death</b>
+              <div class="safety-track"><i style="--value: 0%"></i></div>
+              <em>0%</em>
+            </div>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Most Common TEAEs</p>
+          <h2>Fatigue and hot flash led the event table.</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>TEAE occurring in at least 2 patients</th>
+                  <th>n (%)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Fatigue</td><td>5 (42)</td></tr>
+                <tr><td>Hot flash</td><td>5 (42)</td></tr>
+                <tr><td>Rash</td><td>3 (25)</td></tr>
+                <tr><td>COVID-19</td><td>3 (25)</td></tr>
+                <tr><td>Arthralgia</td><td>2 (17)</td></tr>
+                <tr><td>Back pain</td><td>2 (17)</td></tr>
+                <tr><td>Headache</td><td>2 (17)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="source-note">TEAEs were graded per CTCAE v5.0.</p>
+        </article>
+      </section>
+
+      <section class="conclusion-ribbon" aria-label="Conclusions">
+        <article class="ribbon-tile">
+          <b>Castration was durable.</b>
+          <p>One-year apalutamide plus relugolix coadministration maintained castrate testosterone in all patients who completed therapy.</p>
+        </article>
+        <article class="ribbon-tile">
+          <b>Recovery was rapid for most.</b>
+          <p>Eight patients recovered testosterone above 50 ng/dL within 1 month of treatment discontinuation.</p>
+        </article>
+        <article class="ribbon-tile">
+          <b>Safety aligned with known profiles.</b>
+          <p>The reported safety findings were consistent with the known safety profiles of apalutamide and relugolix.</p>
+        </article>
+      </section>
+
+      <section class="panel markdown-fragment">
+        <p class="section-label">Poster Context</p>
+        <h2>Presented at NASP 2023 Annual Meeting &amp; Expo.</h2>
+        <p>Authors: Gordon Brown, Laurence Belkoff, Jason Hafron, Pankaj Aggarwal, Rushikesh Potdar, Amitabha Bhaumik, Jennifer Phillips, Tracy McGowan, and Neal Shore.</p>
+        <p>Meeting: September 18-21, 2023, Grapevine, Texas, USA. Study sponsorship: Janssen US Medical Affairs.</p>
+      </section>
+    </main>
+
+    <footer class="footer-actions" aria-label="Source documents">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/40_Concomitant-Apalutamide-and-Relugolix-in-Patients-With-High-Risk-Localized-Prostate-Cancer-Testosterone-Suppression-1-Year-Update-_2023.pdf">Open source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/40_Concomitant-Apalutamide-and-Relugolix-in-Patients-With-High-Risk-Localized-Prostate-Cancer-Testosterone-Suppression-1-Year-Update-_2023.md">Open source markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

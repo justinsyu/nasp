@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2022 | Antipsychotics, GSKIP, and neurotoxicant stress</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card svg,
+    .pathway-panel svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .hero-card {
+      overflow: hidden;
+    }
+    .poster-code small {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--ink);
+      font-size: 0.42em;
+      line-height: 1.1;
+    }
+    .pathway-panel {
+      background:
+        linear-gradient(145deg, rgba(238, 244, 251, 0.92), #fff 58%),
+        radial-gradient(circle at 90% 10%, rgba(233, 158, 37, 0.2), transparent 16rem);
+    }
+    .pathway-note {
+      margin: 0.7rem 0 0;
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-weight: 750;
+    }
+    .culture-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+    .culture-card {
+      min-height: 8rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.75rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .culture-card::after {
+      content: "";
+      position: absolute;
+      right: -1.2rem;
+      bottom: -1.2rem;
+      width: 4.8rem;
+      height: 4.8rem;
+      border: 1.1rem solid rgba(24, 124, 143, 0.1);
+      border-radius: 50%;
+    }
+    .culture-card b {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1rem;
+      line-height: 1.15;
+    }
+    .culture-card span {
+      display: block;
+      margin-top: 0.45rem;
+      color: var(--body);
+      font-size: 0.8rem;
+    }
+    .signal-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.8rem;
+    }
+    .signal-tile {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.75rem;
+    }
+    .signal-tile span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.62rem;
+      font-weight: 900;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+    .signal-tile strong {
+      display: block;
+      margin-top: 0.2rem;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+    .signal-tile em {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--body);
+      font-style: normal;
+      font-size: 0.78rem;
+      line-height: 1.35;
+    }
+    .stress-chart {
+      display: grid;
+      gap: 0.65rem;
+      margin-top: 0.8rem;
+    }
+    .stress-row {
+      display: grid;
+      grid-template-columns: 9rem minmax(0, 1fr) 5rem;
+      gap: 0.65rem;
+      align-items: center;
+    }
+    .stress-row b {
+      color: var(--ink);
+      font-size: 0.82rem;
+      line-height: 1.15;
+    }
+    .stress-track {
+      height: 0.9rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .stress-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .stress-row span {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 850;
+      text-align: right;
+    }
+    .table-card .delta-up {
+      color: var(--green);
+      font-weight: 900;
+    }
+    .table-card .delta-down {
+      color: var(--red);
+      font-weight: 900;
+    }
+    .source-note {
+      margin: 0.7rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    .interpretive-callout {
+      border-left: 4px solid var(--teal);
+      background: linear-gradient(90deg, rgba(24, 124, 143, 0.09), #fff);
+    }
+    .compact-list {
+      margin: 0.6rem 0 0 1.05rem;
+      padding: 0;
+    }
+    .compact-list li {
+      margin: 0.24rem 0;
+      font-size: 0.88rem;
+    }
+    @media (max-width: 900px) {
+      .culture-grid,
+      .signal-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 560px) {
+      .culture-grid,
+      .signal-grid,
+      .stress-row {
+        grid-template-columns: 1fr;
+      }
+      .stress-row span {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/33-2022.pdf">Source PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/33-2022.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2022 / Poster 33-2022</p>
+        <h1>Antipsychotics, GSKIP, and autophagy signaling under neurotoxicant stress.</h1>
+        <p class="hero-summary">In SH-SY5Y neuronal cell models, the poster frames GSKIP as a negative regulator of GSK3 and explores whether antipsychotics can trigger cytoprotective autophagy, with p62 and LC3 induction serving as the visible autophagy-marker readout.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag therapy">Psychopharmacology</li>
+          <li class="tag category">Cell signaling</li>
+          <li class="tag">SH-SY5Y neuronal cells</li>
+          <li class="tag">GSKIP / GSK3 / LC3</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div class="poster-code">33<br>2022<small>Antipsychotics and GSKIP</small></div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Author</dt>
+            <dd>Ming-der Shi</dd>
+          </div>
+          <div>
+            <dt>Institution</dt>
+            <dd>Chest Hospital, Ministry of Health and Welfare</dd>
+          </div>
+          <div>
+            <dt>Cell model</dt>
+            <dd>SH-SY5Y with EGFP/GSKIP constructs</dd>
+          </div>
+          <div>
+            <dt>Readout</dt>
+            <dd>Cell number, p62, LC3</dd>
+          </div>
+        </dl>
+        <svg viewBox="0 0 360 190" role="img" aria-label="Autophagy signaling concept">
+          <defs>
+            <linearGradient id="heroFlow" x1="0" x2="1">
+              <stop offset="0" stop-color="#d12630"/>
+              <stop offset="0.55" stop-color="#e99e25"/>
+              <stop offset="1" stop-color="#187c8f"/>
+            </linearGradient>
+          </defs>
+          <rect x="18" y="22" width="324" height="146" rx="22" fill="#fff" stroke="#aebbd2"/>
+          <circle cx="84" cy="94" r="42" fill="#eef4fb" stroke="#243770" stroke-width="3"/>
+          <circle cx="180" cy="94" r="42" fill="#fff7ea" stroke="#e99e25" stroke-width="3"/>
+          <circle cx="276" cy="94" r="42" fill="#edf7f8" stroke="#187c8f" stroke-width="3"/>
+          <path d="M127 94h10m86 0h10" stroke="url(#heroFlow)" stroke-width="8" stroke-linecap="round"/>
+          <path d="M138 82l20 12-20 12M234 82l20 12-20 12" fill="none" stroke="#d12630" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="84" y="88" text-anchor="middle" fill="#243770" font-size="20" font-weight="900">GSKIP</text>
+          <text x="84" y="112" text-anchor="middle" fill="#68758d" font-size="13" font-weight="800">regulates GSK3</text>
+          <text x="180" y="88" text-anchor="middle" fill="#243770" font-size="20" font-weight="900">APDs</text>
+          <text x="180" y="112" text-anchor="middle" fill="#68758d" font-size="13" font-weight="800">10-50 uM</text>
+          <text x="276" y="88" text-anchor="middle" fill="#243770" font-size="20" font-weight="900">p62</text>
+          <text x="276" y="112" text-anchor="middle" fill="#68758d" font-size="13" font-weight="800">LC3 signal</text>
+          <text x="180" y="154" text-anchor="middle" fill="#243770" font-size="14" font-weight="900">cytoprotective autophagy hypothesis</text>
+        </svg>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <div class="metric-card">
+          <span>G418 selection</span>
+          <strong>&gt;1 mo</strong>
+        </div>
+        <div class="metric-card">
+          <span>GFP-positive threshold</span>
+          <strong>&gt;80%</strong>
+        </div>
+        <div class="metric-card">
+          <span>APD exposure window</span>
+          <strong>6-12 h</strong>
+        </div>
+        <div class="metric-card">
+          <span>APD concentrations</span>
+          <strong>10/50</strong>
+        </div>
+      </section>
+
+      <section class="visual-grid">
+        <div class="panel pathway-panel">
+          <p class="section-label">Biologic premise</p>
+          <h2>GSKIP sits at the crossroads of GSK3 regulation, mitochondrial dynamics, and stress protection.</h2>
+          <svg viewBox="0 0 560 260" role="img" aria-label="PKA GSKIP GSK3 Drp1 signaling flow">
+            <defs>
+              <marker id="arrowTip" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,6 L9,3 z" fill="#243770"/>
+              </marker>
+            </defs>
+            <rect x="18" y="38" width="102" height="54" rx="10" fill="#fff" stroke="#aebbd2"/>
+            <rect x="158" y="38" width="102" height="54" rx="10" fill="#fff7ea" stroke="#e99e25" stroke-width="3"/>
+            <rect x="298" y="38" width="102" height="54" rx="10" fill="#fff" stroke="#aebbd2"/>
+            <rect x="438" y="38" width="102" height="54" rx="10" fill="#eef4fb" stroke="#187c8f" stroke-width="3"/>
+            <path d="M120 65h34M260 65h34M400 65h34" stroke="#243770" stroke-width="4" marker-end="url(#arrowTip)"/>
+            <text x="69" y="72" text-anchor="middle" fill="#243770" font-size="19" font-weight="900">PKA RII</text>
+            <text x="209" y="72" text-anchor="middle" fill="#243770" font-size="19" font-weight="900">GSKIP</text>
+            <text x="349" y="72" text-anchor="middle" fill="#243770" font-size="19" font-weight="900">GSK3</text>
+            <text x="489" y="72" text-anchor="middle" fill="#243770" font-size="19" font-weight="900">Drp1</text>
+            <path d="M112 172c64-58 126-58 186 0s118 58 178 0" fill="none" stroke="#d12630" stroke-width="7" stroke-linecap="round"/>
+            <circle cx="112" cy="172" r="25" fill="#fff" stroke="#d12630" stroke-width="4"/>
+            <circle cx="298" cy="172" r="25" fill="#fff" stroke="#e99e25" stroke-width="4"/>
+            <circle cx="476" cy="172" r="25" fill="#fff" stroke="#187c8f" stroke-width="4"/>
+            <text x="112" y="178" text-anchor="middle" fill="#243770" font-size="15" font-weight="900">APD</text>
+            <text x="298" y="178" text-anchor="middle" fill="#243770" font-size="15" font-weight="900">p62</text>
+            <text x="476" y="178" text-anchor="middle" fill="#243770" font-size="15" font-weight="900">LC3</text>
+            <text x="280" y="230" text-anchor="middle" fill="#68758d" font-size="15" font-weight="800">The poster links antipsychotic exposure to autophagy-marker expression and potential neuroprotection.</text>
+          </svg>
+          <p class="pathway-note">Background claim extracted from the source: GSKIP is described as a naturally occurring negative regulator of GSK3 within a PKA/GSKIP/GSK3/Drp1 signaling axis.</p>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Identify whether GSKIP and antipsychotics can promote cytoprotective autophagy in neuronal cells.</h2>
+          <p>The poster asks whether antipsychotics induce autophagy-related markers and protect neuronal cells from oxidative or neurotoxicant stress, with possible implications for molecular drug development in psychopharmacology.</p>
+          <div class="culture-grid" aria-label="Experimental cell lines">
+            <div class="culture-card">
+              <b>EGFP / SH-SY5Y</b>
+              <span>Naive reporter cell line used for drug, inhibitor, and stressor experiments.</span>
+            </div>
+            <div class="culture-card">
+              <b>EGFP-GSKIP wt</b>
+              <span>Wild-type GSKIP construct to test signaling-linked protection.</span>
+            </div>
+            <div class="culture-card">
+              <b>EGFP-L130P</b>
+              <span>Variant construct collected after stable selection for downstream assays.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Methods to findings</p>
+        <h2>Stable GFP-positive SH-SY5Y cultures were challenged with APDs, stressors, and autophagy inhibitors.</h2>
+        <div class="signal-grid" aria-label="Experimental signals">
+          <div class="signal-tile">
+            <span>Drug set</span>
+            <strong>3 APDs</strong>
+            <em>Olanzapine, paliperidone, and haloperidol are reported as inducing autophagy-marker expression.</em>
+          </div>
+          <div class="signal-tile">
+            <span>Early marker response</span>
+            <strong>6 h</strong>
+            <em>At 10 &micro;M, p62 and LC3 stimulation was already visible in SH-SY5Y cells.</em>
+          </div>
+          <div class="signal-tile">
+            <span>Dose test</span>
+            <strong>10/50 &micro;M</strong>
+            <em>Both concentrations are described as stimulating p62 and LC3 after 6 or 12 hours.</em>
+          </div>
+          <div class="signal-tile">
+            <span>Analytic model</span>
+            <strong>GEE</strong>
+            <em>Tables model associated factors and interactions affecting APD neuroprotective action.</em>
+          </div>
+        </div>
+      </section>
+
+      <section class="evidence-map" aria-label="Evidence flow">
+        <article class="evidence-card">
+          <h3>1. Build stable cultures</h3>
+          <p>Cells were screened under G418 for more than one month until GFP expression exceeded 80%.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>2. Apply APDs</h3>
+          <p>Antipsychotics were administered at 10 and 50 &micro;M across short treatment windows.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>3. Add stressors</h3>
+          <p>GEE tables include hydrogen peroxide, MPP+, and beta-amyloid stressor patterns.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>4. Read autophagy</h3>
+          <p>p62 and LC3 expression were the marker signals emphasized in the findings.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>5. Extend mechanism</h3>
+          <p>Future inhibitor work is proposed to locate the crucial autophagy pathway step.</p>
+        </article>
+      </section>
+
+      <section class="visual-grid">
+        <div class="panel interpretive-callout">
+          <p class="section-label">Result pattern</p>
+          <h2>Paliperidone and oxidative stress terms dominate the first GEE table.</h2>
+          <div class="stress-chart" aria-label="Selected GEE coefficient magnitudes">
+            <div class="stress-row">
+              <b>Paliperidone</b>
+              <div class="stress-track"><i style="width: 39%; background: linear-gradient(90deg, var(--green), var(--teal));"></i></div>
+              <span>+4245</span>
+            </div>
+            <div class="stress-row">
+              <b>H2O2 stress</b>
+              <div class="stress-track"><i style="width: 56%;"></i></div>
+              <span>-6052</span>
+            </div>
+            <div class="stress-row">
+              <b>APD concentration</b>
+              <div class="stress-track"><i style="width: 24%; background: linear-gradient(90deg, var(--green), var(--teal));"></i></div>
+              <span>+2574</span>
+            </div>
+            <div class="stress-row">
+              <b>Paliperidone x H2O2</b>
+              <div class="stress-track"><i style="width: 51%; background: linear-gradient(90deg, var(--green), var(--teal));"></i></div>
+              <span>+5492</span>
+            </div>
+          </div>
+          <p class="source-note">Dependent variable in the source tables: cell number. Bars are scaled to the largest absolute coefficient shown here.</p>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Conclusion</p>
+          <h2>The poster positions GSKIP as a candidate lever for psychiatric-disorder drug discovery.</h2>
+          <p>Across the background, findings, and discussion, the core claim is that antipsychotic-triggered autophagy and GSKIP-linked signaling may protect neuronal cells from apoptotic or oxidative damage.</p>
+          <ul class="compact-list">
+            <li>Autophagy inhibitors are proposed to identify which pathway step is critical.</li>
+            <li>The study links p62 and LC3 induction with potential neuroprotective action.</li>
+            <li>The author suggests possible downstream benefit for psychopharmacology development.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="tables-grid">
+        <div class="table-card">
+          <p class="section-label">Table 1 pattern</p>
+          <h2>Associated factors in naive SH-SY5Y cells</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Beta</th>
+                  <th>p-value</th>
+                  <th>Direction</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Paliperidone vs. other drugs</td>
+                  <td>4245.15</td>
+                  <td>0.014</td>
+                  <td class="delta-up">Positive</td>
+                </tr>
+                <tr>
+                  <td>H2O2 vs. other stressors</td>
+                  <td>-6051.80</td>
+                  <td>&lt;0.001</td>
+                  <td class="delta-down">Negative</td>
+                </tr>
+                <tr>
+                  <td>APD concentration</td>
+                  <td>2573.80</td>
+                  <td>&lt;0.001</td>
+                  <td class="delta-up">Positive</td>
+                </tr>
+                <tr>
+                  <td>Paliperidone x H2O2</td>
+                  <td>5492.32</td>
+                  <td>0.041</td>
+                  <td class="delta-up">Interaction</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="table-card">
+          <p class="section-label">Table 2 pattern</p>
+          <h2>Selected stressor and interaction signals</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Beta</th>
+                  <th>p-value</th>
+                  <th>Signal</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Hydrogen peroxide</td>
+                  <td>-6143.97</td>
+                  <td>&lt;0.001</td>
+                  <td class="delta-down">Cell-number loss</td>
+                </tr>
+                <tr>
+                  <td>Paliperidone x H2O2</td>
+                  <td>9680.95</td>
+                  <td>&lt;0.001</td>
+                  <td class="delta-up">Large interaction</td>
+                </tr>
+                <tr>
+                  <td>Paliperidone x MPP+</td>
+                  <td>3571.84</td>
+                  <td>&lt;0.001</td>
+                  <td class="delta-up">Interaction</td>
+                </tr>
+                <tr>
+                  <td>Paliperidone x beta-amyloid</td>
+                  <td>3629.23</td>
+                  <td>0.205</td>
+                  <td>Not significant</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/33-2022.pdf">Open original PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/33-2022.md">Read extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

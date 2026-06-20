@@ -1,0 +1,645 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Impact of PROMIS-10 on HRQoL Outcomes | NASP 2023</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .promis-hero-card {
+      position: relative;
+      min-height: 22rem;
+      overflow: hidden;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 22% 18%, rgba(209, 38, 48, 0.16), transparent 7rem),
+        radial-gradient(circle at 85% 78%, rgba(24, 124, 143, 0.16), transparent 8rem),
+        linear-gradient(145deg, #fff, var(--surface-blue) 58%, var(--surface-warm));
+    }
+
+    .promis-hero-card svg {
+      display: block;
+      width: 100%;
+      min-height: 22rem;
+    }
+
+    .hero-card .finding {
+      margin: 0;
+      border-left: 4px solid var(--teal);
+      padding-left: 0.72rem;
+      color: var(--ink);
+      font-size: 0.92rem;
+      font-weight: 850;
+    }
+
+    .metric-card strong small {
+      display: inline;
+      color: inherit;
+      font-size: 0.52em;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .domain-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.9rem;
+      margin-top: 0.8rem;
+    }
+
+    .domain-card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.95rem;
+    }
+
+    .domain-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 0.36rem;
+      background: var(--accent, var(--red));
+    }
+
+    .domain-card.physical {
+      --accent: var(--teal);
+    }
+
+    .domain-chart {
+      display: grid;
+      grid-template-columns: 8.8rem minmax(0, 1fr) 3.3rem;
+      gap: 0.55rem;
+      align-items: center;
+      margin-top: 0.7rem;
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+
+    .domain-track {
+      height: 1rem;
+      overflow: hidden;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: #edf2f8;
+    }
+
+    .domain-track i {
+      display: block;
+      width: var(--value);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--accent, var(--red)), var(--gold));
+    }
+
+    .intervention-board {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .rate-stack {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .rate-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--surface-blue);
+      padding: 0.85rem;
+    }
+
+    .rate-card:nth-child(2) {
+      background: var(--surface-warm);
+    }
+
+    .rate-card b {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 0.95;
+    }
+
+    .rate-card span {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--ink);
+      font-size: 0.85rem;
+      font-weight: 850;
+    }
+
+    .cohort-layout {
+      display: grid;
+      grid-template-columns: 0.72fr 1.28fr;
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .donut-wrap {
+      display: grid;
+      justify-items: center;
+      gap: 0.55rem;
+      margin-top: 0.5rem;
+    }
+
+    .donut-wrap svg {
+      width: min(14rem, 100%);
+      height: auto;
+    }
+
+    .legend-list {
+      display: grid;
+      gap: 0.42rem;
+      margin: 0.75rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .legend-list li {
+      display: grid;
+      grid-template-columns: 0.75rem minmax(0, 1fr) auto;
+      gap: 0.45rem;
+      align-items: center;
+      color: var(--body);
+      font-size: 0.78rem;
+    }
+
+    .legend-list i {
+      width: 0.7rem;
+      height: 0.7rem;
+      border-radius: 2px;
+      background: var(--swatch);
+    }
+
+    .therapy-bars {
+      display: grid;
+      gap: 0.58rem;
+      margin-top: 0.7rem;
+    }
+
+    .therapy-row {
+      display: grid;
+      grid-template-columns: 8.8rem minmax(0, 1fr) 2.8rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+
+    .therapy-track {
+      height: 0.82rem;
+      overflow: hidden;
+      border: 1px solid rgba(174, 187, 210, 0.8);
+      border-radius: 999px;
+      background: #edf2f8;
+    }
+
+    .therapy-track i {
+      display: block;
+      width: var(--value);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .method-ribbon {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.8rem;
+    }
+
+    .method-step {
+      position: relative;
+      min-height: 10.7rem;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+    }
+
+    .method-step::after {
+      content: attr(data-step);
+      position: absolute;
+      right: 0.4rem;
+      bottom: -0.62rem;
+      color: rgba(36, 55, 112, 0.10);
+      font-family: var(--font-display);
+      font-size: 4.7rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .method-step p {
+      position: relative;
+      z-index: 1;
+      margin: 0.48rem 0 0;
+      font-size: 0.82rem;
+    }
+
+    .plain-list {
+      margin: 0.7rem 0 0 1.05rem;
+      padding: 0;
+    }
+
+    .plain-list li {
+      margin: 0.28rem 0;
+      font-size: 0.88rem;
+    }
+
+    .table-card.compact td:last-child,
+    .table-card.compact th:last-child {
+      text-align: right;
+    }
+
+    .callout {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(24, 124, 143, 0.12), transparent 44%),
+        #fff;
+    }
+
+    .callout p {
+      max-width: 64rem;
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.05rem, 1.7vw, 1.45rem);
+      font-weight: 850;
+      line-height: 1.35;
+    }
+
+    .source-note {
+      margin: 0.65rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+
+    @media (max-width: 900px) {
+      .domain-grid,
+      .intervention-board,
+      .cohort-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .method-ribbon {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 620px) {
+      .domain-chart,
+      .therapy-row {
+        grid-template-columns: 1fr;
+      }
+
+      .method-ribbon {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP infographic home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/63_Impact-of-PROMIS-10-on-health-related-quality-of-life-outcomes-in-specialty-pharmacy-settings-_2023.pdf">Poster PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/63_Impact-of-PROMIS-10-on-health-related-quality-of-life-outcomes-in-specialty-pharmacy-settings-_2023.md">Markdown Source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2023 | PROMIS-10 in specialty pharmacy</p>
+        <h1 id="poster-title">Impact of PROMIS-10 on Health-Related Quality-of-Life Outcomes in Specialty Pharmacy Settings</h1>
+        <p class="hero-summary">
+          A retrospective observational study of specialty pharmacies using TherigySTM examined whether PROMIS-10 scores could document health-related quality-of-life outcomes and guide pharmacist interventions.
+        </p>
+        <ul class="tag-row" aria-label="Poster topics">
+          <li class="tag category">Patient-reported outcomes</li>
+          <li class="tag therapy">Specialty pharmacy</li>
+          <li class="tag">PROMIS-10</li>
+          <li class="tag">January 2021 to December 2022</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Study snapshot">
+        <div class="poster-code">63<br>2023</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Design</dt>
+            <dd>Retrospective observational</dd>
+          </div>
+          <div>
+            <dt>Platform</dt>
+            <dd>TherigySTM</dd>
+          </div>
+          <div>
+            <dt>Domains</dt>
+            <dd>Mental and physical HRQoL</dd>
+          </div>
+          <div>
+            <dt>Eligibility</dt>
+            <dd>Adults with at least 2 scores</dd>
+          </div>
+        </dl>
+        <p class="finding">Key signal: patients beginning in Poor-Fair categories received more interventions and many shifted into Good-Excellent HRQoL by final score.</p>
+      </aside>
+    </section>
+
+    <main>
+      <section class="visual-grid" aria-label="PROMIS-10 study concept and objective">
+        <div class="promis-hero-card" aria-hidden="true">
+          <svg viewBox="0 0 680 430" role="img">
+            <defs>
+              <linearGradient id="scoreFlow" x1="0%" x2="100%" y1="0%" y2="0%">
+                <stop offset="0%" stop-color="#d12630"/>
+                <stop offset="52%" stop-color="#e99e25"/>
+                <stop offset="100%" stop-color="#187c8f"/>
+              </linearGradient>
+              <filter id="cardShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#243770" flood-opacity="0.12"/>
+              </filter>
+            </defs>
+            <rect x="72" y="78" width="220" height="262" rx="18" fill="#fff" stroke="#aebbd2" stroke-width="3" filter="url(#cardShadow)"/>
+            <rect x="388" y="78" width="220" height="262" rx="18" fill="#fff" stroke="#aebbd2" stroke-width="3" filter="url(#cardShadow)"/>
+            <text x="182" y="118" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="22" font-weight="900">Baseline</text>
+            <text x="498" y="118" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="22" font-weight="900">Final score</text>
+            <rect x="106" y="152" width="152" height="52" rx="9" fill="#fff7ea" stroke="#d12630" stroke-width="3"/>
+            <text x="182" y="185" text-anchor="middle" fill="#d12630" font-family="Montserrat, Arial, sans-serif" font-size="19" font-weight="900">Poor-Fair</text>
+            <rect x="106" y="238" width="152" height="52" rx="9" fill="#eef4fb" stroke="#187c8f" stroke-width="3"/>
+            <text x="182" y="271" text-anchor="middle" fill="#187c8f" font-family="Montserrat, Arial, sans-serif" font-size="19" font-weight="900">Good-Excellent</text>
+            <rect x="422" y="152" width="152" height="52" rx="9" fill="#eef4fb" stroke="#187c8f" stroke-width="3"/>
+            <text x="498" y="185" text-anchor="middle" fill="#187c8f" font-family="Montserrat, Arial, sans-serif" font-size="19" font-weight="900">Improved</text>
+            <rect x="422" y="238" width="152" height="52" rx="9" fill="#eef4fb" stroke="#187c8f" stroke-width="3"/>
+            <text x="498" y="271" text-anchor="middle" fill="#187c8f" font-family="Montserrat, Arial, sans-serif" font-size="19" font-weight="900">Maintained</text>
+            <path d="M258 178 C320 137 363 137 422 178" fill="none" stroke="url(#scoreFlow)" stroke-width="16" stroke-linecap="round"/>
+            <path d="M258 264 C321 292 360 292 422 264" fill="none" stroke="#187c8f" stroke-width="16" stroke-linecap="round" opacity="0.74"/>
+            <circle cx="340" cy="214" r="44" fill="#fff" stroke="#243770" stroke-width="4"/>
+            <text x="340" y="207" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="18" font-weight="900">PROMIS</text>
+            <text x="340" y="231" text-anchor="middle" fill="#d12630" font-family="Montserrat, Arial, sans-serif" font-size="28" font-weight="900">10</text>
+            <path d="M120 359 h440" stroke="#243770" stroke-width="4" stroke-linecap="round" opacity="0.18"/>
+            <circle cx="168" cy="359" r="12" fill="#d12630"/>
+            <circle cx="294" cy="359" r="12" fill="#e99e25"/>
+            <circle cx="420" cy="359" r="12" fill="#187c8f"/>
+            <circle cx="546" cy="359" r="12" fill="#4d8a67"/>
+            <text x="340" y="397" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="20" font-weight="900">Patient-reported scores trigger targeted specialty pharmacy support</text>
+          </svg>
+        </div>
+
+        <div class="panel markdown-fragment">
+          <p class="section-label">Objective</p>
+          <h2>Document HRQoL outcomes and the interventions attached to them</h2>
+          <p>
+            The poster evaluated the implementation of PROMIS-10 in specialty pharmacy settings, using TherigySTM as the clinical care management and reporting platform for score capture and intervention documentation.
+          </p>
+          <ul class="plain-list">
+            <li>PROMIS-10 T-scores were first categorized as Poor, Fair, Good, Very Good, or Excellent.</li>
+            <li>Categories were consolidated into two analytic groups: Poor-Fair and Good-Excellent.</li>
+            <li>Change was measured from baseline to the last recorded score.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Mental improved</span>
+          <strong>55<small>%</small></strong>
+        </article>
+        <article class="metric-card">
+          <span>Physical improved</span>
+          <strong>40<small>%</small></strong>
+        </article>
+        <article class="metric-card">
+          <span>Mental maintained</span>
+          <strong>90<small>%</small></strong>
+        </article>
+        <article class="metric-card">
+          <span>Physical maintained</span>
+          <strong>84<small>%</small></strong>
+        </article>
+      </section>
+
+      <section id="results" class="panel">
+        <p class="section-label">Outcome movement</p>
+        <h2>PROMIS-10 captured improvement and stability across HRQoL domains</h2>
+        <div class="domain-grid">
+          <article class="domain-card">
+            <h3>Mental health domain</h3>
+            <p class="source-note">Among patients starting in Poor-Fair, 55% moved to Good-Excellent. Among those already Good-Excellent, 90% maintained that status.</p>
+            <div class="domain-chart">
+              <span>Poor-Fair to Good-Excellent</span>
+              <div class="domain-track"><i style="--value:55%"></i></div>
+              <span>55%</span>
+            </div>
+            <div class="domain-chart">
+              <span>Good-Excellent maintained</span>
+              <div class="domain-track"><i style="--value:90%"></i></div>
+              <span>90%</span>
+            </div>
+          </article>
+
+          <article class="domain-card physical">
+            <h3>Physical health domain</h3>
+            <p class="source-note">Among patients starting in Poor-Fair, 40% moved to Good-Excellent. Among those already Good-Excellent, 84% maintained that status.</p>
+            <div class="domain-chart">
+              <span>Poor-Fair to Good-Excellent</span>
+              <div class="domain-track"><i style="--value:40%"></i></div>
+              <span>40%</span>
+            </div>
+            <div class="domain-chart">
+              <span>Good-Excellent maintained</span>
+              <div class="domain-track"><i style="--value:84%"></i></div>
+              <span>84%</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="intervention-board" aria-label="Clinical intervention findings">
+        <div class="panel">
+          <p class="section-label">Intervention intensity</p>
+          <h2>Lower baseline HRQoL aligned with more specialty pharmacy activity</h2>
+          <p>
+            In both PROMIS-10 domains, patients with Poor-Fair baseline scores averaged 2.3 interventions per patient. The poster reported higher intervention rates versus Good-Excellent baseline patients in mental and physical health analyses.
+          </p>
+          <div class="rate-stack" aria-label="Higher intervention rates">
+            <div class="rate-card">
+              <b>31%</b>
+              <span>higher intervention rate for Poor-Fair baseline in the mental health domain</span>
+            </div>
+            <div class="rate-card">
+              <b>35%</b>
+              <span>higher intervention rate for Poor-Fair baseline in the physical health domain</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tables-grid">
+          <article class="table-card compact">
+            <p class="section-label">Mental health</p>
+            <h3>Interventions per patient</h3>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Baseline group</th>
+                    <th>Interventions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Good-Excellent</td><td>1.8</td></tr>
+                  <tr><td>Poor-Fair</td><td>2.3</td></tr>
+                  <tr><td>Grand total</td><td>1.9</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+
+          <article class="table-card compact">
+            <p class="section-label">Physical health</p>
+            <h3>Interventions per patient</h3>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Baseline group</th>
+                    <th>Interventions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Good-Excellent</td><td>1.7</td></tr>
+                  <tr><td>Poor-Fair</td><td>2.3</td></tr>
+                  <tr><td>Grand total</td><td>1.9</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="cohort-layout" aria-label="Patient cohort profile">
+        <div class="panel">
+          <p class="section-label">Cohort profile</p>
+          <h2>Gender distribution</h2>
+          <div class="donut-wrap">
+            <svg viewBox="0 0 220 220" role="img" aria-label="Female 66 percent and male 34 percent">
+              <circle cx="110" cy="110" r="74" fill="none" stroke="#eef4fb" stroke-width="34"/>
+              <circle cx="110" cy="110" r="74" fill="none" stroke="#d12630" stroke-width="34" stroke-dasharray="307 465" stroke-dashoffset="0" transform="rotate(-90 110 110)"/>
+              <circle cx="110" cy="110" r="74" fill="none" stroke="#187c8f" stroke-width="34" stroke-dasharray="158 465" stroke-dashoffset="-307" transform="rotate(-90 110 110)"/>
+              <text x="110" y="104" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="28" font-weight="900">66%</text>
+              <text x="110" y="130" text-anchor="middle" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800">female</text>
+            </svg>
+          </div>
+          <ul class="legend-list" aria-label="Gender legend">
+            <li><i style="--swatch:#d12630"></i><span>Female</span><b>66%</b></li>
+            <li><i style="--swatch:#187c8f"></i><span>Male</span><b>34%</b></li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Therapeutic category</p>
+          <h2>Inflammatory disease represented the largest share</h2>
+          <div class="therapy-bars" aria-label="Therapeutic category percentages">
+            <div class="therapy-row">
+              <span>Inflammatory</span>
+              <div class="therapy-track"><i style="--value:54%"></i></div>
+              <span>54%</span>
+            </div>
+            <div class="therapy-row">
+              <span>Oncology</span>
+              <div class="therapy-track"><i style="--value:19%"></i></div>
+              <span>19%</span>
+            </div>
+            <div class="therapy-row">
+              <span>Other</span>
+              <div class="therapy-track"><i style="--value:15%"></i></div>
+              <span>15%</span>
+            </div>
+            <div class="therapy-row">
+              <span>Hepatitis C</span>
+              <div class="therapy-track"><i style="--value:7%"></i></div>
+              <span>7%</span>
+            </div>
+            <div class="therapy-row">
+              <span>Multiple sclerosis</span>
+              <div class="therapy-track"><i style="--value:5%"></i></div>
+              <span>5%</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="methods" class="panel">
+        <p class="section-label">Methods flow</p>
+        <h2>From score collection to patient-specific intervention tracking</h2>
+        <div class="method-ribbon">
+          <article class="method-step" data-step="1">
+            <h3>Enroll eligible patients</h3>
+            <p>Adults at least 18 years old with two or more collected PROMIS-10 scores were included.</p>
+          </article>
+          <article class="method-step" data-step="2">
+            <h3>Capture scores</h3>
+            <p>TherigySTM was used to collect, manage, and report specialty pharmacy patient data.</p>
+          </article>
+          <article class="method-step" data-step="3">
+            <h3>Collapse categories</h3>
+            <p>Five T-score labels were consolidated into Good-Excellent and Poor-Fair groups.</p>
+          </article>
+          <article class="method-step" data-step="4">
+            <h3>Count interventions</h3>
+            <p>Descriptive analysis summarized intervention counts and percentages for the cohort.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="evidence-map" aria-label="Evidence flow">
+        <article class="evidence-card">
+          <h3>Background</h3>
+          <p>Accreditation standards emphasize performance systems that evaluate specialty pharmacy patient outcomes.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Tool</h3>
+          <p>PROMIS-10 is a concise, validated 10-item questionnaire for physical and mental HRQoL.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Use case</h3>
+          <p>Specialty pharmacies can identify low or worsening HRQoL and intervene around patient-specific needs.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Signal</h3>
+          <p>Mental and physical domains showed improvement from Poor-Fair and maintenance within Good-Excellent.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Next question</h3>
+          <p>The authors recommended studying the impact of PROMIS-10 implementation on healthcare utilization.</p>
+        </article>
+      </section>
+
+      <section id="conclusion" class="panel callout">
+        <p>
+          Conclusion: PROMIS-10 gave specialty pharmacies a structured way to detect HRQoL needs, document interventions, and show improvement in patient-reported mental and physical health status over time.
+        </p>
+      </section>
+
+      <footer id="sources" class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/63_Impact-of-PROMIS-10-on-health-related-quality-of-life-outcomes-in-specialty-pharmacy-settings-_2023.pdf">Open original PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/63_Impact-of-PROMIS-10-on-health-related-quality-of-life-outcomes-in-specialty-pharmacy-settings-_2023.md">Open extracted markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

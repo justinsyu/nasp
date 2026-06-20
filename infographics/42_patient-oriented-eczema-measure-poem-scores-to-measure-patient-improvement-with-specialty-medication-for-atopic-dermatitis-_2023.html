@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>POEM Scores to Measure Patient Improvement with Specialty Medication for Atopic Dermatitis | NASP 2023</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .poem-hero-art {
+      position: relative;
+      min-height: 20rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 22% 22%, rgba(24, 124, 143, 0.20), transparent 8rem),
+        radial-gradient(circle at 82% 76%, rgba(233, 158, 37, 0.22), transparent 9rem),
+        linear-gradient(135deg, #ffffff 0%, var(--surface-blue) 58%, #fff7ea 100%);
+      overflow: hidden;
+    }
+    .poem-hero-art svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 20rem;
+    }
+    .hero-card .finding {
+      margin: 0;
+      border-left: 4px solid var(--red);
+      padding-left: 0.72rem;
+      color: var(--ink);
+      font-size: 0.94rem;
+      font-weight: 850;
+    }
+    .metric-card p {
+      margin: 0.45rem 0 0;
+      font-size: 0.78rem;
+    }
+    .poem-score-card {
+      display: grid;
+      grid-template-columns: minmax(13rem, 0.55fr) minmax(0, 1.45fr);
+      gap: 1rem;
+      align-items: center;
+    }
+    .score-delta {
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background:
+        linear-gradient(145deg, rgba(209, 38, 48, 0.10), transparent 48%),
+        #fff;
+      padding: 1rem;
+    }
+    .score-delta strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(3.2rem, 8vw, 5.8rem);
+      line-height: 0.9;
+    }
+    .score-delta span {
+      display: block;
+      margin-top: 0.4rem;
+      color: var(--ink);
+      font-weight: 900;
+    }
+    .score-delta p {
+      margin: 0.48rem 0 0;
+      font-size: 0.82rem;
+    }
+    .severity-shift {
+      display: grid;
+      gap: 0.65rem;
+    }
+    .shift-row {
+      display: grid;
+      grid-template-columns: 8.5rem minmax(0, 1fr) 4.6rem;
+      gap: 0.55rem;
+      align-items: center;
+    }
+    .shift-row b {
+      color: var(--ink);
+      font-size: 0.82rem;
+      line-height: 1.15;
+    }
+    .shift-track {
+      height: 1.05rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .shift-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: var(--c, var(--red));
+    }
+    .shift-row span {
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 900;
+      text-align: right;
+    }
+    .trajectory-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(15rem, 0.65fr);
+      gap: 1rem;
+      align-items: center;
+    }
+    .line-chart {
+      width: 100%;
+      min-height: 19rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+    }
+    .line-chart text {
+      fill: var(--muted);
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 800;
+    }
+    .line-chart .axis {
+      stroke: rgba(36, 55, 112, 0.35);
+      stroke-width: 1.2;
+    }
+    .line-chart .grid {
+      stroke: rgba(36, 55, 112, 0.12);
+      stroke-width: 1;
+    }
+    .line-chart .series {
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 4;
+    }
+    .line-chart .marker {
+      stroke: #fff;
+      stroke-width: 2;
+    }
+    .chart-notes {
+      display: grid;
+      gap: 0.65rem;
+    }
+    .chart-note {
+      border: 1px solid var(--border-strong);
+      border-left: 0.42rem solid var(--accent, var(--red));
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.75rem;
+    }
+    .chart-note strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+    .chart-note span {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--body);
+      font-size: 0.8rem;
+    }
+    .chart-note:nth-child(2) { --accent: var(--teal); }
+    .chart-note:nth-child(3) { --accent: var(--purple); }
+    .method-path {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+    .method-card {
+      position: relative;
+      min-height: 10.7rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.85rem;
+      overflow: hidden;
+    }
+    .method-card::after {
+      content: attr(data-step);
+      position: absolute;
+      right: 0.5rem;
+      bottom: -0.55rem;
+      color: rgba(36, 55, 112, 0.11);
+      font-family: var(--font-display);
+      font-size: 4.6rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .method-card h3,
+    .method-card p {
+      position: relative;
+      z-index: 1;
+    }
+    .method-card p {
+      margin: 0.48rem 0 0;
+      font-size: 0.82rem;
+    }
+    .improvement-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 1rem;
+    }
+    .improvement-bars {
+      display: grid;
+      gap: 0.64rem;
+      margin-top: 0.7rem;
+    }
+    .improvement-row {
+      display: grid;
+      grid-template-columns: 8.8rem minmax(0, 1fr) 3.2rem;
+      gap: 0.55rem;
+      align-items: center;
+    }
+    .improvement-row b {
+      color: var(--ink);
+      font-size: 0.78rem;
+      line-height: 1.15;
+    }
+    .improvement-track {
+      height: 1.18rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .improvement-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .improvement-row span {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 900;
+      text-align: right;
+    }
+    .poem-scale {
+      display: grid;
+      gap: 0.45rem;
+      margin-top: 0.65rem;
+    }
+    .scale-row {
+      display: grid;
+      grid-template-columns: 4.7rem minmax(0, 1fr);
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 6px;
+      background: #fff;
+      overflow: hidden;
+    }
+    .scale-row b {
+      background: var(--accent, var(--surface-blue));
+      color: var(--ink);
+      padding: 0.42rem 0.5rem;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+    }
+    .scale-row span {
+      padding: 0.42rem 0.55rem;
+      color: var(--body);
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+    .takeaway {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(24, 124, 143, 0.10), transparent 42%),
+        #fff;
+    }
+    .takeaway p {
+      margin: 0;
+      color: var(--ink);
+      font-size: 1.05rem;
+      font-weight: 850;
+    }
+    .reference-note {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    @media (max-width: 900px) {
+      .poem-score-card,
+      .trajectory-panel,
+      .improvement-grid {
+        grid-template-columns: 1fr;
+      }
+      .method-path {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 560px) {
+      .method-path {
+        grid-template-columns: 1fr;
+      }
+      .shift-row,
+      .improvement-row {
+        grid-template-columns: 1fr;
+      }
+      .shift-row span,
+      .improvement-row span {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">NASP Infographics</a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/42_Patient-Oriented-Eczema-Measure-POEM-Scores-to-Measure-Patient-Improvement-with-Specialty-Medication-for-Atopic-Dermatitis-_2023.pdf">Poster PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/42_Patient-Oriented-Eczema-Measure-POEM-Scores-to-Measure-Patient-Improvement-with-Specialty-Medication-for-Atopic-Dermatitis-_2023.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2023 | Poster 42 | Atopic dermatitis</p>
+        <h1>POEM scores captured rapid patient-reported improvement after specialty pharmacy biologic therapy.</h1>
+        <p class="hero-summary">Fairview Pharmacy Services reviewed Patient-Oriented Eczema Measure scores for patients starting dupilumab and found a large early shift from severe baseline symptoms toward lower disease activity within the first 6 months.</p>
+        <ul class="tag-row" aria-label="Topic tags">
+          <li class="tag therapy">Dupilumab</li>
+          <li class="tag category">Patient-reported outcome</li>
+          <li class="tag">Retrospective cohort</li>
+          <li class="tag">Health system-owned specialty pharmacy</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Poster details">
+        <div class="poster-code">42</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Year</dt>
+            <dd>2023</dd>
+          </div>
+          <div>
+            <dt>Patients</dt>
+            <dd>154</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>Fairview specialty pharmacy</dd>
+          </div>
+          <div>
+            <dt>Window</dt>
+            <dd>First 6 months</dd>
+          </div>
+        </dl>
+        <p class="finding">Objective: examine trends in atopic dermatitis severity, measured by POEM, during the first 6 months of specialty pharmacy treatment.</p>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Eligible cohort</span>
+          <strong>154</strong>
+          <p>patients with atopic dermatitis who filled at least 2 dupilumab prescriptions within 6 months.</p>
+        </article>
+        <article class="metric-card">
+          <span>Baseline POEM median</span>
+          <strong>18</strong>
+          <p>median score, IQR 14 to 22, consistent with severe eczema.</p>
+        </article>
+        <article class="metric-card">
+          <span>Follow-up POEM median</span>
+          <strong>8</strong>
+          <p>median score, IQR 3 to 14, at follow-up within 6 months.</p>
+        </article>
+        <article class="metric-card">
+          <span>Any improvement</span>
+          <strong>77%</strong>
+          <p>of patients indicated at least some POEM improvement at follow-up.</p>
+        </article>
+      </section>
+
+      <section class="panel poem-score-card" id="shift">
+        <div class="score-delta">
+          <strong>-10</strong>
+          <span>median POEM score shift</span>
+          <p>Baseline median 18 moved to follow-up median 8. Moderate to very severe baseline groups exceeded reported minimally clinically important difference thresholds of about 3 to 9 points.</p>
+        </div>
+        <div>
+          <p class="section-label">Severity distribution</p>
+          <h2>Baseline burden was high, then mild or clear scores became common.</h2>
+          <div class="severity-shift" aria-label="Baseline and follow-up POEM category distribution">
+            <div class="shift-row">
+              <b>Severe or very severe at baseline</b>
+              <div class="shift-track"><i style="--w:55%;--c:linear-gradient(90deg,var(--red),var(--gold));"></i></div>
+              <span>55%</span>
+            </div>
+            <div class="shift-row">
+              <b>Mild or clear at baseline</b>
+              <div class="shift-track"><i style="--w:5%;--c:var(--teal);"></i></div>
+              <span>5%</span>
+            </div>
+            <div class="shift-row">
+              <b>Mild or clear at follow-up</b>
+              <div class="shift-track"><i style="--w:66%;--c:linear-gradient(90deg,var(--teal),var(--green));"></i></div>
+              <span>66%</span>
+            </div>
+            <div class="shift-row">
+              <b>Severe or very severe at follow-up</b>
+              <div class="shift-track"><i style="--w:16%;--c:var(--purple);"></i></div>
+              <span>16%</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel trajectory-panel" id="trajectory">
+        <div>
+          <p class="section-label">Six-month trajectory</p>
+          <h2>Higher baseline severity groups fell quickly, with the sharpest decline in the first 45 days.</h2>
+          <svg class="line-chart" viewBox="0 0 640 350" role="img" aria-label="POEM scores over six months by baseline category">
+            <line class="grid" x1="70" y1="55" x2="590" y2="55"></line>
+            <line class="grid" x1="70" y1="105" x2="590" y2="105"></line>
+            <line class="grid" x1="70" y1="155" x2="590" y2="155"></line>
+            <line class="grid" x1="70" y1="205" x2="590" y2="205"></line>
+            <line class="grid" x1="70" y1="255" x2="590" y2="255"></line>
+            <line class="axis" x1="70" y1="305" x2="590" y2="305"></line>
+            <line class="axis" x1="70" y1="35" x2="70" y2="305"></line>
+            <text x="22" y="59">25</text>
+            <text x="22" y="109">20</text>
+            <text x="22" y="159">15</text>
+            <text x="22" y="209">10</text>
+            <text x="28" y="259">5</text>
+            <text x="30" y="309">0</text>
+            <text x="62" y="329">0</text>
+            <text x="145" y="329">30</text>
+            <text x="232" y="329">60</text>
+            <text x="318" y="329">90</text>
+            <text x="400" y="329">120</text>
+            <text x="488" y="329">150</text>
+            <text x="574" y="329">180</text>
+            <text x="246" y="345">Days since index</text>
+            <text transform="translate(14 225) rotate(-90)">POEM score</text>
+            <path class="series" d="M70 285 L157 275 L243 265 L330 255 L417 245 L503 235 L590 225" stroke="#187c8f"></path>
+            <path class="series" d="M70 165 L157 205 L243 225 L330 235 L417 235 L503 235 L590 235" stroke="#e99e25"></path>
+            <path class="series" d="M70 95 L157 155 L243 185 L330 205 L417 205 L503 205 L590 205" stroke="#d12630"></path>
+            <path class="series" d="M70 35 L157 105 L243 145 L330 165 L417 175 L503 185 L590 195" stroke="#7561a8"></path>
+            <g fill="#187c8f">
+              <circle class="marker" cx="70" cy="285" r="5"></circle><circle class="marker" cx="157" cy="275" r="5"></circle><circle class="marker" cx="243" cy="265" r="5"></circle><circle class="marker" cx="330" cy="255" r="5"></circle><circle class="marker" cx="417" cy="245" r="5"></circle><circle class="marker" cx="503" cy="235" r="5"></circle><circle class="marker" cx="590" cy="225" r="5"></circle>
+            </g>
+            <g fill="#e99e25">
+              <circle class="marker" cx="70" cy="165" r="5"></circle><circle class="marker" cx="157" cy="205" r="5"></circle><circle class="marker" cx="243" cy="225" r="5"></circle><circle class="marker" cx="330" cy="235" r="5"></circle><circle class="marker" cx="417" cy="235" r="5"></circle><circle class="marker" cx="503" cy="235" r="5"></circle><circle class="marker" cx="590" cy="235" r="5"></circle>
+            </g>
+            <g fill="#d12630">
+              <circle class="marker" cx="70" cy="95" r="5"></circle><circle class="marker" cx="157" cy="155" r="5"></circle><circle class="marker" cx="243" cy="185" r="5"></circle><circle class="marker" cx="330" cy="205" r="5"></circle><circle class="marker" cx="417" cy="205" r="5"></circle><circle class="marker" cx="503" cy="205" r="5"></circle><circle class="marker" cx="590" cy="205" r="5"></circle>
+            </g>
+            <g fill="#7561a8">
+              <circle class="marker" cx="70" cy="35" r="5"></circle><circle class="marker" cx="157" cy="105" r="5"></circle><circle class="marker" cx="243" cy="145" r="5"></circle><circle class="marker" cx="330" cy="165" r="5"></circle><circle class="marker" cx="417" cy="175" r="5"></circle><circle class="marker" cx="503" cy="185" r="5"></circle><circle class="marker" cx="590" cy="195" r="5"></circle>
+            </g>
+            <text x="482" y="218" fill="#187c8f">Mild/clear</text>
+            <text x="480" y="248" fill="#e99e25">Moderate</text>
+            <text x="488" y="200" fill="#d12630">Severe</text>
+            <text x="476" y="188" fill="#7561a8">Very severe</text>
+          </svg>
+        </div>
+        <aside class="chart-notes" aria-label="Trajectory callouts">
+          <div class="chart-note">
+            <strong>45 days</strong>
+            <span>reported point of most dramatic early decrease in POEM scores.</span>
+          </div>
+          <div class="chart-note">
+            <strong>60-90 days</strong>
+            <span>higher severity groups stabilized around moderate to mild/clear scores.</span>
+          </div>
+          <div class="chart-note">
+            <strong>21.4 points</strong>
+            <span>average 180-day decrease estimated for very severe baseline patients.</span>
+          </div>
+        </aside>
+      </section>
+
+      <section>
+        <p class="section-label">Evidence flow</p>
+        <h2>How the poster turned routine assessments into severity trends.</h2>
+        <div class="method-path">
+          <article class="method-card" data-step="1">
+            <h3>Identify cohort</h3>
+            <p>Patients had an atopic dermatitis diagnosis and were new to biologic therapy between April 2017 and December 2021.</p>
+          </article>
+          <article class="method-card" data-step="2">
+            <h3>Confirm exposure</h3>
+            <p>Eligible patients filled 2 or more dupilumab prescriptions within a 6-month window.</p>
+          </article>
+          <article class="method-card" data-step="3">
+            <h3>Capture POEM</h3>
+            <p>Baseline and at least 1 follow-up POEM score were recorded through specialty pharmacy clinical assessment.</p>
+          </article>
+          <article class="method-card" data-step="4">
+            <h3>Stratify severity</h3>
+            <p>Trends were assessed by baseline category: mild/clear, moderate, severe, and very severe.</p>
+          </article>
+          <article class="method-card" data-step="5">
+            <h3>Model change</h3>
+            <p>Loess regressions and linear mixed models examined inflection points and average decreases over time.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="improvement-grid" id="results">
+        <article class="panel">
+          <p class="section-label">Improvement by baseline category</p>
+          <h2>Patients starting severe had the highest observed improvement rate.</h2>
+          <div class="improvement-bars" aria-label="Percent improvement by baseline POEM category">
+            <div class="improvement-row">
+              <b>Mild/clear (N=8)</b>
+              <div class="improvement-track"><i style="--w:75%;"></i></div>
+              <span>75%</span>
+            </div>
+            <div class="improvement-row">
+              <b>Moderate (N=62)</b>
+              <div class="improvement-track"><i style="--w:73%;"></i></div>
+              <span>73%</span>
+            </div>
+            <div class="improvement-row">
+              <b>Severe (N=62)</b>
+              <div class="improvement-track"><i style="--w:90%;"></i></div>
+              <span>90%</span>
+            </div>
+            <div class="improvement-row">
+              <b>Very severe (N=22)</b>
+              <div class="improvement-track"><i style="--w:82%;"></i></div>
+              <span>82%</span>
+            </div>
+            <div class="improvement-row">
+              <b>Total (N=154)</b>
+              <div class="improvement-track"><i style="--w:77%;"></i></div>
+              <span>77%</span>
+            </div>
+          </div>
+        </article>
+        <article class="panel">
+          <p class="section-label">POEM scoring lens</p>
+          <h2>The seven-question POEM scale ranges from clear to very severe eczema.</h2>
+          <div class="poem-scale" aria-label="POEM scoring categories">
+            <div class="scale-row" style="--accent:rgba(24,124,143,0.16);"><b>0-2</b><span>Clear or almost clear</span></div>
+            <div class="scale-row" style="--accent:rgba(77,138,103,0.17);"><b>3-7</b><span>Mild eczema</span></div>
+            <div class="scale-row" style="--accent:rgba(233,158,37,0.22);"><b>8-16</b><span>Moderate eczema</span></div>
+            <div class="scale-row" style="--accent:rgba(209,38,48,0.14);"><b>17-24</b><span>Severe eczema</span></div>
+            <div class="scale-row" style="--accent:rgba(117,97,168,0.18);"><b>25-28</b><span>Very severe eczema</span></div>
+          </div>
+          <p class="reference-note">The poster notes published minimally clinically important difference estimates for POEM decreases of about 3 to 9 points.</p>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Detailed table patterns">
+        <article class="table-card">
+          <h2>Baseline cohort profile</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Measure</th>
+                  <th>Poster value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Median age</td><td>38 years (IQR 20, 55)</td></tr>
+                <tr><td>Pediatric patients</td><td>32 (21%)</td></tr>
+                <tr><td>Female patients</td><td>91 (59%)</td></tr>
+                <tr><td>70-100% body affected by AD</td><td>43 (28%)</td></tr>
+                <tr><td>Baseline steroid use</td><td>101 (66%)</td></tr>
+                <tr><td>Median adherence, PDC</td><td>93% (IQR 63, 99)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+        <article class="table-card">
+          <h2>Average decrease in POEM score</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Baseline category</th>
+                  <th>30 days</th>
+                  <th>90 days</th>
+                  <th>180 days</th>
+                  <th>p-value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Mild/clear</td><td>0.13</td><td>0.40</td><td>0.79</td><td>0.81</td></tr>
+                <tr><td>Moderate</td><td>1.87</td><td>5.62</td><td>11.25</td><td>&lt;.0001</td></tr>
+                <tr><td>Severe</td><td>3.28</td><td>9.83</td><td>19.66</td><td>&lt;.0001</td></tr>
+                <tr><td>Very severe</td><td>3.57</td><td>10.70</td><td>21.40</td><td>&lt;.0001</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel takeaway" id="conclusion">
+        <p>Conclusion: adult and pediatric patients generally entered specialty pharmacy care with high atopic dermatitis severity, and patients in moderate to very severe baseline categories showed rapid, clinically meaningful POEM score decreases during dupilumab treatment.</p>
+      </section>
+    </main>
+
+    <footer class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/42_Patient-Oriented-Eczema-Measure-POEM-Scores-to-Measure-Patient-Improvement-with-Specialty-Medication-for-Atopic-Dermatitis-_2023.pdf">Open original poster PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/42_Patient-Oriented-Eczema-Measure-POEM-Scores-to-Measure-Patient-Improvement-with-Specialty-Medication-for-Atopic-Dermatitis-_2023.md">Open extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

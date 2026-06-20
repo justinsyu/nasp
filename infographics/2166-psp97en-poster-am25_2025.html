@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Economic Benefit of Biosimilars in North America | NASP 2025</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .savings-hero {
+      position: relative;
+      overflow: hidden;
+    }
+    .savings-hero::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: min(34rem, 48vw);
+      height: min(17rem, 26vw);
+      background:
+        linear-gradient(135deg, transparent 0 42%, rgba(209, 38, 48, 0.14) 42% 44%, transparent 44% 100%),
+        radial-gradient(circle at 82% 78%, rgba(233, 158, 37, 0.24), transparent 9rem);
+      pointer-events: none;
+    }
+    .hero-copy,
+    .hero-card {
+      position: relative;
+      z-index: 1;
+    }
+    .hero-summary strong {
+      color: var(--ink);
+      font-weight: 900;
+    }
+    .money-orbit {
+      display: grid;
+      gap: 0.8rem;
+    }
+    .orbit-stage {
+      min-height: 13.5rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.9) 0 22%, transparent 23%),
+        radial-gradient(circle at 50% 50%, transparent 0 36%, rgba(24, 124, 143, 0.16) 37% 39%, transparent 40%),
+        linear-gradient(140deg, #ffffff 0%, var(--surface-blue) 56%, var(--surface-warm) 100%);
+      display: grid;
+      place-items: center;
+      padding: 1rem;
+    }
+    .orbit-stage svg {
+      display: block;
+      width: 100%;
+      max-width: 23rem;
+      height: auto;
+    }
+    .signal {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+    .metric-card strong {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      letter-spacing: -0.02em;
+    }
+    .metric-card p {
+      margin: 0.45rem 0 0;
+      font-size: 0.82rem;
+    }
+    .study-map {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 1rem;
+    }
+    .funnel {
+      display: grid;
+      gap: 0.6rem;
+      margin-top: 0.8rem;
+    }
+    .funnel-step {
+      display: grid;
+      grid-template-columns: 4.2rem minmax(0, 1fr);
+      gap: 0.7rem;
+      align-items: center;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.72rem;
+    }
+    .funnel-step b {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      line-height: 1;
+    }
+    .funnel-step span {
+      color: var(--ink);
+      font-size: 0.86rem;
+      font-weight: 850;
+    }
+    .funnel-step small {
+      display: block;
+      margin-top: 0.16rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+    .geo-bars {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 0.8rem;
+    }
+    .geo-row {
+      display: grid;
+      grid-template-columns: 5rem minmax(0, 1fr) 3.5rem;
+      gap: 0.6rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 850;
+    }
+    .geo-track {
+      height: 1rem;
+      border: 1px solid rgba(36, 55, 112, 0.12);
+      border-radius: 999px;
+      background: rgba(36, 55, 112, 0.07);
+      overflow: hidden;
+    }
+    .geo-track i {
+      display: block;
+      height: 100%;
+      width: var(--w);
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .geo-row.us .geo-track i {
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .chart-shell {
+      padding: 1rem 1rem 0.8rem;
+    }
+    .savings-chart {
+      position: relative;
+      min-height: 19rem;
+      margin-top: 0.8rem;
+      border-left: 2px solid var(--border-strong);
+      border-bottom: 2px solid var(--border-strong);
+      background:
+        linear-gradient(180deg, rgba(174, 187, 210, 0.25) 1px, transparent 1px) 0 0 / 100% 25%;
+      padding: 0.8rem 0.5rem 1.9rem 0.85rem;
+    }
+    .chart-bars {
+      display: grid;
+      grid-template-columns: repeat(15, minmax(0, 1fr));
+      gap: 0.28rem;
+      align-items: end;
+      height: 15.5rem;
+    }
+    .chart-bar {
+      position: relative;
+      min-width: 0;
+      height: calc(var(--v) / 42.9 * 100%);
+      border-radius: 5px 5px 0 0;
+      background: linear-gradient(180deg, var(--red), var(--gold));
+    }
+    .chart-bar::after {
+      content: attr(data-year);
+      position: absolute;
+      left: 50%;
+      bottom: -1.55rem;
+      transform: translateX(-50%) rotate(-45deg);
+      transform-origin: center;
+      color: var(--muted);
+      font-size: 0.58rem;
+      font-weight: 800;
+    }
+    .chart-bar:nth-child(-n+6) {
+      background: linear-gradient(180deg, var(--teal), var(--green));
+    }
+    .chart-bar b {
+      position: absolute;
+      left: 50%;
+      bottom: calc(100% + 0.22rem);
+      transform: translateX(-50%);
+      color: var(--ink);
+      font-size: 0.62rem;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+    .chart-note {
+      margin: 0.75rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.85rem;
+    }
+    .market-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 1rem;
+      overflow: hidden;
+    }
+    .market-card.canada {
+      background: linear-gradient(180deg, #fff, #f4fbf8);
+    }
+    .market-card h3 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+    .market-card h3 span {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .savings-list {
+      display: grid;
+      gap: 0.65rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .savings-list li {
+      display: grid;
+      grid-template-columns: 6.2rem minmax(0, 1fr);
+      gap: 0.7rem;
+      align-items: start;
+      border-top: 1px solid rgba(174, 187, 210, 0.75);
+      padding-top: 0.65rem;
+      font-size: 0.86rem;
+    }
+    .savings-list b {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      line-height: 1.05;
+    }
+    .evidence-card p strong {
+      color: var(--ink);
+      font-weight: 900;
+    }
+    .takeaway-panel {
+      border: 2px solid var(--ink);
+      background:
+        radial-gradient(circle at 7% 12%, rgba(209, 38, 48, 0.12), transparent 8rem),
+        linear-gradient(90deg, #fff 0%, var(--surface-blue) 100%);
+    }
+    .takeaway-panel p {
+      margin: 0;
+      color: var(--ink);
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      font-weight: 850;
+      line-height: 1.42;
+    }
+    .source-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: center;
+    }
+    @media (max-width: 900px) {
+      .signal,
+      .study-map,
+      .market-grid,
+      .source-grid {
+        grid-template-columns: 1fr;
+      }
+      .chart-bars {
+        gap: 0.18rem;
+      }
+      .chart-bar b {
+        display: none;
+      }
+    }
+    @media (max-width: 560px) {
+      .savings-list li,
+      .funnel-step,
+      .geo-row {
+        grid-template-columns: 1fr;
+      }
+      .savings-chart {
+        overflow-x: auto;
+      }
+      .chart-bars {
+        min-width: 42rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/2166-PSP97EN-Poster-AM25_2025.pdf">Poster PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/2166-PSP97EN-Poster-AM25_2025.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero savings-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Presented at NASP 2025</p>
+        <h1>The Economic Benefit of Biosimilars in North America</h1>
+        <p class="hero-summary">
+          A targeted review found that biosimilar adoption is repeatedly linked to payer savings:
+          <strong>29 of 31</strong> relevant studies identified or forecasted economic benefit across Canada and the United States.
+        </p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">PSP97EN</li>
+          <li class="tag therapy">Biosimilars</li>
+          <li class="tag">Targeted literature review</li>
+          <li class="tag">North America</li>
+        </ul>
+      </div>
+      <aside class="hero-card money-orbit" aria-label="Poster summary">
+        <div class="poster-code">2166<br>PSP97EN</div>
+        <div class="orbit-stage" aria-hidden="true">
+          <svg viewBox="0 0 360 220" role="img">
+            <defs>
+              <linearGradient id="coinFill" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#e99e25"/>
+                <stop offset="1" stop-color="#d12630"/>
+              </linearGradient>
+            </defs>
+            <path d="M34 172 C92 116, 121 86, 184 98 S278 85, 326 35" fill="none" stroke="#243770" stroke-width="7" stroke-linecap="round"/>
+            <path d="M303 35 L326 35 L323 58" fill="none" stroke="#243770" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="86" cy="145" r="35" fill="#fff" stroke="#187c8f" stroke-width="8"/>
+            <circle cx="183" cy="96" r="42" fill="#fff" stroke="url(#coinFill)" stroke-width="9"/>
+            <circle cx="281" cy="70" r="31" fill="#fff" stroke="#4d8a67" stroke-width="8"/>
+            <text x="86" y="153" text-anchor="middle" fill="#243770" font-size="28" font-weight="900" font-family="Montserrat, Arial">$</text>
+            <text x="183" y="107" text-anchor="middle" fill="#d12630" font-size="34" font-weight="900" font-family="Montserrat, Arial">93%</text>
+            <text x="281" y="79" text-anchor="middle" fill="#243770" font-size="26" font-weight="900" font-family="Montserrat, Arial">$</text>
+          </svg>
+        </div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Objective</dt>
+            <dd>Current and expected savings</dd>
+          </div>
+          <div>
+            <dt>Search window</dt>
+            <dd>Jan 2020-Jan 2025</dd>
+          </div>
+          <div>
+            <dt>Evidence</dt>
+            <dd>27 papers + 4 reports</dd>
+          </div>
+          <div>
+            <dt>Markets</dt>
+            <dd>Canada and U.S.</dd>
+          </div>
+        </dl>
+      </aside>
+    </section>
+
+    <main>
+      <section class="signal" aria-label="Key findings">
+        <article class="metric-card">
+          <span>Relevant sources</span>
+          <strong>31</strong>
+          <p>Peer-reviewed publications and economic reports met the review question.</p>
+        </article>
+        <article class="metric-card">
+          <span>Economic benefit</span>
+          <strong>93%</strong>
+          <p>29 studies identified or forecasted substantial biosimilar savings.</p>
+        </article>
+        <article class="metric-card">
+          <span>Canada signal</span>
+          <strong>$731M</strong>
+          <p>British Columbia savings from nine biosimilars, 2019-2024.</p>
+        </article>
+        <article class="metric-card">
+          <span>U.S. signal</span>
+          <strong>$12.4B</strong>
+          <p>Estimated 2023 savings across Medicare and commercial plans.</p>
+        </article>
+      </section>
+
+      <section class="study-map">
+        <article class="panel">
+          <p class="section-label">Methods</p>
+          <h2>Targeted evidence scan</h2>
+          <div class="funnel" aria-label="Review method">
+            <div class="funnel-step">
+              <b>01</b>
+              <span>MEDLINE and grey literature searched<small>Industry, association, government, and peer-reviewed sources were eligible.</small></span>
+            </div>
+            <div class="funnel-step">
+              <b>02</b>
+              <span>Biosimilar plus economic terms<small>Projection, economic, ex ante analysis, and budget impact model keywords.</small></span>
+            </div>
+            <div class="funnel-step">
+              <b>03</b>
+              <span>English-language studies from 2020-2025<small>Evidence was screened for current or expected savings in North America.</small></span>
+            </div>
+          </div>
+        </article>
+        <article class="panel">
+          <p class="section-label">Evidence mix</p>
+          <h2>More U.S. analyses, same direction of travel</h2>
+          <p class="hero-summary">The review included studies from Canada and the United States; nearly all reported broad payer savings, with two exceptions where benefit was setting- or stakeholder-specific.</p>
+          <div class="geo-bars" aria-label="Analyses by geography">
+            <div class="geo-row">
+              <span>Canada</span>
+              <div class="geo-track"><i style="--w:55%"></i></div>
+              <span>n=11</span>
+            </div>
+            <div class="geo-row us">
+              <span>United States</span>
+              <div class="geo-track"><i style="--w:100%"></i></div>
+              <span>n=20</span>
+            </div>
+          </div>
+          <div class="number-cloud" aria-label="Included source types">
+            <div class="number-pill">27<small>publications</small></div>
+            <div class="number-pill">4<small>reports</small></div>
+            <div class="number-pill">29<small>positive savings</small></div>
+            <div class="number-pill">2<small>qualified benefit</small></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel chart-shell">
+        <p class="section-label">United States table pattern</p>
+        <h2>Annual biologic savings estimates accelerate after 2022</h2>
+        <div class="savings-chart" aria-label="U.S. biosimilar savings at invoice prices by year">
+          <div class="chart-bars">
+            <div class="chart-bar" style="--v:3.4" data-year="2013"><b>$3.4B</b></div>
+            <div class="chart-bar" style="--v:2.9" data-year="2014"></div>
+            <div class="chart-bar" style="--v:2.9" data-year="2015"></div>
+            <div class="chart-bar" style="--v:3.0" data-year="2016"></div>
+            <div class="chart-bar" style="--v:3.0" data-year="2017"></div>
+            <div class="chart-bar" style="--v:3.3" data-year="2018"></div>
+            <div class="chart-bar" style="--v:5.2" data-year="2019"></div>
+            <div class="chart-bar" style="--v:7.9" data-year="2020"></div>
+            <div class="chart-bar" style="--v:10.7" data-year="2021"></div>
+            <div class="chart-bar" style="--v:13.2" data-year="2022"><b>$13.2B</b></div>
+            <div class="chart-bar" style="--v:25.5" data-year="2023"><b>$25.5B</b></div>
+            <div class="chart-bar" style="--v:33.0" data-year="2024"></div>
+            <div class="chart-bar" style="--v:38.8" data-year="2025"></div>
+            <div class="chart-bar" style="--v:41.0" data-year="2026"></div>
+            <div class="chart-bar" style="--v:42.9" data-year="2027"><b>$42.9B</b></div>
+          </div>
+        </div>
+        <p class="chart-note">Table source pattern: invoice-price savings estimates rise from $3.4B in 2013 to $42.9B in 2027; the poster also cites a five-year base-case scenario of $181B, with a $125B-$237B range.</p>
+      </section>
+
+      <section class="market-grid" aria-label="Market savings examples">
+        <article class="market-card canada">
+          <p class="section-label">Canada</p>
+          <h3>Policy-driven uptake <span>$731M</span></h3>
+          <ul class="savings-list">
+            <li>
+              <b>$731M</b>
+              <span>British Columbia reported savings from nine biosimilars between 2019 and 2024 after non-medical switching policies supported adoption.</span>
+            </li>
+            <li>
+              <b>$140M</b>
+              <span>Projected savings from proactive switching policies for a ranibizumab biosimilar alone.</span>
+            </li>
+          </ul>
+        </article>
+        <article class="market-card">
+          <p class="section-label">United States</p>
+          <h3>Broad and focused savings <span>$12.4B</span></h3>
+          <ul class="savings-list">
+            <li>
+              <b>$12.4B</b>
+              <span>Estimated 2023 savings from biosimilar use across Medicare and commercial plans.</span>
+            </li>
+            <li>
+              <b>$63M</b>
+              <span>Cost savings reported in a focused National Veterans Health Administration analysis of six psoriasis biosimilars.</span>
+            </li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="evidence-map" aria-label="Evidence flow">
+        <article class="evidence-card">
+          <h3>Objective</h3>
+          <p>Assess <strong>current and expected savings</strong> from biosimilar use in North America.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Search</h3>
+          <p>Targeted review of MEDLINE and grey literature from <strong>January 2020 to January 2025</strong>.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Pattern</h3>
+          <p>Most sources found savings for payers; exceptions were limited to <strong>specific sites or stakeholders</strong>.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Scale</h3>
+          <p>Reported savings range from targeted <strong>million-dollar</strong> programs to national <strong>billion-dollar</strong> estimates.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Decision point</h3>
+          <p>Health economic decision-makers should consider policies that <strong>favor biosimilar use</strong> to control costs.</p>
+        </article>
+      </section>
+
+      <section class="panel takeaway-panel">
+        <p>
+          Conclusion: the literature base supports biosimilars as a cost-control lever in both Canada and the United States, with the strongest pattern showing that increased uptake and switching policies can unlock substantial payer savings.
+        </p>
+      </section>
+
+      <footer class="footer-actions source-grid">
+        <div class="markdown-fragment">
+          <h3>Source</h3>
+          <p>Poster 2166-PSP97EN, "The Economic Benefit Of Biosimilars In North America: A Targeted Literature Review," presented at NASP 2025.</p>
+        </div>
+        <div class="footer-actions">
+          <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/2166-PSP97EN-Poster-AM25_2025.pdf">Open PDF</a>
+          <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/2166-PSP97EN-Poster-AM25_2025.md">Open Markdown</a>
+        </div>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

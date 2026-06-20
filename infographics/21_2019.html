@@ -1,0 +1,675 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cost of Leukopenia and Neutropenia in Metastatic Breast Cancer | NASP 2019</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .cost-lens {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(17rem, 0.95fr);
+      gap: 0.9rem;
+      align-items: stretch;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 18rem;
+      overflow: hidden;
+      border: 1px solid rgba(36, 55, 112, 0.22);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 85% 18%, rgba(233, 158, 37, 0.28), transparent 6.6rem),
+        radial-gradient(circle at 18% 84%, rgba(24, 124, 143, 0.2), transparent 7rem),
+        linear-gradient(150deg, rgba(238, 244, 251, 0.98), #fff 54%, rgba(255, 247, 234, 0.9));
+      padding: 0.85rem;
+    }
+
+    .hero-visual svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .range-stack {
+      display: grid;
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+
+    .range-row {
+      display: grid;
+      grid-template-columns: 8.4rem minmax(0, 1fr) 6.5rem;
+      gap: 0.55rem;
+      align-items: center;
+    }
+
+    .range-row b {
+      color: var(--ink);
+      font-size: 0.8rem;
+    }
+
+    .range-track {
+      position: relative;
+      height: 1rem;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+
+    .range-fill {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: var(--start);
+      width: var(--width);
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--gold), var(--red));
+    }
+
+    .range-row em {
+      color: var(--ink);
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .window-cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.75rem;
+    }
+
+    .window-card {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.82);
+      padding: 0.7rem;
+    }
+
+    .window-card strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      line-height: 1;
+    }
+
+    .window-card span {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .age-board {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 0.75rem;
+    }
+
+    .age-row {
+      display: grid;
+      grid-template-columns: 5.2rem minmax(0, 1fr) 3.4rem 3.4rem;
+      gap: 0.45rem;
+      align-items: center;
+      font-size: 0.76rem;
+    }
+
+    .age-row span:first-child {
+      color: var(--ink);
+      font-weight: 850;
+    }
+
+    .age-track {
+      display: grid;
+      grid-template-columns: var(--m12) var(--m60);
+      height: 0.9rem;
+      overflow: hidden;
+      border: 1px solid rgba(174, 187, 210, 0.88);
+      border-radius: 999px;
+      background: var(--surface-blue);
+    }
+
+    .age-track i:first-child { background: var(--red); }
+    .age-track i:last-child { background: var(--teal); }
+
+    .age-row b {
+      color: var(--body);
+      font-size: 0.74rem;
+      text-align: right;
+    }
+
+    .compare-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 1rem;
+    }
+
+    .cost-bars {
+      display: grid;
+      gap: 0.68rem;
+      margin-top: 0.8rem;
+    }
+
+    .cost-bar {
+      display: grid;
+      grid-template-columns: 8.8rem minmax(0, 1fr) 5.2rem;
+      gap: 0.55rem;
+      align-items: center;
+    }
+
+    .cost-bar span:first-child {
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+
+    .cost-bar-track {
+      height: 1.1rem;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 999px;
+      background: #eef4fb;
+      overflow: hidden;
+    }
+
+    .cost-bar-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--purple), var(--red));
+    }
+
+    .cost-bar:nth-child(even) .cost-bar-track i {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .cost-bar strong {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      text-align: right;
+    }
+
+    .driver-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 0.45rem;
+      margin-top: 0.75rem;
+    }
+
+    .driver {
+      display: grid;
+      align-content: end;
+      min-height: 8.8rem;
+      border: 1px solid rgba(174, 187, 210, 0.8);
+      border-radius: 7px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.48rem;
+    }
+
+    .driver i {
+      display: block;
+      height: var(--h);
+      min-height: 0.45rem;
+      border-radius: 4px 4px 0 0;
+      background: linear-gradient(180deg, var(--gold), var(--red));
+    }
+
+    .driver b {
+      margin-top: 0.4rem;
+      color: var(--ink);
+      font-size: 0.7rem;
+      line-height: 1.15;
+    }
+
+    .driver small {
+      color: var(--muted);
+      font-size: 0.64rem;
+      font-weight: 800;
+    }
+
+    .workflow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.75rem;
+    }
+
+    .workflow-step {
+      position: relative;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.75rem;
+    }
+
+    .workflow-step::before {
+      content: attr(data-step);
+      display: grid;
+      place-items: center;
+      width: 1.65rem;
+      aspect-ratio: 1;
+      margin-bottom: 0.45rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      font-weight: 900;
+    }
+
+    .workflow-step h3 {
+      margin-bottom: 0.3rem;
+    }
+
+    .workflow-step p {
+      margin: 0;
+      font-size: 0.8rem;
+    }
+
+    .callout {
+      border-left: 5px solid var(--red);
+      background:
+        linear-gradient(90deg, rgba(209, 38, 48, 0.08), rgba(255, 255, 255, 0)),
+        #fff;
+    }
+
+    .source-note {
+      margin: 0.65rem 0 0;
+      color: var(--muted);
+      font-size: 0.77rem;
+    }
+
+    .compact-table td:nth-child(n+2),
+    .compact-table th:nth-child(n+2) {
+      text-align: right;
+    }
+
+    @media (max-width: 900px) {
+      .cost-lens,
+      .compare-grid,
+      .workflow {
+        grid-template-columns: 1fr;
+      }
+
+      .driver-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .range-row,
+      .age-row,
+      .cost-bar,
+      .window-cards,
+      .driver-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .range-row em,
+      .cost-bar strong,
+      .age-row b {
+        text-align: left;
+      }
+
+      .driver {
+        min-height: 6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar" aria-label="Infographic navigation">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav>
+        <a href="#methods">Methods</a>
+        <a href="#results">Results</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/21_2019.pdf">PDF source</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/21_2019.md">Markdown source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2019 poster 21 | Metastatic breast cancer cost analytics</p>
+        <h1>Cost of Leukopenia and Neutropenia in Metastatic Breast Cancer</h1>
+        <p class="hero-summary">
+          A curated disease model was used to surface per-patient-per-month cost patterns across recent 12-, 36-, and 60-month views, with age-stratified attention to leukopenia and neutropenia as cost-intense side effects.
+        </p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Real-world cost model</li>
+          <li class="tag therapy">Metastatic breast cancer</li>
+          <li class="tag">PPPM costs</li>
+          <li class="tag">Side-effect analytics</li>
+        </ul>
+      </div>
+      <aside class="hero-card">
+        <div>
+          <p class="section-label">Poster file</p>
+          <div class="poster-code">21_2019</div>
+        </div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Data source</dt>
+            <dd>IBM MarketScan</dd>
+          </div>
+          <div>
+            <dt>Analysis views</dt>
+            <dd>12, 36, 60 months</dd>
+          </div>
+          <div>
+            <dt>Core measure</dt>
+            <dd>Total mean PPPM</dd>
+          </div>
+          <div>
+            <dt>Explorer time</dt>
+            <dd>&lt;15 minutes</dd>
+          </div>
+        </dl>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>12-month cohort</span>
+          <strong>3,254</strong>
+        </article>
+        <article class="metric-card">
+          <span>60-month cohort</span>
+          <strong>9,643</strong>
+        </article>
+        <article class="metric-card">
+          <span>Highest abstract PPPM</span>
+          <strong>$21.8k</strong>
+        </article>
+        <article class="metric-card">
+          <span>Youngest high-cost band</span>
+          <strong>45-54</strong>
+        </article>
+      </section>
+
+      <section class="cost-lens" id="results">
+        <article class="panel">
+          <p class="section-label">Cost range by lens</p>
+          <h2>Side effects shifted the cost range upward.</h2>
+          <div class="range-stack" aria-label="PPPM cost ranges">
+            <div class="range-row">
+              <b>All mBC patients</b>
+              <span class="range-track"><span class="range-fill" style="--start:0%; --width:38.2%"></span></span>
+              <em>$6.6k-$14.2k</em>
+            </div>
+            <div class="range-row">
+              <b>Leukopenia</b>
+              <span class="range-track"><span class="range-fill" style="--start:18.8%; --width:46.4%"></span></span>
+              <em>$10.3k-$19.6k</em>
+            </div>
+            <div class="range-row">
+              <b>Neutropenia</b>
+              <span class="range-track"><span class="range-fill" style="--start:20.1%; --width:55.9%"></span></span>
+              <em>$10.6k-$21.8k</em>
+            </div>
+          </div>
+          <p class="source-note">Ranges are the abstract-reported total mean PPPM values across age group and time window.</p>
+
+          <div class="window-cards" aria-label="Analysis windows">
+            <div class="window-card">
+              <strong>12</strong>
+              <span>month view</span>
+            </div>
+            <div class="window-card">
+              <strong>36</strong>
+              <span>month view</span>
+            </div>
+            <div class="window-card">
+              <strong>60</strong>
+              <span>month view</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="hero-visual" aria-label="Curated disease model visualization">
+          <svg viewBox="0 0 520 360" role="img" aria-labelledby="cost-title cost-desc">
+            <title id="cost-title">Cost analytics explorer</title>
+            <desc id="cost-desc">A stylized dashboard shows age groups flowing through filters into PPPM cost outputs for metastatic breast cancer side effects.</desc>
+            <defs>
+              <linearGradient id="screenGrad" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#ffffff"/>
+                <stop offset="1" stop-color="#eef4fb"/>
+              </linearGradient>
+              <linearGradient id="barGrad" x1="0" x2="1">
+                <stop offset="0" stop-color="#187c8f"/>
+                <stop offset="0.55" stop-color="#e99e25"/>
+                <stop offset="1" stop-color="#d12630"/>
+              </linearGradient>
+            </defs>
+            <rect x="32" y="34" width="456" height="272" rx="22" fill="url(#screenGrad)" stroke="#aebbd2" stroke-width="4"/>
+            <rect x="58" y="66" width="112" height="206" rx="13" fill="#243770"/>
+            <text x="78" y="96" fill="#fff" font-family="Inter, Arial" font-size="17" font-weight="800">Filters</text>
+            <path d="M80 126h62M80 154h48M80 182h70M80 210h54M80 238h64" stroke="#fff" stroke-opacity=".74" stroke-width="10" stroke-linecap="round"/>
+            <rect x="198" y="76" width="244" height="70" rx="12" fill="#fff" stroke="#d9e1ef" stroke-width="3"/>
+            <text x="218" y="105" fill="#243770" font-family="Inter, Arial" font-size="20" font-weight="900">$21,784</text>
+            <text x="218" y="130" fill="#68758d" font-family="Inter, Arial" font-size="14" font-weight="800">neutropenia PPPM high</text>
+            <rect x="198" y="168" width="244" height="104" rx="12" fill="#fff" stroke="#d9e1ef" stroke-width="3"/>
+            <rect x="224" y="228" width="32" height="22" fill="#187c8f"/>
+            <rect x="270" y="206" width="32" height="44" fill="#4d8a67"/>
+            <rect x="316" y="184" width="32" height="66" fill="#e99e25"/>
+            <rect x="362" y="156" width="32" height="94" fill="#d12630"/>
+            <path d="M206 250h218" stroke="#243770" stroke-width="3" stroke-linecap="round"/>
+            <text x="222" y="292" fill="#243770" font-family="Inter, Arial" font-size="15" font-weight="900">Age-stratified cost explorer</text>
+            <path d="M169 133 C190 128, 178 102, 198 101" fill="none" stroke="url(#barGrad)" stroke-width="8" stroke-linecap="round"/>
+            <path d="M169 210 C196 210, 174 248, 198 250" fill="none" stroke="url(#barGrad)" stroke-width="8" stroke-linecap="round"/>
+          </svg>
+        </article>
+      </section>
+
+      <section class="compare-grid">
+        <article class="panel">
+          <p class="section-label">12-month side-effect comparison</p>
+          <h2>Neutropenia and leukopenia were cost-dense in younger age groups.</h2>
+          <div class="cost-bars" aria-label="Figure 3 PPPM costs for neutropenia and leukopenia at 12 months">
+            <div class="cost-bar">
+              <span>18-34 neutropenia</span>
+              <span class="cost-bar-track"><i style="width:100%"></i></span>
+              <strong>$42.0k</strong>
+            </div>
+            <div class="cost-bar">
+              <span>18-34 leukopenia</span>
+              <span class="cost-bar-track"><i style="width:90%"></i></span>
+              <strong>$38.0k</strong>
+            </div>
+            <div class="cost-bar">
+              <span>35-44 neutropenia</span>
+              <span class="cost-bar-track"><i style="width:67%"></i></span>
+              <strong>$28.0k</strong>
+            </div>
+            <div class="cost-bar">
+              <span>35-44 leukopenia</span>
+              <span class="cost-bar-track"><i style="width:57%"></i></span>
+              <strong>$24.0k</strong>
+            </div>
+            <div class="cost-bar">
+              <span>55-64 neutropenia</span>
+              <span class="cost-bar-track"><i style="width:55%"></i></span>
+              <strong>$23.2k</strong>
+            </div>
+            <div class="cost-bar">
+              <span>55-64 leukopenia</span>
+              <span class="cost-bar-track"><i style="width:47%"></i></span>
+              <strong>$19.7k</strong>
+            </div>
+          </div>
+          <p class="source-note">Selected values from Figure 3; 18-34 appears in the chart table but not in the abstract-reported age-band range.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Population structure</p>
+          <h2>The cohort was concentrated in ages 55-64.</h2>
+          <div class="age-board" aria-label="Population distribution by age group">
+            <div class="age-row">
+              <span>18-34</span>
+              <span class="age-track" style="--m12:1fr; --m60:1fr"><i></i><i></i></span>
+              <b>35</b>
+              <b>116</b>
+            </div>
+            <div class="age-row">
+              <span>35-44</span>
+              <span class="age-track" style="--m12:9fr; --m60:9fr"><i></i><i></i></span>
+              <b>302</b>
+              <b>833</b>
+            </div>
+            <div class="age-row">
+              <span>45-54</span>
+              <span class="age-track" style="--m12:23fr; --m60:23fr"><i></i><i></i></span>
+              <b>748</b>
+              <b>2,224</b>
+            </div>
+            <div class="age-row">
+              <span>55-64</span>
+              <span class="age-track" style="--m12:38fr; --m60:37fr"><i></i><i></i></span>
+              <b>1,249</b>
+              <b>3,578</b>
+            </div>
+            <div class="age-row">
+              <span>65-74</span>
+              <span class="age-track" style="--m12:16fr; --m60:17fr"><i></i><i></i></span>
+              <b>528</b>
+              <b>1,610</b>
+            </div>
+            <div class="age-row">
+              <span>75+</span>
+              <span class="age-track" style="--m12:12fr; --m60:13fr"><i></i><i></i></span>
+              <b>392</b>
+              <b>1,282</b>
+            </div>
+          </div>
+          <p class="source-note">Red/teal paired bars represent 12- and 60-month population shares; right columns list patient counts.</p>
+        </article>
+      </section>
+
+      <section class="panel" id="methods">
+        <p class="section-label">Methods flow</p>
+        <h2>Business-user analytics, configured around disease model filters.</h2>
+        <div class="workflow" aria-label="Study method workflow">
+          <article class="workflow-step" data-step="1">
+            <h3>Define mBC cohort</h3>
+            <p>Breast cancer treatment, at least 90 treatment days, diagnosis evidence, secondary malignancy, and enrollment continuity.</p>
+          </article>
+          <article class="workflow-step" data-step="2">
+            <h3>Select views</h3>
+            <p>Compare most recent 12-, 36-, and 60-month windows for overall and side-effect outcomes.</p>
+          </article>
+          <article class="workflow-step" data-step="3">
+            <h3>Filter outcomes</h3>
+            <p>Use age group, clinical characteristics, therapy line, utilization, and side-effect settings in the visual explorer.</p>
+          </article>
+          <article class="workflow-step" data-step="4">
+            <h3>Read PPPM patterns</h3>
+            <p>Generate histograms and tables for mean total PPPM overall, leukopenia, and neutropenia.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">Cost component pattern</p>
+          <h2>Prescription and outpatient categories carried the visual weight.</h2>
+          <div class="driver-grid" aria-label="12-month all outcomes PPPM cost components for 45-54 years old">
+            <div class="driver" style="--h:100%">
+              <i></i>
+              <b>Non-disease RX</b>
+              <small>$6,000</small>
+            </div>
+            <div class="driver" style="--h:83%">
+              <i></i>
+              <b>Disease-specific RX</b>
+              <small>$5,000</small>
+            </div>
+            <div class="driver" style="--h:67%">
+              <i></i>
+              <b>Other outpatient</b>
+              <small>$4,000</small>
+            </div>
+            <div class="driver" style="--h:17%">
+              <i></i>
+              <b>Office visits</b>
+              <small>$1,000</small>
+            </div>
+            <div class="driver" style="--h:8%">
+              <i></i>
+              <b>ER visits</b>
+              <small>$500</small>
+            </div>
+            <div class="driver" style="--h:17%">
+              <i></i>
+              <b>Inpatient</b>
+              <small>$1,000</small>
+            </div>
+          </div>
+          <p class="source-note">Pattern shown for the 45-54 age group in the 12-month all-outcomes table.</p>
+        </article>
+
+        <article class="panel callout">
+          <p class="section-label">Conclusion</p>
+          <h2>The tool turned claims data into immediate cost signals.</h2>
+          <div class="markdown-fragment">
+            <p>The poster concluded that curated, cloud-based disease models can make PPPM cost and outcome patterns available to business users without programming or data science support.</p>
+            <p>The substantive signal was directional: costs were generally higher for younger patients overall and among patients experiencing leukopenia or neutropenia, which the authors attributed to more aggressive treatment patterns in younger patients.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="tables-grid">
+        <article class="table-card">
+          <p class="section-label">Detailed 55-64 signal</p>
+          <h2>Side-effect profile at 12 months</h2>
+          <div class="table-wrap">
+            <table class="compact-table">
+              <thead>
+                <tr>
+                  <th>Metric</th>
+                  <th>Neutropenia</th>
+                  <th>Leukopenia</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Relative rate</td><td>48%</td><td>48%</td></tr>
+                <tr><td>Absolute rate</td><td>3%</td><td>6%</td></tr>
+                <tr><td>Total mean PPPM</td><td>$23,158</td><td>$19,716</td></tr>
+                <tr><td>Total median PPPM</td><td>$20,109</td><td>$17,455</td></tr>
+                <tr><td>Unique patients</td><td>40</td><td>84</td></tr>
+                <tr><td>Mean DOE</td><td>179 days</td><td>181 days</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Source links</p>
+          <h2>Poster materials</h2>
+          <div class="markdown-fragment">
+            <p><strong>Authors:</strong> Sharon Hensley Alford, Marie Ng, Denise Meade.</p>
+            <p><strong>Affiliation:</strong> IBM Watson Health, Cambridge, MA.</p>
+            <p><strong>Excluded from cohort:</strong> pregnancy and other cancer diagnosis.</p>
+          </div>
+          <div class="footer-actions">
+            <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/21_2019.pdf">Open poster PDF</a>
+            <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/21_2019.md">Open extracted markdown</a>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

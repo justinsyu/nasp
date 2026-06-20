@@ -1,0 +1,658 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Opportunities Provided to Students through a Specialty Pharmacy Externship Program | NASP 2023</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -4.8rem;
+      bottom: -4.6rem;
+      width: 15rem;
+      height: 15rem;
+      border: 1.2rem solid rgba(24, 124, 143, 0.11);
+      border-radius: 50%;
+    }
+    .author-line {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      color: var(--body);
+      font-size: 0.82rem;
+    }
+    .pipeline-visual {
+      position: relative;
+      z-index: 1;
+      margin-top: 0.35rem;
+    }
+    .pipeline-visual svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .metric-card p {
+      margin: 0.42rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 750;
+    }
+    .metric-card strong small {
+      color: inherit;
+      font-size: 0.58em;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+    .growth-chart {
+      display: grid;
+      gap: 0.62rem;
+      margin-top: 0.9rem;
+    }
+    .year-bar {
+      display: grid;
+      grid-template-columns: 3.2rem minmax(0, 1fr) 2.1rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .year-bar .track {
+      height: 0.72rem;
+      overflow: hidden;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: #edf2f8;
+    }
+    .year-bar i {
+      display: block;
+      width: calc(var(--value) / 11 * 100%);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--red));
+    }
+    .progression {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.85rem;
+    }
+    .year-step {
+      position: relative;
+      min-height: 10.2rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.78rem;
+    }
+    .year-step::before {
+      content: attr(data-year);
+      display: inline-grid;
+      place-items: center;
+      width: 2.15rem;
+      height: 2.15rem;
+      margin-bottom: 0.55rem;
+      border-radius: 7px;
+      background: var(--accent, var(--ink));
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.76rem;
+      font-weight: 900;
+    }
+    .year-step:nth-child(2) { --accent: var(--gold); }
+    .year-step:nth-child(3) { --accent: var(--teal); }
+    .year-step:nth-child(4) { --accent: var(--green); }
+    .year-step p {
+      margin: 0.42rem 0 0;
+      color: var(--body);
+      font-size: 0.8rem;
+    }
+    .site-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.85rem;
+    }
+    .site-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      overflow: hidden;
+    }
+    .site-head {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface-blue);
+    }
+    .site-icon {
+      display: grid;
+      flex: 0 0 auto;
+      width: 2.2rem;
+      height: 2.2rem;
+      place-items: center;
+      border-radius: 7px;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+    .site-card:nth-child(2) .site-icon { background: var(--teal); }
+    .site-card:nth-child(3) .site-icon { background: var(--red); }
+    .site-body {
+      display: grid;
+      gap: 0.65rem;
+      padding: 0.75rem;
+    }
+    .site-body h4 {
+      margin: 0 0 0.25rem;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+    .site-body ul,
+    .admin-grid ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .site-body li,
+    .admin-grid li {
+      position: relative;
+      margin-top: 0.28rem;
+      padding-left: 0.85rem;
+      color: var(--body);
+      font-size: 0.78rem;
+    }
+    .site-body li::before,
+    .admin-grid li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 0.34rem;
+      height: 0.34rem;
+      border-radius: 50%;
+      background: var(--teal);
+    }
+    .outcome-donut {
+      display: grid;
+      grid-template-columns: 13rem minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+      margin-top: 0.85rem;
+    }
+    .outcome-donut svg {
+      width: 100%;
+      height: auto;
+    }
+    .outcome-list {
+      display: grid;
+      gap: 0.55rem;
+    }
+    .outcome-item {
+      border-left: 4px solid var(--accent, var(--red));
+      background: rgba(238, 244, 251, 0.75);
+      padding: 0.55rem 0.65rem;
+    }
+    .outcome-item:nth-child(2) { --accent: var(--gold); }
+    .outcome-item:nth-child(3) { --accent: var(--teal); }
+    .outcome-item strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+    .outcome-item span {
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-weight: 800;
+    }
+    .admin-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.85rem;
+    }
+    .admin-card {
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.68rem;
+    }
+    .quote-band {
+      display: grid;
+      grid-template-columns: 0.72fr 1.28fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .quote-panel {
+      border: 1px solid rgba(209, 38, 48, 0.3);
+      border-left: 5px solid var(--red);
+      border-radius: 8px;
+      background: #fff;
+      padding: 1rem;
+    }
+    .quote-panel blockquote {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.02rem;
+      font-weight: 850;
+      line-height: 1.35;
+    }
+    .future-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+    .future-list div {
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: var(--surface-warm);
+      padding: 0.7rem;
+    }
+    .future-list strong {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.92rem;
+    }
+    .future-list p {
+      margin: 0.28rem 0 0;
+      color: var(--body);
+      font-size: 0.8rem;
+    }
+    @media (max-width: 900px) {
+      .progression,
+      .site-grid,
+      .admin-grid,
+      .future-list,
+      .quote-band {
+        grid-template-columns: 1fr;
+      }
+      .outcome-donut {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP infographic home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#growth">Growth</a>
+        <a href="#training">Training</a>
+        <a href="#outcomes">Outcomes</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2023 | Poster 6 | Specialty pharmacy education</p>
+        <h1 id="poster-title">Opportunities Provided to Students through a Specialty Pharmacy Externship Program</h1>
+        <p class="hero-summary">
+          UI Health Specialty Pharmacy Services describes a student externship that grew from a small
+          operations workforce into a longitudinal specialty pharmacy pipeline spanning dispensing,
+          patient management, access support, quality projects, analytics, and post-graduate placement.
+        </p>
+        <ul class="tag-row" aria-label="Poster topics">
+          <li class="tag category">Externship pipeline</li>
+          <li class="tag therapy">Health-system specialty pharmacy</li>
+          <li class="tag">Student development</li>
+          <li class="tag">Operations and analytics</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div class="poster-code">2023<br>Poster 6</div>
+        <p class="author-line">
+          Lauren Moy; Nehrin Khamo; Michael Eagon; Karen Thomas<br>
+          University of Illinois Chicago and UI Health Specialty Pharmacy Services
+        </p>
+        <dl class="meta-grid">
+          <div>
+            <dt>Program created</dt>
+            <dd>2013</dd>
+          </div>
+          <div>
+            <dt>2023 externs</dt>
+            <dd>11</dd>
+          </div>
+          <div>
+            <dt>Achievement cohort</dt>
+            <dd>n = 19</dd>
+          </div>
+          <div>
+            <dt>Primary aim</dt>
+            <dd>Pipeline building</dd>
+          </div>
+        </dl>
+        <div class="pipeline-visual" aria-hidden="true">
+          <svg viewBox="0 0 360 180">
+            <defs>
+              <linearGradient id="pipelineFill" x1="0" x2="1">
+                <stop offset="0" stop-color="#187c8f"></stop>
+                <stop offset="0.55" stop-color="#e99e25"></stop>
+                <stop offset="1" stop-color="#d12630"></stop>
+              </linearGradient>
+            </defs>
+            <path d="M40 116 C96 66, 134 144, 186 92 S282 52, 324 96" fill="none" stroke="#d9e1ef" stroke-width="22" stroke-linecap="round"></path>
+            <path d="M40 116 C96 66, 134 144, 186 92 S282 52, 324 96" fill="none" stroke="url(#pipelineFill)" stroke-width="12" stroke-linecap="round"></path>
+            <g font-family="Montserrat, Arial, sans-serif" font-weight="900" text-anchor="middle">
+              <circle cx="42" cy="116" r="21" fill="#243770"></circle>
+              <text x="42" y="122" fill="#fff" font-size="15">P1</text>
+              <circle cx="134" cy="126" r="21" fill="#e99e25"></circle>
+              <text x="134" y="132" fill="#fff" font-size="15">P2</text>
+              <circle cx="222" cy="73" r="21" fill="#187c8f"></circle>
+              <text x="222" y="79" fill="#fff" font-size="15">P3</text>
+              <circle cx="324" cy="96" r="21" fill="#d12630"></circle>
+              <text x="324" y="102" fill="#fff" font-size="15">P4</text>
+            </g>
+            <g fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="800" text-anchor="middle">
+              <text x="42" y="154">hire</text>
+              <text x="134" y="162">operate</text>
+              <text x="222" y="35">manage</text>
+              <text x="324" y="134">advance</text>
+            </g>
+          </svg>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Externship span</span>
+          <strong>10<small>+ years</small></strong>
+          <p>The program was created in 2013 and described in a 2023 poster.</p>
+        </article>
+        <article class="metric-card">
+          <span>Annual scale</span>
+          <strong>3<small> to </small>11</strong>
+          <p>Extern count increased from 3 in 2013 to 11 in 2023.</p>
+        </article>
+        <article class="metric-card">
+          <span>Residency path</span>
+          <strong>58<small>%</small></strong>
+          <p>Post-graduate achievement table reported 11 of 19 alumni in residency.</p>
+        </article>
+        <article class="metric-card">
+          <span>Practice sites</span>
+          <strong>3</strong>
+          <p>WSP, CCC, and PAC divide operations, patient management, and access work.</p>
+        </article>
+      </section>
+
+      <section id="growth" class="visual-grid" aria-label="Objective and extern growth">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Describe a student learning model built for specialty pharmacy growth</h2>
+          <p>
+            The poster documents the development and expansion of UI Health SPS extern learning
+            experiences and the post-graduate destinations of former externs.
+          </p>
+          <div class="number-cloud" aria-label="Derived program counts">
+            <div class="number-pill">59<small>annual extern slots listed</small></div>
+            <div class="number-pill">11<small>externs in 2023</small></div>
+            <div class="number-pill">19<small>alumni outcomes</small></div>
+            <div class="number-pill">4<small>student years mapped</small></div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Number of externs over the years</p>
+          <h2>A stable core became a larger training pipeline</h2>
+          <div class="growth-chart" aria-label="Bar chart of extern counts from 2013 through 2023">
+            <div class="year-bar"><span>2013</span><span class="track"><i style="--value:3"></i></span><span>3</span></div>
+            <div class="year-bar"><span>2014</span><span class="track"><i style="--value:3"></i></span><span>3</span></div>
+            <div class="year-bar"><span>2015</span><span class="track"><i style="--value:3"></i></span><span>3</span></div>
+            <div class="year-bar"><span>2016</span><span class="track"><i style="--value:3"></i></span><span>3</span></div>
+            <div class="year-bar"><span>2017</span><span class="track"><i style="--value:3"></i></span><span>3</span></div>
+            <div class="year-bar"><span>2018</span><span class="track"><i style="--value:4"></i></span><span>4</span></div>
+            <div class="year-bar"><span>2019</span><span class="track"><i style="--value:4"></i></span><span>4</span></div>
+            <div class="year-bar"><span>2020</span><span class="track"><i style="--value:7"></i></span><span>7</span></div>
+            <div class="year-bar"><span>2021</span><span class="track"><i style="--value:8"></i></span><span>8</span></div>
+            <div class="year-bar"><span>2022</span><span class="track"><i style="--value:10"></i></span><span>10</span></div>
+            <div class="year-bar"><span>2023</span><span class="track"><i style="--value:11"></i></span><span>11</span></div>
+          </div>
+        </article>
+      </section>
+
+      <section id="training" class="panel" aria-label="Longitudinal learning progression">
+        <p class="section-label">Student progression</p>
+        <h2>From pharmacy operations to patient management</h2>
+        <div class="progression">
+          <article class="year-step" data-year="P1">
+            <h3>Hire and orient</h3>
+            <p>Externs are hired and begin training in pharmacy operations within Wood Street Pharmacy.</p>
+          </article>
+          <article class="year-step" data-year="P2">
+            <h3>Deepen operations</h3>
+            <p>Externs continue working in operational workflows, building familiarity with specialty dispensing.</p>
+          </article>
+          <article class="year-step" data-year="P3">
+            <h3>Enter patient management</h3>
+            <p>Externs begin patient management training in the Clinical Care Center and Patient Access Center.</p>
+          </article>
+          <article class="year-step" data-year="P4">
+            <h3>Apply advanced responsibilities</h3>
+            <p>Externs continue patient management work while preparing for post-graduate specialty pharmacy roles.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel" aria-label="Extern responsibilities across operational sites">
+        <p class="section-label">Operational workstreams</p>
+        <h2>Three sites convert student effort into specialty pharmacy capacity</h2>
+        <div class="site-grid">
+          <article class="site-card">
+            <div class="site-head">
+              <span class="site-icon">WSP</span>
+              <h3>Wood Street Pharmacy</h3>
+            </div>
+            <div class="site-body">
+              <div>
+                <h4>Daily tasks</h4>
+                <ul>
+                  <li>Process and fill medication orders</li>
+                  <li>Package medication deliveries for shipping logs</li>
+                  <li>Conduct delivery-service handoffs</li>
+                </ul>
+              </div>
+              <div>
+                <h4>Projects</h4>
+                <ul>
+                  <li>Validate temperature-controlled shipping</li>
+                  <li>Assemble welcome packets for newly initiated patients</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="site-card">
+            <div class="site-head">
+              <span class="site-icon">CCC</span>
+              <h3>Clinical Care Center</h3>
+            </div>
+            <div class="site-body">
+              <div>
+                <h4>Daily tasks</h4>
+                <ul>
+                  <li>Conduct monthly refill surveys by phone</li>
+                  <li>Escalate medication or disease-related issues</li>
+                  <li>Schedule medication deliveries</li>
+                </ul>
+              </div>
+              <div>
+                <h4>Projects</h4>
+                <ul>
+                  <li>Automate monthly refill surveys through EPIC MyChart</li>
+                  <li>Conduct therapy assessments</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="site-card">
+            <div class="site-head">
+              <span class="site-icon">PAC</span>
+              <h3>Patient Access Center</h3>
+            </div>
+            <div class="site-body">
+              <div>
+                <h4>Daily tasks</h4>
+                <ul>
+                  <li>Conduct benefit verifications</li>
+                  <li>Submit prior authorizations</li>
+                  <li>Contact insurers for prior authorization status</li>
+                </ul>
+              </div>
+              <div>
+                <h4>Projects</h4>
+                <ul>
+                  <li>Capture new patients for SPS enrollment</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="visual-grid" aria-label="Quality projects and administrative responsibilities">
+        <article class="panel">
+          <p class="section-label">Quality projects</p>
+          <h2>Externs help formalize and teach the work</h2>
+          <div class="evidence-map" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+            <article class="evidence-card">
+              <h3>Update standard operating procedures</h3>
+              <p>Quality projects include refreshing SOPs that guide specialty pharmacy processes.</p>
+            </article>
+            <article class="evidence-card">
+              <h3>Create training materials</h3>
+              <p>Externs also build educational materials that support staff learning and consistency.</p>
+            </article>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Administrative responsibilities</p>
+          <h2>Analytics work adds a business-operations layer</h2>
+          <div class="admin-grid">
+            <div class="admin-card">
+              <ul><li>Prepare monthly and quarterly metric reports for external stakeholders</li></ul>
+            </div>
+            <div class="admin-card">
+              <ul><li>Develop productivity, quality, and phone performance dashboards</li></ul>
+            </div>
+            <div class="admin-card">
+              <ul><li>Use automated and statistical tools to analyze and visualize trends</li></ul>
+            </div>
+            <div class="admin-card">
+              <ul><li>Maintain revenue reports and financial projections</li></ul>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section id="outcomes" class="visual-grid" aria-label="Post-graduate outcomes and achievement details">
+        <article class="panel">
+          <p class="section-label">Post-graduate achievement</p>
+          <h2>Residency was the most common reported destination</h2>
+          <div class="outcome-donut">
+            <svg viewBox="0 0 220 220" role="img" aria-label="Post-graduate achievement donut chart: 58 percent residency, 32 percent retail, 10 percent fellowship">
+              <circle cx="110" cy="110" r="76" fill="none" stroke="#d9e1ef" stroke-width="28"></circle>
+              <circle cx="110" cy="110" r="76" fill="none" stroke="#d12630" stroke-width="28" stroke-dasharray="277 478" transform="rotate(-90 110 110)"></circle>
+              <circle cx="110" cy="110" r="76" fill="none" stroke="#e99e25" stroke-width="28" stroke-dasharray="153 478" stroke-dashoffset="-277" transform="rotate(-90 110 110)"></circle>
+              <circle cx="110" cy="110" r="76" fill="none" stroke="#187c8f" stroke-width="28" stroke-dasharray="48 478" stroke-dashoffset="-430" transform="rotate(-90 110 110)"></circle>
+              <circle cx="110" cy="110" r="42" fill="#fff" stroke="#aebbd2" stroke-width="2"></circle>
+              <text x="110" y="103" text-anchor="middle" fill="#243770" font-size="28" font-family="Montserrat, Arial, sans-serif" font-weight="900">n=19</text>
+              <text x="110" y="126" text-anchor="middle" fill="#68758d" font-size="12" font-family="Inter, Arial, sans-serif" font-weight="800">alumni</text>
+            </svg>
+            <div class="outcome-list">
+              <div class="outcome-item"><strong>58% residency</strong><span>11 externs: specialty, community, and PGY1 pharmacy</span></div>
+              <div class="outcome-item"><strong>32% retail</strong><span>6 externs: community and specialty pharmacy</span></div>
+              <div class="outcome-item"><strong>10% fellowship</strong><span>2 externs</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Detailed destination pattern</p>
+          <h2>Specialty pharmacy remained visible after graduation</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Destination</th>
+                  <th># externs</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Residency</td><td>Specialty pharmacy</td><td>9</td></tr>
+                <tr><td>Residency</td><td>Community pharmacy</td><td>1</td></tr>
+                <tr><td>Residency</td><td>PGY1 pharmacy</td><td>1</td></tr>
+                <tr><td>Retail</td><td>Community pharmacy</td><td>4</td></tr>
+                <tr><td>Retail</td><td>Specialty pharmacy</td><td>2</td></tr>
+                <tr><td>Fellowship</td><td>Not specified</td><td>2</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="quote-band" aria-label="Evaluation and conclusion">
+        <article class="quote-panel">
+          <p class="section-label">Student voice</p>
+          <blockquote>
+            "The UIC Specialty Pharmacy externship introduced me to specialty pharmacy and showed me the value of high touch patient care."
+          </blockquote>
+        </article>
+        <article class="panel">
+          <p class="section-label">Conclusion and future direction</p>
+          <h2>The externship is positioned as a specialty pharmacy talent pipeline</h2>
+          <p>
+            UI Health SPS concluded that the program has provided students exposure to specialty
+            pharmacy over the past 10 years while helping them build clinical, operational, and
+            professional skills.
+          </p>
+          <div class="future-list">
+            <div>
+              <strong>Refine progression</strong>
+              <p>Continue improving the structured learning experience across P1 through P4 years.</p>
+            </div>
+            <div>
+              <strong>Expand student-driven projects</strong>
+              <p>Create more opportunities for in-depth professional development and project ownership.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions" aria-label="Source files">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/6_Opportunities-Provided-to-Students-through-a-Specialty-Pharmacy-Externship-Program_2023.pdf">Open original poster PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/6_Opportunities-Provided-to-Students-through-a-Specialty-Pharmacy-Externship-Program_2023.md">Open extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

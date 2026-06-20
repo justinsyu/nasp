@@ -1,0 +1,750 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2025 Infographic | Pharmacist Involvement in Specialty Medication Changes</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -4.2rem;
+      bottom: -4.6rem;
+      width: 16rem;
+      height: 16rem;
+      border: 2.8rem solid rgba(24, 124, 143, 0.15);
+      border-radius: 50%;
+    }
+    .hero-card > * {
+      position: relative;
+      z-index: 1;
+    }
+    .value-panel {
+      position: relative;
+      display: grid;
+      min-height: 24rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 78% 20%, rgba(233, 158, 37, 0.38), transparent 12rem),
+        linear-gradient(135deg, #243770 0%, #187c8f 100%);
+      color: #fff;
+      overflow: hidden;
+      padding: 1rem;
+    }
+    .value-panel svg {
+      position: absolute;
+      right: -2rem;
+      bottom: -1.4rem;
+      width: min(29rem, 72%);
+      opacity: 0.72;
+    }
+    .value-panel .section-label {
+      color: rgba(255, 255, 255, 0.76);
+    }
+    .value-panel strong {
+      display: block;
+      margin-top: 0.35rem;
+      font-family: var(--font-display);
+      font-size: clamp(3.2rem, 8vw, 6.2rem);
+      line-height: 0.88;
+    }
+    .value-panel p:not(.section-label) {
+      max-width: 26rem;
+      margin: 0.75rem 0 0;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 0.98rem;
+    }
+    .value-panel .value-note {
+      align-self: end;
+      max-width: 22rem;
+      border-left: 3px solid var(--gold);
+      padding-left: 0.7rem;
+      font-size: 0.86rem;
+      font-weight: 750;
+    }
+    .outcome-bars {
+      display: grid;
+      gap: 0.68rem;
+      margin-top: 0.75rem;
+    }
+    .outcome-row {
+      display: grid;
+      grid-template-columns: 8.2rem minmax(0, 1fr) 4.8rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 850;
+    }
+    .outcome-track {
+      height: 1.02rem;
+      border-radius: 999px;
+      background: var(--surface-blue);
+      overflow: hidden;
+    }
+    .outcome-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .method-map {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.8rem;
+    }
+    .method-step {
+      position: relative;
+      min-height: 9.6rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.82rem;
+      overflow: hidden;
+    }
+    .method-step::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 0.32rem;
+      background: var(--step-color, var(--red));
+    }
+    .method-step:nth-child(2) { --step-color: var(--gold); }
+    .method-step:nth-child(3) { --step-color: var(--teal); }
+    .method-step:nth-child(4) { --step-color: var(--green); }
+    .method-step b {
+      display: inline-grid;
+      place-items: center;
+      width: 1.7rem;
+      height: 1.7rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+    }
+    .method-step h3 {
+      margin-top: 0.52rem;
+      font-size: 0.95rem;
+    }
+    .method-step p {
+      margin: 0.35rem 0 0;
+      font-size: 0.8rem;
+    }
+    .attrition {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 0.72rem;
+    }
+    .attrition-node {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--surface-blue);
+      padding: 0.72rem;
+    }
+    .attrition-node strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2rem;
+      line-height: 1;
+    }
+    .attrition-node span {
+      display: block;
+      margin-top: 0.24rem;
+      color: var(--body);
+      font-size: 0.82rem;
+    }
+    .split-attrition {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.55rem;
+    }
+    .reason-matrix {
+      display: grid;
+      gap: 0.46rem;
+      margin-top: 0.65rem;
+    }
+    .reason-row {
+      display: grid;
+      grid-template-columns: 10.4rem minmax(0, 1fr) 2.6rem;
+      gap: 0.55rem;
+      align-items: center;
+      font-size: 0.8rem;
+    }
+    .reason-row span:first-child {
+      color: var(--ink);
+      font-weight: 850;
+    }
+    .reason-bar {
+      height: 0.82rem;
+      border-radius: 999px;
+      background: var(--surface-blue);
+      overflow: hidden;
+    }
+    .reason-bar i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--teal);
+    }
+    .cost-stack {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 0.65rem;
+    }
+    .cost-row {
+      display: grid;
+      grid-template-columns: 7rem minmax(0, 1fr) 8rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+    .cost-track {
+      height: 1rem;
+      border-radius: 999px;
+      background: var(--surface-blue);
+      overflow: hidden;
+    }
+    .cost-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--green), var(--teal));
+    }
+    .finding-list {
+      display: grid;
+      gap: 0.55rem;
+      margin: 0.7rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .finding-list li {
+      display: grid;
+      grid-template-columns: 0.65rem minmax(0, 1fr);
+      gap: 0.46rem;
+      font-size: 0.88rem;
+    }
+    .finding-list li::before {
+      content: "";
+      width: 0.48rem;
+      height: 0.48rem;
+      margin-top: 0.48rem;
+      border-radius: 50%;
+      background: var(--red);
+    }
+    .source-note {
+      margin: 0.72rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+    .mini-table td:last-child,
+    .mini-table th:last-child {
+      text-align: right;
+    }
+    @media (max-width: 900px) {
+      .method-map {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .value-panel {
+        min-height: 20rem;
+      }
+    }
+    @media (max-width: 560px) {
+      body {
+        overflow-x: hidden;
+      }
+      .infographic-shell {
+        width: calc(100vw - 1rem);
+        overflow-x: hidden;
+      }
+      .poster-hero,
+      .hero-copy,
+      main,
+      section,
+      article,
+      .panel,
+      .hero-card,
+      .table-card {
+        min-width: 0;
+      }
+      .topbar nav {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
+      }
+      .topbar nav a,
+      .button-link {
+        justify-content: center;
+        min-width: 0;
+        width: 100%;
+      }
+      h1 {
+        font-size: 1.55rem;
+        overflow-wrap: anywhere;
+      }
+      .tag-row {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+      .tag {
+        width: 100%;
+        text-align: center;
+      }
+      .hero-summary,
+      .tag,
+      .metric-card strong,
+      .value-panel strong {
+        overflow-wrap: anywhere;
+      }
+      .poster-code {
+        font-size: 2rem;
+      }
+      .metric-card strong {
+        font-size: 1.72rem;
+      }
+      .value-panel strong {
+        font-size: 3.1rem;
+      }
+      .method-map,
+      .split-attrition {
+        grid-template-columns: 1fr;
+      }
+      .outcome-row,
+      .reason-row,
+      .cost-row {
+        grid-template-columns: 1fr;
+      }
+      .cost-row span:last-child {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="https://naspnet.org/" aria-label="NASP website">NASP Posters</a>
+      <nav aria-label="Page sections">
+        <a href="#snapshot">Snapshot</a>
+        <a href="#methods">Methods</a>
+        <a href="#results">Results</a>
+        <a href="#tables">Tables</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">2025 Annual Meeting Poster | 2105-OPR50-EN</p>
+        <h1>Pharmacist involvement in specialty medication discontinuations and dose changes</h1>
+        <p class="hero-summary">
+          Vanderbilt Specialty Pharmacy evaluated pharmacist-recommended discontinuations, dose changes, and switches to quantify how specialty pharmacists support safe medication use and avoid unnecessary direct medication costs.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Single-center retrospective cohort</li>
+          <li class="tag therapy">Health-system specialty pharmacy</li>
+          <li class="tag therapy">Cost avoidance</li>
+          <li class="tag">Vanderbilt Health</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Poster details">
+        <div class="poster-code">AM25<br>2105-OPR50-EN</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Poster year</dt>
+            <dd>2025</dd>
+          </div>
+          <div>
+            <dt>Patients</dt>
+            <dd>91</dd>
+          </div>
+          <div>
+            <dt>Scored outcomes</dt>
+            <dd>89</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>Vanderbilt HSSP</dd>
+          </div>
+        </dl>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/2105-OPR50-EN-Poster-AM25_2025.pdf">Open poster PDF</a>
+      </aside>
+    </section>
+
+    <main>
+      <section id="snapshot" class="metric-strip" aria-label="Key poster numbers">
+        <article class="metric-card">
+          <span>Monthly cost avoided</span>
+          <strong>$130K-$162K</strong>
+        </article>
+        <article class="metric-card">
+          <span>Eligible patients</span>
+          <strong>91</strong>
+        </article>
+        <article class="metric-card">
+          <span>Reviewed assessments</span>
+          <strong>113</strong>
+        </article>
+        <article class="metric-card">
+          <span>Attributable outcomes</span>
+          <strong>89</strong>
+        </article>
+      </section>
+
+      <section class="visual-grid" aria-label="Value and outcome mix">
+        <article class="value-panel">
+          <div>
+            <p class="section-label">Primary result</p>
+            <strong>$129,705<br>to $162,133</strong>
+            <p>Total monthly estimated direct medication costs avoided through pharmacist-supported specialty medication outcome changes.</p>
+          </div>
+          <p class="value-note">Dose changes contributed the largest estimated range, followed by switches and discontinuations.</p>
+          <svg viewBox="0 0 420 270" role="img" aria-label="Medication value illustration">
+            <defs>
+              <linearGradient id="capsuleFill" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#fff" stop-opacity="0.94"></stop>
+                <stop offset="1" stop-color="#e99e25" stop-opacity="0.68"></stop>
+              </linearGradient>
+            </defs>
+            <path d="M184 58c41-41 107-41 148 0s41 107 0 148l-34 34L150 92l34-34z" fill="url(#capsuleFill)"></path>
+            <path d="M150 92l148 148-28 28c-41 41-107 41-148 0s-41-107 0-148l28-28z" fill="#fff" opacity="0.78"></path>
+            <path d="M150 92l148 148" stroke="#243770" stroke-width="13" stroke-linecap="round"></path>
+            <circle cx="92" cy="78" r="34" fill="#d12630" opacity="0.78"></circle>
+            <circle cx="338" cy="48" r="18" fill="#187c8f" opacity="0.82"></circle>
+            <path d="M72 210h52m-26-26v52" stroke="#fff" stroke-width="13" stroke-linecap="round" opacity="0.86"></path>
+          </svg>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Medication outcome mix</p>
+          <h2>Dose changes drove most pharmacist-attributable outcomes</h2>
+          <div class="outcome-bars">
+            <div class="outcome-row">
+              <span>Dose change</span>
+              <div class="outcome-track" aria-label="Dose change 57 of 89"><i style="width: 100%;"></i></div>
+              <span>57 (64%)</span>
+            </div>
+            <div class="outcome-row">
+              <span>Switch</span>
+              <div class="outcome-track" aria-label="Switch 23 of 89"><i style="width: 40.4%;"></i></div>
+              <span>23 (26%)</span>
+            </div>
+            <div class="outcome-row">
+              <span>Discontinue</span>
+              <div class="outcome-track" aria-label="Discontinuation 9 of 89"><i style="width: 15.8%;"></i></div>
+              <span>9 (10%)</span>
+            </div>
+          </div>
+          <div class="attrition">
+            <div class="attrition-node">
+              <strong>79%</strong>
+              <span>of reviewed interventions were scored as at least not likely, potentially, or likely due to pharmacist recommendation.</span>
+            </div>
+            <div class="split-attrition">
+              <div class="attrition-node">
+                <strong>24</strong>
+                <span>excluded as absolutely not attributable to the pharmacist.</span>
+              </div>
+              <div class="attrition-node">
+                <strong>113</strong>
+                <span>specialty pharmacy assessments entered the chart and panel review flow.</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section id="methods" class="panel">
+        <p class="section-label">Methods translated</p>
+        <h2>From pharmacist recommendation to attributable cost avoidance</h2>
+        <div class="method-map">
+          <article class="method-step">
+            <b>1</b>
+            <h3>Find pharmacist-linked outcomes</h3>
+            <p>Electronic medical record and specialty pharmacy management data identified interventions tied to discontinuation, switch, or dose change.</p>
+          </article>
+          <article class="method-step">
+            <b>2</b>
+            <h3>Define the medication outcome</h3>
+            <p>Discontinuation meant no new specialty drug within 30 days; switch meant a different specialty drug; dose change kept the medication but changed the dose.</p>
+          </article>
+          <article class="method-step">
+            <b>3</b>
+            <h3>Score pharmacist probability</h3>
+            <p>A 3-investigator panel assigned probabilities from absolutely not attributable to likely attributable, with values from 0 to 0.75.</p>
+          </article>
+          <article class="method-step">
+            <b>4</b>
+            <h3>Apply medication cost lenses</h3>
+            <p>One avoided fill was priced using WAC, AWP, and AWP minus 20%, then multiplied by the assigned attribution probability.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="results" class="visual-grid" aria-label="Results charts">
+        <article class="panel">
+          <p class="section-label">Cost avoidance by outcome</p>
+          <h2>Dose changes were the largest monthly value pool</h2>
+          <div class="cost-stack">
+            <div class="cost-row">
+              <span>Dose changes</span>
+              <div class="cost-track" aria-label="Dose changes cost range 97824 to 122281"><i style="width: 100%;"></i></div>
+              <span>$97,824-$122,281</span>
+            </div>
+            <div class="cost-row">
+              <span>Switches</span>
+              <div class="cost-track" aria-label="Switch cost range 26591 to 33239"><i style="width: 27.2%;"></i></div>
+              <span>$26,591-$33,239</span>
+            </div>
+            <div class="cost-row">
+              <span>Stops</span>
+              <div class="cost-track" aria-label="Discontinuation cost range 5290 to 6613"><i style="width: 5.4%;"></i></div>
+              <span>$5,290-$6,613</span>
+            </div>
+          </div>
+          <p class="source-note">Bars are scaled to the high end of each reported range.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Why interventions happened</p>
+          <h2>Loss of effect, side effects, and administration issues led the pattern</h2>
+          <div class="reason-matrix">
+            <div class="reason-row">
+              <span>Medication no longer working</span>
+              <div class="reason-bar"><i style="width: 100%;"></i></div>
+              <span>31</span>
+            </div>
+            <div class="reason-row">
+              <span>Side effects</span>
+              <div class="reason-bar"><i style="width: 67.7%;"></i></div>
+              <span>21</span>
+            </div>
+            <div class="reason-row">
+              <span>Administration issues</span>
+              <div class="reason-bar"><i style="width: 38.7%;"></i></div>
+              <span>12</span>
+            </div>
+            <div class="reason-row">
+              <span>Other</span>
+              <div class="reason-bar"><i style="width: 32.3%;"></i></div>
+              <span>10</span>
+            </div>
+            <div class="reason-row">
+              <span>Non-adherence</span>
+              <div class="reason-bar"><i style="width: 16.1%;"></i></div>
+              <span>5</span>
+            </div>
+            <div class="reason-row">
+              <span>Dose titration</span>
+              <div class="reason-bar"><i style="width: 16.1%;"></i></div>
+              <span>5</span>
+            </div>
+            <div class="reason-row">
+              <span>Weight adjustment</span>
+              <div class="reason-bar"><i style="width: 16.1%;"></i></div>
+              <span>5</span>
+            </div>
+          </div>
+          <p class="source-note">Totals sum across discontinuation, dose change, and switch columns in Figure 3.</p>
+        </article>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">Population context</p>
+          <h2>91 patients, with neurology and rheumatology prominent</h2>
+          <div class="number-cloud">
+            <div class="number-pill">53<small>median age</small></div>
+            <div class="number-pill">55<small>female</small></div>
+            <div class="number-pill">76<small>white race</small></div>
+            <div class="number-pill">38<small>Medicare</small></div>
+            <div class="number-pill">27<small>rheumatology</small></div>
+            <div class="number-pill">23<small>neurology</small></div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Identification pattern</p>
+          <h2>Refill assessment was the main detection channel</h2>
+          <div class="lens-chart">
+            <div class="lens-row">
+              <span>MRQ/refill assessment</span>
+              <div class="lens-bar"><i style="width: 100%;"></i></div>
+            </div>
+            <div class="lens-row">
+              <span>Patient called in</span>
+              <div class="lens-bar"><i style="width: 38.9%;"></i></div>
+            </div>
+            <div class="lens-row">
+              <span>Scheduled evaluation</span>
+              <div class="lens-bar"><i style="width: 33.3%;"></i></div>
+            </div>
+            <div class="lens-row">
+              <span>Office visit</span>
+              <div class="lens-bar"><i style="width: 22.2%;"></i></div>
+            </div>
+            <div class="lens-row">
+              <span>Other</span>
+              <div class="lens-bar"><i style="width: 11.1%;"></i></div>
+            </div>
+          </div>
+          <p class="source-note">Displayed as the summed percentages across the three outcome columns, scaled to MRQ.</p>
+        </article>
+      </section>
+
+      <section class="evidence-map" aria-label="Extracted poster takeaways">
+        <article class="evidence-card">
+          <h3>Objective</h3>
+          <p>Evaluate HSSP pharmacist involvement in specialty medication discontinuations, switches, and dose changes, plus resulting cost avoidance.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Design</h3>
+          <p>Single-center, retrospective cohort analysis using electronic medical record and specialty pharmacy management data.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Panel scoring</h3>
+          <p>Three investigators scored the probability that each medication outcome occurred because of the pharmacist recommendation.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Result signal</h3>
+          <p>Pharmacists avoided an estimated $129,705 to $162,133 in direct monthly medication costs through interventions.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Conclusion</h3>
+          <p>Findings support pharmacist roles in specialty pharmacy beyond prescription filling by showing clinical and financial value.</p>
+        </article>
+      </section>
+
+      <section id="tables" class="tables-grid" aria-label="Condensed source table patterns">
+        <article class="table-card">
+          <p class="section-label">Top medications</p>
+          <h2>Largest one-month AWP cost avoidance</h2>
+          <div class="table-wrap">
+            <table class="mini-table">
+              <thead>
+                <tr>
+                  <th>Medication</th>
+                  <th>Cost avoidance</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Emicizumab-kxwh</td>
+                  <td>$73,187</td>
+                </tr>
+                <tr>
+                  <td>Ustekinumab</td>
+                  <td>$23,865</td>
+                </tr>
+                <tr>
+                  <td>Etanercept</td>
+                  <td>$19,033</td>
+                </tr>
+                <tr>
+                  <td>Adalimumab</td>
+                  <td>$17,653</td>
+                </tr>
+                <tr>
+                  <td>Secukinumab</td>
+                  <td>$10,386</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Top clinics</p>
+          <h2>Clinical areas with largest reported value</h2>
+          <div class="table-wrap">
+            <table class="mini-table">
+              <thead>
+                <tr>
+                  <th>Clinic</th>
+                  <th>Cost avoidance</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Hematology</td>
+                  <td>$73,773</td>
+                </tr>
+                <tr>
+                  <td>Rheumatology</td>
+                  <td>$45,330</td>
+                </tr>
+                <tr>
+                  <td>Peds GI/IBD</td>
+                  <td>$15,910</td>
+                </tr>
+                <tr>
+                  <td>Dermatology</td>
+                  <td>$8,309</td>
+                </tr>
+                <tr>
+                  <td>Adult GI/IBD</td>
+                  <td>$7,980</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Interpretation</p>
+          <h2>What the poster adds</h2>
+          <ul class="finding-list">
+            <li>Specialty pharmacists identified ineffective, unsafe, or otherwise suboptimal therapy and recommended medication outcome changes.</li>
+            <li>The cost model valued one avoided medication fill and adjusted by the panel-assigned probability of pharmacist attribution.</li>
+            <li>Results can help rationalize pharmacist employment and support within health-system specialty pharmacy practice.</li>
+          </ul>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Abbreviations</p>
+          <h2>Cost lenses used in calculation</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Term</th>
+                  <th>Meaning in poster</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>WAC</td>
+                  <td>Wholesale acquisition cost</td>
+                </tr>
+                <tr>
+                  <td>AWP</td>
+                  <td>Average wholesale price</td>
+                </tr>
+                <tr>
+                  <td>Pr</td>
+                  <td>Probability that the outcome occurred due to the pharmacist</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/2105-OPR50-EN-Poster-AM25_2025.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/2105-OPR50-EN-Poster-AM25_2025.md">Source markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

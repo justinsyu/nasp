@@ -1,0 +1,682 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Real-World Use of PCSK9 Inhibitors | NASP 2021</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .pcsk9-hero {
+      min-height: 100%;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(209, 38, 48, 0.14), transparent 6.5rem),
+        radial-gradient(circle at 82% 76%, rgba(24, 124, 143, 0.16), transparent 7rem),
+        linear-gradient(145deg, #ffffff 0%, var(--surface-blue) 58%, var(--surface-warm) 100%);
+    }
+    .hero-card svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .hero-finding {
+      margin: 0;
+      border-left: 4px solid var(--red);
+      padding-left: 0.72rem;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.98rem;
+      font-weight: 850;
+      line-height: 1.35;
+    }
+    .story-grid {
+      display: grid;
+      grid-template-columns: minmax(18rem, 0.92fr) minmax(0, 1.08fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .ldl-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 1rem;
+    }
+    .ldl-stage {
+      position: relative;
+      min-height: 18rem;
+      margin-top: 0.85rem;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, rgba(238, 244, 251, 0.88), rgba(255, 255, 255, 0.94)),
+        repeating-linear-gradient(0deg, transparent 0 3.8rem, rgba(36, 55, 112, 0.08) 3.8rem 3.86rem);
+      overflow: hidden;
+    }
+    .ldl-stage svg {
+      display: block;
+      width: 100%;
+      height: 18rem;
+    }
+    .ldl-label {
+      position: absolute;
+      z-index: 2;
+      display: grid;
+      gap: 0.08rem;
+      min-width: 7rem;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.94);
+      padding: 0.55rem;
+      box-shadow: 0 12px 22px rgba(36, 55, 112, 0.09);
+    }
+    .ldl-label.baseline { left: 1rem; top: 1.1rem; }
+    .ldl-label.followup { right: 1rem; bottom: 1.1rem; }
+    .ldl-label span {
+      color: var(--muted);
+      font-size: 0.64rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .ldl-label strong {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2rem;
+      line-height: 1;
+    }
+    .goal-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.8rem;
+    }
+    .goal-card {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.9rem;
+    }
+    .donut {
+      --value: 0%;
+      --color: var(--teal);
+      display: grid;
+      place-items: center;
+      width: 8.2rem;
+      aspect-ratio: 1;
+      margin: 0.25rem auto 0.7rem;
+      border-radius: 50%;
+      background: conic-gradient(var(--color) var(--value), #e6edf6 0);
+    }
+    .donut::before {
+      content: attr(data-value);
+      display: grid;
+      place-items: center;
+      width: 5.7rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: #fff;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.65rem;
+      font-weight: 900;
+    }
+    .goal-card h3,
+    .mix-tile h3,
+    .profile-tile h3 {
+      margin-bottom: 0.3rem;
+    }
+    .goal-card p,
+    .mix-tile p,
+    .profile-tile p {
+      margin: 0;
+      font-size: 0.82rem;
+    }
+    .therapy-mix {
+      display: grid;
+      gap: 0.62rem;
+      margin-top: 0.75rem;
+    }
+    .mix-row {
+      display: grid;
+      grid-template-columns: 8.8rem minmax(0, 1fr) 4.2rem;
+      gap: 0.6rem;
+      align-items: center;
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+    .mix-row span:first-child {
+      color: var(--ink);
+    }
+    .mix-row span:last-child {
+      color: var(--muted);
+      text-align: right;
+    }
+    .track {
+      height: 0.9rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .track i.after {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .method-ladder {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+    .ladder-step {
+      position: relative;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.9rem;
+      overflow: hidden;
+    }
+    .ladder-step::before {
+      content: attr(data-step);
+      position: absolute;
+      right: 0.65rem;
+      top: 0.35rem;
+      color: rgba(36, 55, 112, 0.1);
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .ladder-step b {
+      position: relative;
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      line-height: 1.16;
+    }
+    .ladder-step span {
+      position: relative;
+      display: block;
+      margin-top: 0.4rem;
+      font-size: 0.78rem;
+    }
+    .profile-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+    .profile-tile {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.85rem;
+    }
+    .profile-tile strong {
+      display: block;
+      margin-bottom: 0.2rem;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2.15rem;
+      line-height: 1;
+    }
+    .indication-map {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+    .indication-card {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.9rem;
+    }
+    .indication-card strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 0.95;
+    }
+    .indication-card span {
+      display: block;
+      margin-top: 0.28rem;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .ascvd-list {
+      display: grid;
+      gap: 0.46rem;
+      margin-top: 0.75rem;
+    }
+    .ascvd-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 3.5rem;
+      gap: 0.5rem;
+      align-items: center;
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .mini-track {
+      grid-column: 1 / -1;
+      height: 0.5rem;
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .mini-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--teal);
+    }
+    .event-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+    .event-box {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.75rem;
+      text-align: center;
+    }
+    .event-box strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      line-height: 1;
+    }
+    .event-box span {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 850;
+    }
+    .takeaway {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(24, 124, 143, 0.12), transparent 44%),
+        #fff;
+    }
+    .takeaway p {
+      max-width: 68rem;
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.05rem, 1.7vw, 1.42rem);
+      font-weight: 850;
+      line-height: 1.35;
+    }
+    .note {
+      margin: 0.6rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    @media (max-width: 900px) {
+      .story-grid,
+      .method-ladder,
+      .profile-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 560px) {
+      .story-grid,
+      .method-ladder,
+      .profile-grid,
+      .goal-grid,
+      .indication-map,
+      .event-strip,
+      .mix-row {
+        grid-template-columns: 1fr;
+      }
+      .mix-row span:last-child {
+        text-align: left;
+      }
+      .ldl-label {
+        position: static;
+        margin: 0.65rem;
+      }
+      .ldl-stage svg {
+        height: 12rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/48-Real-World-Use-of-PCSK9-Inhibitors_2021.pdf">Source PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/48-Real-World-Use-of-PCSK9-Inhibitors_2021.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP Annual Meeting &amp; Expo 2021 / Poster 48</p>
+        <h1 id="poster-title">Real-World Use of PCSK9 Inhibitors and Adherence to Guideline-Directed Therapy</h1>
+        <p class="hero-summary">
+          A Vanderbilt single-center retrospective review followed patients prescribed evolocumab or alirocumab, asking whether real-world use aligned with lipid guidelines and what happened to LDL after 24 months.
+        </p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag therapy">PCSK9 inhibitors</li>
+          <li class="tag category">Guideline adherence</li>
+          <li class="tag">LDL outcomes</li>
+          <li class="tag">Integrated specialty pharmacy</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card pcsk9-hero" aria-label="Study snapshot">
+        <div class="poster-code">48<br>2021</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Study design</dt>
+            <dd>Retrospective review</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>VUMC</dd>
+          </div>
+          <div>
+            <dt>Initial cohort</dt>
+            <dd>N=477</dd>
+          </div>
+          <div>
+            <dt>Follow-up lens</dt>
+            <dd>24 months</dd>
+          </div>
+        </dl>
+        <p class="hero-finding">Median LDL fell from 157 to 65 mg/dL among patients with paired baseline and 24-month data.</p>
+        <svg viewBox="0 0 360 168" role="img" aria-label="Stylized LDL decrease after PCSK9 inhibitor therapy">
+          <defs>
+            <linearGradient id="ldlLine" x1="0" x2="1">
+              <stop offset="0" stop-color="#d12630"/>
+              <stop offset="1" stop-color="#187c8f"/>
+            </linearGradient>
+            <filter id="drop" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#243770" flood-opacity="0.12"/>
+            </filter>
+          </defs>
+          <path d="M36 128 H326" stroke="#aebbd2" stroke-width="2"/>
+          <path d="M48 44 C105 58 141 98 194 112 S279 125 320 126" fill="none" stroke="url(#ldlLine)" stroke-width="9" stroke-linecap="round"/>
+          <circle cx="48" cy="44" r="18" fill="#fff" stroke="#d12630" stroke-width="5" filter="url(#drop)"/>
+          <circle cx="320" cy="126" r="18" fill="#fff" stroke="#187c8f" stroke-width="5" filter="url(#drop)"/>
+          <text x="48" y="25" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="16" font-weight="900">157</text>
+          <text x="320" y="104" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="16" font-weight="900">65</text>
+          <text x="48" y="154" text-anchor="middle" fill="#68758d" font-family="Inter, sans-serif" font-size="12" font-weight="850">Baseline</text>
+          <text x="320" y="154" text-anchor="middle" fill="#68758d" font-family="Inter, sans-serif" font-size="12" font-weight="850">24 months</text>
+        </svg>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <div class="metric-card">
+          <span>Patients reviewed</span>
+          <strong>477</strong>
+          <p>Prescribed a PCSK9i by a Vanderbilt provider from September 2015 to August 2018.</p>
+        </div>
+        <div class="metric-card">
+          <span>Baseline LDL</span>
+          <strong>157</strong>
+          <p>Median mg/dL at initiation, with IQR 131-190.</p>
+        </div>
+        <div class="metric-card">
+          <span>LDL reduction</span>
+          <strong>59%</strong>
+          <p>Among 262 patients with baseline and 24-month LDL data.</p>
+        </div>
+        <div class="metric-card">
+          <span>Goal attainment</span>
+          <strong>59% / 78%</strong>
+          <p>ASCVD LDL goal / HeFH LDL goal at 24 months.</p>
+        </div>
+      </section>
+
+      <section class="story-grid" aria-label="LDL change and target attainment">
+        <div class="ldl-card">
+          <p class="section-label">24-month LDL trajectory</p>
+          <h2>Median LDL moved below the ASCVD threshold used for goal assessment.</h2>
+          <div class="ldl-stage">
+            <div class="ldl-label baseline">
+              <span>Baseline</span>
+              <strong>157</strong>
+              <span>mg/dL</span>
+            </div>
+            <div class="ldl-label followup">
+              <span>24 months</span>
+              <strong>65</strong>
+              <span>mg/dL</span>
+            </div>
+            <svg viewBox="0 0 520 288" aria-hidden="true">
+              <path d="M52 52 C130 56 164 116 230 148 S336 209 468 222" fill="none" stroke="#d12630" stroke-width="14" stroke-linecap="round" opacity="0.22"/>
+              <path d="M52 52 C130 56 164 116 230 148 S336 209 468 222" fill="none" stroke="url(#ldlLine)" stroke-width="8" stroke-linecap="round"/>
+              <path d="M40 218 H480" stroke="#187c8f" stroke-width="2" stroke-dasharray="8 7"/>
+              <text x="48" y="210" fill="#187c8f" font-family="Inter, sans-serif" font-size="13" font-weight="900">70 mg/dL ASCVD goal line</text>
+              <circle cx="52" cy="52" r="13" fill="#fff" stroke="#d12630" stroke-width="5"/>
+              <circle cx="468" cy="222" r="13" fill="#fff" stroke="#187c8f" stroke-width="5"/>
+            </svg>
+          </div>
+          <p class="note">Source figure reported 157 mg/dL at baseline and 65 mg/dL at 24 months.</p>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">LDL goals achieved</p>
+          <h2>Target achievement differed by indication among patients with available data.</h2>
+          <div class="goal-grid">
+            <article class="goal-card">
+              <div class="donut" style="--value:59%; --color:var(--red)" data-value="59%"></div>
+              <h3>ASCVD goal</h3>
+              <p>LDL &le;70 mg/dL in 135 of 228 patients.</p>
+            </article>
+            <article class="goal-card">
+              <div class="donut" style="--value:78%; --color:var(--teal)" data-value="78%"></div>
+              <h3>HeFH goal</h3>
+              <p>LDL &le;100 mg/dL in 87 of 112 patients.</p>
+            </article>
+          </div>
+          <p class="note">Poster conclusion: most patients persistent to therapy at 24 months achieved their target LDL goal.</p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Objective and design</p>
+        <h2>Assess real-world guideline-directed lipid management, PCSK9i use, and clinical outcomes.</h2>
+        <div class="method-ladder" aria-label="Method flow">
+          <div class="ladder-step" data-step="1">
+            <b>Single-center review</b>
+            <span>Conducted at Vanderbilt University Medical Center.</span>
+          </div>
+          <div class="ladder-step" data-step="2">
+            <b>Prescription window</b>
+            <span>Patients prescribed a PCSK9i from September 2015 to August 2018.</span>
+          </div>
+          <div class="ladder-step" data-step="3">
+            <b>Exclusions</b>
+            <span>Patient assistance program, no insurance approval, or therapy never started.</span>
+          </div>
+          <div class="ladder-step" data-step="4">
+            <b>Outcomes</b>
+            <span>Guideline adherence, LDL goal, LDL change, and new cardiovascular events or diagnoses.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="story-grid" aria-label="Guideline context and lipid therapy mix">
+        <div class="panel">
+          <p class="section-label">Guideline context</p>
+          <h2>PCSK9i therapy was framed as add-on treatment after maximally tolerated statin and ezetimibe.</h2>
+          <div class="indication-map">
+            <article class="indication-card">
+              <strong>&ge;70</strong>
+              <span>mg/dL LDL for ASCVD patients on prior lipid-lowering therapy.</span>
+            </article>
+            <article class="indication-card">
+              <strong>&ge;100</strong>
+              <span>mg/dL LDL for familial hypercholesterolemia patients.</span>
+            </article>
+          </div>
+          <p class="note">The poster cited 2018 AHA/ACC cholesterol guidance and noted scarce real-world evidence.</p>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Lipid management pattern</p>
+          <h2>At initiation, combined statin plus ezetimibe use was uncommon in the extracted table.</h2>
+          <div class="therapy-mix" aria-label="Baseline and 24-month lipid management">
+            <div class="mix-row">
+              <span>None at baseline</span>
+              <div class="track"><i style="width:17%"></i></div>
+              <span>17%</span>
+            </div>
+            <div class="mix-row">
+              <span>Statin at baseline</span>
+              <div class="track"><i style="width:18%"></i></div>
+              <span>18%</span>
+            </div>
+            <div class="mix-row">
+              <span>Statin + ezetimibe</span>
+              <div class="track"><i style="width:9%"></i></div>
+              <span>9%</span>
+            </div>
+            <div class="mix-row">
+              <span>Ezetimibe at baseline</span>
+              <div class="track"><i style="width:56%"></i></div>
+              <span>56%</span>
+            </div>
+            <div class="mix-row">
+              <span>None at 24 months</span>
+              <div class="track"><i class="after" style="width:23%"></i></div>
+              <span>23%</span>
+            </div>
+          </div>
+          <p class="note">Rows are reproduced as categorical shares from Figure 1, with baseline N=477 and 24-month N=286.</p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Sample profile</p>
+        <h2>The cohort was older, predominantly White, and highly enriched for ASCVD and hypertension.</h2>
+        <div class="profile-grid" aria-label="Sample characteristics">
+          <article class="profile-tile">
+            <strong>63</strong>
+            <h3>Median age</h3>
+            <p>IQR 56-70 years.</p>
+          </article>
+          <article class="profile-tile">
+            <strong>53%</strong>
+            <h3>Male</h3>
+            <p>253 of 477 patients.</p>
+          </article>
+          <article class="profile-tile">
+            <strong>86%</strong>
+            <h3>Hypertension</h3>
+            <p>408 patients had hypertension history.</p>
+          </article>
+          <article class="profile-tile">
+            <strong>35%</strong>
+            <h3>Diabetes</h3>
+            <p>168 patients had diabetes history.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="story-grid" aria-label="Treatment indications and cardiovascular events">
+        <div class="panel">
+          <p class="section-label">Initial PCSK9i indications</p>
+          <h2>ASCVD was the dominant clinical indication.</h2>
+          <div class="indication-map">
+            <article class="indication-card">
+              <strong>86%</strong>
+              <span>ASCVD indication, 409 of 477 patients.</span>
+            </article>
+            <article class="indication-card">
+              <strong>41%</strong>
+              <span>Familial hypercholesterolemia, 196 of 477 patients.</span>
+            </article>
+          </div>
+          <div class="ascvd-list" aria-label="ASCVD type distribution among ASCVD patients">
+            <div class="ascvd-row"><span>Coronary revascularization</span><span>72%</span><div class="mini-track"><i style="width:72%"></i></div></div>
+            <div class="ascvd-row"><span>Imaging evidence of ASCVD</span><span>72%</span><div class="mini-track"><i style="width:72%"></i></div></div>
+            <div class="ascvd-row"><span>Stable/unstable angina</span><span>59%</span><div class="mini-track"><i style="width:59%"></i></div></div>
+            <div class="ascvd-row"><span>Myocardial infarction</span><span>42%</span><div class="mini-track"><i style="width:42%"></i></div></div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Post-initiation events</p>
+          <h2>New onset cardiovascular events or diagnoses were concentrated in a minority.</h2>
+          <p>Sixty-seven patients incurred 96 new onset cardiovascular events or diagnoses after PCSK9i initiation.</p>
+          <div class="event-strip" aria-label="Number of new events or diagnoses per patient">
+            <div class="event-box">
+              <strong>79%</strong>
+              <span>0 events</span>
+            </div>
+            <div class="event-box">
+              <strong>14%</strong>
+              <span>1 event</span>
+            </div>
+            <div class="event-box">
+              <strong>6%</strong>
+              <span>2 events</span>
+            </div>
+            <div class="event-box">
+              <strong>1%</strong>
+              <span>3+ events</span>
+            </div>
+          </div>
+          <p class="note">Table 3 denominator reflects patients with event follow-up data in the extracted source.</p>
+        </div>
+      </section>
+
+      <section class="evidence-map" aria-label="Evidence flow">
+        <article class="evidence-card">
+          <h3>Guideline threshold</h3>
+          <p>PCSK9i use was compared with recommendations after statin and ezetimibe therapy.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Real-world cohort</h3>
+          <p>477 Vanderbilt patients began from a median LDL of 157 mg/dL.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Therapy pattern</h3>
+          <p>The source conclusion reported less than half using recommended statin or ezetimibe therapy at initiation.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>LDL response</h3>
+          <p>Median LDL declined 59% among patients with paired 24-month LDL values.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Research need</h3>
+          <p>More work is needed on PCSK9i use outside guideline-directed recommendations and future events.</p>
+        </article>
+      </section>
+
+      <section class="panel takeaway">
+        <p>
+          Conclusion: real-world PCSK9i therapy at an integrated specialty pharmacy produced large LDL reductions among persistent patients, but initiation patterns showed a gap between guideline-directed lipid management and observed practice.
+        </p>
+      </section>
+    </main>
+
+    <footer class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/48-Real-World-Use-of-PCSK9-Inhibitors_2021.pdf">Open original PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/48-Real-World-Use-of-PCSK9-Inhibitors_2021.md">Read extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

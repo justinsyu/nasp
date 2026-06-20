@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>505(b)(2) Drug Purchasing Patterns | NASP 2022</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .poster-hero {
+      position: relative;
+      overflow: hidden;
+    }
+    .poster-hero::before {
+      content: "";
+      position: absolute;
+      right: 20rem;
+      bottom: -5.4rem;
+      width: 15rem;
+      height: 15rem;
+      border: 1.4rem solid rgba(24, 124, 143, 0.1);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, transparent 0 42%, rgba(233, 158, 37, 0.14) 42% 46%, transparent 46%),
+        radial-gradient(circle at 88% 14%, rgba(209, 38, 48, 0.12), transparent 5.5rem);
+      pointer-events: none;
+    }
+    .pathway-card {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 0.3rem;
+    }
+    .pathway-node {
+      display: grid;
+      grid-template-columns: 2.35rem minmax(0, 1fr);
+      gap: 0.55rem;
+      align-items: center;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.86);
+      padding: 0.55rem;
+    }
+    .pathway-node strong {
+      display: grid;
+      place-items: center;
+      width: 2.35rem;
+      height: 2.35rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      line-height: 1;
+    }
+    .pathway-node span {
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+    .metric-card strong small {
+      color: var(--red);
+      font-size: 0.92rem;
+    }
+    .metric-card em {
+      display: block;
+      margin-top: 0.38rem;
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-style: normal;
+      font-weight: 750;
+    }
+    .growth-stage {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 18rem;
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .growth-bars {
+      display: grid;
+      gap: 0.68rem;
+      margin-top: 0.8rem;
+    }
+    .growth-row {
+      display: grid;
+      grid-template-columns: 4.7rem minmax(0, 1fr) 4.6rem;
+      gap: 0.55rem;
+      align-items: center;
+    }
+    .growth-row .quarter {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      font-weight: 900;
+    }
+    .growth-track {
+      height: 1.05rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 999px;
+      background: #e9eff7;
+      overflow: hidden;
+    }
+    .growth-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .growth-row .value {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 900;
+      text-align: right;
+    }
+    .peak-card {
+      position: relative;
+      min-height: 100%;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--ink);
+      color: #fff;
+      padding: 1rem;
+      overflow: hidden;
+    }
+    .peak-card::after {
+      content: "";
+      position: absolute;
+      right: -3.8rem;
+      bottom: -3.8rem;
+      width: 11rem;
+      height: 11rem;
+      border: 1.15rem solid rgba(255, 255, 255, 0.08);
+      border-radius: 50%;
+    }
+    .peak-card h3 {
+      color: #fff;
+      font-size: 1.15rem;
+    }
+    .peak-card .peak-number {
+      display: block;
+      margin: 0.55rem 0 0.25rem;
+      color: var(--gold);
+      font-family: var(--font-display);
+      font-size: 3.4rem;
+      font-weight: 900;
+      line-height: 0.9;
+    }
+    .peak-card p {
+      position: relative;
+      z-index: 1;
+      margin: 0.55rem 0 0;
+      color: rgba(255, 255, 255, 0.84);
+      font-size: 0.86rem;
+    }
+    .market-share-panel {
+      display: grid;
+      grid-template-columns: 20rem minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+    }
+    .share-dial {
+      display: grid;
+      place-items: center;
+      min-height: 16rem;
+      border: 1px solid rgba(36, 55, 112, 0.12);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at center, #fff 0 43%, transparent 43%),
+        conic-gradient(var(--teal) 0 14.03%, #e5edf7 14.03% 100%);
+    }
+    .share-dial div {
+      text-align: center;
+    }
+    .share-dial strong {
+      display: block;
+      color: var(--teal);
+      font-family: var(--font-display);
+      font-size: 3.3rem;
+      font-weight: 900;
+      line-height: 0.95;
+    }
+    .share-dial span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .endpoint-strip {
+      display: grid;
+      gap: 0.65rem;
+      margin-top: 0.85rem;
+    }
+    .endpoint {
+      display: grid;
+      grid-template-columns: 5rem minmax(0, 1fr) 4.4rem;
+      gap: 0.55rem;
+      align-items: center;
+    }
+    .endpoint b {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.84rem;
+    }
+    .endpoint-track {
+      height: 0.78rem;
+      border-radius: 999px;
+      background: #e7eef7;
+      overflow: hidden;
+    }
+    .endpoint-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--teal);
+    }
+    .endpoint span {
+      color: var(--teal);
+      font-family: var(--font-display);
+      font-size: 0.88rem;
+      font-weight: 900;
+      text-align: right;
+    }
+    .evidence-map .evidence-card {
+      min-height: 11.2rem;
+    }
+    #methods .evidence-map {
+      grid-template-columns: repeat(auto-fit, minmax(8.6rem, 1fr));
+    }
+    .evidence-card .mini-stat {
+      display: block;
+      margin-top: 0.6rem;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.42rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .table-card .note {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-weight: 750;
+    }
+    .warning-panel {
+      border-color: rgba(233, 158, 37, 0.55);
+      background: linear-gradient(180deg, #fff, var(--surface-warm));
+    }
+    .warning-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.8rem;
+    }
+    .warning-list div {
+      border-left: 3px solid var(--gold);
+      background: rgba(255, 255, 255, 0.68);
+      padding: 0.65rem;
+    }
+    .warning-list strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+    }
+    .warning-list span {
+      color: var(--body);
+      font-size: 0.8rem;
+    }
+    .takeaway-banner {
+      display: grid;
+      grid-template-columns: 0.72fr 1.28fr;
+      gap: 1rem;
+      align-items: center;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--surface-blue), #fff);
+      padding: 1rem;
+    }
+    .takeaway-banner .badge {
+      display: grid;
+      place-items: center;
+      min-height: 10rem;
+      border: 2px solid rgba(209, 38, 48, 0.22);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2.25rem;
+      font-weight: 900;
+      text-align: center;
+      line-height: 1;
+    }
+    .takeaway-banner p {
+      margin: 0.55rem 0 0;
+    }
+    @media (max-width: 900px) {
+      .growth-stage,
+      .market-share-panel,
+      .takeaway-banner {
+        grid-template-columns: 1fr;
+      }
+      .warning-list {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 560px) {
+      .growth-row,
+      .endpoint {
+        grid-template-columns: 1fr;
+      }
+      .growth-row .value,
+      .endpoint span {
+        text-align: left;
+      }
+      .share-dial {
+        min-height: 13rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#growth">Growth</a>
+        <a href="#methods">Methods</a>
+        <a href="#patterns">Tables</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2022 poster 26-2022</p>
+        <h1 id="poster-title">Understanding 505(b)(2) drug purchasing patterns within a home infusion and specialty pharmacy GPO</h1>
+        <p class="hero-summary">
+          Managed Health Care Associates analyzed how participating pharmacies changed purchasing
+          behavior after a contracted osteoporosis 505(b)(2) product was added to a nationwide
+          home infusion and specialty pharmacy group purchasing organization portfolio.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Retrospective purchasing analysis</li>
+          <li class="tag therapy">Osteoporosis</li>
+          <li class="tag therapy">505(b)(2) pathway</li>
+          <li class="tag">July 2020 to March 2022</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata and 505(b)(2) pathway visual">
+        <div>
+          <div class="poster-code">26-2022</div>
+          <dl class="meta-grid">
+            <div>
+              <dt>Year</dt>
+              <dd>2022</dd>
+            </div>
+            <div>
+              <dt>Presenter</dt>
+              <dd>MHA</dd>
+            </div>
+            <div>
+              <dt>Product type</dt>
+              <dd>505(b)(2)</dd>
+            </div>
+            <div>
+              <dt>Comparator</dt>
+              <dd>Reference product</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="pathway-card" aria-hidden="true">
+          <div class="pathway-node">
+            <strong>FDA</strong>
+            <span>Pathway allows reliance on existing reference-product studies.</span>
+          </div>
+          <div class="pathway-node">
+            <strong>GPO</strong>
+            <span>Contracted access adds competitive pricing, education, and support.</span>
+          </div>
+          <div class="pathway-node">
+            <strong>SP</strong>
+            <span>Participating pharmacies shift purchasing toward the contracted product.</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Healthcare savings context</span>
+          <strong>$313B</strong>
+          <em>Estimated 2019 U.S. savings from generics and biosimilars.</em>
+        </article>
+        <article class="metric-card">
+          <span>First post-contract quarter</span>
+          <strong>688<small>%</small></strong>
+          <em>Q1 2021 purchases versus Jul-Nov 2020 baseline units.</em>
+        </article>
+        <article class="metric-card">
+          <span>Peak observed growth</span>
+          <strong>3,355<small>%</small></strong>
+          <em>Q4 2021 compared with the pre-contract baseline.</em>
+        </article>
+        <article class="metric-card">
+          <span>Market share endpoint</span>
+          <strong>14.03<small>%</small></strong>
+          <em>March 2022 share versus the non-contracted reference product.</em>
+        </article>
+      </section>
+
+      <section id="growth" class="growth-stage">
+        <article class="panel">
+          <p class="section-label">Quarterly purchasing growth</p>
+          <h2>Purchases rapidly scaled after contract portfolio inclusion</h2>
+          <p>
+            The baseline was average units from July through November 2020. Each reported quarter
+            after contract initiation remained far above baseline, with Q4 2021 as the highest
+            reported quarter and Q1 2022 still more than thirty-fold higher than baseline.
+          </p>
+          <div class="growth-bars" aria-label="Percent change from baseline by quarter">
+            <div class="growth-row">
+              <span class="quarter">Q1 2021</span>
+              <div class="growth-track"><i style="width:20.5%"></i></div>
+              <span class="value">688%</span>
+            </div>
+            <div class="growth-row">
+              <span class="quarter">Q2 2021</span>
+              <div class="growth-track"><i style="width:40.2%"></i></div>
+              <span class="value">1,348%</span>
+            </div>
+            <div class="growth-row">
+              <span class="quarter">Q3 2021</span>
+              <div class="growth-track"><i style="width:87.7%"></i></div>
+              <span class="value">2,942%</span>
+            </div>
+            <div class="growth-row">
+              <span class="quarter">Q4 2021</span>
+              <div class="growth-track"><i style="width:100%"></i></div>
+              <span class="value">3,355%</span>
+            </div>
+            <div class="growth-row">
+              <span class="quarter">Q1 2022</span>
+              <div class="growth-track"><i style="width:91.7%"></i></div>
+              <span class="value">3,078%</span>
+            </div>
+          </div>
+        </article>
+
+        <aside class="peak-card">
+          <h3>Adoption signal</h3>
+          <span class="peak-number">30x+</span>
+          <p>
+            From Q3 2021 through Q1 2022, purchases were roughly thirty times or more above the
+            pre-contract baseline, indicating sustained purchasing adoption rather than a single
+            launch-quarter spike.
+          </p>
+          <p>
+            The analysis did not report patient outcomes; it focused on purchasing patterns and
+            market share within the GPO channel.
+          </p>
+        </aside>
+      </section>
+
+      <section class="visual-grid">
+        <article class="panel market-share-panel">
+          <div class="share-dial" aria-label="March 2022 market share 14.03 percent">
+            <div>
+              <strong>14.03%</strong>
+              <span>March 2022</span>
+            </div>
+          </div>
+          <div>
+            <p class="section-label">Market share endpoint</p>
+            <h2>Share moved from trace level to a measurable alternative</h2>
+            <p>
+              Compared with the non-contracted reference product, the contracted 505(b)(2) product
+              increased from 0.05% market share in November 2020 to 14.03% in March 2022.
+            </p>
+            <div class="endpoint-strip" aria-label="Market share endpoints">
+              <div class="endpoint">
+                <b>Nov 2020</b>
+                <div class="endpoint-track"><i style="width:0.36%"></i></div>
+                <span>0.05%</span>
+              </div>
+              <div class="endpoint">
+                <b>Mar 2022</b>
+                <div class="endpoint-track"><i style="width:100%"></i></div>
+                <span>14.03%</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article id="methods" class="panel">
+          <p class="section-label">Objective and methods</p>
+          <h2>The study asked whether contracting changed pharmacy purchasing</h2>
+          <div class="evidence-map" aria-label="Evidence flow">
+            <article class="evidence-card">
+              <h3>1. Define baseline</h3>
+              <p>Average units purchased from July through November 2020.</p>
+              <span class="mini-stat">5 mo</span>
+            </article>
+            <article class="evidence-card">
+              <h3>2. Add contract</h3>
+              <p>GPO agreement offered competitive pricing plus education and support.</p>
+              <span class="mini-stat">GPO</span>
+            </article>
+            <article class="evidence-card">
+              <h3>3. Track growth</h3>
+              <p>Quarterly post-contract purchases were compared with baseline.</p>
+              <span class="mini-stat">5 qtrs</span>
+            </article>
+            <article class="evidence-card">
+              <h3>4. Compare share</h3>
+              <p>505(b)(2) product share was assessed against the reference product.</p>
+              <span class="mini-stat">2 endpoints</span>
+            </article>
+            <article class="evidence-card">
+              <h3>5. Interpret limits</h3>
+              <p>Payer formulary, reimbursement, and provider adoption were not controlled.</p>
+              <span class="mini-stat">3 limits</span>
+            </article>
+          </div>
+        </article>
+      </section>
+
+      <section id="patterns" class="tables-grid" aria-label="Extracted table patterns">
+        <article class="table-card">
+          <p class="section-label">Table pattern 1</p>
+          <h2>Percent change versus baseline</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Quarter</th>
+                  <th>Percent change</th>
+                  <th>Infographic read</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Q1 2021</td><td>688%</td><td>Immediate uptake after contracting</td></tr>
+                <tr><td>Q2 2021</td><td>1,348%</td><td>More than doubled from Q1</td></tr>
+                <tr><td>Q3 2021</td><td>2,942%</td><td>Approached thirty-fold growth</td></tr>
+                <tr><td>Q4 2021</td><td>3,355%</td><td>Highest reported quarter</td></tr>
+                <tr><td>Q1 2022</td><td>3,078%</td><td>Sustained near-peak volume</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Table pattern 2</p>
+          <h2>Reported market-share anchors</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Month</th>
+                  <th>Market share</th>
+                  <th>Comparison frame</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>November 2020</td><td>0.05%</td><td>505(b)(2) product vs reference product</td></tr>
+                <tr><td>March 2022</td><td>14.03%</td><td>505(b)(2) product vs reference product</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="note">
+            The markdown table lists intermediate months but leaves their market-share cells blank,
+            so this page visualizes only the reported endpoints.
+          </p>
+        </article>
+      </section>
+
+      <section class="takeaway-banner">
+        <div class="badge">Triple<br>Aim</div>
+        <div>
+          <p class="section-label">Conclusion</p>
+          <h2>Contracting may help drive adoption of differentiated, less costly specialty alternatives</h2>
+          <p>
+            The poster concludes that 505(b)(2) products can offer manufacturers a way to
+            differentiate in crowded specialty and generic markets, and that GPO manufacturer
+            agreements may support pharmacy adoption through pricing, education, and support.
+          </p>
+        </div>
+      </section>
+
+      <section class="panel warning-panel">
+        <p class="section-label">Interpretation guardrails</p>
+        <h2>The case study is directional, not causal</h2>
+        <div class="warning-list">
+          <div>
+            <strong>Payer formulary</strong>
+            <span>Coverage policy could have affected product selection.</span>
+          </div>
+          <div>
+            <strong>Payer reimbursement</strong>
+            <span>Payment dynamics were not controlled in the analysis.</span>
+          </div>
+          <div>
+            <strong>Provider adoption</strong>
+            <span>Prescribing behavior may have contributed to purchasing shifts.</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/26-2022.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/26-2022.md">Source Markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

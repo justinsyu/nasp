@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2024 Infographic | Migraine CGRPi and Short-term Disability</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card .button-link {
+      justify-content: center;
+      background: #fff;
+    }
+    .migraine-orbit {
+      position: relative;
+      min-height: 19rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 28% 38%, rgba(255, 255, 255, 0.95) 0 3.2rem, transparent 3.25rem),
+        radial-gradient(circle at 72% 32%, rgba(233, 158, 37, 0.28), transparent 7rem),
+        linear-gradient(135deg, rgba(36, 55, 112, 0.97), rgba(24, 124, 143, 0.9));
+      color: #fff;
+      overflow: hidden;
+      padding: 1.05rem;
+    }
+    .migraine-orbit::before,
+    .migraine-orbit::after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      border-radius: 50%;
+      transform: rotate(-22deg);
+    }
+    .migraine-orbit::before {
+      inset: 4.4rem 2.4rem 3.8rem;
+    }
+    .migraine-orbit::after {
+      inset: 6.2rem 5.4rem 5.1rem 1.8rem;
+    }
+    .migraine-orbit .kicker {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+    .migraine-orbit strong {
+      position: relative;
+      z-index: 1;
+      display: block;
+      margin-top: 0.18rem;
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 5.8vw, 4.8rem);
+      line-height: 0.92;
+    }
+    .migraine-orbit span {
+      position: relative;
+      z-index: 1;
+      display: block;
+      max-width: 20rem;
+      margin-top: 0.6rem;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 0.95rem;
+    }
+    .migraine-orbit svg {
+      position: absolute;
+      right: -1rem;
+      bottom: -2.4rem;
+      width: min(27rem, 74%);
+      opacity: 0.78;
+    }
+    .trend-board {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      gap: 0.8rem;
+    }
+    .trend-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.9rem;
+    }
+    .trend-card h3 {
+      margin-bottom: 0.35rem;
+    }
+    .sparkline {
+      width: 100%;
+      height: auto;
+      margin-top: 0.3rem;
+    }
+    .sparkline text {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 800;
+      fill: var(--muted);
+    }
+    .axis-line {
+      stroke: var(--border-strong);
+      stroke-width: 1;
+    }
+    .access-line {
+      fill: none;
+      stroke: var(--red);
+      stroke-width: 5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .speed-line {
+      fill: none;
+      stroke: var(--teal);
+      stroke-width: 5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .data-dot {
+      fill: #fff;
+      stroke-width: 4;
+    }
+    .access-dot { stroke: var(--red); }
+    .speed-dot { stroke: var(--teal); }
+    .split-stat {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.72rem;
+    }
+    .split-stat div {
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 7px;
+      background: var(--surface-blue);
+      padding: 0.58rem;
+    }
+    .split-stat b {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+    .split-stat span {
+      display: block;
+      margin-top: 0.2rem;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 850;
+      line-height: 1.2;
+    }
+    .std-bars {
+      display: grid;
+      gap: 0.58rem;
+      margin-top: 0.72rem;
+    }
+    .std-row {
+      display: grid;
+      grid-template-columns: 3.2rem minmax(0, 1fr) 3rem;
+      gap: 0.5rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .std-track {
+      height: 0.78rem;
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .std-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--ink), var(--purple));
+    }
+    .source-note {
+      margin: 0.75rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+    .journey {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+    .journey-node {
+      position: relative;
+      min-height: 9.2rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.82rem;
+      overflow: hidden;
+    }
+    .journey-node::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 0.32rem;
+      background: var(--node-color, var(--red));
+    }
+    .journey-node:nth-child(2) { --node-color: var(--gold); }
+    .journey-node:nth-child(3) { --node-color: var(--teal); }
+    .journey-node:nth-child(4) { --node-color: var(--green); }
+    .journey-node b {
+      display: inline-grid;
+      place-items: center;
+      width: 1.65rem;
+      height: 1.65rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+    }
+    .journey-node h3 {
+      margin-top: 0.48rem;
+      font-size: 0.94rem;
+    }
+    .journey-node p {
+      margin: 0.35rem 0 0;
+      font-size: 0.8rem;
+    }
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+    .mini-table td:first-child,
+    .mini-table th:first-child {
+      white-space: nowrap;
+    }
+    .cost-ladder {
+      display: grid;
+      gap: 0.56rem;
+      margin-top: 0.62rem;
+    }
+    .cost-row {
+      display: grid;
+      grid-template-columns: 3.2rem minmax(0, 1fr) 4.7rem;
+      gap: 0.5rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .cost-track {
+      height: 0.92rem;
+      border-radius: 999px;
+      background: var(--surface-blue);
+      overflow: hidden;
+    }
+    .cost-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .takeaway-list {
+      margin: 0.55rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .takeaway-list li {
+      display: grid;
+      grid-template-columns: 0.72rem minmax(0, 1fr);
+      gap: 0.45rem;
+      margin-top: 0.45rem;
+      font-size: 0.88rem;
+    }
+    .takeaway-list li::before {
+      content: "";
+      width: 0.5rem;
+      height: 0.5rem;
+      margin-top: 0.48rem;
+      border-radius: 50%;
+      background: var(--red);
+    }
+    @media (max-width: 900px) {
+      .trend-board,
+      .journey,
+      .comparison-grid {
+        grid-template-columns: 1fr;
+      }
+      .split-stat {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 560px) {
+      .split-stat {
+        grid-template-columns: 1fr;
+      }
+      .std-row,
+      .cost-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="https://naspnet.org/" aria-label="NASP website">NASP Posters</a>
+      <nav aria-label="Page sections">
+        <a href="#snapshot">Snapshot</a>
+        <a href="#access">Access</a>
+        <a href="#disability">STD</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">2024 Annual Meeting Poster | 62-OPR62-OR</p>
+        <h1>Migraine diagnoses, CGRPi use, and short-term disability among U.S. employees</h1>
+        <p class="hero-summary">
+          A Workpartners Research Reference Database analysis followed employees with initial migraine diagnoses from 2017 to 2022, tracking CGRPi treatment access, direct pharmacy costs, and short-term disability claims into 2023.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Retrospective claims analysis</li>
+          <li class="tag therapy">Migraine</li>
+          <li class="tag therapy">CGRPi</li>
+          <li class="tag">Short-term disability</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Poster details">
+        <div class="poster-code">AM24<br>62-OPR62-OR</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Index years</dt>
+            <dd>2017-2022</dd>
+          </div>
+          <div>
+            <dt>Poster year</dt>
+            <dd>2024</dd>
+          </div>
+          <div>
+            <dt>Population</dt>
+            <dd>U.S. employees</dd>
+          </div>
+          <div>
+            <dt>Data source</dt>
+            <dd>Workpartners RRDb</dd>
+          </div>
+        </dl>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/62-OPR62-OR-Poster-AM24_2024.pdf">Open poster PDF</a>
+      </aside>
+    </section>
+
+    <main>
+      <section id="snapshot" class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Persons with migraine</span>
+          <strong>16,588</strong>
+        </article>
+        <article class="metric-card">
+          <span>Female in each Dx year</span>
+          <strong>&ge;77.9%</strong>
+        </article>
+        <article class="metric-card">
+          <span>Average with CGRPi claims</span>
+          <strong>13.8%</strong>
+        </article>
+        <article class="metric-card">
+          <span>Overall post-index STD</span>
+          <strong>1.4%</strong>
+        </article>
+      </section>
+
+      <section class="visual-grid" aria-label="Central study signal">
+        <article class="migraine-orbit">
+          <p class="kicker">Access signal</p>
+          <strong>3.3 to 0.4 years</strong>
+          <span>Average time from migraine diagnosis to first CGRPi claim shortened sharply between 2017 and 2022 diagnosis cohorts.</span>
+          <svg viewBox="0 0 360 240" role="img" aria-label="Stylized brain and treatment path">
+            <defs>
+              <linearGradient id="pulseFill" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ffffff" stop-opacity="0.92"></stop>
+                <stop offset="1" stop-color="#e99e25" stop-opacity="0.75"></stop>
+              </linearGradient>
+            </defs>
+            <path d="M152 39c-27 0-48 19-51 44-22 6-38 26-38 50 0 29 24 52 53 52h108c35 0 64-29 64-64 0-32-24-59-55-63-13-12-30-19-49-19h-32z" fill="url(#pulseFill)"></path>
+            <path d="M102 119h42l15-30 22 72 17-42h58" fill="none" stroke="#243770" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"></path>
+            <circle cx="296" cy="66" r="21" fill="#d12630" opacity="0.9"></circle>
+            <circle cx="72" cy="186" r="26" fill="#187c8f" opacity="0.7"></circle>
+            <path d="M270 170c25-13 43-34 51-62" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-dasharray="3 15"></path>
+          </svg>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Characterize migraine care and work absence after diagnosis</h2>
+          <ul class="takeaway-list">
+            <li>Employees had an initial migraine diagnosis using ICD-10 G43.x between 2017 and 2022.</li>
+            <li>All subjects had at least one year of post-diagnosis eligibility and continuous data into 2023.</li>
+            <li>Outcomes included CGRPi use, direct medical and prescription costs, STD costs, and lost work days.</li>
+            <li>Cost data were inflation adjusted to December 2023.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="access" class="panel">
+        <p class="section-label">CGRPi adoption pattern</p>
+        <h2>Later migraine cohorts moved onto CGRPi faster and were more likely to still be using therapy in 2023</h2>
+        <div class="trend-board">
+          <article class="trend-card">
+            <h3>Post-index CGRPi use rose across diagnosis years</h3>
+            <svg class="sparkline" viewBox="0 0 520 250" role="img" aria-label="Line chart showing post-index CGRPi use increasing from 15.6 percent in 2017 to 88.4 percent in 2022">
+              <line class="axis-line" x1="42" y1="205" x2="492" y2="205"></line>
+              <line class="axis-line" x1="42" y1="30" x2="42" y2="205"></line>
+              <path class="access-line" d="M42 176.5 L132 184.5 L222 165.4 L312 136.9 L402 81.8 L492 30"></path>
+              <circle class="data-dot access-dot" cx="42" cy="176.5" r="6"></circle>
+              <circle class="data-dot access-dot" cx="132" cy="184.5" r="6"></circle>
+              <circle class="data-dot access-dot" cx="222" cy="165.4" r="6"></circle>
+              <circle class="data-dot access-dot" cx="312" cy="136.9" r="6"></circle>
+              <circle class="data-dot access-dot" cx="402" cy="81.8" r="6"></circle>
+              <circle class="data-dot access-dot" cx="492" cy="30" r="6"></circle>
+              <text x="42" y="228" text-anchor="middle">2017</text>
+              <text x="132" y="228" text-anchor="middle">2018</text>
+              <text x="222" y="228" text-anchor="middle">2019</text>
+              <text x="312" y="228" text-anchor="middle">2020</text>
+              <text x="402" y="228" text-anchor="middle">2021</text>
+              <text x="492" y="228" text-anchor="middle">2022</text>
+              <text x="56" y="161">15.6%</text>
+              <text x="426" y="24">88.4%</text>
+            </svg>
+            <div class="split-stat">
+              <div><b>88.4%</b><span>2022 cohort with CGRPi post index</span></div>
+              <div><b>75.0%</b><span>2022 initiators with CGRPi in 2023</span></div>
+              <div><b>37.1%</b><span>Overall with CGRPi in months 0-12</span></div>
+            </div>
+          </article>
+
+          <article class="trend-card">
+            <h3>Time to first CGRPi claim compressed</h3>
+            <svg class="sparkline" viewBox="0 0 520 250" role="img" aria-label="Line chart showing average years to first CGRPi claim falling from 3.3 years in 2017 to 0.4 years in 2022">
+              <line class="axis-line" x1="42" y1="205" x2="492" y2="205"></line>
+              <line class="axis-line" x1="42" y1="30" x2="42" y2="205"></line>
+              <path class="speed-line" d="M42 30 L132 72.4 L222 120 L312 141.2 L402 162.4 L492 183.5"></path>
+              <circle class="data-dot speed-dot" cx="42" cy="30" r="6"></circle>
+              <circle class="data-dot speed-dot" cx="132" cy="72.4" r="6"></circle>
+              <circle class="data-dot speed-dot" cx="222" cy="120" r="6"></circle>
+              <circle class="data-dot speed-dot" cx="312" cy="141.2" r="6"></circle>
+              <circle class="data-dot speed-dot" cx="402" cy="162.4" r="6"></circle>
+              <circle class="data-dot speed-dot" cx="492" cy="183.5" r="6"></circle>
+              <text x="42" y="228" text-anchor="middle">2017</text>
+              <text x="132" y="228" text-anchor="middle">2018</text>
+              <text x="222" y="228" text-anchor="middle">2019</text>
+              <text x="312" y="228" text-anchor="middle">2020</text>
+              <text x="402" y="228" text-anchor="middle">2021</text>
+              <text x="492" y="228" text-anchor="middle">2022</text>
+              <text x="54" y="25">3.3 yrs</text>
+              <text x="430" y="178">0.4 yrs</text>
+            </svg>
+            <p class="source-note">Poster interpretation: shorter time to first claim suggests improving access despite prior authorization requirements and high medication costs.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Methods as evidence flow</p>
+        <h2>From diagnosis cohort to post-index work impact</h2>
+        <div class="journey">
+          <article class="journey-node">
+            <b>1</b>
+            <h3>Find initial migraine diagnosis</h3>
+            <p>Employees with ICD-10 G43.x were indexed by first diagnosis year from 2017 through 2022.</p>
+          </article>
+          <article class="journey-node">
+            <b>2</b>
+            <h3>Require follow-up data</h3>
+            <p>Continuous eligibility into 2023 allowed post-diagnosis tracking and 2023 persistence checks.</p>
+          </article>
+          <article class="journey-node">
+            <b>3</b>
+            <h3>Measure CGRPi claims</h3>
+            <p>Analyses captured post-index CGRPi use, use in the first 12 months, and continued use in 2023.</p>
+          </article>
+          <article class="journey-node">
+            <b>4</b>
+            <h3>Connect to disability</h3>
+            <p>STD claims with a migraine diagnosis were summarized by claim frequency, paid cost, and lost work days.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="disability" class="comparison-grid" aria-label="Short-term disability and cost results">
+        <article class="panel">
+          <p class="section-label">STD claim frequency</p>
+          <h2>Post-index STD claims decreased over time</h2>
+          <div class="std-bars">
+            <div class="std-row">
+              <span>2017</span>
+              <div class="std-track" aria-label="2017 post-index STD 2.4 percent"><i style="width: 100%;"></i></div>
+              <span>2.4%</span>
+            </div>
+            <div class="std-row">
+              <span>2018</span>
+              <div class="std-track" aria-label="2018 post-index STD 1.3 percent"><i style="width: 54%;"></i></div>
+              <span>1.3%</span>
+            </div>
+            <div class="std-row">
+              <span>2019</span>
+              <div class="std-track" aria-label="2019 post-index STD 0.9 percent"><i style="width: 38%;"></i></div>
+              <span>0.9%</span>
+            </div>
+            <div class="std-row">
+              <span>2020</span>
+              <div class="std-track" aria-label="2020 post-index STD 1.1 percent"><i style="width: 46%;"></i></div>
+              <span>1.1%</span>
+            </div>
+            <div class="std-row">
+              <span>2021</span>
+              <div class="std-track" aria-label="2021 post-index STD 0.9 percent"><i style="width: 38%;"></i></div>
+              <span>0.9%</span>
+            </div>
+            <div class="std-row">
+              <span>2022</span>
+              <div class="std-track" aria-label="2022 post-index STD 0.7 percent"><i style="width: 29%;"></i></div>
+              <span>0.7%</span>
+            </div>
+          </div>
+          <p class="source-note">The poster reports mean STD duration of 37.0 to 58.2 lost days per post-index claim, with post-index lost days per employee decreasing from 1.5 to 0.3.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Cost after CGRPi use</p>
+          <h2>Pharmacy cost rose while STD paid cost remained substantial</h2>
+          <div class="cost-ladder">
+            <div class="cost-row">
+              <span>2017</span>
+              <div class="cost-track" aria-label="2017 pharmacy cost 719 dollars"><i style="width: 16%;"></i></div>
+              <span>$719</span>
+            </div>
+            <div class="cost-row">
+              <span>2018</span>
+              <div class="cost-track" aria-label="2018 pharmacy cost 2047 dollars"><i style="width: 47%;"></i></div>
+              <span>$2,047</span>
+            </div>
+            <div class="cost-row">
+              <span>2019</span>
+              <div class="cost-track" aria-label="2019 pharmacy cost 3232 dollars"><i style="width: 74%;"></i></div>
+              <span>$3,232</span>
+            </div>
+            <div class="cost-row">
+              <span>2020</span>
+              <div class="cost-track" aria-label="2020 pharmacy cost 3532 dollars"><i style="width: 80%;"></i></div>
+              <span>$3,532</span>
+            </div>
+            <div class="cost-row">
+              <span>2021</span>
+              <div class="cost-track" aria-label="2021 pharmacy cost 4261 dollars"><i style="width: 97%;"></i></div>
+              <span>$4,261</span>
+            </div>
+            <div class="cost-row">
+              <span>2022</span>
+              <div class="cost-track" aria-label="2022 pharmacy cost 4390 dollars"><i style="width: 100%;"></i></div>
+              <span>$4,390</span>
+            </div>
+          </div>
+          <p class="source-note">Mean direct cost per CGRPi pharmacy claim increased from $470 in 2018 to $758 in 2022; total STD paid after CGRPi ranged from $8,685 to $16,679 by year.</p>
+        </article>
+      </section>
+
+      <section class="evidence-map" aria-label="Extracted poster takeaways">
+        <article class="evidence-card">
+          <h3>Background</h3>
+          <p>CGRPi therapies aim to reduce migraine burden but commonly require prior authorization tied to diagnosis and migraine frequency.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Database scale</h3>
+          <p>The RRDb includes medical and pharmacy claims for more than 5.5 million employees and dependents across all U.S. states.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Access signal</h3>
+          <p>Post-index CGRPi use rose to 88.4% for the 2022 diagnosis cohort, and average time to first claim fell to 0.4 years.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Burden signal</h3>
+          <p>STD durations and costs were higher among those with a CGRPi, consistent with a more severe disease state.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Conclusion</h3>
+          <p>CGRPi utilization increased, access improved, and STD claims per employee appeared to decrease with time.</p>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Condensed source tables">
+        <article class="table-card">
+          <p class="section-label">Table pattern</p>
+          <h2>Post-index versus post-CGRPi STD claims</h2>
+          <div class="table-wrap">
+            <table class="mini-table">
+              <thead>
+                <tr>
+                  <th>Year</th>
+                  <th>Post index</th>
+                  <th>Post CGRPi</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>2017</td><td>2.4%</td><td>3.7%</td></tr>
+                <tr><td>2018</td><td>1.3%</td><td>2.7%</td></tr>
+                <tr><td>2019</td><td>0.9%</td><td>3.2%</td></tr>
+                <tr><td>2020</td><td>1.1%</td><td>2.5%</td></tr>
+                <tr><td>2021</td><td>0.9%</td><td>1.4%</td></tr>
+                <tr><td>2022</td><td>0.7%</td><td>1.8%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Practice implications</p>
+          <h2>Specialty pharmacy lens</h2>
+          <div class="markdown-fragment">
+            <p>
+              The poster frames rising CGRPi use as an operational signal for specialty pharmacies serving persons with migraine.
+            </p>
+            <ul>
+              <li>Understand utilization trends for CGRPis and STD among persons with migraine.</li>
+              <li>Prepare for increased CGRPi utilization among patients with migraine diagnoses and frequent headaches.</li>
+              <li>Support patients who may also open STD claims, especially those with more severe disease burden.</li>
+            </ul>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/62-OPR62-OR-Poster-AM24_2024.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/62-OPR62-OR-Poster-AM24_2024.md">Source markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

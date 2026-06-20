@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SDoH Impact on Home Infusion Perception | NASP 2025</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .sdoh-hero-art {
+      position: relative;
+      min-height: 24rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 22% 18%, rgba(209, 38, 48, 0.14), transparent 7rem),
+        radial-gradient(circle at 82% 82%, rgba(24, 124, 143, 0.16), transparent 8rem),
+        linear-gradient(145deg, #ffffff 0%, var(--surface-blue) 62%, var(--surface-warm) 100%);
+      overflow: hidden;
+    }
+    .sdoh-hero-art svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 24rem;
+    }
+    .hero-card .finding {
+      margin: 0;
+      border-left: 4px solid var(--red);
+      padding-left: 0.72rem;
+      color: var(--ink);
+      font-size: 0.94rem;
+      font-weight: 850;
+    }
+    .metric-card strong small {
+      display: inline;
+      color: inherit;
+      font-size: 0.52em;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+    .domain-wheel {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 1rem;
+      align-items: center;
+    }
+    .domain-list {
+      display: grid;
+      gap: 0.55rem;
+    }
+    .domain-chip {
+      display: grid;
+      grid-template-columns: 2.1rem minmax(0, 1fr);
+      gap: 0.55rem;
+      align-items: center;
+      border: 1px solid rgba(174, 187, 210, 0.82);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.55rem;
+    }
+    .domain-chip b {
+      display: grid;
+      place-items: center;
+      width: 2.1rem;
+      height: 2.1rem;
+      border-radius: 50%;
+      background: var(--accent, var(--red));
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+    }
+    .domain-chip span {
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+    .domain-chip:nth-child(2) { --accent: var(--gold); }
+    .domain-chip:nth-child(3) { --accent: var(--teal); }
+    .domain-chip:nth-child(4) { --accent: var(--green); }
+    .domain-chip:nth-child(5) { --accent: var(--purple); }
+    .signal-board {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+    .signal-card {
+      position: relative;
+      min-height: 13rem;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.9rem;
+    }
+    .signal-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 0.34rem;
+      background: var(--accent, var(--red));
+    }
+    .signal-card:nth-child(2) { --accent: var(--gold); }
+    .signal-card:nth-child(3) { --accent: var(--teal); }
+    .signal-card:nth-child(4) { --accent: var(--green); }
+    .signal-card:nth-child(5) { --accent: var(--purple); }
+    .signal-card:nth-child(6) { --accent: var(--red); }
+    .signal-stat {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.45rem;
+      align-items: baseline;
+      border-top: 1px solid rgba(174, 187, 210, 0.62);
+      padding-top: 0.55rem;
+      margin-top: 0.6rem;
+    }
+    .signal-stat span {
+      color: var(--muted);
+      font-size: 0.67rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .signal-stat b {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+    .method-flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.75rem;
+    }
+    .flow-step {
+      position: relative;
+      min-height: 10rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+      overflow: hidden;
+    }
+    .flow-step::after {
+      content: attr(data-step);
+      position: absolute;
+      right: 0.42rem;
+      bottom: -0.6rem;
+      color: rgba(36, 55, 112, 0.10);
+      font-family: var(--font-display);
+      font-size: 4.6rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .flow-step p {
+      position: relative;
+      z-index: 1;
+      margin: 0.45rem 0 0;
+      font-size: 0.84rem;
+    }
+    .bar-table {
+      display: grid;
+      gap: 0.58rem;
+      margin-top: 0.72rem;
+    }
+    .bar-row {
+      display: grid;
+      grid-template-columns: 12rem minmax(0, 1fr) 4rem;
+      gap: 0.6rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .bar-track {
+      height: 0.9rem;
+      overflow: hidden;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: #edf2f8;
+    }
+    .bar-track i {
+      display: block;
+      width: var(--value);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--red));
+    }
+    .bar-row:nth-child(even) .bar-track i {
+      background: linear-gradient(90deg, var(--gold), var(--purple));
+    }
+    .cohort-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.6rem;
+      margin-top: 0.75rem;
+    }
+    .cohort-cell {
+      border: 1px solid rgba(174, 187, 210, 0.86);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.68rem;
+    }
+    .cohort-cell b {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      line-height: 1;
+    }
+    .cohort-cell span {
+      display: block;
+      margin-top: 0.28rem;
+      color: var(--body);
+      font-size: 0.75rem;
+      line-height: 1.32;
+    }
+    .conclusion-callout {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 1rem;
+      align-items: stretch;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(36, 55, 112, 0.96), rgba(24, 124, 143, 0.92)),
+        var(--ink);
+      padding: 1rem;
+      color: #fff;
+    }
+    .conclusion-callout h2,
+    .conclusion-callout h3 {
+      color: #fff;
+    }
+    .conclusion-callout p {
+      margin: 0.55rem 0 0;
+      color: rgba(255, 255, 255, 0.88);
+    }
+    .takeaway-list {
+      display: grid;
+      gap: 0.55rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .takeaway-list li {
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 0.65rem;
+      font-size: 0.88rem;
+    }
+    @media (max-width: 900px) {
+      .domain-wheel,
+      .conclusion-callout {
+        grid-template-columns: 1fr;
+      }
+      .signal-board,
+      .method-flow,
+      .cohort-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 560px) {
+      .signal-board,
+      .method-flow,
+      .cohort-grid {
+        grid-template-columns: 1fr;
+      }
+      .bar-row {
+        grid-template-columns: 1fr;
+        gap: 0.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#methods">Methods</a>
+        <a href="#signals">Signals</a>
+        <a href="#cohort">Cohort</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP Annual Meeting 2025 | OPR63 | Denver, CO</p>
+        <h1>Social determinants shape how patients perceive home infusion.</h1>
+        <p class="hero-summary">A nurse-administered survey of home infusion patients mapped financial, access, safety, cultural, mood, and perception-change themes onto the HHS Social Determinants of Health framework.</p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Patient perceptions</li>
+          <li class="tag therapy">Home infusion</li>
+          <li class="tag therapy">IVIg / SCIg / biologics</li>
+          <li class="tag">SDoH framework</li>
+          <li class="tag">Survey study</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div class="poster-code">1199-OPR63-OR</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Year</dt>
+            <dd>2025</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>Home infusion and specialty pharmacy</dd>
+          </div>
+          <div>
+            <dt>Patients</dt>
+            <dd>268 completed surveys</dd>
+          </div>
+          <div>
+            <dt>Survey window</dt>
+            <dd>Apr 1-Jul 31, 2024</dd>
+          </div>
+        </dl>
+        <p class="finding">Core finding: patients reported strongly favorable home-infusion experiences across time, access, safety, mood, and cultural-understanding dimensions.</p>
+      </aside>
+    </section>
+
+    <main>
+      <section class="visual-grid" aria-label="Study visual summary">
+        <div class="sdoh-hero-art" aria-hidden="true">
+          <svg viewBox="0 0 520 420" role="img">
+            <defs>
+              <linearGradient id="homeGrad" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#ffffff"/>
+                <stop offset="1" stop-color="#eef4fb"/>
+              </linearGradient>
+              <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#243770" flood-opacity="0.13"/>
+              </filter>
+            </defs>
+            <path d="M68 314 C112 244 116 136 210 106 C310 74 351 139 423 110 C468 92 493 110 504 144 L504 420 L0 420 L0 358 C22 353 44 343 68 314Z" fill="#fff7ea"/>
+            <g filter="url(#shadow)">
+              <path d="M118 198 L260 92 L402 198 L402 338 L118 338Z" fill="url(#homeGrad)" stroke="#aebbd2" stroke-width="3"/>
+              <path d="M92 207 L260 80 L428 207" fill="none" stroke="#d12630" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="217" y="238" width="84" height="100" rx="8" fill="#243770"/>
+              <rect x="142" y="218" width="52" height="48" rx="7" fill="#187c8f" opacity="0.88"/>
+              <rect x="326" y="218" width="52" height="48" rx="7" fill="#e99e25" opacity="0.92"/>
+              <path d="M260 146 C294 169 315 201 315 236 C315 286 291 303 260 321 C229 303 205 286 205 236 C205 201 226 169 260 146Z" fill="#ffffff" stroke="#187c8f" stroke-width="5"/>
+              <path d="M260 181 L260 286 M224 234 L296 234" stroke="#d12630" stroke-width="15" stroke-linecap="round"/>
+            </g>
+            <g fill="#ffffff" stroke="#aebbd2" stroke-width="2">
+              <circle cx="94" cy="88" r="38"/>
+              <circle cx="424" cy="82" r="38"/>
+              <circle cx="72" cy="282" r="38"/>
+              <circle cx="448" cy="286" r="38"/>
+            </g>
+            <g font-family="Montserrat, Arial, sans-serif" font-weight="900" text-anchor="middle">
+              <text x="94" y="82" font-size="18" fill="#d12630">85%</text>
+              <text x="94" y="102" font-size="10" fill="#68758d">time/cost</text>
+              <text x="424" y="76" font-size="18" fill="#187c8f">87%</text>
+              <text x="424" y="96" font-size="10" fill="#68758d">easy access</text>
+              <text x="72" y="276" font-size="18" fill="#4d8a67">99.6%</text>
+              <text x="72" y="296" font-size="10" fill="#68758d">felt safe</text>
+              <text x="448" y="280" font-size="18" fill="#7561a8">81%</text>
+              <text x="448" y="300" font-size="10" fill="#68758d">mood lift</text>
+            </g>
+            <path d="M136 107 C169 131 188 160 205 199" fill="none" stroke="#d9e1ef" stroke-width="5" stroke-linecap="round"/>
+            <path d="M386 103 C350 131 329 161 314 201" fill="none" stroke="#d9e1ef" stroke-width="5" stroke-linecap="round"/>
+            <path d="M111 284 C148 280 176 289 207 310" fill="none" stroke="#d9e1ef" stroke-width="5" stroke-linecap="round"/>
+            <path d="M409 287 C374 282 341 290 313 310" fill="none" stroke="#d9e1ef" stroke-width="5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="panel domain-wheel">
+          <div>
+            <p class="section-label">Objective</p>
+            <h2>Read home infusion through the SDoH lens.</h2>
+            <p>The study evaluated perceived benefits and challenges of home infusion therapy across Ig and biologic therapies, with attention to access, finances, safety, culture, mood, and changing awareness.</p>
+          </div>
+          <div class="domain-list" aria-label="SDoH domains">
+            <div class="domain-chip"><b>1</b><span>Economic stability and financial responsibility</span></div>
+            <div class="domain-chip"><b>2</b><span>Health care access, awareness, and therapy logistics</span></div>
+            <div class="domain-chip"><b>3</b><span>Neighborhood, home safety, and built environment</span></div>
+            <div class="domain-chip"><b>4</b><span>Social support, caregivers, and community context</span></div>
+            <div class="domain-chip"><b>5</b><span>Cultural identity and provider understanding</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="metric-strip" aria-label="Headline metrics">
+        <article class="metric-card">
+          <span>Completed surveys</span>
+          <strong>268</strong>
+        </article>
+        <article class="metric-card">
+          <span>Top response: time/cost savings</span>
+          <strong>85<small>%</small></strong>
+        </article>
+        <article class="metric-card">
+          <span>Felt safe where they lived</span>
+          <strong>99.6<small>%</small></strong>
+        </article>
+        <article class="metric-card">
+          <span>Others should be informed</span>
+          <strong>97<small>%</small></strong>
+        </article>
+      </section>
+
+      <section id="methods" class="panel">
+        <p class="section-label">Methods</p>
+        <h2>From a 10% random sample to patient-reported SDoH signals.</h2>
+        <div class="method-flow">
+          <article class="flow-step" data-step="01">
+            <h3>Sample frame</h3>
+            <p>A 10% random sample was drawn from more than 3,000 home infusion patients, yielding an intended n=300 survey group.</p>
+          </article>
+          <article class="flow-step" data-step="02">
+            <h3>Survey completion</h3>
+            <p>Nurses completed surveys with 268 patients from April 1 through July 31, 2024.</p>
+          </article>
+          <article class="flow-step" data-step="03">
+            <h3>Eligibility boundary</h3>
+            <p>Included company-employed nurse infusion or self-administered SC therapy training; excluded agency-managed nursing.</p>
+          </article>
+          <article class="flow-step" data-step="04">
+            <h3>Instrument</h3>
+            <p>A 30-question survey used yes/no items and 1-10 scales to summarize financial, access, safety, culture, mood, and perception outcomes.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="signals">
+        <p class="section-label">Results</p>
+        <h2>Six patient-experience signals stood out.</h2>
+        <div class="signal-board">
+          <article class="signal-card">
+            <h3>Time and cost savings</h3>
+            <p>Home infusion was viewed as a practical alternative that reduced travel and disruption.</p>
+            <div class="signal-stat"><span>Top response</span><b>85%</b></div>
+            <div class="signal-stat"><span>Median score</span><b>10</b></div>
+          </article>
+          <article class="signal-card">
+            <h3>Work-life balance</h3>
+            <p>Patients reported that home infusion helped balance work schedules, while job-related barriers were low for most.</p>
+            <div class="signal-stat"><span>Top balance response</span><b>73%</b></div>
+            <div class="signal-stat"><span>Job difficulty top response</span><b>12%</b></div>
+          </article>
+          <article class="signal-card">
+            <h3>Access when needed</h3>
+            <p>Patients were highly confident in receiving therapy and supplies in the home setting.</p>
+            <div class="signal-stat"><span>Easy to receive therapy</span><b>87%</b></div>
+            <div class="signal-stat"><span>No supply trouble</span><b>78%</b></div>
+          </article>
+          <article class="signal-card">
+            <h3>Home safety</h3>
+            <p>Nearly all respondents felt safe where they lived and knew where to seek emergency assistance.</p>
+            <div class="signal-stat"><span>Felt safe</span><b>99.6%</b></div>
+            <div class="signal-stat"><span>Knew emergency help</span><b>99.6%</b></div>
+          </article>
+          <article class="signal-card">
+            <h3>Mood and comfort</h3>
+            <p>Patients reported positive emotional effects compared with traveling to a hospital or infusion center.</p>
+            <div class="signal-stat"><span>Mood improved</span><b>81%</b></div>
+            <div class="signal-stat"><span>Median mood score</span><b>8</b></div>
+          </article>
+          <article class="signal-card">
+            <h3>Perception change</h3>
+            <p>Survey participation itself appeared to shift understanding of the non-clinical value of home infusion.</p>
+            <div class="signal-stat"><span>Positive change</span><b>63%</b></div>
+            <div class="signal-stat"><span>Inform others</span><b>97%</b></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="visual-grid" aria-label="Access and safety comparison">
+        <div class="panel">
+          <p class="section-label">Perceived Access</p>
+          <h2>Home therapy scored highest where logistics matter.</h2>
+          <div class="bar-table">
+            <div class="bar-row">
+              <span>Easy home therapy when needed</span>
+              <div class="bar-track"><i style="--value: 87%"></i></div>
+              <strong>87%</strong>
+            </div>
+            <div class="bar-row">
+              <span>Home safe and clean</span>
+              <div class="bar-track"><i style="--value: 83%"></i></div>
+              <strong>83%</strong>
+            </div>
+            <div class="bar-row">
+              <span>Help available if something went wrong</span>
+              <div class="bar-track"><i style="--value: 79%"></i></div>
+              <strong>79%</strong>
+            </div>
+            <div class="bar-row">
+              <span>Hospital/center safe and clean</span>
+              <div class="bar-track"><i style="--value: 26%"></i></div>
+              <strong>26%</strong>
+            </div>
+            <div class="bar-row">
+              <span>Aware of nearest infusion center</span>
+              <div class="bar-track"><i style="--value: 47%"></i></div>
+              <strong>47%</strong>
+            </div>
+          </div>
+        </div>
+        <div class="panel">
+          <p class="section-label">Table Patterns</p>
+          <h2>The source tables move from demographics to domain-specific experience.</h2>
+          <div class="number-cloud" aria-label="Table pattern summary">
+            <div class="number-pill">6<small>experience areas</small></div>
+            <div class="number-pill">Yes/No<small>access & safety</small></div>
+            <div class="number-pill">1-10<small>scaled anchors</small></div>
+            <div class="number-pill">Median/IQR<small>score summaries</small></div>
+            <div class="number-pill">% Top<small>strongest response</small></div>
+          </div>
+          <div class="markdown-fragment">
+            <p>Repeated tables contrast direct yes/no barriers with anchored intensity scores, making the poster less about one endpoint and more about a patient-experience profile across SDoH domains.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="cohort" class="panel">
+        <p class="section-label">Cohort Fingerprint</p>
+        <h2>Broad age range, mostly Southern region, Ig-heavy therapy mix.</h2>
+        <div class="cohort-grid">
+          <div class="cohort-cell"><b>64</b><span>Median age; range 2-92 years</span></div>
+          <div class="cohort-cell"><b>62%</b><span>Female respondents</span></div>
+          <div class="cohort-cell"><b>69.8%</b><span>Patients located in the South</span></div>
+          <div class="cohort-cell"><b>73.5%</b><span>Receiving IVIg therapy</span></div>
+          <div class="cohort-cell"><b>25.4%</b><span>Chronic inflammatory demyelinating polyneuropathy</span></div>
+          <div class="cohort-cell"><b>18.7%</b><span>Primary or secondary immunodeficiency</span></div>
+          <div class="cohort-cell"><b>16.4%</b><span>Myasthenia gravis</span></div>
+          <div class="cohort-cell"><b>10 mo</b><span>Median time on service at survey</span></div>
+        </div>
+      </section>
+
+      <section class="conclusion-callout">
+        <div>
+          <p class="section-label" style="color:#ffd79a">Conclusion</p>
+          <h2>Home infusion showed non-clinical value beyond medication delivery.</h2>
+          <p>The poster concludes that home infusion can improve perceived quality of life, reduce caregiver and travel burden, and support a patient-centered model when financial, access, cultural, emotional, and safety factors are considered together.</p>
+        </div>
+        <ul class="takeaway-list">
+          <li><strong>Education opportunity:</strong> only 45% had considered these survey topics before home infusion, yet 97% said others should be informed about potential financial or social benefits.</li>
+          <li><strong>Access gap:</strong> 53% were not aware of the closest infusion center, and caregiver support was inconsistent despite strong confidence in home therapy logistics.</li>
+          <li><strong>Future research:</strong> compare home versus traditional sites, quantify indirect costs, mitigate rural or underserved access barriers, and test education campaigns.</li>
+        </ul>
+      </section>
+
+      <section id="sources" class="footer-actions" aria-label="Source links">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/1199-OPR63-OR-Poster-AM25_2025.pdf">View source PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/1199-OPR63-OR-Poster-AM25_2025.md">View extracted markdown</a>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

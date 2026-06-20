@@ -1,0 +1,738 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>57 | Ambulatory Clinical Pharmacist Impact on Oral Oncolytics</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .oncology-hero-art {
+      position: relative;
+      min-height: 21rem;
+      overflow: hidden;
+      border: 1px solid rgba(36, 55, 112, 0.2);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(209, 38, 48, 0.14), transparent 7rem),
+        radial-gradient(circle at 88% 14%, rgba(24, 124, 143, 0.18), transparent 8rem),
+        linear-gradient(145deg, #ffffff 0%, var(--surface-blue) 58%, var(--surface-warm) 100%);
+      padding: 1rem;
+    }
+
+    .oncology-hero-art svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .hero-split {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.3rem;
+    }
+
+    .era-card {
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.82);
+      padding: 0.75rem;
+    }
+
+    .era-card span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.66rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .era-card strong {
+      display: block;
+      margin-top: 0.2rem;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+
+    .era-card.post strong {
+      color: var(--red);
+    }
+
+    .delta-band {
+      display: grid;
+      grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .headline-delta {
+      display: grid;
+      align-content: center;
+      min-height: 15rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        linear-gradient(160deg, rgba(36, 55, 112, 0.96), rgba(36, 55, 112, 0.88)),
+        var(--ink);
+      padding: 1.15rem;
+      color: #fff;
+    }
+
+    .headline-delta span {
+      color: rgba(255, 255, 255, 0.74);
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .headline-delta strong {
+      margin-top: 0.3rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 7vw, 5.4rem);
+      line-height: 0.9;
+    }
+
+    .headline-delta p {
+      margin: 0.7rem 0 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.94rem;
+    }
+
+    .compare-bars {
+      display: grid;
+      gap: 0.85rem;
+      margin-top: 0.85rem;
+    }
+
+    .compare-row {
+      display: grid;
+      grid-template-columns: 7.2rem minmax(0, 1fr) 5.3rem;
+      gap: 0.65rem;
+      align-items: center;
+    }
+
+    .compare-row b {
+      color: var(--ink);
+      font-size: 0.82rem;
+    }
+
+    .compare-row em {
+      color: var(--ink);
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .compare-track {
+      height: 1.05rem;
+      overflow: hidden;
+      border: 1px solid rgba(174, 187, 210, 0.86);
+      border-radius: 999px;
+      background: #edf2f8;
+    }
+
+    .compare-fill {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: rgba(36, 55, 112, 0.32);
+    }
+
+    .compare-fill.post {
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .flow-steps {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.7rem;
+    }
+
+    .flow-step {
+      position: relative;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.9rem;
+    }
+
+    .flow-step::before {
+      content: attr(data-step);
+      display: inline-grid;
+      width: 1.8rem;
+      height: 1.8rem;
+      place-items: center;
+      margin-bottom: 0.55rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-weight: 900;
+    }
+
+    .flow-step h3 {
+      margin-bottom: 0.35rem;
+    }
+
+    .flow-step p {
+      margin: 0;
+      font-size: 0.84rem;
+    }
+
+    .intervention-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .stacked-bars {
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 0.75rem;
+    }
+
+    .stack-row {
+      display: grid;
+      grid-template-columns: 10.8rem minmax(0, 1fr) 3.2rem;
+      gap: 0.65rem;
+      align-items: center;
+      font-size: 0.78rem;
+    }
+
+    .stack-row span:first-child {
+      color: var(--ink);
+      font-weight: 850;
+    }
+
+    .stack-row span:last-child {
+      color: var(--ink);
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .stack-track {
+      height: 0.86rem;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #edf2f8;
+    }
+
+    .stack-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: var(--c, var(--red));
+    }
+
+    .cost-chart {
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 0.75rem;
+    }
+
+    .cost-row {
+      display: grid;
+      grid-template-columns: 10.7rem minmax(0, 1fr) 5.9rem;
+      gap: 0.65rem;
+      align-items: center;
+      font-size: 0.78rem;
+    }
+
+    .cost-row b {
+      color: var(--ink);
+      font-size: 0.78rem;
+    }
+
+    .cost-row em {
+      color: var(--ink);
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .cost-track {
+      height: 0.9rem;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #edf2f8;
+    }
+
+    .cost-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .micro-table td:nth-child(2),
+    .micro-table td:nth-child(3),
+    .micro-table th:nth-child(2),
+    .micro-table th:nth-child(3) {
+      text-align: right;
+    }
+
+    .callout-panel {
+      border-color: rgba(209, 38, 48, 0.28);
+      background:
+        radial-gradient(circle at 100% 0, rgba(233, 158, 37, 0.18), transparent 9rem),
+        #fff;
+    }
+
+    .callout-panel strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(1.7rem, 4vw, 3rem);
+      line-height: 1;
+    }
+
+    .callout-panel p {
+      margin: 0.55rem 0 0;
+      font-size: 0.9rem;
+    }
+
+    .source-note {
+      margin: 0.65rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 900px) {
+      .delta-band,
+      .intervention-grid,
+      .flow-steps {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .hero-split,
+      .compare-row,
+      .stack-row,
+      .cost-row {
+        grid-template-columns: 1fr;
+      }
+
+      .compare-row em,
+      .stack-row span:last-child,
+      .cost-row em {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/57_Impact-of-an-Ambulatory-Clinical-Pharmacist-on-Oral-Oncolytics-in-a-HematologyOncology-Specialty-Clinic-Integrated-with-a-Health-System-Specialty-Pharmacy_2023.pdf">Source PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/57_Impact-of-an-Ambulatory-Clinical-Pharmacist-on-Oral-Oncolytics-in-a-HematologyOncology-Specialty-Clinic-Integrated-with-a-Health-System-Specialty-Pharmacy_2023.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Poster 57 | NASP 2023 Annual Meeting</p>
+        <h1>Ambulatory pharmacist integration scaled oral oncology interventions</h1>
+        <p class="hero-summary">
+          A retrospective single-center review compared six months before and after an ambulatory clinical pharmacist was embedded in a hematology/oncology clinic integrated with a health-system specialty pharmacy.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag therapy">Oral oncolytics</li>
+          <li class="tag category">Hematology/oncology</li>
+          <li class="tag">Integrated HSSP</li>
+          <li class="tag">Retrospective observational</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div class="poster-code">57</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Year</dt>
+            <dd>2023</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>Specialty clinic</dd>
+          </div>
+          <div>
+            <dt>Pre period</dt>
+            <dd>Mar-Aug 2022</dd>
+          </div>
+          <div>
+            <dt>Post period</dt>
+            <dd>Sep 2022-Feb 2023</dd>
+          </div>
+        </dl>
+        <p class="source-note">
+          Authors: Nhi Bui, PharmD; Michaela Wachal, PharmD, CSP; Thomas Huynh, PharmD, CSP; Martha Stutsky, PharmD, BCPS.
+        </p>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key results">
+        <article class="metric-card">
+          <span>Post-ACP patients</span>
+          <strong>77</strong>
+        </article>
+        <article class="metric-card">
+          <span>Accepted interventions</span>
+          <strong>134</strong>
+        </article>
+        <article class="metric-card">
+          <span>Provider acceptance</span>
+          <strong>96%</strong>
+        </article>
+        <article class="metric-card">
+          <span>Post-ACP avoidance</span>
+          <strong>$752K</strong>
+        </article>
+      </section>
+
+      <section class="visual-grid" id="overview">
+        <div class="panel">
+          <p class="section-label">Care model</p>
+          <h2>Clinic, pharmacist, and specialty pharmacy working as one loop</h2>
+          <p>
+            The study evaluated pharmacist-provided services for adults receiving oral oncolytic medications and enrolled in the patient management program. Data were collected from the electronic medical record and summarized descriptively.
+          </p>
+          <div class="hero-split" aria-label="Study periods">
+            <div class="era-card">
+              <span>Before ACP</span>
+              <strong>12 patients</strong>
+            </div>
+            <div class="era-card post">
+              <span>After ACP</span>
+              <strong>77 patients</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="oncology-hero-art" role="img" aria-label="Illustration of oncology clinic interventions feeding specialty pharmacy follow-up and cost avoidance">
+          <svg viewBox="0 0 620 360" aria-hidden="true">
+            <defs>
+              <linearGradient id="pillGrad" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#d12630"/>
+                <stop offset="1" stop-color="#e99e25"/>
+              </linearGradient>
+              <linearGradient id="greenGrad" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#187c8f"/>
+                <stop offset="1" stop-color="#4d8a67"/>
+              </linearGradient>
+            </defs>
+            <rect x="54" y="70" width="156" height="176" rx="12" fill="#ffffff" stroke="#aebbd2" stroke-width="3"/>
+            <rect x="82" y="104" width="100" height="22" rx="5" fill="#eef4fb"/>
+            <rect x="84" y="142" width="98" height="12" rx="6" fill="#d9e1ef"/>
+            <rect x="84" y="166" width="78" height="12" rx="6" fill="#d9e1ef"/>
+            <rect x="84" y="190" width="108" height="12" rx="6" fill="#d9e1ef"/>
+            <path d="M132 235v-46" stroke="#d12630" stroke-width="10" stroke-linecap="round"/>
+            <path d="M109 212h46" stroke="#d12630" stroke-width="10" stroke-linecap="round"/>
+            <text x="132" y="276" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial" font-size="19" font-weight="900">Clinic</text>
+
+            <path d="M216 160 C262 104 318 104 362 160" fill="none" stroke="#243770" stroke-width="5" stroke-linecap="round"/>
+            <path d="M350 144l18 17-24 7" fill="none" stroke="#243770" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M404 206 C356 262 292 264 240 210" fill="none" stroke="#187c8f" stroke-width="5" stroke-linecap="round"/>
+            <path d="M253 228l-20-18 25-7" fill="none" stroke="#187c8f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+
+            <g transform="translate(244 118)">
+              <circle cx="68" cy="68" r="58" fill="#fff7ea" stroke="#e99e25" stroke-width="3"/>
+              <path d="M68 42c-18 0-32 14-32 32 0 24 32 48 32 48s32-24 32-48c0-18-14-32-32-32z" fill="#ffffff" stroke="#d12630" stroke-width="4"/>
+              <circle cx="68" cy="74" r="13" fill="url(#pillGrad)"/>
+              <text x="68" y="28" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial" font-size="18" font-weight="900">ACP</text>
+            </g>
+
+            <rect x="410" y="82" width="152" height="152" rx="14" fill="#ffffff" stroke="#aebbd2" stroke-width="3"/>
+            <path d="M442 130h88v74h-88z" fill="#eef4fb" stroke="#187c8f" stroke-width="3"/>
+            <path d="M456 130v-26h60v26" fill="none" stroke="#187c8f" stroke-width="5" stroke-linejoin="round"/>
+            <rect x="458" y="154" width="56" height="12" rx="6" fill="#4d8a67"/>
+            <rect x="458" y="178" width="38" height="12" rx="6" fill="#4d8a67" opacity="0.72"/>
+            <text x="486" y="266" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial" font-size="18" font-weight="900">HSSP</text>
+
+            <g transform="translate(78 300)">
+              <rect x="0" y="0" width="118" height="26" rx="13" fill="#243770"/>
+              <text x="59" y="18" text-anchor="middle" fill="#ffffff" font-family="Inter, Arial" font-size="12" font-weight="800">Identify issue</text>
+            </g>
+            <g transform="translate(250 300)">
+              <rect x="0" y="0" width="132" height="26" rx="13" fill="url(#pillGrad)"/>
+              <text x="66" y="18" text-anchor="middle" fill="#ffffff" font-family="Inter, Arial" font-size="12" font-weight="800">Intervene</text>
+            </g>
+            <g transform="translate(438 300)">
+              <rect x="0" y="0" width="116" height="26" rx="13" fill="url(#greenGrad)"/>
+              <text x="58" y="18" text-anchor="middle" fill="#ffffff" font-family="Inter, Arial" font-size="12" font-weight="800">Avoid cost</text>
+            </g>
+          </svg>
+        </div>
+      </section>
+
+      <section class="delta-band" id="results">
+        <article class="headline-delta">
+          <span>Primary signal</span>
+          <strong>10.3x</strong>
+          <p>Total estimated cost avoidance rose from $72,943 before ACP integration to $751,880 after integration, a gain of $678,937 across equal six-month windows.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Pre vs post</p>
+          <h2>More patients, more accepted interventions, sustained provider acceptance</h2>
+          <div class="compare-bars" aria-label="Pre and post comparison bars">
+            <div class="compare-row">
+              <b>Patients pre</b>
+              <div class="compare-track"><span class="compare-fill" style="--w:16%"></span></div>
+              <em>12</em>
+            </div>
+            <div class="compare-row">
+              <b>Patients post</b>
+              <div class="compare-track"><span class="compare-fill post" style="--w:100%"></span></div>
+              <em>77</em>
+            </div>
+            <div class="compare-row">
+              <b>Accepted pre</b>
+              <div class="compare-track"><span class="compare-fill" style="--w:9%"></span></div>
+              <em>12 of 13</em>
+            </div>
+            <div class="compare-row">
+              <b>Accepted post</b>
+              <div class="compare-track"><span class="compare-fill post" style="--w:100%"></span></div>
+              <em>134 of 139</em>
+            </div>
+            <div class="compare-row">
+              <b>Cost pre</b>
+              <div class="compare-track"><span class="compare-fill" style="--w:10%"></span></div>
+              <em>$72,943</em>
+            </div>
+            <div class="compare-row">
+              <b>Cost post</b>
+              <div class="compare-track"><span class="compare-fill post" style="--w:100%"></span></div>
+              <em>$751,880</em>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="flow-steps" id="methods" aria-label="Evidence flow">
+        <article class="flow-step" data-step="1">
+          <h3>Objective</h3>
+          <p>Characterize and quantify the impact of an ambulatory clinical pharmacist-provided service in a hematology/oncology clinic.</p>
+        </article>
+        <article class="flow-step" data-step="2">
+          <h3>Design</h3>
+          <p>Retrospective, observational, single-center analysis of adult oral oncolytic patients in a patient management program.</p>
+        </article>
+        <article class="flow-step" data-step="3">
+          <h3>Collection</h3>
+          <p>Demographics, malignancy, ICD10, oral oncolytic data, intervention type, intervention count, and intervention outcomes were abstracted.</p>
+        </article>
+        <article class="flow-step" data-step="4">
+          <h3>Cost method</h3>
+          <p>Intervention-specific cost avoidance benchmarks from literature were multiplied by the number of interventions.</p>
+        </article>
+      </section>
+
+      <section class="intervention-grid">
+        <article class="panel">
+          <p class="section-label">Post-ACP intervention mix</p>
+          <h2>Two categories made up more than half of accepted interventions</h2>
+          <div class="stacked-bars" aria-label="Accepted post-ACP interventions by category">
+            <div class="stack-row">
+              <span>Prevent therapy complications</span>
+              <div class="stack-track"><i style="--w:100%; --c:var(--red)"></i></div>
+              <span>37</span>
+            </div>
+            <div class="stack-row">
+              <span>Resolved side effects</span>
+              <div class="stack-track"><i style="--w:95%; --c:var(--gold)"></i></div>
+              <span>35</span>
+            </div>
+            <div class="stack-row">
+              <span>Improved adherence</span>
+              <div class="stack-track"><i style="--w:51%; --c:var(--teal)"></i></div>
+              <span>19</span>
+            </div>
+            <div class="stack-row">
+              <span>Drug-drug interaction</span>
+              <div class="stack-track"><i style="--w:49%; --c:var(--green)"></i></div>
+              <span>18</span>
+            </div>
+            <div class="stack-row">
+              <span>Therapy inappropriateness</span>
+              <div class="stack-track"><i style="--w:38%; --c:var(--purple)"></i></div>
+              <span>14</span>
+            </div>
+            <div class="stack-row">
+              <span>Serious ADE prevention</span>
+              <div class="stack-track"><i style="--w:16%; --c:var(--ink)"></i></div>
+              <span>6</span>
+            </div>
+            <div class="stack-row">
+              <span>Other</span>
+              <div class="stack-track"><i style="--w:14%; --c:var(--muted)"></i></div>
+              <span>5</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Cost-avoidance pattern</p>
+          <h2>Side-effect management and adherence dominated dollar impact</h2>
+          <div class="cost-chart" aria-label="Post-ACP cost avoidance by intervention category">
+            <div class="cost-row">
+              <b>Resolved side effects</b>
+              <div class="cost-track"><i style="--w:100%"></i></div>
+              <em>$290,535</em>
+            </div>
+            <div class="cost-row">
+              <b>Improved adherence</b>
+              <div class="cost-track"><i style="--w:78%"></i></div>
+              <em>$227,905</em>
+            </div>
+            <div class="cost-row">
+              <b>Prevent complications</b>
+              <div class="cost-track"><i style="--w:42%"></i></div>
+              <em>$121,952</em>
+            </div>
+            <div class="cost-row">
+              <b>Prevent serious ADE</b>
+              <div class="cost-track"><i style="--w:20%"></i></div>
+              <em>$58,974</em>
+            </div>
+            <div class="cost-row">
+              <b>Drug-drug interaction</b>
+              <div class="cost-track"><i style="--w:11%"></i></div>
+              <em>$32,184</em>
+            </div>
+            <div class="cost-row">
+              <b>Other</b>
+              <div class="cost-track"><i style="--w:6%"></i></div>
+              <em>$16,438</em>
+            </div>
+            <div class="cost-row">
+              <b>Inappropriateness</b>
+              <div class="cost-track"><i style="--w:1.4%"></i></div>
+              <em>$3,892</em>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-stack" id="interpretation">
+        <article class="panel callout-panel">
+          <p class="section-label">Conclusion</p>
+          <h2>Embedding the ACP added measurable value to the integrated HSSP model</h2>
+          <strong>$678,937</strong>
+          <p>
+            Estimated incremental cost avoidance after ACP integration. The poster concludes that the HSSP model plus ACP services can optimize oral oncolytic outcomes through more pharmacist-led interventions.
+          </p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Caveat and next step</p>
+          <h2>Benchmarks may underestimate oral oncology value</h2>
+          <p>
+            The authors noted that cost avoidance may be underestimated because intervention benchmarks came from mixed inpatient, outpatient, oncology, and non-oncology datasets rather than oral-oncolytic-specific evidence.
+          </p>
+          <p>
+            Recommended future analysis: provider satisfaction and patient experience scores.
+          </p>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Condensed source tables">
+        <article class="table-card">
+          <p class="section-label">Patient pattern</p>
+          <h2>Population expanded after ACP integration</h2>
+          <div class="table-wrap">
+            <table class="micro-table">
+              <thead>
+                <tr>
+                  <th>Characteristic</th>
+                  <th>Pre</th>
+                  <th>Post</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Mean age, years</td>
+                  <td>64</td>
+                  <td>68</td>
+                </tr>
+                <tr>
+                  <td>Unique patients</td>
+                  <td>12</td>
+                  <td>77</td>
+                </tr>
+                <tr>
+                  <td>Accepted interventions</td>
+                  <td>12</td>
+                  <td>134</td>
+                </tr>
+                <tr>
+                  <td>Provider acceptance rate</td>
+                  <td>92%</td>
+                  <td>96%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Top post-ACP malignancy counts</p>
+          <h2>Mixed oncology panel supported broad intervention reach</h2>
+          <div class="table-wrap">
+            <table class="micro-table">
+              <thead>
+                <tr>
+                  <th>Primary malignancy</th>
+                  <th>Pre</th>
+                  <th>Post</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Colorectal</td>
+                  <td>0</td>
+                  <td>15</td>
+                </tr>
+                <tr>
+                  <td>Hematologic</td>
+                  <td>3</td>
+                  <td>14</td>
+                </tr>
+                <tr>
+                  <td>Gynecologic</td>
+                  <td>1</td>
+                  <td>12</td>
+                </tr>
+                <tr>
+                  <td>Breast</td>
+                  <td>1</td>
+                  <td>8</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/57_Impact-of-an-Ambulatory-Clinical-Pharmacist-on-Oral-Oncolytics-in-a-HematologyOncology-Specialty-Clinic-Integrated-with-a-Health-System-Specialty-Pharmacy_2023.pdf">Open original PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/57_Impact-of-an-Ambulatory-Clinical-Pharmacist-on-Oral-Oncolytics-in-a-HematologyOncology-Specialty-Clinic-Integrated-with-a-Health-System-Specialty-Pharmacy_2023.md">Read extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

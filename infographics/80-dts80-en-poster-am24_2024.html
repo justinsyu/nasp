@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2024 Infographic | IBD Infusion-to-Injection EHR Flowsheet</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -4.5rem;
+      bottom: -4.8rem;
+      z-index: -1;
+      width: 18rem;
+      height: 18rem;
+      border: 2.2rem solid rgba(24, 124, 143, 0.12);
+      border-radius: 50%;
+    }
+    .route-svg {
+      width: 100%;
+      height: auto;
+      margin-top: 0.2rem;
+    }
+    .meta-grid dd {
+      overflow-wrap: break-word;
+    }
+    .hero-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.83rem;
+      font-weight: 750;
+    }
+    .metric-card strong small {
+      display: inline;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+    .metric-card p {
+      margin: 0.45rem 0 0;
+      color: var(--body);
+      font-size: 0.82rem;
+    }
+    .split-band {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .route-board {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 0.75rem;
+      margin-top: 0.7rem;
+    }
+    .lane {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #ffffff, var(--surface-blue));
+      overflow: hidden;
+    }
+    .lane h3 {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.72rem 0.8rem;
+      background: var(--lane-color, var(--ink));
+      color: #fff;
+      font-size: 0.88rem;
+    }
+    .lane h3 svg {
+      width: 1.2rem;
+      height: 1.2rem;
+      flex: 0 0 auto;
+    }
+    .lane ol {
+      margin: 0;
+      padding: 0.72rem 0.82rem 0.82rem;
+      list-style: none;
+      counter-reset: steps;
+    }
+    .lane li {
+      display: grid;
+      grid-template-columns: 1.55rem minmax(0, 1fr);
+      gap: 0.45rem;
+      align-items: start;
+      margin-top: 0.62rem;
+      color: var(--body);
+      font-size: 0.84rem;
+    }
+    .lane li:first-child {
+      margin-top: 0;
+    }
+    .lane li::before {
+      counter-increment: steps;
+      content: counter(steps);
+      display: grid;
+      place-items: center;
+      width: 1.42rem;
+      height: 1.42rem;
+      border-radius: 50%;
+      background: #fff;
+      color: var(--lane-color, var(--ink));
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      font-weight: 900;
+      border: 1px solid color-mix(in srgb, var(--lane-color, var(--ink)) 35%, white);
+    }
+    .lane.infusion { --lane-color: var(--teal); }
+    .lane.subq { --lane-color: var(--red); }
+    .satisfaction {
+      display: grid;
+      gap: 0.8rem;
+      margin-top: 0.65rem;
+    }
+    .score-line {
+      display: grid;
+      grid-template-columns: 6rem minmax(0, 1fr) 3.6rem;
+      gap: 0.55rem;
+      align-items: center;
+    }
+    .score-line span {
+      color: var(--ink);
+      font-size: 0.76rem;
+      font-weight: 850;
+    }
+    .score-track {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.22rem;
+      height: 1.35rem;
+    }
+    .score-track i {
+      border: 1px solid var(--border-strong);
+      border-radius: 4px;
+      background: var(--surface-blue);
+    }
+    .score-track i.on {
+      background: linear-gradient(180deg, var(--red), #b61f28);
+      border-color: rgba(209, 38, 48, 0.38);
+    }
+    .quote-panel {
+      position: relative;
+      margin-top: 0.8rem;
+      padding: 0.82rem 0.9rem 0.82rem 1rem;
+      border-left: 4px solid var(--gold);
+      background: var(--surface-warm);
+      color: var(--ink);
+      font-size: 0.88rem;
+      font-weight: 750;
+    }
+    .bpa-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.72rem;
+    }
+    .bpa-card {
+      min-height: 11.5rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.82rem;
+      position: relative;
+    }
+    .bpa-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 0.34rem;
+      border-radius: 8px 0 0 8px;
+      background: var(--bpa-color, var(--red));
+    }
+    .bpa-card .time {
+      color: var(--bpa-color, var(--red));
+      font-family: var(--font-display);
+      font-size: 1.7rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .bpa-card h3 {
+      margin-top: 0.45rem;
+      font-size: 0.94rem;
+    }
+    .bpa-card p {
+      margin: 0.4rem 0 0;
+      font-size: 0.8rem;
+    }
+    .bpa-card:nth-child(2) { --bpa-color: var(--teal); }
+    .bpa-card:nth-child(3) { --bpa-color: var(--gold); }
+    .patient-grid {
+      display: grid;
+      grid-template-columns: 14rem minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+      margin-top: 0.5rem;
+    }
+    .donut {
+      width: 100%;
+      max-width: 14rem;
+      margin: 0 auto;
+    }
+    .legend-rows {
+      display: grid;
+      gap: 0.45rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .legend-rows li {
+      display: grid;
+      grid-template-columns: 0.8rem minmax(0, 1fr) auto;
+      gap: 0.45rem;
+      align-items: center;
+      color: var(--body);
+      font-size: 0.82rem;
+    }
+    .legend-rows i {
+      width: 0.76rem;
+      height: 0.76rem;
+      border-radius: 3px;
+      background: var(--dot, var(--red));
+    }
+    .dashboard-strip {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 0.85rem;
+      margin-top: 0.65rem;
+    }
+    .mini-bars {
+      display: grid;
+      gap: 0.5rem;
+    }
+    .mini-row {
+      display: grid;
+      grid-template-columns: 5.5rem minmax(0, 1fr) 2.4rem;
+      gap: 0.45rem;
+      align-items: center;
+      font-size: 0.78rem;
+      font-weight: 850;
+      color: var(--ink);
+    }
+    .mini-track {
+      height: 0.86rem;
+      border-radius: 999px;
+      background: var(--surface-blue);
+      border: 1px solid rgba(36, 55, 112, 0.12);
+      overflow: hidden;
+    }
+    .mini-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .calendar-heat {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 0.35rem;
+    }
+    .month-cell {
+      min-height: 3.4rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface-blue);
+      padding: 0.38rem;
+      color: var(--ink);
+      font-size: 0.67rem;
+      font-weight: 850;
+    }
+    .month-cell strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1rem;
+      line-height: 1;
+    }
+    .month-cell.hot {
+      background: #fff0dc;
+      border-color: rgba(233, 158, 37, 0.55);
+    }
+    .month-cell.peak {
+      background: #fde7e9;
+      border-color: rgba(209, 38, 48, 0.5);
+    }
+    .takeaway {
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(36, 55, 112, 0.96), rgba(24, 124, 143, 0.9)),
+        radial-gradient(circle at 82% 18%, rgba(233, 158, 37, 0.38), transparent 14rem);
+      color: #fff;
+      padding: 1.1rem;
+    }
+    .takeaway h2,
+    .takeaway .section-label {
+      color: #fff;
+    }
+    .takeaway p {
+      max-width: 66rem;
+      margin: 0.55rem 0 0;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 1rem;
+    }
+    .source-note {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+    @media (max-width: 900px) {
+      .split-band,
+      .route-board,
+      .bpa-grid,
+      .patient-grid,
+      .dashboard-strip {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 560px) {
+      .score-line,
+      .mini-row {
+        grid-template-columns: 1fr;
+      }
+      .calendar-heat {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">NASP Infographics</a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/80-DTS80-EN-Poster-AM24_2024.pdf">Poster PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/80-DTS80-EN-Poster-AM24_2024.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2024 poster DTS80-EN</p>
+        <h1>Implementation of a flowsheet to track IBD patients initiating biologics with complex dosing regimens</h1>
+        <p class="hero-summary">Vanderbilt Specialty Pharmacy built an EHR flowsheet to coordinate patients moving from induction IV biologic dosing to SubQ maintenance injections, creating a transparent process across infusion and specialty pharmacy teams.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag therapy">Inflammatory bowel disease</li>
+          <li class="tag category">Quality improvement</li>
+          <li class="tag">EHR flowsheet</li>
+          <li class="tag">IV to SubQ coordination</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div class="poster-code">DTS80-EN</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Year</dt>
+            <dd>2024</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>Single-center QI</dd>
+          </div>
+          <div>
+            <dt>Population</dt>
+            <dd>230 patients</dd>
+          </div>
+          <div>
+            <dt>Site</dt>
+            <dd>Vanderbilt Specialty Pharmacy</dd>
+          </div>
+        </dl>
+        <svg class="route-svg" viewBox="0 0 420 180" role="img" aria-label="EHR pathway from referral to IV induction and SubQ maintenance">
+          <defs>
+            <linearGradient id="routeLine" x1="0" x2="1">
+              <stop offset="0" stop-color="#187c8f"/>
+              <stop offset="0.55" stop-color="#e99e25"/>
+              <stop offset="1" stop-color="#d12630"/>
+            </linearGradient>
+          </defs>
+          <path d="M40 92 C110 18 178 20 208 88 S300 164 382 78" fill="none" stroke="url(#routeLine)" stroke-width="12" stroke-linecap="round"/>
+          <g fill="#fff" stroke="#243770" stroke-width="4">
+            <circle cx="42" cy="92" r="24"/>
+            <circle cx="210" cy="90" r="24"/>
+            <circle cx="382" cy="78" r="24"/>
+          </g>
+          <g fill="#243770" font-family="Montserrat, Arial, sans-serif" font-weight="900" font-size="18" text-anchor="middle">
+            <text x="42" y="98">Rx</text>
+            <text x="210" y="96">IV</text>
+            <text x="382" y="84">SQ</text>
+          </g>
+          <g fill="#68758d" font-family="Inter, Arial, sans-serif" font-weight="800" font-size="13" text-anchor="middle">
+            <text x="42" y="138">Referral</text>
+            <text x="210" y="44">Induction dose(s)</text>
+            <text x="382" y="122">Maintenance injection</text>
+          </g>
+        </svg>
+        <p class="hero-note">Authors: Jessica Fann; Miranda Kozlicki; Patrick Nichols; Bridget Lynch; Kristen Whelchel.</p>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <div class="metric-card">
+          <span>Patient cohort</span>
+          <strong>230</strong>
+          <p>Patients tracked in the analysis window from July 1, 2022 to June 1, 2023.</p>
+        </div>
+        <div class="metric-card">
+          <span>Median age</span>
+          <strong>43</strong>
+          <p>Years, with an interquartile range of 30 to 53.</p>
+        </div>
+        <div class="metric-card">
+          <span>Overall satisfaction</span>
+          <strong>9.4<small>/10</small></strong>
+          <p>Mean score across five pharmacist respondents.</p>
+        </div>
+        <div class="metric-card">
+          <span>First infusion site</span>
+          <strong>227</strong>
+          <p>Patients used VUMC infusion centers; 3 used non-VUMC sites.</p>
+        </div>
+      </section>
+
+      <section class="split-band">
+        <div class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Make complex biologic starts visible across teams</h2>
+          <p>The poster describes a transparent EHR process for IBD therapies that require one or more IV induction doses before subcutaneous maintenance injections. The flowsheet was designed to reduce handoff ambiguity between infusion staff, specialty pharmacists, providers, and HealthIT stakeholders.</p>
+          <div class="number-cloud" aria-label="Selected cohort characteristics">
+            <div class="number-pill">59%<small>Female</small></div>
+            <div class="number-pill">88%<small>White</small></div>
+            <div class="number-pill">80%<small>Commercial</small></div>
+            <div class="number-pill">56%<small>Medication A</small></div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Patient Mix</p>
+          <h2>Two biologic regimens drove the coordination need</h2>
+          <div class="patient-grid">
+            <svg class="donut" viewBox="0 0 160 160" role="img" aria-label="Medication mix: 56 percent risankizumab-rzaa and 44 percent ustekinumab">
+              <circle cx="80" cy="80" r="58" fill="none" stroke="#eef4fb" stroke-width="25"/>
+              <circle cx="80" cy="80" r="58" fill="none" stroke="#d12630" stroke-width="25" stroke-dasharray="203.9 160.6" stroke-dashoffset="-91" transform="rotate(-90 80 80)"/>
+              <circle cx="80" cy="80" r="58" fill="none" stroke="#187c8f" stroke-width="25" stroke-dasharray="160.6 203.9" stroke-dashoffset="-294.9" transform="rotate(-90 80 80)"/>
+              <circle cx="80" cy="80" r="37" fill="#fff"/>
+              <text x="80" y="77" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="24" font-weight="900">230</text>
+              <text x="80" y="96" text-anchor="middle" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="800">patients</text>
+            </svg>
+            <ul class="legend-rows">
+              <li><i style="--dot:#d12630"></i><span>risankizumab-rzaa</span><strong>129 (56%)</strong></li>
+              <li><i style="--dot:#187c8f"></i><span>ustekinumab</span><strong>101 (44%)</strong></li>
+              <li><i style="--dot:#e99e25"></i><span>Commercial insurance</span><strong>185 (80%)</strong></li>
+              <li><i style="--dot:#4d8a67"></i><span>Female patients</span><strong>135 (59%)</strong></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Evidence Flow</p>
+        <h2>Workflow design: one shared source of truth, two operational lanes</h2>
+        <div class="route-board">
+          <div class="lane infusion">
+            <h3>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h8v4l-2 2v8a4 4 0 0 1-8 0V9L8 7V3Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M7 13h10" stroke="currentColor" stroke-width="2"/></svg>
+              Infusion staff lane
+            </h3>
+            <ol>
+              <li>Infusion counseling</li>
+              <li>Review IV orders</li>
+              <li>Monitor IV approval and scheduling</li>
+              <li>Use BPA prompt to confirm IV completion and update the flowsheet</li>
+            </ol>
+          </div>
+          <div class="lane subq">
+            <h3>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20 17 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="m14 4 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="m7 17 3 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              Specialty pharmacy lane
+            </h3>
+            <ol>
+              <li>SubQ counseling</li>
+              <li>Begin SubQ prior authorization</li>
+              <li>Coordinate SubQ prescription order to specialty pharmacy</li>
+              <li>Confirm delivery and update the flowsheet</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Best Practice Alerts</p>
+        <h2>Timed prompts convert documentation events into follow-up work</h2>
+        <div class="bpa-grid">
+          <div class="bpa-card">
+            <div class="time">+2 wk</div>
+            <h3>Infusion tolerability check</h3>
+            <p>After the first infusion is documented, an infusion pharmacist alert prompts follow-up with the patient about tolerability.</p>
+          </div>
+          <div class="bpa-card">
+            <div class="time">8 wk</div>
+            <h3>SubQ PA runway</h3>
+            <p>Medication-specific triggers fire after the first or second infusion when the first SubQ dose is about eight weeks away.</p>
+          </div>
+          <div class="bpa-card">
+            <div class="time">4 wk</div>
+            <h3>SubQ Rx request</h3>
+            <p>When the third infusion is documented, a specialty pharmacist prompt supports timely prescription coordination before the first injection is due.</p>
+          </div>
+        </div>
+        <p class="source-note">A later six-week alert fires only when a SubQ prescription has not been ordered, prompting PA status investigation and Rx request follow-up.</p>
+      </section>
+
+      <section class="section-stack">
+        <div class="panel">
+          <p class="section-label">Pharmacist Experience</p>
+          <h2>High satisfaction after implementation</h2>
+          <div class="satisfaction">
+            <div class="score-line">
+              <span>Overall</span>
+              <div class="score-track" aria-label="Overall satisfaction, five of five scores at eight or higher">
+                <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i>
+              </div>
+              <span>9.4/10</span>
+            </div>
+            <div class="score-line">
+              <span>Ease of use</span>
+              <div class="score-track" aria-label="Ease of use satisfaction, five of five scores at eight or higher">
+                <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i>
+              </div>
+              <span>9.2/10</span>
+            </div>
+          </div>
+          <div class="quote-panel">"The flowsheet reduces gaps in care and streamlines the workflow."</div>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Monitoring Dashboard</p>
+          <h2>Operational signals surfaced after launch</h2>
+          <div class="dashboard-strip">
+            <div class="mini-bars" aria-label="Top referral to first infusion intervals">
+              <div class="mini-row"><span>28 days</span><div class="mini-track"><i style="width:100%"></i></div><strong>23</strong></div>
+              <div class="mini-row"><span>21 days</span><div class="mini-track"><i style="width:91%"></i></div><strong>21</strong></div>
+              <div class="mini-row"><span>14 days</span><div class="mini-track"><i style="width:83%"></i></div><strong>19</strong></div>
+              <div class="mini-row"><span>27 days</span><div class="mini-track"><i style="width:74%"></i></div><strong>17</strong></div>
+            </div>
+            <div class="calendar-heat" aria-label="Referral activity by month">
+              <div class="month-cell">Jul '22<strong>5</strong></div>
+              <div class="month-cell peak">Aug '22<strong>33</strong></div>
+              <div class="month-cell hot">Sep '22<strong>12</strong></div>
+              <div class="month-cell hot">Oct '22<strong>9</strong></div>
+              <div class="month-cell">Nov '22<strong>6</strong></div>
+              <div class="month-cell">Dec '22<strong>6</strong></div>
+              <div class="month-cell">Jan '23<strong>4</strong></div>
+              <div class="month-cell">Feb '23<strong>4</strong></div>
+              <div class="month-cell hot">Mar '23<strong>16</strong></div>
+              <div class="month-cell hot">Apr '23<strong>15</strong></div>
+              <div class="month-cell">May '23<strong>5</strong></div>
+              <div class="month-cell">VUMC<strong>227</strong></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tables-grid">
+        <div class="table-card">
+          <p class="section-label">Flowsheet Pattern</p>
+          <h2>Fields bridge referral, infusion, and injection milestones</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Section</th>
+                  <th>Representative fields</th>
+                  <th>Why it matters</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Infusion</td>
+                  <td>Referral date, counseling date, approval date, scheduled/administered dates</td>
+                  <td>Tracks induction progress and exposes delayed approvals or missed doses.</td>
+                </tr>
+                <tr>
+                  <td>SubQ</td>
+                  <td>PA approval/expiration, Rx sent date, first injection due date, copay card status</td>
+                  <td>Connects coverage work to the first maintenance dose timeline.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="table-card">
+          <p class="section-label">Implementation Pattern</p>
+          <h2>Build, launch, analyze</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Phase</th>
+                  <th>Timing</th>
+                  <th>Stakeholders</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Needs assessment and EHR build</td>
+                  <td>Apr-Jun 2022</td>
+                  <td>Research and patient care, infusion, specialty, and HealthIT pharmacists</td>
+                </tr>
+                <tr>
+                  <td>Workflow implementation</td>
+                  <td>Jul 2022</td>
+                  <td>Research and patient care, infusion, and specialty pharmacists</td>
+                </tr>
+                <tr>
+                  <td>Data analysis</td>
+                  <td>Jul 2022-Jun 2023</td>
+                  <td>Research and patient care plus HealthIT pharmacists</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="takeaway">
+        <p class="section-label">Conclusion</p>
+        <h2>A purpose-built EHR flowsheet streamlined management across infusion and specialty pharmacy teams</h2>
+        <p>For IBD patients starting biologics with IV induction followed by SubQ maintenance, the flowsheet gave staff a shared view of approvals, doses, prescription status, delivery, and due dates, supporting care coordination and reducing gaps in the handoff from infusion to injection.</p>
+      </section>
+
+      <footer class="footer-actions" aria-label="Document sources">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/80-DTS80-EN-Poster-AM24_2024.pdf">Open original poster PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/80-DTS80-EN-Poster-AM24_2024.md">Open extracted markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

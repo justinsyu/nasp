@@ -1,0 +1,652 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>24-2022 | Collaborative Cancer Nutrition Referral Program</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -3rem;
+      bottom: -3.4rem;
+      width: 14rem;
+      height: 14rem;
+      border: 1.1rem solid rgba(24, 124, 143, 0.13);
+      border-radius: 50%;
+    }
+
+    .program-mark {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 0.2rem;
+    }
+
+    .program-mark svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .metric-card strong small {
+      color: var(--red);
+      font-size: 0.92rem;
+    }
+
+    .metric-card p {
+      margin: 0.36rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 750;
+      line-height: 1.35;
+    }
+
+    .funnel-panel {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 88% 8%, rgba(233, 158, 37, 0.16), transparent 7.5rem),
+        linear-gradient(160deg, #fff, var(--surface-blue));
+    }
+
+    .funnel-stack {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 0.85rem;
+    }
+
+    .funnel-step {
+      display: grid;
+      grid-template-columns: 6.2rem minmax(0, 1fr) 4.2rem;
+      gap: 0.65rem;
+      align-items: center;
+      border: 1px solid rgba(174, 187, 210, 0.7);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.86);
+      padding: 0.58rem 0.68rem;
+    }
+
+    .funnel-step b {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.18rem;
+      line-height: 1;
+    }
+
+    .funnel-step span {
+      color: var(--body);
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .funnel-step em {
+      color: var(--teal);
+      font-style: normal;
+      font-size: 0.76rem;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .quarter-bars {
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 0.85rem;
+    }
+
+    .quarter-row {
+      display: grid;
+      grid-template-columns: 5.8rem minmax(0, 1fr) 2.8rem;
+      gap: 0.65rem;
+      align-items: center;
+    }
+
+    .quarter-row span {
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 850;
+    }
+
+    .bar-shell {
+      height: 1.05rem;
+      overflow: hidden;
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 999px;
+      background: #e9eff8;
+    }
+
+    .bar-shell i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .quarter-row strong {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1rem;
+      text-align: right;
+    }
+
+    .efficiency-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.85rem;
+    }
+
+    .efficiency-card {
+      border: 1px solid rgba(174, 187, 210, 0.78);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.75rem;
+    }
+
+    .efficiency-card strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .efficiency-card span {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.85rem;
+    }
+
+    .timeline-step {
+      position: relative;
+      min-height: 11.5rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.78rem;
+    }
+
+    .timeline-step::before {
+      content: attr(data-quarter);
+      display: inline-grid;
+      place-items: center;
+      min-width: 2.9rem;
+      min-height: 1.8rem;
+      margin-bottom: 0.55rem;
+      border-radius: 999px;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      font-weight: 900;
+    }
+
+    .timeline-step h3 {
+      margin-bottom: 0.4rem;
+    }
+
+    .timeline-step p {
+      margin: 0;
+      color: var(--body);
+      font-size: 0.8rem;
+    }
+
+    .lane-map {
+      display: grid;
+      gap: 0.65rem;
+      margin-top: 0.85rem;
+    }
+
+    .lane {
+      display: grid;
+      grid-template-columns: 7.6rem minmax(0, 1fr);
+      gap: 0.65rem;
+      align-items: stretch;
+    }
+
+    .lane-label {
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .lane-nodes {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.5rem;
+    }
+
+    .lane-node {
+      border: 1px solid rgba(174, 187, 210, 0.82);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.62rem;
+      color: var(--body);
+      font-size: 0.78rem;
+      font-weight: 750;
+      line-height: 1.3;
+    }
+
+    .lane-node strong {
+      display: block;
+      margin-bottom: 0.18rem;
+      color: var(--teal);
+      font-family: var(--font-display);
+      font-size: 0.84rem;
+    }
+
+    .insight-list {
+      display: grid;
+      gap: 0.55rem;
+      margin: 0.75rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .insight-list li {
+      border-left: 4px solid var(--teal);
+      background: var(--surface-blue);
+      padding: 0.56rem 0.7rem;
+      color: var(--body);
+      font-size: 0.86rem;
+    }
+
+    .insight-list li:nth-child(2) {
+      border-color: var(--gold);
+      background: var(--surface-warm);
+    }
+
+    .insight-list li:nth-child(3) {
+      border-color: var(--red);
+      background: rgba(209, 38, 48, 0.08);
+    }
+
+    .compact-table td:last-child,
+    .compact-table th:last-child {
+      text-align: right;
+    }
+
+    .source-note {
+      margin: 0.72rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 900px) {
+      .timeline,
+      .efficiency-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .lane {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .funnel-step,
+      .quarter-row {
+        grid-template-columns: 1fr;
+      }
+
+      .funnel-step em,
+      .quarter-row strong {
+        text-align: left;
+      }
+
+      .lane-nodes {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav aria-label="Source links">
+        <a href="#results">Results</a>
+        <a href="#workflow">Workflow</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/24-2022.pdf">Poster PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/24-2022.md">Markdown Source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Archive code 24-2022 | NASP Annual Meeting & Expo 2021</p>
+        <h1 id="poster-title">Collaborative Cancer Nutrition Referral Program</h1>
+        <p class="hero-summary">
+          Yale New Haven Health built a specialty pharmacy referral pathway so oncology patients
+          receiving oral chemotherapy could be screened for nutrition support needs, referred to
+          Smilow registered dieticians, and tracked through outreach and consultation.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Social determinants of health</li>
+          <li class="tag therapy">Oncology</li>
+          <li class="tag">Oral chemotherapy</li>
+          <li class="tag">HSSP and RD workflow</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata and program visual">
+        <div>
+          <div class="poster-code">24-2022</div>
+          <dl class="meta-grid">
+            <div>
+              <dt>Organization</dt>
+              <dd>YNHH OPS</dd>
+            </div>
+            <div>
+              <dt>Patient focus</dt>
+              <dd>Smilow oncology</dd>
+            </div>
+            <div>
+              <dt>Program launch</dt>
+              <dd>6/1/21</dd>
+            </div>
+            <div>
+              <dt>Referral partner</dt>
+              <dd>RD team</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="program-mark">
+          <svg viewBox="0 0 420 255" role="img" aria-labelledby="mark-title mark-desc">
+            <title id="mark-title">Nutrition referral bridge</title>
+            <desc id="mark-desc">A stylized bridge connects specialty pharmacy screening to dietician consultation.</desc>
+            <defs>
+              <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L9,3 z" fill="#243770"></path>
+              </marker>
+            </defs>
+            <rect x="22" y="42" width="112" height="106" rx="12" fill="#fff" stroke="#243770" stroke-width="4"></rect>
+            <path d="M50 70h55M50 92h42M50 114h56" stroke="#187c8f" stroke-width="8" stroke-linecap="round"></path>
+            <circle cx="78" cy="176" r="28" fill="#eef4fb" stroke="#187c8f" stroke-width="5"></circle>
+            <path d="M66 176h24M78 164v24" stroke="#187c8f" stroke-width="7" stroke-linecap="round"></path>
+            <path d="M145 102 C192 52, 251 52, 298 102" fill="none" stroke="#e99e25" stroke-width="10" stroke-linecap="round" marker-end="url(#arrowhead)"></path>
+            <path d="M145 137 C194 184, 251 185, 298 137" fill="none" stroke="#d12630" stroke-width="7" stroke-linecap="round" stroke-dasharray="2 15" marker-end="url(#arrowhead)"></path>
+            <rect x="304" y="42" width="92" height="134" rx="16" fill="#fff7ea" stroke="#d12630" stroke-width="4"></rect>
+            <circle cx="350" cy="82" r="21" fill="#fff" stroke="#d12630" stroke-width="4"></circle>
+            <path d="M336 118h28M331 139h38" stroke="#243770" stroke-width="8" stroke-linecap="round"></path>
+            <path d="M341 78c10-18 27-2 12 15l-3 4-3-4c-15-17 2-33 12-15" fill="#4d8a67"></path>
+            <text x="28" y="225" fill="#243770" font-family="Arial, sans-serif" font-size="20" font-weight="800">Screen</text>
+            <text x="170" y="225" fill="#243770" font-family="Arial, sans-serif" font-size="20" font-weight="800">Refer</text>
+            <text x="302" y="225" fill="#243770" font-family="Arial, sans-serif" font-size="20" font-weight="800">Consult</text>
+          </svg>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Patients assessed</span>
+          <strong>~1,600</strong>
+          <p>Oncology patients assessed by specialty pharmacists for nutrition support needs.</p>
+        </article>
+        <article class="metric-card">
+          <span>Total referrals</span>
+          <strong>49</strong>
+          <p>Nutrition referrals tracked across FY2022 quarters after program launch.</p>
+        </article>
+        <article class="metric-card">
+          <span>Consulted</span>
+          <strong>36<small> (73.5%)</small></strong>
+          <p>Referred patients completing a RD consultation.</p>
+        </article>
+        <article class="metric-card">
+          <span>RD outreach</span>
+          <strong>4.83<small>d</small></strong>
+          <p>Average time from referral placement to RD outreach.</p>
+        </article>
+      </section>
+
+      <section id="results" class="visual-grid">
+        <article class="panel funnel-panel">
+          <p class="section-label">Referral funnel</p>
+          <h2>Most referred patients were reached and consulted.</h2>
+          <div class="funnel-stack" aria-label="Referral outcomes">
+            <div class="funnel-step">
+              <b>49</b>
+              <span>Total referrals placed</span>
+              <em>100%</em>
+            </div>
+            <div class="funnel-step">
+              <b>39</b>
+              <span>Patients reached by RD team</span>
+              <em>79.6%</em>
+            </div>
+            <div class="funnel-step">
+              <b>36</b>
+              <span>Patients completing consultation</span>
+              <em>73.5%</em>
+            </div>
+            <div class="funnel-step">
+              <b>3</b>
+              <span>Declined at RD outreach</span>
+              <em>6.1%</em>
+            </div>
+          </div>
+          <p class="source-note">One referral was marked inappropriate, representing 2% of referrals.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Quarterly referral pattern</p>
+          <h2>Volume peaked at implementation, then tapered.</h2>
+          <p>
+            Nearly half of all referrals occurred in the first tracking quarter, when pharmacists
+            had recently been trained on how to identify nutrition support needs and proceed with referral.
+          </p>
+          <div class="quarter-bars" aria-label="Referrals by quarter">
+            <div class="quarter-row">
+              <span>Q1 June-Sept</span>
+              <span class="bar-shell"><i style="width:100%"></i></span>
+              <strong>24</strong>
+            </div>
+            <div class="quarter-row">
+              <span>Q2 Oct-Dec</span>
+              <span class="bar-shell"><i style="width:50%"></i></span>
+              <strong>12</strong>
+            </div>
+            <div class="quarter-row">
+              <span>Q3 Jan-March</span>
+              <span class="bar-shell"><i style="width:46%"></i></span>
+              <strong>11</strong>
+            </div>
+            <div class="quarter-row">
+              <span>Q4 April-June</span>
+              <span class="bar-shell"><i style="width:8%"></i></span>
+              <strong>2</strong>
+            </div>
+          </div>
+          <p class="source-note">The poster flags the Q4 decline as a sustainability barrier requiring refresher education.</p>
+        </article>
+      </section>
+
+      <section class="panel" aria-label="Program efficiency">
+        <p class="section-label">Program efficiency</p>
+        <h2>Referral placement moved quickly to nutrition team action.</h2>
+        <div class="efficiency-grid">
+          <div class="efficiency-card">
+            <strong>4.83d</strong>
+            <span>Average time from referral placement to RD outreach.</span>
+          </div>
+          <div class="efficiency-card">
+            <strong>7.09d</strong>
+            <span>Average time from referral placement to RD consult.</span>
+          </div>
+          <div class="efficiency-card">
+            <strong>26.2m</strong>
+            <span>Average length of completed nutrition consultation.</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="methods" class="panel">
+        <p class="section-label">Build sequence</p>
+        <h2>The program was built in stages before FY2022 tracking.</h2>
+        <div class="timeline" aria-label="Implementation timeline">
+          <article class="timeline-step" data-quarter="FY21 Q1">
+            <h3>Vision and charter</h3>
+            <p>Program overview, project charter, clinic education about OPS, and nutrition assessment template.</p>
+          </article>
+          <article class="timeline-step" data-quarter="FY21 Q2">
+            <h3>Workflow design</h3>
+            <p>Referral workflow, staff SBAR, legal discussion, and confirmation that the service was free.</p>
+          </article>
+          <article class="timeline-step" data-quarter="FY21 Q3">
+            <h3>RD integration</h3>
+            <p>RD relationships, OPS/RD FAQ sheet, EHR optimization, and nutrition team inbasket go-live.</p>
+          </article>
+          <article class="timeline-step" data-quarter="FY21 Q4">
+            <h3>Go-live prep</h3>
+            <p>Final standard of practice, screening questions, iVent documentation, team training, and 6/1/21 launch.</p>
+          </article>
+          <article class="timeline-step" data-quarter="FY22">
+            <h3>Track and review</h3>
+            <p>Referral data were tracked quarterly to gauge success and identify needed workflow changes.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="workflow" class="visual-grid">
+        <article class="panel">
+          <p class="section-label">Care-team workflow</p>
+          <h2>Three coordinated lanes turned SDoH screening into RD consultation.</h2>
+          <div class="lane-map" aria-label="Condensed referral workflow">
+            <div class="lane">
+              <div class="lane-label">Liaison</div>
+              <div class="lane-nodes">
+                <div class="lane-node"><strong>Identify</strong>Patient expresses interest in nutrition services.</div>
+                <div class="lane-node"><strong>Route</strong>Positive interest triggers pharmacist nutrition concern workflow.</div>
+                <div class="lane-node"><strong>Default</strong>No interest proceeds through oral chemotherapy standard practice.</div>
+              </div>
+            </div>
+            <div class="lane">
+              <div class="lane-label">Pharmacist</div>
+              <div class="lane-nodes">
+                <div class="lane-node"><strong>Assess</strong>Initial consult or follow-up includes SDoH nutrition concern assessment.</div>
+                <div class="lane-node"><strong>Confirm</strong>Smilow oncology patient, consent, and no RD consult in prior 60 days.</div>
+                <div class="lane-node"><strong>Refer</strong>Document iVent, choose Smilow location referral, add urgency and ICD-10 code.</div>
+              </div>
+            </div>
+            <div class="lane">
+              <div class="lane-label">Dietician</div>
+              <div class="lane-nodes">
+                <div class="lane-node"><strong>Outreach</strong>Telephone or in-person outreach within two weeks or by urgency.</div>
+                <div class="lane-node"><strong>Consult</strong>Complete telephone or in-person consult and document in EHR.</div>
+                <div class="lane-node"><strong>Close loop</strong>Document if patient declines nutrition services.</div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel markdown-fragment">
+          <p class="section-label">Interpretation</p>
+          <h2>What made the program work, and what threatened durability.</h2>
+          <h3>Objective</h3>
+          <p>Develop and implement a referral program focused on nutrition counseling for health system oncology patients receiving oral chemotherapy.</p>
+          <h3>Discussion signals</h3>
+          <ul class="insight-list">
+            <li>About 1,600 oncology patients were assessed by specialty pharmacists for nutrition support needs.</li>
+            <li>The standard of practice and interdisciplinary collaboration were cited as key contributors to program success.</li>
+            <li>Rapid OPS growth and falling Q4 referral volume created a need for new staff training and refresher education.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Extracted table patterns">
+        <article class="table-card">
+          <p class="section-label">Referral counts</p>
+          <h2>Quarterly table pattern</h2>
+          <div class="table-wrap">
+            <table class="compact-table">
+              <thead>
+                <tr>
+                  <th>Quarter</th>
+                  <th>Months</th>
+                  <th>Referrals</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Q1</td><td>June-Sept</td><td>24</td></tr>
+                <tr><td>Q2</td><td>Oct-Dec</td><td>12</td></tr>
+                <tr><td>Q3</td><td>Jan-March</td><td>11</td></tr>
+                <tr><td>Q4</td><td>April-June</td><td>2</td></tr>
+                <tr><td><strong>Total</strong></td><td></td><td><strong>49</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Outcomes</p>
+          <h2>Referral outcome table pattern</h2>
+          <div class="table-wrap">
+            <table class="compact-table">
+              <thead>
+                <tr>
+                  <th>Outcome</th>
+                  <th>n (%)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Patients reached</td><td>39 (79.6)</td></tr>
+                <tr><td>Patients consulted</td><td>36 (73.5)</td></tr>
+                <tr><td>Inappropriately referred</td><td>1 (2)</td></tr>
+                <tr><td>Declined at RD outreach</td><td>3 (6.1)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel markdown-fragment" id="conclusion">
+        <p class="section-label">Bottom line</p>
+        <h2>A collaborative nutrition referral pathway can extend HSSP SDoH response beyond identification.</h2>
+        <p>
+          The poster concludes that an interdisciplinary nutrition referral program for oral
+          chemotherapy patients can empower health system specialty pharmacies to identify and
+          refer social determinants of health issues for specialty patients.
+        </p>
+        <p>
+          Future work centered on training new staff, refreshing current staff, optimizing the
+          workflow, expanding to other disease states, and adding clinical endpoint documentation.
+        </p>
+      </section>
+
+      <footer class="footer-actions" id="sources">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/24-2022.pdf">Open original PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/24-2022.md">Open extracted markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

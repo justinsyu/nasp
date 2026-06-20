@@ -1,0 +1,848 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Encorafenib and Binimetinib Treatment Journey | NASP 2022</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -5.8rem;
+      bottom: -5.4rem;
+      width: 14rem;
+      height: 14rem;
+      border: 1.1rem solid rgba(24, 124, 143, 0.12);
+      border-radius: 50%;
+    }
+
+    .therapy-orbit,
+    .journey-panel,
+    .ae-panel {
+      position: relative;
+      z-index: 1;
+    }
+
+    .therapy-orbit svg,
+    .journey-panel svg,
+    .ae-panel svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .metric-card strong small {
+      color: var(--red);
+      font-size: 0.82rem;
+    }
+
+    .metric-card em {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-style: normal;
+      font-weight: 760;
+      line-height: 1.32;
+    }
+
+    .study-board {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .cohort-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.72rem;
+      margin-top: 0.78rem;
+    }
+
+    .cohort-tile {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.78rem;
+    }
+
+    .cohort-tile strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2.15rem;
+      line-height: 1;
+    }
+
+    .cohort-tile span {
+      display: block;
+      margin-top: 0.22rem;
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+      line-height: 1.2;
+    }
+
+    .cohort-tile em {
+      display: block;
+      margin-top: 0.16rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-style: normal;
+      font-weight: 760;
+      line-height: 1.25;
+    }
+
+    .stage-bars {
+      display: grid;
+      gap: 0.62rem;
+      margin-top: 0.72rem;
+    }
+
+    .stage-row {
+      display: grid;
+      grid-template-columns: 5.6rem minmax(0, 1fr) 2.4rem;
+      gap: 0.55rem;
+      align-items: center;
+    }
+
+    .stage-row b {
+      color: var(--ink);
+      font-size: 0.82rem;
+    }
+
+    .stage-track {
+      height: 0.82rem;
+      overflow: hidden;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 999px;
+      background: #edf2f8;
+    }
+
+    .stage-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .stage-row span {
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .journey-board {
+      display: grid;
+      grid-template-columns: minmax(17rem, 0.78fr) minmax(0, 1.22fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .modification-stack {
+      display: grid;
+      gap: 0.72rem;
+      margin-top: 0.78rem;
+    }
+
+    .mod-card {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: var(--surface-blue);
+      padding: 0.82rem;
+    }
+
+    .mod-card:nth-child(2) {
+      background: var(--surface-warm);
+    }
+
+    .mod-card strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2.35rem;
+      line-height: 1;
+    }
+
+    .mod-card span {
+      display: block;
+      margin-top: 0.24rem;
+      color: var(--ink);
+      font-size: 0.86rem;
+      font-weight: 850;
+    }
+
+    .mod-card em {
+      display: block;
+      margin-top: 0.2rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-style: normal;
+      font-weight: 760;
+      line-height: 1.3;
+    }
+
+    .timeline-key {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.52rem;
+      margin-top: 0.72rem;
+    }
+
+    .timeline-key span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.34rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 850;
+    }
+
+    .timeline-key i {
+      width: 0.9rem;
+      height: 0.9rem;
+      border-radius: 50%;
+      background: var(--red);
+    }
+
+    .timeline-key span:nth-child(2) i {
+      border-radius: 3px;
+      background: var(--gold);
+    }
+
+    .timeline-key span:nth-child(3) i {
+      background: var(--teal);
+    }
+
+    .adherence-safety {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .dial-card {
+      display: grid;
+      grid-template-columns: minmax(12rem, 0.62fr) minmax(0, 1.38fr);
+      gap: 1rem;
+      align-items: center;
+      min-height: 100%;
+      background:
+        linear-gradient(135deg, rgba(77, 138, 103, 0.12), rgba(255, 255, 255, 0.96) 44%),
+        #fff;
+    }
+
+    .pdc-dial {
+      display: grid;
+      place-items: center;
+      min-height: 12rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .pdc-dial strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 4.25rem;
+      line-height: 0.92;
+      text-align: center;
+    }
+
+    .pdc-dial span {
+      display: block;
+      margin-top: 0.3rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .ae-bars {
+      display: grid;
+      gap: 0.58rem;
+      margin-top: 0.76rem;
+    }
+
+    .ae-row {
+      display: grid;
+      grid-template-columns: 10.3rem minmax(0, 1fr) 3.1rem;
+      gap: 0.56rem;
+      align-items: center;
+    }
+
+    .ae-row b {
+      color: var(--ink);
+      font-size: 0.8rem;
+      line-height: 1.16;
+    }
+
+    .ae-track {
+      height: 0.8rem;
+      overflow: hidden;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 999px;
+      background: #edf2f8;
+    }
+
+    .ae-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .ae-row span {
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .metastasis-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.8rem;
+    }
+
+    .site-card {
+      min-height: 7rem;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.7rem;
+    }
+
+    .site-card strong {
+      display: block;
+      color: var(--teal);
+      font-family: var(--font-display);
+      font-size: 1.9rem;
+      line-height: 1;
+    }
+
+    .site-card span {
+      display: block;
+      margin-top: 0.32rem;
+      color: var(--ink);
+      font-size: 0.76rem;
+      font-weight: 850;
+      line-height: 1.18;
+    }
+
+    .takeaway-panel {
+      border-color: rgba(24, 124, 143, 0.42);
+      background:
+        linear-gradient(90deg, rgba(24, 124, 143, 0.12), rgba(255, 255, 255, 0.96) 42%),
+        #fff;
+    }
+
+    .takeaway-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.66rem;
+      margin: 0.82rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .takeaway-list li {
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.78);
+      padding: 0.72rem;
+      color: var(--ink);
+      font-size: 0.84rem;
+      font-weight: 820;
+      line-height: 1.32;
+    }
+
+    @media (max-width: 960px) {
+      .study-board,
+      .journey-board,
+      .adherence-safety,
+      .dial-card {
+        grid-template-columns: 1fr;
+      }
+
+      .metastasis-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .takeaway-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .cohort-grid,
+      .stage-row,
+      .ae-row {
+        grid-template-columns: 1fr;
+      }
+
+      .stage-row span,
+      .ae-row span {
+        text-align: left;
+      }
+
+      .metastasis-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .pdc-dial strong {
+        font-size: 3.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#cohort">Cohort</a>
+        <a href="#journey">Journey</a>
+        <a href="#events">Events</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2022 / Poster 55-2022 / Oncology specialty pharmacy</p>
+        <h1 id="poster-title">Treatment changes were common after starting encorafenib and binimetinib, but adherence stayed high.</h1>
+        <p class="hero-summary">
+          Vanderbilt Specialty Pharmacy reviewed the first 90 days after patients with metastatic or unresectable melanoma
+          initiated encorafenib plus binimetinib, connecting adverse events with treatment holds, dose reductions,
+          discontinuation, and proportion of days covered.
+        </p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Single-center retrospective cohort</li>
+          <li class="tag therapy">BRAF V600 melanoma</li>
+          <li class="tag">Encorafenib + binimetinib</li>
+          <li class="tag">Treatment modifications</li>
+          <li class="tag">Adherence and adverse events</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata and therapy visual">
+        <div>
+          <div class="poster-code">55<br>2022</div>
+          <dl class="meta-grid">
+            <div>
+              <dt>Institution</dt>
+              <dd>Vanderbilt University Medical Center</dd>
+            </div>
+            <div>
+              <dt>Cohort</dt>
+              <dd>18 patients</dd>
+            </div>
+            <div>
+              <dt>Window</dt>
+              <dd>First 90 days</dd>
+            </div>
+            <div>
+              <dt>Funding</dt>
+              <dd>Pfizer grant</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="therapy-orbit" aria-hidden="true">
+          <svg viewBox="0 0 430 260" role="img" aria-label="Two-drug melanoma therapy orbiting adverse event monitoring">
+            <defs>
+              <marker id="arrow-55" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L9,3 z" fill="#187c8f"></path>
+              </marker>
+            </defs>
+            <rect x="154" y="58" width="122" height="126" rx="24" fill="#fff" stroke="#243770" stroke-width="6"></rect>
+            <path d="M174 134c18-46 62-47 82 0" fill="none" stroke="#d12630" stroke-width="8" stroke-linecap="round"></path>
+            <path d="M175 135c28 36 57 36 82 0" fill="none" stroke="#d12630" stroke-width="8" stroke-linecap="round"></path>
+            <circle cx="215" cy="127" r="18" fill="#fff7ea" stroke="#e99e25" stroke-width="6"></circle>
+            <text x="215" y="213" text-anchor="middle" fill="#243770" font-family="Arial, sans-serif" font-size="18" font-weight="900">melanoma monitoring</text>
+
+            <circle cx="75" cy="84" r="44" fill="#eef4fb" stroke="#187c8f" stroke-width="5"></circle>
+            <text x="75" y="79" text-anchor="middle" fill="#187c8f" font-family="Arial, sans-serif" font-size="16" font-weight="900">ENCO</text>
+            <text x="75" y="100" text-anchor="middle" fill="#187c8f" font-family="Arial, sans-serif" font-size="12" font-weight="800">BRAF</text>
+
+            <circle cx="355" cy="84" r="44" fill="#fff7ea" stroke="#e99e25" stroke-width="5"></circle>
+            <text x="355" y="79" text-anchor="middle" fill="#e99e25" font-family="Arial, sans-serif" font-size="16" font-weight="900">BINI</text>
+            <text x="355" y="100" text-anchor="middle" fill="#e99e25" font-family="Arial, sans-serif" font-size="12" font-weight="800">MEK</text>
+
+            <circle cx="91" cy="203" r="34" fill="#fff" stroke="#7561a8" stroke-width="5"></circle>
+            <path d="M75 205h32M91 189v32" stroke="#7561a8" stroke-width="6" stroke-linecap="round"></path>
+            <text x="91" y="252" text-anchor="middle" fill="#7561a8" font-family="Arial, sans-serif" font-size="13" font-weight="900">hold / reduce</text>
+
+            <circle cx="337" cy="203" r="34" fill="#fff" stroke="#4d8a67" stroke-width="5"></circle>
+            <path d="M321 204l11 12 23-28" fill="none" stroke="#4d8a67" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path>
+            <text x="337" y="252" text-anchor="middle" fill="#4d8a67" font-family="Arial, sans-serif" font-size="13" font-weight="900">adherence</text>
+
+            <path d="M119 88 C135 94, 144 102, 156 115" fill="none" stroke="#187c8f" stroke-width="6" stroke-linecap="round" marker-end="url(#arrow-55)"></path>
+            <path d="M311 88 C292 95, 282 104, 275 116" fill="none" stroke="#187c8f" stroke-width="6" stroke-linecap="round" marker-end="url(#arrow-55)"></path>
+            <path d="M166 168 C133 177, 111 186, 102 198" fill="none" stroke="#187c8f" stroke-width="6" stroke-linecap="round" marker-end="url(#arrow-55)"></path>
+            <path d="M262 168 C295 178, 318 188, 328 199" fill="none" stroke="#187c8f" stroke-width="6" stroke-linecap="round" marker-end="url(#arrow-55)"></path>
+          </svg>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Cohort size</span>
+          <strong>18</strong>
+          <em>Patients with metastatic or unresectable melanoma.</em>
+        </article>
+        <article class="metric-card">
+          <span>Adverse events</span>
+          <strong>126</strong>
+          <em>Reported across scheduled assessment points through day 90.</em>
+        </article>
+        <article class="metric-card">
+          <span>Treatment holds</span>
+          <strong>44<small>%</small></strong>
+          <em>Required at least one hold in the treatment journey table.</em>
+        </article>
+        <article class="metric-card">
+          <span>Dose reductions</span>
+          <strong>39<small>%</small></strong>
+          <em>Required at least one dose reduction after therapy initiation.</em>
+        </article>
+      </section>
+
+      <section id="cohort" class="study-board">
+        <article class="panel">
+          <p class="section-label">Objective and Methods</p>
+          <h2>Map early adverse events, treatment modifications, and adherence after starting combination therapy.</h2>
+          <p>
+            The poster reports a single-center retrospective cohort analysis of patients with metastatic or unresectable
+            melanoma initiating encorafenib and binimetinib through an integrated specialty pharmacy program.
+          </p>
+          <div class="cohort-grid" aria-label="Cohort characteristics">
+            <div class="cohort-tile">
+              <strong>17</strong>
+              <span>BRAF V600K mutation</span>
+              <em>One additional patient had BRAF V600E mutation.</em>
+            </div>
+            <div class="cohort-tile">
+              <strong>50<small>%</small></strong>
+              <span>Female</span>
+              <em>The cohort was reported as 100% White.</em>
+            </div>
+            <div class="cohort-tile">
+              <strong>72<small>%</small></strong>
+              <span>Baseline ECOG = 1</span>
+              <em>Functional status context at treatment start.</em>
+            </div>
+            <div class="cohort-tile">
+              <strong>90</strong>
+              <span>Day outcome window</span>
+              <em>Journey events were tracked early after initiation.</em>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Cancer stage</p>
+          <h2>Most patients had stage 3 or stage 4 disease.</h2>
+          <div class="stage-bars" aria-label="Cancer stage distribution">
+            <div class="stage-row">
+              <b>Stage 4</b>
+              <div class="stage-track"><i style="--w:100%"></i></div>
+              <span>10</span>
+            </div>
+            <div class="stage-row">
+              <b>Stage 3</b>
+              <div class="stage-track"><i style="--w:70%"></i></div>
+              <span>7</span>
+            </div>
+            <div class="stage-row">
+              <b>Stage 2</b>
+              <div class="stage-track"><i style="--w:10%"></i></div>
+              <span>1</span>
+            </div>
+          </div>
+          <div class="number-cloud" aria-label="Stage summary">
+            <div class="number-pill">94%<small>stage 3 or 4</small></div>
+            <div class="number-pill">56%<small>stage 4</small></div>
+            <div class="number-pill">18<small>total patients</small></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel" aria-labelledby="metastasis-title">
+        <p class="section-label">Table pattern</p>
+        <h2 id="metastasis-title">Metastasis sites clustered in lymph nodes, liver, and brain.</h2>
+        <div class="metastasis-grid" aria-label="Sites of metastasis">
+          <div class="site-card"><strong>8</strong><span>Lymph nodes</span></div>
+          <div class="site-card"><strong>7</strong><span>Other sites</span></div>
+          <div class="site-card"><strong>4</strong><span>Liver</span></div>
+          <div class="site-card"><strong>4</strong><span>Brain</span></div>
+          <div class="site-card"><strong>3</strong><span>Lung</span></div>
+          <div class="site-card"><strong>2</strong><span>Bone</span></div>
+        </div>
+      </section>
+
+      <section id="journey" class="journey-board">
+        <article class="panel">
+          <p class="section-label">Treatment journey</p>
+          <h2>Holds tended to occur early; reductions could occur later.</h2>
+          <div class="modification-stack">
+            <div class="mod-card">
+              <strong>44%</strong>
+              <span>Required 1+ treatment hold</span>
+              <em>Median hold time: encorafenib 26 days; binimetinib 38 days.</em>
+            </div>
+            <div class="mod-card">
+              <strong>39%</strong>
+              <span>Required 1+ dose reduction</span>
+              <em>Median time to reduction: encorafenib 22 days; binimetinib 50 days.</em>
+            </div>
+            <div class="mod-card">
+              <strong>11%</strong>
+              <span>Discontinued therapy</span>
+              <em>Attributed to disease progression and clinical decline.</em>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel journey-panel">
+          <p class="section-label">Event map</p>
+          <h2>Patient-level events from the journey table</h2>
+          <svg viewBox="0 0 650 300" role="img" aria-labelledby="journey-title journey-desc">
+            <title id="journey-title">Treatment holds and dose reductions by day</title>
+            <desc id="journey-desc">Treatment holds occur on days 5, 10, 15, 20, 25, 40, 45 and 50; dose reductions occur on days 15, 25, 30, 60 and 150.</desc>
+            <line x1="72" y1="235" x2="590" y2="235" stroke="#aebbd2" stroke-width="2"></line>
+            <text x="72" y="260" fill="#68758d" font-family="Arial, sans-serif" font-size="13" font-weight="800">0</text>
+            <text x="240" y="260" fill="#68758d" font-family="Arial, sans-serif" font-size="13" font-weight="800">50 days</text>
+            <text x="414" y="260" fill="#68758d" font-family="Arial, sans-serif" font-size="13" font-weight="800">100 days</text>
+            <text x="568" y="260" fill="#68758d" font-family="Arial, sans-serif" font-size="13" font-weight="800">150</text>
+            <g stroke="#d9e1ef" stroke-width="1">
+              <line x1="72" y1="64" x2="72" y2="235"></line>
+              <line x1="245" y1="64" x2="245" y2="235"></line>
+              <line x1="418" y1="64" x2="418" y2="235"></line>
+              <line x1="590" y1="64" x2="590" y2="235"></line>
+            </g>
+            <g font-family="Arial, sans-serif" font-size="12" font-weight="900" fill="#243770">
+              <text x="20" y="76">P13</text>
+              <text x="20" y="94">P7</text>
+              <text x="20" y="112">P8</text>
+              <text x="20" y="130">P15</text>
+              <text x="20" y="148">P16</text>
+              <text x="20" y="166">P9</text>
+              <text x="20" y="184">P10</text>
+              <text x="20" y="202">P11</text>
+              <text x="20" y="220">P12</text>
+            </g>
+            <g fill="#d12630">
+              <circle cx="89" cy="72" r="7"></circle>
+              <circle cx="107" cy="90" r="7"></circle>
+              <circle cx="124" cy="108" r="7"></circle>
+              <circle cx="141" cy="126" r="7"></circle>
+              <circle cx="141" cy="144" r="7"></circle>
+              <circle cx="159" cy="162" r="7"></circle>
+              <circle cx="210" cy="198" r="7"></circle>
+              <circle cx="228" cy="216" r="7"></circle>
+            </g>
+            <g fill="#e99e25">
+              <rect x="117" y="65" width="14" height="14" rx="3"></rect>
+              <rect x="152" y="119" width="14" height="14" rx="3"></rect>
+              <rect x="169" y="173" width="14" height="14" rx="3"></rect>
+              <rect x="272" y="47" width="14" height="14" rx="3"></rect>
+              <rect x="583" y="29" width="14" height="14" rx="3"></rect>
+            </g>
+            <g fill="#187c8f">
+              <circle cx="245" cy="180" r="7"></circle>
+              <circle cx="590" cy="54" r="7"></circle>
+            </g>
+            <text x="70" y="34" fill="#243770" font-family="Arial, sans-serif" font-size="16" font-weight="900">First 60 days carry most modifications</text>
+          </svg>
+          <div class="timeline-key">
+            <span><i></i>Treatment hold</span>
+            <span><i></i>Dose reduction</span>
+            <span><i></i>Later event</span>
+          </div>
+        </article>
+      </section>
+
+      <section id="events" class="adherence-safety">
+        <article class="panel dial-card">
+          <div class="pdc-dial" aria-label="Median PDC">
+            <div>
+              <strong>89%</strong>
+              <span>Median PDC</span>
+            </div>
+          </div>
+          <div>
+            <p class="section-label">Adherence</p>
+            <h2>Medication adherence remained high despite adverse events.</h2>
+            <p>
+              Median proportion of days covered was 89% before adjustment and 96% after adjustment,
+              suggesting that early toxicity management did not eliminate medication access or coverage continuity.
+            </p>
+            <div class="number-cloud">
+              <div class="number-pill">96%<small>adjusted PDC</small></div>
+              <div class="number-pill">77-100<small>unadjusted IQR</small></div>
+              <div class="number-pill">78-100<small>adjusted IQR</small></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel ae-panel">
+          <p class="section-label">Adverse event pattern</p>
+          <h2>Fatigue and nausea were the leading reported side effects.</h2>
+          <div class="ae-bars" aria-label="Most common adverse events">
+            <div class="ae-row">
+              <b>Fatigue</b>
+              <div class="ae-track"><i style="--w:100%"></i></div>
+              <span>10 / 56%</span>
+            </div>
+            <div class="ae-row">
+              <b>Nausea</b>
+              <div class="ae-track"><i style="--w:80%"></i></div>
+              <span>8 / 44%</span>
+            </div>
+            <div class="ae-row">
+              <b>Vomiting</b>
+              <div class="ae-track"><i style="--w:50%"></i></div>
+              <span>5 / 28%</span>
+            </div>
+            <div class="ae-row">
+              <b>Abdominal pain</b>
+              <div class="ae-track"><i style="--w:40%"></i></div>
+              <span>4 / 22%</span>
+            </div>
+            <div class="ae-row">
+              <b>Joint pain</b>
+              <div class="ae-track"><i style="--w:40%"></i></div>
+              <span>4 / 22%</span>
+            </div>
+            <div class="ae-row">
+              <b>Liver enzyme elevation</b>
+              <div class="ae-track"><i style="--w:40%"></i></div>
+              <span>4 / 22%</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="evidence-map" aria-label="Evidence flow">
+        <article class="evidence-card">
+          <h3>Clinical question</h3>
+          <p>How often do early adverse effects translate into dose changes or holds after combination therapy starts?</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Cohort lens</h3>
+          <p>Eighteen patients with BRAF-mutated metastatic or unresectable melanoma were followed retrospectively.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Safety signal</h3>
+          <p>The poster counted 126 adverse events, with fatigue and nausea most common.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Management signal</h3>
+          <p>Forty-four percent required at least one hold, and 39% required at least one dose reduction.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Outcome signal</h3>
+          <p>Median PDC stayed high at 89%, increasing to 96% after adjustment.</p>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Extracted table patterns">
+        <article class="table-card">
+          <p class="section-label">Table pattern</p>
+          <h2>Most common adverse events</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Adverse event</th>
+                  <th>Patients</th>
+                  <th>Percent</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Fatigue</td><td>10</td><td>56%</td></tr>
+                <tr><td>Nausea</td><td>8</td><td>44%</td></tr>
+                <tr><td>Vomiting</td><td>5</td><td>28%</td></tr>
+                <tr><td>Abdominal pain</td><td>4</td><td>22%</td></tr>
+                <tr><td>Joint pain</td><td>4</td><td>22%</td></tr>
+                <tr><td>Liver enzyme elevation</td><td>4</td><td>22%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Table pattern</p>
+          <h2>Treatment modification timing</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Modification</th>
+                  <th>Encorafenib</th>
+                  <th>Binimetinib</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Median hold time</td>
+                  <td>26 days (IQR 12-44)</td>
+                  <td>38 days (IQR 14-45)</td>
+                </tr>
+                <tr>
+                  <td>Median time to dose reduction</td>
+                  <td>22 days (IQR 18-62)</td>
+                  <td>50 days (IQR 22-66)</td>
+                </tr>
+                <tr>
+                  <td>Discontinued</td>
+                  <td colspan="2">11%, due to disease progression or clinical decline</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel takeaway-panel">
+        <p class="section-label">Conclusion and future research</p>
+        <h2>Early adverse effects were common, yet adherence remained high enough to make pharmacist-led mitigation the next question.</h2>
+        <p class="hero-summary">
+          The authors concluded that treatment modifications due to adverse effects are common in the first 90 days
+          after encorafenib and binimetinib initiation, while medication adherence remains high despite adverse events.
+        </p>
+        <ul class="takeaway-list" aria-label="Key takeaways">
+          <li>Early monitoring should expect holds and dose reductions, especially during the first 60 days.</li>
+          <li>Adherence data suggest patients can remain covered even when therapy is interrupted or adjusted.</li>
+          <li>Future work should test how integrated health-system pharmacists can prevent and address AEs while preserving optimal dosing.</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/55-2022.pdf">Open source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/55-2022.md">Open source markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Economic Impact of Ustekinumab in Psoriasis | NASP 2025</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .economic-hero {
+      position: relative;
+      min-height: 100%;
+      overflow: hidden;
+    }
+    .economic-hero svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-top: 0.25rem;
+    }
+    .hero-card .source-note,
+    .source-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 750;
+    }
+    .metric-card strong.compact {
+      font-size: 1.36rem;
+      line-height: 1.05;
+    }
+    .search-funnel {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.85rem;
+    }
+    .funnel-step {
+      position: relative;
+      border: 1px solid rgba(174, 187, 210, 0.92);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+      min-height: 9.2rem;
+    }
+    .funnel-step::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -0.48rem;
+      width: 0.75rem;
+      height: 0.75rem;
+      border-top: 2px solid var(--border-strong);
+      border-right: 2px solid var(--border-strong);
+      transform: translateY(-50%) rotate(45deg);
+      background: var(--background);
+    }
+    .funnel-step:last-child::after {
+      display: none;
+    }
+    .funnel-step b {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      line-height: 1;
+    }
+    .funnel-step span {
+      display: block;
+      margin-top: 0.4rem;
+      color: var(--ink);
+      font-weight: 850;
+      line-height: 1.2;
+    }
+    .funnel-step small {
+      display: block;
+      margin-top: 0.38rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      line-height: 1.35;
+    }
+    .study-type-board {
+      display: grid;
+      grid-template-columns: minmax(15rem, 0.9fr) minmax(0, 1.1fr);
+      gap: 1rem;
+      align-items: center;
+      margin-top: 0.8rem;
+    }
+    .donut-wrap {
+      display: grid;
+      place-items: center;
+      min-height: 17rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 50% 50%, #fff 0 36%, transparent 37%),
+        conic-gradient(var(--red) 0 44.44%, var(--gold) 44.44% 72.22%, var(--teal) 72.22% 88.89%, var(--purple) 88.89% 100%);
+      color: var(--ink);
+      text-align: center;
+    }
+    .donut-wrap strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 3rem;
+      line-height: 0.9;
+    }
+    .donut-wrap span {
+      display: block;
+      max-width: 9rem;
+      margin-top: 0.35rem;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+    .type-bars {
+      display: grid;
+      gap: 0.64rem;
+    }
+    .type-row {
+      display: grid;
+      grid-template-columns: 10.3rem minmax(0, 1fr) 2rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+    .type-track {
+      height: 0.92rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 99px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .type-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .region-matrix {
+      display: grid;
+      grid-template-columns: 7.2rem repeat(4, minmax(3.8rem, 1fr));
+      gap: 0.35rem;
+      margin-top: 0.75rem;
+      min-width: 42rem;
+    }
+    .region-matrix span,
+    .region-matrix b {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: #fff;
+      padding: 0.38rem 0.42rem;
+      min-height: 2.15rem;
+      color: var(--ink);
+      font-size: 0.74rem;
+      font-weight: 850;
+      display: grid;
+      align-items: center;
+    }
+    .region-matrix b {
+      background: var(--surface-blue);
+      font-size: 0.7rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+    .dot {
+      justify-content: center;
+      text-align: center;
+    }
+    .dot::before {
+      content: "";
+      width: 0.82rem;
+      height: 0.82rem;
+      border-radius: 50%;
+      background: var(--teal);
+      box-shadow: 0 0 0 0.24rem rgba(24, 124, 143, 0.13);
+    }
+    .dot.multi::before {
+      background: var(--red);
+      box-shadow: 0 0 0 0.24rem rgba(209, 38, 48, 0.13);
+    }
+    .dot.empty::before {
+      background: transparent;
+      box-shadow: inset 0 0 0 1px rgba(104, 117, 141, 0.3);
+    }
+    .table-scroll {
+      max-width: 100%;
+      overflow-x: auto;
+    }
+    .finding-ladder {
+      display: grid;
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+    .finding-step {
+      display: grid;
+      grid-template-columns: 2.35rem minmax(0, 1fr);
+      gap: 0.65rem;
+      align-items: start;
+    }
+    .finding-step i {
+      display: grid;
+      place-items: center;
+      width: 2.35rem;
+      height: 2.35rem;
+      border-radius: 50%;
+      background: var(--surface-blue);
+      color: var(--red);
+      font-family: var(--font-display);
+      font-style: normal;
+      font-weight: 900;
+    }
+    .finding-step p {
+      margin: 0;
+      padding-top: 0.16rem;
+      font-size: 0.9rem;
+    }
+    .finding-step strong {
+      color: var(--ink);
+    }
+    .biosimilar-callout {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(24, 124, 143, 0.14), transparent 44%),
+        #fff;
+    }
+    .biosimilar-callout p {
+      margin: 0;
+      color: var(--ink);
+      font-size: 1rem;
+      font-weight: 850;
+    }
+    .mini-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.55rem;
+      color: var(--muted);
+      font-size: 0.73rem;
+      font-weight: 850;
+    }
+    .mini-legend i {
+      display: inline-block;
+      width: 0.72rem;
+      height: 0.72rem;
+      border-radius: 50%;
+      margin-right: 0.25rem;
+      vertical-align: -0.1rem;
+      background: var(--teal);
+    }
+    .mini-legend .multi-dot {
+      background: var(--red);
+    }
+    @media (max-width: 900px) {
+      .search-funnel,
+      .study-type-board {
+        grid-template-columns: 1fr;
+      }
+      .funnel-step::after {
+        top: auto;
+        right: 50%;
+        bottom: -0.5rem;
+        transform: translateX(50%) rotate(135deg);
+      }
+    }
+    @media (max-width: 560px) {
+      .type-row {
+        grid-template-columns: 1fr;
+      }
+      .type-row span:last-child {
+        color: var(--muted);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#objective">Objective</a>
+        <a href="#methods">Methods</a>
+        <a href="#results">Results</a>
+        <a href="#regional">Regions</a>
+        <a href="#conclusion">Conclusion</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Presented at NASP 2025</p>
+        <h1>Economic Impact Of Ustekinumab In The Treatment Of Psoriasis</h1>
+        <p class="hero-summary">
+          A targeted literature review found that ustekinumab's reference product is clinically effective in psoriasis, but its current cost profile often weakens economic value across payer settings.
+        </p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Targeted literature review</li>
+          <li class="tag therapy">Psoriasis</li>
+          <li class="tag">Ustekinumab</li>
+          <li class="tag">Health economics</li>
+          <li class="tag">Biosimilar access</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card economic-hero" aria-label="Poster metadata and visual summary">
+        <div class="poster-code">PSP98</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Poster code</dt>
+            <dd>2164-PSP98-EN-Poster-AM25</dd>
+          </div>
+          <div>
+            <dt>Year</dt>
+            <dd>2025</dd>
+          </div>
+          <div>
+            <dt>Sponsor</dt>
+            <dd>Fresenius Kabi</dd>
+          </div>
+          <div>
+            <dt>Search source</dt>
+            <dd>MEDLINE</dd>
+          </div>
+        </dl>
+        <svg viewBox="0 0 420 260" role="img" aria-label="Visual showing evidence weighed against treatment cost">
+          <defs>
+            <linearGradient id="beam" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0%" stop-color="#187c8f"/>
+              <stop offset="100%" stop-color="#d12630"/>
+            </linearGradient>
+            <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#243770" flood-opacity="0.16"/>
+            </filter>
+          </defs>
+          <rect x="24" y="22" width="372" height="210" rx="18" fill="#fff" stroke="#d9e1ef"/>
+          <path d="M210 68 L124 162 H296 Z" fill="#eef4fb" stroke="#aebbd2" stroke-width="2"/>
+          <path d="M110 168 H310" stroke="url(#beam)" stroke-width="9" stroke-linecap="round"/>
+          <circle cx="210" cy="68" r="18" fill="#fff" stroke="#243770" stroke-width="5"/>
+          <path d="M210 86 V203" stroke="#243770" stroke-width="6" stroke-linecap="round"/>
+          <path d="M160 203 H260" stroke="#243770" stroke-width="8" stroke-linecap="round"/>
+          <g filter="url(#soft)">
+            <circle cx="102" cy="160" r="46" fill="#ffffff" stroke="#187c8f" stroke-width="5"/>
+            <text x="102" y="154" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="18" font-weight="900">17</text>
+            <text x="102" y="178" text-anchor="middle" fill="#68758d" font-family="Inter, sans-serif" font-size="12" font-weight="850">studies</text>
+          </g>
+          <g filter="url(#soft)">
+            <circle cx="318" cy="154" r="54" fill="#ffffff" stroke="#d12630" stroke-width="5"/>
+            <text x="318" y="146" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="17" font-weight="900">higher</text>
+            <text x="318" y="169" text-anchor="middle" fill="#68758d" font-family="Inter, sans-serif" font-size="12" font-weight="850">drug cost</text>
+          </g>
+          <path d="M118 105 C155 83 269 83 305 105" fill="none" stroke="#e99e25" stroke-width="5" stroke-linecap="round" stroke-dasharray="1 13"/>
+        </svg>
+        <p class="source-note">Authors: Steven Ren, Kunal Shastri, Kerise Clarke, Margaret H. Ainslie-Garcia.</p>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key metrics">
+        <article class="metric-card">
+          <span>Records screened</span>
+          <strong>56</strong>
+        </article>
+        <article class="metric-card">
+          <span>Relevant studies</span>
+          <strong>17</strong>
+        </article>
+        <article class="metric-card">
+          <span>Search window</span>
+          <strong class="compact">2018-2024</strong>
+        </article>
+        <article class="metric-card">
+          <span>Common CEM horizon</span>
+          <strong>10y</strong>
+        </article>
+      </section>
+
+      <section class="visual-grid" id="objective" aria-label="Objective and economic frame">
+        <div class="panel markdown-fragment">
+          <p class="section-label">Objective</p>
+          <h2>Understand the economic impact of reference ustekinumab in psoriasis treatment.</h2>
+          <p>
+            Ustekinumab is an IL-12/23 inhibitor biologic approved for multiple autoimmune and inflammatory conditions, including psoriasis. The review focused on whether its reference product offers economic value in psoriasis, given high drug costs and potential reimbursement restrictions.
+          </p>
+          <div class="number-cloud" aria-label="Core economic tension">
+            <div class="number-pill">IL-12/23<small>targeted biologic</small></div>
+            <div class="number-pill">PsO<small>condition focus</small></div>
+            <div class="number-pill">Access<small>payer concern</small></div>
+          </div>
+        </div>
+
+        <div class="panel" id="methods">
+          <p class="section-label">Methods</p>
+          <h2>A MEDLINE search narrowed economic modelling publications to psoriasis-relevant studies.</h2>
+          <div class="search-funnel" aria-label="Search and screening flow">
+            <div class="funnel-step">
+              <b>01</b>
+              <span>Database</span>
+              <small>MEDLINE search for health-economic modelling publications.</small>
+            </div>
+            <div class="funnel-step">
+              <b>02</b>
+              <span>Terms</span>
+              <small>BIM, cost-effectiveness, CUA, CPR, economic model, and PsO.</small>
+            </div>
+            <div class="funnel-step">
+              <b>03</b>
+              <span>Limits</span>
+              <small>English-language studies published January 1, 2018 to March 1, 2024.</small>
+            </div>
+            <div class="funnel-step">
+              <b>04</b>
+              <span>Screening</span>
+              <small>56 hits screened; 17 studies included for economic interpretation.</small>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="results">
+        <p class="section-label">Study type pattern</p>
+        <h2>Cost-effectiveness models were the most frequent extracted analysis type.</h2>
+        <div class="study-type-board">
+          <div class="donut-wrap" aria-label="Eighteen study-type mentions across seventeen included studies">
+            <div>
+              <strong>18</strong>
+              <span>study-type mentions across 17 included studies</span>
+            </div>
+          </div>
+          <div>
+            <div class="type-bars" aria-label="Study type counts">
+              <div class="type-row">
+                <span>Cost-effectiveness model</span>
+                <div class="type-track"><i style="width:100%"></i></div>
+                <span>8</span>
+              </div>
+              <div class="type-row">
+                <span>Cost per responder</span>
+                <div class="type-track"><i style="width:62.5%"></i></div>
+                <span>5</span>
+              </div>
+              <div class="type-row">
+                <span>Cost-utility</span>
+                <div class="type-track"><i style="width:37.5%"></i></div>
+                <span>3</span>
+              </div>
+              <div class="type-row">
+                <span>Budget impact model</span>
+                <div class="type-track"><i style="width:25%"></i></div>
+                <span>2</span>
+              </div>
+            </div>
+            <p class="source-note">The extracted table sums to 18 analysis mentions while the poster reports 17 included studies, indicating at least one overlapping classification.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="evidence-map" aria-label="Economic evidence flow">
+        <article class="evidence-card">
+          <h3>Time horizons varied</h3>
+          <p>Cost-effectiveness models ranged from one year to lifetime horizons; four used a 10-year horizon.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Some positive signals</h3>
+          <p>Studies from the Netherlands and Spain found favorable economic benefit or efficiency for ustekinumab.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Responder cost concern</h3>
+          <p>Recent Italy, France, and Germany cost-per-responder analyses placed ustekinumab at the highest cost per responder.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Cost-effectiveness gap</h3>
+          <p>All cost-effectiveness analyses found ustekinumab was not cost-effective at current willingness-to-pay levels.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Biosimilar evidence absent</h3>
+          <p>The included studies did not test how an ustekinumab biosimilar could change economic outcomes.</p>
+        </article>
+      </section>
+
+      <section class="tables-grid" id="regional" aria-label="Regional distribution and result interpretation">
+        <div class="table-card">
+          <p class="section-label">Regional matrix</p>
+          <h2>Evidence appeared across 10 named payer regions.</h2>
+          <div class="table-scroll">
+            <div class="region-matrix" role="table" aria-label="Distribution of pharmacoeconomic analyses by region">
+              <b>Region</b><b>CUA</b><b>CPR</b><b>CEM</b><b>BIM</b>
+              <span>Australia</span><span class="dot"></span><span class="dot empty"></span><span class="dot empty"></span><span class="dot empty"></span>
+              <span>China</span><span class="dot empty"></span><span class="dot empty"></span><span class="dot"></span><span class="dot empty"></span>
+              <span>France</span><span class="dot empty"></span><span class="dot multi"></span><span class="dot empty"></span><span class="dot empty"></span>
+              <span>Germany</span><span class="dot empty"></span><span class="dot multi"></span><span class="dot"></span><span class="dot empty"></span>
+              <span>Italy</span><span class="dot empty"></span><span class="dot"></span><span class="dot empty"></span><span class="dot empty"></span>
+              <span>Japan</span><span class="dot empty"></span><span class="dot empty"></span><span class="dot"></span><span class="dot empty"></span>
+              <span>Netherlands</span><span class="dot"></span><span class="dot empty"></span><span class="dot empty"></span><span class="dot empty"></span>
+              <span>Philippines</span><span class="dot empty"></span><span class="dot empty"></span><span class="dot"></span><span class="dot"></span>
+              <span>Spain</span><span class="dot empty"></span><span class="dot"></span><span class="dot empty"></span><span class="dot empty"></span>
+              <span>USA</span><span class="dot empty"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            </div>
+          </div>
+          <div class="mini-legend">
+            <span><i></i>Analysis present</span>
+            <span><i class="multi-dot"></i>Nyholm et al. included French and German payer perspectives</span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Result interpretation</p>
+          <h2>The economic signal depended on perspective, but high acquisition cost was the recurring pressure point.</h2>
+          <div class="finding-ladder">
+            <div class="finding-step">
+              <i>1</i>
+              <p><strong>Dutch CUA:</strong> sequences beginning with ustekinumab had the lowest costs and highest quality-adjusted life years gained.</p>
+            </div>
+            <div class="finding-step">
+              <i>2</i>
+              <p><strong>Philippine payer analysis:</strong> effectiveness was highly similar to cost-effective treatments, but higher unit drug costs worsened the ICER.</p>
+            </div>
+            <div class="finding-step">
+              <i>3</i>
+              <p><strong>Broad CEM pattern:</strong> at current willingness-to-pay thresholds, the reference product did not clear cost-effectiveness criteria.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-stack" id="conclusion" aria-label="Conclusion and implications">
+        <div class="panel markdown-fragment">
+          <p class="section-label">Conclusion</p>
+          <h2>Clinical value did not consistently translate into economic value for the reference product.</h2>
+          <p>
+            The review concluded that although ustekinumab's reference product is effective for patients with psoriasis, its use may not provide an economic benefit under current pricing and payer conditions.
+          </p>
+        </div>
+        <div class="panel biosimilar-callout">
+          <p class="section-label">Access implication</p>
+          <h2>Biosimilars were framed as the next economic lever.</h2>
+          <p>
+            Lower-cost ustekinumab biosimilars were expected to improve budget impact, cost-effectiveness profile, willingness-to-pay alignment, healthcare resource utilization, and patient access.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/2164-PSP98-EN-Poster-AM25_2025.pdf">Open original PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/2164-PSP98-EN-Poster-AM25_2025.md">Read extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

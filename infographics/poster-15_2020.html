@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>At-Home GCSF Care Coordination During COVID-19 | NASP 2020</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card .finding {
+      margin: 0;
+      border-left: 4px solid var(--red);
+      padding-left: 0.72rem;
+      color: var(--ink);
+      font-size: 0.95rem;
+      font-weight: 850;
+    }
+    .gcsf-art {
+      display: grid;
+      place-items: center;
+      min-height: 15rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 18% 20%, rgba(24, 124, 143, 0.18), transparent 7rem),
+        radial-gradient(circle at 86% 82%, rgba(233, 158, 37, 0.24), transparent 8rem),
+        linear-gradient(135deg, #fff 0%, var(--surface-blue) 58%, var(--surface-warm) 100%);
+      overflow: hidden;
+    }
+    .gcsf-art svg {
+      width: 100%;
+      height: auto;
+      min-height: 15rem;
+    }
+    .metric-card p {
+      margin: 0.42rem 0 0;
+      font-size: 0.76rem;
+    }
+    .access-panel {
+      display: grid;
+      grid-template-columns: minmax(14rem, 0.62fr) minmax(0, 1.38fr);
+      gap: 1rem;
+      align-items: center;
+    }
+    .donut-card {
+      display: grid;
+      place-items: center;
+      min-height: 16rem;
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background: #fff;
+      text-align: center;
+    }
+    .donut {
+      position: relative;
+      width: min(13rem, 78vw);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: conic-gradient(var(--teal) 0 36.5%, var(--green) 36.5% 67.2%, #dfe6f1 67.2% 100%);
+    }
+    .donut::after {
+      content: "";
+      position: absolute;
+      inset: 1.7rem;
+      border-radius: inherit;
+      background: #fff;
+      box-shadow: inset 0 0 0 1px rgba(36, 55, 112, 0.16);
+    }
+    .donut-label {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-weight: 900;
+      line-height: 1;
+    }
+    .donut-label strong {
+      color: var(--red);
+      font-size: 3.4rem;
+    }
+    .donut-label span {
+      display: block;
+      margin-top: 0.28rem;
+      color: var(--muted);
+      font-family: var(--font-body);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+    .transition-bars {
+      display: grid;
+      gap: 0.75rem;
+    }
+    .transition-row {
+      display: grid;
+      grid-template-columns: 9.4rem minmax(0, 1fr) 3.5rem;
+      gap: 0.6rem;
+      align-items: center;
+    }
+    .transition-row b {
+      color: var(--ink);
+      font-size: 0.82rem;
+      line-height: 1.15;
+    }
+    .transition-track {
+      height: 1.18rem;
+      border: 1px solid rgba(36, 55, 112, 0.15);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .transition-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: var(--c, var(--red));
+    }
+    .transition-row span {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-weight: 900;
+      text-align: right;
+    }
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-top: 0.8rem;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 800;
+    }
+    .legend i {
+      display: inline-block;
+      width: 0.78rem;
+      height: 0.78rem;
+      margin-right: 0.26rem;
+      border-radius: 2px;
+      vertical-align: -0.08rem;
+      background: var(--c);
+    }
+    .flow-panel {
+      overflow: hidden;
+    }
+    .workflow {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.75rem;
+    }
+    .workflow-step {
+      position: relative;
+      min-height: 8.8rem;
+      border: 1px solid var(--border-strong);
+      border-top: 0.35rem solid var(--accent, var(--red));
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.7rem;
+    }
+    .workflow-step::after {
+      content: attr(data-step);
+      position: absolute;
+      right: 0.42rem;
+      bottom: -0.45rem;
+      color: rgba(36, 55, 112, 0.12);
+      font-family: var(--font-display);
+      font-size: 3.8rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .workflow-step h3,
+    .workflow-step p {
+      position: relative;
+      z-index: 1;
+    }
+    .workflow-step p {
+      margin: 0.45rem 0 0;
+      font-size: 0.78rem;
+    }
+    .workflow-step:nth-child(2) { --accent: var(--gold); }
+    .workflow-step:nth-child(3) { --accent: var(--teal); }
+    .workflow-step:nth-child(4) { --accent: var(--green); }
+    .workflow-step:nth-child(5) { --accent: var(--purple); }
+    .workflow-step:nth-child(6) { --accent: var(--red); }
+    .tat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+    .tat-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+    }
+    .tat-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.7rem;
+      margin-bottom: 0.7rem;
+    }
+    .tat-head strong {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.85rem;
+      line-height: 1;
+    }
+    .mini-bars {
+      display: grid;
+      gap: 0.43rem;
+    }
+    .mini-row {
+      display: grid;
+      grid-template-columns: 3.2rem minmax(0, 1fr) 2.2rem;
+      gap: 0.45rem;
+      align-items: center;
+      font-size: 0.74rem;
+    }
+    .mini-row b {
+      color: var(--ink);
+      font-weight: 850;
+    }
+    .mini-track {
+      height: 0.78rem;
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .mini-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .mini-row span {
+      color: var(--muted);
+      font-weight: 900;
+      text-align: right;
+    }
+    .finance-panel {
+      display: grid;
+      grid-template-columns: minmax(16rem, 0.78fr) minmax(0, 1.22fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .money-card {
+      display: grid;
+      align-content: center;
+      border: 2px solid var(--red);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(209, 38, 48, 0.1), rgba(233, 158, 37, 0.15)),
+        #fff;
+      padding: 1rem;
+    }
+    .money-card strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(2.7rem, 6vw, 5.1rem);
+      line-height: 0.95;
+    }
+    .money-card span {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--ink);
+      font-weight: 900;
+    }
+    .assist-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.65rem;
+    }
+    .assist-tile {
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.76rem;
+    }
+    .assist-tile b {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.42rem;
+      line-height: 1;
+    }
+    .assist-tile span {
+      display: block;
+      margin-top: 0.26rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 850;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+    .takeaway {
+      border-left: 5px solid var(--red);
+      background: linear-gradient(90deg, rgba(209, 38, 48, 0.08), rgba(255, 255, 255, 0));
+    }
+    .source-note {
+      margin: 0.6rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    @media (max-width: 900px) {
+      .access-panel,
+      .finance-panel {
+        grid-template-columns: 1fr;
+      }
+      .workflow {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 700px) {
+      .tat-grid,
+      .assist-grid {
+        grid-template-columns: 1fr;
+      }
+      .transition-row,
+      .mini-row {
+        grid-template-columns: 1fr;
+      }
+      .transition-row span,
+      .mini-row span {
+        text-align: left;
+      }
+    }
+    @media (max-width: 560px) {
+      .workflow {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar" aria-label="Infographic navigation">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav>
+        <a href="#model">Pilot model</a>
+        <a href="#results">Results</a>
+        <a href="#finance">Financial impact</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-15_2020.pdf">PDF source</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-15_2020.md">Markdown source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2020 Annual Meeting &amp; Expo</p>
+        <h1>Health-system specialty pharmacy coordination moved GCSF injections from clinic to home during COVID-19</h1>
+        <p class="hero-summary">Atrium Health's Levine Cancer Institute and Specialty Pharmacy Service evaluated a rapid pilot that converted medically billed, on-site granulocyte-colony stimulating factor injections into pharmacy billed, at-home self-injection when access and affordability allowed.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Observational quality evaluation</li>
+          <li class="tag therapy">Oncology supportive care</li>
+          <li class="tag therapy">GCSF</li>
+          <li class="tag">COVID-19 care redesign</li>
+        </ul>
+      </div>
+      <aside class="hero-card">
+        <div>
+          <p class="section-label">Poster file</p>
+          <div class="poster-code">Poster-15_2020</div>
+        </div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Institution</dt>
+            <dd>Atrium Health</dd>
+          </div>
+          <div>
+            <dt>Orders</dt>
+            <dd>Mar 23-Apr 23, 2020</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>Specialty pharmacy service</dd>
+          </div>
+          <div>
+            <dt>Authors</dt>
+            <dd>N. Cowgill, G. Fraser III, J. Robicsek</dd>
+          </div>
+        </dl>
+        <p class="finding">Core question: could an integrated health-system specialty pharmacy protect immunocompromised patients from avoidable clinic visits while keeping GCSF access fast and affordable?</p>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key findings">
+        <article class="metric-card">
+          <span>Referred patients</span>
+          <strong>141</strong>
+          <p>Four orders were canceled before prior authorization determination.</p>
+        </article>
+        <article class="metric-card">
+          <span>Transition success</span>
+          <strong>67%</strong>
+          <p>92 of 137 active referrals moved to SPS or an external specialty pharmacy.</p>
+        </article>
+        <article class="metric-card">
+          <span>PA determination TAT</span>
+          <strong>0.97d</strong>
+          <p>Average business days among completed PA determinations.</p>
+        </article>
+        <article class="metric-card">
+          <span>Assistance secured</span>
+          <strong>$470K</strong>
+          <p>Copay cards plus grants for 34 eligible patients.</p>
+        </article>
+      </section>
+
+      <section class="visual-grid" id="model">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Measure whether rapid pharmacy coordination could make at-home GCSF feasible</h2>
+          <div class="markdown-fragment">
+            <p>The evaluation tracked successful transition from on-site administration to pharmacy-provided at-home use, turnaround times for key access endpoints, and the value of financial coordination activities.</p>
+            <p class="source-note">Methods: retrospective quality evaluation of electronic prescribing, EMR messaging, transaction, and dispensing records for prescriptions written March 23 through April 23, 2020.</p>
+          </div>
+          <div class="gcsf-art" aria-hidden="true">
+            <svg viewBox="0 0 460 250" role="img">
+              <defs>
+                <linearGradient id="syringe" x1="0" x2="1">
+                  <stop offset="0" stop-color="#187c8f"/>
+                  <stop offset="1" stop-color="#4d8a67"/>
+                </linearGradient>
+              </defs>
+              <path d="M34 188 C98 82 157 88 220 133 S332 189 428 72" fill="none" stroke="#d9e1ef" stroke-width="18" stroke-linecap="round"/>
+              <circle cx="92" cy="126" r="34" fill="#fff" stroke="#243770" stroke-width="4"/>
+              <path d="M78 126 h28 M92 112 v28" stroke="#d12630" stroke-width="7" stroke-linecap="round"/>
+              <rect x="174" y="92" width="138" height="34" rx="8" fill="url(#syringe)" transform="rotate(-22 243 109)"/>
+              <rect x="298" y="72" width="45" height="11" rx="4" fill="#243770" transform="rotate(-22 320 78)"/>
+              <path d="M151 128 l-34 14" stroke="#243770" stroke-width="5" stroke-linecap="round"/>
+              <path d="M338 77 l54 -22" stroke="#d12630" stroke-width="4" stroke-linecap="round"/>
+              <path d="M391 55 l29 -12" stroke="#d12630" stroke-width="2.5" stroke-linecap="round"/>
+              <rect x="284" y="152" width="94" height="64" rx="8" fill="#fff" stroke="#243770" stroke-width="4"/>
+              <path d="M284 171 h94" stroke="#243770" stroke-width="4"/>
+              <path d="M302 195 h54 M302 181 h28" stroke="#187c8f" stroke-width="6" stroke-linecap="round"/>
+              <circle cx="229" cy="40" r="10" fill="#e99e25"/>
+              <circle cx="403" cy="155" r="8" fill="#7561a8"/>
+              <circle cx="61" cy="59" r="7" fill="#187c8f"/>
+            </svg>
+          </div>
+        </article>
+
+        <article class="panel flow-panel">
+          <p class="section-label">Care coordination map</p>
+          <h2>Provider identification fed a specialty-pharmacy access engine</h2>
+          <div class="workflow" aria-label="GCSF care coordination workflow">
+            <div class="workflow-step" data-step="1">
+              <h3>Identify candidate</h3>
+              <p>Provider evaluates whether at-home self-injection is appropriate.</p>
+            </div>
+            <div class="workflow-step" data-step="2">
+              <h3>Route Rx</h3>
+              <p>Electronic prescription is sent to the Specialty Pharmacy Service.</p>
+            </div>
+            <div class="workflow-step" data-step="3">
+              <h3>Run benefits</h3>
+              <p>Technicians complete benefit investigation, PA support, and appeals.</p>
+            </div>
+            <div class="workflow-step" data-step="4">
+              <h3>Resolve cost</h3>
+              <p>Copay cards, grants, and affordability counseling are pursued.</p>
+            </div>
+            <div class="workflow-step" data-step="5">
+              <h3>Dispense or transfer</h3>
+              <p>Patients fill through SPS or an in-network external specialty pharmacy.</p>
+            </div>
+            <div class="workflow-step" data-step="6">
+              <h3>Fallback clinic</h3>
+              <p>If outpatient dispense is not affordable, clinic administration continues.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel access-panel" id="results">
+        <div class="donut-card" aria-label="Transition success rate visualization">
+          <div class="donut">
+            <div class="donut-label">
+              <div>
+                <strong>67%</strong>
+                <span>transitioned</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p class="section-label">Transition outcome</p>
+          <h2>Two pharmacy pathways absorbed most active referrals</h2>
+          <div class="transition-bars">
+            <div class="transition-row">
+              <b>SPS fill</b>
+              <div class="transition-track"><i style="--w:36.5%; --c:var(--teal);"></i></div>
+              <span>50</span>
+            </div>
+            <div class="transition-row">
+              <b>External specialty pharmacy</b>
+              <div class="transition-track"><i style="--w:30.7%; --c:var(--green);"></i></div>
+              <span>42</span>
+            </div>
+            <div class="transition-row">
+              <b>Remained on-site or autoinjector</b>
+              <div class="transition-track"><i style="--w:32.8%; --c:var(--purple);"></i></div>
+              <span>45</span>
+            </div>
+          </div>
+          <div class="legend" aria-label="Transition denominator">
+            <span><i style="--c:var(--teal);"></i>50 SPS</span>
+            <span><i style="--c:var(--green);"></i>42 external SP</span>
+            <span><i style="--c:var(--purple);"></i>45 unsuccessful</span>
+            <span>Denominator: 137 active referrals</span>
+          </div>
+          <p class="source-note">The poster narrative attributes unsuccessful transition primarily to high copays among patients ineligible for copay cards, plus 4 uninsured patients.</p>
+        </div>
+      </section>
+
+      <section class="tat-grid" aria-label="Turnaround time distributions">
+        <article class="tat-card">
+          <div class="tat-head">
+            <div>
+              <p class="section-label">Prior authorization</p>
+              <h2>PA decisions clustered in 0-1 business days</h2>
+            </div>
+            <strong>0.97d</strong>
+          </div>
+          <div class="mini-bars">
+            <div class="mini-row"><b>Day 0</b><div class="mini-track"><i style="--w:51.7%;"></i></div><span>30</span></div>
+            <div class="mini-row"><b>Day 1</b><div class="mini-track"><i style="--w:100%;"></i></div><span>58</span></div>
+            <div class="mini-row"><b>Day 2</b><div class="mini-track"><i style="--w:15.5%;"></i></div><span>9</span></div>
+            <div class="mini-row"><b>Day 3</b><div class="mini-track"><i style="--w:6.9%;"></i></div><span>4</span></div>
+            <div class="mini-row"><b>Day 4+</b><div class="mini-track"><i style="--w:10.3%;"></i></div><span>6</span></div>
+          </div>
+          <p class="source-note">107 completed determinations after 8 denials or cancellations before determination; 115 referrals required PA and 6 required appeals.</p>
+        </article>
+
+        <article class="tat-card">
+          <div class="tat-head">
+            <div>
+              <p class="section-label">Patient or MD outreach</p>
+              <h2>SPS delivery outreach was usually same or next day</h2>
+            </div>
+            <strong>0.78d</strong>
+          </div>
+          <div class="mini-bars">
+            <div class="mini-row"><b>Day 0</b><div class="mini-track"><i style="--w:95.7%;"></i></div><span>22</span></div>
+            <div class="mini-row"><b>Day 1</b><div class="mini-track"><i style="--w:100%;"></i></div><span>23</span></div>
+            <div class="mini-row"><b>Day 2</b><div class="mini-track"><i style="--w:17.4%;"></i></div><span>4</span></div>
+            <div class="mini-row"><b>Day 8</b><div class="mini-track"><i style="--w:4.3%;"></i></div><span>1</span></div>
+          </div>
+          <p class="source-note">Distribution covers the 50 patients who were able to fill with the Specialty Pharmacy Service.</p>
+        </article>
+      </section>
+
+      <section class="panel finance-panel" id="finance">
+        <div class="money-card">
+          <p class="section-label">Financial coordination</p>
+          <strong>$470,000</strong>
+          <span>Total assistance value secured for eligible patients requesting help.</span>
+        </div>
+        <div>
+          <h2>Affordability determined whether home administration could work</h2>
+          <div class="assist-grid">
+            <div class="assist-tile">
+              <b>34</b>
+              <span>Patients needing assistance</span>
+            </div>
+            <div class="assist-tile">
+              <b>32</b>
+              <span>Copay cards</span>
+            </div>
+            <div class="assist-tile">
+              <b>2</b>
+              <span>Grants</span>
+            </div>
+            <div class="assist-tile">
+              <b>$0.00</b>
+              <span>Median SPS copay</span>
+            </div>
+          </div>
+          <p class="source-note">Copay-card value was $455,000 and grant value was $15,000. Average out-of-pocket copay for SPS fills was $4.67.</p>
+        </div>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">Discussion pattern</p>
+          <h2>Integrated access mattered</h2>
+          <div class="markdown-fragment">
+            <p>Because SPS had provider collaboration and EMR access, technicians could coordinate benefit investigation, authorization, appeals, financial assistance, patient outreach, delivery, external transfer, and clinic fallback without losing visibility into the patient's care path.</p>
+          </div>
+        </article>
+        <article class="panel takeaway">
+          <p class="section-label">Conclusion</p>
+          <h2>Health-system SP services can reduce avoidable clinic visits while preserving access</h2>
+          <div class="markdown-fragment">
+            <p>The pilot showed efficient benefit investigation and care coordination for at-home GCSF self-injection, with low patient costs when financial resources were available and appropriately coordinated.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Source table patterns">
+        <article class="table-card">
+          <p class="section-label">Table pattern</p>
+          <h2>Transition funnel</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Outcome</th><th>Patients</th><th>Share of 137</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>SPS transition</td><td>50</td><td>36.5%</td></tr>
+                <tr><td>External pharmacy transition</td><td>42</td><td>30.7%</td></tr>
+                <tr><td>Unsuccessful transition</td><td>45</td><td>32.8%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+        <article class="table-card">
+          <p class="section-label">Table pattern</p>
+          <h2>Access economics</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Measure</th><th>Value</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Copay card value</td><td>$455,000</td></tr>
+                <tr><td>Grant value</td><td>$15,000</td></tr>
+                <tr><td>Average SPS copay</td><td>$4.67</td></tr>
+                <tr><td>Median SPS copay</td><td>$0.00</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <footer class="footer-actions" aria-label="Source links">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-15_2020.pdf">Open original PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-15_2020.md">Open extracted markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

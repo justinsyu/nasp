@@ -1,0 +1,680 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Impact of HSSP Management on Asthma Outcomes | NASP 2023</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .asthma-hero-art {
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .breath-card {
+      position: relative;
+      min-height: 19rem;
+      overflow: hidden;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 78% 18%, rgba(24, 124, 143, 0.2), transparent 7rem),
+        radial-gradient(circle at 20% 88%, rgba(233, 158, 37, 0.24), transparent 8rem),
+        linear-gradient(145deg, #fff, var(--surface-blue) 58%, var(--surface-warm));
+    }
+
+    .breath-card svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .hero-thesis {
+      margin: 0;
+      border-left: 4px solid var(--red);
+      padding-left: 0.75rem;
+      color: var(--ink);
+      font-size: 0.98rem;
+      font-weight: 850;
+    }
+
+    .signal-board {
+      display: grid;
+      grid-template-columns: minmax(16rem, 0.75fr) minmax(0, 1.25fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .primary-signal {
+      display: grid;
+      align-content: center;
+      min-height: 16rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 88% 12%, rgba(233, 158, 37, 0.28), transparent 6.5rem),
+        var(--ink);
+      padding: 1.1rem;
+      color: #fff;
+    }
+
+    .primary-signal span {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .primary-signal strong {
+      display: block;
+      margin-top: 0.25rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(4rem, 9vw, 6.8rem);
+      line-height: 0.9;
+    }
+
+    .primary-signal p {
+      margin: 0.7rem 0 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.95rem;
+    }
+
+    .act-ladder {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+
+    .act-row {
+      display: grid;
+      grid-template-columns: 8.2rem minmax(0, 1fr) 4.1rem;
+      gap: 0.65rem;
+      align-items: center;
+    }
+
+    .act-row b {
+      color: var(--ink);
+      font-size: 0.82rem;
+      line-height: 1.15;
+    }
+
+    .act-row em {
+      color: var(--ink);
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .act-track {
+      position: relative;
+      height: 1.15rem;
+      overflow: hidden;
+      border: 1px solid rgba(36, 55, 112, 0.15);
+      border-radius: 999px;
+      background: rgba(36, 55, 112, 0.08);
+    }
+
+    .act-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .act-track i.recent {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .act-note {
+      margin: 0.7rem 0 0;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .journey {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .journey-step {
+      position: relative;
+      min-height: 11.5rem;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.9rem;
+    }
+
+    .journey-step::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 0.35rem;
+      background: var(--step-color, var(--red));
+    }
+
+    .journey-step:nth-child(2) { --step-color: var(--gold); }
+    .journey-step:nth-child(3) { --step-color: var(--teal); }
+    .journey-step:nth-child(4) { --step-color: var(--green); }
+
+    .journey-step strong {
+      display: block;
+      margin-bottom: 0.4rem;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      line-height: 1.15;
+    }
+
+    .journey-step p {
+      margin: 0;
+      font-size: 0.84rem;
+    }
+
+    .control-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(16rem, 0.95fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .control-bars {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 0.7rem;
+    }
+
+    .control-row {
+      display: grid;
+      grid-template-columns: 8.8rem minmax(0, 1fr);
+      gap: 0.65rem;
+      align-items: center;
+    }
+
+    .control-row b {
+      color: var(--ink);
+      font-size: 0.82rem;
+      line-height: 1.15;
+    }
+
+    .control-track {
+      display: grid;
+      grid-template-columns: var(--well) var(--notwell);
+      height: 2rem;
+      overflow: hidden;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 999px;
+      background: var(--surface-blue);
+    }
+
+    .control-track i:first-child {
+      background: var(--teal);
+    }
+
+    .control-track i:last-child {
+      background: rgba(209, 38, 48, 0.7);
+    }
+
+    .legend-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.65rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 850;
+    }
+
+    .legend-line i {
+      display: inline-block;
+      width: 0.72rem;
+      height: 0.72rem;
+      margin-right: 0.28rem;
+      border-radius: 99px;
+      vertical-align: -0.1rem;
+      background: var(--teal);
+    }
+
+    .legend-line span:last-child i {
+      background: rgba(209, 38, 48, 0.7);
+    }
+
+    .severity-stack {
+      display: grid;
+      gap: 0.5rem;
+      margin-top: 0.72rem;
+    }
+
+    .severity-pill {
+      display: grid;
+      grid-template-columns: 5rem minmax(0, 1fr) 4.5rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+
+    .mini-track {
+      height: 0.78rem;
+      border-radius: 999px;
+      background: rgba(36, 55, 112, 0.1);
+      overflow: hidden;
+    }
+
+    .mini-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--gold), var(--red));
+    }
+
+    .intervention-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(17rem, 0.9fr);
+      gap: 1rem;
+    }
+
+    .reason-bars {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 0.75rem;
+    }
+
+    .reason-row {
+      display: grid;
+      grid-template-columns: 8.8rem minmax(0, 1fr) 3.6rem;
+      gap: 0.55rem;
+      align-items: center;
+      font-size: 0.78rem;
+    }
+
+    .reason-row b {
+      color: var(--ink);
+      line-height: 1.15;
+    }
+
+    .reason-row span {
+      color: var(--muted);
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .reason-track {
+      height: 0.9rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: rgba(36, 55, 112, 0.08);
+      overflow: hidden;
+    }
+
+    .reason-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .acceptance-card {
+      display: grid;
+      align-content: center;
+      min-height: 18rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, rgba(24, 124, 143, 0.12), transparent 55%),
+        #fff;
+      padding: 1rem;
+    }
+
+    .acceptance-ring {
+      width: min(15rem, 82vw);
+      margin: 0 auto 0.85rem;
+    }
+
+    .acceptance-ring svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .acceptance-card p {
+      margin: 0;
+      text-align: center;
+      font-size: 0.86rem;
+    }
+
+    .takeaway-panel {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(24, 124, 143, 0.12), transparent 44%),
+        #fff;
+    }
+
+    .takeaway-panel p {
+      margin: 0;
+      color: var(--ink);
+      font-size: 1rem;
+      font-weight: 850;
+    }
+
+    .source-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-top: 0.85rem;
+    }
+
+    @media (max-width: 900px) {
+      .signal-board,
+      .control-grid,
+      .intervention-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .journey {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .journey {
+        grid-template-columns: 1fr;
+      }
+
+      .act-row,
+      .control-row,
+      .reason-row,
+      .severity-pill {
+        grid-template-columns: 1fr;
+      }
+
+      .act-row em,
+      .reason-row span {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Sources">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/36_Impact-of-Health-System-Specialty-Pharmacy-Management-on-Clinical-Outcomes-in-Patients-with-Asthma-_2023.pdf">Source PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/36_Impact-of-Health-System-Specialty-Pharmacy-Management-on-Clinical-Outcomes-in-Patients-with-Asthma-_2023.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2023 | Poster 36 | Asthma biologic therapy</p>
+        <h1>Impact of Health System Specialty Pharmacy Management on Clinical Outcomes in Patients with Asthma</h1>
+        <p class="hero-summary">A multicenter retrospective review found clinically meaningful ACT score improvement among patients receiving embedded HSSP pharmacist management, with intervention acceptance near universal.</p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag therapy">Asthma Control Test</li>
+          <li class="tag therapy">Biologics</li>
+          <li class="tag category">Embedded HSSP</li>
+          <li class="tag">July 2019-December 2022</li>
+        </ul>
+        <p class="hero-thesis">Objective: evaluate whether HSSP clinical management was associated with better clinical outcomes in patients with asthma.</p>
+      </div>
+
+      <aside class="hero-card asthma-hero-art" aria-label="Poster metadata and asthma control visual">
+        <div>
+          <div class="poster-code">36</div>
+          <dl class="meta-grid">
+            <div>
+              <dt>Year</dt>
+              <dd>2023</dd>
+            </div>
+            <div>
+              <dt>Design</dt>
+              <dd>Retrospective</dd>
+            </div>
+            <div>
+              <dt>Sites</dt>
+              <dd>Multicenter</dd>
+            </div>
+            <div>
+              <dt>Platform</dt>
+              <dd>Arbor</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="breath-card" role="img" aria-label="Stylized lung and ACT improvement from 14.7 to 18.2">
+          <svg viewBox="0 0 460 310" aria-hidden="true">
+            <defs>
+              <linearGradient id="lungFill" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#187c8f" stop-opacity="0.9"/>
+                <stop offset="1" stop-color="#4d8a67" stop-opacity="0.72"/>
+              </linearGradient>
+              <linearGradient id="actRise" x1="0" x2="1">
+                <stop offset="0" stop-color="#d12630"/>
+                <stop offset="1" stop-color="#e99e25"/>
+              </linearGradient>
+            </defs>
+            <rect x="30" y="242" width="400" height="16" rx="8" fill="#d9e1ef"/>
+            <rect x="30" y="242" width="254" height="16" rx="8" fill="url(#actRise)"/>
+            <text x="30" y="280" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="17" font-weight="850">Baseline ACT 14.7</text>
+            <text x="282" y="280" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="17" font-weight="850" text-anchor="end">18.2 recent</text>
+            <path d="M229 43 C229 78 229 96 229 126" fill="none" stroke="#243770" stroke-width="15" stroke-linecap="round"/>
+            <path d="M229 121 C197 128 183 151 179 183" fill="none" stroke="#243770" stroke-width="11" stroke-linecap="round"/>
+            <path d="M229 121 C262 128 277 151 281 183" fill="none" stroke="#243770" stroke-width="11" stroke-linecap="round"/>
+            <path d="M204 91 C151 88 104 126 91 181 C79 232 113 246 151 222 C185 201 197 155 204 91Z" fill="url(#lungFill)" opacity="0.92"/>
+            <path d="M256 91 C309 88 356 126 369 181 C381 232 347 246 309 222 C275 201 263 155 256 91Z" fill="url(#lungFill)" opacity="0.92"/>
+            <path d="M126 180 C146 168 163 167 183 178" fill="none" stroke="#ffffff" stroke-opacity="0.72" stroke-width="7" stroke-linecap="round"/>
+            <path d="M333 180 C313 168 296 167 276 178" fill="none" stroke="#ffffff" stroke-opacity="0.72" stroke-width="7" stroke-linecap="round"/>
+            <circle cx="344" cy="67" r="35" fill="#fff" stroke="#aebbd2"/>
+            <text x="344" y="62" fill="#d12630" font-family="Montserrat, Arial, sans-serif" font-size="25" font-weight="900" text-anchor="middle">+3.5</text>
+            <text x="344" y="82" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="800" text-anchor="middle">ACT POINTS</text>
+          </svg>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <div class="metric-card">
+          <span>Included patients</span>
+          <strong>648</strong>
+        </div>
+        <div class="metric-card">
+          <span>ACT assessments</span>
+          <strong>1,296</strong>
+        </div>
+        <div class="metric-card">
+          <span>Interventions</span>
+          <strong>451</strong>
+        </div>
+        <div class="metric-card">
+          <span>Accepted recommendations</span>
+          <strong>96.2%</strong>
+        </div>
+      </section>
+
+      <section class="signal-board" aria-labelledby="act-heading">
+        <div class="primary-signal">
+          <span>Clinical signal</span>
+          <strong>50%</strong>
+          <p>of patients achieved a minimally important difference in ACT score, defined by the poster as a change of at least 3 points.</p>
+        </div>
+        <div class="panel">
+          <p class="section-label">ACT improvement</p>
+          <h2 id="act-heading">Mean ACT rose from poor control toward the well-controlled threshold</h2>
+          <div class="act-ladder" aria-label="ACT score comparison">
+            <div class="act-row">
+              <b>Baseline ACT</b>
+              <div class="act-track"><i style="width:58.8%"></i></div>
+              <em>14.7</em>
+            </div>
+            <div class="act-row">
+              <b>Most recent ACT</b>
+              <div class="act-track"><i class="recent" style="width:72.8%"></i></div>
+              <em>18.2</em>
+            </div>
+            <div class="act-row">
+              <b>Mean change</b>
+              <div class="act-track"><i style="width:100%"></i></div>
+              <em>+3.5</em>
+            </div>
+          </div>
+          <p class="act-note">ACT scores were categorized as may not be well controlled when &lt;19 and well controlled when &ge;20.</p>
+        </div>
+      </section>
+
+      <section aria-labelledby="method-heading">
+        <p class="section-label">Evidence flow</p>
+        <h2 id="method-heading">How the cohort was defined and analyzed</h2>
+        <div class="journey">
+          <div class="journey-step">
+            <strong>Eligible asthma diagnosis</strong>
+            <p>Adults with ICD-10 asthma codes J45.0-J45.998 were considered for inclusion.</p>
+          </div>
+          <div class="journey-step">
+            <strong>Biologic therapy</strong>
+            <p>Included therapies were dupilumab, benralizumab, mepolizumab, omalizumab, or tezepelumab-ekko.</p>
+          </div>
+          <div class="journey-step">
+            <strong>Embedded HSSP care</strong>
+            <p>Patients were clinically managed by HSSP allergy and pulmonary specialists embedded in partner sites.</p>
+          </div>
+          <div class="journey-step">
+            <strong>Two ACT scores</strong>
+            <p>Patients needed at least two documented ACT scores; therapies on hold and patients under 18 were excluded.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="control-grid" aria-labelledby="control-heading">
+        <div class="panel">
+          <p class="section-label">Asthma control</p>
+          <h2 id="control-heading">The well-controlled group nearly doubled by most recent assessment</h2>
+          <div class="control-bars" aria-label="Asthma control before and after">
+            <div class="control-row">
+              <b>Baseline assessment</b>
+              <div class="control-track" style="--well:25.6%; --notwell:74.4%">
+                <i title="Well controlled 25.6%"></i>
+                <i title="May not be well controlled 74.4%"></i>
+              </div>
+            </div>
+            <div class="control-row">
+              <b>Most recent assessment</b>
+              <div class="control-track" style="--well:49.1%; --notwell:50.9%">
+                <i title="Well controlled 49.1%"></i>
+                <i title="May not be well controlled 51.9%"></i>
+              </div>
+            </div>
+          </div>
+          <div class="legend-line" aria-hidden="true">
+            <span><i></i>Well controlled</span>
+            <span><i></i>May not be well controlled</span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Severity context</p>
+          <h2>Most patients had moderate or severe asthma</h2>
+          <div class="severity-stack" aria-label="Asthma severity distribution">
+            <div class="severity-pill">
+              <b>Severe</b>
+              <div class="mini-track"><i style="width:55.1%"></i></div>
+              <span>55.1%</span>
+            </div>
+            <div class="severity-pill">
+              <b>Moderate</b>
+              <div class="mini-track"><i style="width:30.2%"></i></div>
+              <span>30.2%</span>
+            </div>
+          </div>
+          <div class="number-cloud">
+            <div class="number-pill">85.3%<small>moderate or severe</small></div>
+            <div class="number-pill">3 pts<small>ACT MID threshold</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="intervention-layout" aria-labelledby="interventions-heading">
+        <div class="panel">
+          <p class="section-label">Pharmacist interventions</p>
+          <h2 id="interventions-heading">Adherence and regimen issues drove most documented intervention reasons</h2>
+          <div class="reason-bars" aria-label="Top intervention reasons">
+            <div class="reason-row">
+              <b>Adherence</b>
+              <div class="reason-track"><i style="width:44.6%"></i></div>
+              <span>44.6%</span>
+            </div>
+            <div class="reason-row">
+              <b>Regimen</b>
+              <div class="reason-track"><i style="width:26.2%"></i></div>
+              <span>26.2%</span>
+            </div>
+            <div class="reason-row">
+              <b>Other clinical/operational</b>
+              <div class="reason-track"><i style="width:12.2%"></i></div>
+              <span>12.2%</span>
+            </div>
+            <div class="reason-row">
+              <b>Drug information</b>
+              <div class="reason-track"><i style="width:7.3%"></i></div>
+              <span>7.3%</span>
+            </div>
+            <div class="reason-row">
+              <b>Adverse drug reaction</b>
+              <div class="reason-track"><i style="width:6.7%"></i></div>
+              <span>6.7%</span>
+            </div>
+            <div class="reason-row">
+              <b>Lab</b>
+              <div class="reason-track"><i style="width:3.1%"></i></div>
+              <span>3.1%</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="acceptance-card" aria-label="Intervention outcomes">
+          <div class="acceptance-ring">
+            <svg viewBox="0 0 220 220" role="img" aria-label="96.2 percent of recommendations accepted">
+              <circle cx="110" cy="110" r="82" fill="none" stroke="#d9e1ef" stroke-width="22"/>
+              <circle cx="110" cy="110" r="82" fill="none" stroke="#187c8f" stroke-width="22" stroke-linecap="round" stroke-dasharray="495 520" transform="rotate(-90 110 110)"/>
+              <text x="110" y="105" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="42" font-weight="900" text-anchor="middle">96.2%</text>
+              <text x="110" y="132" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="850" text-anchor="middle">ACCEPTED</text>
+            </svg>
+          </div>
+          <p>Recommendation outcomes: accepted 96.2%, declined 1.6%, pending 2.2%.</p>
+        </aside>
+      </section>
+
+      <section class="section-stack" aria-label="Interpretation">
+        <div class="panel takeaway-panel">
+          <p>Conclusion: embedded HSSP pulmonary specialist management was associated with clinically significant ACT improvement and a higher proportion of patients reaching asthma control.</p>
+        </div>
+        <div class="panel">
+          <p class="section-label">Why it matters</p>
+          <h2>Access work became clinical work</h2>
+          <div class="markdown-fragment">
+            <p>The poster frames medication access, adherence support, insurance approval, and therapy concern resolution as part of the same clinical management model.</p>
+            <p>High acceptance of pharmacist recommendations supports the value of embedding HSSP pharmacists directly within specialty clinics.</p>
+          </div>
+        </div>
+      </section>
+
+      <footer class="panel">
+        <p class="section-label">Authors</p>
+        <p>Casey Fitzpatrick, PharmD, BCPS; Nicholas D'Angelo, PharmD, CSP, MSCS; Anthony Zuppelli, PharmD, CSP; Ryan VanSice, PharmD, BCPS, CSP; Ashley Blaakman, PharmD, CSP; Lauren Bryant, PharmD, CDCES; Jessica Mourani, PharmD; Nicole Griffith, PharmD, BCPS, AAHIVP.</p>
+        <div class="source-actions">
+          <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/36_Impact-of-Health-System-Specialty-Pharmacy-Management-on-Clinical-Outcomes-in-Patients-with-Asthma-_2023.pdf">Open source PDF</a>
+          <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/36_Impact-of-Health-System-Specialty-Pharmacy-Management-on-Clinical-Outcomes-in-Patients-with-Asthma-_2023.md">Open source markdown</a>
+        </div>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

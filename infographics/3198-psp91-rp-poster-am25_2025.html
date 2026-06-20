@@ -1,0 +1,577 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2025 Infographic | AI Prior Authorization Workflow</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .ai-system {
+      position: relative;
+      min-height: 19rem;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 84% 12%, rgba(233, 158, 37, 0.25), transparent 7.5rem),
+        linear-gradient(145deg, rgba(238, 244, 251, 0.96), #fff 58%, rgba(255, 247, 234, 0.94));
+      padding: 1rem;
+    }
+    .ai-system svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .hero-card .button-link {
+      justify-content: center;
+      background: #fff;
+    }
+    .delta-card {
+      display: grid;
+      align-content: center;
+      min-height: 15rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 86% 18%, rgba(233, 158, 37, 0.36), transparent 9rem),
+        linear-gradient(135deg, var(--ink), #187c8f);
+      color: #fff;
+      padding: 1.1rem;
+    }
+    .delta-card span {
+      color: rgba(255, 255, 255, 0.74);
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+    .delta-card strong {
+      margin-top: 0.26rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(3.2rem, 8vw, 5.8rem);
+      line-height: 0.88;
+    }
+    .delta-card p {
+      max-width: 25rem;
+      margin: 0.7rem 0 0;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 0.95rem;
+    }
+    .approval-bars {
+      display: grid;
+      gap: 0.68rem;
+      margin-top: 0.8rem;
+    }
+    .approval-row,
+    .volume-row,
+    .user-row {
+      display: grid;
+      grid-template-columns: 7.6rem minmax(0, 1fr) 4.5rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+    .approval-track,
+    .volume-track,
+    .user-track {
+      position: relative;
+      height: 1.05rem;
+      overflow: hidden;
+      border: 1px solid rgba(174, 187, 210, 0.8);
+      border-radius: 999px;
+      background: #edf2f8;
+    }
+    .approval-track i,
+    .volume-track i,
+    .user-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .approval-row.no-ai .approval-track i,
+    .volume-row.cmm .volume-track i {
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .timeline-band {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.75rem;
+    }
+    .timeline-step {
+      position: relative;
+      min-height: 9.2rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.82rem;
+    }
+    .timeline-step::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 0.35rem;
+      border-radius: 8px 0 0 8px;
+      background: var(--step-accent, var(--red));
+    }
+    .timeline-step:nth-child(2) { --step-accent: var(--gold); }
+    .timeline-step:nth-child(3) { --step-accent: var(--teal); }
+    .timeline-step b {
+      display: inline-grid;
+      place-items: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: var(--surface-blue);
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+    }
+    .timeline-step h3 {
+      margin-top: 0.55rem;
+    }
+    .timeline-step p {
+      margin: 0.42rem 0 0;
+      font-size: 0.82rem;
+    }
+    .volume-comparison {
+      display: grid;
+      gap: 0.58rem;
+      margin-top: 0.75rem;
+    }
+    .volume-row {
+      grid-template-columns: 4.4rem minmax(0, 1fr) 8.2rem;
+    }
+    .volume-stack {
+      display: grid;
+      grid-template-columns: var(--cmm) var(--latent);
+      height: 1.1rem;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      border-radius: 999px;
+      background: var(--surface-blue);
+    }
+    .volume-stack span:first-child { background: linear-gradient(90deg, var(--red), var(--gold)); }
+    .volume-stack span:last-child { background: linear-gradient(90deg, var(--teal), var(--green)); }
+    .legend-pair {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem 0.85rem;
+      margin-top: 0.65rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 850;
+    }
+    .legend-pair i {
+      display: inline-block;
+      width: 0.72rem;
+      height: 0.72rem;
+      margin-right: 0.28rem;
+      border-radius: 2px;
+      vertical-align: -0.08rem;
+      background: var(--red);
+    }
+    .legend-pair span:last-child i { background: var(--teal); }
+    .user-plot {
+      display: grid;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+    .user-row {
+      grid-template-columns: 4.8rem minmax(0, 1fr) 6rem;
+    }
+    .user-track i {
+      background: linear-gradient(90deg, var(--purple), var(--teal));
+    }
+    .source-note {
+      margin: 0.75rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+    .compact-list {
+      display: grid;
+      gap: 0.48rem;
+      margin: 0.7rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .compact-list li {
+      border-left: 4px solid var(--teal);
+      background: var(--surface-blue);
+      padding: 0.58rem 0.7rem;
+      font-size: 0.86rem;
+    }
+    .compact-list li:nth-child(2) {
+      border-color: var(--gold);
+      background: var(--surface-warm);
+    }
+    .compact-list li:nth-child(3) {
+      border-color: var(--red);
+      background: #fff;
+    }
+    .mini-table td:nth-child(n+2),
+    .mini-table th:nth-child(n+2) {
+      text-align: right;
+    }
+    .signal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    @media (max-width: 900px) {
+      .timeline-band,
+      .signal-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 620px) {
+      .approval-row,
+      .volume-row,
+      .user-row {
+        grid-template-columns: 1fr;
+      }
+      .approval-row span:last-child,
+      .volume-row span:last-child,
+      .user-row span:last-child {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/3198-PSP91-RP-Poster-AM25_2025.pdf">Poster PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/3198-PSP91-RP-Poster-AM25_2025.md">Markdown Source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">2025 Annual Meeting Poster | 3198-PSP91-RP</p>
+        <h1>The role of artificial intelligence in streamlining prior authorizations within a health-system specialty pharmacy</h1>
+        <p class="hero-summary">
+          The Ohio State University Wexner Medical Center evaluated whether Latent Health AI could improve electronic prior authorization outcomes and workflow efficiency for specialty medication access.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Prospective single-center QI study</li>
+          <li class="tag therapy">Health-system specialty pharmacy</li>
+          <li class="tag therapy">Prior authorizations</li>
+          <li class="tag">Latent Health + CoverMyMeds</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster details">
+        <div class="poster-code">AM25<br>3198-PSP91-RP</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Setting</dt>
+            <dd>OSUWMC</dd>
+          </div>
+          <div>
+            <dt>Primary lens</dt>
+            <dd>PA approval</dd>
+          </div>
+          <div>
+            <dt>Study period</dt>
+            <dd>Jan-Jun 2025</dd>
+          </div>
+          <div>
+            <dt>Washout</dt>
+            <dd>Oct-Dec 2024</dd>
+          </div>
+        </dl>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/3198-PSP91-RP-Poster-AM25_2025.pdf">Open poster PDF</a>
+      </aside>
+    </section>
+
+    <main>
+      <section id="snapshot" class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>AI approval average</span>
+          <strong>81.9%</strong>
+        </article>
+        <article class="metric-card">
+          <span>No-AI approval average</span>
+          <strong>80.2%</strong>
+        </article>
+        <article class="metric-card">
+          <span>Latent volume, Jan-Jun</span>
+          <strong>8,487</strong>
+        </article>
+        <article class="metric-card">
+          <span>Peak AI users</span>
+          <strong>16</strong>
+        </article>
+      </section>
+
+      <section class="visual-grid" aria-label="AI authorization workflow and approval delta">
+        <article class="ai-system">
+          <svg viewBox="0 0 520 330" role="img" aria-labelledby="ai-title ai-desc">
+            <title id="ai-title">AI-supported prior authorization workflow</title>
+            <desc id="ai-desc">A stylized workflow links specialty medication prescription, CoverMyMeds, Latent Health AI, and approval decision.</desc>
+            <defs>
+              <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L9,3 z" fill="#243770"></path>
+              </marker>
+              <linearGradient id="nodeFill" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ffffff"></stop>
+                <stop offset="1" stop-color="#eef4fb"></stop>
+              </linearGradient>
+            </defs>
+            <rect x="26" y="46" width="126" height="92" rx="12" fill="url(#nodeFill)" stroke="#aebbd2" stroke-width="3"></rect>
+            <path d="M58 80h62M58 103h45" stroke="#187c8f" stroke-width="8" stroke-linecap="round"></path>
+            <circle cx="90" cy="165" r="34" fill="#fff7ea" stroke="#e99e25" stroke-width="4"></circle>
+            <path d="M75 165h30M90 150v30" stroke="#d12630" stroke-width="8" stroke-linecap="round"></path>
+            <rect x="207" y="66" width="116" height="106" rx="14" fill="#ffffff" stroke="#243770" stroke-width="4"></rect>
+            <text x="265" y="112" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="20" font-weight="900">CMM</text>
+            <path d="M234 135h63" stroke="#d12630" stroke-width="8" stroke-linecap="round"></path>
+            <circle cx="392" cy="119" r="61" fill="#eef4fb" stroke="#187c8f" stroke-width="5"></circle>
+            <path d="M392 72v94M345 119h94" stroke="#187c8f" stroke-width="5" stroke-linecap="round" opacity="0.55"></path>
+            <path d="M373 116c0-16 10-26 23-26 12 0 22 10 22 24 0 17-14 27-26 27h-18v-25z" fill="#ffffff" stroke="#243770" stroke-width="5" stroke-linejoin="round"></path>
+            <circle cx="392" cy="116" r="5" fill="#d12630"></circle>
+            <text x="392" y="209" text-anchor="middle" fill="#243770" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800">Latent Health AI</text>
+            <circle cx="265" cy="264" r="42" fill="#ffffff" stroke="#4d8a67" stroke-width="5"></circle>
+            <path d="M244 263l14 15 32-38" fill="none" stroke="#4d8a67" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M154 98h43M324 119h34M375 189c-31 51-72 74-111 75M224 246c-52-22-86-49-112-81" fill="none" stroke="#243770" stroke-width="5" stroke-linecap="round" marker-end="url(#arrowhead)"></path>
+            <text x="87" y="244" text-anchor="middle" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="800">Specialty PA</text>
+            <text x="265" y="319" text-anchor="middle" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="800">Approval decision</text>
+          </svg>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Approval rate signal</p>
+          <h2>AI implementation produced a modest average approval-rate lift</h2>
+          <div class="approval-bars">
+            <div class="approval-row">
+              <span>AI average</span>
+              <div class="approval-track" aria-label="AI average 81.9 percent"><i style="width:81.9%"></i></div>
+              <span>81.9%</span>
+            </div>
+            <div class="approval-row no-ai">
+              <span>No AI average</span>
+              <div class="approval-track" aria-label="No AI average 80.2 percent"><i style="width:80.2%"></i></div>
+              <span>80.2%</span>
+            </div>
+          </div>
+          <p class="source-note">Poster-reported study-period averages: AI 81.9% approved vs no AI 80.2% approved.</p>
+        </article>
+      </section>
+
+      <section class="signal-grid">
+        <article class="delta-card">
+          <span>Average approval delta</span>
+          <strong>+1.7 pp</strong>
+          <p>Across the poster's study-period averages, AI-supported submissions had a small positive difference in approval rate compared with non-AI submissions.</p>
+        </article>
+        <article class="panel">
+          <p class="section-label">Study frame</p>
+          <h2>Pre, washout, and post-implementation windows separate the evidence</h2>
+          <div class="timeline-band">
+            <article class="timeline-step">
+              <b>1</b>
+              <h3>Pre-implementation</h3>
+              <p>September 2023 through December 2024 CoverMyMeds workflow data established baseline PA performance.</p>
+            </article>
+            <article class="timeline-step">
+              <b>2</b>
+              <h3>Washout</h3>
+              <p>October through December 2024 was treated as the Latent Health implementation washout period.</p>
+            </article>
+            <article class="timeline-step">
+              <b>3</b>
+              <h3>Study period</h3>
+              <p>January through June 2025 tables compare AI, no-AI, and submitted-volume patterns.</p>
+            </article>
+          </div>
+        </article>
+      </section>
+
+      <section id="evidence" class="evidence-map" aria-label="Extracted poster takeaways">
+        <article class="evidence-card">
+          <h3>Background</h3>
+          <p>Specialty medication prior authorizations can delay therapy, increase administrative work, and burden pharmacy and clinic teams.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Objective</h3>
+          <p>Determine AI's impact on prior authorization approval rates and turnaround time in a health-system specialty pharmacy.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Methods</h3>
+          <p>Prospective, single-center quality improvement study of specialty pharmacy PAs from OSUWMC providers.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Data sources</h3>
+          <p>CoverMyMeds and Latent Health dashboards supplied active time, clinical time, and approval or denial status.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Conclusion</h3>
+          <p>Latent Health implementation improved average approval rates and may scale administrative-burden reduction.</p>
+        </article>
+      </section>
+
+      <section id="results" class="visual-grid" aria-label="Submission volume and utilization results">
+        <article class="panel">
+          <p class="section-label">Submitted volume</p>
+          <h2>Latent Health carried the larger submission volume in every reported study month</h2>
+          <div class="volume-comparison">
+            <div class="volume-row">
+              <span>Jan</span>
+              <div class="volume-stack" style="--cmm:43.8%; --latent:56.2%" aria-label="January CMM 981 Latent 1261"><span></span><span></span></div>
+              <span>981 / 1,261</span>
+            </div>
+            <div class="volume-row">
+              <span>Feb</span>
+              <div class="volume-stack" style="--cmm:29.7%; --latent:70.3%" aria-label="February CMM 650 Latent 1537"><span></span><span></span></div>
+              <span>650 / 1,537</span>
+            </div>
+            <div class="volume-row">
+              <span>Mar</span>
+              <div class="volume-stack" style="--cmm:26.7%; --latent:73.3%" aria-label="March CMM 563 Latent 1546"><span></span><span></span></div>
+              <span>563 / 1,546</span>
+            </div>
+            <div class="volume-row">
+              <span>Apr</span>
+              <div class="volume-stack" style="--cmm:23.5%; --latent:76.5%" aria-label="April CMM 570 Latent 1856"><span></span><span></span></div>
+              <span>570 / 1,856</span>
+            </div>
+            <div class="volume-row">
+              <span>May</span>
+              <div class="volume-stack" style="--cmm:27.0%; --latent:73.0%" aria-label="May CMM 505 Latent 1368"><span></span><span></span></div>
+              <span>505 / 1,368</span>
+            </div>
+            <div class="volume-row">
+              <span>Jun</span>
+              <div class="volume-stack" style="--cmm:37.8%; --latent:62.2%" aria-label="June CMM 558 Latent 919"><span></span><span></span></div>
+              <span>558 / 919</span>
+            </div>
+          </div>
+          <div class="legend-pair">
+            <span><i></i>CoverMyMeds</span>
+            <span><i></i>Latent Health</span>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">AI utilization</p>
+          <h2>Use expanded after washout, with per-user submissions peaking in February</h2>
+          <div class="user-plot">
+            <div class="user-row">
+              <span>Jan-25</span>
+              <div class="user-track" aria-label="January 30.5 submissions per user"><i style="width:27.7%"></i></div>
+              <span>30.5 / 11 users</span>
+            </div>
+            <div class="user-row">
+              <span>Feb-25</span>
+              <div class="user-track" aria-label="February 110.1 submissions per user"><i style="width:100%"></i></div>
+              <span>110.1 / 12 users</span>
+            </div>
+            <div class="user-row">
+              <span>Mar-25</span>
+              <div class="user-track" aria-label="March 104.6 submissions per user"><i style="width:95.0%"></i></div>
+              <span>104.6 / 16 users</span>
+            </div>
+            <div class="user-row">
+              <span>Apr-25</span>
+              <div class="user-track" aria-label="April 106.1 submissions per user"><i style="width:96.4%"></i></div>
+              <span>106.1 / 14 users</span>
+            </div>
+            <div class="user-row">
+              <span>May-25</span>
+              <div class="user-track" aria-label="May 67.9 submissions per user"><i style="width:61.7%"></i></div>
+              <span>67.9 / 16 users</span>
+            </div>
+          </div>
+          <p class="source-note">June listed 13 users but did not report submissions per user in the extracted table.</p>
+        </article>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">What changed operationally</p>
+          <h2>AI sits inside an already electronic prior authorization workflow</h2>
+          <ul class="compact-list">
+            <li>OSUWMC primarily completed PAs electronically through CoverMyMeds using dedicated prior authorization coordinators.</li>
+            <li>Latent Health was evaluated as a tool to reduce manual workflow inefficiency, treatment delays, and team workload.</li>
+            <li>Included prescriptions required prior authorization from OSUWMC providers; prescriptions not requiring PA were excluded.</li>
+          </ul>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Approval detail</p>
+          <h2>Monthly approved percentages varied, but averages favored AI</h2>
+          <div class="table-wrap">
+            <table class="mini-table">
+              <thead>
+                <tr>
+                  <th>Month</th>
+                  <th>AI approved</th>
+                  <th>No-AI approved</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Jan</td><td>81.0%</td><td>80.82%</td></tr>
+                <tr><td>Feb</td><td>82.4%</td><td>82.12%</td></tr>
+                <tr><td>Mar</td><td>80.2%</td><td>82.81%</td></tr>
+                <tr><td>Apr</td><td>78.5%</td><td>83.86%</td></tr>
+                <tr><td>May</td><td>81.1%</td><td>79.95%</td></tr>
+                <tr><td>Jun</td><td>78.1%</td><td>not reported</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Condensed source tables">
+        <article class="table-card">
+          <p class="section-label">Volume totals</p>
+          <h2>January-June submitted PA volume</h2>
+          <div class="table-wrap">
+            <table class="mini-table">
+              <thead>
+                <tr>
+                  <th>Platform</th>
+                  <th>Submitted volume</th>
+                  <th>Share</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Latent Health</td><td>8,487</td><td>68.9%</td></tr>
+                <tr><td>CoverMyMeds</td><td>3,827</td><td>31.1%</td></tr>
+                <tr><td>Total</td><td>12,314</td><td>100.0%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Poster bottom line</p>
+          <h2>Scalable access support, with a measured approval signal</h2>
+          <div class="markdown-fragment">
+            <p>
+              The poster concludes that Latent Health improved prior authorization approval rates, increasing the average from 80.2% without AI to 81.9% with AI.
+            </p>
+            <p>
+              The authors frame the findings as potential support for AI as a scalable health-system specialty pharmacy tool to reduce administrative burden and optimize medication access.
+            </p>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/3198-PSP91-RP-Poster-AM25_2025.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/3198-PSP91-RP-Poster-AM25_2025.md">Source markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

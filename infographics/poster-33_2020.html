@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Enhanced Oral Chemotherapy Care Model | NASP 2020</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -4rem -5rem auto auto;
+      width: 14rem;
+      height: 14rem;
+      border: 1.2rem solid rgba(24, 124, 143, 0.13);
+      border-radius: 50%;
+    }
+
+    .hero-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .safety-scene {
+      min-height: 14.5rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(209, 38, 48, 0.12), transparent 6rem),
+        radial-gradient(circle at 78% 82%, rgba(233, 158, 37, 0.18), transparent 7rem),
+        linear-gradient(145deg, #ffffff, var(--surface-blue));
+      overflow: hidden;
+    }
+
+    .safety-scene svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      min-height: 14.5rem;
+    }
+
+    .metric-card p,
+    .source-note {
+      margin: 0.42rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 750;
+    }
+
+    .metric-card strong.small {
+      font-size: clamp(1.45rem, 3vw, 2rem);
+    }
+
+    .checkpoint-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.8rem;
+    }
+
+    .checkpoint {
+      position: relative;
+      min-height: 10.5rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+      overflow: hidden;
+    }
+
+    .checkpoint::before {
+      content: attr(data-step);
+      position: absolute;
+      right: 0.5rem;
+      bottom: -0.55rem;
+      color: rgba(36, 55, 112, 0.1);
+      font-family: var(--font-display);
+      font-size: 4.4rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .checkpoint h3,
+    .checkpoint p {
+      position: relative;
+      z-index: 1;
+    }
+
+    .checkpoint p {
+      margin: 0.52rem 0 0;
+      font-size: 0.82rem;
+    }
+
+    .split-board {
+      display: grid;
+      grid-template-columns: minmax(16rem, 0.7fr) minmax(0, 1.3fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .headline-card {
+      display: grid;
+      align-content: center;
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 84% 18%, rgba(233, 158, 37, 0.28), transparent 7rem),
+        linear-gradient(145deg, var(--ink), #162657);
+      padding: 1.1rem;
+      color: #fff;
+    }
+
+    .headline-card span {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .headline-card strong {
+      display: block;
+      margin-top: 0.22rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(4.1rem, 9vw, 7rem);
+      line-height: 0.88;
+    }
+
+    .headline-card p {
+      margin: 0.72rem 0 0;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 0.92rem;
+    }
+
+    .bar-board {
+      display: grid;
+      gap: 0.66rem;
+      margin-top: 0.85rem;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 10.8rem minmax(0, 1fr) 3.4rem;
+      gap: 0.6rem;
+      align-items: center;
+    }
+
+    .bar-row .label {
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+
+    .bar-track {
+      height: 0.95rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: #e8eef7;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .bar-fill.teal {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .bar-fill.purple {
+      background: linear-gradient(90deg, var(--purple), var(--teal));
+    }
+
+    .bar-row .value {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .outcome-board {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.8rem;
+    }
+
+    .outcome-tile {
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.72rem;
+    }
+
+    .outcome-tile strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      line-height: 1;
+    }
+
+    .outcome-tile span {
+      display: block;
+      margin-top: 0.34rem;
+      color: var(--body);
+      font-size: 0.74rem;
+      font-weight: 780;
+    }
+
+    .takeaway {
+      border-left: 5px solid var(--red);
+      background:
+        linear-gradient(90deg, rgba(209, 38, 48, 0.08), rgba(255, 255, 255, 0)),
+        #fff;
+    }
+
+    .compact-list {
+      margin: 0.55rem 0 0 1rem;
+      padding: 0;
+    }
+
+    .compact-list li {
+      margin: 0.22rem 0;
+      font-size: 0.86rem;
+    }
+
+    @media (max-width: 900px) {
+      .checkpoint-grid,
+      .split-board,
+      .outcome-board {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 680px) {
+      .checkpoint-grid,
+      .split-board,
+      .outcome-board,
+      .bar-row {
+        grid-template-columns: 1fr;
+      }
+
+      .bar-row .value {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar" aria-label="Infographic navigation">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav>
+        <a href="#workflow">Workflow</a>
+        <a href="#results">Results</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-33_2020.pdf">PDF source</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-33_2020.md">Markdown source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2020 | Poster-33</p>
+        <h1>Implementation of an enhanced oral chemotherapy care model to prevent medication errors</h1>
+        <p class="hero-summary">A hospital-owned specialty pharmacy built a refill safeguard for high-risk cyclic oral chemotherapy: flag the patient, review labs before dispensing, intervene with prescribers when risk appears, and repeat the check before each cycle.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Medication safety</li>
+          <li class="tag therapy">Oral chemotherapy</li>
+          <li class="tag therapy">Specialty pharmacy</li>
+          <li class="tag">Laboratory pre-screen</li>
+        </ul>
+      </div>
+      <aside class="hero-card">
+        <div>
+          <p class="section-label">Poster file</p>
+          <div class="poster-code">33_2020</div>
+        </div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Program window</dt>
+            <dd>Feb 17-Jun 19, 2020</dd>
+          </div>
+          <div>
+            <dt>Site</dt>
+            <dd>Inova Specialty Pharmacy</dd>
+          </div>
+          <div>
+            <dt>Population</dt>
+            <dd>Adults with cancer on cyclic OC</dd>
+          </div>
+          <div>
+            <dt>Author group</dt>
+            <dd>Shields Health Solutions</dd>
+          </div>
+        </dl>
+        <div class="safety-scene" aria-label="Oral chemotherapy safety checkpoint illustration">
+          <svg viewBox="0 0 520 300" role="img" aria-labelledby="scene-title scene-desc">
+            <title id="scene-title">Cyclic oral chemotherapy refill safety model</title>
+            <desc id="scene-desc">Medication bottle, laboratory panel, pharmacist review, and high-risk refill shield connected in a cycle.</desc>
+            <defs>
+              <linearGradient id="shieldGrad" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#d12630"/>
+                <stop offset="1" stop-color="#e99e25"/>
+              </linearGradient>
+              <linearGradient id="tealGrad" x1="0" x2="1" y1="0" y2="0">
+                <stop offset="0" stop-color="#187c8f"/>
+                <stop offset="1" stop-color="#4d8a67"/>
+              </linearGradient>
+            </defs>
+            <rect x="36" y="58" width="122" height="164" rx="20" fill="#fff" stroke="#aebbd2" stroke-width="4"/>
+            <rect x="64" y="34" width="66" height="38" rx="9" fill="#243770"/>
+            <rect x="62" y="104" width="70" height="18" rx="9" fill="#eef4fb"/>
+            <circle cx="98" cy="156" r="36" fill="url(#shieldGrad)" opacity="0.94"/>
+            <path d="M98 126 l28 10 v20 c0 21-13 35-28 43-15-8-28-22-28-43v-20z" fill="#fff" opacity="0.94"/>
+            <path d="M84 157 l10 11 20-27" fill="none" stroke="#187c8f" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="200" y="38" width="142" height="176" rx="14" fill="#ffffff" stroke="#aebbd2" stroke-width="4"/>
+            <rect x="218" y="62" width="106" height="16" rx="8" fill="#243770"/>
+            <rect x="220" y="100" width="82" height="11" rx="5.5" fill="#d9e1ef"/>
+            <rect x="220" y="126" width="98" height="11" rx="5.5" fill="#d9e1ef"/>
+            <rect x="220" y="152" width="54" height="11" rx="5.5" fill="#d12630" opacity="0.82"/>
+            <rect x="220" y="178" width="88" height="11" rx="5.5" fill="#d9e1ef"/>
+            <path d="M350 150 C390 102 438 98 468 128" fill="none" stroke="#187c8f" stroke-width="8" stroke-linecap="round"/>
+            <path d="M350 150 C390 198 438 202 468 172" fill="none" stroke="#187c8f" stroke-width="8" stroke-linecap="round" opacity="0.42"/>
+            <path d="M458 113 l18 17-23 9" fill="none" stroke="#187c8f" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M458 187 l18-17-23-9" fill="none" stroke="#187c8f" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="0.42"/>
+            <circle cx="417" cy="150" r="45" fill="#fff" stroke="#aebbd2" stroke-width="4"/>
+            <path d="M417 113 l36 13 v27 c0 26-16 43-36 53-20-10-36-27-36-53v-27z" fill="url(#tealGrad)"/>
+            <text x="417" y="154" text-anchor="middle" fill="#fff" font-family="Montserrat, Arial, sans-serif" font-size="22" font-weight="900">REFILL</text>
+            <text x="417" y="178" text-anchor="middle" fill="#fff" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800">CHECK</text>
+            <circle cx="178" cy="244" r="8" fill="#d12630"/>
+            <circle cx="244" cy="244" r="8" fill="#e99e25"/>
+            <circle cx="310" cy="244" r="8" fill="#187c8f"/>
+            <circle cx="376" cy="244" r="8" fill="#4d8a67"/>
+            <path d="M186 244 h50 M252 244 h50 M318 244 h50" stroke="#aebbd2" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <div class="metric-card">
+          <span>Unique patients</span>
+          <strong>34</strong>
+          <p>High-risk cyclic oral chemotherapy patients during the first four months.</p>
+        </div>
+        <div class="metric-card">
+          <span>Lab monitoring interventions</span>
+          <strong>7</strong>
+          <p>Equivalent to 20.6% of the initial cohort.</p>
+        </div>
+        <div class="metric-card">
+          <span>Largest intervention category</span>
+          <strong>25</strong>
+          <p>Drug-safety interventions exceeded adherence, appropriateness, effectiveness, and lab categories.</p>
+        </div>
+        <div class="metric-card">
+          <span>Clinical pattern</span>
+          <strong class="small">17%</strong>
+          <p>Top listed outcome: elimination of therapy inappropriateness.</p>
+        </div>
+      </section>
+
+      <section id="workflow" class="panel">
+        <p class="section-label">Evidence flow</p>
+        <h2>A refill protocol that treats each cycle as a fresh safety gate</h2>
+        <div class="checkpoint-grid">
+          <article class="checkpoint" data-step="1">
+            <h3>Flag high-risk OC starts</h3>
+            <p>New common cyclic oral chemotherapy starts were marked "High-Risk" in the pharmacy profile.</p>
+          </article>
+          <article class="checkpoint" data-step="2">
+            <h3>Check labs before fill</h3>
+            <p>Pharmacists reviewed available electronic medical record labs against reference values and missing records.</p>
+          </article>
+          <article class="checkpoint" data-step="3">
+            <h3>Intervene when risk appears</h3>
+            <p>Concerns triggered physician interventions, prescriber messages, care-team email summaries, or refill timing changes.</p>
+          </article>
+          <article class="checkpoint" data-step="4">
+            <h3>Repeat before next cycle</h3>
+            <p>A cyclic pre-screen encounter was set before subsequent dispensations, with outreach and education as needed.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="results" class="split-board">
+        <div class="headline-card">
+          <span>Why it mattered</span>
+          <strong>20.6%</strong>
+          <p>of patients had interventions tied to increased laboratory monitoring after the enhanced care model was introduced.</p>
+        </div>
+        <div class="panel">
+          <p class="section-label">Intervention mix</p>
+          <h2>Drug safety dominated the early intervention pattern</h2>
+          <div class="bar-board" aria-label="Intervention category counts">
+            <div class="bar-row">
+              <span class="label">Drug safety</span>
+              <span class="bar-track"><span class="bar-fill" style="width: 100%"></span></span>
+              <span class="value">25</span>
+            </div>
+            <div class="bar-row">
+              <span class="label">Adherence</span>
+              <span class="bar-track"><span class="bar-fill teal" style="width: 20%"></span></span>
+              <span class="value">5</span>
+            </div>
+            <div class="bar-row">
+              <span class="label">Effectiveness</span>
+              <span class="bar-track"><span class="bar-fill teal" style="width: 20%"></span></span>
+              <span class="value">5</span>
+            </div>
+            <div class="bar-row">
+              <span class="label">Appropriateness</span>
+              <span class="bar-track"><span class="bar-fill purple" style="width: 16%"></span></span>
+              <span class="value">4</span>
+            </div>
+            <div class="bar-row">
+              <span class="label">Lab abnormalities</span>
+              <span class="bar-track"><span class="bar-fill purple" style="width: 8%"></span></span>
+              <span class="value">2</span>
+            </div>
+          </div>
+          <p class="source-note">Counts are reproduced from the poster's intervention category table.</p>
+        </div>
+      </section>
+
+      <section class="visual-grid">
+        <div class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Reduce oral chemotherapy medication errors</h2>
+          <div class="markdown-fragment">
+            <p>The primary objective was to reduce medication errors with oral chemotherapy by increasing safeguards around refills in a hospital-owned specialty pharmacy.</p>
+            <ul>
+              <li>OC errors can occur during storage, dosing, prescribing, preparation, dispensing, or administration.</li>
+              <li>Patients self-administer therapy at home, so refill decisions need current clinical context.</li>
+              <li>Lab review, routine in infusion and inpatient chemotherapy, was brought into outpatient OC refill activity.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="panel">
+          <p class="section-label">Methods</p>
+          <h2>Workgroup response to a medication error</h2>
+          <ul class="compact-list">
+            <li>Convened a workgroup to eliminate risks tied to patients possessing chemotherapy when continuation was inappropriate.</li>
+            <li>Reviewed literature and national guidance to model best-practice OC care components.</li>
+            <li>Identified adult cancer patients on high-risk cyclic oral chemotherapy from Feb 17 to Jun 19, 2020.</li>
+            <li>Used Lexicomp, Micromedex, and pharmacokinetic information to identify drug interactions.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Clinical outcomes table pattern</p>
+        <h2>Most frequent listed outcome was removing therapy inappropriateness</h2>
+        <div class="outcome-board" aria-label="Clinical outcome percentages">
+          <div class="outcome-tile">
+            <strong>17%</strong>
+            <span>Elimination of therapy inappropriateness</span>
+          </div>
+          <div class="outcome-tile">
+            <strong>15%</strong>
+            <span>Prevented ER or urgent care visit</span>
+          </div>
+          <div class="outcome-tile">
+            <strong>15%</strong>
+            <span>Prevented an unplanned MD visit</span>
+          </div>
+          <div class="outcome-tile">
+            <strong>13%</strong>
+            <span>Prevented therapy complications</span>
+          </div>
+          <div class="outcome-tile">
+            <strong>13%</strong>
+            <span>Prevented premature discontinuation</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-stack">
+        <div class="panel takeaway">
+          <p class="section-label">Conclusion</p>
+          <h2>Electronic record access was central to pharmacy safety work</h2>
+          <p>Integrating laboratory review before oral chemotherapy dispensing caught errors in one-fifth of cases and supported safer continuation decisions for self-administered oncology therapy.</p>
+        </div>
+        <div class="panel">
+          <p class="section-label">Next iteration</p>
+          <h2>Automated high-risk categorization</h2>
+          <p>Further workflow enhancements, including automatic "High-Risk" categorization, were ongoing to improve continuity of care and strengthen pharmacist impact on patient safety. The authors noted that a larger sample is needed to better evaluate ongoing prescreen compliance.</p>
+        </div>
+      </section>
+
+      <section class="table-card">
+        <p class="section-label">Source table detail</p>
+        <h2>Clinical outcome distribution</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Outcome category</th>
+                <th>Percentage</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Elimination of therapy inappropriateness</td><td>17%</td></tr>
+              <tr><td>Prevented ER/Urgent Care Visit</td><td>15%</td></tr>
+              <tr><td>Prevented an unplanned MD visit</td><td>15%</td></tr>
+              <tr><td>Prevented therapy complications</td><td>13%</td></tr>
+              <tr><td>Prevented premature therapy discontinuation</td><td>13%</td></tr>
+              <tr><td>Potentially improved therapy adherence</td><td>11%</td></tr>
+              <tr><td>Elimination of drug interaction</td><td>7%</td></tr>
+              <tr><td>Prevented a serious adverse drug reaction</td><td>5%</td></tr>
+              <tr><td>Reduction in medication dosage</td><td>2%</td></tr>
+              <tr><td>Resolved side effect challenges</td><td>2%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <footer class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-33_2020.pdf">Open source PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-33_2020.md">Open source markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

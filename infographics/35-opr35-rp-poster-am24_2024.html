@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2024 Infographic | Specialty Pharmacist Intervention and RZV Immunization</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-visual {
+      position: relative;
+      min-height: 18rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 76% 22%, rgba(233, 158, 37, 0.34), transparent 10rem),
+        linear-gradient(145deg, rgba(36, 55, 112, 0.98), rgba(24, 124, 143, 0.9));
+      color: #fff;
+      overflow: hidden;
+      padding: 1rem;
+    }
+    .hero-visual svg {
+      position: absolute;
+      right: -1.3rem;
+      bottom: -2rem;
+      width: min(25rem, 78%);
+      opacity: 0.82;
+    }
+    .hero-visual .kicker {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+    .hero-visual strong {
+      display: block;
+      margin-top: 0.25rem;
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 7vw, 5.7rem);
+      line-height: 0.92;
+    }
+    .hero-visual span {
+      display: block;
+      max-width: 18rem;
+      margin-top: 0.55rem;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.94rem;
+    }
+    .hero-card .button-link {
+      justify-content: center;
+      background: #fff;
+    }
+    .delta-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+    .delta-cell {
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 0.55rem;
+    }
+    .delta-cell b {
+      display: block;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 1.7rem;
+      line-height: 1;
+    }
+    .delta-cell small {
+      display: block;
+      margin-top: 0.18rem;
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    .status-board {
+      display: grid;
+      gap: 0.8rem;
+      margin-top: 0.7rem;
+    }
+    .status-row {
+      display: grid;
+      grid-template-columns: 8.4rem minmax(0, 1fr) 5.3rem;
+      gap: 0.6rem;
+      align-items: center;
+    }
+    .status-row span,
+    .status-row em {
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-style: normal;
+      font-weight: 850;
+    }
+    .status-row em {
+      text-align: right;
+    }
+    .double-track {
+      display: grid;
+      gap: 0.25rem;
+    }
+    .track {
+      height: 0.72rem;
+      border-radius: 999px;
+      background: var(--surface-blue);
+      overflow: hidden;
+    }
+    .track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--bar-color, var(--red));
+    }
+    .before i { opacity: 0.42; }
+    .not { --bar-color: var(--red); }
+    .partial { --bar-color: var(--gold); }
+    .full { --bar-color: var(--green); }
+    .bar-key {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin: 0.65rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 800;
+    }
+    .bar-key i {
+      display: inline-block;
+      width: 1.5rem;
+      height: 0.55rem;
+      margin-right: 0.28rem;
+      border-radius: 999px;
+      background: var(--ink);
+      vertical-align: -0.02rem;
+    }
+    .bar-key .before-swatch { opacity: 0.34; }
+    .callout-list {
+      display: grid;
+      gap: 0.55rem;
+      margin: 0.75rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .callout-list li {
+      display: grid;
+      grid-template-columns: 2.4rem minmax(0, 1fr);
+      gap: 0.55rem;
+      align-items: start;
+      border-top: 1px solid var(--border);
+      padding-top: 0.55rem;
+      font-size: 0.88rem;
+    }
+    .callout-list b {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+    .flow-line {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+    .flow-node {
+      position: relative;
+      min-height: 9.2rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.82rem;
+    }
+    .flow-node::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -0.51rem;
+      width: 0.75rem;
+      height: 0.75rem;
+      border-top: 2px solid var(--border-strong);
+      border-right: 2px solid var(--border-strong);
+      background: #fff;
+      transform: translateY(-50%) rotate(45deg);
+    }
+    .flow-node:last-child::after { display: none; }
+    .flow-node b {
+      display: inline-grid;
+      place-items: center;
+      width: 1.65rem;
+      height: 1.65rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+    }
+    .flow-node h3 {
+      margin-top: 0.48rem;
+      font-size: 0.94rem;
+    }
+    .flow-node p {
+      margin: 0.35rem 0 0;
+      font-size: 0.78rem;
+    }
+    .donut-wrap {
+      display: grid;
+      grid-template-columns: 13rem minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+      margin-top: 0.55rem;
+    }
+    .donut {
+      display: grid;
+      place-items: center;
+      width: 12.5rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: conic-gradient(var(--teal) 0 50%, var(--red) 50% 81%, var(--gold) 81% 100%);
+    }
+    .donut::before {
+      content: "50%";
+      display: grid;
+      place-items: center;
+      width: 7.1rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: #fff;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 900;
+    }
+    .legend {
+      display: grid;
+      gap: 0.45rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .legend li {
+      display: grid;
+      grid-template-columns: 0.8rem minmax(0, 1fr) auto;
+      gap: 0.45rem;
+      align-items: center;
+      font-size: 0.82rem;
+    }
+    .legend i {
+      width: 0.8rem;
+      height: 0.8rem;
+      border-radius: 3px;
+      background: var(--legend-color, var(--red));
+    }
+    .cohort-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.7rem;
+    }
+    .cohort-cell {
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: var(--surface-blue);
+      padding: 0.6rem;
+    }
+    .cohort-cell strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.65rem;
+      line-height: 1;
+    }
+    .cohort-cell span {
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 850;
+      text-transform: uppercase;
+    }
+    .source-note {
+      margin: 0.8rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+    @media (max-width: 900px) {
+      .flow-line,
+      .cohort-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .flow-node::after { display: none; }
+      .donut-wrap { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .delta-grid,
+      .flow-line,
+      .cohort-grid {
+        grid-template-columns: 1fr;
+      }
+      .status-row {
+        grid-template-columns: 1fr;
+      }
+      .status-row em {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="https://naspnet.org/" aria-label="NASP website">NASP Posters</a>
+      <nav aria-label="Page sections">
+        <a href="#snapshot">Snapshot</a>
+        <a href="#intervention">Intervention</a>
+        <a href="#results">Results</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">2024 Annual Meeting Poster | 35-OPR35-RP</p>
+        <h1>Specialty pharmacist intervention and recombinant zoster vaccine uptake</h1>
+        <p class="hero-summary">
+          Inova specialty pharmacists contacted immunocompromised oncology and HIV clinic patients with incomplete
+          recombinant zoster vaccine (RZV) documentation to recommend enough doses for full immunization.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Prospective quality improvement</li>
+          <li class="tag therapy">Oncology and HIV clinics</li>
+          <li class="tag therapy">RZV immunization</li>
+          <li class="tag">Northern Virginia health system</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Poster details">
+        <div class="poster-code">AM24<br>35-OPR35-RP</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Project window</dt>
+            <dd>Feb-Aug 2024</dd>
+          </div>
+          <div>
+            <dt>Follow-up</dt>
+            <dd>24 weeks</dd>
+          </div>
+          <div>
+            <dt>Patients</dt>
+            <dd>476</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>Inova Specialty Pharmacy</dd>
+          </div>
+        </dl>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/35-OPR35-RP-Poster-AM24_2024.pdf">Open poster PDF</a>
+      </aside>
+    </section>
+
+    <main>
+      <section id="snapshot" class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Eligible patients</span>
+          <strong>476</strong>
+        </article>
+        <article class="metric-card">
+          <span>Status improved</span>
+          <strong>16</strong>
+        </article>
+        <article class="metric-card">
+          <span>Fully immunized after</span>
+          <strong>6</strong>
+        </article>
+        <article class="metric-card">
+          <span>Prior fully immunized</span>
+          <strong>0</strong>
+        </article>
+      </section>
+
+      <section class="visual-grid" aria-label="Primary visual summary">
+        <article class="hero-visual">
+          <p class="kicker">Documented shift after pharmacist outreach</p>
+          <strong>+16</strong>
+          <span>Ten patients moved from not immunized to partially immunized; six moved from partially to fully immunized.</span>
+          <div class="delta-grid" aria-label="Status changes">
+            <div class="delta-cell"><b>10</b><small>new partial</small></div>
+            <div class="delta-cell"><b>6</b><small>new full</small></div>
+            <div class="delta-cell"><b>1.3%</b><small>full increase</small></div>
+          </div>
+          <svg viewBox="0 0 320 240" role="img" aria-label="Shield and vaccine illustration">
+            <defs>
+              <linearGradient id="shieldFill" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ffffff" stop-opacity="0.95"></stop>
+                <stop offset="1" stop-color="#e99e25" stop-opacity="0.72"></stop>
+              </linearGradient>
+            </defs>
+            <path d="M158 18l103 35v64c0 61-42 94-103 124C98 211 56 178 56 117V53l102-35z" fill="url(#shieldFill)"></path>
+            <path d="M158 67v90M113 112h90" fill="none" stroke="#243770" stroke-width="17" stroke-linecap="round"></path>
+            <g transform="rotate(-34 228 86)">
+              <rect x="196" y="58" width="72" height="14" rx="7" fill="#d12630"></rect>
+              <rect x="187" y="61" width="16" height="8" rx="4" fill="#ffffff"></rect>
+              <path d="M266 65h32" stroke="#ffffff" stroke-width="7" stroke-linecap="round"></path>
+            </g>
+            <circle cx="72" cy="178" r="28" fill="#187c8f" opacity="0.66"></circle>
+          </svg>
+        </article>
+
+        <article id="results" class="panel">
+          <p class="section-label">Before vs after intervention</p>
+          <h2>Vaccination status changed modestly over 24 weeks</h2>
+          <div class="status-board">
+            <div class="status-row">
+              <span>Not immunized</span>
+              <div class="double-track not">
+                <div class="track before"><i style="width: 100%;"></i></div>
+                <div class="track after"><i style="width: 97.6%;"></i></div>
+              </div>
+              <em>425 to 415</em>
+            </div>
+            <div class="status-row">
+              <span>Partially immunized</span>
+              <div class="double-track partial">
+                <div class="track before"><i style="width: 92.7%;"></i></div>
+                <div class="track after"><i style="width: 100%;"></i></div>
+              </div>
+              <em>51 to 55</em>
+            </div>
+            <div class="status-row">
+              <span>Fully immunized</span>
+              <div class="double-track full">
+                <div class="track before"><i style="width: 0%;"></i></div>
+                <div class="track after"><i style="width: 100%;"></i></div>
+              </div>
+              <em>0 to 6</em>
+            </div>
+          </div>
+          <div class="bar-key" aria-label="Chart key">
+            <span><i class="before-swatch"></i>Prior to intervention</span>
+            <span><i></i>After intervention</span>
+          </div>
+          <p class="source-note">The poster defines full immunization as two RZV doses at least two months apart.</p>
+        </article>
+      </section>
+
+      <section id="intervention" class="panel">
+        <p class="section-label">Intervention model</p>
+        <h2>Specialty pharmacists used routine patient touchpoints to close RZV gaps</h2>
+        <div class="flow-line">
+          <article class="flow-node">
+            <b>1</b>
+            <h3>Find eligible patients</h3>
+            <p>Adults age 19 or older with HIV on antiretroviral therapy or cancer treated with oral chemotherapy/supportive medications.</p>
+          </article>
+          <article class="flow-node">
+            <b>2</b>
+            <h3>Check immunization status</h3>
+            <p>Clinical and operations specialty pharmacists reviewed whether zero, one, or two RZV doses were documented.</p>
+          </article>
+          <article class="flow-node">
+            <b>3</b>
+            <h3>Recommend needed doses</h3>
+            <p>Pharmacists educated patients by telephone during clinical assessments or during prescription pickup.</p>
+          </article>
+          <article class="flow-node">
+            <b>4</b>
+            <h3>Reclassify outcomes</h3>
+            <p>Patients were counted as partially or fully immunized when documentation showed one dose or two appropriately spaced doses.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-stack" aria-label="Interpretive details">
+        <article class="panel">
+          <p class="section-label">Where vaccinations happened</p>
+          <h2>Provider offices accounted for half of administered immunizations</h2>
+          <div class="donut-wrap">
+            <div class="donut" role="img" aria-label="Donut chart: Provider office 50 percent, Inova Pharmacy 31 percent, other pharmacy 19 percent"></div>
+            <ul class="legend">
+              <li style="--legend-color: var(--teal);"><i></i><span>Provider office</span><b>50%</b></li>
+              <li style="--legend-color: var(--red);"><i></i><span>Inova Pharmacy</span><b>31%</b></li>
+              <li style="--legend-color: var(--gold);"><i></i><span>Other pharmacy</span><b>19%</b></li>
+            </ul>
+          </div>
+          <p class="source-note">The poster notes that it was unclear whether pharmacist or physician intervention drove provider-office immunizations.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Study population pattern</p>
+          <h2>Clinical specialty pharmacist workflow represented most patients</h2>
+          <div class="cohort-grid">
+            <div class="cohort-cell"><strong>330</strong><span>clinical oncology</span></div>
+            <div class="cohort-cell"><strong>118</strong><span>clinical HIV</span></div>
+            <div class="cohort-cell"><strong>24</strong><span>operations oncology</span></div>
+            <div class="cohort-cell"><strong>4</strong><span>operations HIV</span></div>
+          </div>
+          <ul class="callout-list">
+            <li><b>448</b><span>patients were followed by clinical specialty pharmacists across oncology and HIV clinics.</span></li>
+            <li><b>28</b><span>patients were exposed to the operations pharmacist intervention, which ran for only three weeks.</span></li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="evidence-map" aria-label="Extracted poster takeaways">
+        <article class="evidence-card">
+          <h3>Objective</h3>
+          <p>Evaluate the impact of specialty pharmacist education on herpes zoster vaccination rates in immunocompromised patients.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Background</h3>
+          <p>A prior medication-use evaluation found only 0.74% of more than 7,300 eligible adults were fully immunized with RZV.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Methods</h3>
+          <p>Patients with zero or one documented RZV dose received pharmacist recommendations for sufficient doses to become fully immunized.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Signal</h3>
+          <p>All six new full immunizations occurred after clinical specialty pharmacist intervention; operations outreach produced no RZV immunizations.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Conclusion</h3>
+          <p>The intervention had a modest positive impact, and longer operations follow-up may be needed to assess that workflow.</p>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Condensed source tables">
+        <article class="table-card">
+          <p class="section-label">Status table pattern</p>
+          <h2>Immunization status counts</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Status</th>
+                  <th>Prior</th>
+                  <th>After</th>
+                  <th>Net change</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Not immunized</td>
+                  <td>425</td>
+                  <td>415</td>
+                  <td>-10</td>
+                </tr>
+                <tr>
+                  <td>Partially immunized</td>
+                  <td>51</td>
+                  <td>55</td>
+                  <td>+4</td>
+                </tr>
+                <tr>
+                  <td>Fully immunized</td>
+                  <td>0</td>
+                  <td>6</td>
+                  <td>+6</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Discussion caveats</p>
+          <h2>What tempers the interpretation</h2>
+          <div class="markdown-fragment">
+            <ul>
+              <li>Immunization status reporting was inconsistent, which may have affected outcome capture.</li>
+              <li>The operations intervention was much shorter than the clinical intervention, at three weeks versus 24 weeks.</li>
+              <li>Because half of immunizations occurred in provider offices, the causal driver of those doses could not be isolated.</li>
+            </ul>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/35-OPR35-RP-Poster-AM24_2024.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/35-OPR35-RP-Poster-AM24_2024.md">Source markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

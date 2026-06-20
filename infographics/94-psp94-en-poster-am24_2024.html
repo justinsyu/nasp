@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2024 Infographic | PAH Clinical Management Model</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-visual {
+      position: relative;
+      min-height: 21rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 14% 12%, rgba(233, 158, 37, 0.32), transparent 8rem),
+        linear-gradient(145deg, rgba(36, 55, 112, 0.96), rgba(24, 124, 143, 0.92));
+      color: #fff;
+      overflow: hidden;
+      padding: 1.05rem;
+    }
+
+    .hero-visual svg {
+      position: absolute;
+      right: -2.5rem;
+      bottom: -2.2rem;
+      width: min(28rem, 88%);
+      opacity: 0.88;
+    }
+
+    .hero-visual .kicker {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .hero-visual strong {
+      display: block;
+      max-width: 16rem;
+      margin-top: 0.24rem;
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 4.65rem);
+      line-height: 0.92;
+    }
+
+    .hero-visual span {
+      display: block;
+      max-width: 18rem;
+      margin-top: 0.65rem;
+      color: rgba(255, 255, 255, 0.84);
+      font-size: 0.92rem;
+    }
+
+    .model-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 1rem;
+    }
+
+    .care-cycle {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+
+    .cycle-step {
+      position: relative;
+      min-height: 8.5rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.75rem;
+    }
+
+    .cycle-step::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -0.52rem;
+      width: 0.75rem;
+      height: 0.75rem;
+      border-top: 2px solid var(--border-strong);
+      border-right: 2px solid var(--border-strong);
+      background: #fff;
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    .cycle-step:last-child::after { display: none; }
+
+    .cycle-step b {
+      display: inline-grid;
+      place-items: center;
+      width: 1.7rem;
+      height: 1.7rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+    }
+
+    .cycle-step h3 {
+      margin-top: 0.48rem;
+      font-size: 0.92rem;
+    }
+
+    .cycle-step p {
+      margin: 0.34rem 0 0;
+      font-size: 0.78rem;
+    }
+
+    .audit-wheel {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.48rem;
+      margin-top: 0.72rem;
+    }
+
+    .audit-item {
+      display: grid;
+      grid-template-columns: 2rem minmax(0, 1fr);
+      gap: 0.5rem;
+      align-items: center;
+      min-height: 3.3rem;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 7px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.46rem;
+    }
+
+    .audit-item span {
+      display: grid;
+      place-items: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: var(--red);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.76rem;
+      font-weight: 900;
+    }
+
+    .audit-item b {
+      color: var(--ink);
+      font-size: 0.75rem;
+      line-height: 1.18;
+      text-transform: uppercase;
+    }
+
+    .outcome-board {
+      display: grid;
+      gap: 0.65rem;
+      margin-top: 0.7rem;
+    }
+
+    .outcome-row {
+      display: grid;
+      grid-template-columns: 5.4rem minmax(0, 1fr);
+      gap: 0.75rem;
+      align-items: center;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.72rem;
+    }
+
+    .outcome-row strong {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      line-height: 0.95;
+      text-align: center;
+    }
+
+    .outcome-row p {
+      margin: 0;
+      color: var(--body);
+      font-size: 0.9rem;
+    }
+
+    .pah-scale {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.7rem;
+    }
+
+    .scale-cell {
+      border: 1px solid var(--border-strong);
+      border-radius: 7px;
+      background: var(--surface-blue);
+      padding: 0.65rem;
+    }
+
+    .scale-cell strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+
+    .scale-cell span {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 850;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .method-lanes {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+
+    .method-lane {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.78rem;
+    }
+
+    .method-lane i {
+      display: block;
+      width: 2.1rem;
+      height: 0.32rem;
+      margin-bottom: 0.58rem;
+      border-radius: 999px;
+      background: var(--lane-color, var(--red));
+    }
+
+    .method-lane:nth-child(2) { --lane-color: var(--gold); }
+    .method-lane:nth-child(3) { --lane-color: var(--teal); }
+    .method-lane:nth-child(4) { --lane-color: var(--green); }
+
+    .method-lane p {
+      margin: 0.38rem 0 0;
+      font-size: 0.8rem;
+    }
+
+    .conclusion-card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(255, 247, 234, 0.95), #fff 52%, rgba(238, 244, 251, 0.96));
+      padding: 1rem;
+    }
+
+    .conclusion-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 0.42rem;
+      background: linear-gradient(180deg, var(--red), var(--gold), var(--teal));
+    }
+
+    .conclusion-card p {
+      margin: 0.42rem 0 0;
+      font-size: 0.9rem;
+    }
+
+    .source-note {
+      margin: 0.7rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 900px) {
+      .model-grid,
+      .care-cycle,
+      .method-lanes {
+        grid-template-columns: 1fr;
+      }
+
+      .cycle-step::after { display: none; }
+    }
+
+    @media (max-width: 640px) {
+      .audit-wheel,
+      .pah-scale {
+        grid-template-columns: 1fr;
+      }
+
+      .outcome-row {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="https://naspnet.org/" aria-label="NASP website">NASP Posters</a>
+      <nav aria-label="Page sections">
+        <a href="#snapshot">Snapshot</a>
+        <a href="#model">Model</a>
+        <a href="#audit">Audit elements</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">2024 archive item | 94-PSP94-EN | PQA 2023 Annual Meeting</p>
+        <h1>Development and implementation of an innovative pulmonary arterial hypertension clinical management model</h1>
+        <p class="hero-summary">
+          A health system specialty pharmacy team built a standardized PAH care model for patients receiving ambrisentan,
+          aligning onboarding, REMS counseling, clinical assessment, adverse event screening, dispensing, and audit readiness.
+        </p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag therapy">Pulmonary arterial hypertension</li>
+          <li class="tag category">REMS compliance</li>
+          <li class="tag">Ambrisentan</li>
+          <li class="tag">Clinical workflow</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div class="poster-code">PSP94-EN</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Therapy area</dt>
+            <dd>PAH</dd>
+          </div>
+          <div>
+            <dt>Medication</dt>
+            <dd>Ambrisentan</dd>
+          </div>
+          <div>
+            <dt>Model setting</dt>
+            <dd>Integrated HSSP</dd>
+          </div>
+          <div>
+            <dt>Core lens</dt>
+            <dd>REMS readiness</dd>
+          </div>
+        </dl>
+      </aside>
+    </section>
+
+    <main>
+      <section id="snapshot" class="metric-strip" aria-label="Key extracted numbers">
+        <article class="metric-card">
+          <span>Certified HSSPs</span>
+          <strong>4</strong>
+        </article>
+        <article class="metric-card">
+          <span>Desktop audits since 2020</span>
+          <strong>9</strong>
+        </article>
+        <article class="metric-card">
+          <span>Identified REMS deviations</span>
+          <strong>0</strong>
+        </article>
+        <article class="metric-card">
+          <span>Audit elements</span>
+          <strong>10</strong>
+        </article>
+      </section>
+
+      <section class="model-grid" aria-label="Care model overview">
+        <article class="hero-visual">
+          <p class="kicker">Operating model</p>
+          <strong>REMS-ready PAH care</strong>
+          <span>Dedicated pharmacists, nurses, and in-clinic liaisons connect benefits work, REMS authorization, assessments, dispensing, and shipment.</span>
+          <svg viewBox="0 0 420 310" role="img" aria-label="Stylized lungs and compliance checklist">
+            <defs>
+              <linearGradient id="vesselGradient" x1="0" x2="1">
+                <stop offset="0" stop-color="#e99e25"/>
+                <stop offset="1" stop-color="#d12630"/>
+              </linearGradient>
+            </defs>
+            <path d="M200 42 C185 88 154 104 118 115 C78 128 58 164 60 216 C62 258 88 282 124 271 C158 260 164 215 162 176 C160 132 184 111 205 97" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="18" stroke-linecap="round"/>
+            <path d="M220 42 C235 88 266 104 302 115 C342 128 362 164 360 216 C358 258 332 282 296 271 C262 260 256 215 258 176 C260 132 236 111 215 97" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="18" stroke-linecap="round"/>
+            <path d="M210 43 L210 136" stroke="#fff" stroke-width="16" stroke-linecap="round"/>
+            <path d="M210 129 C175 153 151 180 132 230" fill="none" stroke="url(#vesselGradient)" stroke-width="12" stroke-linecap="round"/>
+            <path d="M210 129 C245 153 269 180 288 230" fill="none" stroke="url(#vesselGradient)" stroke-width="12" stroke-linecap="round"/>
+            <rect x="246" y="52" width="110" height="142" rx="12" fill="rgba(255,255,255,0.92)"/>
+            <path d="M270 91 h58 M270 121 h58 M270 151 h42" stroke="#243770" stroke-width="8" stroke-linecap="round"/>
+            <path d="M263 88 l7 7 14-17 M263 118 l7 7 14-17 M263 148 l7 7 14-17" fill="none" stroke="#4d8a67" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="97" cy="78" r="28" fill="rgba(233,158,37,0.9)"/>
+            <text x="97" y="86" text-anchor="middle" font-size="26" font-weight="800" fill="#243770">0</text>
+          </svg>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Why this model was needed</p>
+          <h2>Rare disease therapy with dispensing controls</h2>
+          <p>
+            PAH is described in the poster as rare, progressive, and affecting fewer than 50,000 people in the United States.
+            Ambrisentan requires a REMS protocol, making clinical coordination and dispensing governance central to pharmacy operations.
+          </p>
+          <div class="pah-scale" aria-label="Disease and dispensing context">
+            <div class="scale-cell"><strong>&lt;50k</strong><span>People affected in US</span></div>
+            <div class="scale-cell"><strong>500-1,000</strong><span>New US cases yearly</span></div>
+            <div class="scale-cell"><strong>7 days</strong><span>Ship after auth code</span></div>
+          </div>
+          <p class="source-note">Counts and operational timing are extracted from the poster background and workflow.</p>
+        </article>
+      </section>
+
+      <section class="panel" id="model">
+        <p class="section-label">Care pathway</p>
+        <h2>From benefits verification to time-limited shipment</h2>
+        <div class="care-cycle" aria-label="Condensed ambrisentan REMS workflow">
+          <article class="cycle-step">
+            <b>1</b>
+            <h3>Access setup</h3>
+            <p>Liaison verifies benefits and completes prior authorization or financial assistance work.</p>
+          </article>
+          <article class="cycle-step">
+            <b>2</b>
+            <h3>REMS verification</h3>
+            <p>Clinician confirms prescriber and patient enrollment, then counsels females of reproductive potential.</p>
+          </article>
+          <article class="cycle-step">
+            <b>3</b>
+            <h3>Clinical assessment</h3>
+            <p>Team obtains the REMS authorization code and completes PAH clinical assessments and adverse event screening.</p>
+          </article>
+          <article class="cycle-step">
+            <b>4</b>
+            <h3>Dispense and ship</h3>
+            <p>Pharmacy coordinates delivery, dispenses with medication guide, and ships within the authorization-code window.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="method-lanes" aria-label="Methods extracted from poster">
+        <article class="method-lane">
+          <i></i>
+          <h3>Gap analysis</h3>
+          <p>Reviewed ambrisentan REMS requirements and PAH literature, then selected a validated quality-of-life and severity assessment tool.</p>
+        </article>
+        <article class="method-lane">
+          <i></i>
+          <h3>Workflow build</h3>
+          <p>Created standardized processes for onboarding, REMS counseling, clinical assessment, and adverse event screening.</p>
+        </article>
+        <article class="method-lane">
+          <i></i>
+          <h3>Training</h3>
+          <p>Developed curriculum covering REMS, adverse event reporting, policies, procedures, and knowledge assessment.</p>
+        </article>
+        <article class="method-lane">
+          <i></i>
+          <h3>Evaluation</h3>
+          <p>Implemented the PAH clinical care model at four HSSPs and evaluated the program for REMS compliance.</p>
+        </article>
+      </section>
+
+      <section class="model-grid" id="audit">
+        <article class="panel">
+          <p class="section-label">Table pattern</p>
+          <h2>Ten desktop-audit elements became the readiness checklist</h2>
+          <div class="audit-wheel" aria-label="Ambrisentan REMS audit elements">
+            <div class="audit-item"><span>01</span><b>Employee training curriculum</b></div>
+            <div class="audit-item"><span>02</span><b>Employee training records</b></div>
+            <div class="audit-item"><span>03</span><b>Pharmacy dispense reports</b></div>
+            <div class="audit-item"><span>04</span><b>Policy and procedure</b></div>
+            <div class="audit-item"><span>05</span><b>REMS compliance</b></div>
+            <div class="audit-item"><span>06</span><b>Data reporting capabilities</b></div>
+            <div class="audit-item"><span>07</span><b>Portal access history</b></div>
+            <div class="audit-item"><span>08</span><b>Quality management processes</b></div>
+            <div class="audit-item"><span>09</span><b>Pharmacy organization</b></div>
+            <div class="audit-item"><span>10</span><b>Adverse event reporting</b></div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Results</p>
+          <h2>Implementation signal: compliance without identified deviations</h2>
+          <div class="outcome-board">
+            <div class="outcome-row">
+              <strong>4</strong>
+              <p>Ambrisentan-certified health system specialty pharmacies adopted the PAH clinical care model.</p>
+            </div>
+            <div class="outcome-row">
+              <strong>9</strong>
+              <p>Ambrisentan desktop audits were completed since 2020, supporting ongoing readiness checks.</p>
+            </div>
+            <div class="outcome-row">
+              <strong>0</strong>
+              <p>Identified REMS deviations were reported in the program outcomes shown on the poster.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="evidence-map" aria-label="Extracted poster takeaways">
+        <article class="evidence-card">
+          <h3>Objective</h3>
+          <p>Describe development and implementation of a PAH clinical management model for patients receiving ambrisentan from integrated HSSPs.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Clinical anchor</h3>
+          <p>The care model links REMS requirements to disease monitoring, quality-of-life assessment, and adverse event screening.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Team design</h3>
+          <p>Pharmacists, nurses, and in-clinic pharmacy liaisons divide operational work while preserving a standardized workflow.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Audit logic</h3>
+          <p>Annual and post-dispense mock audits use the ten identified elements to sustain readiness.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Conclusion</h3>
+          <p>The model enabled dispensing of ambrisentan under REMS controls; future QOL-score analysis could measure clinical impact.</p>
+        </article>
+      </section>
+
+      <section class="conclusion-card">
+        <p class="section-label">Bottom line</p>
+        <h2>A specialty pharmacy operating model, not a single intervention</h2>
+        <p>
+          The poster's central contribution is a repeatable infrastructure for high-control PAH therapy:
+          literature-informed assessment, REMS-aware workflows, staff training, audit elements, and outcome tracking.
+        </p>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/94-PSP94-EN-Poster-AM24_2024.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/94-PSP94-EN-Poster-AM24_2024.md">Source markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

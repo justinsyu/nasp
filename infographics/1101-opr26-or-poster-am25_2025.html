@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OPR26-OR Poster AM25 2025 | HIV Transmission Mode and ART Adherence</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .transmission-hero {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .transmission-hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -4rem -6rem auto;
+      width: 18rem;
+      height: 18rem;
+      border: 2.4rem solid rgba(24, 124, 143, 0.11);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-card.study-lens {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(145deg, rgba(238, 244, 251, 0.96), #fff 46%, rgba(255, 247, 234, 0.96)),
+        radial-gradient(circle at 92% 12%, rgba(209, 38, 48, 0.14), transparent 8rem);
+    }
+
+    .study-lens svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-top: 0.3rem;
+    }
+
+    .question-card {
+      display: grid;
+      gap: 0.55rem;
+      padding: 0.9rem;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.78);
+    }
+
+    .question-card strong {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.04rem;
+      line-height: 1.18;
+    }
+
+    .question-card p {
+      margin: 0;
+      font-size: 0.86rem;
+    }
+
+    .metric-card strong small {
+      color: var(--muted);
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+
+    .metric-card b {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--body);
+      font-size: 0.78rem;
+      font-weight: 750;
+      line-height: 1.35;
+    }
+
+    .comparison-board {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: 1rem;
+    }
+
+    .split-panel {
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .cohort-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--surface);
+      padding: 0.9rem;
+    }
+
+    .cohort-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.8rem;
+      align-items: baseline;
+      margin-bottom: 0.65rem;
+    }
+
+    .cohort-head h3 {
+      font-size: 1.05rem;
+    }
+
+    .cohort-head span {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 900;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .bar-set {
+      display: grid;
+      gap: 0.54rem;
+    }
+
+    .bar-line {
+      display: grid;
+      grid-template-columns: 4.8rem minmax(0, 1fr) 4.2rem;
+      gap: 0.5rem;
+      align-items: center;
+      font-size: 0.77rem;
+      font-weight: 800;
+    }
+
+    .bar-line em {
+      color: var(--muted);
+      font-style: normal;
+    }
+
+    .bar-track {
+      height: 0.82rem;
+      overflow: hidden;
+      border: 1px solid rgba(36, 55, 112, 0.15);
+      border-radius: 999px;
+      background: #edf2f8;
+    }
+
+    .bar-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .bar-track.red i {
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .signal-callout {
+      display: grid;
+      gap: 0.45rem;
+      align-content: center;
+      min-height: 100%;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--ink);
+      color: #fff;
+      padding: 1rem;
+    }
+
+    .signal-callout span {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .signal-callout strong {
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      line-height: 0.9;
+    }
+
+    .signal-callout p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.92rem;
+    }
+
+    .transmission-map {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 0.8rem;
+    }
+
+    .route-card {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, rgba(238, 244, 251, 0.65));
+      padding: 0.85rem;
+    }
+
+    .route-card h3 {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .route-dot {
+      width: 0.72rem;
+      height: 0.72rem;
+      border-radius: 50%;
+      background: var(--teal);
+      box-shadow: 0 0 0 0.28rem rgba(24, 124, 143, 0.13);
+      flex: 0 0 auto;
+    }
+
+    .route-card.horizontal .route-dot {
+      background: var(--red);
+      box-shadow: 0 0 0 0.28rem rgba(209, 38, 48, 0.13);
+    }
+
+    .route-card ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 0.42rem;
+    }
+
+    .route-card li {
+      border-left: 3px solid rgba(36, 55, 112, 0.22);
+      padding-left: 0.55rem;
+      font-size: 0.84rem;
+    }
+
+    .flow-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 900;
+    }
+
+    .formula-chip {
+      display: inline-flex;
+      align-items: center;
+      max-width: 100%;
+      margin-top: 0.55rem;
+      border: 1px solid rgba(24, 124, 143, 0.35);
+      border-radius: 6px;
+      background: rgba(238, 244, 251, 0.78);
+      padding: 0.48rem 0.58rem;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 850;
+      overflow-wrap: anywhere;
+    }
+
+    .result-note {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 750;
+    }
+
+    .takeaway-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+      gap: 0.85rem;
+    }
+
+    .takeaway-primary {
+      display: grid;
+      align-content: center;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(209, 38, 48, 0.93), rgba(36, 55, 112, 0.96)),
+        var(--red);
+      padding: 1rem;
+      color: #fff;
+    }
+
+    .takeaway-primary span {
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .takeaway-primary strong {
+      margin-top: 0.22rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(1.55rem, 3vw, 2.45rem);
+      line-height: 1.03;
+    }
+
+    .takeaway-list {
+      display: grid;
+      gap: 0.65rem;
+    }
+
+    .takeaway-list .panel {
+      padding: 0.85rem;
+    }
+
+    @media (max-width: 900px) {
+      .comparison-board,
+      .takeaway-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .topbar {
+        margin-inline: 0;
+      }
+
+      .transmission-map {
+        grid-template-columns: 1fr;
+      }
+
+      .bar-line {
+        grid-template-columns: 3.8rem minmax(0, 1fr) 3.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav aria-label="Poster sections">
+        <a href="#snapshot">Snapshot</a>
+        <a href="#results">Results</a>
+        <a href="#methods">Methods</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero transmission-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">2025 NASP poster | OPR26-OR | Specialty pharmacy and HIV care</p>
+        <h1>Effects of HIV Mode of Transmission on Medication Adherence in Children and Youth Using a Specialty Pharmacy</h1>
+        <p class="hero-summary">A single-center St. Jude analysis asked whether vertically versus horizontally acquired HIV changed oral antiretroviral therapy adherence after patients moved into specialty pharmacy services.</p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Retrospective analysis</li>
+          <li class="tag therapy">Oral ART</li>
+          <li class="tag">Children and youth under 24</li>
+          <li class="tag">PDC and viral load</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card study-lens" aria-label="Poster metadata">
+        <div class="poster-code">OPR26-OR<br>AM25</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Year</dt>
+            <dd>2025</dd>
+          </div>
+          <div>
+            <dt>Patients</dt>
+            <dd>38</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>St. Jude Children's Research Hospital</dd>
+          </div>
+          <div>
+            <dt>Window</dt>
+            <dd>Jul 2019 to Jul 2021</dd>
+          </div>
+        </dl>
+        <svg viewBox="0 0 420 210" role="img" aria-label="Study design timeline showing transition to specialty pharmacy in July 2020">
+          <defs>
+            <linearGradient id="timelineGrad" x1="0" x2="1">
+              <stop offset="0" stop-color="#187c8f"/>
+              <stop offset="0.52" stop-color="#e99e25"/>
+              <stop offset="1" stop-color="#d12630"/>
+            </linearGradient>
+          </defs>
+          <rect x="10" y="18" width="400" height="174" rx="18" fill="#fff" opacity="0.72"/>
+          <line x1="54" y1="118" x2="366" y2="118" stroke="url(#timelineGrad)" stroke-width="10" stroke-linecap="round"/>
+          <circle cx="54" cy="118" r="15" fill="#187c8f"/>
+          <circle cx="210" cy="118" r="20" fill="#e99e25"/>
+          <circle cx="366" cy="118" r="15" fill="#d12630"/>
+          <text x="54" y="73" text-anchor="middle" fill="#243770" font-size="18" font-weight="800">Pre</text>
+          <text x="210" y="61" text-anchor="middle" fill="#243770" font-size="18" font-weight="800">Specialty</text>
+          <text x="210" y="83" text-anchor="middle" fill="#243770" font-size="18" font-weight="800">pharmacy</text>
+          <text x="366" y="73" text-anchor="middle" fill="#243770" font-size="18" font-weight="800">Post</text>
+          <text x="54" y="157" text-anchor="middle" fill="#68758d" font-size="14" font-weight="700">Jul 2019</text>
+          <text x="210" y="157" text-anchor="middle" fill="#68758d" font-size="14" font-weight="700">Jul 2020</text>
+          <text x="366" y="157" text-anchor="middle" fill="#68758d" font-size="14" font-weight="700">Jul 2021</text>
+        </svg>
+      </aside>
+    </section>
+
+    <main>
+      <section id="snapshot" class="metric-strip" aria-label="Key poster numbers">
+        <article class="metric-card">
+          <span>Total cohort</span>
+          <strong>38</strong>
+          <b>Patients age 2 to 23 years living with HIV.</b>
+        </article>
+        <article class="metric-card">
+          <span>Transmission mix</span>
+          <strong>20<small>/18</small></strong>
+          <b>Vertically acquired versus horizontally acquired HIV.</b>
+        </article>
+        <article class="metric-card">
+          <span>PDC change</span>
+          <strong>+2.0<small> pts</small></strong>
+          <b>Mean PDC increased by 2 percentage points in both groups.</b>
+        </article>
+        <article class="metric-card">
+          <span>Undetectable post-period</span>
+          <strong>88.9%</strong>
+          <b>Horizontal group with viral load &lt;200 copies/mL.</b>
+        </article>
+      </section>
+
+      <section id="results" class="comparison-board" aria-label="Results comparison">
+        <div class="split-panel">
+          <article class="cohort-card">
+            <div class="cohort-head">
+              <h3>Vertically acquired HIV</h3>
+              <span>n=20</span>
+            </div>
+            <div class="bar-set" aria-label="Vertical group adherence and viral load results">
+              <div class="bar-line">
+                <em>PDC pre</em>
+                <div class="bar-track"><i style="width:83.4%"></i></div>
+                <strong>83.4%</strong>
+              </div>
+              <div class="bar-line">
+                <em>PDC post</em>
+                <div class="bar-track"><i style="width:85.4%"></i></div>
+                <strong>85.4%</strong>
+              </div>
+              <div class="bar-line">
+                <em>VL pre</em>
+                <div class="bar-track red"><i style="width:86.5%"></i></div>
+                <strong>450</strong>
+              </div>
+              <div class="bar-line">
+                <em>VL post</em>
+                <div class="bar-track red"><i style="width:100%"></i></div>
+                <strong>520</strong>
+              </div>
+            </div>
+            <p class="result-note">Despite higher adherence levels, mean viral load rose and 10.0% were undetectable after the two-year period.</p>
+          </article>
+
+          <article class="cohort-card">
+            <div class="cohort-head">
+              <h3>Horizontally acquired HIV</h3>
+              <span>n=18</span>
+            </div>
+            <div class="bar-set" aria-label="Horizontal group adherence and viral load results">
+              <div class="bar-line">
+                <em>PDC pre</em>
+                <div class="bar-track"><i style="width:76.8%"></i></div>
+                <strong>76.8%</strong>
+              </div>
+              <div class="bar-line">
+                <em>PDC post</em>
+                <div class="bar-track"><i style="width:78.8%"></i></div>
+                <strong>78.8%</strong>
+              </div>
+              <div class="bar-line">
+                <em>VL pre</em>
+                <div class="bar-track red"><i style="width:36.5%"></i></div>
+                <strong>190</strong>
+              </div>
+              <div class="bar-line">
+                <em>VL post</em>
+                <div class="bar-track red"><i style="width:13.5%"></i></div>
+                <strong>70</strong>
+              </div>
+            </div>
+            <p class="result-note">Mean viral load fell and 88.9% were undetectable after the two-year period.</p>
+          </article>
+        </div>
+
+        <aside class="signal-callout">
+          <span>Main signal</span>
+          <strong>Adherence improved, but virologic response split by transmission route.</strong>
+          <p>Both groups had higher mean PDC after specialty pharmacy enrollment. The horizontal group showed lower mean viral loads, while the vertical group had persistently higher viral loads despite higher PDC.</p>
+        </aside>
+      </section>
+
+      <section id="methods" class="visual-grid" aria-label="Objective and methods">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <div class="question-card">
+            <strong>Evaluate the impact of HIV mode of transmission and specialty pharmacy use on oral ART adherence among patients under 24 years of age.</strong>
+            <p>The poster frames adherence as proportion of days covered, then pairs that measure with routine HIV viral load monitoring.</p>
+          </div>
+          <div class="formula-chip">PDC% = total days ART available / total study days x 100</div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Transmission groups</p>
+          <div class="transmission-map">
+            <div class="route-card">
+              <h3><span class="route-dot"></span>Vertical</h3>
+              <ul>
+                <li>In utero</li>
+                <li>During delivery</li>
+                <li>Breastmilk exposure</li>
+              </ul>
+            </div>
+            <div class="route-card horizontal">
+              <h3><span class="route-dot"></span>Horizontal</h3>
+              <ul>
+                <li>Injection drug use or rare infected blood products</li>
+                <li>Unprotected sexual intercourse with an infected partner</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="evidence-map" aria-label="Evidence flow">
+        <article class="evidence-card">
+          <h3>1. Cohort defined</h3>
+          <p>Single-center retrospective analysis of patients age 2 to 23 years living with HIV.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>2. Baseline captured</h3>
+          <p>Pre-transition adherence and viral load were measured before specialty pharmacy enrollment.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>3. Pharmacy transition</h3>
+          <p>All patients moved into specialty pharmacy services in July 2020.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>4. Follow-up compared</h3>
+          <p>PDC and viral loads were compared across the July 2019 to July 2021 window.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>5. Clinical pattern</h3>
+          <p>Mode of transmission appeared to modify the relationship between adherence and viral suppression.</p>
+        </article>
+      </section>
+
+      <section class="takeaway-grid" aria-label="Conclusion">
+        <div class="takeaway-primary">
+          <span>Conclusion</span>
+          <strong>Specialty pharmacy may support ART adherence, but vertically acquired HIV may involve more complex treatment challenges.</strong>
+        </div>
+        <div class="takeaway-list">
+          <article class="panel markdown-fragment">
+            <h3>Adherence implication</h3>
+            <p>Children and youth living with HIV may adhere better to oral ART when using a specialty pharmacy compared with a traditional outpatient pharmacy.</p>
+          </article>
+          <article class="panel markdown-fragment">
+            <h3>Clinical implication</h3>
+            <p>Higher viral loads among patients with vertically acquired HIV, despite higher adherence, may reflect earlier ART exposure or other clinical factors that complicate response.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="tables-grid" aria-label="Poster result tables">
+        <article class="table-card">
+          <p class="section-label">PDC by group</p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Group</th>
+                  <th>Pre (%)</th>
+                  <th>Post (%)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Vertically acquired</td>
+                  <td>83.4</td>
+                  <td>85.4</td>
+                </tr>
+                <tr>
+                  <td>Horizontally acquired</td>
+                  <td>76.8</td>
+                  <td>78.8</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Viral load by group</p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Group</th>
+                  <th>Pre (copies/mL)</th>
+                  <th>Post (copies/mL)</th>
+                  <th>Undetectable</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Vertically acquired</td>
+                  <td>450</td>
+                  <td>520</td>
+                  <td>10.0%</td>
+                </tr>
+                <tr>
+                  <td>Horizontally acquired</td>
+                  <td>190</td>
+                  <td>70</td>
+                  <td>88.9%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <footer id="sources" class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/1101-OPR26-OR-Poster-AM25_2025.pdf">View source PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/1101-OPR26-OR-Poster-AM25_2025.md">View extracted markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

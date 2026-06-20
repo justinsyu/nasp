@@ -1,0 +1,688 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2024 Infographic | Pediatric Hepatitis C Outcomes</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -3.8rem;
+      bottom: -4.4rem;
+      width: 14rem;
+      height: 14rem;
+      border: 2.4rem solid rgba(24, 124, 143, 0.13);
+      border-radius: 50%;
+    }
+    .hero-card .button-link {
+      position: relative;
+      z-index: 1;
+      justify-content: center;
+      background: #fff;
+    }
+    .study-badge {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      min-height: 9rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 74% 22%, rgba(233, 158, 37, 0.35), transparent 5.2rem),
+        linear-gradient(135deg, rgba(36, 55, 112, 0.98), rgba(24, 124, 143, 0.88));
+      color: #fff;
+      text-align: center;
+    }
+    .study-badge strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: clamp(3.2rem, 7vw, 5.3rem);
+      line-height: 0.85;
+    }
+    .study-badge span {
+      margin-top: 0.45rem;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+    .svr-stage {
+      display: grid;
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .svr-card {
+      position: relative;
+      min-height: 21rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        linear-gradient(160deg, rgba(209, 38, 48, 0.96), rgba(36, 55, 112, 0.95)),
+        radial-gradient(circle at 86% 14%, rgba(233, 158, 37, 0.45), transparent 12rem);
+      color: #fff;
+      overflow: hidden;
+      padding: 1.05rem;
+    }
+    .svr-card svg {
+      position: absolute;
+      inset: auto -1.8rem -2.2rem auto;
+      width: min(20rem, 66%);
+      opacity: 0.78;
+    }
+    .svr-card p {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      max-width: 18rem;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 0.9rem;
+    }
+    .svr-card .kicker {
+      color: rgba(255, 255, 255, 0.74);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+    .svr-card strong {
+      position: relative;
+      z-index: 1;
+      display: block;
+      margin: 0.25rem 0 0.5rem;
+      font-family: var(--font-display);
+      font-size: clamp(4.2rem, 11vw, 7rem);
+      line-height: 0.9;
+    }
+    .age-bars {
+      display: grid;
+      gap: 0.68rem;
+      margin-top: 0.72rem;
+    }
+    .age-row {
+      display: grid;
+      grid-template-columns: 7.2rem minmax(0, 1fr) 3.2rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+    .age-track {
+      height: 1.05rem;
+      border-radius: 999px;
+      background: var(--surface-blue);
+      overflow: hidden;
+    }
+    .age-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .funnel-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      gap: 1rem;
+      align-items: center;
+    }
+    .funnel-svg {
+      width: 100%;
+      height: auto;
+    }
+    .reason-list {
+      display: grid;
+      gap: 0.48rem;
+      margin: 0.65rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .reason-list li {
+      display: grid;
+      grid-template-columns: 2.4rem minmax(0, 1fr);
+      gap: 0.48rem;
+      align-items: center;
+      font-size: 0.84rem;
+    }
+    .reason-list b {
+      display: inline-grid;
+      place-items: center;
+      min-height: 2rem;
+      border-radius: 6px;
+      background: var(--surface-blue);
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+    }
+    .care-path {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 0.58rem;
+      margin-top: 0.75rem;
+    }
+    .path-node {
+      position: relative;
+      min-height: 8.6rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.72rem;
+    }
+    .path-node::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -0.44rem;
+      width: 0.68rem;
+      height: 0.68rem;
+      border-top: 2px solid var(--border-strong);
+      border-right: 2px solid var(--border-strong);
+      background: #fff;
+      transform: translateY(-50%) rotate(45deg);
+    }
+    .path-node:last-child::after {
+      display: none;
+    }
+    .path-node b {
+      display: inline-grid;
+      place-items: center;
+      width: 1.55rem;
+      height: 1.55rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+    }
+    .path-node h3 {
+      margin-top: 0.48rem;
+      font-size: 0.88rem;
+    }
+    .path-node p {
+      margin: 0.3rem 0 0;
+      color: var(--muted);
+      font-size: 0.73rem;
+      line-height: 1.35;
+    }
+    .pill-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.65rem;
+    }
+    .mini-pill {
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 7px;
+      background: var(--surface-blue);
+      padding: 0.58rem;
+    }
+    .mini-pill strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      line-height: 1;
+    }
+    .mini-pill span {
+      display: block;
+      margin-top: 0.22rem;
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 850;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .donut-layout {
+      display: grid;
+      grid-template-columns: 12.5rem minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+      margin-top: 0.52rem;
+    }
+    .donut-layout svg {
+      width: 100%;
+      max-width: 12.5rem;
+      height: auto;
+    }
+    .legend {
+      display: grid;
+      gap: 0.45rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .legend li {
+      display: grid;
+      grid-template-columns: 0.8rem minmax(0, 1fr) auto;
+      gap: 0.45rem;
+      align-items: center;
+      color: var(--body);
+      font-size: 0.8rem;
+    }
+    .legend i {
+      width: 0.8rem;
+      height: 0.8rem;
+      border-radius: 3px;
+      background: var(--legend-color, var(--red));
+    }
+    .side-effect-bars .lens-row {
+      grid-template-columns: 8.2rem minmax(0, 1fr) 3.3rem;
+    }
+    .side-effect-bars .lens-row em {
+      color: var(--ink);
+      font-style: normal;
+      font-size: 0.78rem;
+      font-weight: 850;
+      text-align: right;
+    }
+    .takeaway-list {
+      margin: 0.55rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .takeaway-list li {
+      display: grid;
+      grid-template-columns: 0.8rem minmax(0, 1fr);
+      gap: 0.45rem;
+      margin-top: 0.42rem;
+      font-size: 0.87rem;
+    }
+    .takeaway-list li::before {
+      content: "";
+      width: 0.5rem;
+      height: 0.5rem;
+      margin-top: 0.45rem;
+      border-radius: 50%;
+      background: var(--red);
+    }
+    .source-note {
+      margin: 0.72rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    @media (max-width: 900px) {
+      .svr-stage,
+      .funnel-card {
+        grid-template-columns: 1fr;
+      }
+      .care-path {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .path-node::after {
+        display: none;
+      }
+    }
+    @media (max-width: 560px) {
+      .age-row,
+      .side-effect-bars .lens-row {
+        grid-template-columns: 1fr;
+      }
+      .age-row span:last-child,
+      .side-effect-bars .lens-row em {
+        text-align: left;
+      }
+      .care-path,
+      .pill-grid,
+      .donut-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="https://naspnet.org/" aria-label="NASP website">NASP Posters</a>
+      <nav aria-label="Page sections">
+        <a href="#snapshot">Snapshot</a>
+        <a href="#model">Care model</a>
+        <a href="#results">Results</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">2024 Annual Meeting Poster | 37-OPR37-EN</p>
+        <h1>Pediatric hepatitis C outcomes using an integrated specialty pharmacy model</h1>
+        <p class="hero-summary">
+          Vanderbilt's pediatric hepatology clinic and health-system specialty pharmacy evaluated real-world direct-acting antiviral
+          outcomes in children with chronic hepatitis C referred from January 2017 through September 2022.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Single-center retrospective cohort</li>
+          <li class="tag therapy">Pediatric hepatitis C</li>
+          <li class="tag therapy">Direct-acting antivirals</li>
+          <li class="tag">Integrated HSSP model</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Poster details">
+        <div class="poster-code">AM24<br>OPR37</div>
+        <div class="study-badge" aria-label="64 patients initiated direct-acting antiviral therapy">
+          <div>
+            <strong>64</strong>
+            <span>DAA initiators</span>
+          </div>
+        </div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Study period</dt>
+            <dd>2017-2022</dd>
+          </div>
+          <div>
+            <dt>Poster year</dt>
+            <dd>2024</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>Vanderbilt</dd>
+          </div>
+          <div>
+            <dt>Primary endpoint</dt>
+            <dd>SVR12+</dd>
+          </div>
+        </dl>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/37-OPR37-EN-Poster-AM24_2024.pdf">Open poster PDF</a>
+      </aside>
+    </section>
+
+    <main>
+      <section id="snapshot" class="metric-strip" aria-label="Key poster numbers">
+        <article class="metric-card">
+          <span>Referred to HSSP</span>
+          <strong>73</strong>
+        </article>
+        <article class="metric-card">
+          <span>Initiated DAA</span>
+          <strong>64</strong>
+        </article>
+        <article class="metric-card">
+          <span>Overall SVR</span>
+          <strong>92%</strong>
+        </article>
+        <article class="metric-card">
+          <span>Potential DDIs</span>
+          <strong>17%</strong>
+        </article>
+      </section>
+
+      <section class="svr-stage" aria-label="Sustained virologic response results">
+        <article class="svr-card">
+          <p class="kicker">Primary outcome</p>
+          <strong>92%</strong>
+          <p>
+            Overall sustained virologic response at least 12 weeks after treatment completion among pediatric patients who initiated DAA therapy.
+          </p>
+          <svg viewBox="0 0 320 220" role="img" aria-label="Shield and viral clearance illustration">
+            <defs>
+              <linearGradient id="svrGradient" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ffffff" stop-opacity="0.95"></stop>
+                <stop offset="1" stop-color="#e99e25" stop-opacity="0.72"></stop>
+              </linearGradient>
+            </defs>
+            <path d="M160 16l104 34v62c0 62-42 99-104 128C98 211 56 174 56 112V50l104-34z" fill="url(#svrGradient)"></path>
+            <path d="M111 118l34 34 72-82" fill="none" stroke="#243770" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"></path>
+            <circle cx="252" cy="65" r="20" fill="#187c8f" opacity="0.76"></circle>
+            <circle cx="78" cy="177" r="27" fill="#ffffff" opacity="0.35"></circle>
+            <circle cx="60" cy="86" r="11" fill="#e99e25" opacity="0.9"></circle>
+          </svg>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">SVR by age group</p>
+          <h2>High response across age bands, strongest in ages 6-11</h2>
+          <div class="age-bars">
+            <div class="age-row">
+              <span>Overall (n=64)</span>
+              <div class="age-track" aria-label="Overall SVR 92 percent"><i style="width: 92%;"></i></div>
+              <span>92%</span>
+            </div>
+            <div class="age-row">
+              <span>3-5 years</span>
+              <div class="age-track" aria-label="Age 3 to 5 SVR 90 percent"><i style="width: 90%;"></i></div>
+              <span>90%</span>
+            </div>
+            <div class="age-row">
+              <span>6-11 years</span>
+              <div class="age-track" aria-label="Age 6 to 11 SVR 97 percent"><i style="width: 97%;"></i></div>
+              <span>97%</span>
+            </div>
+            <div class="age-row">
+              <span>12-17 years</span>
+              <div class="age-track" aria-label="Age 12 to 17 SVR 83 percent"><i style="width: 83%;"></i></div>
+              <span>83%</span>
+            </div>
+          </div>
+          <p class="source-note">The source table also reported loss to follow-up and reinfection categories.</p>
+        </article>
+      </section>
+
+      <section class="visual-grid" aria-label="Referral and baseline patterns">
+        <article class="panel funnel-card">
+          <div>
+            <p class="section-label">Patient referral outcomes</p>
+            <h2>Most referred children started antiviral therapy</h2>
+            <p class="source-note">Sixty-four of 73 HSSP referrals initiated DAA therapy after specialty pharmacy support.</p>
+          </div>
+          <svg class="funnel-svg" viewBox="0 0 420 250" role="img" aria-label="Referral funnel from 73 referred to 64 initiated">
+            <rect x="30" y="28" width="360" height="54" rx="8" fill="#243770"></rect>
+            <text x="210" y="62" text-anchor="middle" fill="#fff" font-family="Montserrat, Arial, sans-serif" font-size="24" font-weight="900">73 referred</text>
+            <path d="M68 96h284l-54 62H122z" fill="#eef4fb" stroke="#aebbd2" stroke-width="2"></path>
+            <text x="210" y="134" text-anchor="middle" fill="#243770" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="850">9 did not initiate</text>
+            <rect x="77" y="174" width="266" height="54" rx="8" fill="#187c8f"></rect>
+            <text x="210" y="208" text-anchor="middle" fill="#fff" font-family="Montserrat, Arial, sans-serif" font-size="24" font-weight="900">64 initiated</text>
+          </svg>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Reasons therapy did not start</p>
+          <h2>Swallowing practice and follow-up drove the remaining gap</h2>
+          <ul class="reason-list">
+            <li><b>4</b><span>Ongoing swallowing practice</span></li>
+            <li><b>3</b><span>Lost to follow-up</span></li>
+            <li><b>1</b><span>Treated by local provider</span></li>
+            <li><b>1</b><span>New pregnancy</span></li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="model" class="panel">
+        <p class="section-label">Integrated care model</p>
+        <h2>Specialty pharmacists converted pediatric readiness, access, and monitoring into one workflow</h2>
+        <div class="care-path">
+          <article class="path-node">
+            <b>1</b>
+            <h3>Provider visit</h3>
+            <p>Hepatology evaluation and DAA options assessed.</p>
+          </article>
+          <article class="path-node">
+            <b>2</b>
+            <h3>HSSP referral</h3>
+            <p>Pharmacist begins selection, access, and caregiver coordination.</p>
+          </article>
+          <article class="path-node">
+            <b>3</b>
+            <h3>Swallowing plan</h3>
+            <p>Practice dosage form and follow-up plan set with caregiver.</p>
+          </article>
+          <article class="path-node">
+            <b>4</b>
+            <h3>Medication access</h3>
+            <p>Insurance approval and dispensing barriers addressed.</p>
+          </article>
+          <article class="path-node">
+            <b>5</b>
+            <h3>Education</h3>
+            <p>Medication counseling, adverse effect expectations, and adherence planning.</p>
+          </article>
+          <article class="path-node">
+            <b>6</b>
+            <h3>Monitoring</h3>
+            <p>Therapy follow-up, DDI management, and SVR coordination.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="results" class="section-stack" aria-label="Detailed results">
+        <article class="panel">
+          <p class="section-label">Swallowing practice</p>
+          <h2>Nearly half required pharmacist-supported practice</h2>
+          <div class="donut-layout">
+            <svg viewBox="0 0 240 240" role="img" aria-label="Donut chart showing 45 percent needed swallowing practice">
+              <circle cx="120" cy="120" r="76" fill="none" stroke="#d9e1ef" stroke-width="36"></circle>
+              <circle cx="120" cy="120" r="76" fill="none" stroke="#d12630" stroke-width="36" stroke-dasharray="214.9 262.6" stroke-dashoffset="0" transform="rotate(-90 120 120)"></circle>
+              <circle cx="120" cy="120" r="76" fill="none" stroke="#187c8f" stroke-width="36" stroke-dasharray="262.6 214.9" stroke-dashoffset="-214.9" transform="rotate(-90 120 120)"></circle>
+              <circle cx="120" cy="120" r="49" fill="#fff"></circle>
+              <text x="120" y="113" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="21" font-weight="900">45%</text>
+              <text x="120" y="136" text-anchor="middle" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="800">practice</text>
+            </svg>
+            <ul class="legend">
+              <li style="--legend-color: var(--red);"><i></i><span>Swallowing practice indicated</span><b>29</b></li>
+              <li style="--legend-color: var(--teal);"><i></i><span>No practice indicated</span><b>35</b></li>
+              <li style="--legend-color: var(--gold);"><i></i><span>Pharmacist contacts during plans</span><b>99</b></li>
+            </ul>
+          </div>
+          <p class="source-note">Practice was most common in younger children: 60% of ages 3-5 and 53% of ages 6-11.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Patient-reported side effects</p>
+          <h2>Symptoms were common, but no discontinuation was reported</h2>
+          <div class="lens-chart side-effect-bars">
+            <div class="lens-row">
+              <span>Any side effect</span>
+              <div class="lens-bar"><i style="width: 53%;"></i></div>
+              <em>34</em>
+            </div>
+            <div class="lens-row">
+              <span>Headache</span>
+              <div class="lens-bar"><i style="width: 38%;"></i></div>
+              <em>13</em>
+            </div>
+            <div class="lens-row">
+              <span>Fatigue</span>
+              <div class="lens-bar"><i style="width: 38%;"></i></div>
+              <em>13</em>
+            </div>
+            <div class="lens-row">
+              <span>Nausea</span>
+              <div class="lens-bar"><i style="width: 26%;"></i></div>
+              <em>9</em>
+            </div>
+            <div class="lens-row">
+              <span>Vomiting</span>
+              <div class="lens-bar"><i style="width: 21%;"></i></div>
+              <em>7</em>
+            </div>
+            <div class="lens-row">
+              <span>Sleep disturbance</span>
+              <div class="lens-bar"><i style="width: 15%;"></i></div>
+              <em>5</em>
+            </div>
+          </div>
+          <p class="source-note">Counts are patient-reported events from the total DAA-treated cohort.</p>
+        </article>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">Baseline table pattern</p>
+          <h2>The cohort was young, Medicaid-insured, and genotype 1 predominant</h2>
+          <div class="pill-grid">
+            <div class="mini-pill"><strong>6</strong><span>Median age, years</span></div>
+            <div class="mini-pill"><strong>83%</strong><span>Medicaid</span></div>
+            <div class="mini-pill"><strong>77%</strong><span>Genotype 1</span></div>
+            <div class="mini-pill"><strong>73%</strong><span>White</span></div>
+            <div class="mini-pill"><strong>44%</strong><span>Male</span></div>
+            <div class="mini-pill"><strong>2%</strong><span>Cirrhosis</span></div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Age group</th>
+                  <th>n</th>
+                  <th>Median age</th>
+                  <th>Main regimen pattern</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>3-5 years</td>
+                  <td>20</td>
+                  <td>5 years</td>
+                  <td>LDV/SOF 45/200 mg tablet most common</td>
+                </tr>
+                <tr>
+                  <td>6-11 years</td>
+                  <td>32</td>
+                  <td>7 years</td>
+                  <td>LDV/SOF and SOF/VEL tablet/pellet mix</td>
+                </tr>
+                <tr>
+                  <td>12-17 years</td>
+                  <td>12</td>
+                  <td>15 years</td>
+                  <td>LDV/SOF adult tablet or GLE/PIB</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Adherence and DDI management</p>
+          <h2>Missed doses were usually infrequent; interactions were manageable</h2>
+          <div class="pill-grid">
+            <div class="mini-pill"><strong>69%</strong><span>No missed doses</span></div>
+            <div class="mini-pill"><strong>2</strong><span>Median missed doses</span></div>
+            <div class="mini-pill"><strong>11</strong><span>Potential DDIs</span></div>
+          </div>
+          <ul class="takeaway-list">
+            <li>Vomiting and swallowing difficulty were common documented reasons for missed doses.</li>
+            <li>The only patient who did not achieve SVR reported 13 missed doses.</li>
+            <li>Potential DDIs involved acid-reducing agents, herbal supplements, and oxcarbazepine.</li>
+            <li>Pharmacist management included timing adjustment, dose/timing adjustment, or discontinuing the non-DAA.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="evidence-map" aria-label="Extracted poster takeaways">
+        <article class="evidence-card">
+          <h3>Objective</h3>
+          <p>Evaluate DAA efficacy for pediatric chronic hepatitis C patients using an integrated health-system specialty pharmacy model.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Methods</h3>
+          <p>Single-center retrospective cohort of patients younger than 18 years referred for DAA initiation from January 2017 to September 2022.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Primary result</h3>
+          <p>Overall SVR was 92%, with highest observed response in the 6-11 year subgroup.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Operational signal</h3>
+          <p>Medication swallowing readiness required substantial pharmacist contact before some children could initiate treatment.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Conclusion</h3>
+          <p>The HSSP model supported high SVR rates, manageable adherence barriers, and pharmacist-managed drug interactions.</p>
+        </article>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/37-OPR37-EN-Poster-AM24_2024.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/37-OPR37-EN-Poster-AM24_2024.md">Source markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

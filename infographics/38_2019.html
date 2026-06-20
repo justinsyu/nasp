@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Impact of Health-System Specialty Pharmacy Services on Medication Adherence in Pediatric Patients with Cystic Fibrosis | NASP 2019</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .cf-hero-mark {
+      min-height: 15rem;
+      border: 1px solid rgba(36, 55, 112, 0.2);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 78% 20%, rgba(233, 158, 37, 0.28), transparent 8rem),
+        radial-gradient(circle at 18% 84%, rgba(24, 124, 143, 0.22), transparent 8rem),
+        linear-gradient(145deg, rgba(238, 244, 251, 0.95), #fff);
+      overflow: hidden;
+    }
+    .cf-hero-mark svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 15rem;
+    }
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+    .comparison-card {
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.8rem;
+    }
+    .comparison-card.health {
+      border-color: rgba(24, 124, 143, 0.35);
+      background: linear-gradient(180deg, rgba(24, 124, 143, 0.08), #fff 58%);
+    }
+    .comparison-card h3 {
+      margin-bottom: 0.55rem;
+      color: var(--ink);
+    }
+    .comparison-card ul {
+      margin: 0;
+      padding-left: 1rem;
+    }
+    .comparison-card li {
+      margin: 0.28rem 0;
+      font-size: 0.82rem;
+    }
+    .speed-chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 2rem;
+      margin-top: 0.65rem;
+      border-radius: 999px;
+      padding: 0.28rem 0.72rem;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 900;
+    }
+    .workflow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.58rem;
+      margin-top: 0.75rem;
+    }
+    .workflow-step {
+      position: relative;
+      min-height: 9.2rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.78rem;
+    }
+    .workflow-step::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -0.48rem;
+      width: 0.38rem;
+      height: 0.38rem;
+      border-top: 2px solid var(--border-strong);
+      border-right: 2px solid var(--border-strong);
+      transform: translateY(-50%) rotate(45deg);
+    }
+    .workflow-step:last-child::after {
+      display: none;
+    }
+    .workflow-step strong {
+      display: grid;
+      place-items: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: var(--step-color, var(--red));
+      color: #fff;
+      font-family: var(--font-display);
+      font-weight: 900;
+    }
+    .workflow-step h3 {
+      margin-top: 0.55rem;
+      font-size: 0.95rem;
+    }
+    .workflow-step p {
+      margin: 0.42rem 0 0;
+      font-size: 0.78rem;
+    }
+    .workflow-step:nth-child(2) { --step-color: var(--gold); }
+    .workflow-step:nth-child(3) { --step-color: var(--teal); }
+    .workflow-step:nth-child(4) { --step-color: var(--green); }
+    .workflow-step:nth-child(5) { --step-color: var(--purple); }
+    .prepost {
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 0.75rem;
+    }
+    .prepost-row {
+      display: grid;
+      grid-template-columns: 10rem minmax(0, 1fr) 4.4rem;
+      gap: 0.62rem;
+      align-items: center;
+    }
+    .prepost-row .label {
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 850;
+    }
+    .track {
+      height: 1rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 999px;
+      background: #eef3f8;
+      overflow: hidden;
+    }
+    .fill {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .fill.post {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .prepost-row .value {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-weight: 900;
+      text-align: right;
+    }
+    .mini-bars {
+      display: grid;
+      gap: 0.48rem;
+      margin-top: 0.65rem;
+    }
+    .mini-row {
+      display: grid;
+      grid-template-columns: 3rem minmax(0, 1fr) 3.2rem;
+      gap: 0.48rem;
+      align-items: center;
+      font-size: 0.76rem;
+      font-weight: 800;
+    }
+    .mini-track {
+      height: 0.62rem;
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .mini-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .med-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.5rem;
+      margin-top: 0.65rem;
+    }
+    .med-tile {
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 7px;
+      background: var(--surface-blue);
+      padding: 0.62rem 0.54rem;
+      text-align: center;
+    }
+    .med-tile strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+    .med-tile span {
+      display: block;
+      margin-top: 0.2rem;
+      color: var(--ink);
+      font-size: 0.74rem;
+      font-weight: 850;
+    }
+    .takeaway-band {
+      border-left: 5px solid var(--red);
+      background:
+        linear-gradient(90deg, rgba(209, 38, 48, 0.08), rgba(255, 255, 255, 0)),
+        #fff;
+    }
+    .source-note {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    @media (max-width: 900px) {
+      .comparison-grid,
+      .workflow {
+        grid-template-columns: 1fr;
+      }
+      .workflow-step {
+        min-height: 0;
+      }
+      .workflow-step::after {
+        top: auto;
+        right: 50%;
+        bottom: -0.5rem;
+        transform: translateX(50%) rotate(135deg);
+      }
+      .med-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 560px) {
+      .prepost-row,
+      .mini-row {
+        grid-template-columns: 1fr;
+      }
+      .prepost-row .value {
+        text-align: left;
+      }
+      .med-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar" aria-label="Infographic navigation">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav>
+        <a href="#objective">Objective</a>
+        <a href="#results">Results</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/38_2019.pdf">PDF source</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/38_2019.md">Markdown source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2019 Annual Meeting &amp; Expo</p>
+        <h1>Health-system specialty pharmacy services and medication adherence in pediatric cystic fibrosis</h1>
+        <p class="hero-summary">Yale New Haven Health implemented a clinic-to-pharmacy referral workflow for pediatric cystic fibrosis patients and compared medication adherence and pharmacy continuity before and after the launch.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Prospective review</li>
+          <li class="tag therapy">Cystic fibrosis</li>
+          <li class="tag therapy">Medication adherence</li>
+          <li class="tag">Health-system specialty pharmacy</li>
+        </ul>
+      </div>
+      <aside class="hero-card">
+        <div>
+          <p class="section-label">Poster file</p>
+          <div class="poster-code">38_2019</div>
+        </div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Authors</dt>
+            <dd>Tao, Stutsky, DelVecchio, Papiro, Kelly</dd>
+          </div>
+          <div>
+            <dt>Patients</dt>
+            <dd>65 pediatric CF patients</dd>
+          </div>
+          <div>
+            <dt>Implementation</dt>
+            <dd>September 2018</dd>
+          </div>
+          <div>
+            <dt>Follow-up</dt>
+            <dd>6 months</dd>
+          </div>
+        </dl>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Pre prescriptions</span>
+          <strong>65</strong>
+        </article>
+        <article class="metric-card">
+          <span>Post prescriptions</span>
+          <strong>142</strong>
+        </article>
+        <article class="metric-card">
+          <span>Clinical continuity</span>
+          <strong>70.4%</strong>
+        </article>
+        <article class="metric-card">
+          <span>Post PDC</span>
+          <strong>0.80</strong>
+        </article>
+      </section>
+
+      <section class="visual-grid" id="objective">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Test whether an embedded specialty pharmacy could improve adherence</h2>
+          <p>The project assessed the impact of Yale New Haven Health Outpatient Pharmacy Services on medication adherence in pediatric patients with cystic fibrosis.</p>
+          <div class="comparison-grid" aria-label="Outside pharmacy versus health-system specialty pharmacy comparison">
+            <div class="comparison-card">
+              <h3>Outside specialty pharmacy</h3>
+              <ul>
+                <li>May not have electronic medical record access</li>
+                <li>Limited patient education and financial assistance</li>
+                <li>Average turn-around time of 7-14 days</li>
+                <li>Limited direct coordination with clinic prescribers</li>
+              </ul>
+              <span class="speed-chip">7-14 day turn-around</span>
+            </div>
+            <div class="comparison-card health">
+              <h3>Health-system specialty pharmacy</h3>
+              <ul>
+                <li>Direct EMR access for clinical assessment and monitoring</li>
+                <li>Continuous education, prior authorization, and assistance</li>
+                <li>Close access to prescribers, nurses, and clinic pharmacists</li>
+                <li>Local pickup plus same-day or next-day delivery options</li>
+              </ul>
+              <span class="speed-chip">&lt;72 hour turn-around</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Medication mix</p>
+          <h2>Most clinic specialty prescriptions were concentrated in two therapies</h2>
+          <div class="cf-hero-mark" role="img" aria-label="Stylized cystic fibrosis specialty medication distribution">
+            <svg viewBox="0 0 520 270" aria-hidden="true">
+              <defs>
+                <linearGradient id="lungGrad" x1="0" x2="1" y1="0" y2="1">
+                  <stop offset="0" stop-color="#187c8f"/>
+                  <stop offset="1" stop-color="#4d8a67"/>
+                </linearGradient>
+              </defs>
+              <path d="M260 40 C250 80 251 111 252 145 C221 113 191 94 158 92 C107 89 69 126 62 176 C57 214 77 239 108 244 C157 252 197 211 209 160 C213 143 225 137 245 151 C247 183 250 213 260 238" fill="none" stroke="url(#lungGrad)" stroke-width="20" stroke-linecap="round"/>
+              <path d="M260 40 C270 80 269 111 268 145 C299 113 329 94 362 92 C413 89 451 126 458 176 C463 214 443 239 412 244 C363 252 323 211 311 160 C307 143 295 137 275 151 C273 183 270 213 260 238" fill="none" stroke="url(#lungGrad)" stroke-width="20" stroke-linecap="round"/>
+              <line x1="260" y1="26" x2="260" y2="154" stroke="#243770" stroke-width="14" stroke-linecap="round"/>
+              <circle cx="106" cy="92" r="32" fill="#fff" stroke="#d12630" stroke-width="5"/>
+              <text x="106" y="88" fill="#d12630" font-family="Montserrat, Arial" font-size="22" font-weight="900" text-anchor="middle">48%</text>
+              <text x="106" y="109" fill="#243770" font-family="Inter, Arial" font-size="12" font-weight="800" text-anchor="middle">Pulmozyme</text>
+              <circle cx="414" cy="92" r="27" fill="#fff" stroke="#e99e25" stroke-width="5"/>
+              <text x="414" y="89" fill="#e99e25" font-family="Montserrat, Arial" font-size="19" font-weight="900" text-anchor="middle">25%</text>
+              <text x="414" y="108" fill="#243770" font-family="Inter, Arial" font-size="11" font-weight="800" text-anchor="middle">Tobramycin</text>
+              <circle cx="260" cy="210" r="24" fill="#fff" stroke="#7561a8" stroke-width="5"/>
+              <text x="260" y="207" fill="#7561a8" font-family="Montserrat, Arial" font-size="17" font-weight="900" text-anchor="middle">27%</text>
+              <text x="260" y="226" fill="#243770" font-family="Inter, Arial" font-size="11" font-weight="800" text-anchor="middle">Modulators</text>
+            </svg>
+          </div>
+          <div class="med-grid" aria-label="Prescribed specialty medications September 2018 to February 2019">
+            <div class="med-tile"><strong>48%</strong><span>Pulmozyme</span></div>
+            <div class="med-tile"><strong>25%</strong><span>Tobramycin</span></div>
+            <div class="med-tile"><strong>11%</strong><span>Orkambi</span></div>
+            <div class="med-tile"><strong>10%</strong><span>Kalydeco</span></div>
+            <div class="med-tile"><strong>6%</strong><span>Symdeko</span></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Clinic workflow</p>
+        <h2>A referral pathway turned clinic contact into pharmacy continuity</h2>
+        <div class="workflow" aria-label="Clinic workflow evidence flow">
+          <article class="workflow-step">
+            <strong>1</strong>
+            <h3>Patient seen in CF clinic</h3>
+            <p>Interdisciplinary care team identifies specialty pharmacy opportunity during routine care.</p>
+          </article>
+          <article class="workflow-step">
+            <strong>2</strong>
+            <h3>OPS benefits explained</h3>
+            <p>Patients receive handouts, invitation letters, and direct pharmacist education.</p>
+          </article>
+          <article class="workflow-step">
+            <strong>3</strong>
+            <h3>Referral preference captured</h3>
+            <p>Patients either remain with a preferred outside pharmacy or choose to switch to OPS.</p>
+          </article>
+          <article class="workflow-step">
+            <strong>4</strong>
+            <h3>EMR and prescriptions updated</h3>
+            <p>The pharmacist updates the preferred pharmacy and new or existing prescriptions route to OPS.</p>
+          </article>
+          <article class="workflow-step">
+            <strong>5</strong>
+            <h3>Benefits, filling, delivery, follow-up</h3>
+            <p>OPS handles benefits investigation, prior authorizations, fills, delivery, questions, and refills.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="visual-grid" id="results">
+        <article class="panel">
+          <p class="section-label">Pre/post results</p>
+          <h2>Continuity shifted sharply toward the health-system pharmacy</h2>
+          <div class="prepost" aria-label="Pre and post implementation adherence metrics">
+            <div class="prepost-row">
+              <div class="label">Clinical continuity, pre</div>
+              <div class="track"><i class="fill" style="width:7.7%"></i></div>
+              <div class="value">7.7%</div>
+            </div>
+            <div class="prepost-row">
+              <div class="label">Clinical continuity, post</div>
+              <div class="track"><i class="fill post" style="width:70.4%"></i></div>
+              <div class="value">70.4%</div>
+            </div>
+            <div class="prepost-row">
+              <div class="label">MPR, pre</div>
+              <div class="track"><i class="fill" style="width:85%"></i></div>
+              <div class="value">0.85</div>
+            </div>
+            <div class="prepost-row">
+              <div class="label">MPR, post</div>
+              <div class="track"><i class="fill post" style="width:86%"></i></div>
+              <div class="value">0.86</div>
+            </div>
+            <div class="prepost-row">
+              <div class="label">PDC, pre</div>
+              <div class="track"><i class="fill" style="width:75%"></i></div>
+              <div class="value">0.75</div>
+            </div>
+            <div class="prepost-row">
+              <div class="label">PDC, post</div>
+              <div class="track"><i class="fill post" style="width:80%"></i></div>
+              <div class="value">0.80</div>
+            </div>
+          </div>
+          <p class="source-note">MPR = medication possession ratio; PDC = proportion of days covered.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Prescription capture</p>
+          <h2>OPS received and filled more prescriptions after implementation</h2>
+          <div class="number-cloud" aria-label="Prescription receipt and fill summary">
+            <div class="number-pill">5<small>OPS scripts pre</small></div>
+            <div class="number-pill">100<small>OPS scripts post</small></div>
+            <div class="number-pill">42<small>Outside scripts post</small></div>
+            <div class="number-pill">89%<small>Filled by OPS</small></div>
+            <div class="number-pill">11%<small>Filled outside</small></div>
+          </div>
+          <div class="mini-bars" aria-label="Monthly prescriptions received and filled by OPS">
+            <div class="mini-row"><span>Sep</span><div class="mini-track"><i style="width:40%"></i></div><span>40%</span></div>
+            <div class="mini-row"><span>Oct</span><div class="mini-track"><i style="width:45%"></i></div><span>45%</span></div>
+            <div class="mini-row"><span>Nov</span><div class="mini-track"><i style="width:55%"></i></div><span>55%</span></div>
+            <div class="mini-row"><span>Dec</span><div class="mini-track"><i style="width:45%"></i></div><span>45%</span></div>
+            <div class="mini-row"><span>Jan</span><div class="mini-track"><i style="width:48%"></i></div><span>48%</span></div>
+            <div class="mini-row"><span>Feb</span><div class="mini-track"><i style="width:50%"></i></div><span>50%</span></div>
+          </div>
+          <p class="source-note">Monthly fill rate was reported as 100% for each month from September 2018 through February 2019.</p>
+        </article>
+      </section>
+
+      <section class="evidence-map" aria-label="Evidence flow">
+        <article class="evidence-card">
+          <h3>Study design</h3>
+          <p>Prospective 6-month review after implementation compared with a retrospective pre-implementation cohort.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Intervention</h3>
+          <p>Patient education and an EMR-connected workflow moved eligible CF specialty prescriptions toward OPS.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Operational signal</h3>
+          <p>OPS receipt increased from 5 to 100 prescriptions, while post-implementation OPS fill rate was 89%.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Adherence signal</h3>
+          <p>MPR was sustained from 0.85 to 0.86, and PDC improved from 0.75 to 0.80.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Implementation barrier</h3>
+          <p>Workflow integration, patient buy-in, and insurance lockouts remained practical challenges.</p>
+        </article>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel takeaway-band">
+          <p class="section-label">Conclusion</p>
+          <h2>Embedding specialty pharmacy support preserved adherence while improving continuity</h2>
+          <div class="markdown-fragment">
+            <p>The poster concluded that implementation of health-system specialty pharmacy services was associated with improved and sustained medication adherence in pediatric cystic fibrosis patients.</p>
+            <p>The key operational lesson was collaboration: close coordination with prescribers, nurses, pharmacists, and the broader clinic team helped integrate the new referral process with minimal disruption.</p>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Source links</p>
+          <h2>Poster materials</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Extracted poster field</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Poster title</td>
+                  <td>Impact of Health-System Specialty Pharmacy Services on Medication Adherence in Pediatric Patients with Cystic Fibrosis</td>
+                </tr>
+                <tr>
+                  <td>Program period</td>
+                  <td>September 2018-February 2019</td>
+                </tr>
+                <tr>
+                  <td>Future directions</td>
+                  <td>Collaborative practice agreements and expansion to other pediatric clinic settings</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="footer-actions">
+            <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/38_2019.pdf">Open poster PDF</a>
+            <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/38_2019.md">Open extracted markdown</a>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

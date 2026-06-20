@@ -1,0 +1,631 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Oral Oncology AE Reporting via Text Messaging | NASP 2023</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .oncology-hero-art {
+      position: relative;
+      min-height: 19rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 20% 16%, rgba(209, 38, 48, 0.15), transparent 9rem),
+        radial-gradient(circle at 85% 78%, rgba(24, 124, 143, 0.18), transparent 11rem),
+        linear-gradient(135deg, #ffffff 0%, var(--surface-blue) 58%, #fff7ea 100%);
+      overflow: hidden;
+    }
+    .oncology-hero-art svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 19rem;
+    }
+    .hero-card .finding {
+      margin: 0;
+      border-left: 4px solid var(--red);
+      padding-left: 0.7rem;
+      color: var(--ink);
+      font-size: 0.95rem;
+      font-weight: 800;
+    }
+    .metric-card p {
+      margin: 0.45rem 0 0;
+      font-size: 0.78rem;
+    }
+    .story-band {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .objective-card {
+      display: grid;
+      align-content: center;
+      min-height: 100%;
+      background:
+        linear-gradient(135deg, rgba(24, 124, 143, 0.10), transparent 42%),
+        #ffffff;
+    }
+    .objective-card p:last-child {
+      margin-bottom: 0;
+    }
+    .screening-cycle {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.85rem;
+    }
+    .cycle-step {
+      position: relative;
+      min-height: 8.8rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.8rem;
+      overflow: hidden;
+    }
+    .cycle-step::after {
+      content: attr(data-step);
+      position: absolute;
+      right: 0.45rem;
+      bottom: -0.5rem;
+      color: rgba(36, 55, 112, 0.12);
+      font-family: var(--font-display);
+      font-size: 4rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .cycle-step h3,
+    .cycle-step p {
+      position: relative;
+      z-index: 1;
+    }
+    .cycle-step p {
+      margin: 0.45rem 0 0;
+      font-size: 0.8rem;
+    }
+    .severity-panel {
+      display: grid;
+      grid-template-columns: minmax(15rem, 0.55fr) minmax(0, 1.45fr);
+      gap: 1rem;
+      align-items: center;
+    }
+    .ae-total {
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background:
+        linear-gradient(145deg, rgba(209, 38, 48, 0.10), transparent 48%),
+        #fff;
+      padding: 1rem;
+    }
+    .ae-total strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(3.4rem, 8vw, 5.6rem);
+      line-height: 0.92;
+    }
+    .ae-total span {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--ink);
+      font-weight: 900;
+    }
+    .severity-bars {
+      display: grid;
+      gap: 0.62rem;
+    }
+    .severity-row {
+      display: grid;
+      grid-template-columns: 12.4rem minmax(0, 1fr) 3.2rem;
+      gap: 0.55rem;
+      align-items: center;
+    }
+    .severity-row b {
+      color: var(--ink);
+      font-size: 0.8rem;
+      line-height: 1.16;
+    }
+    .severity-track {
+      height: 1.05rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .severity-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: var(--c, var(--red));
+    }
+    .severity-row span {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 900;
+      text-align: right;
+    }
+    .task-flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+    .task-node {
+      position: relative;
+      min-height: 11rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.9rem;
+      box-shadow: 0 0.35rem 1rem rgba(36, 55, 112, 0.06);
+    }
+    .task-node::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 0.34rem;
+      border-radius: 8px 8px 0 0;
+      background: var(--accent, var(--red));
+    }
+    .task-node:nth-child(2) { --accent: var(--gold); }
+    .task-node:nth-child(3) { --accent: var(--teal); }
+    .task-node:nth-child(4) { --accent: var(--green); }
+    .task-node strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2.25rem;
+      line-height: 1;
+    }
+    .task-node span {
+      display: block;
+      margin-top: 0.3rem;
+      color: var(--ink);
+      font-weight: 900;
+    }
+    .task-node p {
+      margin: 0.5rem 0 0;
+      font-size: 0.82rem;
+    }
+    .action-list {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.6rem;
+      margin-top: 0.9rem;
+    }
+    .action-pill {
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 7px;
+      background: var(--surface-blue);
+      padding: 0.58rem 0.65rem;
+      color: var(--ink);
+      text-align: center;
+    }
+    .action-pill b {
+      display: block;
+      color: var(--teal);
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+    .action-pill span {
+      display: block;
+      margin-top: 0.2rem;
+      font-size: 0.7rem;
+      font-weight: 850;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .cost-layout {
+      display: grid;
+      grid-template-columns: minmax(15rem, 0.62fr) minmax(0, 1.38fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .cost-spotlight {
+      display: grid;
+      align-content: center;
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background:
+        linear-gradient(145deg, rgba(233, 158, 37, 0.16), transparent 48%),
+        #ffffff;
+      padding: 1rem;
+    }
+    .cost-spotlight strong {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(2.7rem, 6vw, 4.6rem);
+      line-height: 0.95;
+    }
+    .cost-spotlight span {
+      margin-top: 0.35rem;
+      color: var(--ink);
+      font-weight: 900;
+    }
+    .takeaway {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(24, 124, 143, 0.11), transparent 44%),
+        #fff;
+    }
+    .takeaway p {
+      max-width: 64rem;
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.05rem, 1.8vw, 1.42rem);
+      font-weight: 850;
+      line-height: 1.35;
+    }
+    .limits-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+    @media (max-width: 900px) {
+      .story-band,
+      .severity-panel,
+      .cost-layout {
+        grid-template-columns: 1fr;
+      }
+      .screening-cycle,
+      .task-flow,
+      .action-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 560px) {
+      .screening-cycle,
+      .task-flow,
+      .action-list,
+      .limits-grid,
+      .severity-row {
+        grid-template-columns: 1fr;
+      }
+      .severity-row span {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/77_Oral-oncology-adverse-event-reporting-via-text-messaging-integrative-collaboration-between-specialty-pharmacy-and-oncology-provider-clinic_2023.pdf">Source PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/77_Oral-oncology-adverse-event-reporting-via-text-messaging-integrative-collaboration-between-specialty-pharmacy-and-oncology-provider-clinic_2023.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2023 / Poster 77</p>
+        <h1 id="poster-title">Oral oncology adverse event reporting via text messaging</h1>
+        <p class="hero-summary">
+          Optum Specialty Pharmacy and Optum Care Cancer Center piloted a text-enabled PRO-CTCAE screening workflow to surface oral-oncology adverse events earlier, route higher-severity symptoms into the clinic EHR, and support pharmacist-led counseling and triage.
+        </p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag therapy">Oral oncology</li>
+          <li class="tag category">Adverse-event triage</li>
+          <li class="tag">Text messaging</li>
+          <li class="tag">Specialty pharmacy + clinic EHR</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Study snapshot">
+        <div class="poster-code">77<br>2023</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Eligible patients</dt>
+            <dd>143</dd>
+          </div>
+          <div>
+            <dt>Enrolled</dt>
+            <dd>35 patients</dd>
+          </div>
+          <div>
+            <dt>Survey cadence</dt>
+            <dd>Baseline + biweekly</dd>
+          </div>
+          <div>
+            <dt>Enrollment window</dt>
+            <dd>90 days</dd>
+          </div>
+        </dl>
+        <p class="finding">Core question: can digital screening reduce AE escalation by connecting pharmacy triage with oncology clinic action sooner?</p>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <div class="metric-card">
+          <span>Enrollment yield</span>
+          <strong>24.5%</strong>
+          <p>35 of 143 eligible new oral-oncolytic patients enrolled.</p>
+        </div>
+        <div class="metric-card">
+          <span>Text enrollment</span>
+          <strong>77%</strong>
+          <p>Most participants used the SMS screening option.</p>
+        </div>
+        <div class="metric-card">
+          <span>Follow-up calls</span>
+          <strong>77</strong>
+          <p>Pharmacy outreach converted patient-reported symptoms into triage.</p>
+        </div>
+        <div class="metric-card">
+          <span>Potential cost avoidance</span>
+          <strong>$22.9K</strong>
+          <p>Total during the pilot from managed adverse events.</p>
+        </div>
+      </section>
+
+      <section class="story-band" aria-label="Objective and visual overview">
+        <div class="oncology-hero-art" role="img" aria-label="Illustration of text-message adverse-event screening connected to pharmacist triage and oncology clinic EHR tasks">
+          <svg viewBox="0 0 720 480" aria-hidden="true">
+            <defs>
+              <linearGradient id="phoneShell" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#ffffff"/>
+                <stop offset="1" stop-color="#eef4fb"/>
+              </linearGradient>
+              <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="16" stdDeviation="14" flood-color="#243770" flood-opacity="0.16"/>
+              </filter>
+            </defs>
+            <path d="M86 300 C188 134 420 76 617 174" fill="none" stroke="#187c8f" stroke-width="8" stroke-linecap="round" opacity="0.23"/>
+            <path d="M92 347 C230 440 494 420 628 292" fill="none" stroke="#d12630" stroke-width="8" stroke-linecap="round" opacity="0.20"/>
+            <rect x="268" y="54" width="184" height="356" rx="34" fill="url(#phoneShell)" stroke="#243770" stroke-width="5" filter="url(#softShadow)"/>
+            <rect x="293" y="100" width="134" height="252" rx="15" fill="#ffffff" stroke="#aebbd2" stroke-width="2"/>
+            <circle cx="360" cy="378" r="13" fill="#eef4fb" stroke="#aebbd2" stroke-width="3"/>
+            <rect x="313" y="128" width="94" height="30" rx="15" fill="#187c8f"/>
+            <rect x="313" y="176" width="78" height="24" rx="12" fill="#e99e25"/>
+            <rect x="313" y="218" width="100" height="24" rx="12" fill="#d12630"/>
+            <rect x="313" y="260" width="66" height="24" rx="12" fill="#7561a8"/>
+            <path d="M170 142 h68 l24 25 -24 25 h-68 c-17 0-30-11-30-25s13-25 30-25Z" fill="#fff" stroke="#187c8f" stroke-width="4"/>
+            <circle cx="181" cy="167" r="5" fill="#187c8f"/>
+            <circle cx="203" cy="167" r="5" fill="#187c8f"/>
+            <circle cx="225" cy="167" r="5" fill="#187c8f"/>
+            <path d="M548 306 h-70 l-24 25 24 25 h70 c17 0 30-11 30-25s-13-25-30-25Z" fill="#fff" stroke="#d12630" stroke-width="4"/>
+            <path d="M493 331 h53" stroke="#d12630" stroke-width="6" stroke-linecap="round"/>
+            <circle cx="142" cy="322" r="48" fill="#ffffff" stroke="#e99e25" stroke-width="5"/>
+            <path d="M116 322 h52 M142 296 v52" stroke="#e99e25" stroke-width="8" stroke-linecap="round"/>
+            <rect x="520" y="104" width="96" height="78" rx="10" fill="#ffffff" stroke="#4d8a67" stroke-width="5"/>
+            <path d="M540 132 h56 M540 155 h37" stroke="#4d8a67" stroke-width="7" stroke-linecap="round"/>
+            <path d="M572 182 l28 32" stroke="#4d8a67" stroke-width="7" stroke-linecap="round"/>
+            <text x="360" y="445" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="22" font-weight="900">SMS symptom screen -> pharmacist triage -> EHR task -> clinic action</text>
+          </svg>
+        </div>
+
+        <div class="panel objective-card markdown-fragment">
+          <p class="section-label">Objective</p>
+          <h2>Reduce AE severity through earlier intervention.</h2>
+          <p>The pilot replaced isolated phone/fax communication with a patient-reported text pathway and real-time EHR task communication between specialty pharmacy and the oncology clinic.</p>
+          <p>The intended clinical path was proactive AE screening, pharmacist counseling, and clinic triage before symptoms worsened into potentially preventable emergency or inpatient care.</p>
+          <div class="number-cloud" aria-label="Program design highlights">
+            <div class="number-pill">10<small>weeks total</small></div>
+            <div class="number-pill">8<small>AEs screened</small></div>
+            <div class="number-pill">PRO<small>CTCAE tool</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" aria-label="Methods workflow">
+        <p class="section-label">Methods</p>
+        <h2>A four-step pilot converted patient texts into risk-stratified pharmacy and clinic work.</h2>
+        <div class="screening-cycle">
+          <article class="cycle-step" data-step="1">
+            <h3>Offer screening</h3>
+            <p>New oral-oncolytic patients from Optum Care Cancer Center were offered AE screening by text, with phone available when texting was not feasible.</p>
+          </article>
+          <article class="cycle-step" data-step="2">
+            <h3>Survey biweekly</h3>
+            <p>Participants completed PRO-CTCAE screening at baseline and every two weeks for a total of 10 weeks.</p>
+          </article>
+          <article class="cycle-step" data-step="3">
+            <h3>Score severity</h3>
+            <p>Nausea, vomiting, constipation, diarrhea, pain, shortness of breath, cough, and fatigue were assessed and graded.</p>
+          </article>
+          <article class="cycle-step" data-step="4">
+            <h3>Triage response</h3>
+            <p>Low-severity AEs prompted pharmacist consultation; moderate to high severity added clinic triage and an oncologist EHR task.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel severity-panel" aria-label="Adverse event severity distribution">
+        <div class="ae-total">
+          <p class="section-label">AE reports</p>
+          <strong>108</strong>
+          <span>reported severity entries</span>
+          <p>Grade 2-4 reports accounted for 75 entries, the center of the triage workload.</p>
+        </div>
+        <div>
+          <p class="section-label">Figure 1 pattern</p>
+          <h2>Moderate and severe symptoms dominated the reporting mix.</h2>
+          <div class="severity-bars">
+            <div class="severity-row">
+              <b>Grade 4 life-threatening or disabling</b>
+              <div class="severity-track"><i style="--w:55%; --c: var(--red);"></i></div>
+              <span>18</span>
+            </div>
+            <div class="severity-row">
+              <b>Grade 3 severe and undesirable</b>
+              <div class="severity-track"><i style="--w:73%; --c: var(--gold);"></i></div>
+              <span>24</span>
+            </div>
+            <div class="severity-row">
+              <b>Grade 2 moderate</b>
+              <div class="severity-track"><i style="--w:100%; --c: var(--teal);"></i></div>
+              <span>33</span>
+            </div>
+            <div class="severity-row">
+              <b>Grade 1 mild</b>
+              <div class="severity-track"><i style="--w:61%; --c: var(--green);"></i></div>
+              <span>20</span>
+            </div>
+            <div class="severity-row">
+              <b>Grade 0 none or normal limits</b>
+              <div class="severity-track"><i style="--w:39%; --c: var(--purple);"></i></div>
+              <span>13</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" aria-label="Task outcomes">
+        <p class="section-label">Figure 2 pattern</p>
+        <h2>Follow-up calls produced EHR tasks, and nearly one-third of tasks led to clinic action.</h2>
+        <div class="task-flow">
+          <article class="task-node">
+            <strong>77</strong>
+            <span>follow-up calls</span>
+            <p>Pharmacists reached back to patients after screening and severity review.</p>
+          </article>
+          <article class="task-node">
+            <strong>38</strong>
+            <span>EHR tasks created</span>
+            <p>Moderate to high severity reports were escalated into the partner clinic workflow.</p>
+          </article>
+          <article class="task-node">
+            <strong>12</strong>
+            <span>task-related actions</span>
+            <p>31.6% of EHR tasks resulted in a documented clinic action.</p>
+          </article>
+          <article class="task-node">
+            <strong>31%</strong>
+            <span>participants with moderate/high AEs</span>
+            <p>The pilot surfaced patients whose symptoms warranted closer care-team attention.</p>
+          </article>
+        </div>
+        <div class="action-list" aria-label="Clinic action types">
+          <div class="action-pill"><b>1</b><span>appointment scheduled</span></div>
+          <div class="action-pill"><b>2</b><span>imaging orders</span></div>
+          <div class="action-pill"><b>5</b><span>AE medication recommendations</span></div>
+          <div class="action-pill"><b>5</b><span>clinic calls to patients</span></div>
+        </div>
+      </section>
+
+      <section class="cost-layout" aria-label="Potential healthcare cost avoidance">
+        <div class="cost-spotlight">
+          <p class="section-label">Cost avoidance</p>
+          <strong>$22,934</strong>
+          <span>total potential healthcare cost avoidance during the pilot</span>
+        </div>
+        <div class="table-card">
+          <p class="section-label">Table 2 pattern</p>
+          <h2>Managed AE categories driving the modeled savings</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Adverse event managed</th>
+                  <th>Potential avoidance per incident</th>
+                  <th>Total during pilot</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Pain</td>
+                  <td>$4,756</td>
+                  <td>$14,268</td>
+                </tr>
+                <tr>
+                  <td>Cough</td>
+                  <td>$576</td>
+                  <td>$576</td>
+                </tr>
+                <tr>
+                  <td>Nausea</td>
+                  <td>$1,965</td>
+                  <td>$1,965</td>
+                </tr>
+                <tr>
+                  <td>Diarrhea</td>
+                  <td>$3,265</td>
+                  <td>$3,265</td>
+                </tr>
+                <tr>
+                  <td>Nausea and vomiting</td>
+                  <td>$2,860</td>
+                  <td>$2,860</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="tables-grid" aria-label="Demographics and enrollment table">
+        <div class="table-card">
+          <p class="section-label">Table 1 pattern</p>
+          <h2>Pilot cohort demographics</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Measure</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Eligible patients</td>
+                  <td>143</td>
+                </tr>
+                <tr>
+                  <td>Enrolled patients</td>
+                  <td>35</td>
+                </tr>
+                <tr>
+                  <td>Text enrollment</td>
+                  <td>77%</td>
+                </tr>
+                <tr>
+                  <td>Female sex</td>
+                  <td>47%</td>
+                </tr>
+                <tr>
+                  <td>Average age</td>
+                  <td>66 years</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="panel markdown-fragment">
+          <p class="section-label">Discussion</p>
+          <h2>Integrated communication turned symptom reports into action.</h2>
+          <p>The pilot enrolled 24.5% of eligible patients and showed that specialty pharmacy triage plus EHR task communication can create opportunities for early clinic management of AEs.</p>
+          <p>Of the EHR tasks entered, 31.6% resulted in clinic actions, supporting the authors' conclusion that a larger and longer implementation could produce meaningful cost avoidance.</p>
+        </div>
+      </section>
+
+      <section class="limits-grid" aria-label="Conclusion and limitations">
+        <div class="panel takeaway">
+          <p>Conclusion: text-based PRO-CTCAE monitoring helped bridge specialty pharmacy and oncology clinic workflows, enabling earlier AE counseling, triage, and potential healthcare cost avoidance.</p>
+        </div>
+        <div class="panel markdown-fragment">
+          <p class="section-label">Limitations</p>
+          <h2>Small, single-partnership pilot.</h2>
+          <p>The short timeframe and sample size reflect one pharmacy and one oncology clinic; results may differ in broader settings.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer-actions" id="sources">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/77_Oral-oncology-adverse-event-reporting-via-text-messaging-integrative-collaboration-between-specialty-pharmacy-and-oncology-provider-clinic_2023.pdf">Open original PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/77_Oral-oncology-adverse-event-reporting-via-text-messaging-integrative-collaboration-between-specialty-pharmacy-and-oncology-provider-clinic_2023.md">Read extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

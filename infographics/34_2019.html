@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Estimating the Value of Pharmacist Interventions | NASP 2019</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -4rem;
+      bottom: -4rem;
+      width: 14rem;
+      height: 14rem;
+      border: 1.1rem solid rgba(209, 38, 48, 0.11);
+      border-radius: 50%;
+    }
+    .value-gauge {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      min-height: 12rem;
+      margin-top: 0.3rem;
+    }
+    .value-gauge svg {
+      width: min(100%, 18rem);
+      height: auto;
+      filter: drop-shadow(0 18px 28px rgba(36, 55, 112, 0.14));
+    }
+    .metric-card strong small {
+      color: var(--red);
+      font-size: 1rem;
+    }
+    .metric-card em {
+      display: block;
+      margin-top: 0.36rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-style: normal;
+      font-weight: 760;
+    }
+    .funnel-board {
+      display: grid;
+      gap: 0.62rem;
+      margin-top: 0.85rem;
+    }
+    .funnel-stage {
+      display: grid;
+      grid-template-columns: 8.5rem minmax(0, 1fr) 5.3rem;
+      gap: 0.55rem;
+      align-items: center;
+    }
+    .funnel-stage .stage-label {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      font-weight: 900;
+      line-height: 1.15;
+    }
+    .funnel-track {
+      height: 1.38rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 999px;
+      background: #eef3f8;
+      overflow: hidden;
+    }
+    .funnel-fill {
+      display: block;
+      height: 100%;
+      min-width: 0.55rem;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .funnel-fill.impacts {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .funnel-stage .stage-value {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 900;
+      text-align: right;
+    }
+    .scenario-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.85rem;
+    }
+    .scenario-card {
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.8rem;
+    }
+    .scenario-card h3 {
+      margin-bottom: 0.45rem;
+    }
+    .scenario-total {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(1.7rem, 3vw, 2.55rem);
+      font-weight: 900;
+      line-height: 1;
+    }
+    .scenario-card p {
+      margin: 0.45rem 0 0;
+      color: var(--body);
+      font-size: 0.82rem;
+    }
+    .value-bars {
+      display: grid;
+      gap: 0.58rem;
+      margin-top: 0.8rem;
+    }
+    .value-bar {
+      display: grid;
+      grid-template-columns: 9.3rem minmax(0, 1fr) 4.7rem;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    .value-bar span {
+      color: var(--ink);
+      font-size: 0.77rem;
+      font-weight: 850;
+    }
+    .value-track {
+      height: 0.86rem;
+      border-radius: 999px;
+      background: #e7edf6;
+      overflow: hidden;
+    }
+    .value-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .value-bar strong {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 900;
+      text-align: right;
+    }
+    .workflow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.68rem;
+      margin-top: 0.85rem;
+    }
+    .workflow-step {
+      position: relative;
+      min-height: 9.2rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.75rem;
+    }
+    .workflow-step::before {
+      content: attr(data-step);
+      display: inline-grid;
+      place-items: center;
+      width: 1.8rem;
+      height: 1.8rem;
+      margin-bottom: 0.55rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+    .workflow-step p {
+      margin: 0.35rem 0 0;
+      color: var(--body);
+      font-size: 0.8rem;
+    }
+    .cost-source-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.75rem;
+    }
+    .cost-chip {
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.62rem;
+    }
+    .cost-chip strong {
+      display: block;
+      color: var(--teal);
+      font-family: var(--font-display);
+      font-size: 0.86rem;
+      font-weight: 900;
+      line-height: 1.12;
+    }
+    .cost-chip span {
+      display: block;
+      margin-top: 0.28rem;
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 760;
+      line-height: 1.25;
+    }
+    .takeaway-panel {
+      border-left: 5px solid var(--red);
+      background:
+        linear-gradient(90deg, rgba(209, 38, 48, 0.08), rgba(24, 124, 143, 0.05)),
+        #fff;
+    }
+    .takeaway-panel p {
+      margin: 0;
+      color: var(--ink);
+      font-size: 1rem;
+      font-weight: 830;
+    }
+    .compact-list {
+      margin: 0.55rem 0 0 1rem;
+      padding: 0;
+    }
+    .compact-list li {
+      margin: 0.24rem 0;
+      font-size: 0.86rem;
+    }
+    .source-note {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    @media (max-width: 900px) {
+      .workflow,
+      .cost-source-grid,
+      .scenario-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 640px) {
+      .funnel-stage,
+      .value-bar,
+      .workflow,
+      .cost-source-grid,
+      .scenario-grid {
+        grid-template-columns: 1fr;
+      }
+      .funnel-stage .stage-value,
+      .value-bar strong {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar" aria-label="Infographic navigation">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav>
+        <a href="#methods">Methods</a>
+        <a href="#results">Results</a>
+        <a href="#takeaway">Takeaway</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/34_2019.pdf">PDF source</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/34_2019.md">Markdown source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2019 Annual Meeting &amp; Expo</p>
+        <h1>Estimating the Value of Pharmacist Interventions in a Specialty Pharmacy Setting</h1>
+        <p class="hero-summary">Ardon Health reviewed a year of documented specialty pharmacist interventions and translated selected high-likelihood prevented outcomes into cost-avoidance estimates for patients and the health care system.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Retrospective chart review</li>
+          <li class="tag therapy">Specialty pharmacy</li>
+          <li class="tag therapy">Cost avoidance</li>
+          <li class="tag">2017 interventions</li>
+        </ul>
+      </div>
+      <aside class="hero-card">
+        <div>
+          <p class="section-label">Poster file</p>
+          <div class="poster-code">34_2019</div>
+        </div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Patients</dt>
+            <dd>4,552</dd>
+          </div>
+          <div>
+            <dt>Data year</dt>
+            <dd>Jan-Dec 2017</dd>
+          </div>
+          <div>
+            <dt>Site</dt>
+            <dd>Ardon Health</dd>
+          </div>
+          <div>
+            <dt>Authors</dt>
+            <dd>Riccardo; Knowles</dd>
+          </div>
+        </dl>
+        <div class="value-gauge" aria-label="Estimated annual value visualization">
+          <svg viewBox="0 0 260 190" role="img" aria-labelledby="gauge-title gauge-desc">
+            <title id="gauge-title">Annual specialty pharmacist value estimate</title>
+            <desc id="gauge-desc">A circular ledger mark highlighting the all-outcomes value estimate of 4.6 million dollars.</desc>
+            <defs>
+              <linearGradient id="gaugeGradient" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0%" stop-color="#d12630"/>
+                <stop offset="58%" stop-color="#e99e25"/>
+                <stop offset="100%" stop-color="#187c8f"/>
+              </linearGradient>
+            </defs>
+            <circle cx="130" cy="94" r="72" fill="#fff" stroke="#d9e1ef" stroke-width="18"/>
+            <path d="M58 94a72 72 0 0 1 130 -42" fill="none" stroke="url(#gaugeGradient)" stroke-width="18" stroke-linecap="round"/>
+            <path d="M130 94 185 60" stroke="#243770" stroke-width="7" stroke-linecap="round"/>
+            <circle cx="130" cy="94" r="9" fill="#243770"/>
+            <rect x="58" y="118" width="144" height="42" rx="8" fill="#243770"/>
+            <text x="130" y="143" fill="#fff" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="26" font-weight="900">$4.6M</text>
+            <text x="130" y="174" fill="#68758d" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800">all outcomes prevented</text>
+          </svg>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Total interventions</span>
+          <strong>14,441</strong>
+          <em>Documented across the 2017 calendar year.</em>
+        </article>
+        <article class="metric-card">
+          <span>Cost-saving impacts</span>
+          <strong>115</strong>
+          <em>Flagged as directly or likely preventing negative outcomes.</em>
+        </article>
+        <article class="metric-card">
+          <span>Estimated value range</span>
+          <strong>$2.52M<small>-$4.60M</small></strong>
+          <em>Conservative to all-outcomes-prevented scenarios.</em>
+        </article>
+        <article class="metric-card">
+          <span>Value per intervention</span>
+          <strong>$174<small>-$319</small></strong>
+          <em>Based on the two scenario totals.</em>
+        </article>
+      </section>
+
+      <section class="visual-grid" id="methods">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Translate routine specialty pharmacist work into an economic signal.</h2>
+          <p>The poster's aim was to estimate the value of pharmacist interventions in a specialty pharmacy setting and clarify what high-touch specialty pharmacy care can contribute to patients and the health care system.</p>
+          <div class="number-cloud" aria-label="Study synopsis">
+            <div class="number-pill">4,552<small>patients</small></div>
+            <div class="number-pill">2017<small>calendar year</small></div>
+            <div class="number-pill">RPh<small>documented care</small></div>
+          </div>
+        </article>
+        <article class="panel">
+          <p class="section-label">Intervention funnel</p>
+          <h2>Many routine interventions, a narrow set of monetized impacts.</h2>
+          <div class="funnel-board">
+            <div class="funnel-stage">
+              <div class="stage-label">Documented interventions</div>
+              <div class="funnel-track"><i class="funnel-fill" style="width:100%"></i></div>
+              <div class="stage-value">14,441</div>
+            </div>
+            <div class="funnel-stage">
+              <div class="stage-label">Impacts flagged as cost-saving</div>
+              <div class="funnel-track"><i class="funnel-fill impacts" style="width:0.8%"></i></div>
+              <div class="stage-value">115</div>
+            </div>
+          </div>
+          <p class="source-note">The 115 impacts represented about 0.8% of documented interventions, which the authors noted likely undercounts cost-saving work.</p>
+        </article>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Evidence flow</p>
+        <h2>How the cost-avoidance estimate was built</h2>
+        <div class="workflow">
+          <article class="workflow-step" data-step="1">
+            <h3>Code interventions</h3>
+            <p>A workflow categorized pharmacist interventions and identified higher-likelihood cost-saving "Impacts."</p>
+          </article>
+          <article class="workflow-step" data-step="2">
+            <h3>Review impacts</h3>
+            <p>An investigator reviewed a subset of documented impacts to assign likely prevented outcomes.</p>
+          </article>
+          <article class="workflow-step" data-step="3">
+            <h3>Attach dollars</h3>
+            <p>Prevented medical and prescription costs were estimated using standardized assumptions and inflation adjustment where needed.</p>
+          </article>
+          <article class="workflow-step" data-step="4">
+            <h3>Run scenarios</h3>
+            <p>Annual value was reported for all prevented outcomes and a conservative 50% prevented-outcome scenario.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="visual-grid" id="results">
+        <article class="panel">
+          <p class="section-label">Scenario comparison</p>
+          <h2>Total yearly value remained substantial under both assumptions.</h2>
+          <div class="scenario-grid">
+            <div class="scenario-card">
+              <h3>All outcomes prevented</h3>
+              <div class="scenario-total">$4,603,358</div>
+              <p>$318.75 per intervention and $109.48 per prescription dispensed.</p>
+            </div>
+            <div class="scenario-card">
+              <h3>50% prevented-outcome value</h3>
+              <div class="scenario-total">$2,518,442</div>
+              <p>$174.38 per intervention and $59.89 per prescription dispensed.</p>
+            </div>
+          </div>
+        </article>
+        <article class="panel">
+          <p class="section-label">Value components</p>
+          <h2>Prevented outcomes drove most of the estimate.</h2>
+          <div class="value-bars" aria-label="All outcomes prevented value components">
+            <div class="value-bar">
+              <span>Prevented outcomes</span>
+              <div class="value-track"><i style="width:90.6%"></i></div>
+              <strong>$4.17M</strong>
+            </div>
+            <div class="value-bar">
+              <span>RPh time: interventions</span>
+              <div class="value-track"><i style="width:9.3%"></i></div>
+              <strong>$429.6K</strong>
+            </div>
+            <div class="value-bar">
+              <span>RPh time: impacts</span>
+              <div class="value-track"><i style="width:0.09%"></i></div>
+              <strong>$3.9K</strong>
+            </div>
+          </div>
+          <p class="source-note">Bars use the all-outcomes-prevented scenario total as the denominator.</p>
+        </article>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Cost inputs</p>
+        <h2>Prevented-outcome categories mapped to published or standardized cost assumptions.</h2>
+        <div class="cost-source-grid">
+          <div class="cost-chip">
+            <strong>Unsuccessful regimen</strong>
+            <span>Estimated prescription cost using AWP minus 17%.</span>
+          </div>
+          <div class="cost-chip">
+            <strong>Inadequate response</strong>
+            <span>Six months of medication cost.</span>
+          </div>
+          <div class="cost-chip">
+            <strong>Hospital admission</strong>
+            <span>HCUP inpatient cost by diagnosis, inflation-adjusted.</span>
+          </div>
+          <div class="cost-chip">
+            <strong>Emergency room</strong>
+            <span>Median ER visit cost from Caldwell et al., inflation-adjusted.</span>
+          </div>
+          <div class="cost-chip">
+            <strong>Liver transplant</strong>
+            <span>Cost estimate from Rein et al., inflation-adjusted.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="tables-grid" aria-label="Extracted table patterns">
+        <article class="table-card">
+          <p class="section-label">Study frame</p>
+          <h2>Eligibility pattern</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Included</th>
+                  <th>Excluded</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Patients filling prescriptions at Ardon Health in the 2017 calendar year.</td>
+                  <td>Patients with no documented intervention in the 2017 calendar year.</td>
+                </tr>
+                <tr>
+                  <td>At least one intervention or impact documented in the patient profile.</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+        <article class="table-card">
+          <p class="section-label">Scenario outputs</p>
+          <h2>Economics reported by the poster</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Measure</th>
+                  <th>All outcomes</th>
+                  <th>50% value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Total value of impacts and interventions</td>
+                  <td>$4,603,358</td>
+                  <td>$2,518,442</td>
+                </tr>
+                <tr>
+                  <td>Value per intervention made</td>
+                  <td>$318.75</td>
+                  <td>$174.38</td>
+                </tr>
+                <tr>
+                  <td>Value per prescription dispensed</td>
+                  <td>$109.48</td>
+                  <td>$59.89</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">Limitations</p>
+          <h2>Interpret as an estimate, not a precise causal savings claim.</h2>
+          <ul class="compact-list">
+            <li>A single pharmacist reviewed impacts and assigned associated avoided outcomes.</li>
+            <li>Hospitalization cost inputs were standardized but came from an older database.</li>
+            <li>The prevented outcome attached to an intervention required subjective judgment.</li>
+          </ul>
+        </article>
+        <article class="panel takeaway-panel" id="takeaway">
+          <p class="section-label">Conclusion</p>
+          <h2>Specialty pharmacist interventions produced meaningful estimated avoided cost.</h2>
+          <p>Using the poster's assumptions, routine specialty pharmacy care was associated with an estimated $174.38 to $318.75 in value per intervention, while the small number of flagged impacts likely underrepresented all cost-saving activity.</p>
+        </article>
+      </section>
+
+      <footer class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/34_2019.pdf">Open original PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/34_2019.md">Open extracted markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

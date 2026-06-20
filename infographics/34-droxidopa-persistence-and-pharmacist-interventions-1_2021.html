@@ -1,0 +1,727 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Droxidopa Persistence and Pharmacist Interventions | NASP 2021</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .droxidopa-hero-art {
+      min-height: 18.5rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(24, 124, 143, 0.18), transparent 8rem),
+        radial-gradient(circle at 86% 72%, rgba(233, 158, 37, 0.26), transparent 9rem),
+        linear-gradient(135deg, #fff 0%, var(--surface-blue) 58%, var(--surface-warm) 100%);
+      overflow: hidden;
+    }
+    .droxidopa-hero-art svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 18.5rem;
+    }
+    .hero-card .finding {
+      margin: 0;
+      border-left: 4px solid var(--red);
+      padding-left: 0.72rem;
+      color: var(--ink);
+      font-size: 0.95rem;
+      font-weight: 850;
+    }
+    .metric-card p {
+      margin: 0.46rem 0 0;
+      font-size: 0.78rem;
+    }
+    .persistence-board {
+      display: grid;
+      grid-template-columns: minmax(16rem, 0.72fr) minmax(0, 1.28fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .persistence-score {
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background:
+        linear-gradient(145deg, rgba(24, 124, 143, 0.12), transparent 48%),
+        #fff;
+      padding: 1rem;
+    }
+    .persistence-score strong {
+      display: block;
+      margin: 0.2rem 0 0.35rem;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(3.4rem, 8vw, 6.4rem);
+      line-height: 0.9;
+    }
+    .persistence-score span {
+      display: block;
+      color: var(--ink);
+      font-weight: 900;
+    }
+    .persistence-score p {
+      margin: 0.7rem 0 0;
+      font-size: 0.88rem;
+    }
+    .curve-card {
+      min-height: 20rem;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.8rem;
+    }
+    .curve-card svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .event-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.7rem;
+    }
+    .event-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.85rem;
+    }
+    .event-card strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 2.05rem;
+      line-height: 1;
+    }
+    .event-card b {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--red);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .event-card p {
+      margin: 0.38rem 0 0;
+      font-size: 0.78rem;
+    }
+    .method-ribbon {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.75rem;
+    }
+    .method-tile {
+      position: relative;
+      min-height: 10rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+      overflow: hidden;
+    }
+    .method-tile::after {
+      content: attr(data-step);
+      position: absolute;
+      right: 0.35rem;
+      bottom: -0.55rem;
+      color: rgba(36, 55, 112, 0.11);
+      font-family: var(--font-display);
+      font-size: 4.8rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .method-tile h3,
+    .method-tile p {
+      position: relative;
+      z-index: 1;
+    }
+    .method-tile p {
+      margin: 0.48rem 0 0;
+      font-size: 0.82rem;
+    }
+    .intervention-layout {
+      display: grid;
+      grid-template-columns: minmax(15rem, 0.48fr) minmax(0, 1.52fr);
+      gap: 1rem;
+      align-items: center;
+    }
+    .intervention-callout {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        linear-gradient(145deg, rgba(233, 158, 37, 0.16), transparent 50%),
+        #fff;
+      padding: 1rem;
+    }
+    .intervention-callout strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      line-height: 0.92;
+    }
+    .intervention-callout span {
+      display: block;
+      margin-top: 0.38rem;
+      color: var(--ink);
+      font-weight: 900;
+    }
+    .intervention-callout p {
+      margin: 0.65rem 0 0;
+      font-size: 0.86rem;
+    }
+    .bar-stack {
+      display: grid;
+      gap: 0.58rem;
+    }
+    .bar-row {
+      display: grid;
+      grid-template-columns: 11.6rem minmax(0, 1fr) 3.4rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .bar-track {
+      height: 1rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .bar-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .bar-row:nth-child(1) .bar-track i { background: linear-gradient(90deg, var(--red), var(--gold)); }
+    .bar-row:nth-child(2) .bar-track i,
+    .bar-row:nth-child(3) .bar-track i { background: linear-gradient(90deg, var(--purple), var(--teal)); }
+    .bar-row span:last-child {
+      color: var(--muted);
+      text-align: right;
+      font-weight: 900;
+    }
+    .reason-matrix {
+      display: grid;
+      gap: 0.48rem;
+      margin-top: 0.55rem;
+    }
+    .reason-row {
+      display: grid;
+      grid-template-columns: minmax(8rem, 1fr) 4.2rem minmax(0, 1.4fr);
+      gap: 0.5rem;
+      align-items: center;
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .reason-row b {
+      color: var(--ink);
+    }
+    .reason-row span {
+      color: var(--muted);
+      text-align: right;
+    }
+    .reason-track {
+      height: 0.85rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .reason-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .cohort-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.5rem;
+      margin-top: 0.55rem;
+    }
+    .cohort-chip {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.62rem;
+    }
+    .cohort-chip strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+    .cohort-chip span {
+      display: block;
+      margin-top: 0.22rem;
+      color: var(--muted);
+      font-size: 0.73rem;
+      font-weight: 850;
+    }
+    .takeaway-panel {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(24, 124, 143, 0.12), transparent 45%),
+        #fff;
+    }
+    .takeaway-panel p {
+      margin: 0;
+      color: var(--ink);
+      font-size: 1rem;
+      font-weight: 850;
+    }
+    @media (max-width: 900px) {
+      .persistence-board,
+      .intervention-layout {
+        grid-template-columns: 1fr;
+      }
+      .method-ribbon,
+      .event-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .bar-row {
+        grid-template-columns: 9.5rem minmax(0, 1fr) 3.2rem;
+      }
+    }
+    @media (max-width: 620px) {
+      .method-ribbon,
+      .event-grid,
+      .cohort-list {
+        grid-template-columns: 1fr;
+      }
+      .bar-row,
+      .reason-row {
+        grid-template-columns: 1fr;
+      }
+      .reason-row span,
+      .bar-row span:last-child {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="https://naspnet.org/" aria-label="NASP homepage">NASP</a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/34-Droxidopa-persistence-and-pharmacist-interventions-1_2021.pdf">Poster PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/34-Droxidopa-persistence-and-pharmacist-interventions-1_2021.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2021 poster infographic</p>
+        <h1>Persistence, discontinuation and specialty pharmacist interventions in patients receiving droxidopa</h1>
+        <p class="hero-summary">A Vanderbilt Specialty Pharmacy retrospective cohort study evaluated how long adults stayed persistent on droxidopa for orthostatic hypotension, why therapy stopped, and where specialty pharmacists intervened during ongoing monitoring.</p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag therapy">Orthostatic hypotension</li>
+          <li class="tag category">Droxidopa</li>
+          <li class="tag">Retrospective cohort</li>
+          <li class="tag">Integrated specialty pharmacy</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Poster details">
+        <div class="poster-code">34</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Year</dt>
+            <dd>2021</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>Vanderbilt</dd>
+          </div>
+          <div>
+            <dt>Patients</dt>
+            <dd>89</dd>
+          </div>
+          <div>
+            <dt>Interventions</dt>
+            <dd>64</dd>
+          </div>
+        </dl>
+        <p class="finding">Persistence remained high inside the integrated care model: 89% at 6 months, 81% at 12 months and 72% at 18 months.</p>
+      </aside>
+    </section>
+
+    <main>
+      <section class="droxidopa-hero-art" aria-label="Droxidopa persistence visual summary">
+        <svg viewBox="0 0 980 380" role="img" aria-label="Stylized droxidopa capsule moving across an 18 month persistence timeline">
+          <defs>
+            <linearGradient id="pillRed" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0" stop-color="#d12630"/>
+              <stop offset="1" stop-color="#e99e25"/>
+            </linearGradient>
+            <linearGradient id="pillTeal" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0" stop-color="#187c8f"/>
+              <stop offset="1" stop-color="#4d8a67"/>
+            </linearGradient>
+          </defs>
+          <rect x="62" y="72" width="856" height="230" rx="28" fill="#fff" stroke="#aebbd2" stroke-width="2"/>
+          <path d="M120 252 C250 176 332 194 438 146 S640 108 824 92" fill="none" stroke="#243770" stroke-width="8" stroke-linecap="round"/>
+          <path d="M120 252 C250 176 332 194 438 146 S640 108 824 92" fill="none" stroke="#d12630" stroke-width="4" stroke-linecap="round"/>
+          <g fill="#243770" font-family="Montserrat, Arial, sans-serif" font-weight="900">
+            <text x="102" y="302" font-size="24">0 mo</text>
+            <text x="316" y="302" font-size="24">6 mo</text>
+            <text x="520" y="302" font-size="24">12 mo</text>
+            <text x="730" y="302" font-size="24">18 mo</text>
+          </g>
+          <g>
+            <circle cx="120" cy="252" r="16" fill="#d12630"/>
+            <circle cx="336" cy="178" r="16" fill="#e99e25"/>
+            <circle cx="540" cy="132" r="16" fill="#187c8f"/>
+            <circle cx="746" cy="104" r="16" fill="#4d8a67"/>
+          </g>
+          <g font-family="Inter, Arial, sans-serif" font-weight="800" fill="#33415c">
+            <text x="94" y="225" font-size="19">1.00</text>
+            <text x="308" y="151" font-size="19">0.89</text>
+            <text x="512" y="105" font-size="19">0.81</text>
+            <text x="718" y="77" font-size="19">0.72</text>
+          </g>
+          <g transform="translate(248 214) rotate(-18)">
+            <rect x="0" y="0" width="188" height="64" rx="32" fill="url(#pillRed)"/>
+            <path d="M94 0 v64" stroke="#fff" stroke-width="4" opacity=".85"/>
+            <circle cx="47" cy="32" r="9" fill="#fff" opacity=".72"/>
+            <circle cx="141" cy="32" r="9" fill="#fff" opacity=".72"/>
+          </g>
+          <g transform="translate(622 168)">
+            <rect x="0" y="0" width="178" height="70" rx="12" fill="#eef4fb" stroke="#aebbd2"/>
+            <path d="M34 52 V28 M58 52 V18 M82 52 V34 M106 52 V24 M130 52 V14" stroke="url(#pillTeal)" stroke-width="10" stroke-linecap="round"/>
+            <text x="24" y="94" font-family="Montserrat, Arial, sans-serif" font-size="20" font-weight="900" fill="#243770">64 pharmacist interventions</text>
+          </g>
+        </svg>
+      </section>
+
+      <section class="metric-strip" aria-label="Key metrics">
+        <article class="metric-card">
+          <span>Cohort</span>
+          <strong>89</strong>
+          <p>Adult patients with at least 3 droxidopa fills through the specialty pharmacy.</p>
+        </article>
+        <article class="metric-card">
+          <span>12-month persistence</span>
+          <strong>81%</strong>
+          <p>Probability of remaining persistent at 12 months; 95% CI 73% to 90%.</p>
+        </article>
+        <article class="metric-card">
+          <span>Discontinuation event</span>
+          <strong>16%</strong>
+          <p>14 patients had discontinuation as their first event.</p>
+        </article>
+        <article class="metric-card">
+          <span>Intervention reach</span>
+          <strong>34</strong>
+          <p>Patients received telephone interventions from neurology specialty pharmacists.</p>
+        </article>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Objective and methods</p>
+        <h2>Measure persistence and map the pharmacist work around droxidopa therapy</h2>
+        <div class="method-ribbon">
+          <article class="method-tile" data-step="1">
+            <h3>Design</h3>
+            <p>Single-center retrospective cohort analysis.</p>
+          </article>
+          <article class="method-tile" data-step="2">
+            <h3>Population</h3>
+            <p>Adults prescribed droxidopa by outpatient neurology or cardiology clinics from May 2017 to April 2020.</p>
+          </article>
+          <article class="method-tile" data-step="3">
+            <h3>Entry criteria</h3>
+            <p>At least 3 fills through the center's specialty pharmacy; excluded non-starters and deaths within 90 days.</p>
+          </article>
+          <article class="method-tile" data-step="4">
+            <h3>Persistence definition</h3>
+            <p>Time to first non-persistent event, defined as a coverage gap exceeding 60 days.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="persistence-board">
+        <article class="persistence-score">
+          <p class="section-label">Persistence curve</p>
+          <strong>72%</strong>
+          <span>Persistence probability at 18 months</span>
+          <p>The estimated probability stepped down from 1.00 at initiation to 0.89 at 6 months, 0.81 at 12 months, and 0.72 at 18 months.</p>
+        </article>
+        <article class="curve-card">
+          <svg viewBox="0 0 720 330" role="img" aria-label="Line chart of persistence probability at 0, 6, 12 and 18 months">
+            <rect x="54" y="28" width="612" height="238" rx="10" fill="#f6f9fe" stroke="#d9e1ef"/>
+            <g stroke="#d9e1ef" stroke-width="1">
+              <path d="M54 74 H666"/>
+              <path d="M54 122 H666"/>
+              <path d="M54 170 H666"/>
+              <path d="M54 218 H666"/>
+              <path d="M54 266 H666"/>
+            </g>
+            <g fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800">
+              <text x="20" y="78">1.0</text>
+              <text x="20" y="126">0.9</text>
+              <text x="20" y="174">0.8</text>
+              <text x="20" y="222">0.7</text>
+              <text x="20" y="270">0.6</text>
+            </g>
+            <path d="M82 74 L260 126 L438 170 L616 218" fill="none" stroke="#d12630" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M82 74 L260 126 L438 170 L616 218" fill="none" stroke="#e99e25" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <g>
+              <circle cx="82" cy="74" r="10" fill="#d12630"/>
+              <circle cx="260" cy="126" r="10" fill="#e99e25"/>
+              <circle cx="438" cy="170" r="10" fill="#187c8f"/>
+              <circle cx="616" cy="218" r="10" fill="#4d8a67"/>
+            </g>
+            <g fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="17" font-weight="900">
+              <text x="64" y="304">0</text>
+              <text x="246" y="304">6</text>
+              <text x="418" y="304">12</text>
+              <text x="596" y="304">18</text>
+            </g>
+            <g fill="#33415c" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800">
+              <text x="96" y="68">1.00</text>
+              <text x="274" y="120">0.89</text>
+              <text x="452" y="164">0.81</text>
+              <text x="630" y="212">0.72</text>
+            </g>
+            <text x="292" y="323" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800">Months on therapy</text>
+          </svg>
+        </article>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">First events over follow-up</p>
+        <h2>Events were distributed across death, discontinuation, non-persistence and transfer</h2>
+        <div class="event-grid">
+          <article class="event-card">
+            <strong>19</strong>
+            <b>Deaths</b>
+            <p>Observed as first event by 30 months.</p>
+          </article>
+          <article class="event-card">
+            <strong>14</strong>
+            <b>Discontinuations</b>
+            <p>16% of all patients; mean therapy duration 245 &plusmn; 185 days.</p>
+          </article>
+          <article class="event-card">
+            <strong>10</strong>
+            <b>Non-persistent</b>
+            <p>Eight had one non-persistent event; two had two events.</p>
+          </article>
+          <article class="event-card">
+            <strong>5</strong>
+            <b>Transfers</b>
+            <p>Transferred before discontinuation or non-persistence was observed.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="visual-grid">
+        <article class="panel">
+          <p class="section-label">Cohort pattern</p>
+          <h2>Older, largely Medicare cohort with neurogenic OH diagnoses</h2>
+          <div class="cohort-list">
+            <div class="cohort-chip">
+              <strong>71 &plusmn; 8</strong>
+              <span>Mean age, years</span>
+            </div>
+            <div class="cohort-chip">
+              <strong>64%</strong>
+              <span>Male patients</span>
+            </div>
+            <div class="cohort-chip">
+              <strong>75%</strong>
+              <span>Medicare insurance</span>
+            </div>
+            <div class="cohort-chip">
+              <strong>65%</strong>
+              <span>Treatment naive</span>
+            </div>
+            <div class="cohort-chip">
+              <strong>40%</strong>
+              <span>Parkinson's disease OH</span>
+            </div>
+            <div class="cohort-chip">
+              <strong>33%</strong>
+              <span>Pure autonomic atrophy</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Reasons for any discontinuation</p>
+          <h2>Clinical decline led, while adverse events, benefit loss and cost clustered together</h2>
+          <div class="reason-matrix" aria-label="Reasons for discontinuation">
+            <div class="reason-row">
+              <b>Clinical decline</b>
+              <span>6 (25%)</span>
+              <div class="reason-track"><i style="--w:100%"></i></div>
+            </div>
+            <div class="reason-row">
+              <b>Adverse event</b>
+              <span>4 (17%)</span>
+              <div class="reason-track"><i style="--w:68%"></i></div>
+            </div>
+            <div class="reason-row">
+              <b>Lack of effectiveness</b>
+              <span>4 (17%)</span>
+              <div class="reason-track"><i style="--w:68%"></i></div>
+            </div>
+            <div class="reason-row">
+              <b>Financial limitations</b>
+              <span>4 (17%)</span>
+              <div class="reason-track"><i style="--w:68%"></i></div>
+            </div>
+            <div class="reason-row">
+              <b>No longer appropriate</b>
+              <span>3 (13%)</span>
+              <div class="reason-track"><i style="--w:52%"></i></div>
+            </div>
+            <div class="reason-row">
+              <b>No refill response</b>
+              <span>2 (8%)</span>
+              <div class="reason-track"><i style="--w:32%"></i></div>
+            </div>
+            <div class="reason-row">
+              <b>Administration difficulty</b>
+              <span>1 (4%)</span>
+              <div class="reason-track"><i style="--w:16%"></i></div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Pharmacist interventions</p>
+        <h2>Telephone interventions centered on dose optimization and medication safety</h2>
+        <div class="intervention-layout">
+          <article class="intervention-callout">
+            <strong>64</strong>
+            <span>interventions for 34 patients</span>
+            <p>Because droxidopa therapy was frequently titrated, dosage review was the most common intervention category.</p>
+          </article>
+          <div class="bar-stack" aria-label="Pharmacist intervention percentages">
+            <div class="bar-row">
+              <span>Dosage review</span>
+              <div class="bar-track"><i style="--w:100%"></i></div>
+              <span>28.1%</span>
+            </div>
+            <div class="bar-row">
+              <span>Drug interaction</span>
+              <div class="bar-track"><i style="--w:44%"></i></div>
+              <span>12.5%</span>
+            </div>
+            <div class="bar-row">
+              <span>Medication reconciliation</span>
+              <div class="bar-track"><i style="--w:39%"></i></div>
+              <span>10.9%</span>
+            </div>
+            <div class="bar-row">
+              <span>Disease-related event</span>
+              <div class="bar-track"><i style="--w:33%"></i></div>
+              <span>9.4%</span>
+            </div>
+            <div class="bar-row">
+              <span>Medical chart review</span>
+              <div class="bar-track"><i style="--w:33%"></i></div>
+              <span>9.4%</span>
+            </div>
+            <div class="bar-row">
+              <span>Adherence</span>
+              <div class="bar-track"><i style="--w:33%"></i></div>
+              <span>9.4%</span>
+            </div>
+            <div class="bar-row">
+              <span>Side effect</span>
+              <div class="bar-track"><i style="--w:28%"></i></div>
+              <span>7.8%</span>
+            </div>
+            <div class="bar-row">
+              <span>Change in dose</span>
+              <div class="bar-track"><i style="--w:17%"></i></div>
+              <span>4.7%</span>
+            </div>
+            <div class="bar-row">
+              <span>Drug information</span>
+              <div class="bar-track"><i style="--w:17%"></i></div>
+              <span>4.7%</span>
+            </div>
+            <div class="bar-row">
+              <span>ED/hospitalization</span>
+              <div class="bar-track"><i style="--w:11%"></i></div>
+              <span>3.1%</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel takeaway-panel">
+          <p class="section-label">Conclusion</p>
+          <h2>Integrated monitoring coincided with high persistence</h2>
+          <p>This study found a high probability of persistence within an integrated care model, with discontinuation rates similar to prior literature.</p>
+        </article>
+        <article class="panel takeaway-panel">
+          <p class="section-label">Practice implication</p>
+          <h2>Pharmacists supported ongoing treatment monitoring</h2>
+          <p>The intervention mix highlights specialty pharmacists' role in reviewing dose titration, drug interactions, adherence, side effects and disease-related events.</p>
+        </article>
+      </section>
+
+      <section class="tables-grid">
+        <article class="table-card">
+          <h2>Persistence table pattern</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Month</th>
+                  <th>Number on therapy</th>
+                  <th>Persistence probability</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>0</td><td>87</td><td>1.00</td></tr>
+                <tr><td>6</td><td>70</td><td>0.89</td></tr>
+                <tr><td>12</td><td>56</td><td>0.81</td></tr>
+                <tr><td>18</td><td>34</td><td>0.72</td></tr>
+                <tr><td>24</td><td>18</td><td>Not reported</td></tr>
+                <tr><td>30</td><td>5</td><td>Not reported</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+        <article class="table-card">
+          <h2>Primary abstract signals</h2>
+          <div class="table-wrap">
+            <table>
+              <tbody>
+                <tr><th>Primary objective</th><td>Evaluate persistence, discontinuation and reasons for discontinuation.</td></tr>
+                <tr><th>Secondary objective</th><td>Describe number and types of pharmacist interventions.</td></tr>
+                <tr><th>Top discontinuation reason</th><td>Clinical decline: 6 of 24 discontinuations.</td></tr>
+                <tr><th>Top intervention</th><td>Dosage review: 28.1% of 64 interventions.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <footer class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/34-Droxidopa-persistence-and-pharmacist-interventions-1_2021.pdf">Open original poster PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/34-Droxidopa-persistence-and-pharmacist-interventions-1_2021.md">Open extracted markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

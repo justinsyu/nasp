@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Patient Satisfaction Survey in Specialty Pharmacy | NASP 2021</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .psat-hero-art {
+      min-height: 18rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(209, 38, 48, 0.12), transparent 9rem),
+        radial-gradient(circle at 86% 72%, rgba(24, 124, 143, 0.17), transparent 10rem),
+        linear-gradient(135deg, #ffffff 0%, var(--surface-blue) 52%, var(--surface-warm) 100%);
+      overflow: hidden;
+    }
+    .psat-hero-art svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 18rem;
+    }
+    .hero-card .study-note {
+      margin: 0;
+      border-left: 4px solid var(--red);
+      padding-left: 0.7rem;
+      color: var(--ink);
+      font-size: 0.94rem;
+      font-weight: 850;
+    }
+    .metric-card p {
+      margin: 0.44rem 0 0;
+      font-size: 0.78rem;
+    }
+    .metric-card strong.tight {
+      font-size: clamp(1.45rem, 3vw, 2rem);
+    }
+    .score-panel {
+      display: grid;
+      grid-template-columns: minmax(14rem, 0.78fr) minmax(0, 1.22fr);
+      gap: 1rem;
+      align-items: center;
+    }
+    .score-card {
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background:
+        linear-gradient(145deg, rgba(209, 38, 48, 0.09), transparent 50%),
+        #fff;
+      padding: 1rem;
+    }
+    .score-card strong {
+      display: block;
+      margin: 0.2rem 0 0.4rem;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 7vw, 5.8rem);
+      line-height: 0.88;
+    }
+    .score-card span {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-weight: 900;
+      line-height: 1.2;
+    }
+    .domain-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.85rem;
+    }
+    .domain-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.78rem;
+    }
+    .domain-card b {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      line-height: 1.18;
+    }
+    .domain-card p {
+      margin: 0.36rem 0 0;
+      font-size: 0.8rem;
+    }
+    .domain-card:nth-child(1) { border-top: 0.32rem solid var(--red); }
+    .domain-card:nth-child(2) { border-top: 0.32rem solid var(--teal); }
+    .domain-card:nth-child(3) { border-top: 0.32rem solid var(--gold); }
+    .survey-funnel {
+      display: grid;
+      grid-template-columns: minmax(15rem, 0.82fr) minmax(0, 1.18fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .completion-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        linear-gradient(160deg, rgba(24, 124, 143, 0.12), transparent 44%),
+        #fff;
+      padding: 1rem;
+    }
+    .completion-card strong {
+      display: block;
+      margin-top: 0.22rem;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(4rem, 9vw, 7rem);
+      line-height: 0.86;
+    }
+    .completion-card p {
+      margin: 0.55rem 0 0;
+      font-size: 0.88rem;
+    }
+    .response-stack {
+      display: grid;
+      gap: 0.72rem;
+      margin-top: 0.8rem;
+    }
+    .response-row {
+      display: grid;
+      grid-template-columns: 8.4rem minmax(0, 1fr) 6.5rem;
+      gap: 0.6rem;
+      align-items: center;
+    }
+    .response-row b {
+      color: var(--ink);
+      font-size: 0.82rem;
+      line-height: 1.15;
+    }
+    .response-row span {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 900;
+      text-align: right;
+    }
+    .response-track {
+      height: 1.05rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .response-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: var(--c, linear-gradient(90deg, var(--red), var(--gold)));
+    }
+    .mobile-panel {
+      display: grid;
+      grid-template-columns: minmax(11rem, 0.55fr) minmax(0, 1fr);
+      gap: 0.9rem;
+      align-items: center;
+    }
+    .phone-card {
+      position: relative;
+      min-height: 18rem;
+      border: 2px solid var(--ink);
+      border-radius: 28px;
+      background: #fff;
+      padding: 2.2rem 0.8rem 1.1rem;
+      box-shadow: 0 16px 28px rgba(36, 55, 112, 0.12);
+    }
+    .phone-card::before {
+      content: "";
+      position: absolute;
+      top: 0.72rem;
+      left: 50%;
+      width: 4rem;
+      height: 0.42rem;
+      border-radius: 999px;
+      background: rgba(36, 55, 112, 0.22);
+      transform: translateX(-50%);
+    }
+    .text-bubble {
+      margin: 0.45rem 0;
+      border-radius: 14px;
+      padding: 0.58rem 0.65rem;
+      background: var(--surface-blue);
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+    .text-bubble.reply {
+      margin-left: 1.4rem;
+      background: var(--teal);
+      color: #fff;
+    }
+    .mobile-stat strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(3.1rem, 6vw, 5.5rem);
+      line-height: 0.92;
+    }
+    .mobile-stat p {
+      margin: 0.55rem 0 0;
+      font-size: 0.9rem;
+    }
+    .mix-board {
+      display: grid;
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+      gap: 1rem;
+      align-items: center;
+    }
+    .donut-wrap {
+      display: grid;
+      place-items: center;
+    }
+    .legend-list {
+      display: grid;
+      gap: 0.65rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .legend-list li {
+      display: grid;
+      grid-template-columns: 1rem minmax(0, 1fr) auto;
+      gap: 0.5rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.88rem;
+      font-weight: 850;
+    }
+    .legend-chip {
+      width: 0.9rem;
+      aspect-ratio: 1;
+      border-radius: 4px;
+      background: var(--c);
+    }
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+    .timeline-card {
+      position: relative;
+      min-height: 11.5rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.85rem;
+      overflow: hidden;
+    }
+    .timeline-card::before {
+      content: attr(data-step);
+      position: absolute;
+      right: 0.5rem;
+      bottom: -0.62rem;
+      color: rgba(36, 55, 112, 0.12);
+      font-family: var(--font-display);
+      font-size: 4.4rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .timeline-card h3,
+    .timeline-card p {
+      position: relative;
+      z-index: 1;
+    }
+    .timeline-card p {
+      margin: 0.52rem 0 0;
+      font-size: 0.82rem;
+    }
+    .table-note {
+      margin: 0.48rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    .takeaway {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(77, 138, 103, 0.14), transparent 42%),
+        #fff;
+    }
+    .takeaway p {
+      max-width: 64rem;
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.05rem, 1.7vw, 1.42rem);
+      font-weight: 850;
+      line-height: 1.35;
+    }
+    @media (max-width: 900px) {
+      .score-panel,
+      .survey-funnel,
+      .mobile-panel,
+      .mix-board {
+        grid-template-columns: 1fr;
+      }
+      .timeline,
+      .domain-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 560px) {
+      .timeline,
+      .domain-grid,
+      .response-row {
+        grid-template-columns: 1fr;
+      }
+      .response-row span {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/17-Patient-Satisfaction-Survey-in-Specialty-Pharmacy_2021.pdf">Source PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/17-Patient-Satisfaction-Survey-in-Specialty-Pharmacy_2021.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2021 / Poster 17</p>
+        <h1 id="poster-title">Patient satisfaction survey in specialty pharmacy</h1>
+        <p class="hero-summary">
+          Therigy developed and deployed a short, metric-driven PSAT survey across specialty pharmacies, then analyzed March 2020 through June 2021 activity to understand completion, mobile use, and adoption patterns.
+        </p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag therapy">Specialty pharmacy</li>
+          <li class="tag category">Patient satisfaction</li>
+          <li class="tag">7-item PSAT</li>
+          <li class="tag">Mobile survey channel</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Study snapshot">
+        <div class="poster-code">17<br>2021</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Survey</dt>
+            <dd>7 items</dd>
+          </div>
+          <div>
+            <dt>Domains</dt>
+            <dd>3 domains</dd>
+          </div>
+          <div>
+            <dt>Score range</dt>
+            <dd>20-100</dd>
+          </div>
+          <div>
+            <dt>Study period</dt>
+            <dd>Mar 2020-Jun 2021</dd>
+          </div>
+        </dl>
+        <p class="study-note">Core finding: 51 specialty pharmacies generated 5,539 survey activities, with 43% completed and 22% of completions submitted through mobile texting.</p>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <div class="metric-card">
+          <span>Specialty pharmacies</span>
+          <strong>51</strong>
+          <p>Sites implemented the Therigy Patient Satisfaction survey.</p>
+        </div>
+        <div class="metric-card">
+          <span>Surveys generated</span>
+          <strong class="tight">5,539</strong>
+          <p>Survey activities were generated during the analysis window.</p>
+        </div>
+        <div class="metric-card">
+          <span>Valid completions</span>
+          <strong class="tight">2,376</strong>
+          <p>Completed activities produced a valid satisfaction score.</p>
+        </div>
+        <div class="metric-card">
+          <span>Patients represented</span>
+          <strong class="tight">1,983</strong>
+          <p>Patients completed one or more surveys during the study period.</p>
+        </div>
+      </section>
+
+      <section class="visual-grid" aria-label="Objective and survey design">
+        <div class="psat-hero-art" role="img" aria-label="Illustration of patient survey responses moving from pharmacy, phone, and text channels into one satisfaction score">
+          <svg viewBox="0 0 680 460" aria-hidden="true">
+            <defs>
+              <linearGradient id="scoreLine" x1="0" x2="1">
+                <stop offset="0" stop-color="#d12630"/>
+                <stop offset="0.52" stop-color="#e99e25"/>
+                <stop offset="1" stop-color="#187c8f"/>
+              </linearGradient>
+              <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="14" stdDeviation="13" flood-color="#243770" flood-opacity="0.14"/>
+              </filter>
+            </defs>
+            <path d="M94 332 C170 224 247 252 324 188 S486 84 590 126" fill="none" stroke="url(#scoreLine)" stroke-width="12" stroke-linecap="round" opacity="0.72"/>
+            <rect x="70" y="260" width="130" height="112" rx="18" fill="#fff" stroke="#d12630" stroke-width="5" filter="url(#shadow)"/>
+            <path d="M99 308 h72 M99 334 h52 M99 283 h30" stroke="#243770" stroke-width="8" stroke-linecap="round"/>
+            <circle cx="168" cy="283" r="13" fill="#e99e25"/>
+            <rect x="276" y="108" width="140" height="206" rx="26" fill="#fff" stroke="#243770" stroke-width="5" filter="url(#shadow)"/>
+            <rect x="309" y="133" width="74" height="8" rx="4" fill="#aebbd2"/>
+            <rect x="303" y="176" width="86" height="44" rx="13" fill="#eef4fb"/>
+            <rect x="303" y="238" width="62" height="44" rx="13" fill="#187c8f"/>
+            <text x="334" y="266" fill="#fff" font-family="Inter, sans-serif" font-size="17" font-weight="900">22%</text>
+            <circle cx="523" cy="128" r="62" fill="#fff" stroke="#187c8f" stroke-width="5" filter="url(#shadow)"/>
+            <text x="523" y="118" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="23" font-weight="900">PSAT</text>
+            <text x="523" y="148" text-anchor="middle" fill="#187c8f" font-family="Montserrat, Arial, sans-serif" font-size="22" font-weight="900">20-100</text>
+            <circle cx="518" cy="282" r="55" fill="#fff" stroke="#4d8a67" stroke-width="5" filter="url(#shadow)"/>
+            <path d="M488 283 l21 22 43-50" fill="none" stroke="#4d8a67" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="221" cy="165" r="16" fill="#7561a8" opacity="0.82"/>
+            <circle cx="580" cy="226" r="19" fill="#e99e25" opacity="0.88"/>
+            <text x="340" y="420" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="21" font-weight="900">Office, phone, or text responses - one metric-driven satisfaction score</text>
+          </svg>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Optimize implementation and analysis of a patient satisfaction survey in specialty pharmacy.</h2>
+          <p>
+            The poster positions patient satisfaction measurement as an accreditation-driven quality improvement need, with the survey designed to be short, convenient to administer, and numerically actionable.
+          </p>
+          <div class="number-cloud" aria-label="Survey design anchors">
+            <div class="number-pill">7<small>survey items</small></div>
+            <div class="number-pill">3<small>domains</small></div>
+            <div class="number-pill">20-100<small>score range</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel score-panel" aria-label="Survey score model">
+        <div class="score-card">
+          <p class="section-label">Instrument</p>
+          <strong>PSAT</strong>
+          <span>Aggregate numerical satisfaction score stratified from very dissatisfied to very satisfied.</span>
+        </div>
+        <div>
+          <p class="section-label">Survey content</p>
+          <h2>A compact survey translated service experience into three operational domains.</h2>
+          <div class="domain-grid">
+            <div class="domain-card">
+              <b>Satisfaction</b>
+              <p>Education, counseling, prescription accuracy, issue resolution, and speed of services.</p>
+            </div>
+            <div class="domain-card">
+              <b>Staff communication</b>
+              <p>Patient-facing service interactions captured as part of the PSAT experience.</p>
+            </div>
+            <div class="domain-card">
+              <b>Patient advocacy</b>
+              <p>Support-oriented measures intended to reveal trends for quality improvement.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="survey-funnel" aria-label="Survey response results">
+        <div class="completion-card">
+          <p class="section-label">Response rate</p>
+          <strong>43%</strong>
+          <p>2,376 of 5,539 generated survey activities were completed with a valid score.</p>
+          <div class="response-stack" aria-label="Completed versus incomplete survey activities">
+            <div class="response-row">
+              <b>Completed</b>
+              <div class="response-track"><i style="--w:43%; --c: linear-gradient(90deg, var(--red), var(--gold));"></i></div>
+              <span>2,376</span>
+            </div>
+            <div class="response-row">
+              <b>Incomplete</b>
+              <div class="response-track"><i style="--w:57%; --c: var(--border-strong);"></i></div>
+              <span>3,163</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel mobile-panel">
+          <div class="phone-card" aria-hidden="true">
+            <div class="text-bubble">PSAT survey link</div>
+            <div class="text-bubble reply">Completed on mobile</div>
+            <div class="text-bubble">Thank you</div>
+          </div>
+          <div class="mobile-stat">
+            <p class="section-label">Mobile-enabled completion</p>
+            <strong>22%</strong>
+            <p>Mobile device surveys accounted for 522 completed surveys, showing that text delivery was a meaningful channel but still left room for broader patient participation.</p>
+            <div class="response-stack" aria-label="Mobile completion share">
+              <div class="response-row">
+                <b>Mobile text</b>
+                <div class="response-track"><i style="--w:22%; --c: var(--teal);"></i></div>
+                <span>522</span>
+              </div>
+              <div class="response-row">
+                <b>Other channels</b>
+                <div class="response-track"><i style="--w:78%; --c: var(--gold);"></i></div>
+                <span>1,854</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" aria-label="Methods pathway">
+        <p class="section-label">Methods</p>
+        <h2>The analysis moved from survey deployment to completion-rate measurement.</h2>
+        <div class="timeline">
+          <article class="timeline-card" data-step="1">
+            <h3>Build PSAT</h3>
+            <p>Therigy created a 7-item patient satisfaction survey across satisfaction, communication, and advocacy domains.</p>
+          </article>
+          <article class="timeline-card" data-step="2">
+            <h3>Deploy channels</h3>
+            <p>Surveys were completed in office, over the phone, or through text to a patient's mobile device.</p>
+          </article>
+          <article class="timeline-card" data-step="3">
+            <h3>Select period</h3>
+            <p>Generated surveys were reviewed from March 2020 through June 2021.</p>
+          </article>
+          <article class="timeline-card" data-step="4">
+            <h3>Apply criteria</h3>
+            <p>Included pharmacies had been established in the Therigy system for at least one year.</p>
+          </article>
+          <article class="timeline-card" data-step="5">
+            <h3>Analyze use</h3>
+            <p>TherigyInsights data were used to observe completion rate and mobile-enabled survey use.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="mix-board" aria-label="Pharmacy type mix">
+        <div class="panel donut-wrap">
+          <svg viewBox="0 0 260 260" width="260" height="260" role="img" aria-label="Health system pharmacies 67 percent, non-health system pharmacies 33 percent">
+            <circle cx="130" cy="130" r="86" fill="none" stroke="#eef4fb" stroke-width="38"/>
+            <circle cx="130" cy="130" r="86" fill="none" stroke="#187c8f" stroke-width="38" stroke-dasharray="362 540" stroke-linecap="round" transform="rotate(-90 130 130)"/>
+            <circle cx="130" cy="130" r="86" fill="none" stroke="#e99e25" stroke-width="38" stroke-dasharray="178 540" stroke-dashoffset="-362" stroke-linecap="round" transform="rotate(-90 130 130)"/>
+            <text x="130" y="121" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="38" font-weight="900">51</text>
+            <text x="130" y="151" text-anchor="middle" fill="#68758d" font-family="Inter, sans-serif" font-size="14" font-weight="900">pharmacies</text>
+          </svg>
+        </div>
+        <div class="panel">
+          <p class="section-label">Implementation footprint</p>
+          <h2>Health-system specialty pharmacies made up two thirds of participating sites.</h2>
+          <ul class="legend-list" aria-label="Pharmacy type legend">
+            <li><span class="legend-chip" style="--c: var(--teal);"></span><span>Health system pharmacy</span><strong>67%</strong></li>
+            <li><span class="legend-chip" style="--c: var(--gold);"></span><span>Non-health system pharmacy</span><strong>33%</strong></li>
+          </ul>
+          <p class="table-note">This reflects the extracted poster table titled Pharmacy Type.</p>
+        </div>
+      </section>
+
+      <section class="tables-grid" aria-label="Extracted table patterns">
+        <article class="table-card">
+          <p class="section-label">Table pattern</p>
+          <h3>Survey response rate</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Activities completed</th>
+                  <th>Incomplete</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>43% (2,376 activities completed)</td>
+                  <td>57% (3,163 incomplete)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+        <article class="table-card">
+          <p class="section-label">Table pattern</p>
+          <h3>Pharmacy type</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Type</th>
+                  <th>Percentage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Health system pharmacy</td>
+                  <td>67%</td>
+                </tr>
+                <tr>
+                  <td>Non-health system pharmacy</td>
+                  <td>33%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-stack" aria-label="Results and conclusion">
+        <div class="panel markdown-fragment">
+          <p class="section-label">Results</p>
+          <h2>A broad deployment produced usable satisfaction data, but most generated activities remained incomplete.</h2>
+          <ul>
+            <li>51 specialty pharmacies implemented the PSAT survey.</li>
+            <li>5,539 survey activities were generated for 1,983 patients.</li>
+            <li>2,376 activities were completed with a valid score.</li>
+            <li>522 completed surveys were submitted from a patient's mobile device.</li>
+          </ul>
+        </div>
+        <div class="panel markdown-fragment">
+          <p class="section-label">Interpretation</p>
+          <h2>The adoption signal was strong; the participation signal was the next improvement target.</h2>
+          <p>Completion reached 43%, and mobile texting contributed 22% of completions. The authors identified additional opportunity for wider pharmacy adoption and increased patient participation.</p>
+        </div>
+      </section>
+
+      <section class="panel takeaway">
+        <p>
+          Conclusion: the 7-item Therigy PSAT survey offered specialty pharmacies a feasible, metric-driven way to measure patient satisfaction, with future work focused on broader adoption, higher response rates, and turnaround-time analysis.
+        </p>
+      </section>
+    </main>
+
+    <footer class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/17-Patient-Satisfaction-Survey-in-Specialty-Pharmacy_2021.pdf">Open original PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/17-Patient-Satisfaction-Survey-in-Specialty-Pharmacy_2021.md">Read extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

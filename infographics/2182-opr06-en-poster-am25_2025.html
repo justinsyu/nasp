@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2025 Infographic | Valbenazine Administration Options</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card svg {
+      position: absolute;
+      right: -2.2rem;
+      bottom: -2.7rem;
+      width: 18rem;
+      max-width: 70%;
+      opacity: 0.18;
+    }
+    .hero-card > *:not(svg) {
+      position: relative;
+      z-index: 1;
+    }
+    .focus-card {
+      display: grid;
+      grid-template-columns: 5.2rem minmax(0, 1fr);
+      gap: 0.75rem;
+      align-items: center;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(24, 124, 143, 0.12), #fff);
+      padding: 0.8rem;
+    }
+    .focus-orb {
+      display: grid;
+      place-items: center;
+      width: 5.2rem;
+      height: 5.2rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 900;
+      line-height: 1;
+      text-align: center;
+    }
+    .focus-card p {
+      margin: 0;
+      color: var(--body);
+      font-size: 0.9rem;
+    }
+    .route-map {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-top: 0.7rem;
+    }
+    .route-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      overflow: hidden;
+    }
+    .route-card header {
+      display: grid;
+      gap: 0.15rem;
+      min-height: 5.2rem;
+      padding: 0.82rem;
+      background: var(--route-bg, var(--surface-blue));
+      border-bottom: 1px solid var(--border);
+    }
+    .route-card h3 {
+      font-size: 1.05rem;
+    }
+    .route-card header span {
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .route-steps {
+      display: grid;
+      gap: 0.52rem;
+      margin: 0;
+      padding: 0.82rem;
+      list-style: none;
+    }
+    .route-steps li {
+      display: grid;
+      grid-template-columns: 1.65rem minmax(0, 1fr);
+      gap: 0.48rem;
+      align-items: start;
+      font-size: 0.83rem;
+    }
+    .route-steps b {
+      display: grid;
+      place-items: center;
+      width: 1.65rem;
+      height: 1.65rem;
+      border-radius: 50%;
+      background: var(--red);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+    }
+    .route-card.granules { --route-bg: var(--surface-warm); }
+    .warning-strip {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.7rem;
+    }
+    .warning-strip div {
+      border: 1px solid rgba(209, 38, 48, 0.28);
+      border-radius: 7px;
+      background: rgba(209, 38, 48, 0.06);
+      color: var(--ink);
+      padding: 0.58rem;
+      font-size: 0.82rem;
+      font-weight: 850;
+    }
+    .study-wheel {
+      display: grid;
+      grid-template-columns: 13rem minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+      margin-top: 0.5rem;
+    }
+    .study-wheel svg {
+      width: 100%;
+      max-width: 13rem;
+      height: auto;
+    }
+    .study-list {
+      display: grid;
+      gap: 0.55rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .study-list li {
+      display: grid;
+      grid-template-columns: 0.85rem minmax(0, 1fr);
+      gap: 0.5rem;
+      align-items: start;
+      font-size: 0.86rem;
+    }
+    .study-list i {
+      width: 0.85rem;
+      height: 0.85rem;
+      margin-top: 0.25rem;
+      border-radius: 3px;
+      background: var(--dot, var(--red));
+    }
+    .be-range {
+      position: relative;
+      display: grid;
+      gap: 0.58rem;
+      margin-top: 0.65rem;
+      padding: 0.65rem 0.15rem 0.15rem;
+    }
+    .range-row {
+      display: grid;
+      grid-template-columns: 8.2rem minmax(0, 1fr) 4rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .range-track {
+      position: relative;
+      height: 1.05rem;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #f4d6d8 0 20%, var(--surface-blue) 20% 65%, #f4d6d8 65% 100%);
+      border: 1px solid var(--border);
+    }
+    .range-track::before,
+    .range-track::after {
+      content: "";
+      position: absolute;
+      top: -0.28rem;
+      width: 2px;
+      height: 1.58rem;
+      background: var(--ink);
+      opacity: 0.42;
+    }
+    .range-track::before { left: 20%; }
+    .range-track::after { left: 65%; }
+    .range-track i {
+      position: absolute;
+      top: 50%;
+      left: var(--pos, 47%);
+      width: 0.85rem;
+      height: 0.85rem;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      background: var(--red);
+      box-shadow: 0 0 0 1px rgba(36, 55, 112, 0.2);
+      transform: translate(-50%, -50%);
+    }
+    .recovery-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.45rem;
+      margin-top: 0.65rem;
+    }
+    .recovery-cell {
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: var(--surface-blue);
+      padding: 0.52rem;
+      text-align: center;
+    }
+    .recovery-cell strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.32rem;
+      line-height: 1;
+    }
+    .recovery-cell span {
+      color: var(--muted);
+      font-size: 0.66rem;
+      font-weight: 850;
+    }
+    .food-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.42rem;
+      margin-top: 0.65rem;
+    }
+    .food-grid span {
+      border: 1px solid rgba(24, 124, 143, 0.28);
+      border-radius: 999px;
+      background: rgba(24, 124, 143, 0.08);
+      color: var(--ink);
+      padding: 0.22rem 0.5rem;
+      font-size: 0.76rem;
+      font-weight: 800;
+    }
+    .conclusion-band {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(36, 55, 112, 0.96), rgba(117, 97, 168, 0.9)),
+        radial-gradient(circle at 82% 16%, rgba(233, 158, 37, 0.36), transparent 18rem);
+      color: #fff;
+      padding: 1.05rem;
+    }
+    .conclusion-band h2,
+    .conclusion-band .section-label {
+      color: #fff;
+    }
+    .conclusion-band p {
+      max-width: 64rem;
+      margin: 0.45rem 0 0;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 0.98rem;
+    }
+    .source-note {
+      margin: 0.65rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    @media (max-width: 900px) {
+      .route-map,
+      .study-wheel {
+        grid-template-columns: 1fr;
+      }
+      .warning-strip,
+      .recovery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 560px) {
+      .focus-card,
+      .range-row {
+        grid-template-columns: 1fr;
+      }
+      .recovery-grid,
+      .warning-strip {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">NASP Posters</a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/2182-OPR06-EN-Poster-AM25_2025.pdf">Poster PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/2182-OPR06-EN-Poster-AM25_2025.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP Annual Meeting 2025 | Denver, CO | Poster 2182-OPR06-EN</p>
+        <h1>Once-daily valbenazine administration options for patients with dysphagia or pill aversion</h1>
+        <p class="hero-summary">This poster evaluates whether two approved valbenazine formulations can support alternative administration routes for people treated for tardive dyskinesia or Huntington disease chorea who may have difficulty swallowing intact capsules.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag therapy">Tardive dyskinesia</li>
+          <li class="tag therapy">Huntington disease chorea</li>
+          <li class="tag category">Medication administration</li>
+          <li class="tag">In vitro + Phase 1</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Poster metadata">
+        <svg viewBox="0 0 220 220" aria-hidden="true">
+          <circle cx="110" cy="110" r="88" fill="none" stroke="#243770" stroke-width="18"/>
+          <path d="M45 118c42-56 86-56 130 0" fill="none" stroke="#d12630" stroke-width="16" stroke-linecap="round"/>
+          <path d="M65 148c30-28 60-28 90 0" fill="none" stroke="#e99e25" stroke-width="13" stroke-linecap="round"/>
+          <circle cx="80" cy="82" r="12" fill="#187c8f"/>
+          <circle cx="140" cy="82" r="12" fill="#7561a8"/>
+        </svg>
+        <div class="poster-code">2182<br>OPR06</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Year</dt>
+            <dd>2025</dd>
+          </div>
+          <div>
+            <dt>Format</dt>
+            <dd>Poster</dd>
+          </div>
+          <div>
+            <dt>Sponsor</dt>
+            <dd>Neurocrine Biosciences</dd>
+          </div>
+          <div>
+            <dt>Meeting</dt>
+            <dd>NASP Annual</dd>
+          </div>
+        </dl>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Total studies</span>
+          <strong>5</strong>
+          <p class="source-note">Four in vitro studies plus one phase 1 trial.</p>
+        </article>
+        <article class="metric-card">
+          <span>Phase 1 adults</span>
+          <strong>38</strong>
+          <p class="source-note">N=24 bioequivalence cohort; N=14 food-effect cohort.</p>
+        </article>
+        <article class="metric-card">
+          <span>Soft-food hold</span>
+          <strong>&le;2h</strong>
+          <p class="source-note">Tested after mixing with selected soft foods.</p>
+        </article>
+        <article class="metric-card">
+          <span>BE criterion</span>
+          <strong>80-125%</strong>
+          <p class="source-note">90% CI window for geometric mean ratios.</p>
+        </article>
+      </section>
+
+      <section class="visual-grid">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Move from swallowing constraint to administration choice</h2>
+          <div class="focus-card">
+            <div class="focus-orb">2<br><small>forms</small></div>
+            <p>Evaluate acceptable modes of administration for valbenazine capsules containing compacted powder and the newer sprinkle capsule containing granules.</p>
+          </div>
+          <div class="number-cloud" aria-label="Study anchors">
+            <div class="number-pill">40 mg<small>dose tested</small></div>
+            <div class="number-pill">80 mg<small>dose tested</small></div>
+            <div class="number-pill">10 mL<small>G-tube water</small></div>
+            <div class="number-pill">1 Tbsp<small>soft food</small></div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Evidence plan</p>
+          <h2>Five linked tests, from benchtop handling to pharmacokinetics</h2>
+          <div class="study-wheel">
+            <svg viewBox="0 0 240 240" role="img" aria-label="Study split visualization">
+              <circle cx="120" cy="120" r="86" fill="none" stroke="#eef4fb" stroke-width="34"/>
+              <circle cx="120" cy="120" r="86" fill="none" stroke="#d12630" stroke-width="34" stroke-dasharray="108 432" transform="rotate(-90 120 120)"/>
+              <circle cx="120" cy="120" r="86" fill="none" stroke="#e99e25" stroke-width="34" stroke-dasharray="108 432" stroke-dashoffset="-108" transform="rotate(-90 120 120)"/>
+              <circle cx="120" cy="120" r="86" fill="none" stroke="#187c8f" stroke-width="34" stroke-dasharray="108 432" stroke-dashoffset="-216" transform="rotate(-90 120 120)"/>
+              <circle cx="120" cy="120" r="86" fill="none" stroke="#4d8a67" stroke-width="34" stroke-dasharray="108 432" stroke-dashoffset="-324" transform="rotate(-90 120 120)"/>
+              <circle cx="120" cy="120" r="50" fill="#fff"/>
+              <text x="120" y="114" text-anchor="middle" fill="#243770" font-size="31" font-weight="800" font-family="Montserrat, Arial">5</text>
+              <text x="120" y="139" text-anchor="middle" fill="#68758d" font-size="13" font-weight="800" font-family="Inter, Arial">studies</text>
+            </svg>
+            <ul class="study-list">
+              <li><i style="--dot:#d12630"></i><span><b>Study 1:</b> dissolution profile after crushing compacted powder capsule contents.</span></li>
+              <li><i style="--dot:#e99e25"></i><span><b>Study 2:</b> compatibility of crushed contents with foods, buffers, and fed-state simulated gastric fluid.</span></li>
+              <li><i style="--dot:#187c8f"></i><span><b>Study 3:</b> suitability of crushed contents for G-tube delivery.</span></li>
+              <li><i style="--dot:#4d8a67"></i><span><b>Studies 4-5:</b> granule food compatibility plus phase 1 bioequivalence and food-effect testing.</span></li>
+            </ul>
+          </div>
+        </article>
+      </section>
+
+      <section>
+        <p class="section-label">Administration map</p>
+        <h2>Two formulations create different route options</h2>
+        <div class="route-map">
+          <article class="route-card">
+            <header>
+              <span>Compacted powder capsule</span>
+              <h3>Can be swallowed whole or opened and crushed for selected uses</h3>
+            </header>
+            <ol class="route-steps">
+              <li><b>1</b><span>Swallow intact capsule with water, with or without food.</span></li>
+              <li><b>2</b><span>Open capsule, crush contents, and mix with about 1 tablespoon of compatible soft food.</span></li>
+              <li><b>3</b><span>Crush contents and stir into water or juice for immediate use or storage up to 2 hours.</span></li>
+              <li><b>4</b><span>Crush, disperse in about 10 mL room-temperature water, and administer via feeding tube.</span></li>
+            </ol>
+          </article>
+          <article class="route-card granules">
+            <header>
+              <span>Granules sprinkle capsule</span>
+              <h3>Designed for sprinkling on compatible soft foods without crushing</h3>
+            </header>
+            <ol class="route-steps">
+              <li><b>1</b><span>Swallow whole capsule with water, with or without food.</span></li>
+              <li><b>2</b><span>Open capsule and sprinkle granules onto about 1 tablespoon of soft food.</span></li>
+              <li><b>3</b><span>Stir gently without crushing granules.</span></li>
+              <li><b>4</b><span>Consume immediately or store for up to 2 hours after mixing.</span></li>
+            </ol>
+          </article>
+        </div>
+        <div class="warning-strip" aria-label="Granule restrictions">
+          <div>Granules: do not mix into milk or water.</div>
+          <div>Granules: do not administer via feeding tube.</div>
+        </div>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">Food compatibility</p>
+          <h2>Granules stayed near complete recovery across soft foods</h2>
+          <div class="recovery-grid" aria-label="Valbenazine recovery after granules were added to soft foods">
+            <div class="recovery-cell"><strong>100%</strong><span>before addition</span></div>
+            <div class="recovery-cell"><strong>98-99%</strong><span>0 hours</span></div>
+            <div class="recovery-cell"><strong>98-99%</strong><span>0.5 hours</span></div>
+            <div class="recovery-cell"><strong>98-99%</strong><span>1 hour</span></div>
+            <div class="recovery-cell"><strong>98-99%</strong><span>2 hours</span></div>
+          </div>
+          <p class="source-note">Figure 1 reported 98%-99% recovery for applesauce, yogurt, and pudding from 0 through 2 hours.</p>
+          <div class="food-grid" aria-label="Compatible soft food examples">
+            <span>Applesauce</span>
+            <span>Yogurt</span>
+            <span>Pudding</span>
+            <span>Cottage cheese</span>
+            <span>Hummus</span>
+            <span>Jelly or jam</span>
+            <span>Mashed fruits</span>
+            <span>Mashed potatoes</span>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Bioequivalence signal</p>
+          <h2>Overall exposure remained inside the prespecified window</h2>
+          <div class="be-range" aria-label="Selected geometric mean ratios against 80 to 125 percent bioequivalence window">
+            <div class="range-row">
+              <span>VBZ AUC0-&infin;</span>
+              <div class="range-track"><i style="--pos:35.8%"></i></div>
+              <span>93.2%</span>
+            </div>
+            <div class="range-row">
+              <span>VBZ Cmax</span>
+              <div class="range-track"><i style="--pos:34.7%"></i></div>
+              <span>92.0%</span>
+            </div>
+            <div class="range-row">
+              <span>[+]-alpha-HTBZ AUC0-&infin;</span>
+              <div class="range-track"><i style="--pos:32.2%"></i></div>
+              <span>89.9%</span>
+            </div>
+            <div class="range-row">
+              <span>Fed/fasted VBZ AUC0-&infin;</span>
+              <div class="range-track"><i style="--pos:45.8%"></i></div>
+              <span>102.2%</span>
+            </div>
+          </div>
+          <p class="source-note">Dots show selected geometric mean ratios from Table 3; the highlighted middle band represents the 80%-125% bioequivalence criterion.</p>
+        </article>
+      </section>
+
+      <section>
+        <p class="section-label">Results by question</p>
+        <h2>What each test answered</h2>
+        <div class="evidence-map">
+          <article class="evidence-card">
+            <h3>Crushing changed handling, not release</h3>
+            <p>Study 1 found rapid and complete release for crushed capsule contents and intact capsules at 40 mg and 80 mg.</p>
+          </article>
+          <article class="evidence-card">
+            <h3>Crushed contents mixed acceptably</h3>
+            <p>Study 2 met the 90%-110% recovery definition after mixing with tested soft foods, buffer solutions, and FeSSGF.</p>
+          </article>
+          <article class="evidence-card">
+            <h3>G-tube delivery was supported</h3>
+            <p>Study 3 found suitability when crushed contents were dispersed in room-temperature water, with storage in water up to 2.5 hours.</p>
+          </article>
+          <article class="evidence-card">
+            <h3>Granules fit acidic soft foods</h3>
+            <p>Study 4 met the 95%-105% recovery definition for granules in applesauce, yogurt, pudding, selected buffers, and FeSSGF.</p>
+          </article>
+          <article class="evidence-card">
+            <h3>Phase 1 linked formulation exposure</h3>
+            <p>Study 5 demonstrated bioequivalence of granules versus compacted powder and no food effect for granules sprinkled on applesauce.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="tables-grid">
+        <article class="table-card">
+          <p class="section-label">Table pattern</p>
+          <h2>In vitro acceptance thresholds</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Formulation</th>
+                  <th>Assessment</th>
+                  <th>Acceptability definition</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Crushed compacted powder</td>
+                  <td>Food/liquid compatibility</td>
+                  <td>90%-110% valbenazine recovery</td>
+                </tr>
+                <tr>
+                  <td>Crushed compacted powder</td>
+                  <td>G-tube suitability</td>
+                  <td>90%-110% valbenazine recovery</td>
+                </tr>
+                <tr>
+                  <td>Uncrushed granules</td>
+                  <td>Soft-food compatibility</td>
+                  <td>95%-105% valbenazine recovery</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Phase 1 pattern</p>
+          <h2>Healthy-adult crossover design</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Cohort</th>
+                  <th>Design</th>
+                  <th>N</th>
+                  <th>Comparison</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Bioequivalence</td>
+                  <td>3-sequence, 3-period crossover</td>
+                  <td>24</td>
+                  <td>Granules on applesauce, whole granule capsule, whole compacted-powder capsule</td>
+                </tr>
+                <tr>
+                  <td>Food effect</td>
+                  <td>2-sequence, 2-period crossover</td>
+                  <td>14</td>
+                  <td>Granules sprinkled on applesauce under fed versus fasted conditions</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="conclusion-band">
+        <p class="section-label">Conclusion</p>
+        <h2>Valbenazine offers once-daily administration flexibility for patients with swallowing difficulty</h2>
+        <p>The poster concludes that compacted powder capsule contents can be crushed for mixing with compatible foods or liquids and for G-tube delivery, while the approved granule formulation is compatible with acidic to slightly acidic soft foods and demonstrated bioequivalence with no food effect in phase 1 testing.</p>
+      </section>
+
+      <footer class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/2182-OPR06-EN-Poster-AM25_2025.pdf">Open original poster PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/2182-OPR06-EN-Poster-AM25_2025.md">Open extracted markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

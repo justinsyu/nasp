@@ -1,0 +1,756 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Persistence to Disease-Modifying Therapy in MS | NASP 2021</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .ms-hero {
+      position: relative;
+      min-height: 100%;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(238, 244, 251, 0.92), rgba(255, 255, 255, 0.78)),
+        radial-gradient(circle at 22% 20%, rgba(209, 38, 48, 0.14), transparent 7.5rem),
+        radial-gradient(circle at 82% 76%, rgba(24, 124, 143, 0.16), transparent 9rem);
+      overflow: hidden;
+    }
+    .ms-hero svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 22rem;
+    }
+    .hero-card .callout {
+      margin: 0;
+      border-left: 4px solid var(--red);
+      padding-left: 0.72rem;
+      color: var(--ink);
+      font-size: 0.95rem;
+      font-weight: 850;
+    }
+    .author-line {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+    .metric-card strong small {
+      color: inherit;
+      font-size: 0.45em;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+    .metric-card p {
+      margin: 0.42rem 0 0;
+      font-size: 0.78rem;
+    }
+    .story-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.18fr) minmax(19rem, 0.82fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .persistence-card {
+      position: relative;
+      min-height: 27rem;
+      overflow: hidden;
+    }
+    .chart-caption {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    .curve-svg {
+      display: block;
+      width: 100%;
+      min-height: 20rem;
+      margin-top: 0.5rem;
+    }
+    .curve-svg text {
+      fill: var(--muted);
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .curve-svg .axis {
+      stroke: rgba(36, 55, 112, 0.34);
+      stroke-width: 1.2;
+    }
+    .curve-svg .grid {
+      stroke: rgba(36, 55, 112, 0.12);
+      stroke-width: 1;
+    }
+    .curve-svg .line {
+      fill: none;
+      stroke: var(--teal);
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 6;
+    }
+    .curve-svg .area {
+      fill: rgba(24, 124, 143, 0.11);
+    }
+    .curve-svg .point {
+      fill: #fff;
+      stroke: var(--teal);
+      stroke-width: 4;
+    }
+    .curve-svg .final-label {
+      fill: var(--red);
+      font-family: var(--font-display);
+      font-size: 34px;
+      font-weight: 900;
+    }
+    .event-stack {
+      display: grid;
+      gap: 0.72rem;
+      margin-top: 0.8rem;
+    }
+    .event-row {
+      display: grid;
+      grid-template-columns: 8.8rem minmax(0, 1fr) 3rem;
+      gap: 0.58rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+    .event-track {
+      height: 1rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: rgba(36, 55, 112, 0.08);
+      overflow: hidden;
+    }
+    .event-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: var(--c, var(--red));
+    }
+    .flow-band {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+    .flow-card {
+      position: relative;
+      min-height: 12.2rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.86rem;
+      overflow: hidden;
+    }
+    .flow-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 0.34rem;
+      background: var(--accent, var(--red));
+    }
+    .flow-card::after {
+      content: attr(data-step);
+      position: absolute;
+      right: 0.52rem;
+      bottom: -0.7rem;
+      color: rgba(36, 55, 112, 0.08);
+      font-family: var(--font-display);
+      font-size: 5rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .flow-card h3,
+    .flow-card p {
+      position: relative;
+      z-index: 1;
+    }
+    .flow-card p {
+      margin: 0.56rem 0 0;
+      font-size: 0.82rem;
+    }
+    .reason-layout {
+      display: grid;
+      grid-template-columns: minmax(19rem, 0.86fr) minmax(0, 1.14fr);
+      gap: 1rem;
+      align-items: start;
+    }
+    .reason-rank {
+      display: grid;
+      gap: 0.54rem;
+      margin-top: 0.75rem;
+    }
+    .reason-row {
+      display: grid;
+      grid-template-columns: 8.8rem minmax(0, 1fr) 2.7rem;
+      gap: 0.48rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.76rem;
+      font-weight: 850;
+    }
+    .reason-row span:last-child {
+      color: var(--muted);
+      text-align: right;
+    }
+    .reason-track {
+      height: 0.86rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: rgba(36, 55, 112, 0.08);
+      overflow: hidden;
+    }
+    .reason-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .heat-table {
+      min-width: 38rem;
+      text-align: center;
+    }
+    .heat-table th:first-child,
+    .heat-table td:first-child {
+      text-align: left;
+    }
+    .heat {
+      background: rgba(209, 38, 48, var(--heat-alpha, 0.04));
+      color: var(--ink);
+      font-weight: 850;
+    }
+    .index-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+    }
+    .donut-wrap {
+      display: grid;
+      grid-template-columns: 10.5rem minmax(0, 1fr);
+      gap: 0.8rem;
+      align-items: center;
+      margin-top: 0.7rem;
+    }
+    .donut {
+      width: 10.5rem;
+      height: 10.5rem;
+      border-radius: 50%;
+      background: conic-gradient(
+        var(--red) 0 29%,
+        var(--gold) 29% 50%,
+        var(--teal) 50% 70%,
+        var(--green) 70% 88%,
+        var(--purple) 88% 100%
+      );
+      display: grid;
+      place-items: center;
+    }
+    .donut span {
+      display: grid;
+      place-items: center;
+      width: 6.7rem;
+      height: 6.7rem;
+      border-radius: 50%;
+      background: #fff;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.65rem;
+      font-weight: 900;
+      line-height: 1;
+      text-align: center;
+    }
+    .donut small {
+      display: block;
+      color: var(--muted);
+      font-family: var(--font-body);
+      font-size: 0.56rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .legend-list {
+      display: grid;
+      gap: 0.38rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
+    .legend-list i {
+      display: inline-block;
+      width: 0.78rem;
+      height: 0.78rem;
+      margin-right: 0.34rem;
+      border-radius: 999px;
+      vertical-align: -0.08rem;
+    }
+    .pharmacist-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.8rem;
+    }
+    .role-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.82rem;
+    }
+    .role-icon {
+      display: grid;
+      place-items: center;
+      width: 2.4rem;
+      height: 2.4rem;
+      margin-bottom: 0.55rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+    }
+    .role-icon svg {
+      width: 1.3rem;
+      height: 1.3rem;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 2.1;
+    }
+    .role-card p {
+      margin: 0;
+      font-size: 0.82rem;
+    }
+    .takeaway {
+      display: grid;
+      grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+      gap: 1rem;
+      align-items: stretch;
+      border: 1px solid var(--ink);
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--ink), #182550);
+      color: #fff;
+      padding: 1rem;
+    }
+    .takeaway h2,
+    .takeaway h3 {
+      color: #fff;
+    }
+    .takeaway .section-label {
+      color: #ffcf7a;
+    }
+    .takeaway p {
+      margin: 0.6rem 0 0;
+    }
+    .takeaway ul {
+      margin: 0.6rem 0 0 1.05rem;
+      padding: 0;
+    }
+    .takeaway li {
+      margin: 0.24rem 0;
+      font-size: 0.88rem;
+    }
+    .source-note {
+      margin: 0.8rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    @media (max-width: 960px) {
+      .story-grid,
+      .reason-layout,
+      .index-grid,
+      .takeaway {
+        grid-template-columns: 1fr;
+      }
+      .flow-band,
+      .pharmacist-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 620px) {
+      .flow-band,
+      .pharmacist-grid,
+      .donut-wrap {
+        grid-template-columns: 1fr;
+      }
+      .event-row,
+      .reason-row {
+        grid-template-columns: 1fr;
+      }
+      .donut {
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">NASP Posters</a>
+      <nav aria-label="Source files">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/30-Persistence-to-Disease-Modifying-Therapy-in-MS_2021.pdf">Source PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/30-Persistence-to-Disease-Modifying-Therapy-in-MS_2021.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2021 | Poster 30 | Relapsing multiple sclerosis</p>
+        <h1>Persistence to disease-modifying therapy in patients with relapsing MS</h1>
+        <p class="hero-summary">A 3-year retrospective review found that long-term persistence to a single index disease-modifying therapy was low, with treatment switches, transfers of care, and discontinuations accumulating steadily after initiation.</p>
+        <p class="author-line">Miranda Z. Kozlicki, PharmD; Brandon Markley, PharmD, BCPS; Nisha B. Shah, PharmD; Josh DeClercq, MS; Leena Choi, PhD; Autumn D. Zuckerman, PharmD, BCPS, AAHIVP, CSP. Vanderbilt University Medical Center.</p>
+        <ul class="tag-row" aria-label="Poster focus areas">
+          <li class="tag therapy">Disease-modifying therapy</li>
+          <li class="tag category">Persistence</li>
+          <li class="tag">Integrated specialty pharmacy</li>
+          <li class="tag">Retrospective review</li>
+        </ul>
+      </div>
+      <aside class="hero-card">
+        <div class="poster-code">2021<br>RMS DMT</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Setting</dt>
+            <dd>Academic health system</dd>
+          </div>
+          <div>
+            <dt>Window</dt>
+            <dd>May 2017-Oct 2020</dd>
+          </div>
+          <div>
+            <dt>Index fills</dt>
+            <dd>At least 3</dd>
+          </div>
+          <div>
+            <dt>Follow-up</dt>
+            <dd>36 months</dd>
+          </div>
+        </dl>
+        <p class="callout">Main question: how many patients remain on the same index DMT after 3 years, and why do others stop?</p>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key metrics">
+        <article class="metric-card">
+          <span>Analysis cohort</span>
+          <strong>538</strong>
+          <p>Patients represented by the index DMT distribution.</p>
+        </article>
+        <article class="metric-card">
+          <span>36-month persistence</span>
+          <strong>51<small>%</small></strong>
+          <p>Estimated probability of staying on the index DMT.</p>
+        </article>
+        <article class="metric-card">
+          <span>Remained on index DMT</span>
+          <strong>193</strong>
+          <p>Patients, or 36% of the cohort, had no first event by 3 years.</p>
+        </article>
+        <article class="metric-card">
+          <span>Median time on DMT</span>
+          <strong>642</strong>
+          <p>Days on therapy; IQR 317-1096.</p>
+        </article>
+      </section>
+
+      <section class="story-grid" id="persistence">
+        <article class="panel persistence-card">
+          <p class="section-label">Persistence curve</p>
+          <h2>Half the cohort was still persistent at 36 months</h2>
+          <svg class="curve-svg" viewBox="0 0 620 330" role="img" aria-labelledby="curve-title curve-desc">
+            <title id="curve-title">Probability of DMT persistence over 36 months</title>
+            <desc id="curve-desc">Persistence probability falls from 1.00 at month 0 to 0.90 at month 6, 0.81 at month 12, 0.70 at month 18, 0.62 at month 24, 0.58 at month 30, and 0.51 at month 36.</desc>
+            <line class="grid" x1="54" y1="34" x2="578" y2="34"></line>
+            <line class="grid" x1="54" y1="79" x2="578" y2="79"></line>
+            <line class="grid" x1="54" y1="124" x2="578" y2="124"></line>
+            <line class="grid" x1="54" y1="170" x2="578" y2="170"></line>
+            <line class="grid" x1="54" y1="215" x2="578" y2="215"></line>
+            <line class="grid" x1="54" y1="260" x2="578" y2="260"></line>
+            <line class="axis" x1="54" y1="34" x2="54" y2="260"></line>
+            <line class="axis" x1="54" y1="260" x2="578" y2="260"></line>
+            <polygon class="area" points="54,34 141,79 229,120 316,170 403,206 491,224 578,255 578,260 54,260"></polygon>
+            <polyline class="line" points="54,34 141,79 229,120 316,170 403,206 491,224 578,255"></polyline>
+            <g>
+              <circle class="point" cx="54" cy="34" r="6"></circle>
+              <circle class="point" cx="141" cy="79" r="6"></circle>
+              <circle class="point" cx="229" cy="120" r="6"></circle>
+              <circle class="point" cx="316" cy="170" r="6"></circle>
+              <circle class="point" cx="403" cy="206" r="6"></circle>
+              <circle class="point" cx="491" cy="224" r="6"></circle>
+              <circle class="point" cx="578" cy="255" r="7"></circle>
+            </g>
+            <text x="12" y="38">1.00</text>
+            <text x="12" y="128">0.80</text>
+            <text x="12" y="218">0.60</text>
+            <text x="45" y="290">0</text>
+            <text x="132" y="290">6</text>
+            <text x="217" y="290">12</text>
+            <text x="305" y="290">18</text>
+            <text x="392" y="290">24</text>
+            <text x="480" y="290">30</text>
+            <text x="566" y="290">36</text>
+            <text x="256" y="316">Months from index DMT</text>
+            <text class="final-label" x="463" y="74">0.51</text>
+            <text x="467" y="96">probability at 36 months</text>
+          </svg>
+          <p class="chart-caption">Poster Figure 1 values: 1.00, 0.90, 0.81, 0.70, 0.62, 0.58, and 0.51 from month 0 to 36.</p>
+        </article>
+
+        <aside class="panel">
+          <p class="section-label">First event by 36 months</p>
+          <h2>Most non-persistence reflected switching or care transitions</h2>
+          <div class="event-stack" aria-label="First event counts at month 36">
+            <div class="event-row">
+              <span>Switched DMT</span>
+              <div class="event-track"><i style="--w: 100%; --c: var(--red);"></i></div>
+              <span>136</span>
+            </div>
+            <div class="event-row">
+              <span>Transferred care</span>
+              <div class="event-track"><i style="--w: 68%; --c: var(--gold);"></i></div>
+              <span>92</span>
+            </div>
+            <div class="event-row">
+              <span>Discontinued</span>
+              <div class="event-track"><i style="--w: 67%; --c: var(--teal);"></i></div>
+              <span>91</span>
+            </div>
+            <div class="event-row">
+              <span>Lost follow-up</span>
+              <div class="event-track"><i style="--w: 15%; --c: var(--green);"></i></div>
+              <span>21</span>
+            </div>
+            <div class="event-row">
+              <span>Deceased</span>
+              <div class="event-track"><i style="--w: 5%; --c: var(--purple);"></i></div>
+              <span>7</span>
+            </div>
+          </div>
+          <p class="chart-caption">At 36 months, the poster reported 25% switched to another DMT, 17% transferred care, and 17% discontinued.</p>
+        </aside>
+      </section>
+
+      <section>
+        <p class="section-label">Study frame</p>
+        <h2>Evidence flow from index fills to persistence outcome</h2>
+        <div class="flow-band">
+          <article class="flow-card" data-step="1" style="--accent: var(--red);">
+            <h3>Population</h3>
+            <p>Patients with relapsing MS identified by ICD-10 G35 and DMT prescribing through an MS Clinic provider.</p>
+          </article>
+          <article class="flow-card" data-step="2" style="--accent: var(--gold);">
+            <h3>Index therapy</h3>
+            <p>At least 3 fills of the index DMT between May and October 2017.</p>
+          </article>
+          <article class="flow-card" data-step="3" style="--accent: var(--teal);">
+            <h3>Follow-up</h3>
+            <p>Retrospective review in an academic tertiary health system with an integrated specialty pharmacy.</p>
+          </article>
+          <article class="flow-card" data-step="4" style="--accent: var(--green);">
+            <h3>Primary readout</h3>
+            <p>Persistence to index DMT across 3 years, summarized with month-by-month probabilities.</p>
+          </article>
+          <article class="flow-card" data-step="5" style="--accent: var(--purple);">
+            <h3>Change pathway</h3>
+            <p>Reason for first DMT discontinuation and specialty pharmacist role in that transition.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="reason-layout" id="discontinuations">
+        <article class="panel">
+          <p class="section-label">Discontinuation reasons</p>
+          <h2>Side effects were the leading reason for stopping DMT</h2>
+          <div class="reason-rank" aria-label="Top discontinuation reasons">
+            <div class="reason-row">
+              <span>Side effects</span>
+              <div class="reason-track"><i style="--w: 100%;"></i></div>
+              <span>29</span>
+            </div>
+            <div class="reason-row">
+              <span>Stable disease</span>
+              <div class="reason-track"><i style="--w: 41%;"></i></div>
+              <span>12</span>
+            </div>
+            <div class="reason-row">
+              <span>Prescriber hold</span>
+              <div class="reason-track"><i style="--w: 38%;"></i></div>
+              <span>11</span>
+            </div>
+            <div class="reason-row">
+              <span>Non-adherence</span>
+              <div class="reason-track"><i style="--w: 34%;"></i></div>
+              <span>10</span>
+            </div>
+            <div class="reason-row">
+              <span>Pregnancy</span>
+              <div class="reason-track"><i style="--w: 28%;"></i></div>
+              <span>8</span>
+            </div>
+          </div>
+          <p class="chart-caption">Side effects accounted for 32% of discontinuations; stable disease accounted for 13%.</p>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Therapy pattern</p>
+          <h2>Dimethyl fumarate contributed the largest discontinuation count</h2>
+          <div class="table-wrap">
+            <table class="heat-table">
+              <thead>
+                <tr>
+                  <th>Reason</th>
+                  <th>Dimethyl fumarate</th>
+                  <th>Interferon</th>
+                  <th>Glatiramer acetate</th>
+                  <th>Teriflunomide</th>
+                  <th>Fingolimod</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Side effects</td>
+                  <td class="heat" style="--heat-alpha: 0.55;">15</td>
+                  <td class="heat" style="--heat-alpha: 0.25;">5</td>
+                  <td class="heat" style="--heat-alpha: 0.16;">3</td>
+                  <td class="heat" style="--heat-alpha: 0.25;">5</td>
+                  <td class="heat" style="--heat-alpha: 0.08;">1</td>
+                </tr>
+                <tr>
+                  <td>Stable disease</td>
+                  <td class="heat" style="--heat-alpha: 0.04;">0</td>
+                  <td class="heat" style="--heat-alpha: 0.37;">9</td>
+                  <td class="heat" style="--heat-alpha: 0.12;">2</td>
+                  <td class="heat" style="--heat-alpha: 0.04;">0</td>
+                  <td class="heat" style="--heat-alpha: 0.08;">1</td>
+                </tr>
+                <tr>
+                  <td>Prescriber-mandated hold</td>
+                  <td class="heat" style="--heat-alpha: 0.2;">4</td>
+                  <td class="heat" style="--heat-alpha: 0.16;">3</td>
+                  <td class="heat" style="--heat-alpha: 0.12;">2</td>
+                  <td class="heat" style="--heat-alpha: 0.08;">1</td>
+                  <td class="heat" style="--heat-alpha: 0.08;">1</td>
+                </tr>
+                <tr>
+                  <td>Non-adherence</td>
+                  <td class="heat" style="--heat-alpha: 0.12;">2</td>
+                  <td class="heat" style="--heat-alpha: 0.16;">3</td>
+                  <td class="heat" style="--heat-alpha: 0.08;">1</td>
+                  <td class="heat" style="--heat-alpha: 0.12;">2</td>
+                  <td class="heat" style="--heat-alpha: 0.12;">2</td>
+                </tr>
+                <tr>
+                  <td>Pregnancy</td>
+                  <td class="heat" style="--heat-alpha: 0.2;">4</td>
+                  <td class="heat" style="--heat-alpha: 0.12;">2</td>
+                  <td class="heat" style="--heat-alpha: 0.08;">1</td>
+                  <td class="heat" style="--heat-alpha: 0.04;">0</td>
+                  <td class="heat" style="--heat-alpha: 0.08;">1</td>
+                </tr>
+                <tr>
+                  <td>All listed discontinuations</td>
+                  <td class="heat" style="--heat-alpha: 0.74;">30</td>
+                  <td class="heat" style="--heat-alpha: 0.72;">29</td>
+                  <td class="heat" style="--heat-alpha: 0.47;">13</td>
+                  <td class="heat" style="--heat-alpha: 0.37;">9</td>
+                  <td class="heat" style="--heat-alpha: 0.4;">10</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="chart-caption">Heat intensity follows the count within each therapy column; blank source cells are shown as 0.</p>
+        </article>
+      </section>
+
+      <section class="index-grid">
+        <article class="panel">
+          <p class="section-label">Baseline pattern</p>
+          <h2>Index DMT mix was spread across five therapies</h2>
+          <div class="donut-wrap">
+            <div class="donut" role="img" aria-label="Index DMT distribution: interferon 29%, glatiramer acetate 21%, dimethyl fumarate 20%, fingolimod 18%, teriflunomide 12%.">
+              <span>538<small>index DMTs</small></span>
+            </div>
+            <ul class="legend-list">
+              <li><i style="background: var(--red);"></i>Interferon: 156 (29%)</li>
+              <li><i style="background: var(--gold);"></i>Glatiramer acetate: 115 (21%)</li>
+              <li><i style="background: var(--teal);"></i>Dimethyl fumarate: 107 (20%)</li>
+              <li><i style="background: var(--green);"></i>Fingolimod: 96 (18%)</li>
+              <li><i style="background: var(--purple);"></i>Teriflunomide: 64 (12%)</li>
+            </ul>
+          </div>
+        </article>
+        <article class="panel">
+          <p class="section-label">Cohort profile</p>
+          <h2>Demographics reflected a mostly female, white, commercially insured sample</h2>
+          <div class="number-cloud">
+            <div class="number-pill">49<small>median age, years</small></div>
+            <div class="number-pill">74%<small>female</small></div>
+            <div class="number-pill">84%<small>white</small></div>
+            <div class="number-pill">61%<small>commercial insurance</small></div>
+          </div>
+          <p class="source-note">Age IQR: 41-57 years.</p>
+        </article>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Specialty pharmacist involvement</p>
+        <h2>Integrated pharmacists supported discontinuation decisions and transitions</h2>
+        <div class="pharmacist-grid">
+          <article class="role-card">
+            <div class="role-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M9 18h6"></path><path d="M10 22h4"></path><path d="M8.5 14.5c-1.2-1-2-2.5-2-4.2a5.5 5.5 0 1 1 11 0c0 1.7-.8 3.2-2 4.2-.7.6-1.1 1.2-1.2 2H9.7c-.1-.8-.5-1.4-1.2-2Z"></path></svg>
+            </div>
+            <h3>Identify</h3>
+            <p>Initiate discontinuation needs for lymphopenia, liver enzyme elevation, or pregnancy.</p>
+          </article>
+          <article class="role-card">
+            <div class="role-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7A2 2 0 0 1 22 16.9Z"></path></svg>
+            </div>
+            <h3>Communicate</h3>
+            <p>Coordinate conversations between the patient and prescriber.</p>
+          </article>
+          <article class="role-card">
+            <div class="role-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M9 4h6l1 2h3v16H5V6h3l1-2Z"></path><path d="M9 12h6"></path><path d="M9 16h6"></path></svg>
+            </div>
+            <h3>Coordinate</h3>
+            <p>Arrange follow-up care, including additional lab monitoring.</p>
+          </article>
+          <article class="role-card">
+            <div class="role-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"></path><path d="M8 9h8"></path><path d="M8 13h5"></path></svg>
+            </div>
+            <h3>Recommend</h3>
+            <p>Suggest new DMT options when a therapy change was needed.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="takeaway">
+        <div>
+          <p class="section-label">Conclusion</p>
+          <h2>DMT treatment changes were common across 3 years.</h2>
+        </div>
+        <div>
+          <h3>What the poster adds</h3>
+          <ul>
+            <li>Long-term persistence to one specific DMT over 3 years was low.</li>
+            <li>Patients commonly discontinued because of side effects or stable disease.</li>
+            <li>Integrated specialty pharmacists played a role in identifying, communicating, coordinating, and recommending next steps during DMT transitions.</li>
+          </ul>
+        </div>
+      </section>
+
+      <footer class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/30-Persistence-to-Disease-Modifying-Therapy-in-MS_2021.pdf">Open source PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/30-Persistence-to-Disease-Modifying-Therapy-in-MS_2021.md">Open extracted markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

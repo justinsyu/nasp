@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2024 Infographic | CEX Removes FXIa from GC5107 IVIG</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -3rem;
+      bottom: -4rem;
+      width: 13rem;
+      height: 13rem;
+      border: 2.2rem solid rgba(24, 124, 143, 0.13);
+      border-radius: 50%;
+    }
+    .hero-card .button-link {
+      position: relative;
+      justify-content: center;
+      background: #fff;
+    }
+    .title-accent {
+      color: var(--red);
+    }
+    .assay-radar {
+      position: relative;
+      min-height: 22rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        linear-gradient(145deg, rgba(36, 55, 112, 0.96), rgba(24, 124, 143, 0.9)),
+        radial-gradient(circle at 80% 18%, rgba(233, 158, 37, 0.36), transparent 13rem);
+      color: #fff;
+      overflow: hidden;
+      padding: 1rem;
+    }
+    .assay-radar h2,
+    .assay-radar h3 {
+      color: #fff;
+    }
+    .assay-radar .section-label {
+      color: rgba(255, 255, 255, 0.72);
+    }
+    .assay-radar svg {
+      display: block;
+      width: min(28rem, 100%);
+      height: auto;
+      margin: 0.4rem auto 0;
+    }
+    .assay-radar text {
+      font-family: var(--font-body);
+      font-weight: 850;
+      fill: #fff;
+    }
+    .radar-note {
+      max-width: 30rem;
+      margin: 0.2rem 0 0;
+      color: rgba(255, 255, 255, 0.84);
+      font-size: 0.88rem;
+    }
+    .process-track {
+      display: grid;
+      gap: 0.5rem;
+      margin-top: 0.7rem;
+    }
+    .process-step {
+      display: grid;
+      grid-template-columns: 2.4rem minmax(0, 1fr) auto;
+      gap: 0.55rem;
+      align-items: center;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.5rem;
+    }
+    .process-step b {
+      display: grid;
+      place-items: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: var(--surface-blue);
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.84rem;
+    }
+    .process-step strong {
+      color: var(--ink);
+      font-size: 0.88rem;
+    }
+    .process-step small {
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    .process-step.cex {
+      border-color: rgba(209, 38, 48, 0.55);
+      background: linear-gradient(90deg, rgba(209, 38, 48, 0.1), #fff 52%);
+    }
+    .process-step.cex b {
+      background: var(--red);
+      color: #fff;
+    }
+    .drop-card {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 0.7rem;
+      align-items: center;
+      margin-top: 0.7rem;
+    }
+    .drop-side {
+      min-height: 8.4rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--surface-blue);
+      padding: 0.75rem;
+    }
+    .drop-side.after {
+      background: var(--surface-warm);
+    }
+    .drop-side span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.66rem;
+      font-weight: 900;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+    .drop-side strong {
+      display: block;
+      margin-top: 0.15rem;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 1;
+    }
+    .drop-side.after strong {
+      color: var(--green);
+    }
+    .drop-arrow {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 900;
+    }
+    .lot-grid {
+      display: grid;
+      grid-template-columns: repeat(9, minmax(0, 1fr));
+      gap: 0.28rem;
+      margin-top: 0.7rem;
+    }
+    .lot-cell {
+      display: grid;
+      min-height: 3.7rem;
+      place-items: center;
+      border: 1px solid rgba(24, 124, 143, 0.3);
+      border-radius: 6px;
+      background: rgba(24, 124, 143, 0.1);
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      font-weight: 900;
+    }
+    .callout-list {
+      display: grid;
+      gap: 0.58rem;
+      margin: 0.65rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .callout-list li {
+      display: grid;
+      grid-template-columns: 0.8rem minmax(0, 1fr);
+      gap: 0.48rem;
+      color: var(--body);
+      font-size: 0.88rem;
+    }
+    .callout-list li::before {
+      content: "";
+      width: 0.55rem;
+      height: 0.55rem;
+      margin-top: 0.45rem;
+      border-radius: 50%;
+      background: var(--red);
+    }
+    .spike-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.6rem;
+      margin-top: 0.7rem;
+    }
+    .spike-card {
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.7rem;
+    }
+    .spike-card strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+    .spike-card span {
+      display: block;
+      margin-top: 0.32rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 800;
+    }
+    .table-signal tbody tr:nth-child(2) td,
+    .table-signal tbody tr:nth-child(3) td {
+      background: rgba(77, 138, 103, 0.08);
+    }
+    .source-note {
+      margin: 0.75rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+    @media (max-width: 900px) {
+      .drop-card,
+      .spike-grid {
+        grid-template-columns: 1fr;
+      }
+      .drop-arrow {
+        transform: rotate(90deg);
+        text-align: center;
+      }
+      .lot-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/32-OPR32-EN-Poster-AM24_2024.pdf">Poster PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/32-OPR32-EN-Poster-AM24_2024.md">Markdown Source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP Annual Meeting 2024 | OPR32 encore presentation</p>
+        <h1>Cation exchange chromatography <span class="title-accent">removes FXIa</span> from a new 10% IVIG preparation</h1>
+        <p class="hero-summary">GC Biopharma evaluated whether a ceramic-resin cation exchange chromatography step could reduce residual factor XIa and procoagulant activity in GC5107, a 10% intravenous immunoglobulin preparation.</p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag therapy">IVIG safety</li>
+          <li class="tag category">Manufacturing process</li>
+          <li class="tag">FXIa removal</li>
+          <li class="tag">CEX chromatography</li>
+          <li class="tag">Nashville, TN</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div class="poster-code">32-OPR32</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Year</dt>
+            <dd>2024</dd>
+          </div>
+          <div>
+            <dt>Product</dt>
+            <dd>GC5107</dd>
+          </div>
+          <div>
+            <dt>Format</dt>
+            <dd>Poster</dd>
+          </div>
+          <div>
+            <dt>Focus</dt>
+            <dd>Residual FXIa</dd>
+          </div>
+        </dl>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/32-OPR32-EN-Poster-AM24_2024.pdf">Open original poster</a>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Final lots tested</span>
+          <strong>9</strong>
+        </article>
+        <article class="metric-card">
+          <span>TGA in all lots</span>
+          <strong>&lt;1.56</strong>
+        </article>
+        <article class="metric-card">
+          <span>Chromogenic FXIa</span>
+          <strong>&lt;0.16</strong>
+        </article>
+        <article class="metric-card">
+          <span>Spike challenge</span>
+          <strong>169.9x</strong>
+        </article>
+      </section>
+
+      <section class="visual-grid">
+        <article class="assay-radar">
+          <p class="section-label">Measurement strategy</p>
+          <h2>Five evidence lenses converged on procoagulant activity</h2>
+          <p class="radar-note">The study combined functional, chromogenic, clotting-time, protein, and immunoblot readouts across intermediates, final product, and spike-challenge material.</p>
+          <svg viewBox="0 0 420 300" role="img" aria-label="Five assay lenses around a central CEX removal claim">
+            <defs>
+              <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#102040" flood-opacity="0.32"/>
+              </filter>
+            </defs>
+            <circle cx="210" cy="150" r="70" fill="#ffffff" opacity="0.13"/>
+            <circle cx="210" cy="150" r="44" fill="#ffffff" opacity="0.95" filter="url(#softShadow)"/>
+            <text x="210" y="143" text-anchor="middle" fill="#243770" font-size="15">CEX</text>
+            <text x="210" y="163" text-anchor="middle" fill="#243770" font-size="12">removal step</text>
+            <g stroke="#fff" stroke-opacity="0.45" stroke-width="2">
+              <line x1="210" y1="106" x2="210" y2="40"/>
+              <line x1="248" y1="128" x2="342" y2="96"/>
+              <line x1="233" y1="186" x2="312" y2="245"/>
+              <line x1="187" y1="186" x2="108" y2="245"/>
+              <line x1="172" y1="128" x2="78" y2="96"/>
+            </g>
+            <g>
+              <circle cx="210" cy="36" r="31" fill="#d12630"/>
+              <text x="210" y="32" text-anchor="middle" font-size="12">TGA</text>
+              <text x="210" y="48" text-anchor="middle" font-size="9">&lt;1.56</text>
+              <circle cx="352" cy="92" r="37" fill="#e99e25"/>
+              <text x="352" y="88" text-anchor="middle" font-size="12">FXIa</text>
+              <text x="352" y="104" text-anchor="middle" font-size="9">chromogenic</text>
+              <circle cx="318" cy="252" r="34" fill="#4d8a67"/>
+              <text x="318" y="248" text-anchor="middle" font-size="12">NaPTT</text>
+              <text x="318" y="264" text-anchor="middle" font-size="9">&gt;250 sec</text>
+              <circle cx="102" cy="252" r="34" fill="#7561a8"/>
+              <text x="102" y="248" text-anchor="middle" font-size="12">ELISA</text>
+              <text x="102" y="264" text-anchor="middle" font-size="9">FXI/FXIa</text>
+              <circle cx="68" cy="92" r="37" fill="#187c8f"/>
+              <text x="68" y="88" text-anchor="middle" font-size="12">Western</text>
+              <text x="68" y="104" text-anchor="middle" font-size="9">blot</text>
+            </g>
+          </svg>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Manufacturing signal</p>
+          <h2>CEX is the highlighted inflection point</h2>
+          <p class="markdown-fragment">Cold ethanol fractionation removed factors II, VII, IX, and X, while FXIa persisted until the cation exchange chromatography step. The CEX resin was described as ceramic-based, high-capacity for IgG, and intended to remove procoagulant activity.</p>
+          <div class="process-track" aria-label="GC5107 manufacturing sequence">
+            <div class="process-step"><b>1</b><strong>Plasma thawing and cryoprecipitation</strong><small>start</small></div>
+            <div class="process-step"><b>2</b><strong>Fractionation plus UF/DF 1</strong><small>early removal</small></div>
+            <div class="process-step"><b>3</b><strong>Anion exchange and solvent/detergent treatment</strong><small>pre-CEX</small></div>
+            <div class="process-step cex"><b>4</b><strong>Cation exchange chromatography</strong><small>FXIa removal</small></div>
+            <div class="process-step"><b>5</b><strong>Nanofiltration, ultrafiltration, formulation</strong><small>GC5107</small></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Build robustness into a 10% IVIG purification process</h2>
+          <ul class="callout-list">
+            <li>Develop and evaluate a process to remove residual FXIa from GC5107.</li>
+            <li>Assess whether the process remained effective when starting material was intentionally spiked with FXIa.</li>
+            <li>Use multiple readouts to connect protein removal with lower procoagulant activity.</li>
+          </ul>
+        </article>
+        <article class="panel">
+          <p class="section-label">Final-product readout</p>
+          <h2>Nine GC5107 lots stayed below detection limits</h2>
+          <div class="lot-grid" aria-label="Nine lots below detection">
+            <div class="lot-cell">Lot 1</div>
+            <div class="lot-cell">Lot 2</div>
+            <div class="lot-cell">Lot 3</div>
+            <div class="lot-cell">Lot 4</div>
+            <div class="lot-cell">Lot 5</div>
+            <div class="lot-cell">Lot 6</div>
+            <div class="lot-cell">Lot 7</div>
+            <div class="lot-cell">Lot 8</div>
+            <div class="lot-cell">Lot 9</div>
+          </div>
+          <p class="source-note">All lots reported TGA &lt;1.56 mIU/mL and chromogenic FXIa &lt;0.16 mIU/mL; NaPTT values exceeded 250 seconds.</p>
+        </article>
+      </section>
+
+      <section class="visual-grid">
+        <article class="panel">
+          <p class="section-label">Total FXI trajectory</p>
+          <h2>The process-step table collapses after CEX</h2>
+          <div class="drop-card" aria-label="Total FXI before and after CEX">
+            <div class="drop-side">
+              <span>S/D treatment</span>
+              <strong>515,053</strong>
+              <p>Total FXI, mcg</p>
+            </div>
+            <div class="drop-arrow" aria-hidden="true">-&gt;</div>
+            <div class="drop-side after">
+              <span>CEX and UF/DF 2</span>
+              <strong>&lt;65</strong>
+              <p>Total FXI, mcg</p>
+            </div>
+          </div>
+          <div class="lens-chart" aria-label="Selected log value pattern">
+            <div class="lens-row"><span>Plasma thaw</span><div class="lens-bar"><i style="width:100%"></i></div></div>
+            <div class="lens-row"><span>AEX</span><div class="lens-bar"><i style="width:81%"></i></div></div>
+            <div class="lens-row"><span>S/D treatment</span><div class="lens-bar"><i style="width:81%"></i></div></div>
+            <div class="lens-row"><span>CEX + UF/DF 2</span><div class="lens-bar"><i style="width:26%"></i></div></div>
+            <div class="lens-row"><span>Drug substance</span><div class="lens-bar"><i style="width:23%"></i></div></div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Spike challenge</p>
+          <h2>Even high FXIa spikes were reduced to very low levels</h2>
+          <div class="spike-grid">
+            <div class="spike-card">
+              <strong>32.5x</strong>
+              <span>FXIa spike relative to normal sample level</span>
+            </div>
+            <div class="spike-card">
+              <strong>169.9x</strong>
+              <span>highest challenge condition reported</span>
+            </div>
+            <div class="spike-card">
+              <strong>~101-103%</strong>
+              <span>IgG recovery range across no-spike and spike arms</span>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table class="table-signal">
+              <thead>
+                <tr>
+                  <th>Condition</th>
+                  <th>Pre-CEX protein</th>
+                  <th>Post-CEX protein</th>
+                  <th>TGA after CEX</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>No spike</td>
+                  <td>83.79 ng/mL</td>
+                  <td>&lt;0.31 ng/mL</td>
+                  <td>&lt;1.56 mU/mL</td>
+                </tr>
+                <tr>
+                  <td>4.0 &micro;g/mL spike</td>
+                  <td>2679.48 ng/mL</td>
+                  <td>0.96 ng/mL</td>
+                  <td>&lt;1.56 mU/mL</td>
+                </tr>
+                <tr>
+                  <td>21.0 &micro;g/mL spike</td>
+                  <td>13264.79 ng/mL</td>
+                  <td>5.56 ng/mL</td>
+                  <td>&lt;1.56 mU/mL</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="evidence-map" aria-label="Evidence flow">
+        <article class="evidence-card">
+          <h3>1. Risk context</h3>
+          <p>Residual coagulation factors in IVIG can increase thrombus and thromboembolic-event risk.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>2. Process gap</h3>
+          <p>Ethanol precipitation removes several factors but does not effectively separate FXIa from IVIG.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>3. CEX intervention</h3>
+          <p>Cation exchange chromatography was inserted as a targeted step for procoagulant activity removal.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>4. Assay confirmation</h3>
+          <p>Final-product TGA and chromogenic FXIa values were below detection limits across 9 lots.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>5. Conclusion</h3>
+          <p>The new process may reduce TEE risk by robustly removing FXIa from GC5107.</p>
+        </article>
+      </section>
+
+      <section class="tables-grid">
+        <article class="table-card">
+          <p class="section-label">Condensed result pattern</p>
+          <h2>Final GC5107 lot assays</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Measure</th>
+                  <th>Pattern across 9 lots</th>
+                  <th>Interpretation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>TGA</td>
+                  <td>&lt;1.56 mIU/mL</td>
+                  <td>Below detection limit</td>
+                </tr>
+                <tr>
+                  <td>Chromogenic FXIa</td>
+                  <td>&lt;0.16 mIU/mL</td>
+                  <td>Below detection limit</td>
+                </tr>
+                <tr>
+                  <td>NaPTT, 1:5</td>
+                  <td>Mean 279.4 +/- 17.5 sec</td>
+                  <td>Very low procoagulant activity</td>
+                </tr>
+                <tr>
+                  <td>NaPTT, 1:10</td>
+                  <td>Mean 277.3 +/- 16.2 sec</td>
+                  <td>Very low procoagulant activity</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Authors and provenance</p>
+          <h2>Poster source</h2>
+          <div class="markdown-fragment">
+            <p><strong>Authors:</strong> Alan Huber; Gil Bu Kang; Min-Jung Kim; Seulgi Park; Eun Bang; Jeungwoon Hong; Jihye Lee.</p>
+            <p><strong>Organizations:</strong> GC Biopharma USA and GCBiopharma.</p>
+            <p><strong>Publication note:</strong> Previously published in <em>Frontiers in Cardiovascular Medicine</em> on November 22, 2023; encore presentation at NASP Annual Meeting, October 6-9, 2024.</p>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/32-OPR32-EN-Poster-AM24_2024.pdf">View PDF source</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/32-OPR32-EN-Poster-AM24_2024.md">View markdown extraction</a>
+    </footer>
+  </div>
+</body>
+</html>

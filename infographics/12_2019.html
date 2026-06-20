@@ -1,0 +1,693 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CPPA Prescribing Efficiency in a Renal Transplant Clinic | NASP 2019</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card.cppa-card {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 82% 16%, rgba(233, 158, 37, 0.24), transparent 7rem),
+        linear-gradient(145deg, #ffffff 0%, var(--surface-blue) 54%, var(--surface-warm) 100%);
+    }
+
+    .cppa-badge {
+      display: grid;
+      place-items: center;
+      min-height: 10rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(209, 38, 48, 0.12), rgba(24, 124, 143, 0.12)),
+        #fff;
+    }
+
+    .cppa-badge svg {
+      width: min(100%, 19rem);
+      height: auto;
+      display: block;
+    }
+
+    .authorizer-board {
+      display: grid;
+      gap: 0.8rem;
+      margin-top: 0.8rem;
+    }
+
+    .authorizer-row {
+      display: grid;
+      grid-template-columns: 9.6rem minmax(0, 1fr);
+      gap: 0.7rem;
+      align-items: center;
+    }
+
+    .period-label {
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+
+    .stacked-bar {
+      display: grid;
+      grid-template-columns: var(--nurse) var(--md) var(--pharmd);
+      min-height: 2.05rem;
+      overflow: hidden;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 7px;
+      background: #edf2f8;
+    }
+
+    .stacked-bar span {
+      display: grid;
+      place-items: center;
+      min-width: 0;
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 900;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.22);
+    }
+
+    .stacked-bar .nurse { background: var(--gold); }
+    .stacked-bar .md { background: var(--red); }
+    .stacked-bar .pharmd { background: var(--teal); }
+
+    .legend-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem 0.9rem;
+      margin-top: 0.7rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 800;
+    }
+
+    .legend-row i {
+      display: inline-block;
+      width: 0.72rem;
+      height: 0.72rem;
+      margin-right: 0.25rem;
+      border-radius: 2px;
+      vertical-align: -0.08rem;
+      background: var(--teal);
+    }
+
+    .legend-row span:nth-child(2) i { background: var(--red); }
+    .legend-row span:nth-child(3) i { background: var(--gold); }
+
+    .timeline-panel {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(238, 244, 251, 0.92), rgba(255, 255, 255, 0.96)),
+        #fff;
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.9rem;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 0.4rem;
+      right: 0.4rem;
+      top: 1.75rem;
+      height: 0.24rem;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--red), var(--gold), var(--teal));
+    }
+
+    .timeline-step {
+      position: relative;
+      display: grid;
+      gap: 0.34rem;
+      align-content: start;
+      min-height: 8.5rem;
+      padding-top: 3.05rem;
+    }
+
+    .timeline-step::before {
+      content: "";
+      position: absolute;
+      top: 1.18rem;
+      left: 0.32rem;
+      width: 1.25rem;
+      height: 1.25rem;
+      border: 3px solid #fff;
+      border-radius: 50%;
+      background: var(--red);
+      box-shadow: 0 0 0 1px rgba(36, 55, 112, 0.22);
+    }
+
+    .timeline-step:nth-child(2)::before,
+    .timeline-step:nth-child(3)::before { background: var(--gold); }
+    .timeline-step:nth-child(n+4)::before { background: var(--teal); }
+
+    .timeline-step strong {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      line-height: 1;
+    }
+
+    .timeline-step span {
+      color: var(--body);
+      font-size: 0.72rem;
+      font-weight: 740;
+      line-height: 1.28;
+    }
+
+    .volume-graphic {
+      display: grid;
+      grid-template-columns: 0.78fr 1.22fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .big-delta {
+      display: grid;
+      align-content: center;
+      min-height: 14rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--ink);
+      padding: 1.15rem;
+      color: #fff;
+    }
+
+    .big-delta span {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .big-delta strong {
+      margin-top: 0.22rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 8vw, 5.4rem);
+      line-height: 0.9;
+    }
+
+    .big-delta p {
+      margin: 0.65rem 0 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.92rem;
+    }
+
+    .sparkline-card svg {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin-top: 0.7rem;
+    }
+
+    .number-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.85rem;
+    }
+
+    .number-tile {
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.7rem;
+    }
+
+    .number-tile strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.65rem;
+      line-height: 1;
+    }
+
+    .number-tile span {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--body);
+      font-size: 0.74rem;
+      font-weight: 780;
+      line-height: 1.25;
+    }
+
+    .criteria-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+
+    .criteria-box {
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 7px;
+      background: var(--surface-blue);
+      padding: 0.75rem;
+    }
+
+    .criteria-box.exclude {
+      background: var(--surface-warm);
+    }
+
+    .criteria-box h3 {
+      margin-bottom: 0.45rem;
+    }
+
+    .criteria-box ul {
+      margin: 0 0 0 1.05rem;
+      padding: 0;
+    }
+
+    .criteria-box li {
+      margin: 0.2rem 0;
+      font-size: 0.82rem;
+    }
+
+    .safety-callout {
+      border-left: 5px solid var(--green);
+      background:
+        linear-gradient(90deg, rgba(77, 138, 103, 0.13), rgba(255, 255, 255, 0)),
+        #fff;
+    }
+
+    .source-note {
+      margin: 0.7rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    .compact-table td:not(:first-child),
+    .compact-table th:not(:first-child) {
+      text-align: right;
+    }
+
+    @media (max-width: 900px) {
+      .timeline,
+      .number-grid,
+      .volume-graphic {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline::before {
+        top: 0;
+        bottom: 0;
+        left: 0.95rem;
+        right: auto;
+        width: 0.22rem;
+        height: auto;
+        background: linear-gradient(180deg, var(--red), var(--gold), var(--teal));
+      }
+
+      .timeline-step {
+        min-height: auto;
+        padding: 0 0 0 2.7rem;
+      }
+
+      .timeline-step::before {
+        top: 0.1rem;
+        left: 0.33rem;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .authorizer-row,
+      .criteria-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stacked-bar span {
+        min-height: 2.4rem;
+        font-size: 0.66rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar" aria-label="Infographic navigation">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav>
+        <a href="#timeline">CPPA Timeline</a>
+        <a href="#results">Results</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/12_2019.pdf">PDF source</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/12_2019.md">Markdown source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2019 | Poster 12</p>
+        <h1>Development of a Pharmacy Collaborative Practice Agreement in a Renal Transplant Clinic</h1>
+        <p class="hero-summary">
+          Vanderbilt's renal transplant clinic used a pharmacist-physician Collaborative Pharmacy Practice Agreement to move routine immunosuppressant refill authority closer to the specialty pharmacy team while tracking workload, growth, and safety.
+        </p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Collaborative practice</li>
+          <li class="tag therapy">Renal transplant</li>
+          <li class="tag therapy">Immunosuppressants</li>
+          <li class="tag">Workflow efficiency</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card cppa-card">
+        <div>
+          <p class="section-label">Poster file</p>
+          <div class="poster-code">12_2019</div>
+        </div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Institution</dt>
+            <dd>Vanderbilt</dd>
+          </div>
+          <div>
+            <dt>Study design</dt>
+            <dd>Retrospective cohort</dd>
+          </div>
+          <div>
+            <dt>Intervals</dt>
+            <dd>Three 7-month windows</dd>
+          </div>
+          <div>
+            <dt>CPPA start</dt>
+            <dd>March 2017</dd>
+          </div>
+        </dl>
+        <div class="cppa-badge" aria-label="Collaborative practice agreement illustration">
+          <svg viewBox="0 0 360 210" role="img" aria-labelledby="cppa-title cppa-desc">
+            <title id="cppa-title">Collaborative prescribing model</title>
+            <desc id="cppa-desc">A stylized transplant medication workflow connects physician, pharmacist, and patient monitoring.</desc>
+            <defs>
+              <linearGradient id="pillGrad" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#d12630"/>
+                <stop offset="1" stop-color="#187c8f"/>
+              </linearGradient>
+            </defs>
+            <rect x="28" y="26" width="304" height="158" rx="18" fill="#fff" stroke="#aebbd2" stroke-width="3"/>
+            <circle cx="94" cy="96" r="35" fill="#eef4fb" stroke="#243770" stroke-width="4"/>
+            <path d="M78 96h32M94 80v32" stroke="#d12630" stroke-width="8" stroke-linecap="round"/>
+            <circle cx="266" cy="96" r="35" fill="#fff7ea" stroke="#243770" stroke-width="4"/>
+            <path d="M247 99c12-22 25-22 38 0" fill="none" stroke="#187c8f" stroke-width="7" stroke-linecap="round"/>
+            <path d="M135 88h90" stroke="#243770" stroke-width="7" stroke-linecap="round"/>
+            <path d="M212 74l20 14-20 14" fill="none" stroke="#243770" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="126" y="126" width="108" height="28" rx="14" fill="url(#pillGrad)"/>
+            <path d="M159 140h42" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+            <text x="58" y="164" fill="#243770" font-family="Inter, Arial" font-size="16" font-weight="900">clinic</text>
+            <text x="222" y="164" fill="#243770" font-family="Inter, Arial" font-size="16" font-weight="900">pharmacy</text>
+          </svg>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Prescriptions reviewed</span>
+          <strong>2,349</strong>
+        </article>
+        <article class="metric-card">
+          <span>Patients included</span>
+          <strong>319</strong>
+        </article>
+        <article class="metric-card">
+          <span>PharmD authorizations with CPPA</span>
+          <strong>85%</strong>
+        </article>
+        <article class="metric-card">
+          <span>Safety concerns reported</span>
+          <strong>0</strong>
+        </article>
+      </section>
+
+      <section class="visual-grid" id="timeline">
+        <article class="panel timeline-panel">
+          <p class="section-label">Implementation pathway</p>
+          <h2>From state authority to clinic execution</h2>
+          <div class="timeline" aria-label="CPPA implementation timeline">
+            <div class="timeline-step">
+              <strong>Jul 2014</strong>
+              <span>Tennessee pharmacy and medical associations finalized CPPA legislation.</span>
+            </div>
+            <div class="timeline-step">
+              <strong>Jul 2015</strong>
+              <span>Vanderbilt Renal Transplant Clinic and Transplant Pharmacy developed a CPPA.</span>
+            </div>
+            <div class="timeline-step">
+              <strong>Dec 2015</strong>
+              <span>VUMC P&amp;T Committee and Medical Board approved the proposed agreement.</span>
+            </div>
+            <div class="timeline-step">
+              <strong>Nov 2016</strong>
+              <span>VUMC legal defined CPPA requirements and auditing needs.</span>
+            </div>
+            <div class="timeline-step">
+              <strong>Feb 2017</strong>
+              <span>State Board of Pharmacy and Attorney General approved the CPPA.</span>
+            </div>
+            <div class="timeline-step">
+              <strong>Mar 2017</strong>
+              <span>CPPA initiated inside the renal transplant clinic.</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Objective and cohort</p>
+          <h2>Test whether pharmacist prescribing authority improved clinic efficiency</h2>
+          <div class="markdown-fragment">
+            <p><strong>Objective:</strong> Assess the impact of a pharmacist-physician CPPA on prescription volume, clinic workload, and safety outcomes.</p>
+            <p><strong>Method:</strong> Three 7-month intervals compared immunosuppressant prescriptions authorized by pharmacists, nurses, and physicians before pharmacists, prior to CPPA, and after CPPA establishment.</p>
+          </div>
+          <div class="criteria-grid">
+            <div class="criteria-box">
+              <h3>Included</h3>
+              <ul>
+                <li>Adults 18 years and older</li>
+                <li>Post renal transplant follow-up</li>
+                <li>At least one immunosuppressant prescription in all intervals</li>
+              </ul>
+            </div>
+            <div class="criteria-box exclude">
+              <h3>Excluded</h3>
+              <ul>
+                <li>Failed renal transplant</li>
+                <li>Discharged from the transplant clinic</li>
+                <li>Re-transplanted during the study window</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel" id="results">
+        <p class="section-label">Workload shift</p>
+        <h2>After CPPA establishment, pharmacists authorized most immunosuppressant refills</h2>
+        <div class="authorizer-board" aria-label="Immunosuppressant refill authorizer percentages by time interval">
+          <div class="authorizer-row">
+            <div class="period-label">Before pharmacists<br>Nov 2014-May 2015</div>
+            <div class="stacked-bar" style="--nurse:57fr; --md:43fr; --pharmd:0fr">
+              <span class="nurse">57%</span>
+              <span class="md">43%</span>
+              <span class="pharmd" aria-label="PharmD 0 percent"></span>
+            </div>
+          </div>
+          <div class="authorizer-row">
+            <div class="period-label">Prior to CPPA<br>Dec 2015-Jun 2016</div>
+            <div class="stacked-bar" style="--nurse:28fr; --md:72fr; --pharmd:0fr">
+              <span class="nurse">28%</span>
+              <span class="md">72%</span>
+              <span class="pharmd" aria-label="PharmD 0 percent"></span>
+            </div>
+          </div>
+          <div class="authorizer-row">
+            <div class="period-label">Established CPPA<br>Apr 2017-Oct 2017</div>
+            <div class="stacked-bar" style="--nurse:6fr; --md:9fr; --pharmd:85fr">
+              <span class="nurse">6%</span>
+              <span class="md">9%</span>
+              <span class="pharmd">85%</span>
+            </div>
+          </div>
+        </div>
+        <div class="legend-row" aria-label="Authorizer legend">
+          <span><i></i>PharmD</span>
+          <span><i></i>MD</span>
+          <span><i></i>Nurse</span>
+        </div>
+      </section>
+
+      <section class="volume-graphic" aria-label="Operational growth">
+        <div class="big-delta">
+          <span>Monthly transplant prescription count</span>
+          <strong>+158%</strong>
+          <p>Total monthly prescriptions for renal transplant patients rose from 1,841 in July 2015 to 4,749 in December 2018.</p>
+        </div>
+
+        <article class="panel sparkline-card">
+          <p class="section-label">Prescription volume and staffing</p>
+          <h2>Growth continued while pharmacy capacity expanded</h2>
+          <svg viewBox="0 0 720 300" role="img" aria-labelledby="volume-title volume-desc">
+            <title id="volume-title">Quarterly prescription volume growth from 2015 to 2018</title>
+            <desc id="volume-desc">A rising line shows renal transplant prescriptions filled by VUMC Transplant Pharmacy increasing from 5000 in 2015 Q3 to 14000 in 2018 Q4, with staff markers at 9, 12, 15, and 18.</desc>
+            <defs>
+              <linearGradient id="areaGrad" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0" stop-color="#187c8f" stop-opacity="0.34"/>
+                <stop offset="1" stop-color="#187c8f" stop-opacity="0.02"/>
+              </linearGradient>
+            </defs>
+            <rect x="16" y="14" width="688" height="250" rx="14" fill="#eef4fb" stroke="#aebbd2"/>
+            <path d="M64 218 L109 193 L154 171 L199 149 L244 127 L289 105 L334 83 L379 72 L424 61 L469 55 L514 50 L559 46 L604 39 L649 28 L649 236 L64 236 Z" fill="url(#areaGrad)"/>
+            <path d="M64 218 L109 193 L154 171 L199 149 L244 127 L289 105 L334 83 L379 72 L424 61 L469 55 L514 50 L559 46 L604 39 L649 28" fill="none" stroke="#187c8f" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+            <g fill="#fff" stroke="#243770" stroke-width="4">
+              <circle cx="64" cy="218" r="8"/>
+              <circle cx="199" cy="149" r="8"/>
+              <circle cx="334" cy="83" r="8"/>
+              <circle cx="514" cy="50" r="8"/>
+              <circle cx="649" cy="28" r="8"/>
+            </g>
+            <g fill="#243770" font-family="Inter, Arial" font-size="14" font-weight="900">
+              <text x="44" y="251">2015 Q3</text>
+              <text x="306" y="251">2017 Q1</text>
+              <text x="618" y="251">2018 Q4</text>
+              <text x="42" y="200">5,000</text>
+              <text x="618" y="18">14,000</text>
+            </g>
+            <g fill="#d12630" font-family="Inter, Arial" font-size="13" font-weight="900">
+              <text x="48" y="185">9 staff</text>
+              <text x="180" y="132">12 staff</text>
+              <text x="316" y="67">15 staff</text>
+              <text x="494" y="34">18 staff</text>
+            </g>
+          </svg>
+          <p class="source-note">Quarterly filled-prescription pattern is extracted from the poster's volume table; final team growth is summarized in the conclusion as 8 to 24 team members.</p>
+        </article>
+      </section>
+
+      <section class="evidence-map" aria-label="Evidence flow">
+        <article class="evidence-card">
+          <h3>Need</h3>
+          <p>Post-transplant medication regimens are complex and frequently adjusted to preserve graft and patient health.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Agreement</h3>
+          <p>The clinic implemented a formal CPPA that defined pharmacist prescribing authority and audit expectations.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Shift</h3>
+          <p>Once established, pharmacists authorized 85% of immunosuppressant refills, reducing physician and nurse burden.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Scale</h3>
+          <p>Prescription volume and specialty pharmacy staffing increased alongside the streamlined refill process.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Safety</h3>
+          <p>Seven quarterly Veritas safety reviews reported no safety concerns after CPPA implementation.</p>
+        </article>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">Measured signals</p>
+          <h2>Efficiency, volume, and safety moved together</h2>
+          <div class="number-grid">
+            <div class="number-tile">
+              <strong>3</strong>
+              <span>study intervals</span>
+            </div>
+            <div class="number-tile">
+              <strong>7</strong>
+              <span>months per interval</span>
+            </div>
+            <div class="number-tile">
+              <strong>24</strong>
+              <span>team members after growth</span>
+            </div>
+            <div class="number-tile">
+              <strong>7</strong>
+              <span>quarterly safety reviews</span>
+            </div>
+          </div>
+          <p class="source-note">Safety incidents were measured through Veritas quarterly reports.</p>
+        </article>
+
+        <article class="panel markdown-fragment safety-callout">
+          <p class="section-label">Conclusion</p>
+          <h2>CPPA implementation concentrated refill work in pharmacy without a reported safety signal</h2>
+          <p>
+            The poster concluded that the agreement increased prescription volume, reduced physician and nurse burden, supported pharmacy growth from 8 to 24 team members, and produced no safety concerns across seven quarterly reviews.
+          </p>
+          <p>
+            The authors positioned the model as a streamlined path from prescribing to dispensing that allows closer post-transplant monitoring while freeing physicians and nurses to focus on patient care.
+          </p>
+        </article>
+      </section>
+
+      <section class="tables-grid">
+        <article class="table-card">
+          <p class="section-label">Authorizer table pattern</p>
+          <h2>Refills by clinician type</h2>
+          <div class="table-wrap">
+            <table class="compact-table">
+              <thead>
+                <tr>
+                  <th>Time interval</th>
+                  <th>Nurse</th>
+                  <th>MD</th>
+                  <th>PharmD</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Before pharmacists</td>
+                  <td>57%</td>
+                  <td>43%</td>
+                  <td>0%</td>
+                </tr>
+                <tr>
+                  <td>Prior to CPPA</td>
+                  <td>28%</td>
+                  <td>72%</td>
+                  <td>0%</td>
+                </tr>
+                <tr>
+                  <td>Established CPPA</td>
+                  <td>6%</td>
+                  <td>9%</td>
+                  <td>85%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Poster materials</p>
+          <h2>Source links</h2>
+          <div class="markdown-fragment">
+            <p><strong>Authors:</strong> Rachel Chelewski, Keren Johnson, Autumn Zuckerman, Megan Peter, Josh DeClercq, Leena Choi, and Anthony Langone.</p>
+            <p><strong>Institutional setting:</strong> Vanderbilt Transplant Pharmacy, Vanderbilt Specialty Pharmacy, and Vanderbilt University Medical Center.</p>
+          </div>
+          <div class="footer-actions">
+            <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/12_2019.pdf">Open poster PDF</a>
+            <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/12_2019.md">Open extracted markdown</a>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

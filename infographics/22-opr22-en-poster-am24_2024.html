@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2024 Infographic | Collaborative Practice Agreements in Specialty Pharmacy</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .cpa-constellation {
+      position: relative;
+      min-height: 19rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 82% 18%, rgba(233, 158, 37, 0.24), transparent 7.5rem),
+        radial-gradient(circle at 18% 82%, rgba(24, 124, 143, 0.18), transparent 9rem),
+        linear-gradient(145deg, rgba(238, 244, 251, 0.98), #fff 55%, rgba(255, 247, 234, 0.94));
+      overflow: hidden;
+      padding: 1rem;
+    }
+
+    .cpa-constellation svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .verdict-card {
+      display: grid;
+      align-content: center;
+      min-height: 13rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--ink);
+      color: #fff;
+      padding: 1.15rem;
+    }
+
+    .verdict-card span {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .verdict-card strong {
+      margin-top: 0.25rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 7vw, 5rem);
+      line-height: 0.9;
+    }
+
+    .verdict-card p {
+      margin: 0.7rem 0 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.95rem;
+    }
+
+    .rate-comparison {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.75rem;
+    }
+
+    .rate-tile {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+    }
+
+    .rate-tile b {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      line-height: 1;
+    }
+
+    .rate-tile span {
+      display: block;
+      margin-top: 0.2rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .mini-axis {
+      position: relative;
+      height: 0.72rem;
+      margin-top: 0.65rem;
+      border-radius: 999px;
+      background: var(--surface-blue);
+      overflow: hidden;
+    }
+
+    .mini-axis i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.75rem;
+    }
+
+    .timeline-node {
+      min-height: 8.4rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.8rem;
+    }
+
+    .timeline-node b {
+      display: inline-block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+    }
+
+    .timeline-node ul {
+      margin: 0.48rem 0 0;
+      padding-left: 1rem;
+    }
+
+    .timeline-node li {
+      margin: 0.28rem 0;
+      font-size: 0.78rem;
+    }
+
+    .attrition-flow {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0.65rem;
+      margin-top: 0.8rem;
+    }
+
+    .flow-stack {
+      display: grid;
+      gap: 0.55rem;
+    }
+
+    .flow-box {
+      min-height: 5.2rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.72rem;
+    }
+
+    .flow-box.primary {
+      background: var(--surface-blue);
+      border-color: rgba(36, 55, 112, 0.34);
+    }
+
+    .flow-box.excluded {
+      background: var(--surface-warm);
+    }
+
+    .flow-box strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      line-height: 1;
+    }
+
+    .flow-box span {
+      display: block;
+      margin-top: 0.3rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 850;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+
+    .pharmacist-bars {
+      display: grid;
+      gap: 0.62rem;
+      margin-top: 0.75rem;
+    }
+
+    .pharm-row {
+      display: grid;
+      grid-template-columns: 9.5rem minmax(0, 1fr) 4.8rem;
+      gap: 0.6rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+
+    .pharm-track {
+      height: 1rem;
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+
+    .pharm-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .pharm-row em {
+      color: var(--ink);
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .reason-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.75rem;
+    }
+
+    .reason-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.7rem;
+    }
+
+    .reason-card h3 {
+      min-height: 2.55rem;
+      font-size: 0.84rem;
+    }
+
+    .reason-pair {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.4rem;
+      margin-top: 0.55rem;
+    }
+
+    .reason-pair span {
+      border-radius: 6px;
+      background: var(--surface-blue);
+      padding: 0.42rem;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .reason-pair small {
+      display: block;
+      margin-top: 0.1rem;
+      color: var(--muted);
+      font-family: var(--font-body);
+      font-size: 0.58rem;
+      font-weight: 900;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .callout-list {
+      margin: 0.55rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .callout-list li {
+      display: grid;
+      grid-template-columns: 0.85rem minmax(0, 1fr);
+      gap: 0.45rem;
+      margin-top: 0.42rem;
+      font-size: 0.88rem;
+    }
+
+    .callout-list li::before {
+      content: "";
+      width: 0.55rem;
+      height: 0.55rem;
+      margin-top: 0.42rem;
+      border-radius: 50%;
+      background: var(--red);
+    }
+
+    .conclusion-band {
+      display: grid;
+      grid-template-columns: 0.82fr 1.18fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .method-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.65rem;
+    }
+
+    .method-chip {
+      border: 1px solid rgba(24, 124, 143, 0.35);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--teal);
+      padding: 0.25rem 0.58rem;
+      font-size: 0.74rem;
+      font-weight: 850;
+    }
+
+    .source-note {
+      margin: 0.72rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 900px) {
+      .timeline-grid,
+      .attrition-flow,
+      .reason-grid,
+      .conclusion-band {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .rate-comparison {
+        grid-template-columns: 1fr;
+      }
+
+      .pharm-row {
+        grid-template-columns: 1fr;
+      }
+
+      .pharm-row em {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="https://naspnet.org/">NASP 2024</a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/22-OPR22-EN-Poster-AM24_2024.pdf">Poster PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/22-OPR22-EN-Poster-AM24_2024.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">22-OPR22-EN-Poster-AM24 | 2024</p>
+        <h1>Collaborative Practice Agreements in an Integrated Health-System Specialty Pharmacy</h1>
+        <p class="hero-summary">A Vanderbilt Specialty Pharmacy retrospective cohort analysis asked whether clinic-specific CPAs reduced short-window specialty medication represcriptions and shifted prescribing work to pharmacists.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Collaborative practice agreements</li>
+          <li class="tag therapy">Specialty pharmacy</li>
+          <li class="tag">Retrospective cohort</li>
+          <li class="tag">Administrative burden</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div class="poster-code">CPA impact check</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Setting</dt>
+            <dd>Integrated health-system specialty pharmacy</dd>
+          </div>
+          <div>
+            <dt>Data source</dt>
+            <dd>Electronic medical record</dd>
+          </div>
+          <div>
+            <dt>Window</dt>
+            <dd>6 months pre vs post clinic go-live</dd>
+          </div>
+          <div>
+            <dt>Primary test</dt>
+            <dd>Pearson's Chi-squared</dd>
+          </div>
+        </dl>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key study numbers">
+        <article class="metric-card">
+          <span>Prescriptions included</span>
+          <strong>1,077</strong>
+        </article>
+        <article class="metric-card">
+          <span>Represcription patients</span>
+          <strong>457</strong>
+        </article>
+        <article class="metric-card">
+          <span>Post-CPA pharmacist share</span>
+          <strong>36%</strong>
+        </article>
+        <article class="metric-card">
+          <span>Rate comparison p value</span>
+          <strong>0.445</strong>
+        </article>
+      </section>
+
+      <section class="visual-grid" id="objective">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Did CPAs reduce specialty medication represcriptions?</h2>
+          <p>The study evaluated whether CPA implementation lowered the rate of represcriptions, defined as another prescription from the same clinic for the same patient and any specialty medication within 14 days of the index prescription.</p>
+          <div class="method-chip-row" aria-label="Study method chips">
+            <span class="method-chip">Single center</span>
+            <span class="method-chip">Retrospective cohort</span>
+            <span class="method-chip">Clinic-specific index dates</span>
+            <span class="method-chip">14-day represcription window</span>
+          </div>
+        </article>
+
+        <article class="cpa-constellation" aria-label="CPA implementation network illustration">
+          <svg viewBox="0 0 760 360" role="img" aria-labelledby="cpa-title cpa-desc">
+            <title id="cpa-title">Collaborative practice agreement network</title>
+            <desc id="cpa-desc">Clinics connected through a pharmacist-led CPA operating model.</desc>
+            <defs>
+              <filter id="soft-shadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#243770" flood-opacity="0.14"/>
+              </filter>
+            </defs>
+            <path d="M126 180 C246 42 505 58 640 170" fill="none" stroke="#aebbd2" stroke-width="5" stroke-linecap="round"/>
+            <path d="M124 184 C250 326 514 316 642 174" fill="none" stroke="#aebbd2" stroke-width="5" stroke-linecap="round"/>
+            <path d="M380 98 L380 264" stroke="#d12630" stroke-width="5" stroke-linecap="round"/>
+            <circle cx="380" cy="180" r="72" fill="#243770" filter="url(#soft-shadow)"/>
+            <text x="380" y="164" text-anchor="middle" fill="#fff" font-family="Montserrat, Arial, sans-serif" font-size="24" font-weight="900">CPA</text>
+            <text x="380" y="196" text-anchor="middle" fill="#fff" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="800">Pharmacist scope</text>
+            <g fill="#fff" stroke="#187c8f" stroke-width="5" filter="url(#soft-shadow)">
+              <circle cx="125" cy="180" r="48"/>
+              <circle cx="250" cy="86" r="42"/>
+              <circle cx="250" cy="274" r="42"/>
+              <circle cx="510" cy="86" r="42"/>
+              <circle cx="510" cy="274" r="42"/>
+              <circle cx="642" cy="180" r="48"/>
+            </g>
+            <g fill="#243770" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="900" text-anchor="middle">
+              <text x="125" y="175">MS</text><text x="125" y="194">ID</text>
+              <text x="250" y="91">Hemostasis</text>
+              <text x="250" y="279">Hepatology</text>
+              <text x="510" y="91">Movement</text>
+              <text x="510" y="279">Cystic fibrosis</text>
+              <text x="642" y="176">Adult +</text><text x="642" y="195">peds</text>
+            </g>
+            <g fill="#d12630" font-family="Montserrat, Arial, sans-serif" font-size="22" font-weight="900" text-anchor="middle">
+              <text x="380" y="44">6 clinic groups</text>
+              <text x="380" y="334">6-month pre/post readout</text>
+            </g>
+          </svg>
+        </article>
+      </section>
+
+      <section class="conclusion-band" id="results">
+        <article class="verdict-card">
+          <span>Primary result</span>
+          <strong>No significant reduction</strong>
+          <p>Represcription rates were 38% before CPA implementation and 41% after implementation, with p=0.445.</p>
+        </article>
+        <article class="panel">
+          <p class="section-label">Before vs after</p>
+          <h2>Represcription rate moved slightly upward, not downward</h2>
+          <div class="rate-comparison" aria-label="Represcription rate comparison">
+            <div class="rate-tile">
+              <b>38%</b>
+              <span>Pre-CPA</span>
+              <div class="mini-axis"><i style="width:38%"></i></div>
+            </div>
+            <div class="rate-tile">
+              <b>41%</b>
+              <span>Post-CPA</span>
+              <div class="mini-axis"><i style="width:41%"></i></div>
+            </div>
+          </div>
+          <p class="source-note">Rate = index prescriptions with an associated represcription divided by index prescriptions in the study period.</p>
+        </article>
+      </section>
+
+      <section class="panel" id="timeline">
+        <p class="section-label">CPA rollout</p>
+        <h2>Implementation occurred by clinic, creating staggered index dates</h2>
+        <div class="timeline-grid" aria-label="CPA implementation timeline">
+          <article class="timeline-node">
+            <b>September 2021</b>
+            <ul>
+              <li>Multiple Sclerosis and Neuroimmunology: Sept. 1</li>
+              <li>Viral Hepatitis / Infectious Diseases: Sept. 20</li>
+            </ul>
+          </article>
+          <article class="timeline-node">
+            <b>April 2022</b>
+            <ul>
+              <li>Hemostasis, adult and pediatric: Apr. 6</li>
+              <li>Hepatology, adult and pediatric: Apr. 6</li>
+            </ul>
+          </article>
+          <article class="timeline-node">
+            <b>June 2022</b>
+            <ul>
+              <li>Neurology, Movement Disorders: Jun. 1</li>
+              <li>Cystic Fibrosis: Jun. 6</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="visual-grid">
+        <article class="panel">
+          <p class="section-label">Prescription flow</p>
+          <h2>Sample attrition and analytic split</h2>
+          <div class="attrition-flow" aria-label="Prescription sample attrition">
+            <div class="flow-stack">
+              <div class="flow-box primary">
+                <strong>1,451</strong>
+                <span>Assessed for inclusion</span>
+              </div>
+              <div class="flow-box excluded">
+                <strong>374</strong>
+                <span>Excluded as unmatched index or not true represcription</span>
+              </div>
+            </div>
+            <div class="flow-stack">
+              <div class="flow-box primary">
+                <strong>1,077</strong>
+                <span>Included prescriptions</span>
+              </div>
+              <div class="flow-box">
+                <strong>457</strong>
+                <span>Patients in demographics table</span>
+              </div>
+            </div>
+            <div class="flow-stack">
+              <div class="flow-box">
+                <strong>456</strong>
+                <span>Pre-CPA prescriptions: 215 index, 241 represcriptions</span>
+              </div>
+              <div class="flow-box">
+                <strong>621</strong>
+                <span>Post-CPA prescriptions: 298 index, 323 represcriptions</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Workload shift</p>
+          <h2>Pharmacists generated 226 post-CPA prescriptions</h2>
+          <p>Among 621 post-CPA prescriptions generated by all health care providers, pharmacists generated 36%, showing a tangible contribution to clinic prescribing workload even without a short-term represcription-rate decrease.</p>
+          <div class="number-cloud" aria-label="Post-CPA pharmacist prescription summary">
+            <div class="number-pill">226<small>Pharmacist prescriptions</small></div>
+            <div class="number-pill">621<small>Total post-CPA prescriptions</small></div>
+            <div class="number-pill">36%<small>Pharmacist share</small></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Clinic pattern</p>
+        <h2>Pharmacist prescribing contribution varied by specialty clinic</h2>
+        <div class="pharmacist-bars" aria-label="Pharmacist prescriptions by clinic">
+          <div class="pharm-row">
+            <span>Pediatric Hepatology</span>
+            <div class="pharm-track"><i style="width:60%"></i></div>
+            <em>3 / 5</em>
+          </div>
+          <div class="pharm-row">
+            <span>Cystic Fibrosis</span>
+            <div class="pharm-track"><i style="width:51%"></i></div>
+            <em>39 / 76</em>
+          </div>
+          <div class="pharm-row">
+            <span>Multiple Sclerosis</span>
+            <div class="pharm-track"><i style="width:44%"></i></div>
+            <em>113 / 255</em>
+          </div>
+          <div class="pharm-row">
+            <span>Adult + Peds Hematology</span>
+            <div class="pharm-track"><i style="width:33%"></i></div>
+            <em>19 / 58</em>
+          </div>
+          <div class="pharm-row">
+            <span>Adult Hepatology</span>
+            <div class="pharm-track"><i style="width:30%"></i></div>
+            <em>21 / 69</em>
+          </div>
+          <div class="pharm-row">
+            <span>Movement Disorders</span>
+            <div class="pharm-track"><i style="width:27%"></i></div>
+            <em>31 / 115</em>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="reasons">
+        <p class="section-label">Represcribing reasons</p>
+        <h2>Destination pharmacy changes remained the dominant driver</h2>
+        <div class="reason-grid" aria-label="Most common reasons for represcribing">
+          <article class="reason-card">
+            <h3>Modification of destination pharmacy</h3>
+            <div class="reason-pair">
+              <span>44%<small>Pre</small></span>
+              <span>42%<small>Post</small></span>
+            </div>
+          </article>
+          <article class="reason-card">
+            <h3>Other</h3>
+            <div class="reason-pair">
+              <span>6%<small>Pre</small></span>
+              <span>10%<small>Post</small></span>
+            </div>
+          </article>
+          <article class="reason-card">
+            <h3>Small supply then full supply</h3>
+            <div class="reason-pair">
+              <span>5%<small>Pre</small></span>
+              <span>10%<small>Post</small></span>
+            </div>
+          </article>
+          <article class="reason-card">
+            <h3>Duplicate external refill request</h3>
+            <div class="reason-pair">
+              <span>7%<small>Pre</small></span>
+              <span>7%<small>Post</small></span>
+            </div>
+          </article>
+          <article class="reason-card">
+            <h3>Quantity and refill clarification</h3>
+            <div class="reason-pair">
+              <span>5%<small>Pre</small></span>
+              <span>6%<small>Post</small></span>
+            </div>
+          </article>
+        </div>
+        <p class="source-note">Other reasons listed in the poster included samples, internal miscommunication, and duplicate orders; multiple reasons could be identified for each represcription.</p>
+      </section>
+
+      <section class="section-stack" id="interpretation">
+        <article class="panel">
+          <p class="section-label">Conclusion</p>
+          <h2>Short-term reduction was not observed</h2>
+          <ul class="callout-list">
+            <li>No reduction in represcriptions was seen during the first 6 months after CPA implementation.</li>
+            <li>Early post-implementation workflows were still stabilizing, with internal miscommunication noted among post-CPA reasons.</li>
+            <li>Longer follow-up is needed to understand whether CPAs reduce represcribing burden over time.</li>
+          </ul>
+        </article>
+        <article class="panel">
+          <p class="section-label">What the data suggests</p>
+          <h2>CPAs may shift work before they change rates</h2>
+          <p>The short-term primary outcome was neutral, but pharmacist prescribing volume shows CPAs can expand pharmacist participation in specialty medication management. The poster frames future assessment around longer-term workflow maturation rather than immediate rate change.</p>
+          <div class="footer-actions">
+            <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/22-OPR22-EN-Poster-AM24_2024.pdf">Open poster PDF</a>
+            <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/22-OPR22-EN-Poster-AM24_2024.md">Open source markdown</a>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

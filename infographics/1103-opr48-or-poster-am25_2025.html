@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2025 Infographic | HSSP Interventions for External Pharmacy Patients</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-visual {
+      position: relative;
+      min-height: 22rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 72% 20%, rgba(233, 158, 37, 0.38), transparent 9rem),
+        linear-gradient(145deg, rgba(36, 55, 112, 0.98), rgba(24, 124, 143, 0.92));
+      color: #fff;
+      overflow: hidden;
+      padding: 1rem;
+    }
+    .hero-visual svg {
+      position: absolute;
+      inset: auto -2rem -1.7rem auto;
+      width: min(29rem, 88%);
+      opacity: 0.9;
+    }
+    .hero-visual strong {
+      position: relative;
+      z-index: 1;
+      display: block;
+      max-width: 12rem;
+      font-family: var(--font-display);
+      font-size: clamp(2.9rem, 6vw, 5.4rem);
+      line-height: 0.92;
+    }
+    .hero-visual span {
+      position: relative;
+      z-index: 1;
+      display: block;
+      max-width: 16rem;
+      margin-top: 0.65rem;
+      color: rgba(255, 255, 255, 0.84);
+      font-size: 0.95rem;
+    }
+    .hero-card .button-link {
+      justify-content: center;
+      background: #fff;
+    }
+    .insight-panel {
+      border-left: 6px solid var(--red);
+      background: linear-gradient(90deg, rgba(209, 38, 48, 0.08), #fff 38%);
+    }
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.72rem;
+    }
+    .method-node {
+      position: relative;
+      min-height: 10rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.82rem;
+    }
+    .method-node::before {
+      content: "";
+      display: block;
+      width: 2.2rem;
+      height: 0.35rem;
+      margin-bottom: 0.72rem;
+      border-radius: 999px;
+      background: var(--node-color, var(--red));
+    }
+    .method-node h3 {
+      font-size: 0.96rem;
+    }
+    .method-node p {
+      margin: 0.45rem 0 0;
+      font-size: 0.82rem;
+    }
+    .method-node:nth-child(2) { --node-color: var(--gold); }
+    .method-node:nth-child(3) { --node-color: var(--teal); }
+    .category-bars {
+      display: grid;
+      gap: 0.68rem;
+      margin-top: 0.7rem;
+    }
+    .category-row {
+      display: grid;
+      grid-template-columns: 11rem minmax(0, 1fr) 4.4rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+    .category-track {
+      height: 1rem;
+      border: 1px solid rgba(36, 55, 112, 0.13);
+      border-radius: 999px;
+      background: var(--surface-blue);
+      overflow: hidden;
+    }
+    .category-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .clinic-rank {
+      display: grid;
+      gap: 0.48rem;
+      margin-top: 0.68rem;
+    }
+    .clinic-row {
+      display: grid;
+      grid-template-columns: 9.5rem minmax(0, 1fr) 3.4rem;
+      gap: 0.5rem;
+      align-items: center;
+      font-size: 0.8rem;
+      font-weight: 850;
+      color: var(--ink);
+    }
+    .clinic-track {
+      height: 0.72rem;
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .clinic-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--teal);
+    }
+    .time-ladder {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.6rem;
+      margin-top: 0.72rem;
+    }
+    .time-card {
+      min-height: 7.6rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--surface-blue);
+      padding: 0.75rem;
+    }
+    .time-card strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 1;
+    }
+    .time-card span {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .scope-ring {
+      display: grid;
+      grid-template-columns: 13rem minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+      margin-top: 0.45rem;
+    }
+    .scope-ring svg {
+      width: 100%;
+      height: auto;
+    }
+    .legend {
+      display: grid;
+      gap: 0.42rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .legend li {
+      display: grid;
+      grid-template-columns: 0.75rem minmax(0, 1fr) auto;
+      gap: 0.42rem;
+      align-items: center;
+      font-size: 0.78rem;
+    }
+    .legend i {
+      width: 0.75rem;
+      height: 0.75rem;
+      border-radius: 3px;
+      background: var(--legend-color, var(--red));
+    }
+    .compact-list {
+      margin: 0.55rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .compact-list li {
+      display: grid;
+      grid-template-columns: 0.75rem minmax(0, 1fr);
+      gap: 0.42rem;
+      margin-top: 0.42rem;
+      font-size: 0.88rem;
+    }
+    .compact-list li::before {
+      content: "";
+      width: 0.48rem;
+      height: 0.48rem;
+      margin-top: 0.43rem;
+      border-radius: 50%;
+      background: var(--red);
+    }
+    .source-note {
+      margin: 0.72rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+    @media (max-width: 900px) {
+      .method-grid,
+      .time-ladder,
+      .scope-ring {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 560px) {
+      .category-row,
+      .clinic-row {
+        grid-template-columns: 1fr;
+      }
+      .hero-visual {
+        min-height: 18rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#objective">Objective</a>
+        <a href="#methods">Methods</a>
+        <a href="#results">Results</a>
+        <a href="#tables">Tables</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2025 | 1103-OPR48-OR-Poster-AM25</p>
+        <h1>Quantifying HSSP pharmacist work for patients routed to external pharmacies</h1>
+        <p class="hero-summary">
+          Vanderbilt Specialty Pharmacy measured documented quick actions for non-HSSP patients and converted pharmacist time into a labor-cost estimate, making the hidden workload of external specialty pharmacy routing visible.
+        </p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Health-system specialty pharmacy</li>
+          <li class="tag therapy">External pharmacies</li>
+          <li class="tag">Quick actions</li>
+          <li class="tag">Labor cost</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card">
+        <div class="hero-visual" aria-label="Total pharmacist labor cost over 3.25 million dollars">
+          <strong>$3.26M</strong>
+          <span>Total estimated pharmacist labor cost for documented actions for non-HSSP patients.</span>
+          <svg viewBox="0 0 460 300" aria-hidden="true">
+            <defs>
+              <linearGradient id="flowGradient" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#ffffff" stop-opacity="0.92"></stop>
+                <stop offset="1" stop-color="#e99e25" stop-opacity="0.68"></stop>
+              </linearGradient>
+            </defs>
+            <path d="M46 208 C108 142, 168 245, 236 154 C286 87, 344 102, 418 54" fill="none" stroke="url(#flowGradient)" stroke-width="18" stroke-linecap="round"></path>
+            <circle cx="46" cy="208" r="22" fill="#fff" opacity="0.94"></circle>
+            <circle cx="236" cy="154" r="30" fill="#fff" opacity="0.88"></circle>
+            <circle cx="418" cy="54" r="24" fill="#fff" opacity="0.9"></circle>
+            <path d="M86 250 h270" stroke="#fff" stroke-width="2" opacity="0.35"></path>
+            <path d="M86 216 h270" stroke="#fff" stroke-width="2" opacity="0.22"></path>
+            <path d="M86 182 h270" stroke="#fff" stroke-width="2" opacity="0.22"></path>
+          </svg>
+        </div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Institution</dt>
+            <dd>Vanderbilt University Medical Center</dd>
+          </div>
+          <div>
+            <dt>Window</dt>
+            <dd>July 1-Sept 30, 2024</dd>
+          </div>
+          <div>
+            <dt>Rate</dt>
+            <dd>$71.43/hour incl. fringe</dd>
+          </div>
+          <div>
+            <dt>Authors</dt>
+            <dd>Petry, Whelchel, Mitchell, Moore, Zuckerman</dd>
+          </div>
+        </dl>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/1103-OPR48-OR-Poster-AM25_2025.pdf">Open source poster PDF</a>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Headline metrics">
+        <article class="metric-card">
+          <span>Total labor cost</span>
+          <strong>$3.26M</strong>
+        </article>
+        <article class="metric-card">
+          <span>Total time</span>
+          <strong>45,607h</strong>
+        </article>
+        <article class="metric-card">
+          <span>Median action</span>
+          <strong>15m</strong>
+        </article>
+        <article class="metric-card">
+          <span>Top category</span>
+          <strong>79%</strong>
+        </article>
+      </section>
+
+      <section id="objective" class="panel insight-panel">
+        <p class="section-label">Objective</p>
+        <h2>Measure the uncompensated clinical work that persists when the HSSP cannot dispense</h2>
+        <div class="markdown-fragment">
+          <p>
+            The poster set out to quantify the time, intervention type, and labor costs tied to health-system specialty pharmacy pharmacists' documented actions for patients who were not filling prescriptions through the HSSP.
+          </p>
+          <ul>
+            <li>Care continuity and safe medication use remained pharmacist responsibilities even when prescriptions moved to outside pharmacies.</li>
+            <li>The analysis focused on pharmacist-documented "quick actions" captured in an electronic health record flowsheet.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="methods" class="panel">
+        <p class="section-label">Methods</p>
+        <h2>From routine EHR documentation to a labor-cost estimate</h2>
+        <div class="method-grid">
+          <article class="method-node">
+            <h3>Capture quick actions</h3>
+            <p>Pharmacists categorized action type, outcome, and time spent as part of routine workflow for non-HSSP patients.</p>
+          </article>
+          <article class="method-node">
+            <h3>Review 3 months</h3>
+            <p>Documented actions from July 1 through September 30, 2024 were reviewed for descriptive analysis.</p>
+          </article>
+          <article class="method-node">
+            <h3>Convert time to cost</h3>
+            <p>Total pharmacist time was multiplied by an hourly labor rate of $71.43, including fringe.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="results" class="visual-grid" aria-label="Result visualizations">
+        <article class="panel">
+          <p class="section-label">Quick action categories</p>
+          <h2>Most documented work centered on medication review and care coordination</h2>
+          <div class="scope-ring">
+            <svg viewBox="0 0 240 240" role="img" aria-label="Donut chart showing quick action category percentages">
+              <circle cx="120" cy="120" r="76" fill="none" stroke="#d9e1ef" stroke-width="36"></circle>
+              <circle cx="120" cy="120" r="76" fill="none" stroke="#d12630" stroke-width="36" stroke-dasharray="377.2 100.3" stroke-dashoffset="0" transform="rotate(-90 120 120)"></circle>
+              <circle cx="120" cy="120" r="76" fill="none" stroke="#e99e25" stroke-width="36" stroke-dasharray="57.3 420.2" stroke-dashoffset="-377.2" transform="rotate(-90 120 120)"></circle>
+              <circle cx="120" cy="120" r="76" fill="none" stroke="#187c8f" stroke-width="36" stroke-dasharray="52.5 425" stroke-dashoffset="-434.5" transform="rotate(-90 120 120)"></circle>
+              <circle cx="120" cy="120" r="76" fill="none" stroke="#7561a8" stroke-width="36" stroke-dasharray="4.8 472.7" stroke-dashoffset="-487" transform="rotate(-90 120 120)"></circle>
+              <circle cx="120" cy="120" r="49" fill="#fff"></circle>
+              <text x="120" y="114" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="22" font-weight="900">1,945</text>
+              <text x="120" y="137" text-anchor="middle" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="800">care coordination</text>
+            </svg>
+            <ul class="legend">
+              <li style="--legend-color: var(--red);"><i></i><span>Med review &amp; care coordination</span><b>1,945 | 79%</b></li>
+              <li style="--legend-color: var(--gold);"><i></i><span>REMS</span><b>300 | 12%</b></li>
+              <li style="--legend-color: var(--teal);"><i></i><span>External pharmacy communication</span><b>270 | 11%</b></li>
+              <li style="--legend-color: var(--purple);"><i></i><span>Sample management</span><b>30 | 1%</b></li>
+            </ul>
+          </div>
+          <p class="source-note">Multiple categories could be selected per quick action, so category totals do not equal the number of quick actions.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Time and labor</p>
+          <h2>A short median action accumulated into 45,607 pharmacist hours</h2>
+          <div class="time-ladder">
+            <div class="time-card">
+              <strong>15m</strong>
+              <span>Median time per quick action, with IQR 10-20 minutes.</span>
+            </div>
+            <div class="time-card">
+              <strong>1-240m</strong>
+              <span>Range of documented time per action.</span>
+            </div>
+            <div class="time-card">
+              <strong>$71.43</strong>
+              <span>Hourly labor rate used to estimate cost.</span>
+            </div>
+          </div>
+          <div class="number-cloud" aria-label="Cost calculation">
+            <div class="number-pill">45,607<small>hours</small></div>
+            <div class="number-pill">$3,257,708<small>labor cost</small></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">Clinical areas</p>
+          <h2>Quick actions concentrated in complex specialty clinics</h2>
+          <div class="clinic-rank">
+            <div class="clinic-row">
+              <span>Oncology/Hematology</span>
+              <div class="clinic-track"><i style="width: 100%;"></i></div>
+              <span>432</span>
+            </div>
+            <div class="clinic-row">
+              <span>PAH/ILD</span>
+              <div class="clinic-track"><i style="width: 71.3%;"></i></div>
+              <span>308</span>
+            </div>
+            <div class="clinic-row">
+              <span>Neurology</span>
+              <div class="clinic-track"><i style="width: 66%;"></i></div>
+              <span>285</span>
+            </div>
+            <div class="clinic-row">
+              <span>IBD</span>
+              <div class="clinic-track"><i style="width: 48.1%;"></i></div>
+              <span>208</span>
+            </div>
+            <div class="clinic-row">
+              <span>Pediatrics</span>
+              <div class="clinic-track"><i style="width: 46.8%;"></i></div>
+              <span>202</span>
+            </div>
+            <div class="clinic-row">
+              <span>Rheumatology</span>
+              <div class="clinic-track"><i style="width: 46.1%;"></i></div>
+              <span>199</span>
+            </div>
+          </div>
+          <p class="source-note">PAH/ILD: pulmonary arterial hypertension/interstitial lung disease; IBD: inflammatory bowel disease.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Poster conclusion</p>
+          <h2>External pharmacy routing did not remove the health-system pharmacist workload</h2>
+          <ul class="compact-list">
+            <li>HSSP pharmacists frequently assisted non-HSSP patients to support continuity of care and safe medication use.</li>
+            <li>When the HSSP could not dispense specialty medication, the resulting workload represented more than $3.25 million in uncompensated labor.</li>
+            <li>The highest-volume subcategory was medication access coordination, followed by therapy monitoring interventions and prescription preparation.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="evidence-map" aria-label="Extracted poster takeaways">
+        <article class="evidence-card">
+          <h3>Setting</h3>
+          <p>Academic medical center and Vanderbilt Specialty Pharmacy health-system specialty pharmacy.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Sample</h3>
+          <p>Patients not filling with the HSSP who had at least one documented quick action.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Primary lens</h3>
+          <p>Action type, action outcome, and pharmacist time spent on non-HSSP patient support.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Top result</h3>
+          <p>Medication review and care coordination accounted for 1,945 selected categories.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Implication</h3>
+          <p>Dispensing access barriers can shift substantial clinical coordination costs back to health systems.</p>
+        </article>
+      </section>
+
+      <section id="tables" class="tables-grid" aria-label="Condensed source tables">
+        <article class="table-card">
+          <p class="section-label">Top action types</p>
+          <h2>Medication access led the subcategory table</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Subcategory</th>
+                  <th>Number</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Med monitoring &amp; coordination</td>
+                  <td>Med access coordination</td>
+                  <td>1,063</td>
+                </tr>
+                <tr>
+                  <td>Med monitoring &amp; coordination</td>
+                  <td>Therapy monitoring - intervention</td>
+                  <td>375</td>
+                </tr>
+                <tr>
+                  <td>Med monitoring &amp; coordination</td>
+                  <td>Rx prep</td>
+                  <td>282</td>
+                </tr>
+                <tr>
+                  <td>REMS management</td>
+                  <td>REMS refill</td>
+                  <td>279</td>
+                </tr>
+                <tr>
+                  <td>External pharmacy communication</td>
+                  <td>Access issue</td>
+                  <td>142</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Communication pattern</p>
+          <h2>External pharmacy work clustered around access and confirmation</h2>
+          <div class="category-bars">
+            <div class="category-row">
+              <span>Access issue</span>
+              <div class="category-track"><i style="width: 100%;"></i></div>
+              <span>142</span>
+            </div>
+            <div class="category-row">
+              <span>Rx confirmation</span>
+              <div class="category-track"><i style="width: 72.5%;"></i></div>
+              <span>103</span>
+            </div>
+            <div class="category-row">
+              <span>Clinical info provided</span>
+              <div class="category-track"><i style="width: 43%;"></i></div>
+              <span>61</span>
+            </div>
+            <div class="category-row">
+              <span>Rx transfer</span>
+              <div class="category-track"><i style="width: 6.3%;"></i></div>
+              <span>9</span>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/1103-OPR48-OR-Poster-AM25_2025.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/1103-OPR48-OR-Poster-AM25_2025.md">Source markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

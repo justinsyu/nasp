@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2024 Infographic | Pharmacist-Led HCV Screening and Test-To-Treat</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hcv-orbit {
+      position: relative;
+      overflow: hidden;
+      min-height: 18.5rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 74% 14%, rgba(233, 158, 37, 0.28), transparent 8rem),
+        radial-gradient(circle at 20% 78%, rgba(24, 124, 143, 0.2), transparent 8rem),
+        linear-gradient(145deg, rgba(238, 244, 251, 0.96), #fff 58%, rgba(255, 247, 234, 0.96));
+      padding: 1rem;
+    }
+
+    .hcv-orbit svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .hero-callout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.55rem;
+      margin-top: 0.55rem;
+    }
+
+    .hero-callout div {
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.78);
+      padding: 0.64rem;
+    }
+
+    .hero-callout strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+
+    .hero-callout span {
+      display: block;
+      margin-top: 0.22rem;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .split-band {
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .big-signal {
+      display: grid;
+      align-content: center;
+      min-height: 14rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        linear-gradient(145deg, rgba(36, 55, 112, 0.98), rgba(24, 124, 143, 0.92)),
+        radial-gradient(circle at 84% 20%, rgba(233, 158, 37, 0.45), transparent 12rem);
+      color: #fff;
+      padding: 1.1rem;
+    }
+
+    .big-signal span {
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .big-signal strong {
+      margin-top: 0.2rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(3.1rem, 8vw, 5.8rem);
+      line-height: 0.88;
+    }
+
+    .big-signal p {
+      max-width: 22rem;
+      margin: 0.7rem 0 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.95rem;
+    }
+
+    .cascade-bars {
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 0.8rem;
+    }
+
+    .cascade-row {
+      display: grid;
+      grid-template-columns: 12rem minmax(0, 1fr) 4.3rem;
+      gap: 0.62rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+
+    .cascade-row span:first-child {
+      min-width: 0;
+    }
+
+    .cascade-track {
+      height: 1rem;
+      border: 1px solid rgba(174, 187, 210, 0.82);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+
+    .cascade-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .cascade-row:nth-child(3) .cascade-track i,
+    .cascade-row:nth-child(5) .cascade-track i {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .process-flow {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 0.56rem;
+      margin-top: 0.75rem;
+    }
+
+    .process-step {
+      position: relative;
+      min-height: 9rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.78rem;
+    }
+
+    .process-step::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -0.42rem;
+      width: 0.62rem;
+      height: 0.62rem;
+      border-top: 2px solid var(--border-strong);
+      border-right: 2px solid var(--border-strong);
+      background: #fff;
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    .process-step:last-child::after {
+      display: none;
+    }
+
+    .process-step b {
+      display: inline-grid;
+      place-items: center;
+      width: 1.58rem;
+      height: 1.58rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+    }
+
+    .process-step h3 {
+      margin-top: 0.45rem;
+      font-size: 0.9rem;
+    }
+
+    .process-step p {
+      margin: 0.34rem 0 0;
+      font-size: 0.76rem;
+    }
+
+    .linkage-grid {
+      display: grid;
+      grid-template-columns: 14rem minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+      margin-top: 0.55rem;
+    }
+
+    .linkage-grid svg {
+      width: 100%;
+      height: auto;
+    }
+
+    .legend {
+      display: grid;
+      gap: 0.5rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .legend li {
+      display: grid;
+      grid-template-columns: 0.8rem minmax(0, 1fr) auto;
+      gap: 0.45rem;
+      align-items: center;
+      font-size: 0.82rem;
+    }
+
+    .legend i {
+      width: 0.8rem;
+      height: 0.8rem;
+      border-radius: 3px;
+      background: var(--legend-color, var(--red));
+    }
+
+    .study-list {
+      display: grid;
+      gap: 0.56rem;
+      margin: 0.72rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .study-list li {
+      border-left: 4px solid var(--teal);
+      background: var(--surface-blue);
+      padding: 0.58rem 0.72rem;
+      font-size: 0.86rem;
+    }
+
+    .study-list li:nth-child(2) {
+      border-color: var(--gold);
+      background: var(--surface-warm);
+    }
+
+    .study-list li:nth-child(3) {
+      border-color: var(--green);
+    }
+
+    .care-pair {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      height: 2.2rem;
+      margin-top: 0.75rem;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      border-radius: 999px;
+      background: var(--surface-blue);
+    }
+
+    .care-pair span {
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.92rem;
+      font-weight: 900;
+    }
+
+    .care-pair span:first-child {
+      background: var(--teal);
+    }
+
+    .care-pair span:last-child {
+      background: var(--gold);
+    }
+
+    .table-card td:last-child,
+    .table-card th:last-child {
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .source-note {
+      margin: 0.72rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 980px) {
+      .split-band,
+      .linkage-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .process-flow {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .process-step::after {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-callout,
+      .process-flow {
+        grid-template-columns: 1fr;
+      }
+
+      .cascade-row {
+        grid-template-columns: 1fr;
+      }
+
+      .cascade-row strong {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/99-PSP99-OR-Poster-AM24_2024.pdf">Poster PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/99-PSP99-OR-Poster-AM24_2024.md">Markdown Source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">2024 Annual Meeting Poster | 99-PSP99-OR</p>
+        <h1>Impact of Implementing a Pharmacist-Led System-Wide Hepatitis C Screening and Test-To-Treat Program</h1>
+        <p class="hero-summary">
+          Comanche County Memorial Hospital and Clearway Health evaluated a rural community health center model in which pharmacists used weekly HCV lab dashboards to identify infection, notify providers, connect patients to care, support access, and follow treatment milestones through cure confirmation.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag therapy">Hepatitis C</li>
+          <li class="tag category">Pharmacist-led test-to-treat</li>
+          <li class="tag">Rural community health center</li>
+          <li class="tag">Retrospective descriptive study</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster details">
+        <div class="poster-code">AM24<br>99-PSP99-OR</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Poster year</dt>
+            <dd>2024</dd>
+          </div>
+          <div>
+            <dt>Study window</dt>
+            <dd>Apr 2023 to Apr 2024</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>CCMH lab</dd>
+          </div>
+          <div>
+            <dt>Analysis</dt>
+            <dd>Descriptive stats</dd>
+          </div>
+        </dl>
+        <div class="hcv-orbit" aria-label="HCV screening and treatment illustration">
+          <svg viewBox="0 0 430 265" role="img" aria-labelledby="hcv-title hcv-desc">
+            <title id="hcv-title">HCV test-to-treat pathway</title>
+            <desc id="hcv-desc">A stylized lab dashboard connects screening, linkage to care, treatment, and confirmed cure.</desc>
+            <defs>
+              <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L9,3 z" fill="#243770"></path>
+              </marker>
+            </defs>
+            <rect x="28" y="36" width="126" height="92" rx="10" fill="#fff" stroke="#aebbd2" stroke-width="3"></rect>
+            <path d="M49 64h82M49 86h62M49 108h42" stroke="#187c8f" stroke-width="8" stroke-linecap="round"></path>
+            <circle cx="97" cy="181" r="45" fill="#fff7ea" stroke="#e99e25" stroke-width="5"></circle>
+            <path d="M74 181c12-31 34-31 46 0s34 31 46 0" fill="none" stroke="#d12630" stroke-width="8" stroke-linecap="round"></path>
+            <path d="M76 160c16 18 34 18 52 0s34-18 52 0" fill="none" stroke="#243770" stroke-width="5" stroke-linecap="round" opacity="0.72"></path>
+            <path d="M170 82 C221 47, 274 50, 315 83" fill="none" stroke="#243770" stroke-width="7" stroke-linecap="round" marker-end="url(#arrowhead)"></path>
+            <path d="M171 181 C225 222, 298 219, 348 178" fill="none" stroke="#187c8f" stroke-width="7" stroke-linecap="round" marker-end="url(#arrowhead)"></path>
+            <circle cx="337" cy="90" r="38" fill="#eef4fb" stroke="#187c8f" stroke-width="5"></circle>
+            <path d="M318 91l14 14 27-35" fill="none" stroke="#187c8f" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></path>
+            <rect x="291" y="151" width="105" height="68" rx="11" fill="#fff" stroke="#d12630" stroke-width="5"></rect>
+            <path d="M315 185h58M344 162v47" stroke="#d12630" stroke-width="9" stroke-linecap="round"></path>
+            <text x="36" y="24" fill="#243770" font-family="Arial, sans-serif" font-size="17" font-weight="800">Weekly lab dashboard</text>
+            <text x="275" y="40" fill="#187c8f" font-family="Arial, sans-serif" font-size="17" font-weight="800">Linked care</text>
+            <text x="284" y="241" fill="#d12630" font-family="Arial, sans-serif" font-size="17" font-weight="800">SVR12 cure check</text>
+          </svg>
+          <div class="hero-callout">
+            <div>
+              <strong>1,416</strong>
+              <span>screened patients</span>
+            </div>
+            <div>
+              <strong>39</strong>
+              <span>RNA detected</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section id="snapshot" class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Patients screened</span>
+          <strong>1,416</strong>
+        </article>
+        <article class="metric-card">
+          <span>RNA detected</span>
+          <strong>39</strong>
+        </article>
+        <article class="metric-card">
+          <span>Linked to HCV care</span>
+          <strong>67%</strong>
+        </article>
+        <article class="metric-card">
+          <span>Linkage increase</span>
+          <strong>116%</strong>
+        </article>
+      </section>
+
+      <section class="split-band" aria-label="Central result">
+        <div class="big-signal">
+          <span>Four-month linkage signal</span>
+          <strong>116%</strong>
+          <p>Compared with the preceding year, the pharmacist-led test-to-treat workflow increased linkage to HCV care during the study period.</p>
+        </div>
+
+        <article class="panel">
+          <p class="section-label">Screening funnel</p>
+          <h2>Most screened patients were antibody negative; nearly half of antibody-positive patients had detectable RNA.</h2>
+          <div class="cascade-bars" aria-label="HCV screening and treatment cascade">
+            <div class="cascade-row">
+              <span>HCV antibody not detected</span>
+              <div class="cascade-track"><i style="width:94.2%"></i></div>
+              <strong>94.2%</strong>
+            </div>
+            <div class="cascade-row">
+              <span>HCV antibody detected</span>
+              <div class="cascade-track"><i style="width:5.8%"></i></div>
+              <strong>5.8%</strong>
+            </div>
+            <div class="cascade-row">
+              <span>RNA not detected of antibody positive</span>
+              <div class="cascade-track"><i style="width:52.4%"></i></div>
+              <strong>52.4%</strong>
+            </div>
+            <div class="cascade-row">
+              <span>RNA detected of antibody positive</span>
+              <div class="cascade-track"><i style="width:47.6%"></i></div>
+              <strong>47.6%</strong>
+            </div>
+            <div class="cascade-row">
+              <span>Cure confirmed of RNA detected</span>
+              <div class="cascade-track"><i style="width:51.3%"></i></div>
+              <strong>51.3%</strong>
+            </div>
+          </div>
+          <p class="source-note">Treatment status among RNA-detected patients also included treatment in progress at 35.9% and pending SVR12 at 12.8%.</p>
+        </article>
+      </section>
+
+      <section id="workflow" class="panel">
+        <p class="section-label">Operational workflow</p>
+        <h2>A pharmacist-managed pathway compressed screening, referral, treatment support, and cure verification into one monitored sequence.</h2>
+        <div class="process-flow">
+          <article class="process-step">
+            <b>1</b>
+            <h3>Screen</h3>
+            <p>Patients received HCV testing through the CCMH lab.</p>
+          </article>
+          <article class="process-step">
+            <b>2</b>
+            <h3>Identify</h3>
+            <p>Pharmacists monitored a weekly lab dashboard for HCV-infected patients.</p>
+          </article>
+          <article class="process-step">
+            <b>3</b>
+            <h3>Link</h3>
+            <p>Ordering providers or the Family Medicine Residency clinic connected patients to HCV care.</p>
+          </article>
+          <article class="process-step">
+            <b>4</b>
+            <h3>Start</h3>
+            <p>Additional labs, follow-up visits, and HCV treatment prescriptions were initiated.</p>
+          </article>
+          <article class="process-step">
+            <b>5</b>
+            <h3>Support</h3>
+            <p>The pharmacy team handled benefits investigation, prior authorization support, dispensing, and teaching.</p>
+          </article>
+          <article class="process-step">
+            <b>6</b>
+            <h3>Confirm</h3>
+            <p>Follow-ups at 4 weeks, 8 weeks, EOT, and SVR12 supported cure confirmation.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="visual-grid" aria-label="Linkage and study design">
+        <article class="panel">
+          <p class="section-label">Linkage outcome</p>
+          <h2>Two thirds of RNA-detected patients started HCV care.</h2>
+          <div class="linkage-grid">
+            <svg viewBox="0 0 240 240" role="img" aria-label="Donut chart showing 67 percent linked to care and 33 percent medical deferral">
+              <circle cx="120" cy="120" r="76" fill="none" stroke="#d9e1ef" stroke-width="38"></circle>
+              <circle cx="120" cy="120" r="76" fill="none" stroke="#187c8f" stroke-width="38" stroke-dasharray="319.9 157.6" stroke-dashoffset="0" transform="rotate(-90 120 120)"></circle>
+              <circle cx="120" cy="120" r="76" fill="none" stroke="#e99e25" stroke-width="38" stroke-dasharray="157.6 319.9" stroke-dashoffset="-319.9" transform="rotate(-90 120 120)"></circle>
+              <circle cx="120" cy="120" r="49" fill="#fff"></circle>
+              <text x="120" y="113" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="22" font-weight="900">67%</text>
+              <text x="120" y="137" text-anchor="middle" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="800">linked</text>
+            </svg>
+            <div>
+              <ul class="legend">
+                <li style="--legend-color: var(--teal);"><i></i><span>Patients linked to care</span><b>67%</b></li>
+                <li style="--legend-color: var(--gold);"><i></i><span>Medical deferral</span><b>33%</b></li>
+              </ul>
+              <div class="care-pair" aria-hidden="true">
+                <span>67% linked</span>
+                <span>33% deferred</span>
+              </div>
+              <p class="source-note">The poster reports 39 patients with detectable RNA; 67% were linked to care and started treatment.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Methods snapshot</p>
+          <h2>Retrospective, descriptive, lab-data driven.</h2>
+          <ul class="study-list">
+            <li><strong>Design:</strong> retrospective observational descriptive study.</li>
+            <li><strong>Data source:</strong> HCV lab data pulled from VigiLanz, the CCMH lab software.</li>
+            <li><strong>Population:</strong> patients with HCV tests conducted at the CCMH lab from April 1, 2023 through April 30, 2024.</li>
+            <li><strong>Exclusion:</strong> patients receiving HCV treatment who were not tested at the CCMH lab.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="evidence-map" aria-label="Extracted poster takeaways">
+        <article class="evidence-card">
+          <h3>Need</h3>
+          <p>National goals call for large reductions in HCV infection and major increases in diagnosis by 2030.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Objective</h3>
+          <p>Evaluate the impact of a pharmacist-led, system-wide HCV screening and linkage-to-care workflow in a rural community health center.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Intervention</h3>
+          <p>Pharmacists reviewed refreshed lab dashboards, notified providers, and helped establish a care pathway for patients with or without a primary care provider.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Result</h3>
+          <p>Among 1,416 screened patients, 39 had detectable RNA; 67% were linked to HCV care and started treatment.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Conclusion</h3>
+          <p>A dashboard-supported test-to-treat protocol can reduce attrition in the HCV treatment cascade and improve linkage, medication access, and adherence.</p>
+        </article>
+      </section>
+
+      <section id="tables" class="tables-grid" aria-label="Condensed poster tables">
+        <article class="table-card">
+          <p class="section-label">Table pattern 1</p>
+          <h2>Care disposition</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Percentage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Patients linked to care</td>
+                  <td>67%</td>
+                </tr>
+                <tr>
+                  <td>Medical deferral</td>
+                  <td>33%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Table pattern 2</p>
+          <h2>Screening and treatment cascade</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Percentage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>HCV antibody not detected</td><td>94.2%</td></tr>
+                <tr><td>HCV antibody detected</td><td>5.8%</td></tr>
+                <tr><td>HCV RNA not detected, of antibody detected</td><td>52.4%</td></tr>
+                <tr><td>HCV RNA detected, of antibody detected</td><td>47.6%</td></tr>
+                <tr><td>Cure confirmed, of RNA detected</td><td>51.3%</td></tr>
+                <tr><td>Treatment in progress, of RNA detected</td><td>35.9%</td></tr>
+                <tr><td>Pending SVR12, of RNA detected</td><td>12.8%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section id="conclusion" class="panel markdown-fragment">
+        <p class="section-label">Bottom line</p>
+        <h2>Pharmacist ownership turned a fragmented HCV cascade into a monitored care pathway.</h2>
+        <p>
+          The poster's core signal is operational: a pharmacist-led model that combines lab surveillance, provider outreach, clinic linkage, access support, medication teaching, and SVR12 follow-up was associated with a 116% increase in linkage to HCV care during the four-month study period.
+        </p>
+      </section>
+
+      <footer id="sources" class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/99-PSP99-OR-Poster-AM24_2024.pdf">Open original PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/99-PSP99-OR-Poster-AM24_2024.md">Open extracted markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2025 Infographic | Pharmacist-Led Long-Acting HIV PrEP Administration</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -5.5rem;
+      bottom: -5.8rem;
+      width: 17rem;
+      height: 17rem;
+      border: 2rem solid rgba(24, 124, 143, 0.12);
+      border-radius: 50%;
+    }
+    .service-diagram {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 0.3rem;
+    }
+    .service-diagram svg {
+      width: 100%;
+      height: auto;
+      filter: drop-shadow(0 12px 18px rgba(36, 55, 112, 0.12));
+    }
+    .hero-card .button-link {
+      position: relative;
+      z-index: 1;
+      justify-content: center;
+      background: #fff;
+    }
+    .metric-card strong.small-fit {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      overflow-wrap: anywhere;
+    }
+    .signal-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 1rem;
+    }
+    .sparkline-card {
+      padding: 1rem;
+    }
+    .prep-spark {
+      display: grid;
+      grid-template-columns: repeat(13, minmax(0, 1fr));
+      align-items: end;
+      gap: 0.22rem;
+      min-height: 12rem;
+      margin-top: 0.8rem;
+      padding: 0.75rem 0.55rem 0.45rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, rgba(238, 244, 251, 0.7), rgba(255, 255, 255, 0.65)),
+        repeating-linear-gradient(180deg, transparent 0 2.2rem, rgba(174, 187, 210, 0.28) 2.23rem);
+    }
+    .spark-bar {
+      display: grid;
+      grid-template-rows: minmax(0, 1fr) auto;
+      min-width: 0;
+      height: 10.5rem;
+      color: var(--muted);
+      font-size: 0.58rem;
+      font-weight: 850;
+      text-align: center;
+    }
+    .spark-bar i {
+      align-self: end;
+      display: block;
+      width: 100%;
+      min-height: 0.25rem;
+      border-radius: 999px 999px 2px 2px;
+      background: linear-gradient(180deg, var(--red), var(--gold));
+    }
+    .spark-bar b {
+      display: block;
+      margin-top: 0.22rem;
+      color: var(--ink);
+      font-size: 0.62rem;
+      line-height: 1.05;
+    }
+    .spark-caption {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+    .need-panel {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 92% 8%, rgba(233, 158, 37, 0.24), transparent 12rem),
+        #fff;
+    }
+    .need-panel p {
+      margin: 0.55rem 0 0;
+      font-size: 0.9rem;
+    }
+    .need-callout {
+      display: grid;
+      grid-template-columns: 5.6rem minmax(0, 1fr);
+      gap: 0.75rem;
+      align-items: center;
+      margin-top: 0.9rem;
+      padding: 0.8rem;
+      border: 1px solid rgba(24, 124, 143, 0.25);
+      border-radius: 8px;
+      background: var(--surface-blue);
+    }
+    .need-callout strong {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2.1rem;
+      line-height: 0.95;
+    }
+    .need-callout span {
+      color: var(--ink);
+      font-size: 0.86rem;
+      font-weight: 800;
+    }
+    .implementation-flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+    .phase-card {
+      position: relative;
+      min-height: 14rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.9rem;
+      overflow: hidden;
+    }
+    .phase-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 0.35rem;
+      background: var(--phase-color, var(--red));
+    }
+    .phase-card:nth-child(2) { --phase-color: var(--gold); }
+    .phase-card:nth-child(3) { --phase-color: var(--teal); }
+    .phase-card:nth-child(4) { --phase-color: var(--green); }
+    .phase-card .date {
+      display: block;
+      margin-top: 0.1rem;
+      color: var(--muted);
+      font-size: 0.64rem;
+      font-weight: 900;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+    .phase-card p {
+      margin: 0.52rem 0 0;
+      font-size: 0.84rem;
+    }
+    .phase-icon {
+      display: inline-grid;
+      place-items: center;
+      width: 2.25rem;
+      height: 2.25rem;
+      margin-bottom: 0.6rem;
+      border-radius: 50%;
+      background: var(--surface-blue);
+      color: var(--phase-color, var(--red));
+    }
+    .phase-icon svg {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+    .care-model {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .model-map {
+      position: relative;
+      min-height: 26rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at center, rgba(24, 124, 143, 0.12), transparent 9rem),
+        linear-gradient(135deg, #fff, var(--surface-blue));
+      overflow: hidden;
+      padding: 1rem;
+    }
+    .model-map svg {
+      width: 100%;
+      height: 100%;
+      min-height: 23rem;
+    }
+    .link-label {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 850;
+      fill: var(--ink);
+    }
+    .link-sub {
+      font-size: 10px;
+      font-weight: 750;
+      fill: var(--muted);
+    }
+    .challenge-list {
+      display: grid;
+      gap: 0.55rem;
+      margin: 0.7rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .challenge-list li {
+      display: grid;
+      grid-template-columns: 0.55rem minmax(0, 1fr);
+      gap: 0.55rem;
+      font-size: 0.86rem;
+    }
+    .challenge-list li::before {
+      content: "";
+      width: 0.55rem;
+      height: 0.55rem;
+      margin-top: 0.45rem;
+      border-radius: 2px;
+      background: var(--red);
+    }
+    .lesson-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+    .lesson-card {
+      min-height: 10.8rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.9rem;
+    }
+    .lesson-card strong {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1rem;
+      line-height: 1.2;
+    }
+    .lesson-card p {
+      margin: 0.45rem 0 0;
+      font-size: 0.84rem;
+    }
+    .mini-table th,
+    .mini-table td {
+      text-align: center;
+    }
+    .mini-table td:first-child,
+    .mini-table th:first-child {
+      text-align: left;
+    }
+    .source-note {
+      margin: 0.75rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+    @media (max-width: 900px) {
+      .signal-grid,
+      .care-model {
+        grid-template-columns: 1fr;
+      }
+      .implementation-flow,
+      .lesson-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 560px) {
+      .implementation-flow,
+      .lesson-grid {
+        grid-template-columns: 1fr;
+      }
+      .need-callout {
+        grid-template-columns: 1fr;
+      }
+      .sparkline-card {
+        padding: 0.75rem;
+      }
+      .prep-spark {
+        gap: 0.12rem;
+        padding-inline: 0.35rem;
+      }
+      .spark-bar b {
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        margin-inline: auto;
+      }
+      .model-map {
+        min-height: 20rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#need">Need</a>
+        <a href="#implementation">Implementation</a>
+        <a href="#lessons">Lessons</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2025 | 3190-PSP94-RP</p>
+        <h1>Pharmacist-led long-acting HIV PrEP administration inside an outpatient pharmacy</h1>
+        <p class="hero-summary">UCSF Health designed a pharmacy clinic pathway for provider-administered long-acting PrEP, connecting legal authority, health IT build, medication procurement, care space, billing, and staff training into a practical pilot.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag therapy">HIV PrEP</li>
+          <li class="tag category">Implementation</li>
+          <li class="tag">Ambulatory pharmacy</li>
+          <li class="tag">California SB 159/339</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Poster details">
+        <div class="poster-code">PSP94<br>RP</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Year</dt>
+            <dd>2025</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>UCSF Health</dd>
+          </div>
+          <div>
+            <dt>Format</dt>
+            <dd>Program pilot</dd>
+          </div>
+          <div>
+            <dt>Service</dt>
+            <dd>LA-PrEP injections</dd>
+          </div>
+        </dl>
+        <div class="service-diagram" aria-hidden="true">
+          <svg viewBox="0 0 360 190" role="img" aria-label="Care pathway illustration">
+            <defs>
+              <linearGradient id="needleGrad" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#d12630"/>
+                <stop offset="1" stop-color="#e99e25"/>
+              </linearGradient>
+            </defs>
+            <rect x="24" y="26" width="188" height="118" rx="18" fill="#ffffff" stroke="#aebbd2" stroke-width="3"/>
+            <path d="M56 63h72M56 88h108M56 113h86" stroke="#243770" stroke-width="10" stroke-linecap="round"/>
+            <circle cx="223" cy="81" r="46" fill="#eef4fb" stroke="#187c8f" stroke-width="4"/>
+            <path d="M208 84l18 18 32-42" fill="none" stroke="#187c8f" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M262 133l48-48 23 23-48 48-35 12z" fill="url(#needleGrad)" stroke="#243770" stroke-width="4" stroke-linejoin="round"/>
+            <path d="M303 92l23 23M252 168l19-18" stroke="#243770" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/3190-PSP94-RP-Poster-AM25_2025.pdf">Open poster PDF</a>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Potential PrEP need</span>
+          <strong>1.2M</strong>
+          <p class="source-note">CDC estimate cited by poster.</p>
+        </article>
+        <article class="metric-card">
+          <span>High PrEP states</span>
+          <strong>38%</strong>
+          <p class="source-note">Decrease in new HIV diagnoses, 2012-2022.</p>
+        </article>
+        <article class="metric-card">
+          <span>Low PrEP states</span>
+          <strong>27%</strong>
+          <p class="source-note">Increase in new HIV diagnoses, 2012-2022.</p>
+        </article>
+        <article class="metric-card">
+          <span>First pilot patient</span>
+          <strong class="small-fit">6/27/25</strong>
+          <p class="source-note">Onsite SME coaching and debrief.</p>
+        </article>
+      </section>
+
+      <section id="need" class="signal-grid">
+        <article class="panel need-panel">
+          <p class="section-label">Objective</p>
+          <h2>Build a pharmacy-operated bridge for clinic-administered PrEP</h2>
+          <p>Providers outside the HIV clinic wanted long-acting injectable PrEP for their patients, but many clinical sites lacked staff, space, familiarity, or budget to launch a dedicated injection service.</p>
+          <div class="need-callout">
+            <strong>q2-q6</strong>
+            <span>Long-acting PrEP dosing intervals create a service opportunity when medication administration, billing, and follow-up are operationally aligned.</span>
+          </div>
+        </article>
+        <article class="panel sparkline-card">
+          <p class="section-label">Background signal</p>
+          <h2>PrEP uptake rose sharply, but access infrastructure still matters</h2>
+          <div class="prep-spark" aria-label="PrEP use rates per 100,000 from 2012 to 2024">
+            <div class="spark-bar"><i style="height:1.9%"></i><b>2012<br>4</b></div>
+            <div class="spark-bar"><i style="height:4.4%"></i><b>2013<br>9</b></div>
+            <div class="spark-bar"><i style="height:10.2%"></i><b>2014<br>21</b></div>
+            <div class="spark-bar"><i style="height:18.4%"></i><b>2015<br>38</b></div>
+            <div class="spark-bar"><i style="height:26.7%"></i><b>2016<br>55</b></div>
+            <div class="spark-bar"><i style="height:37.4%"></i><b>2017<br>77</b></div>
+            <div class="spark-bar"><i style="height:46.1%"></i><b>2018<br>95</b></div>
+            <div class="spark-bar"><i style="height:50.5%"></i><b>2019<br>104</b></div>
+            <div class="spark-bar"><i style="height:61.7%"></i><b>2020<br>127</b></div>
+            <div class="spark-bar"><i style="height:73.8%"></i><b>2021<br>152</b></div>
+            <div class="spark-bar"><i style="height:85.9%"></i><b>2022<br>177</b></div>
+            <div class="spark-bar"><i style="height:90.8%"></i><b>2023<br>187</b></div>
+            <div class="spark-bar"><i style="height:100%"></i><b>2024<br>206</b></div>
+          </div>
+          <p class="spark-caption"><span>PrEP rate per 100,000</span><span>Source cited: AIDSVu, CDC</span></p>
+        </article>
+      </section>
+
+      <section id="implementation" class="panel">
+        <p class="section-label">Methods and implementation evidence</p>
+        <h2>Four implementation phases converted interest into an injection visit</h2>
+        <div class="implementation-flow">
+          <article class="phase-card">
+            <span class="phase-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M4 12a8 8 0 1116 0 8 8 0 01-16 0zm8-4v4l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <h3>Exploration</h3>
+            <span class="date">Oct 2024-Jan 2025</span>
+            <p>Reviewed needs, alternatives, champions, California pharmacy authorities, legal interpretation, internal priorities, revenue streams, and clinic operating model.</p>
+          </article>
+          <article class="phase-card">
+            <span class="phase-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M5 5h14M5 12h14M5 19h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M16 16l2 2 4-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <h3>Preparation</h3>
+            <span class="date">Jan-May 2025</span>
+            <p>Held weekly meetings, built SOPs and detailed workflow, configured Epic referrals and visit types, trained pharmacists, purchased supplies, and secured approvals.</p>
+          </article>
+          <article class="phase-card">
+            <span class="phase-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M15 4l5 5-9 9H6v-5l9-9z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M13 6l5 5M5 20h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </span>
+            <h3>Implementation</h3>
+            <span class="date">June 2025 onward</span>
+            <p>Adapted medication acquisition, shifted care space through urgent care partnership, separated screening from injection visits, and administered the first patient dose.</p>
+          </article>
+          <article class="phase-card">
+            <span class="phase-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M4 14c3-7 13-7 16 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M8 14a4 4 0 108 0" stroke="currentColor" stroke-width="2"/><path d="M12 10v4l2 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </span>
+            <h3>Sustainment</h3>
+            <span class="date">June 2025 onward</span>
+            <p>Continued pharmacist confidence-building, supply ordering routines, revenue-cycle monitoring, and volume/capacity planning as interest and new medicines grow.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="care-model">
+        <article class="model-map" aria-label="Pharmacy-led service model map">
+          <svg viewBox="0 0 560 420" role="img" aria-label="Service model links between clinics, pharmacy, health IT, billing, and patient access">
+            <defs>
+              <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#243770" flood-opacity="0.14"/>
+              </filter>
+            </defs>
+            <g stroke="#aebbd2" stroke-width="4" stroke-linecap="round">
+              <path d="M280 202L127 92"/>
+              <path d="M280 202L433 92"/>
+              <path d="M280 202L94 301"/>
+              <path d="M280 202L466 301"/>
+              <path d="M280 202L280 344"/>
+            </g>
+            <g filter="url(#softShadow)">
+              <circle cx="280" cy="202" r="72" fill="#243770"/>
+              <text x="280" y="193" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="18" font-weight="900" fill="#fff">Pharmacy</text>
+              <text x="280" y="216" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800" fill="#eef4fb">LA-PrEP clinic</text>
+            </g>
+            <g filter="url(#softShadow)">
+              <rect x="48" y="42" width="158" height="86" rx="14" fill="#fff" stroke="#d12630" stroke-width="3"/>
+              <text class="link-label" x="127" y="78" text-anchor="middle">Clinic champions</text>
+              <text class="link-sub" x="127" y="101" text-anchor="middle">HIV clinic + primary care</text>
+            </g>
+            <g filter="url(#softShadow)">
+              <rect x="354" y="42" width="158" height="86" rx="14" fill="#fff" stroke="#e99e25" stroke-width="3"/>
+              <text class="link-label" x="433" y="78" text-anchor="middle">Legal authority</text>
+              <text class="link-sub" x="433" y="101" text-anchor="middle">SB 159 / SB 339</text>
+            </g>
+            <g filter="url(#softShadow)">
+              <rect x="28" y="262" width="132" height="86" rx="14" fill="#fff" stroke="#187c8f" stroke-width="3"/>
+              <text class="link-label" x="94" y="298" text-anchor="middle">Health IT</text>
+              <text class="link-sub" x="94" y="321" text-anchor="middle">Epic build + privileges</text>
+            </g>
+            <g filter="url(#softShadow)">
+              <rect x="400" y="262" width="132" height="86" rx="14" fill="#fff" stroke="#4d8a67" stroke-width="3"/>
+              <text class="link-label" x="466" y="298" text-anchor="middle">Operations</text>
+              <text class="link-sub" x="466" y="321" text-anchor="middle">space + supplies + CAM</text>
+            </g>
+            <g filter="url(#softShadow)">
+              <rect x="201" y="332" width="158" height="66" rx="14" fill="#fff" stroke="#7561a8" stroke-width="3"/>
+              <text class="link-label" x="280" y="362" text-anchor="middle">Patient access</text>
+              <text class="link-sub" x="280" y="383" text-anchor="middle">less clinic burden</text>
+            </g>
+          </svg>
+        </article>
+        <article class="panel">
+          <p class="section-label">Results pattern</p>
+          <h2>The pilot exposed operational dependencies before scale-up</h2>
+          <ul class="challenge-list">
+            <li>Clinic-administered medication procurement differed from routine pharmacy acquisition.</li>
+            <li>Patients with BMI above 30 required 2-inch needles, which were not part of usual supply assumptions.</li>
+            <li>EMR privileges differed for staff pharmacists versus ambulatory care pharmacists, affecting facility fee billing.</li>
+            <li>Maintenance-dose patients needed a new pharmacist-led order to operate fully under SB 159/339.</li>
+            <li>Three-site STI testing required separate supply planning because the lab did not provide kits.</li>
+            <li>Post-administration billing required clarification during pilot operations.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Dose and law reference patterns">
+        <article class="table-card">
+          <p class="section-label">Therapy pattern</p>
+          <h2>Long-acting PrEP creates episodic pharmacy visits</h2>
+          <div class="table-wrap">
+            <table class="mini-table">
+              <thead>
+                <tr>
+                  <th>Medication</th>
+                  <th>Administration</th>
+                  <th>Interval</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Cabotegravir</td>
+                  <td>600 mg IM</td>
+                  <td>q2 months after load</td>
+                </tr>
+                <tr>
+                  <td>Lenacapavir</td>
+                  <td>927 mg subcutaneous</td>
+                  <td>q6 months after load</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+        <article class="table-card">
+          <p class="section-label">Policy pattern</p>
+          <h2>California scope language supported service design</h2>
+          <div class="table-wrap">
+            <table class="mini-table">
+              <thead>
+                <tr>
+                  <th>Authority</th>
+                  <th>Poster interpretation</th>
+                  <th>Service relevance</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>SB 159</td>
+                  <td>Pharmacists may furnish HIV PEP and a 60-day PrEP supply.</td>
+                  <td>Initial furnishing pathway.</td>
+                </tr>
+                <tr>
+                  <td>SB 339</td>
+                  <td>Pharmacists may furnish ongoing PrEP when clinical conditions are met and receive Medicaid payment.</td>
+                  <td>Ongoing pharmacist-led PrEP service.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section id="lessons">
+        <p class="section-label">Conclusion and lessons</p>
+        <h2>A pharmacy-led injection clinic can expand access, but the build is cross-functional</h2>
+        <div class="lesson-grid">
+          <article class="lesson-card">
+            <strong>Start with infrastructure, not only clinical protocol.</strong>
+            <p>Referral routing, visit types, privileges, smartphrases, scheduling, medication acquisition, and supplies all shaped whether pharmacists could deliver the service.</p>
+          </article>
+          <article class="lesson-card">
+            <strong>Interpretation of pharmacy authority matters locally.</strong>
+            <p>Organization-specific legal and operational interpretation of SB 159/339 was favorable for applying pharmacist PrEP authority to injectables.</p>
+          </article>
+          <article class="lesson-card">
+            <strong>Slow pilots make hidden dependencies visible.</strong>
+            <p>Low initial volume helped staff test workflow, coaching, billing, and supply assumptions, though revenue patterns will take longer to mature.</p>
+          </article>
+          <article class="lesson-card">
+            <strong>Training must continue after go-live.</strong>
+            <p>Ongoing practice, SME support, and debriefing were needed to build pharmacist confidence with provider-administered LA-PrEP.</p>
+          </article>
+          <article class="lesson-card">
+            <strong>Clinic burden can shift without fragmenting care.</strong>
+            <p>A pharmacy clinic inside a community pharmacy offers a pathway for clinic-administered medications while supporting access across sites.</p>
+          </article>
+          <article class="lesson-card">
+            <strong>Teamwork was the core implementation technology.</strong>
+            <p>The work depended on pharmacy leadership and staff, health IT, HIV clinic and primary care champions, legal input, urgent care partners, and subject matter experts.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/3190-PSP94-RP-Poster-AM25_2025.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/3190-PSP94-RP-Poster-AM25_2025.md">Source markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

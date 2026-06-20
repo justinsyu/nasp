@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2024 Infographic | Optimizing ePROs in Disease Management</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card .button-link {
+      justify-content: center;
+      background: #fff;
+    }
+    .hero-visual {
+      position: relative;
+      min-height: 15.5rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 20% 18%, rgba(233, 158, 37, 0.34), transparent 9rem),
+        linear-gradient(140deg, rgba(36, 55, 112, 0.98), rgba(24, 124, 143, 0.92));
+      color: #fff;
+      overflow: hidden;
+      padding: 1rem;
+    }
+    .hero-visual p {
+      position: relative;
+      z-index: 1;
+      max-width: 16rem;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .hero-visual strong {
+      position: relative;
+      z-index: 1;
+      display: block;
+      max-width: 18rem;
+      margin-top: 0.45rem;
+      font-family: var(--font-display);
+      font-size: clamp(2.05rem, 5vw, 4rem);
+      line-height: 0.98;
+    }
+    .hero-visual svg {
+      position: absolute;
+      right: -1rem;
+      bottom: -1.4rem;
+      width: min(25rem, 84%);
+      height: auto;
+      opacity: 0.92;
+    }
+    .signal-list {
+      display: grid;
+      gap: 0.48rem;
+      margin: 0.7rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .signal-list li {
+      display: grid;
+      grid-template-columns: 1rem minmax(0, 1fr);
+      gap: 0.42rem;
+      font-size: 0.88rem;
+    }
+    .signal-list li::before {
+      content: "";
+      width: 0.62rem;
+      height: 0.62rem;
+      margin-top: 0.42rem;
+      border-radius: 50%;
+      background: var(--red);
+      box-shadow: 0 0 0 4px rgba(209, 38, 48, 0.1);
+    }
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.68rem;
+      margin-top: 0.75rem;
+    }
+    .timeline-step {
+      position: relative;
+      min-height: 9.2rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.82rem;
+    }
+    .timeline-step::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -0.52rem;
+      width: 0.78rem;
+      height: 0.78rem;
+      border-top: 2px solid var(--border-strong);
+      border-right: 2px solid var(--border-strong);
+      background: #fff;
+      transform: translateY(-50%) rotate(45deg);
+    }
+    .timeline-step:last-child::after { display: none; }
+    .timeline-step b {
+      display: inline-grid;
+      place-items: center;
+      width: 1.7rem;
+      height: 1.7rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+    }
+    .timeline-step h3 {
+      margin-top: 0.48rem;
+      font-size: 0.94rem;
+    }
+    .timeline-step p {
+      margin: 0.36rem 0 0;
+      font-size: 0.79rem;
+    }
+    .paired-panel {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+      margin-top: 0.72rem;
+    }
+    .mini-card {
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: var(--surface-blue);
+      padding: 0.72rem;
+    }
+    .mini-card h3 {
+      margin-bottom: 0.42rem;
+      color: var(--ink);
+      font-size: 0.9rem;
+    }
+    .mini-card p {
+      margin: 0;
+      font-size: 0.82rem;
+    }
+    .bar-grid {
+      display: grid;
+      gap: 0.56rem;
+      margin-top: 0.7rem;
+    }
+    .bar-row {
+      display: grid;
+      grid-template-columns: minmax(8rem, 1fr) minmax(0, 1.1fr) 2.2rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+    .bar-track {
+      height: 0.9rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .bar-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--gold));
+    }
+    .matrix-wrap {
+      display: grid;
+      grid-template-columns: 7.8rem repeat(2, minmax(0, 1fr));
+      gap: 0.48rem;
+      margin-top: 0.72rem;
+      align-items: stretch;
+    }
+    .matrix-label,
+    .matrix-cell {
+      border: 1px solid var(--border-strong);
+      border-radius: 7px;
+      padding: 0.66rem;
+      background: #fff;
+    }
+    .matrix-label {
+      display: grid;
+      place-items: center;
+      min-height: 4.8rem;
+      background: var(--surface-blue);
+      color: var(--ink);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    .matrix-cell {
+      min-height: 6.3rem;
+    }
+    .matrix-cell.good { border-top: 5px solid var(--green); }
+    .matrix-cell.watch { border-top: 5px solid var(--gold); }
+    .matrix-cell.action { border-top: 5px solid var(--red); }
+    .matrix-cell h3 {
+      font-size: 0.92rem;
+    }
+    .matrix-cell p {
+      margin: 0.35rem 0 0;
+      font-size: 0.78rem;
+    }
+    .challenge-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.7rem;
+    }
+    .challenge-card {
+      position: relative;
+      min-height: 14rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      overflow: hidden;
+      padding: 0.85rem;
+    }
+    .challenge-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 0.32rem;
+      background: var(--accent, var(--red));
+    }
+    .challenge-card:nth-child(2) { --accent: var(--gold); }
+    .challenge-card:nth-child(3) { --accent: var(--teal); }
+    .challenge-card:nth-child(4) { --accent: var(--green); }
+    .challenge-card:nth-child(5) { --accent: var(--purple); }
+    .challenge-card h3 {
+      font-size: 0.9rem;
+    }
+    .challenge-card p {
+      margin: 0.45rem 0 0;
+      font-size: 0.78rem;
+    }
+    .cycle {
+      position: relative;
+      min-height: 24rem;
+      margin-top: 0.7rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(238, 244, 251, 0.9) 0 6rem, transparent 6.2rem),
+        linear-gradient(180deg, #fff, var(--surface-blue));
+      overflow: hidden;
+    }
+    .cycle-center {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      display: grid;
+      place-items: center;
+      width: 10.5rem;
+      height: 10.5rem;
+      border: 2px solid var(--ink);
+      border-radius: 50%;
+      background: #fff;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.04rem;
+      font-weight: 900;
+      line-height: 1.12;
+      text-align: center;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+    }
+    .cycle-node {
+      position: absolute;
+      width: 12.2rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.96);
+      padding: 0.58rem;
+      color: var(--body);
+      font-size: 0.76rem;
+      box-shadow: 0 12px 25px rgba(36, 55, 112, 0.08);
+    }
+    .cycle-node b {
+      display: block;
+      margin-bottom: 0.2rem;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+    }
+    .node-1 { left: 50%; top: 1rem; transform: translateX(-50%); }
+    .node-2 { right: 1rem; top: 6.6rem; }
+    .node-3 { right: 2.6rem; bottom: 1.2rem; }
+    .node-4 { left: 2.6rem; bottom: 1.2rem; }
+    .node-5 { left: 1rem; top: 6.6rem; }
+    .source-note {
+      margin: 0.7rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+    @media (max-width: 900px) {
+      .timeline,
+      .challenge-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .timeline-step::after { display: none; }
+      .paired-panel,
+      .matrix-wrap {
+        grid-template-columns: 1fr;
+      }
+      .cycle {
+        display: grid;
+        gap: 0.55rem;
+        min-height: 0;
+        padding: 0.8rem;
+      }
+      .cycle-center,
+      .cycle-node {
+        position: static;
+        width: auto;
+        height: auto;
+        transform: none;
+      }
+      .cycle-center {
+        border-radius: 8px;
+        padding: 1rem;
+      }
+    }
+    @media (max-width: 560px) {
+      .timeline,
+      .challenge-grid {
+        grid-template-columns: 1fr;
+      }
+      .bar-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="https://naspnet.org/" aria-label="NASP website">NASP Posters</a>
+      <nav aria-label="Page sections">
+        <a href="#snapshot">Snapshot</a>
+        <a href="#methods">Methods</a>
+        <a href="#results">Results</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">2024 Annual Meeting Poster | DTS84-OR</p>
+        <h1>Optimizing Use of Electronic Patient-Reported Outcomes (ePROs) to Assess and Improve Disease Management</h1>
+        <p class="hero-summary">
+          A targeted literature review and multidisciplinary focus group used rheumatoid arthritis treat-to-target care as a working model for making ePROs more usable, actionable, and sustainable in specialty practice.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Targeted literature review</li>
+          <li class="tag category">Virtual focus group</li>
+          <li class="tag therapy">Rheumatoid arthritis</li>
+          <li class="tag therapy">Treat-to-target</li>
+          <li class="tag">Patient-reported outcomes</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Poster details">
+        <div class="poster-code">AM24<br>DTS84-OR</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Poster year</dt>
+            <dd>2024</dd>
+          </div>
+          <div>
+            <dt>Review window</dt>
+            <dd>2014-2022</dd>
+          </div>
+          <div>
+            <dt>Focus group</dt>
+            <dd>March 2023</dd>
+          </div>
+          <div>
+            <dt>Core example</dt>
+            <dd>RA care</dd>
+          </div>
+        </dl>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/84-DTS84-OR-Poster-AM24_2024.pdf">Open poster PDF</a>
+      </aside>
+    </section>
+
+    <main>
+      <section id="snapshot" class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Relevant articles</span>
+          <strong>20</strong>
+        </article>
+        <article class="metric-card">
+          <span>Search period</span>
+          <strong>8y</strong>
+        </article>
+        <article class="metric-card">
+          <span>Core T2T elements</span>
+          <strong>5</strong>
+        </article>
+        <article class="metric-card">
+          <span>Most used PRO</span>
+          <strong>RAPID3</strong>
+        </article>
+      </section>
+
+      <section class="visual-grid" aria-label="Objective and headline interpretation">
+        <article class="hero-visual">
+          <p>Patient signal plus clinical signal</p>
+          <strong>Make the patient voice actionable at the point of care</strong>
+          <svg viewBox="0 0 360 260" role="img" aria-label="Patient reported outcome and clinical measure connecting into shared decision making">
+            <defs>
+              <linearGradient id="pulseGradient" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ffffff" stop-opacity="0.98"></stop>
+                <stop offset="1" stop-color="#e99e25" stop-opacity="0.8"></stop>
+              </linearGradient>
+            </defs>
+            <circle cx="254" cy="98" r="64" fill="url(#pulseGradient)"></circle>
+            <circle cx="138" cy="172" r="46" fill="#ffffff" opacity="0.86"></circle>
+            <path d="M55 167h52l18-42 30 86 28-64 25 20h88" fill="none" stroke="#d12630" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M246 69v58M217 98h58" stroke="#243770" stroke-width="15" stroke-linecap="round"></path>
+            <path d="M104 172c22-34 48-34 69 0" fill="none" stroke="#187c8f" stroke-width="12" stroke-linecap="round"></path>
+            <circle cx="138" cy="138" r="18" fill="#187c8f"></circle>
+          </svg>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Characterize barriers and practical solutions for ePRO implementation</h2>
+          <ul class="signal-list">
+            <li>Use rheumatoid arthritis as an example of treat-to-target care that depends on shared decision-making.</li>
+            <li>Identify why PRO/ePRO collection is difficult to sustain across real outpatient workflows.</li>
+            <li>Translate literature themes and focus-group discussion into implementable next steps for clinicians, patients, and specialty pharmacies.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="methods" class="panel">
+        <p class="section-label">Evidence flow</p>
+        <h2>Two-part qualitative approach converted published evidence into workflow recommendations</h2>
+        <div class="timeline">
+          <article class="timeline-step">
+            <b>1</b>
+            <h3>Search literature</h3>
+            <p>PubMed and EBSCO/CINAHL were searched in November and December 2022 for U.S. outpatient RA T2T articles.</p>
+          </article>
+          <article class="timeline-step">
+            <b>2</b>
+            <h3>Extract themes</h3>
+            <p>Twenty relevant articles were reviewed for concepts around PRO/ePRO collection, shared decisions, and sustainability.</p>
+          </article>
+          <article class="timeline-step">
+            <b>3</b>
+            <h3>Convene panel</h3>
+            <p>A virtual March 2023 focus group brought together rheumatology, informatics, infusion, population health, and clinic operations perspectives.</p>
+          </article>
+          <article class="timeline-step">
+            <b>4</b>
+            <h3>Map solutions</h3>
+            <p>Participants expanded the barriers list and proposed EHR, education, workflow, and patient-engagement solutions.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="results" class="visual-grid" aria-label="Focus group use patterns">
+        <article class="panel">
+          <p class="section-label">Figure 1 pattern</p>
+          <h2>Most reported T2T elements were already in use</h2>
+          <div class="bar-grid">
+            <div class="bar-row">
+              <span>Shared treatment target</span>
+              <div class="bar-track"><i style="width: 100%;"></i></div>
+              <span>5</span>
+            </div>
+            <div class="bar-row">
+              <span>Disease activity assessment</span>
+              <div class="bar-track"><i style="width: 100%;"></i></div>
+              <span>5</span>
+            </div>
+            <div class="bar-row">
+              <span>PRO/ePRO assessment</span>
+              <div class="bar-track"><i style="width: 100%;"></i></div>
+              <span>5</span>
+            </div>
+            <div class="bar-row">
+              <span>Activity-based follow-up</span>
+              <div class="bar-track"><i style="width: 100%;"></i></div>
+              <span>5</span>
+            </div>
+            <div class="bar-row">
+              <span>Therapy adjustment every 3 months if target not reached</span>
+              <div class="bar-track"><i style="width: 80%;"></i></div>
+              <span>4</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">PRO tools named</p>
+          <h2>RAPID3 was the clearest common instrument</h2>
+          <div class="bar-grid">
+            <div class="bar-row">
+              <span>RAPID3</span>
+              <div class="bar-track"><i style="width: 100%;"></i></div>
+              <span>5</span>
+            </div>
+            <div class="bar-row">
+              <span>HAQ</span>
+              <div class="bar-track"><i style="width: 40%;"></i></div>
+              <span>2</span>
+            </div>
+            <div class="bar-row">
+              <span>MDHAQ</span>
+              <div class="bar-track"><i style="width: 20%;"></i></div>
+              <span>1</span>
+            </div>
+            <div class="bar-row">
+              <span>Other: HAQ-II, PAS II, fatigue VAS</span>
+              <div class="bar-track"><i style="width: 20%;"></i></div>
+              <span>1</span>
+            </div>
+          </div>
+          <p class="source-note">Counts are shown as reported in the poster's figure table.</p>
+        </article>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Decision support concept</p>
+        <h2>Pair RAPID3 with CDAI to separate concordance from discordance</h2>
+        <div class="paired-panel">
+          <article class="mini-card">
+            <h3>RAPID3: patient-reported lens</h3>
+            <p>Quick point-of-care measure covering physical ability, pain, and overall health that can be completed in office or before a visit.</p>
+          </article>
+          <article class="mini-card">
+            <h3>CDAI: clinical disease activity lens</h3>
+            <p>Clinician-facing measure incorporating tender and swollen joint counts plus patient and clinician global assessments.</p>
+          </article>
+        </div>
+        <div class="matrix-wrap" aria-label="RAPID3 and CDAI decision matrix">
+          <div class="matrix-label">RAPID3 / CDAI</div>
+          <div class="matrix-label">CDAI poor outcome</div>
+          <div class="matrix-label">CDAI good outcome</div>
+          <div class="matrix-label">RAPID3 poor outcome</div>
+          <article class="matrix-cell action">
+            <h3>Escalate treatment together</h3>
+            <p>Concordant poor outcomes create shared agreement that the treatment target has not been reached.</p>
+          </article>
+          <article class="matrix-cell watch">
+            <h3>Look for secondary issues</h3>
+            <p>Poor patient-reported outcomes with better clinical activity may point to another process requiring evaluation.</p>
+          </article>
+          <div class="matrix-label">RAPID3 good outcome</div>
+          <article class="matrix-cell watch">
+            <h3>Clarify active disease</h3>
+            <p>A better patient-reported score with poor clinical activity may indicate misunderstanding of current disease status.</p>
+          </article>
+          <article class="matrix-cell good">
+            <h3>Maintain therapy</h3>
+            <p>Concordant good outcomes support no treatment change while continuing measurement-based follow-up.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="challenge-grid" aria-label="Challenges and solutions">
+        <article class="challenge-card">
+          <h3>Incentive gap</h3>
+          <p><strong>Challenge:</strong> Clinicians may not see how PRO data changes decisions.</p>
+          <p><strong>Solution:</strong> Embed PROs in decision trees, protocols, training, and value communication.</p>
+        </article>
+        <article class="challenge-card">
+          <h3>Measure uncertainty</h3>
+          <p><strong>Challenge:</strong> Teams need comprehensive assessment without extra workload.</p>
+          <p><strong>Solution:</strong> Build consensus around disease-impact PROs such as RAPID3 and patient-priority outcomes.</p>
+        </article>
+        <article class="challenge-card">
+          <h3>Staff bandwidth</h3>
+          <p><strong>Challenge:</strong> More patient information can exceed clinic capacity.</p>
+          <p><strong>Solution:</strong> Use portals, check-in touchscreens, and remote monitoring between visits.</p>
+        </article>
+        <article class="challenge-card">
+          <h3>IT integration</h3>
+          <p><strong>Challenge:</strong> Manual collection and documentation make ePRO use inconsistent.</p>
+          <p><strong>Solution:</strong> Integrate ePROs directly into the EHR and reduce documentation burden.</p>
+        </article>
+        <article class="challenge-card">
+          <h3>Patient understanding</h3>
+          <p><strong>Challenge:</strong> Patients may not know why questionnaires matter.</p>
+          <p><strong>Solution:</strong> Explain how the data will be used and have office staff champion completion.</p>
+        </article>
+      </section>
+
+      <section class="visual-grid" aria-label="Next step program and conclusion">
+        <article class="panel">
+          <p class="section-label">Multistep program</p>
+          <h2>Clinician incentivization sits at the center</h2>
+          <div class="cycle">
+            <div class="cycle-center">Sustain PRO/ePRO use in care</div>
+            <div class="cycle-node node-1"><b>Education</b>Integrate the patient perspective into clinician education and continuing education.</div>
+            <div class="cycle-node node-2"><b>Partners</b>Work with organizations to promote interpretation and utility of PRO data.</div>
+            <div class="cycle-node node-3"><b>Tools</b>Develop apps and online tools that reduce data-capture and analysis burden.</div>
+            <div class="cycle-node node-4"><b>Clinic team</b>Involve nurses, medical assistants, and office staff in the ePRO process.</div>
+            <div class="cycle-node node-5"><b>Patients</b>Address literacy, equity, and technical barriers through education and engagement.</div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Conclusion</p>
+          <h2>ePROs are most useful when they are integrated into decisions, not simply collected</h2>
+          <ul class="signal-list">
+            <li>The main barriers were clinician time restrictions, IT integration issues, and lack of patient understanding.</li>
+            <li>Recommended next steps include clinician and patient education, professional-organization partnerships, and easier digital capture tools.</li>
+            <li>The framework extends beyond rheumatoid arthritis and creates a practical role for specialty pharmacies in patient-centric workflows.</li>
+          </ul>
+        </article>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/84-DTS84-OR-Poster-AM24_2024.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/84-DTS84-OR-Poster-AM24_2024.md">Source markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

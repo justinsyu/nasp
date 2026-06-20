@@ -1,0 +1,661 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OPR47 AM25 | Safety Screening Completion</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .screening-hero-art {
+      position: relative;
+      overflow: hidden;
+      min-height: 24rem;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 82% 18%, rgba(233, 158, 37, 0.28), transparent 7rem),
+        radial-gradient(circle at 18% 88%, rgba(24, 124, 143, 0.18), transparent 8rem),
+        linear-gradient(145deg, #ffffff 0%, var(--surface-blue) 54%, var(--surface-warm) 100%);
+      padding: 0.8rem;
+    }
+
+    .screening-hero-art svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .hero-caption-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.6rem;
+    }
+
+    .caption-tile {
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.78);
+      padding: 0.62rem;
+    }
+
+    .caption-tile strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+
+    .caption-tile span {
+      display: block;
+      margin-top: 0.22rem;
+      color: var(--muted);
+      font-size: 0.67rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .funnel-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .funnel-card {
+      display: grid;
+      gap: 0.75rem;
+      padding: 1rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .funnel-card h2,
+    .funnel-card h3 {
+      color: #fff;
+    }
+
+    .funnel-card .section-label,
+    .funnel-card p {
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .funnel-step {
+      display: grid;
+      grid-template-columns: 4.7rem minmax(0, 1fr);
+      gap: 0.65rem;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 0.7rem;
+    }
+
+    .funnel-step strong {
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+
+    .funnel-step span {
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.82rem;
+      font-weight: 750;
+    }
+
+    .screening-bars {
+      display: grid;
+      gap: 0.8rem;
+      margin-top: 0.8rem;
+    }
+
+    .screening-row {
+      display: grid;
+      grid-template-columns: 8.2rem minmax(0, 1fr) 3.2rem;
+      gap: 0.65rem;
+      align-items: center;
+    }
+
+    .screening-row b {
+      color: var(--ink);
+      font-size: 0.8rem;
+    }
+
+    .screening-track {
+      height: 1.05rem;
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+
+    .screening-fill {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .screening-fill.tb {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .screening-fill.hbv {
+      background: linear-gradient(90deg, var(--purple), var(--teal));
+    }
+
+    .screening-row em {
+      color: var(--ink);
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .timing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+
+    .timing-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.9rem;
+    }
+
+    .radial-stat {
+      display: grid;
+      grid-template-columns: 6.4rem minmax(0, 1fr);
+      gap: 0.75rem;
+      align-items: center;
+      margin-top: 0.65rem;
+    }
+
+    .ring {
+      width: 6.2rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at center, #fff 0 58%, transparent 59%),
+        conic-gradient(var(--ring-color) var(--ring-value), #e8eef7 0);
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 900;
+    }
+
+    .timing-card p {
+      margin: 0;
+      font-size: 0.86rem;
+    }
+
+    .area-bars {
+      display: grid;
+      gap: 0.62rem;
+      margin-top: 0.75rem;
+    }
+
+    .area-row {
+      display: grid;
+      grid-template-columns: 8.6rem minmax(0, 1fr) 2.8rem;
+      gap: 0.55rem;
+      align-items: center;
+      font-size: 0.78rem;
+    }
+
+    .area-row span:first-child {
+      color: var(--ink);
+      font-weight: 850;
+    }
+
+    .area-track {
+      height: 0.72rem;
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+
+    .area-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .reason-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-top: 0.75rem;
+    }
+
+    .reason-card {
+      border: 1px solid rgba(174, 187, 210, 0.95);
+      border-radius: 8px;
+      background: var(--surface-blue);
+      padding: 0.85rem;
+    }
+
+    .reason-card strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2.1rem;
+      line-height: 1;
+    }
+
+    .reason-card span {
+      display: block;
+      margin-top: 0.28rem;
+      color: var(--ink);
+      font-weight: 850;
+    }
+
+    .reason-card p {
+      margin: 0.38rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    .takeaway {
+      border-color: rgba(77, 138, 103, 0.55);
+      background:
+        linear-gradient(135deg, rgba(77, 138, 103, 0.12), transparent 38%),
+        #fff;
+    }
+
+    .compact-list {
+      display: grid;
+      gap: 0.55rem;
+      margin: 0.7rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .compact-list li {
+      border-left: 4px solid var(--teal);
+      background: var(--surface-blue);
+      padding: 0.55rem 0.7rem;
+      font-size: 0.86rem;
+    }
+
+    .compact-list li:nth-child(2) {
+      border-color: var(--gold);
+      background: var(--surface-warm);
+    }
+
+    .compact-list li:nth-child(3) {
+      border-color: var(--purple);
+    }
+
+    .source-note {
+      margin: 0.65rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 900px) {
+      .funnel-grid,
+      .timing-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .hero-caption-grid,
+      .reason-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .screening-row,
+      .area-row,
+      .radial-stat,
+      .funnel-step {
+        grid-template-columns: 1fr;
+      }
+
+      .screening-row em {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/1013-OPR47-OR-Poster-AM25.pdf">Poster PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/1013-OPR47-OR-Poster-AM25.md">Markdown Source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">AM25 poster OPR47 | Prospective multisite analysis</p>
+        <h1>Safety screening completion before immune response mediator therapy</h1>
+        <p class="hero-summary">
+          Across 12 health-system specialty pharmacy sites, most adults starting immune response mediator therapy had tuberculosis and hepatitis B screening documented before treatment, with incomplete screening most often traced to provider-driven decisions.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag therapy">Rheumatology</li>
+          <li class="tag therapy">Dermatology</li>
+          <li class="tag therapy">Gastroenterology</li>
+          <li class="tag category">Safety screening</li>
+          <li class="tag">TB and HBV</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card">
+        <div class="poster-code">OPR47<br>AM25</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Design</dt>
+            <dd>Prospective cohort</dd>
+          </div>
+          <div>
+            <dt>Sites</dt>
+            <dd>12 HSSP sites</dd>
+          </div>
+          <div>
+            <dt>Cohort</dt>
+            <dd>n = 737</dd>
+          </div>
+          <div>
+            <dt>Window</dt>
+            <dd>Mar 1-May 31, 2023</dd>
+          </div>
+        </dl>
+        <div class="screening-hero-art" aria-label="TB and HBV screening dashboard illustration">
+          <svg viewBox="0 0 460 330" role="img" aria-labelledby="hero-art-title hero-art-desc">
+            <title id="hero-art-title">Safety screening dashboard</title>
+            <desc id="hero-art-desc">A stylized patient file feeds TB and HBV checkpoints, with 95 percent ever complete screening as the main result.</desc>
+            <defs>
+              <marker id="screen-arrow" markerWidth="11" markerHeight="11" refX="9" refY="3.5" orient="auto">
+                <path d="M0,0 L0,7 L10,3.5 z" fill="#243770"></path>
+              </marker>
+            </defs>
+            <rect x="30" y="42" width="130" height="180" rx="14" fill="#fff" stroke="#aebbd2" stroke-width="4"></rect>
+            <path d="M55 86h76M55 115h58M55 144h78" stroke="#187c8f" stroke-width="10" stroke-linecap="round"></path>
+            <circle cx="94" cy="178" r="24" fill="#eef4fb" stroke="#243770" stroke-width="4"></circle>
+            <path d="M84 178l8 8 18-23" fill="none" stroke="#4d8a67" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M174 100 C218 66, 256 64, 296 92" fill="none" stroke="#243770" stroke-width="5" marker-end="url(#screen-arrow)"></path>
+            <path d="M174 168 C218 204, 262 214, 315 186" fill="none" stroke="#243770" stroke-width="5" marker-end="url(#screen-arrow)"></path>
+            <circle cx="332" cy="94" r="56" fill="#fff" stroke="#187c8f" stroke-width="8"></circle>
+            <text x="332" y="87" text-anchor="middle" fill="#187c8f" font-family="Arial, sans-serif" font-size="30" font-weight="900">TB</text>
+            <text x="332" y="116" text-anchor="middle" fill="#243770" font-family="Arial, sans-serif" font-size="25" font-weight="900">96%</text>
+            <circle cx="342" cy="190" r="56" fill="#fff7ea" stroke="#7561a8" stroke-width="8"></circle>
+            <text x="342" y="184" text-anchor="middle" fill="#7561a8" font-family="Arial, sans-serif" font-size="29" font-weight="900">HBV</text>
+            <text x="342" y="213" text-anchor="middle" fill="#243770" font-family="Arial, sans-serif" font-size="25" font-weight="900">97%</text>
+            <rect x="114" y="248" width="232" height="52" rx="26" fill="#243770"></rect>
+            <text x="230" y="281" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="24" font-weight="900">95% ever complete</text>
+          </svg>
+          <div class="hero-caption-grid">
+            <div class="caption-tile">
+              <strong>95%</strong>
+              <span>complete ever</span>
+            </div>
+            <div class="caption-tile">
+              <strong>82%</strong>
+              <span>complete by 2y + 60d</span>
+            </div>
+            <div class="caption-tile">
+              <strong>75%</strong>
+              <span>complete by 1y + 60d</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key metrics">
+        <article class="metric-card">
+          <span>Referrals screened</span>
+          <strong>1,597</strong>
+        </article>
+        <article class="metric-card">
+          <span>Included cohort</span>
+          <strong>737</strong>
+        </article>
+        <article class="metric-card">
+          <span>Sites</span>
+          <strong>12</strong>
+        </article>
+        <article class="metric-card">
+          <span>Clinical areas</span>
+          <strong>3</strong>
+        </article>
+      </section>
+
+      <section class="funnel-grid" id="methods">
+        <article class="funnel-card">
+          <p class="section-label">Cohort construction</p>
+          <h2>From referral stream to analyzable treatment starts.</h2>
+          <div class="funnel-step">
+            <strong>1,597</strong>
+            <span>specialty pharmacy referrals assessed</span>
+          </div>
+          <div class="funnel-step">
+            <strong>860</strong>
+            <span>excluded, mostly prior biologic use within 12 months or nonincluded condition</span>
+          </div>
+          <div class="funnel-step">
+            <strong>737</strong>
+            <span>adult new starts included for TB and HBV screening analysis</span>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Screening completion windows</p>
+          <h2>Ever-screened rates were high; tighter windows reduced completion.</h2>
+          <div class="screening-bars" aria-label="Screening completion by timeframe">
+            <div class="screening-row">
+              <b>Complete ever</b>
+              <span class="screening-track"><span class="screening-fill" style="width:95%"></span></span>
+              <em>95%</em>
+            </div>
+            <div class="screening-row">
+              <b>TB ever</b>
+              <span class="screening-track"><span class="screening-fill tb" style="width:96%"></span></span>
+              <em>96%</em>
+            </div>
+            <div class="screening-row">
+              <b>HBV ever</b>
+              <span class="screening-track"><span class="screening-fill hbv" style="width:97%"></span></span>
+              <em>97%</em>
+            </div>
+            <div class="screening-row">
+              <b>Complete 2y + 60d</b>
+              <span class="screening-track"><span class="screening-fill" style="width:82%"></span></span>
+              <em>82%</em>
+            </div>
+            <div class="screening-row">
+              <b>Complete 1y + 60d</b>
+              <span class="screening-track"><span class="screening-fill" style="width:75%"></span></span>
+              <em>75%</em>
+            </div>
+          </div>
+          <p class="source-note">Rates are presented for the full included cohort of 737 referrals.</p>
+        </article>
+      </section>
+
+      <section class="evidence-map" aria-label="Evidence flow">
+        <article class="evidence-card">
+          <h3>Clinical trigger</h3>
+          <p>Patients initiating immune response mediator therapy should be screened for TB and HBV reactivation risk.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Study lens</h3>
+          <p>Electronic health record documentation and pharmacy fill data were reviewed across 12 HSSP sites.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Primary signal</h3>
+          <p>Most referrals had documented screening, with 95% complete screening when any prior timing was accepted.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Timing pattern</h3>
+          <p>Screening clustered near referral: 62% for TB and 56% for HBV within 30 days before or after referral.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Gap driver</h3>
+          <p>When screening was absent, provider-driven reasons were the most common documented cause.</p>
+        </article>
+      </section>
+
+      <section class="timing-grid" id="results">
+        <article class="timing-card">
+          <p class="section-label">TB timing</p>
+          <h2>TB screening was usually close to referral.</h2>
+          <div class="radial-stat">
+            <div class="ring" style="--ring-color: var(--teal); --ring-value: 62%">62%</div>
+            <p>of patients with referral and TB screening dates available were screened within 30 days before or after referral.</p>
+          </div>
+          <div class="radial-stat">
+            <div class="ring" style="--ring-color: var(--green); --ring-value: 79%">79%</div>
+            <p>were screened within 6 months plus 30 days after referral; median TB result-to-first-fill time was 20 days.</p>
+          </div>
+        </article>
+
+        <article class="timing-card">
+          <p class="section-label">HBV timing</p>
+          <h2>HBV screening followed the same near-referral pattern.</h2>
+          <div class="radial-stat">
+            <div class="ring" style="--ring-color: var(--purple); --ring-value: 56%">56%</div>
+            <p>of patients with referral and HBV screening dates available were screened within 30 days before or after referral.</p>
+          </div>
+          <div class="radial-stat">
+            <div class="ring" style="--ring-color: var(--gold); --ring-value: 74%">74%</div>
+            <p>were screened within 6 months plus 30 days after referral; median HBV result-to-first-fill time was 27 days.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="visual-grid">
+        <article class="panel">
+          <p class="section-label">Clinical area comparison</p>
+          <h2>Dermatology had the highest 1-year complete screening rate.</h2>
+          <div class="area-bars" aria-label="Complete screening within one year plus 60 days by clinical area">
+            <div class="area-row">
+              <span>Dermatology</span>
+              <span class="area-track"><i style="width:84%"></i></span>
+              <b>84%</b>
+            </div>
+            <div class="area-row">
+              <span>All clinics</span>
+              <span class="area-track"><i style="width:75%"></i></span>
+              <b>75%</b>
+            </div>
+            <div class="area-row">
+              <span>Rheumatology</span>
+              <span class="area-track"><i style="width:73%"></i></span>
+              <b>73%</b>
+            </div>
+            <div class="area-row">
+              <span>Gastroenterology</span>
+              <span class="area-track"><i style="width:67%"></i></span>
+              <b>67%</b>
+            </div>
+          </div>
+          <p class="source-note">Clinical area rates use the 1 year plus 60 days referral window.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Why screening was missed</p>
+          <h2>Documented omissions were commonly provider driven.</h2>
+          <div class="reason-grid">
+            <div class="reason-card">
+              <strong>38%</strong>
+              <span>TB omissions</span>
+              <p>Provider-driven reasons were the most common TB category, followed by unknown reasons at 34%.</p>
+            </div>
+            <div class="reason-card">
+              <strong>57%</strong>
+              <span>HBV omissions</span>
+              <p>Provider-driven reasons accounted for more than half of absent HBV screening.</p>
+            </div>
+          </div>
+          <ul class="compact-list">
+            <li>TB missing-screening denominator: overall n = 29 across reasons shown.</li>
+            <li>HBV missing-screening denominator: overall n = 42 across reasons shown.</li>
+            <li>Reasons were tabulated among patients who never had the relevant screening documented.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="tables-grid" id="tables">
+        <article class="table-card">
+          <p class="section-label">Demographic pattern</p>
+          <h3>Included patients, n = 737</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Characteristic</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Age, mean (SD)</td><td>48 (16)</td></tr>
+                <tr><td>Female</td><td>469 (64%)</td></tr>
+                <tr><td>White</td><td>492 (67%)</td></tr>
+                <tr><td>Black/African American</td><td>95 (13%)</td></tr>
+                <tr><td>Rheumatology</td><td>409 (56%)</td></tr>
+                <tr><td>Dermatology</td><td>214 (29%)</td></tr>
+                <tr><td>Gastroenterology</td><td>114 (16%)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Screening by clinical area</p>
+          <h3>Within 1 year + 60 days</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Area</th>
+                  <th>Complete</th>
+                  <th>TB</th>
+                  <th>HBV</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Rheumatology</td><td>73%</td><td>82%</td><td>78%</td></tr>
+                <tr><td>Gastroenterology</td><td>67%</td><td>79%</td><td>75%</td></tr>
+                <tr><td>Dermatology</td><td>84%</td><td>91%</td><td>87%</td></tr>
+                <tr><td>All clinics</td><td>75%</td><td>84%</td><td>80%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel takeaway" id="conclusion">
+        <p class="section-label">Conclusion</p>
+        <h2>Health-system specialty pharmacy referrals were usually screened before therapy start.</h2>
+        <p>
+          The analysis concludes that most patients initiating immune response mediator therapy through a health-system specialty pharmacy referral completed TB and HBV safety screening before treatment, while missed screening was most commonly associated with prescribing-provider decisions.
+        </p>
+      </section>
+
+      <footer class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/1013-OPR47-OR-Poster-AM25.pdf">Open original PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/1013-OPR47-OR-Poster-AM25.md">Open extracted markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2022 | 14-day pharmacist check-in protocol</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card svg { width: 100%; height: auto; display: block; }
+    .protocol-band {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr;
+      gap: 0.7rem;
+      align-items: center;
+      margin-top: 0.75rem;
+    }
+    .protocol-step {
+      min-height: 8.5rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #ffffff, var(--surface-blue));
+      padding: 0.85rem;
+    }
+    .protocol-step b {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1rem;
+      line-height: 1.1;
+    }
+    .protocol-step p {
+      margin: 0.45rem 0 0;
+      font-size: 0.82rem;
+    }
+    .arrow {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 900;
+    }
+    .delta-board {
+      display: grid;
+      grid-template-columns: minmax(16rem, 0.9fr) minmax(0, 1.1fr);
+      gap: 1rem;
+      align-items: center;
+    }
+    .rate-comparison {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+    .rate-tile {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .rate-tile::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: var(--height);
+      background: linear-gradient(180deg, rgba(209, 38, 48, 0.22), rgba(209, 38, 48, 0.08));
+      z-index: 0;
+    }
+    .rate-tile.post::after {
+      background: linear-gradient(180deg, rgba(24, 124, 143, 0.24), rgba(24, 124, 143, 0.08));
+    }
+    .rate-tile > * { position: relative; z-index: 1; }
+    .rate-tile span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+    .rate-tile strong {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 3rem;
+      line-height: 1;
+    }
+    .rate-tile em {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--body);
+      font-style: normal;
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+    .reason-grid {
+      display: grid;
+      gap: 0.65rem;
+    }
+    .reason-row {
+      display: grid;
+      grid-template-columns: 8.2rem minmax(0, 1fr) 4.2rem;
+      gap: 0.55rem;
+      align-items: center;
+    }
+    .reason-row b {
+      color: var(--ink);
+      font-size: 0.8rem;
+      line-height: 1.15;
+    }
+    .dual-bar {
+      display: grid;
+      gap: 0.22rem;
+    }
+    .dual-bar i {
+      display: block;
+      height: 0.72rem;
+      border-radius: 999px;
+      background: var(--red);
+    }
+    .dual-bar i.post { background: var(--teal); }
+    .reason-row span {
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 850;
+      text-align: right;
+    }
+    .legend {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      margin-top: 0.55rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 850;
+    }
+    .legend i {
+      display: inline-block;
+      width: 0.75rem;
+      height: 0.75rem;
+      border-radius: 99px;
+      margin-right: 0.3rem;
+      vertical-align: -0.1rem;
+    }
+    .pre-dot { background: var(--red); }
+    .post-dot { background: var(--teal); }
+    .impact-callout {
+      border-left: 4px solid var(--red);
+      background: linear-gradient(90deg, rgba(209, 38, 48, 0.08), #fff);
+    }
+    .microcopy {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+    .source-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+    @media (max-width: 900px) {
+      .delta-board,
+      .protocol-band {
+        grid-template-columns: 1fr;
+      }
+      .arrow { transform: rotate(90deg); justify-self: center; }
+    }
+    @media (max-width: 560px) {
+      .rate-comparison,
+      .reason-row {
+        grid-template-columns: 1fr;
+      }
+      .reason-row span { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/03-2022.pdf">Source PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/03-2022.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2022 / Poster 03-2022</p>
+        <h1>14-day pharmacist check-ins were associated with fewer oral anticancer therapy discontinuations.</h1>
+        <p class="hero-summary">A retrospective multicenter Trellis Rx partner health-system study compared oral anticancer agent discontinuation before and after a technology-facilitated pharmacist contact protocol within 14 days of therapy initiation.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag therapy">Oral anticancer agents</li>
+          <li class="tag category">Health-system specialty pharmacy</li>
+          <li class="tag">Retrospective pre/post study</li>
+          <li class="tag">March-December cohorts</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Study snapshot">
+        <div class="poster-code">03<br>2022</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Authors</dt>
+            <dd>Hutchinson, King, Mourani, Wood, Latran</dd>
+          </div>
+          <div>
+            <dt>Population</dt>
+            <dd>9,414 OAA therapies</dd>
+          </div>
+          <div>
+            <dt>Pre-period</dt>
+            <dd>Mar-Dec 2020</dd>
+          </div>
+          <div>
+            <dt>Post-period</dt>
+            <dd>Mar-Dec 2021</dd>
+          </div>
+        </dl>
+        <svg viewBox="0 0 360 180" role="img" aria-label="Timeline from therapy start to 14-day pharmacist check-in">
+          <defs>
+            <linearGradient id="timeline" x1="0" x2="1">
+              <stop offset="0" stop-color="#d12630"/>
+              <stop offset="0.55" stop-color="#e99e25"/>
+              <stop offset="1" stop-color="#187c8f"/>
+            </linearGradient>
+          </defs>
+          <rect x="18" y="46" width="324" height="22" rx="11" fill="#eef4fb" stroke="#aebbd2"/>
+          <rect x="18" y="46" width="260" height="22" rx="11" fill="url(#timeline)"/>
+          <circle cx="42" cy="57" r="20" fill="#fff" stroke="#d12630" stroke-width="4"/>
+          <circle cx="278" cy="57" r="20" fill="#fff" stroke="#187c8f" stroke-width="4"/>
+          <path d="M95 122c34-36 72-36 112 0s76 36 112 0" fill="none" stroke="#243770" stroke-width="5" stroke-linecap="round"/>
+          <path d="M95 122c34-36 72-36 112 0" fill="none" stroke="#e99e25" stroke-width="5" stroke-linecap="round"/>
+          <text x="42" y="114" text-anchor="middle" fill="#243770" font-size="18" font-weight="900">Start</text>
+          <text x="278" y="114" text-anchor="middle" fill="#243770" font-size="18" font-weight="900">Day 14</text>
+          <text x="180" y="160" text-anchor="middle" fill="#68758d" font-size="14" font-weight="800">counseling + adverse effect mitigation + provider escalation</text>
+        </svg>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key results">
+        <div class="metric-card">
+          <span>Total therapies evaluated</span>
+          <strong>9,414</strong>
+        </div>
+        <div class="metric-card">
+          <span>Overall discontinuation change</span>
+          <strong>-11.4 pp</strong>
+        </div>
+        <div class="metric-card">
+          <span>Targeted primary reasons</span>
+          <strong>513 to 220</strong>
+        </div>
+        <div class="metric-card">
+          <span>Drug intolerance rate</span>
+          <strong>6.8% to 2.8%</strong>
+        </div>
+      </section>
+
+      <section class="visual-grid">
+        <div class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Compare discontinuation before and after pharmacist-led early contact.</h2>
+          <p>Patients starting oral anticancer agents were evaluated for discontinuation rates and reasons before and after implementation of a protocol requiring pharmacist contact within 14 days of therapy initiation.</p>
+          <div class="number-cloud" aria-label="Study counts">
+            <div class="number-pill">4,060<small>pre-protocol therapies</small></div>
+            <div class="number-pill">5,354<small>post-protocol therapies</small></div>
+            <div class="number-pill">1,641<small>pre discontinuations</small></div>
+            <div class="number-pill">1,557<small>post discontinuations</small></div>
+          </div>
+        </div>
+        <div class="panel">
+          <p class="section-label">Protocol logic</p>
+          <h2>Early access turned pharmacist support into a defined intervention window.</h2>
+          <div class="protocol-band" aria-label="Evidence flow">
+            <div class="protocol-step">
+              <b>Therapy starts</b>
+              <p>OAA treatment begins and patient enters the Arbor specialty pharmacy technology workflow.</p>
+            </div>
+            <div class="arrow" aria-hidden="true">&rarr;</div>
+            <div class="protocol-step">
+              <b>Pharmacist check-in</b>
+              <p>Within 14 days, the pharmacist provides counseling, answers questions, and screens adverse effects.</p>
+            </div>
+            <div class="arrow" aria-hidden="true">&rarr;</div>
+            <div class="protocol-step">
+              <b>Mitigation actions</b>
+              <p>Supportive care, provider contact, and adherence assistance target preventable discontinuation drivers.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Primary endpoint signal</p>
+        <h2>Overall discontinuation fell even though the post-protocol cohort was larger.</h2>
+        <div class="delta-board">
+          <div class="rate-comparison">
+            <div class="rate-tile" style="--height: 40.4%;">
+              <span>Pre-protocol</span>
+              <strong>40.4%</strong>
+              <em>1,641 of 4,060 therapies discontinued</em>
+            </div>
+            <div class="rate-tile post" style="--height: 29%;">
+              <span>Post-protocol</span>
+              <strong>29.0%</strong>
+              <em>1,557 of 5,354 therapies discontinued</em>
+            </div>
+          </div>
+          <div class="reason-grid" aria-label="Reason-specific primary endpoint rates">
+            <div class="reason-row">
+              <b>Drug intolerance</b>
+              <div class="dual-bar">
+                <i style="width: 100%;"></i>
+                <i class="post" style="width: 41%;"></i>
+              </div>
+              <span>6.8% to 2.8%</span>
+            </div>
+            <div class="reason-row">
+              <b>Patient choice</b>
+              <div class="dual-bar">
+                <i style="width: 71%;"></i>
+                <i class="post" style="width: 15%;"></i>
+              </div>
+              <span>4.8% to 1.0%</span>
+            </div>
+            <div class="reason-row">
+              <b>Patient unreachable</b>
+              <div class="dual-bar">
+                <i style="width: 15%;"></i>
+                <i class="post" style="width: 4%;"></i>
+              </div>
+              <span>1.0% to 0.3%</span>
+            </div>
+            <div class="legend" aria-label="Bar legend">
+              <span><i class="pre-dot"></i>Pre-protocol</span>
+              <span><i class="post-dot"></i>Post-protocol</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="evidence-map" aria-label="Interpretive evidence map">
+        <article class="evidence-card">
+          <h3>Targeted reasons contracted</h3>
+          <p>Discontinuations for drug intolerance, patient choice, or unreachable patient decreased from 513 to 220.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Adverse effects were actionable</h3>
+          <p>Follow-up created a place to manage side effects before they became therapy-stopping events.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>HSSP reach mattered</h3>
+          <p>The protocol paired clinical counseling with technology-supported tracking across partner health systems.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Secondary patterns shifted</h3>
+          <p>Interaction-related discontinuations rose as documented reasons, suggesting additional pharmacist intervention points.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Conclusion</h3>
+          <p>HSSP pharmacists can reduce OAA discontinuation by embedding early counseling and mitigation into launch workflows.</p>
+        </article>
+      </section>
+
+      <section class="tables-grid">
+        <div class="table-card">
+          <p class="section-label">Discontinuation mix</p>
+          <h2>Primary endpoint categories</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Pre count</th>
+                  <th>Post count</th>
+                  <th>Pattern</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Drug intolerance</td>
+                  <td>276</td>
+                  <td>151</td>
+                  <td>Lower after check-in</td>
+                </tr>
+                <tr>
+                  <td>Patient choice</td>
+                  <td>195</td>
+                  <td>54</td>
+                  <td>Sharp reduction</td>
+                </tr>
+                <tr>
+                  <td>Patient unreachable</td>
+                  <td>42</td>
+                  <td>15</td>
+                  <td>Reduced loss of contact</td>
+                </tr>
+                <tr>
+                  <td>Other</td>
+                  <td>1,117</td>
+                  <td>1,337</td>
+                  <td>Larger share post-period</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="table-card">
+          <p class="section-label">Secondary endpoint pattern</p>
+          <h2>Less direct discontinuation reasons</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Reason</th>
+                  <th>2020</th>
+                  <th>2021</th>
+                  <th>Interpretation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Drug interaction</td>
+                  <td>10%</td>
+                  <td>12%</td>
+                  <td>Slight increase</td>
+                </tr>
+                <tr>
+                  <td>Disease interaction</td>
+                  <td>11%</td>
+                  <td>28%</td>
+                  <td>More prominent documented driver</td>
+                </tr>
+                <tr>
+                  <td>Financial hardship</td>
+                  <td>1%</td>
+                  <td>1%</td>
+                  <td>Stable</td>
+                </tr>
+                <tr>
+                  <td>Prior authorization denial</td>
+                  <td>1%</td>
+                  <td>3%</td>
+                  <td>Small increase</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-stack">
+        <div class="panel impact-callout">
+          <p class="section-label">Methods</p>
+          <h2>Retrospective, multicenter, observational comparison.</h2>
+          <div class="markdown-fragment">
+            <p>Patients were stratified into pre-protocol and post-protocol cohorts, and discontinuation reasons were taken from pharmacist documentation in the Arbor specialty pharmacy technology platform.</p>
+            <p class="microcopy">Primary endpoints focused on overall discontinuation plus drug intolerance, patient choice, and patient unreachable: the reasons most directly influenced by pharmacist intervention.</p>
+          </div>
+        </div>
+        <div class="panel">
+          <p class="section-label">Takeaway</p>
+          <h2>Early pharmacist contact gave adherence work a measurable operating model.</h2>
+          <p>By contacting patients soon after therapy start, HSSP pharmacists could identify side effects, arrange supportive care, answer questions, and involve providers before preventable discontinuations occurred.</p>
+          <p class="source-note">Authors noted that further study is warranted to continue defining HSSP and pharmacist impact on oral oncolytic therapy outcomes.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/03-2022.pdf">Open original PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/03-2022.md">Read extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>US Health Utility in METex14 NSCLC Treated With Tepotinib | NASP 2021 Infographic</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .tepo-hero-art {
+      position: relative;
+      min-height: 20rem;
+      overflow: hidden;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(24, 124, 143, 0.14), rgba(233, 158, 37, 0.12)),
+        #fff;
+    }
+    .tepo-hero-art svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      min-height: 20rem;
+    }
+    .hero-card .author-line,
+    .hero-card .meeting-line {
+      margin: 0;
+      color: var(--body);
+      font-size: 0.82rem;
+    }
+    .hero-card .meeting-line {
+      border-top: 1px solid rgba(36, 55, 112, 0.18);
+      padding-top: 0.72rem;
+    }
+    .metric-card p,
+    .panel p,
+    .table-card p {
+      margin: 0.45rem 0 0;
+      font-size: 0.86rem;
+    }
+    .metric-card strong small {
+      display: inline;
+      color: inherit;
+      font-size: 0.52em;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+    .utility-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-top: 0.72rem;
+    }
+    .utility-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.82rem;
+    }
+    .utility-card h3 {
+      margin-bottom: 0.62rem;
+    }
+    .utility-bars {
+      display: grid;
+      gap: 0.58rem;
+    }
+    .utility-row {
+      display: grid;
+      grid-template-columns: 7.2rem minmax(0, 1fr) 3.2rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.77rem;
+      font-weight: 850;
+    }
+    .utility-track {
+      height: 0.86rem;
+      overflow: hidden;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 999px;
+      background: #edf2f8;
+    }
+    .utility-track i {
+      display: block;
+      width: calc(var(--value) * 100%);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--red));
+    }
+    .utility-card.eq5d .utility-track i {
+      background: linear-gradient(90deg, var(--purple), var(--gold));
+    }
+    .trial-flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.7rem;
+    }
+    .flow-step {
+      position: relative;
+      min-height: 10.6rem;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.82rem;
+    }
+    .flow-step::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 0.32rem;
+      background: var(--accent, var(--red));
+    }
+    .flow-step:nth-child(2) { --accent: var(--gold); }
+    .flow-step:nth-child(3) { --accent: var(--teal); }
+    .flow-step:nth-child(4) { --accent: var(--purple); }
+    .flow-step span {
+      display: inline-grid;
+      width: 2rem;
+      height: 2rem;
+      place-items: center;
+      margin-bottom: 0.58rem;
+      border-radius: 50%;
+      background: var(--surface-blue);
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-weight: 900;
+    }
+    .flow-step p {
+      margin-top: 0.45rem;
+      font-size: 0.82rem;
+    }
+    .schedule-rail {
+      display: grid;
+      grid-template-columns: repeat(10, minmax(0, 1fr));
+      gap: 0.38rem;
+      margin-top: 0.85rem;
+    }
+    .visit {
+      min-height: 4.6rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 7px;
+      background: var(--surface-blue);
+      padding: 0.48rem 0.36rem;
+      text-align: center;
+    }
+    .visit strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      line-height: 1;
+    }
+    .visit span {
+      display: block;
+      margin-top: 0.28rem;
+      color: var(--muted);
+      font-size: 0.62rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .patient-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 1rem;
+      align-items: center;
+      margin-top: 0.7rem;
+    }
+    .donut-wrap {
+      display: grid;
+      place-items: center;
+    }
+    .donut-wrap svg {
+      width: min(100%, 15rem);
+      height: auto;
+    }
+    .number-cloud .number-pill {
+      background: #fff;
+    }
+    .stability-chart {
+      margin-top: 0.78rem;
+      overflow: hidden;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 8px;
+      background: #fff;
+    }
+    .stability-chart svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .correlation-card {
+      display: grid;
+      grid-template-columns: 9rem minmax(0, 1fr);
+      gap: 0.9rem;
+      align-items: center;
+      margin-top: 0.7rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--surface-blue), #fff);
+      padding: 0.8rem;
+    }
+    .correlation-card strong {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      line-height: 1;
+    }
+    .correlation-card span {
+      display: block;
+      margin-top: 0.18rem;
+      color: var(--muted);
+      font-size: 0.66rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .callout {
+      border: 1px solid rgba(209, 38, 48, 0.3);
+      border-left: 5px solid var(--red);
+      border-radius: 8px;
+      background: #fff;
+      padding: 1rem;
+    }
+    .callout p {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 850;
+      line-height: 1.35;
+    }
+    @media (max-width: 900px) {
+      .trial-flow,
+      .schedule-rail {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .utility-grid,
+      .patient-grid,
+      .correlation-card {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 560px) {
+      .trial-flow,
+      .schedule-rail,
+      .utility-grid {
+        grid-template-columns: 1fr;
+      }
+      .utility-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP infographic home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/44-US-PROs-Tepotinib-for-MET-exon-14-skipping-NSCLC_2021.pdf">PDF Source</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/44-US-PROs-Tepotinib-for-MET-exon-14-skipping-NSCLC_2021.md">Markdown Source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2021 | VISION Cohort A | Patient-reported outcomes</p>
+        <h1 id="poster-title">US health utility in advanced NSCLC patients harboring MET exon 14 skipping mutations treated with tepotinib</h1>
+        <p class="hero-summary">A Phase II VISION analysis translated repeated EORTC QLQ-C30 and EQ-5D-5L patient-reported outcomes into US-weighted utility values for people receiving once-daily tepotinib for METex14 skipping NSCLC.</p>
+        <ul class="tag-row" aria-label="Poster topics">
+          <li class="tag category">Health utility</li>
+          <li class="tag therapy">METex14 NSCLC</li>
+          <li class="tag">Tepotinib</li>
+          <li class="tag">EORTC QLU-C10D</li>
+          <li class="tag">EQ-5D</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div class="poster-code">2021<br>VISION PROs</div>
+        <p class="author-line">Paul K. Paik; Mo Yang; Emma Knowles; Anthony Hatswell; Simone Lang; Bruce Gaumond; Manuel Reister; Helene Vioix; Frank Xiaoqing Liu</p>
+        <dl class="meta-grid">
+          <div>
+            <dt>Trial</dt>
+            <dd>NCT02864992</dd>
+          </div>
+          <div>
+            <dt>Design</dt>
+            <dd>Phase II open-label</dd>
+          </div>
+          <div>
+            <dt>Data cutoff</dt>
+            <dd>July 1, 2020</dd>
+          </div>
+          <div>
+            <dt>Meeting</dt>
+            <dd>NASP virtual</dd>
+          </div>
+        </dl>
+        <p class="meeting-line">Presented at the NASP Annual Meeting, September 27-30, 2021, after original acceptance at ASCO QCS.</p>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Patients analyzed</span>
+          <strong>151</strong>
+          <p>confirmed METex14 skipping NSCLC patients included in the HRQoL analysis.</p>
+        </article>
+        <article class="metric-card">
+          <span>Median age</span>
+          <strong>73<small> yr</small></strong>
+          <p>elderly population; 73.5% had ECOG performance status 1.</p>
+        </article>
+        <article class="metric-card">
+          <span>Utility observations</span>
+          <strong>983</strong>
+          <p>EORTC QLU-C10D observations; 907 EQ-5D observations were also analyzed.</p>
+        </article>
+        <article class="metric-card">
+          <span>Follow-up</span>
+          <strong>16.4<small> mo</small></strong>
+          <p>median overall survival follow-up, with range 0.3 to 43.3 months.</p>
+        </article>
+      </section>
+
+      <section class="visual-grid" aria-label="Objective and concept visual">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Convert trial PROs into utility evidence for HTA-relevant health states</h2>
+          <p>The analysis used PRO data collected in VISION Cohort A to estimate health utilities in tepotinib-treated patients with METex14 skipping NSCLC, including baseline, pre-progression, and post-progression health states.</p>
+          <div class="number-cloud">
+            <div class="number-pill">500 mg<small>tepotinib daily*</small></div>
+            <div class="number-pill">0-1<small>ECOG PS</small></div>
+            <div class="number-pill">1L-3L<small>treatment setting</small></div>
+          </div>
+          <p>*Containing 450 mg active moiety.</p>
+        </article>
+        <article class="tepo-hero-art" aria-label="Infographic illustration of utility measurement">
+          <svg viewBox="0 0 520 350" role="img">
+            <defs>
+              <linearGradient id="cellGrad" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#187c8f"></stop>
+                <stop offset="1" stop-color="#d12630"></stop>
+              </linearGradient>
+              <linearGradient id="lineGrad" x1="0" x2="1">
+                <stop offset="0" stop-color="#7561a8"></stop>
+                <stop offset="1" stop-color="#e99e25"></stop>
+              </linearGradient>
+            </defs>
+            <rect x="42" y="44" width="436" height="258" rx="20" fill="#ffffff" stroke="#aebbd2" stroke-width="3"></rect>
+            <circle cx="145" cy="148" r="66" fill="#eef4fb" stroke="#187c8f" stroke-width="4"></circle>
+            <path d="M113 145c21-39 45-39 66 0M105 178c28 24 57 24 85 0" fill="none" stroke="#243770" stroke-width="9" stroke-linecap="round"></path>
+            <circle cx="121" cy="138" r="8" fill="#d12630"></circle>
+            <circle cx="169" cy="138" r="8" fill="#d12630"></circle>
+            <rect x="238" y="84" width="162" height="30" rx="8" fill="#243770"></rect>
+            <rect x="238" y="132" width="204" height="18" rx="6" fill="#d9e1ef"></rect>
+            <rect x="238" y="166" width="176" height="18" rx="6" fill="#d9e1ef"></rect>
+            <rect x="238" y="200" width="130" height="18" rx="6" fill="#d9e1ef"></rect>
+            <path d="M102 266h75l52-55 60 35 93-94" fill="none" stroke="url(#lineGrad)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"></path>
+            <circle cx="102" cy="266" r="10" fill="#7561a8"></circle>
+            <circle cx="229" cy="211" r="10" fill="#e99e25"></circle>
+            <circle cx="382" cy="152" r="10" fill="url(#cellGrad)"></circle>
+            <text x="260" y="104" fill="#fff" font-family="Montserrat, Arial, sans-serif" font-size="16" font-weight="900">PRO responses</text>
+            <text x="116" y="307" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="18" font-weight="900">utility states</text>
+          </svg>
+        </article>
+      </section>
+
+      <section aria-label="Evidence flow">
+        <p class="section-label">Methods flow</p>
+        <h2>From VISION assessments to US-weighted utilities</h2>
+        <div class="trial-flow">
+          <article class="flow-step">
+            <span>1</span>
+            <h3>Enroll MET-altered advanced NSCLC</h3>
+            <p>Cohort A focused on METex14 skipping disease in an open-label, multicenter, multicohort Phase II trial.</p>
+          </article>
+          <article class="flow-step">
+            <span>2</span>
+            <h3>Treat once daily</h3>
+            <p>Tepotinib 500 mg was given until progression, intolerable toxicity, or consent withdrawal.</p>
+          </article>
+          <article class="flow-step">
+            <span>3</span>
+            <h3>Collect PRO instruments</h3>
+            <p>EORTC QLQ-C30 and EQ-5D-5L were collected repeatedly through treatment, end of treatment, and safety follow-up.</p>
+          </article>
+          <article class="flow-step">
+            <span>4</span>
+            <h3>Model utility by health state</h3>
+            <p>Linear mixed models used patient random intercepts plus fixed effects for baseline utility and progression status.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="visual-grid" aria-label="Assessment schedule and baseline characteristics">
+        <article class="panel">
+          <p class="section-label">PRO assessment rhythm</p>
+          <h2>Repeated quality-of-life capture through week 73, then follow-up</h2>
+          <div class="schedule-rail" aria-label="Assessment weeks">
+            <div class="visit"><strong>1</strong><span>baseline</span></div>
+            <div class="visit"><strong>7</strong><span>treatment</span></div>
+            <div class="visit"><strong>13</strong><span>treatment</span></div>
+            <div class="visit"><strong>19</strong><span>treatment</span></div>
+            <div class="visit"><strong>25</strong><span>treatment</span></div>
+            <div class="visit"><strong>31</strong><span>treatment</span></div>
+            <div class="visit"><strong>37</strong><span>treatment</span></div>
+            <div class="visit"><strong>49</strong><span>treatment</span></div>
+            <div class="visit"><strong>61</strong><span>treatment</span></div>
+            <div class="visit"><strong>73</strong><span>treatment</span></div>
+          </div>
+          <p>Assessments also occurred at end of treatment and at safety follow-up. Figures excluded visits with 10 or fewer patients except end-of-treatment or 30-day safety follow-up.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Patient mix</p>
+          <h2>A mostly older cohort with frequent prior therapy</h2>
+          <div class="patient-grid">
+            <div class="donut-wrap">
+              <svg viewBox="0 0 220 220" aria-label="Prior therapy percentage">
+                <circle cx="110" cy="110" r="78" fill="none" stroke="#d9e1ef" stroke-width="26"></circle>
+                <circle cx="110" cy="110" r="78" fill="none" stroke="#d12630" stroke-width="26" stroke-dasharray="266 490" transform="rotate(-90 110 110)"></circle>
+                <circle cx="110" cy="110" r="50" fill="#fff" stroke="#aebbd2" stroke-width="2"></circle>
+                <text x="110" y="104" text-anchor="middle" fill="#d12630" font-size="34" font-family="Montserrat, Arial, sans-serif" font-weight="900">54.3%</text>
+                <text x="110" y="130" text-anchor="middle" fill="#68758d" font-size="12" font-family="Inter, Arial, sans-serif" font-weight="850">prior therapy</text>
+              </svg>
+            </div>
+            <div class="number-cloud">
+              <div class="number-pill">52.3%<small>male</small></div>
+              <div class="number-pill">73.5%<small>ECOG PS 1</small></div>
+              <div class="number-pill">51.7%<small>nicotine history</small></div>
+              <div class="number-pill">150<small>patients in models</small></div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel" aria-label="Utility results">
+        <p class="section-label">Estimated utilities by IRC-assessed progression status</p>
+        <h2>Utilities rose during the progression-free period and declined after progression</h2>
+        <div class="utility-grid">
+          <article class="utility-card">
+            <h3>EORTC QLU-C10D</h3>
+            <div class="utility-bars">
+              <div class="utility-row"><span>Baseline</span><span class="utility-track"><i style="--value:0.691"></i></span><span>0.691</span></div>
+              <div class="utility-row"><span>Pre-progression</span><span class="utility-track"><i style="--value:0.722"></i></span><span>0.722</span></div>
+              <div class="utility-row"><span>Post-progression</span><span class="utility-track"><i style="--value:0.671"></i></span><span>0.671</span></div>
+            </div>
+          </article>
+          <article class="utility-card eq5d">
+            <h3>EQ-5D</h3>
+            <div class="utility-bars">
+              <div class="utility-row"><span>Baseline</span><span class="utility-track"><i style="--value:0.727"></i></span><span>0.727</span></div>
+              <div class="utility-row"><span>Pre-progression</span><span class="utility-track"><i style="--value:0.787"></i></span><span>0.787</span></div>
+              <div class="utility-row"><span>Post-progression</span><span class="utility-track"><i style="--value:0.733"></i></span><span>0.733</span></div>
+            </div>
+          </article>
+        </div>
+        <p>EORTC QLU-C10D utilities were derived from EORTC QLQ-C30 responses using US value sets. EQ-5D-5L data were mapped to EQ-5D-3L and scored with US weights.</p>
+      </section>
+
+      <section class="visual-grid" aria-label="Quality of life stability and correlation">
+        <article class="panel">
+          <p class="section-label">Global health and VAS pattern</p>
+          <h2>Mean changes stayed inside the +/-10 point meaningful-change band</h2>
+          <div class="stability-chart" aria-label="Line chart showing stable mean change through week 84">
+            <svg viewBox="0 0 560 240" role="img">
+              <rect x="0" y="0" width="560" height="240" fill="#fff"></rect>
+              <line x1="58" y1="48" x2="518" y2="48" stroke="#d12630" stroke-width="2" stroke-dasharray="8 7"></line>
+              <line x1="58" y1="120" x2="518" y2="120" stroke="#aebbd2" stroke-width="2"></line>
+              <line x1="58" y1="192" x2="518" y2="192" stroke="#d12630" stroke-width="2" stroke-dasharray="8 7"></line>
+              <path d="M58 106 L104 84 L150 84 L196 84 L242 84 L288 84 L334 84 L380 84 L426 84 L472 84 L518 156" fill="none" stroke="#187c8f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M58 106 L104 84 L150 84 L196 84 L242 84 L288 84 L334 84 L380 84 L426 84 L472 84 L518 156" fill="none" stroke="#e99e25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="5 6"></path>
+              <text x="16" y="52" fill="#68758d" font-size="13" font-family="Inter, Arial, sans-serif">+10</text>
+              <text x="24" y="124" fill="#68758d" font-size="13" font-family="Inter, Arial, sans-serif">0</text>
+              <text x="18" y="196" fill="#68758d" font-size="13" font-family="Inter, Arial, sans-serif">-10</text>
+              <text x="58" y="222" fill="#68758d" font-size="12" font-family="Inter, Arial, sans-serif">6</text>
+              <text x="146" y="222" fill="#68758d" font-size="12" font-family="Inter, Arial, sans-serif">18</text>
+              <text x="238" y="222" fill="#68758d" font-size="12" font-family="Inter, Arial, sans-serif">30</text>
+              <text x="330" y="222" fill="#68758d" font-size="12" font-family="Inter, Arial, sans-serif">42</text>
+              <text x="420" y="222" fill="#68758d" font-size="12" font-family="Inter, Arial, sans-serif">72</text>
+              <text x="501" y="222" fill="#68758d" font-size="12" font-family="Inter, Arial, sans-serif">EoT</text>
+              <text x="388" y="36" fill="#d12630" font-size="12" font-family="Inter, Arial, sans-serif" font-weight="850">minimal clinically important difference</text>
+            </svg>
+          </div>
+          <p>EORTC QLQ-C30 global health and EQ-5D-5L VAS scores showed stable quality of life over time up to 84 weeks, with end-of-treatment values trending lower.</p>
+        </article>
+        <article class="panel">
+          <p class="section-label">Instrument alignment</p>
+          <h2>Matched utility instruments moved together</h2>
+          <div class="correlation-card">
+            <div>
+              <strong>0.681</strong>
+              <span>Pearson correlation</span>
+            </div>
+            <p>Matched EORTC QLU-C10D and EQ-5D utilities from the same visit were highly correlated, supporting broadly similar utility signals from both instruments.</p>
+          </div>
+          <div class="number-cloud">
+            <div class="number-pill">0.722<small>EORTC pre-PD</small></div>
+            <div class="number-pill">0.787<small>EQ-5D pre-PD</small></div>
+            <div class="number-pill">0.671<small>EORTC post-PD</small></div>
+            <div class="number-pill">0.733<small>EQ-5D post-PD</small></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Table patterns and conclusion">
+        <article class="table-card">
+          <p class="section-label">Table pattern</p>
+          <h2>IRC and investigator assessments told the same utility story</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Assessment basis</th>
+                  <th>EORTC pre / post</th>
+                  <th>EQ-5D pre / post</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>IRC-assessed progression</td>
+                  <td>0.722 / 0.671</td>
+                  <td>0.787 / 0.733</td>
+                </tr>
+                <tr>
+                  <td>Investigator-assessed progression</td>
+                  <td>0.719 / 0.669</td>
+                  <td>0.785 / 0.726</td>
+                </tr>
+                <tr>
+                  <td>Interpretation</td>
+                  <td colspan="2">Higher utilities before progression, lower utilities after progression.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+        <article class="callout">
+          <p>Conclusion: VISION was reported as the first MET inhibitor trial to provide health-utility evidence in METex14 skipping NSCLC, with overall HRQoL remaining stable during tepotinib treatment and utility values generally moderate to high until progression.</p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer-actions" aria-label="Source files">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/44-US-PROs-Tepotinib-for-MET-exon-14-skipping-NSCLC_2021.pdf">Open original poster PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/44-US-PROs-Tepotinib-for-MET-exon-14-skipping-NSCLC_2021.md">Open extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

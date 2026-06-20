@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Development of a Specialty Pharmacy Productivity Benchmarking Model | NASP 2019</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .benchmark-hero-art {
+      position: relative;
+      min-height: 18rem;
+      overflow: hidden;
+    }
+    .benchmark-hero-art svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .branch-orbit {
+      display: grid;
+      gap: 0.52rem;
+      margin-top: 0.3rem;
+    }
+    .branch-chip {
+      display: grid;
+      grid-template-columns: 1rem 1fr auto;
+      gap: 0.48rem;
+      align-items: center;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.82);
+      padding: 0.42rem 0.5rem;
+      color: var(--ink);
+      font-size: 0.76rem;
+      font-weight: 830;
+    }
+    .branch-dot {
+      width: 0.72rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--teal);
+      box-shadow: 0 0 0 4px rgba(24, 124, 143, 0.12);
+    }
+    .branch-chip:nth-child(2) .branch-dot { background: var(--green); box-shadow: 0 0 0 4px rgba(77, 138, 103, 0.13); }
+    .branch-chip:nth-child(3) .branch-dot { background: var(--red); box-shadow: 0 0 0 4px rgba(209, 38, 48, 0.13); }
+    .branch-chip:nth-child(4) .branch-dot { background: var(--purple); box-shadow: 0 0 0 4px rgba(117, 97, 168, 0.13); }
+    .branch-chip:nth-child(5) .branch-dot { background: var(--gold); box-shadow: 0 0 0 4px rgba(233, 158, 37, 0.17); }
+    .branch-chip small {
+      color: var(--muted);
+      font-size: 0.64rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .kpi-board {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.85rem;
+      margin-top: 0.85rem;
+    }
+    .kpi-column {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #fff;
+      overflow: hidden;
+    }
+    .kpi-column h3 {
+      padding: 0.62rem 0.72rem;
+      background: var(--ink);
+      color: #fff;
+      font-size: 0.82rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .kpi-list {
+      display: grid;
+      gap: 0.42rem;
+      margin: 0;
+      padding: 0.72rem;
+      list-style: none;
+    }
+    .kpi-list li {
+      border-left: 4px solid var(--red);
+      background: var(--surface-blue);
+      padding: 0.48rem 0.56rem;
+      color: var(--ink);
+      font-size: 0.84rem;
+      font-weight: 800;
+    }
+    .kpi-column.clinical h3 { background: var(--teal); }
+    .kpi-column.clinical .kpi-list li { border-left-color: var(--teal); }
+    .workflow-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.75rem;
+    }
+    .workflow-step {
+      position: relative;
+      min-height: 8.5rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.8rem;
+    }
+    .workflow-step::before {
+      content: attr(data-step);
+      display: grid;
+      place-items: center;
+      width: 2rem;
+      aspect-ratio: 1;
+      margin-bottom: 0.5rem;
+      border-radius: 50%;
+      background: var(--red);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.84rem;
+      font-weight: 900;
+    }
+    .workflow-step:nth-child(2)::before { background: var(--gold); }
+    .workflow-step:nth-child(3)::before { background: var(--teal); }
+    .workflow-step:nth-child(4)::before { background: var(--green); }
+    .workflow-step h3 {
+      font-size: 0.94rem;
+    }
+    .workflow-step p {
+      margin: 0.38rem 0 0;
+      font-size: 0.78rem;
+    }
+    .productivity-board {
+      display: grid;
+      gap: 0.76rem;
+      margin-top: 0.86rem;
+    }
+    .productivity-row {
+      display: grid;
+      grid-template-columns: 9.8rem minmax(0, 1fr) 3.4rem;
+      gap: 0.7rem;
+      align-items: center;
+    }
+    .productivity-row .label {
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 860;
+    }
+    .benchmark-track {
+      position: relative;
+      height: 1.45rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 999px;
+      background:
+        linear-gradient(90deg, transparent 0 31.37%, rgba(77, 138, 103, 0.22) 31.37% 47.06%, transparent 47.06% 100%),
+        #eef3f8;
+      overflow: hidden;
+    }
+    .benchmark-track::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 39.22%;
+      width: 2px;
+      background: rgba(36, 55, 112, 0.38);
+    }
+    .benchmark-fill {
+      position: relative;
+      z-index: 1;
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .benchmark-fill.low { background: linear-gradient(90deg, var(--gold), var(--red)); }
+    .benchmark-fill.high { background: linear-gradient(90deg, var(--purple), var(--red)); }
+    .productivity-row .value {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 900;
+      text-align: right;
+    }
+    .goal-note {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-top: 0.78rem;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 760;
+    }
+    .goal-note span {
+      border: 1px solid rgba(77, 138, 103, 0.28);
+      border-radius: 999px;
+      background: rgba(77, 138, 103, 0.1);
+      padding: 0.22rem 0.48rem;
+      color: var(--green);
+      font-weight: 900;
+    }
+    .assessment-callout {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.8rem;
+      align-items: center;
+      margin-top: 0.75rem;
+      border: 1px solid rgba(209, 38, 48, 0.2);
+      border-radius: 8px;
+      background: linear-gradient(90deg, rgba(209, 38, 48, 0.08), rgba(255, 255, 255, 0));
+      padding: 0.78rem;
+    }
+    .assessment-callout strong {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2.6rem;
+      line-height: 1;
+    }
+    .assessment-callout p {
+      margin: 0;
+      font-size: 0.86rem;
+    }
+    .timeline-ruler {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 0.72rem;
+    }
+    .timeline-ruler svg {
+      width: 100%;
+      height: auto;
+    }
+    .future-list {
+      display: grid;
+      gap: 0.46rem;
+      margin: 0.7rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .future-list li {
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.55rem 0.65rem;
+      font-size: 0.84rem;
+    }
+    .source-note {
+      margin: 0.58rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    @media (max-width: 880px) {
+      .workflow-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .productivity-row {
+        grid-template-columns: 1fr;
+      }
+      .productivity-row .value {
+        text-align: left;
+      }
+    }
+    @media (max-width: 620px) {
+      .kpi-board,
+      .workflow-strip,
+      .assessment-callout {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar" aria-label="Infographic navigation">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav>
+        <a href="#model">Model</a>
+        <a href="#results">Results</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/33_2019.pdf">PDF source</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/33_2019.md">Markdown source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2019 Annual Meeting &amp; Expo</p>
+        <h1>Development of a Specialty Pharmacy Productivity Benchmarking Model</h1>
+        <p class="hero-summary">UK HealthCare Specialty Pharmacy piloted an internal benchmarking model that combined task counts, task time, and staffing hours to compare productivity across specialty pharmacy service lines.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Productivity benchmarking</li>
+          <li class="tag therapy">Specialty pharmacy operations</li>
+          <li class="tag">Pilot model</li>
+          <li class="tag">Internal benchmark</li>
+        </ul>
+      </div>
+      <aside class="hero-card benchmark-hero-art">
+        <div>
+          <p class="section-label">Poster file</p>
+          <div class="poster-code">33_2019</div>
+        </div>
+        <svg viewBox="0 0 420 230" role="img" aria-label="Benchmarking model illustration connecting tasks, time, and staffing to branch productivity">
+          <defs>
+            <linearGradient id="gaugeGrad" x1="0" x2="1" y1="0" y2="0">
+              <stop offset="0" stop-color="#d12630"/>
+              <stop offset="0.5" stop-color="#e99e25"/>
+              <stop offset="1" stop-color="#187c8f"/>
+            </linearGradient>
+          </defs>
+          <rect x="14" y="16" width="392" height="198" rx="20" fill="#fff" stroke="#aebbd2"/>
+          <path d="M76 152a134 134 0 0 1 268 0" fill="none" stroke="#eef4fb" stroke-width="38" stroke-linecap="round"/>
+          <path d="M76 152a134 134 0 0 1 268 0" fill="none" stroke="url(#gaugeGrad)" stroke-width="18" stroke-linecap="round"/>
+          <line x1="210" y1="152" x2="303" y2="76" stroke="#243770" stroke-width="6" stroke-linecap="round"/>
+          <circle cx="210" cy="152" r="15" fill="#243770"/>
+          <circle cx="108" cy="154" r="26" fill="#fff7ea" stroke="#e99e25" stroke-width="3"/>
+          <circle cx="210" cy="44" r="26" fill="#eef4fb" stroke="#187c8f" stroke-width="3"/>
+          <circle cx="320" cy="154" r="26" fill="#fff" stroke="#d12630" stroke-width="3"/>
+          <text x="84" y="158" fill="#243770" font-family="Inter, Arial" font-size="13" font-weight="900">tasks</text>
+          <text x="191" y="48" fill="#243770" font-family="Inter, Arial" font-size="13" font-weight="900">time</text>
+          <text x="296" y="158" fill="#243770" font-family="Inter, Arial" font-size="13" font-weight="900">staff</text>
+          <text x="147" y="190" fill="#243770" font-family="Montserrat, Arial" font-size="18" font-weight="900">productivity ratio</text>
+        </svg>
+        <dl class="meta-grid">
+          <div>
+            <dt>Setting</dt>
+            <dd>University of Kentucky</dd>
+          </div>
+          <div>
+            <dt>Study span</dt>
+            <dd>6 weeks</dd>
+          </div>
+          <div>
+            <dt>Benchmark branch</dt>
+            <dd>Inflammatory diseases</dd>
+          </div>
+          <div>
+            <dt>Goal band</dt>
+            <dd>Within 20%</dd>
+          </div>
+        </dl>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Candidate KPIs</span>
+          <strong>6</strong>
+        </article>
+        <article class="metric-card">
+          <span>Time data points</span>
+          <strong>406</strong>
+        </article>
+        <article class="metric-card">
+          <span>Pilot branches</span>
+          <strong>5</strong>
+        </article>
+        <article class="metric-card">
+          <span>Oncology ratio</span>
+          <strong>2.55</strong>
+        </article>
+      </section>
+
+      <section class="visual-grid" id="model">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Build a usable internal yardstick for specialty pharmacy work</h2>
+          <div class="markdown-fragment">
+            <p>The pilot aimed to develop a novel internal benchmarking model for specialty pharmacy productivity, a workflow area without a validated productivity model.</p>
+          </div>
+          <div class="kpi-board" aria-label="Key performance indicators by workflow type">
+            <div class="kpi-column">
+              <h3>Intake</h3>
+              <ul class="kpi-list">
+                <li>Prior authorizations</li>
+                <li>Appeals</li>
+                <li>Financial assistance</li>
+              </ul>
+            </div>
+            <div class="kpi-column clinical">
+              <h3>Clinical management</h3>
+              <ul class="kpi-list">
+                <li>Onboarding and patient education</li>
+                <li>Clinical assessments</li>
+                <li>Care plan activities</li>
+              </ul>
+            </div>
+          </div>
+          <p class="source-note">Figure 1 pattern extracted from the markdown source.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Pilot map</p>
+          <h2>Five service lines entered the model</h2>
+          <div class="branch-orbit" aria-label="Branches and included disease states">
+            <div class="branch-chip"><i class="branch-dot"></i><span>Oncology</span><small>branch</small></div>
+            <div class="branch-chip"><i class="branch-dot"></i><span>Pulmonary</span><small>IPF, CF</small></div>
+            <div class="branch-chip"><i class="branch-dot"></i><span>Inflammatory diseases</span><small>benchmark</small></div>
+            <div class="branch-chip"><i class="branch-dot"></i><span>Neurology</span><small>MS</small></div>
+            <div class="branch-chip"><i class="branch-dot"></i><span>Infectious diseases</span><small>viral hepatitis</small></div>
+          </div>
+          <div class="timeline-ruler">
+            <svg viewBox="0 0 640 150" role="img" aria-label="Data collection timeline from December 2018 to February 2019 with hiatus">
+              <rect x="18" y="44" width="604" height="48" rx="24" fill="#eef4fb" stroke="#aebbd2"/>
+              <line x1="62" y1="68" x2="578" y2="68" stroke="#243770" stroke-width="7" stroke-linecap="round"/>
+              <rect x="230" y="54" width="145" height="28" rx="14" fill="#fff7ea" stroke="#e99e25" stroke-width="2"/>
+              <circle cx="62" cy="68" r="13" fill="#d12630"/>
+              <circle cx="578" cy="68" r="13" fill="#187c8f"/>
+              <text x="43" y="116" fill="#243770" font-family="Inter, Arial" font-size="15" font-weight="900">Dec 2018</text>
+              <text x="236" y="73" fill="#243770" font-family="Inter, Arial" font-size="12" font-weight="900">12/22-1/7 hiatus</text>
+              <text x="518" y="116" fill="#243770" font-family="Inter, Arial" font-size="15" font-weight="900">Feb 2019</text>
+              <text x="237" y="26" fill="#33415c" font-family="Inter, Arial" font-size="14">weekly uploads to secured intranet folder</text>
+            </svg>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Method engine</p>
+        <h2>Raw work volume plus measured time became a branch-level productivity ratio</h2>
+        <div class="workflow-strip" aria-label="Benchmarking method flow">
+          <article class="workflow-step" data-step="1">
+            <h3>Capture task time</h3>
+            <p>Pharmacists used an Excel reporting tool to record time spent completing each KPI.</p>
+          </article>
+          <article class="workflow-step" data-step="2">
+            <h3>Collect task counts</h3>
+            <p>Raw task numbers came from the patient management system or enrollment counts.</p>
+          </article>
+          <article class="workflow-step" data-step="3">
+            <h3>Add staffing hours</h3>
+            <p>Median task time, raw volume, and staffing hours were combined for each branch.</p>
+          </article>
+          <article class="workflow-step" data-step="4">
+            <h3>Compare to benchmark</h3>
+            <p>Inflammatory diseases served as the reference branch because workflows were more mature.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="visual-grid" id="results">
+        <article class="panel">
+          <p class="section-label">Benchmarked result</p>
+          <h2>Most branches clustered near the benchmark, but two stood apart</h2>
+          <div class="productivity-board" aria-label="Ratio activity level versus benchmark by branch">
+            <div class="productivity-row">
+              <div class="label">Pulmonary</div>
+              <div class="benchmark-track"><i class="benchmark-fill low" style="width:25.1%"></i></div>
+              <div class="value">0.64</div>
+            </div>
+            <div class="productivity-row">
+              <div class="label">Neurology</div>
+              <div class="benchmark-track"><i class="benchmark-fill" style="width:32.5%"></i></div>
+              <div class="value">0.83</div>
+            </div>
+            <div class="productivity-row">
+              <div class="label">Infectious Diseases</div>
+              <div class="benchmark-track"><i class="benchmark-fill" style="width:32.9%"></i></div>
+              <div class="value">0.84</div>
+            </div>
+            <div class="productivity-row">
+              <div class="label">Inflammatory Diseases</div>
+              <div class="benchmark-track"><i class="benchmark-fill" style="width:39.2%"></i></div>
+              <div class="value">1.00</div>
+            </div>
+            <div class="productivity-row">
+              <div class="label">Oncology</div>
+              <div class="benchmark-track"><i class="benchmark-fill high" style="width:100%"></i></div>
+              <div class="value">2.55</div>
+            </div>
+          </div>
+          <div class="goal-note">
+            <span>Goal range: 0.80 to 1.20</span>
+            Neurology and infectious diseases were within 20% of the inflammatory diseases benchmark.
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Time signal</p>
+          <h2>Clinical assessments revealed the clearest branch difference</h2>
+          <div class="assessment-callout">
+            <strong>2x</strong>
+            <p>Oncology pharmacists spent about twice as long on clinical assessments compared with other branches: 14.86 minutes versus 7.23 minutes; p&lt;0.0001.</p>
+          </div>
+          <div class="markdown-fragment">
+            <p>Intake activities tied to new prescriptions, including prior authorizations, appeals, and financial assistance, had low response rates and were dropped from the final analysis. The final comparison therefore focused on clinical activities.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="evidence-map" aria-label="Evidence flow">
+        <article class="evidence-card">
+          <h3>Need</h3>
+          <p>Specialty pharmacy lacked a validated model to evaluate productivity across workflows.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Measure</h3>
+          <p>The model paired time reporting with system-derived task counts and staffing hours.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Benchmark</h3>
+          <p>Inflammatory diseases anchored the comparison because of perceived maturity and workload.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Limit</h3>
+          <p>Pharmacist buy-in, intake response rates, workflow variation, and EHR differences affected results.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Next</h3>
+          <p>The next phase adds technicians, expands KPIs, shifts to REDCap, and extends collection to four months.</p>
+        </article>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">Conclusion</p>
+          <h2>A pilot model proved feasible, but the model needs broader capture</h2>
+          <div class="markdown-fragment">
+            <p>The poster concluded that a novel productivity benchmarking model could aggregate and compare activity across multiple specialty pharmacy service lines.</p>
+            <p>The authors emphasized that intake work and operational differences must be better represented before the model can mature into a fuller productivity system.</p>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Future buildout</p>
+          <h2>From pilot KPIs to a larger operational panel</h2>
+          <ul class="future-list">
+            <li>Include technician and pharmacist activities.</li>
+            <li>Add benefits investigation, refills, consults, cold-chain metrics, interventions, and laboratory review.</li>
+            <li>Use REDCap with a four-month collection window and fewer fixed KPI windows.</li>
+            <li>Improve participation through education, check-ins, and lower workflow burden.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="tables-grid">
+        <article class="table-card">
+          <p class="section-label">Extracted table</p>
+          <h2>Productivity ratios by branch</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Branch</th>
+                  <th>Ratio vs. benchmark</th>
+                  <th>Readout</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Pulmonary</td>
+                  <td>0.64</td>
+                  <td>Below goal band</td>
+                </tr>
+                <tr>
+                  <td>Neurology</td>
+                  <td>0.83</td>
+                  <td>Within goal band</td>
+                </tr>
+                <tr>
+                  <td>Infectious Diseases</td>
+                  <td>0.84</td>
+                  <td>Within goal band</td>
+                </tr>
+                <tr>
+                  <td>Inflammatory Diseases</td>
+                  <td>1.00</td>
+                  <td>Reference branch</td>
+                </tr>
+                <tr>
+                  <td>Oncology</td>
+                  <td>2.55</td>
+                  <td>Above benchmark</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Source links</p>
+          <h2>Poster materials</h2>
+          <div class="markdown-fragment">
+            <p><strong>Authors:</strong> Thom Platt; Rushabh Shah; Wendy Ramey; Meghan Driggs; Samantha Bochenek.</p>
+            <p><strong>Affiliation:</strong> University of Kentucky HealthCare Specialty Pharmacy &amp; Infusion Services, Lexington, Kentucky.</p>
+          </div>
+          <div class="footer-actions">
+            <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/33_2019.pdf">Open poster PDF</a>
+            <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/33_2019.md">Open extracted markdown</a>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2025 Infographic | Health Literacy Tool for MS Specialty Medications</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -4.6rem;
+      bottom: -4.2rem;
+      width: 14rem;
+      height: 14rem;
+      border: 1.8rem solid rgba(24, 124, 143, 0.13);
+      border-radius: 50%;
+    }
+    .hero-visual {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 22rem;
+      margin: 0.2rem auto 0;
+    }
+    .hero-visual svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .authors {
+      max-width: 48rem;
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+    .hero-card .button-link {
+      position: relative;
+      z-index: 1;
+      justify-content: center;
+      background: #fff;
+    }
+    .compact-list {
+      margin: 0.62rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .compact-list li {
+      display: grid;
+      grid-template-columns: 0.82rem minmax(0, 1fr);
+      gap: 0.48rem;
+      margin-top: 0.44rem;
+      font-size: 0.88rem;
+    }
+    .compact-list li::before {
+      content: "";
+      width: 0.54rem;
+      height: 0.54rem;
+      margin-top: 0.42rem;
+      border-radius: 50%;
+      background: var(--red);
+    }
+    .screening-flow {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.8rem;
+    }
+    .flow-step {
+      position: relative;
+      min-height: 10.2rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.86rem;
+    }
+    .flow-step::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -0.53rem;
+      width: 0.78rem;
+      height: 0.78rem;
+      border-top: 2px solid var(--border-strong);
+      border-right: 2px solid var(--border-strong);
+      background: #fff;
+      transform: translateY(-50%) rotate(45deg);
+    }
+    .flow-step:last-child::after {
+      display: none;
+    }
+    .flow-step b {
+      display: inline-grid;
+      place-items: center;
+      width: 1.7rem;
+      height: 1.7rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+    }
+    .flow-step h3 {
+      margin-top: 0.5rem;
+    }
+    .flow-step p {
+      margin: 0.4rem 0 0;
+      font-size: 0.82rem;
+    }
+    .score-ladder {
+      display: grid;
+      gap: 0.58rem;
+      margin-top: 0.65rem;
+    }
+    .score-band {
+      display: grid;
+      grid-template-columns: 4.8rem minmax(0, 1fr);
+      gap: 0.55rem;
+      align-items: stretch;
+      min-height: 4.7rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface-blue);
+      overflow: hidden;
+    }
+    .score-band strong {
+      display: grid;
+      place-items: center;
+      background: var(--band-color, var(--red));
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      line-height: 1;
+      text-align: center;
+    }
+    .score-band div {
+      padding: 0.58rem 0.58rem 0.58rem 0;
+    }
+    .score-band span {
+      display: block;
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 900;
+    }
+    .score-band p {
+      margin: 0.2rem 0 0;
+      font-size: 0.78rem;
+    }
+    .practice-bars .lens-row {
+      grid-template-columns: 11.5rem minmax(0, 1fr) 4.8rem;
+    }
+    .practice-bars .lens-row em {
+      color: var(--ink);
+      font-style: normal;
+      font-size: 0.78rem;
+      font-weight: 850;
+      text-align: right;
+    }
+    .gap-card {
+      position: relative;
+      min-height: 18rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(36, 55, 112, 0.96), rgba(117, 97, 168, 0.9)),
+        radial-gradient(circle at 86% 16%, rgba(233, 158, 37, 0.36), transparent 17rem);
+      color: #fff;
+      overflow: hidden;
+      padding: 1rem;
+    }
+    .gap-card svg {
+      position: absolute;
+      right: -1.5rem;
+      bottom: -1.7rem;
+      width: min(23rem, 62%);
+      opacity: 0.72;
+    }
+    .gap-card .kicker {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+    .gap-card strong {
+      display: block;
+      margin-top: 0.18rem;
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 7vw, 5.2rem);
+      line-height: 0.92;
+    }
+    .gap-card span {
+      display: block;
+      max-width: 20rem;
+      margin-top: 0.55rem;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 0.94rem;
+    }
+    .theme-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.7rem;
+    }
+    .theme-tile {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--surface);
+      padding: 0.78rem;
+    }
+    .theme-tile h3 {
+      min-height: 2.45rem;
+      font-size: 0.94rem;
+    }
+    .theme-tile p {
+      margin: 0.45rem 0 0;
+      font-size: 0.8rem;
+    }
+    .theme-tile:nth-child(1) {
+      border-top: 4px solid var(--red);
+    }
+    .theme-tile:nth-child(2) {
+      border-top: 4px solid var(--gold);
+    }
+    .theme-tile:nth-child(3) {
+      border-top: 4px solid var(--teal);
+    }
+    .source-note {
+      margin: 0.75rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+    @media (max-width: 900px) {
+      .screening-flow,
+      .theme-grid {
+        grid-template-columns: 1fr;
+      }
+      .flow-step::after {
+        top: auto;
+        right: 50%;
+        bottom: -0.5rem;
+        transform: translateX(50%) rotate(135deg);
+      }
+      .practice-bars .lens-row {
+        grid-template-columns: 1fr;
+      }
+      .practice-bars .lens-row em {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#objective">Objective</a>
+        <a href="#workflow">Workflow</a>
+        <a href="#results">Results</a>
+        <a href="#takeaways">Takeaways</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2025 | 1186-OPR70-OR</p>
+        <h1>Health Literacy Tool For Multiple Sclerosis Patients On Specialty Medications</h1>
+        <p class="hero-summary">
+          A UCSF Health specialty pharmacy team tested whether the Brief Health Literacy Screen could help pharmacists identify patients with multiple sclerosis who need tailored medication education.
+        </p>
+        <p class="authors">
+          Danielle Munoz, PharmD; Kathryn Gallison, PharmD Candidate; Mackenzie Clark, PharmD; Lisa Kroon, PharmD; Myra Pascua, PharmD
+        </p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag therapy">Multiple sclerosis</li>
+          <li class="tag category">Health literacy</li>
+          <li class="tag">Specialty medications</li>
+          <li class="tag">Screening workflow</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div class="poster-code">OPR70<br>OR</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Year</dt>
+            <dd>2025</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>MS clinic</dd>
+          </div>
+          <div>
+            <dt>Tool</dt>
+            <dd>BHLS</dd>
+          </div>
+          <div>
+            <dt>Site</dt>
+            <dd>UCSF Health</dd>
+          </div>
+        </dl>
+        <div class="hero-visual" aria-hidden="true">
+          <svg viewBox="0 0 320 230">
+            <rect x="24" y="26" width="172" height="178" rx="18" fill="#fff" stroke="#aebbd2" stroke-width="3"></rect>
+            <rect x="50" y="56" width="108" height="14" rx="7" fill="#eef4fb"></rect>
+            <rect x="50" y="88" width="96" height="10" rx="5" fill="#d9e1ef"></rect>
+            <rect x="50" y="112" width="120" height="10" rx="5" fill="#d9e1ef"></rect>
+            <rect x="50" y="136" width="82" height="10" rx="5" fill="#d9e1ef"></rect>
+            <circle cx="184" cy="68" r="33" fill="#fff7ea" stroke="#e99e25" stroke-width="5"></circle>
+            <path d="M174 70c7 7 14 7 23-5" fill="none" stroke="#243770" stroke-width="6" stroke-linecap="round"></path>
+            <circle cx="230" cy="136" r="54" fill="#eef4fb" stroke="#187c8f" stroke-width="5"></circle>
+            <path d="M218 106c-15 3-25 15-25 31 0 19 14 34 34 34 19 0 35-14 35-33 0-15-9-27-22-32" fill="#fff" stroke="#187c8f" stroke-width="4"></path>
+            <path d="M219 122c-6 8-6 20 1 28M238 122c7 8 8 20 0 29M211 139h37" fill="none" stroke="#d12630" stroke-width="5" stroke-linecap="round"></path>
+            <path d="M184 104c12 4 24 12 34 24" fill="none" stroke="#d12630" stroke-width="5" stroke-linecap="round" stroke-dasharray="2 10"></path>
+          </svg>
+        </div>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/1186-OPR70-OR-Poster-AM25_2025.pdf">Open Source PDF</a>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key metrics">
+        <article class="metric-card">
+          <span>Participating pharmacists</span>
+          <strong>11</strong>
+        </article>
+        <article class="metric-card">
+          <span>Currently assess literacy</span>
+          <strong>86%</strong>
+        </article>
+        <article class="metric-card">
+          <span>Aware of APeX SDOH item</span>
+          <strong>12%</strong>
+        </article>
+        <article class="metric-card">
+          <span>Post-screen use: never</span>
+          <strong>83%</strong>
+        </article>
+      </section>
+
+      <section id="objective" class="section-stack">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Find patients who need education beyond standard counseling</h2>
+          <div class="markdown-fragment">
+            <p>
+              The project aimed to develop a health literacy screening approach focused on patients' understanding of their condition, rather than only comprehension or arithmetic.
+            </p>
+            <ul>
+              <li>Low health literacy can limit understanding of MS and specialty medication instructions.</li>
+              <li>Cognitive symptoms in MS can affect memory, attention, processing, visual-spatial function, and verbal fluency.</li>
+              <li>The operational goal was to identify who may benefit from additional tailored medication education.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Screening thresholds</p>
+          <h2>BHLS creates three action bands</h2>
+          <div class="score-ladder" aria-label="Brief Health Literacy Screen scoring bands">
+            <div class="score-band" style="--band-color: var(--red);">
+              <strong>3-9</strong>
+              <div>
+                <span>Limited health literacy</span>
+                <p>Patient requires additional tailored education or low-literacy medication materials.</p>
+              </div>
+            </div>
+            <div class="score-band" style="--band-color: var(--gold);">
+              <strong>10-12</strong>
+              <div>
+                <span>Marginal health literacy</span>
+                <p>Patient may benefit from additional medication education.</p>
+              </div>
+            </div>
+            <div class="score-band" style="--band-color: var(--green);">
+              <strong>13-15</strong>
+              <div>
+                <span>Adequate health literacy</span>
+                <p>Patient is considered proficient and does not need additional education.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section id="workflow" class="panel">
+        <p class="section-label">Methods</p>
+        <h2>Three-part workflow: baseline practice, BHLS screening, post-use feedback</h2>
+        <div class="screening-flow">
+          <article class="flow-step">
+            <b>1</b>
+            <h3>Pre-screening survey</h3>
+            <p>Asked pharmacists whether they assess health literacy, what screening tools they use, and whether they review the APeX Social Drivers of Health item.</p>
+          </article>
+          <article class="flow-step">
+            <b>2</b>
+            <h3>Brief Health Literacy Screen</h3>
+            <p>Used three Likert-style questions on medical forms, help reading hospital materials, and difficulty learning from written information.</p>
+          </article>
+          <article class="flow-step">
+            <b>3</b>
+            <h3>Post-screening survey</h3>
+            <p>Assessed perceived helpfulness, implementation experience, and likelihood of continuing the tool in everyday practice.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="results" class="visual-grid" aria-label="Result visuals">
+        <article class="gap-card">
+          <p class="kicker">Central implementation gap</p>
+          <strong>Helpful is not enough</strong>
+          <span>
+            The poster reports that most pharmacists found BHLS helpful, but continuation was limited because the next-step workflow and patient resources were not standardized.
+          </span>
+          <svg viewBox="0 0 360 250" aria-hidden="true">
+            <path d="M36 179c35-65 82-98 141-98 63 0 105 35 147 98" fill="none" stroke="rgba(255,255,255,0.32)" stroke-width="18" stroke-linecap="round"></path>
+            <circle cx="84" cy="164" r="28" fill="rgba(255,255,255,0.18)" stroke="#fff" stroke-width="4"></circle>
+            <circle cx="180" cy="89" r="34" fill="rgba(255,255,255,0.18)" stroke="#e99e25" stroke-width="5"></circle>
+            <circle cx="276" cy="164" r="28" fill="rgba(255,255,255,0.18)" stroke="#fff" stroke-width="4"></circle>
+            <path d="M161 87l13 13 29-34" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M65 164h38M257 164h38" stroke="#fff" stroke-width="7" stroke-linecap="round"></path>
+            <path d="M276 145v38" stroke="#fff" stroke-width="7" stroke-linecap="round"></path>
+          </svg>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Pre-screening practice patterns</p>
+          <h2>Existing assessment relied on informal review and interview</h2>
+          <div class="lens-chart practice-bars">
+            <div class="lens-row">
+              <span>Chart review</span>
+              <div class="lens-bar"><i style="width: 83%;"></i></div>
+              <em>83% (5)</em>
+            </div>
+            <div class="lens-row">
+              <span>Patient interview</span>
+              <div class="lens-bar"><i style="width: 83%;"></i></div>
+              <em>83% (5)</em>
+            </div>
+            <div class="lens-row">
+              <span>Other tool</span>
+              <div class="lens-bar"><i style="width: 17%;"></i></div>
+              <em>17% (1)</em>
+            </div>
+            <div class="lens-row">
+              <span>Aware of SDOH item</span>
+              <div class="lens-bar"><i style="width: 12%;"></i></div>
+              <em>12% (1)</em>
+            </div>
+            <div class="lens-row">
+              <span>Would never complete SDOH item</span>
+              <div class="lens-bar"><i style="width: 64%;"></i></div>
+              <em>64% (5)</em>
+            </div>
+            <div class="lens-row">
+              <span>Post-screen: never use</span>
+              <div class="lens-bar"><i style="width: 83%;"></i></div>
+              <em>83% (5)</em>
+            </div>
+          </div>
+          <p class="source-note">Percentages and denominators are transcribed from the poster tables.</p>
+        </article>
+      </section>
+
+      <section id="takeaways" class="evidence-map" aria-label="Extracted poster takeaways">
+        <article class="evidence-card">
+          <h3>Background</h3>
+          <p>Health literacy is a social determinant of health, and MS-related cognitive decline can make disease and medication education harder to absorb.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Need</h3>
+          <p>A standardized way to identify patients who need additional education was lacking in the specialty pharmacy workflow.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Tool</h3>
+          <p>BHLS offered a fast three-question screen that mapped patients into limited, marginal, or adequate literacy bands.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Barrier</h3>
+          <p>Pharmacists wanted clearer guidance on what to do after a patient screened low.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Conclusion</h3>
+          <p>Future work should pair screening with standardized handouts, medication education materials, and follow-up procedures.</p>
+        </article>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">Qualitative themes</p>
+          <h2>Post-screen feedback centered on the missing support layer</h2>
+          <div class="theme-grid">
+            <div class="theme-tile">
+              <h3>Lack of resources</h3>
+              <p>Respondents cited the need for multilingual handouts, pictorial instructions, and a standardized follow-up plan.</p>
+            </div>
+            <div class="theme-tile">
+              <h3>Incomplete workflow</h3>
+              <p>Leaving intervention steps to individual judgment made the project harder to scale across providers.</p>
+            </div>
+            <div class="theme-tile">
+              <h3>Standardized follow-up</h3>
+              <p>A basic framework or toolkit was recommended for patients identified with limited health literacy.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Table pattern</p>
+          <h2>APeX health-literacy field was visible but rarely operationalized</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>APeX / SDOH item</th>
+                  <th>Response pattern</th>
+                  <th>Percent (n)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Awareness of Social Drivers of Health section</td>
+                  <td>No</td>
+                  <td>88% (7)</td>
+                </tr>
+                <tr>
+                  <td>Review before patient education</td>
+                  <td>Yes</td>
+                  <td>0% (0)</td>
+                </tr>
+                <tr>
+                  <td>Frequency of answering SDOH health-literacy item</td>
+                  <td>Never</td>
+                  <td>64% (5)</td>
+                </tr>
+                <tr>
+                  <td>Likelihood of everyday BHLS use after pilot</td>
+                  <td>Never or rarely</td>
+                  <td>100% (6)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/1186-OPR70-OR-Poster-AM25_2025.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/1186-OPR70-OR-Poster-AM25_2025.md">Source markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

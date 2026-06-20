@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Renal Transplant CPPA Pharmacist Interventions | NASP 2020</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .transplant-hero-art {
+      position: relative;
+      min-height: 19rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 20% 22%, rgba(24, 124, 143, 0.18), transparent 7.5rem),
+        radial-gradient(circle at 78% 78%, rgba(233, 158, 37, 0.24), transparent 8rem),
+        linear-gradient(135deg, #ffffff 0%, var(--surface-blue) 58%, var(--surface-warm) 100%);
+      overflow: hidden;
+    }
+    .transplant-hero-art svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 19rem;
+    }
+    .hero-card .safety-callout {
+      margin: 0;
+      border-left: 4px solid var(--green);
+      padding-left: 0.65rem;
+      color: var(--ink);
+      font-size: 0.92rem;
+      font-weight: 850;
+    }
+    .hero-card .safety-callout strong {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+    }
+    .workflow-strip {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+    .workflow-step {
+      position: relative;
+      min-height: 10.2rem;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.82rem;
+      overflow: hidden;
+    }
+    .workflow-step::before {
+      content: attr(data-step);
+      position: absolute;
+      right: 0.5rem;
+      bottom: -0.45rem;
+      color: rgba(36, 55, 112, 0.10);
+      font-family: var(--font-display);
+      font-size: 4.2rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .workflow-step h3 {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 0.38rem;
+      color: var(--ink);
+    }
+    .workflow-step p {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      font-size: 0.8rem;
+    }
+    .workflow-step:nth-child(2) { background: linear-gradient(180deg, #fff, rgba(233, 158, 37, 0.10)); }
+    .workflow-step:nth-child(3) { background: linear-gradient(180deg, #fff, rgba(24, 124, 143, 0.10)); }
+    .workflow-step:nth-child(4) { background: linear-gradient(180deg, #fff, rgba(77, 138, 103, 0.10)); }
+    .workflow-step:nth-child(5) { background: linear-gradient(180deg, #fff, rgba(117, 97, 168, 0.10)); }
+    .audit-board {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 0.8rem;
+      align-items: stretch;
+      margin-top: 0.8rem;
+    }
+    .audit-card {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.9rem;
+    }
+    .audit-card strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      line-height: 1;
+    }
+    .audit-card span {
+      display: block;
+      margin-top: 0.32rem;
+      color: var(--body);
+      font-size: 0.82rem;
+      font-weight: 760;
+    }
+    .checklist {
+      display: grid;
+      gap: 0.38rem;
+      margin-top: 0.72rem;
+    }
+    .check {
+      display: grid;
+      grid-template-columns: 1.35rem 1fr;
+      gap: 0.42rem;
+      align-items: start;
+      color: var(--body);
+      font-size: 0.8rem;
+      font-weight: 750;
+    }
+    .check b {
+      display: grid;
+      place-items: center;
+      width: 1.1rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--green);
+      color: #fff;
+      font-size: 0.72rem;
+      line-height: 1;
+    }
+    .donut-board {
+      display: grid;
+      grid-template-columns: 15rem minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+      margin-top: 0.75rem;
+    }
+    .donut {
+      width: min(15rem, 100%);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background:
+        conic-gradient(var(--red) 0 70%, var(--teal) 70% 89%, var(--gold) 89% 100%);
+      display: grid;
+      place-items: center;
+      box-shadow: inset 0 0 0 1px rgba(36, 55, 112, 0.12);
+    }
+    .donut::after {
+      content: "3,852\A interventions";
+      white-space: pre;
+      display: grid;
+      place-items: center;
+      width: 8rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: #fff;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.22rem;
+      font-weight: 900;
+      line-height: 1.05;
+      text-align: center;
+      box-shadow: 0 0 0 1px rgba(174, 187, 210, 0.9);
+    }
+    .legend-list {
+      display: grid;
+      gap: 0.55rem;
+    }
+    .legend-item {
+      display: grid;
+      grid-template-columns: 1rem 4.2rem minmax(0, 1fr);
+      gap: 0.52rem;
+      align-items: center;
+      color: var(--body);
+      font-size: 0.83rem;
+      font-weight: 760;
+    }
+    .legend-item i {
+      display: block;
+      width: 0.9rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--red);
+    }
+    .legend-item strong {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      line-height: 1;
+    }
+    .legend-item.teal i { background: var(--teal); }
+    .legend-item.gold i { background: var(--gold); }
+    .pattern-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.75rem;
+    }
+    .pattern-card {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.82rem;
+    }
+    .pattern-card small {
+      display: inline-flex;
+      margin-bottom: 0.48rem;
+      border-radius: 999px;
+      background: rgba(36, 55, 112, 0.08);
+      padding: 0.16rem 0.48rem;
+      color: var(--ink);
+      font-size: 0.64rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .pattern-card b {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+    .pattern-card p {
+      margin: 0.42rem 0 0;
+      font-size: 0.8rem;
+    }
+    .subcategory-table td:nth-child(3),
+    .subcategory-table td:nth-child(4),
+    .subcategory-table th:nth-child(3),
+    .subcategory-table th:nth-child(4) {
+      text-align: right;
+      white-space: nowrap;
+    }
+    .takeaway {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(77, 138, 103, 0.13), transparent 45%),
+        #fff;
+    }
+    .takeaway p {
+      max-width: 60rem;
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.04rem, 1.65vw, 1.42rem);
+      font-weight: 850;
+      line-height: 1.35;
+    }
+    .source-note {
+      margin: 0.52rem 0 0;
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+    @media (max-width: 900px) {
+      .workflow-strip,
+      .pattern-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .donut-board,
+      .audit-board {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 560px) {
+      .workflow-strip,
+      .pattern-grid,
+      .legend-item {
+        grid-template-columns: 1fr;
+      }
+      .transplant-hero-art {
+        min-height: 16rem;
+      }
+      .transplant-hero-art svg {
+        min-height: 16rem;
+      }
+      .donut {
+        width: min(13rem, 100%);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar" aria-label="Infographic navigation">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav>
+        <a href="#workflow">Workflow</a>
+        <a href="#results">Results</a>
+        <a href="#table-patterns">Table patterns</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-2-1_2020.pdf">PDF source</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-2-1_2020.md">Markdown source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2020 Poster 2-1</p>
+        <h1>Assessing pharmacist interventions in an outpatient renal transplant CPPA</h1>
+        <p class="hero-summary">At Vanderbilt University Medical Center, pharmacists working under a collaborative pharmacy practice agreement managed prescription orders, chart reviews, counseling, and medication access work for adult renal transplant clinic patients.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Retrospective EMR review</li>
+          <li class="tag therapy">Renal transplant</li>
+          <li class="tag therapy">Collaborative pharmacy practice</li>
+          <li class="tag">Patient care interventions</li>
+        </ul>
+        <div class="transplant-hero-art" aria-label="Illustration of pharmacist workflow supporting renal transplant care">
+          <svg viewBox="0 0 720 360" role="img" aria-labelledby="heroTitle heroDesc">
+            <title id="heroTitle">Renal transplant pharmacist intervention workflow</title>
+            <desc id="heroDesc">A pharmacist, kidney icon, prescription flow, and safety audit visual for CPPA care.</desc>
+            <defs>
+              <linearGradient id="heroInk" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#243770"/>
+                <stop offset="1" stop-color="#187c8f"/>
+              </linearGradient>
+              <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#243770" flood-opacity="0.16"/>
+              </filter>
+            </defs>
+            <rect x="52" y="54" width="184" height="246" rx="20" fill="#fff" stroke="#aebbd2" filter="url(#softShadow)"/>
+            <circle cx="144" cy="101" r="36" fill="#eef4fb" stroke="#aebbd2"/>
+            <path d="M126 104c0-11 8-20 18-20s18 9 18 20v12h-36z" fill="#243770"/>
+            <path d="M112 190h64v-28h22v90h-22v-29h-64v29H90v-90h22z" fill="#d12630"/>
+            <rect x="276" y="76" width="166" height="208" rx="18" fill="#fff" stroke="#aebbd2" filter="url(#softShadow)"/>
+            <path d="M339 136c-27-28-67 1-54 39 12 35 59 54 59 54s48-20 59-54c13-39-29-67-56-38l-4 5z" fill="#187c8f" opacity=".93"/>
+            <path d="M347 141c24 25 10 64-20 74" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" opacity=".78"/>
+            <path d="M450 170h86" stroke="#243770" stroke-width="7" stroke-linecap="round"/>
+            <path d="M520 148l31 22-31 22" fill="none" stroke="#243770" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="552" y="70" width="116" height="224" rx="18" fill="#fff7ea" stroke="#aebbd2" filter="url(#softShadow)"/>
+            <rect x="579" y="100" width="62" height="78" rx="8" fill="#fff" stroke="#e99e25" stroke-width="5"/>
+            <path d="M594 128h32M594 150h32" stroke="#243770" stroke-width="6" stroke-linecap="round"/>
+            <circle cx="610" cy="224" r="34" fill="#4d8a67"/>
+            <path d="M592 224l13 13 27-31" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+            <g fill="none" stroke="#d12630" stroke-width="3" opacity=".5">
+              <path d="M252 132c13-18 26-27 39-27"/>
+              <path d="M252 226c16 19 33 29 51 29"/>
+              <path d="M457 112c24-18 50-24 77-18"/>
+              <path d="M454 245c26 20 53 25 82 15"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <div>
+          <p class="section-label">Poster file</p>
+          <div class="poster-code">Poster-2-1_2020</div>
+        </div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Site</dt>
+            <dd>Vanderbilt renal transplant clinic</dd>
+          </div>
+          <div>
+            <dt>CPPA start</dt>
+            <dd>March 2017</dd>
+          </div>
+          <div>
+            <dt>Study window</dt>
+            <dd>Jan 1-Jun 30, 2019</dd>
+          </div>
+          <div>
+            <dt>Data source</dt>
+            <dd>Clinic note and EMR review</dd>
+          </div>
+        </dl>
+        <p class="safety-callout"><strong>0 errors</strong><br>identified when physicians audited 5% of pharmacist-generated orders.</p>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key results">
+        <div class="metric-card">
+          <span>Patients</span>
+          <strong>1,233</strong>
+        </div>
+        <div class="metric-card">
+          <span>Pharmacist-generated prescriptions</span>
+          <strong>5,793</strong>
+        </div>
+        <div class="metric-card">
+          <span>Chart reviews</span>
+          <strong>1,821</strong>
+        </div>
+        <div class="metric-card">
+          <span>Interventions</span>
+          <strong>3,852</strong>
+        </div>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Measure what pharmacists actually did under the CPPA</h2>
+          <div class="markdown-fragment">
+            <p>The study evaluated interventions performed by pharmacists in a collaborative pharmacy practice agreement at an outpatient renal transplant clinic.</p>
+          </div>
+        </article>
+        <article class="panel">
+          <p class="section-label">Methods</p>
+          <h2>Retrospective review of adult clinic patients</h2>
+          <div class="markdown-fragment">
+            <p>Adult patients prescribed medication from the renal transplant clinic between January 1 and June 30, 2019 were included. Clinic notes and EMR documentation were reviewed for chart assessment, counseling, access, and medication continuation work.</p>
+          </div>
+        </article>
+      </section>
+
+      <section id="workflow" class="panel">
+        <p class="section-label">Evidence flow</p>
+        <h2>From referral to pharmacist intervention</h2>
+        <div class="workflow-strip">
+          <article class="workflow-step" data-step="1">
+            <h3>Post-transplant follow-up</h3>
+            <p>Patients discharged after renal transplant continued care in the transplant clinic.</p>
+          </article>
+          <article class="workflow-step" data-step="2">
+            <h3>Referral to pharmacist</h3>
+            <p>Nurses, physicians, pharmacy, phone calls, EMR messages, or clinic visits triggered pharmacist work.</p>
+          </article>
+          <article class="workflow-step" data-step="3">
+            <h3>Chart review</h3>
+            <p>Pharmacists checked CPPA referral, visit recency, medication changes, labs, and the medication list.</p>
+          </article>
+          <article class="workflow-step" data-step="4">
+            <h3>Order generation</h3>
+            <p>Renewal or new non-controlled medication orders were generated under protocol support.</p>
+          </article>
+          <article class="workflow-step" data-step="5">
+            <h3>Therapy support</h3>
+            <p>Interventions addressed assessment, counseling, medication access, and persistence barriers.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="results" class="visual-grid">
+        <article class="panel">
+          <p class="section-label">Safety signal</p>
+          <h2>High-volume prescribing with a clean audit sample</h2>
+          <div class="audit-board">
+            <div class="audit-card">
+              <strong>5%</strong>
+              <span>of pharmacist-generated orders were audited by physicians.</span>
+            </div>
+            <div class="audit-card">
+              <strong>0</strong>
+              <span>errors were identified in the audited order sample.</span>
+            </div>
+          </div>
+          <div class="checklist" aria-label="Chart review checklist">
+            <div class="check"><b>✓</b><span>CPPA referral verified on file</span></div>
+            <div class="check"><b>✓</b><span>Last clinic visit confirmed within 12 months</span></div>
+            <div class="check"><b>✓</b><span>Medication changes and labs reviewed</span></div>
+            <div class="check"><b>✓</b><span>Medication list updated when appropriate</span></div>
+          </div>
+        </article>
+        <article class="panel">
+          <p class="section-label">Intervention mix</p>
+          <h2>Most documented interventions were medical record assessment</h2>
+          <div class="donut-board">
+            <div class="donut" aria-label="Donut chart showing 70 percent medical record assessment, 19 percent counseling, and 11 percent barriers"></div>
+            <div class="legend-list">
+              <div class="legend-item">
+                <i></i>
+                <strong>70%</strong>
+                <span>Medical record assessment: 2,695 interventions</span>
+              </div>
+              <div class="legend-item teal">
+                <i></i>
+                <strong>19%</strong>
+                <span>Medication counseling: 734 interventions</span>
+              </div>
+              <div class="legend-item gold">
+                <i></i>
+                <strong>11%</strong>
+                <span>Resolving barriers to medication continuation: 423 interventions</span>
+              </div>
+            </div>
+          </div>
+          <p class="source-note">Mix is calculated from the detailed results table, where category counts total 3,852 interventions.</p>
+        </article>
+      </section>
+
+      <section id="table-patterns" class="panel">
+        <p class="section-label">Table patterns</p>
+        <h2>What the intervention table says about day-to-day pharmacist work</h2>
+        <div class="pattern-grid">
+          <article class="pattern-card">
+            <small>Assessment</small>
+            <b>1,580</b>
+            <p>Coordination of care was the largest subcategory, representing 41% of all interventions.</p>
+          </article>
+          <article class="pattern-card">
+            <small>Counseling</small>
+            <b>635</b>
+            <p>Drug and administration information drove most counseling work, equal to 16% of all interventions.</p>
+          </article>
+          <article class="pattern-card">
+            <small>Access</small>
+            <b>378</b>
+            <p>Facilitating medication access accounted for nearly all barrier-resolution interventions.</p>
+          </article>
+        </div>
+        <div class="table-wrap">
+          <table class="subcategory-table">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Largest subcategory</th>
+                <th>n</th>
+                <th>% of all interventions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Medical record assessment</td>
+                <td>Coordination of care</td>
+                <td>1,580</td>
+                <td>41%</td>
+              </tr>
+              <tr>
+                <td>Medical record assessment</td>
+                <td>Dose clarification</td>
+                <td>600</td>
+                <td>16%</td>
+              </tr>
+              <tr>
+                <td>Medication counseling</td>
+                <td>Drug/administration information</td>
+                <td>635</td>
+                <td>16%</td>
+              </tr>
+              <tr>
+                <td>Resolving barriers</td>
+                <td>Facilitating medication access</td>
+                <td>378</td>
+                <td>10%</td>
+              </tr>
+              <tr>
+                <td>Resolving barriers</td>
+                <td>Adherence</td>
+                <td>45</td>
+                <td>1%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">CPPA responsibilities</p>
+          <h2>Four pharmacist roles anchored the agreement</h2>
+          <div class="number-cloud">
+            <div class="number-pill">Orders<small>med changes</small></div>
+            <div class="number-pill">Counseling<small>patient education</small></div>
+            <div class="number-pill">Dosing<small>drug info</small></div>
+            <div class="number-pill">Access<small>appeals and aid</small></div>
+          </div>
+        </article>
+        <article class="panel">
+          <p class="section-label">Implementation advice</p>
+          <h2>How the poster framed CPPA setup</h2>
+          <div class="markdown-fragment">
+            <ul>
+              <li>Obtain pharmacist liability insurance.</li>
+              <li>Seek legal review before initiating a CPPA.</li>
+              <li>Integrate a pharmacist in clinic first to build provider trust.</li>
+              <li>Maintain open, constructive pharmacist-physician communication.</li>
+            </ul>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel takeaway">
+        <p>Conclusion: Pharmacist prescription management under the renal transplant CPPA was reported as safe, common, and operationally important in a high-volume clinic with frequent medication changes.</p>
+      </section>
+
+      <footer class="footer-actions" aria-label="Source links">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-2-1_2020.pdf">Open original PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-2-1_2020.md">Open extracted markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

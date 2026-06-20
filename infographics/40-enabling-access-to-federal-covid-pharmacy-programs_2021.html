@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Enabling Access to Federal COVID-19 Pharmacy Programs | NASP 2021</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .program-hero-art {
+      position: relative;
+      min-height: 15rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(36, 55, 112, 0.94), rgba(24, 124, 143, 0.84)),
+        radial-gradient(circle at 18% 16%, rgba(233, 158, 37, 0.7), transparent 8rem);
+      overflow: hidden;
+    }
+
+    .program-hero-art svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 15rem;
+    }
+
+    .hero-card .network-note {
+      margin: 0;
+      color: var(--body);
+      font-size: 0.86rem;
+    }
+
+    .metric-card strong.compact {
+      font-size: 1.55rem;
+      line-height: 1.08;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.65rem;
+    }
+
+    .timeline-step {
+      position: relative;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.8rem;
+    }
+
+    .timeline-step::after {
+      content: "";
+      position: absolute;
+      top: 1.35rem;
+      right: -0.65rem;
+      width: 0.55rem;
+      height: 0.55rem;
+      border-top: 2px solid var(--red);
+      border-right: 2px solid var(--red);
+      transform: rotate(45deg);
+    }
+
+    .timeline-step:last-child::after {
+      display: none;
+    }
+
+    .timeline-step time {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .timeline-step p {
+      margin: 0.4rem 0 0;
+      color: var(--body);
+      font-size: 0.84rem;
+    }
+
+    .program-map {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.9rem;
+      margin-top: 0.7rem;
+    }
+
+    .program-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--surface);
+      padding: 0.9rem;
+    }
+
+    .program-card h3 {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .program-card h3::before {
+      content: "";
+      width: 0.75rem;
+      height: 0.75rem;
+      border-radius: 50%;
+      background: var(--program-accent, var(--teal));
+      box-shadow: 0 0 0 0.25rem rgba(24, 124, 143, 0.12);
+      flex: 0 0 auto;
+    }
+
+    .program-card.retail {
+      --program-accent: var(--gold);
+    }
+
+    .partner-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.42rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .partner-list li {
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 999px;
+      background: var(--surface-blue);
+      padding: 0.26rem 0.5rem;
+      color: var(--ink);
+      font-size: 0.74rem;
+      font-weight: 800;
+    }
+
+    .stakeholder-wheel {
+      display: grid;
+      grid-template-columns: minmax(13rem, 0.7fr) minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .stakeholder-wheel svg {
+      width: 100%;
+      height: auto;
+    }
+
+    .connector-list {
+      display: grid;
+      gap: 0.5rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .connector-list li {
+      border-left: 3px solid var(--teal);
+      background: var(--surface-blue);
+      padding: 0.55rem 0.65rem;
+      color: var(--body);
+      font-size: 0.86rem;
+    }
+
+    .conclusion-band {
+      border: 1px solid rgba(209, 38, 48, 0.25);
+      border-radius: 8px;
+      background:
+        linear-gradient(90deg, rgba(209, 38, 48, 0.08), rgba(233, 158, 37, 0.12)),
+        #fff;
+      padding: 1rem;
+    }
+
+    .conclusion-band p {
+      margin: 0;
+      color: var(--ink);
+      font-size: 1rem;
+      font-weight: 750;
+    }
+
+    @media (max-width: 900px) {
+      .timeline,
+      .program-map,
+      .stakeholder-wheel {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-step::after {
+        top: auto;
+        right: auto;
+        bottom: -0.7rem;
+        left: 1.2rem;
+        transform: rotate(135deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../nasp_abstracts_posters_pdfs_2019_2025/40-Enabling-Access-to-Federal-COVID-Pharmacy-Programs_2021.pdf">NASP 2021 Poster</a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/40-Enabling-Access-to-Federal-COVID-Pharmacy-Programs_2021.pdf">Poster PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/40-Enabling-Access-to-Federal-COVID-Pharmacy-Programs_2021.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Case study | Federal COVID-19 vaccination access</p>
+        <h1>Enabling Access to Federal COVID-19 Pharmacy Programs</h1>
+        <p class="hero-summary">Managed Health Care Associates described how network-administrator advocacy helped post-acute care pharmacies participate at launch in two federal COVID-19 vaccination programs: the long-term care partnership and the retail pharmacy program.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Presented virtually</li>
+          <li class="tag therapy">COVID-19 vaccine access</li>
+          <li class="tag">September 2021</li>
+          <li class="tag">MHA, Florham Park, NJ</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div class="poster-code">#40<br>2021</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Organization</dt>
+            <dd>MHA</dd>
+          </div>
+          <div>
+            <dt>Role</dt>
+            <dd>Network administrator</dd>
+          </div>
+          <div>
+            <dt>Review window</dt>
+            <dd>Sep 2020-Feb 2021</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>Post-acute care</dd>
+          </div>
+        </dl>
+        <p class="network-note">Authors: Stacey Ness, Pharm.D, CSP, IgCP, MSCS, AAHIVP; Diane Koontz; Russ Procopio.</p>
+      </aside>
+    </section>
+
+    <main>
+      <section class="program-hero-art" aria-label="Visual summary of access pathway">
+        <svg viewBox="0 0 1120 260" role="img" aria-labelledby="heroArtTitle heroArtDesc">
+          <title id="heroArtTitle">Federal vaccination program access pathway</title>
+          <desc id="heroArtDesc">MHA connects federal agencies, professional organizations, jurisdictions, pharmacy networks, long-term care facilities, and vaccine recipients.</desc>
+          <defs>
+            <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6 Z" fill="#e99e25"></path>
+            </marker>
+          </defs>
+          <rect width="1120" height="260" fill="transparent"></rect>
+          <g fill="none" stroke="#e99e25" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow)">
+            <path d="M230 130 C310 54 415 54 500 120"></path>
+            <path d="M620 130 C705 54 820 58 895 122"></path>
+            <path d="M230 145 C330 210 450 214 535 155"></path>
+            <path d="M610 155 C705 220 830 214 895 145"></path>
+          </g>
+          <g font-family="Inter, Arial, sans-serif" text-anchor="middle">
+            <circle cx="145" cy="132" r="66" fill="#ffffff" opacity="0.97"></circle>
+            <text x="145" y="123" fill="#243770" font-size="18" font-weight="800">Federal</text>
+            <text x="145" y="146" fill="#243770" font-size="18" font-weight="800">programs</text>
+            <circle cx="560" cy="132" r="78" fill="#ffffff" opacity="0.98"></circle>
+            <text x="560" y="114" fill="#d12630" font-size="22" font-weight="900">MHA</text>
+            <text x="560" y="140" fill="#243770" font-size="16" font-weight="800">network</text>
+            <text x="560" y="161" fill="#243770" font-size="16" font-weight="800">administrator</text>
+            <circle cx="975" cy="132" r="66" fill="#ffffff" opacity="0.97"></circle>
+            <text x="975" y="123" fill="#243770" font-size="18" font-weight="800">Pharmacies</text>
+            <text x="975" y="146" fill="#243770" font-size="18" font-weight="800">at launch</text>
+          </g>
+          <g fill="#ffffff" opacity="0.28">
+            <circle cx="80" cy="42" r="8"></circle>
+            <circle cx="290" cy="224" r="5"></circle>
+            <circle cx="745" cy="42" r="7"></circle>
+            <circle cx="1045" cy="218" r="6"></circle>
+          </g>
+        </svg>
+      </section>
+
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>LTC launch</span>
+          <strong>52</strong>
+          <p>jurisdictions participated nationally on December 21, 2020.</p>
+        </article>
+        <article class="metric-card">
+          <span>LTC facility reach</span>
+          <strong class="compact">&gt;75K</strong>
+          <p>long-term care facilities enrolled in the federal partnership.</p>
+        </article>
+        <article class="metric-card">
+          <span>Retail launch</span>
+          <strong>20</strong>
+          <p>pharmacy partners joined the Federal Retail Pharmacy Program at launch.</p>
+        </article>
+        <article class="metric-card">
+          <span>MHA network by May 20</span>
+          <strong>633</strong>
+          <p>individual pharmacies across 48 states via 116 corporations.</p>
+        </article>
+      </section>
+
+      <section class="visual-grid">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Document how access was secured at the earliest launch points</h2>
+          <p>The case study reviewed the MHA network administrator experience working with CDC and other stakeholders so post-acute care pharmacies could participate in both federal pharmacy vaccination programs upon launch.</p>
+        </article>
+        <article class="panel">
+          <p class="section-label">Method</p>
+          <h2>Retrospective activity review</h2>
+          <p>Investigators reviewed communications and advocacy activities with CDC, HHS, jurisdictions, CMS, and pharmacy and long-term care organizations from September 2020 through February 2021.</p>
+        </article>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Evidence flow</p>
+        <h2>From federal planning to pharmacy participation</h2>
+        <div class="timeline" aria-label="Program timeline">
+          <article class="timeline-step">
+            <time>3Q 2020</time>
+            <p>CDC began planning to prioritize long-term care residents and staff for vaccine availability.</p>
+          </article>
+          <article class="timeline-step">
+            <time>Sep 2020</time>
+            <p>MHA review window opened, capturing communications and stakeholder activity.</p>
+          </article>
+          <article class="timeline-step">
+            <time>Dec 21, 2020</time>
+            <p>Federal Pharmacy Partnership for LTC launched nationally with MHA network pharmacies included.</p>
+          </article>
+          <article class="timeline-step">
+            <time>Feb 2021</time>
+            <p>Federal Retail Pharmacy Program launched with MHA network participation through selected partners.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Launch networks</p>
+        <h2>Two federal programs, one access problem</h2>
+        <div class="program-map">
+          <article class="program-card">
+            <h3>Federal Pharmacy Partnership for Long-Term Care</h3>
+            <ul class="partner-list" aria-label="MHA network pharmacies in the LTC program at launch">
+              <li>Absolute Pharmacy</li>
+              <li>Community Pharmacy</li>
+              <li>Consonus Pharmacy</li>
+              <li>Health Direct/Kinney Drugs</li>
+              <li>Pharmscript</li>
+              <li>Senior Care Pharmacy</li>
+              <li>Thrifty White Pharmacy</li>
+            </ul>
+          </article>
+          <article class="program-card retail">
+            <h3>Federal Retail Pharmacy Program</h3>
+            <ul class="partner-list" aria-label="MHA network pharmacies in the retail program at launch">
+              <li>Thrifty White Pharmacy</li>
+              <li>Health Direct/Kinney Drugs</li>
+              <li>Kaiser</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="visual-grid">
+        <article class="panel">
+          <p class="section-label">LTC risk context</p>
+          <h2>Nursing facility residents carried high baseline vulnerability</h2>
+          <div class="lens-chart" aria-label="Selected comorbidities reported among nursing home residents">
+            <div class="lens-row">
+              <span>Dementia 65.5%</span>
+              <div class="lens-bar"><i style="width:65.5%"></i></div>
+            </div>
+            <div class="lens-row">
+              <span>Hypertension 46.8%</span>
+              <div class="lens-bar"><i style="width:46.8%"></i></div>
+            </div>
+            <div class="lens-row">
+              <span>Stroke 20.9%</span>
+              <div class="lens-bar"><i style="width:20.9%"></i></div>
+            </div>
+            <div class="lens-row">
+              <span>Diabetes 20.6%</span>
+              <div class="lens-bar"><i style="width:20.6%"></i></div>
+            </div>
+            <div class="lens-row">
+              <span>COPD 14.3%</span>
+              <div class="lens-bar"><i style="width:14.3%"></i></div>
+            </div>
+          </div>
+        </article>
+        <article class="panel">
+          <p class="section-label">Stakeholder bridge</p>
+          <h2>Advocacy linked agencies, jurisdictions, and provider organizations</h2>
+          <div class="stakeholder-wheel">
+            <svg viewBox="0 0 260 260" role="img" aria-labelledby="wheelTitle">
+              <title id="wheelTitle">Stakeholder coordination wheel</title>
+              <circle cx="130" cy="130" r="58" fill="#eef4fb" stroke="#aebbd2" stroke-width="2"></circle>
+              <text x="130" y="123" text-anchor="middle" fill="#d12630" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="900">MHA</text>
+              <text x="130" y="146" text-anchor="middle" fill="#243770" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800">administrator</text>
+              <g stroke="#e99e25" stroke-width="2">
+                <line x1="130" y1="72" x2="130" y2="28"></line>
+                <line x1="178" y1="96" x2="216" y2="74"></line>
+                <line x1="178" y1="164" x2="216" y2="186"></line>
+                <line x1="130" y1="188" x2="130" y2="232"></line>
+                <line x1="82" y1="164" x2="44" y2="186"></line>
+                <line x1="82" y1="96" x2="44" y2="74"></line>
+              </g>
+              <g fill="#ffffff" stroke="#243770" stroke-width="2"></g>
+              <g font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800" text-anchor="middle" fill="#243770">
+                <circle cx="130" cy="22" r="20" fill="#ffffff" stroke="#243770"></circle><text x="130" y="26">CDC</text>
+                <circle cx="226" cy="68" r="22" fill="#ffffff" stroke="#243770"></circle><text x="226" y="72">HHS</text>
+                <circle cx="226" cy="192" r="22" fill="#ffffff" stroke="#243770"></circle><text x="226" y="196">CMS</text>
+                <circle cx="130" cy="238" r="20" fill="#ffffff" stroke="#243770"></circle><text x="130" y="242">Juris.</text>
+                <circle cx="34" cy="192" r="22" fill="#ffffff" stroke="#243770"></circle><text x="34" y="196">AHCA</text>
+                <circle cx="34" cy="68" r="22" fill="#ffffff" stroke="#243770"></circle><text x="34" y="72">ASCP</text>
+              </g>
+            </svg>
+            <ul class="connector-list">
+              <li>Advocacy focused on including post-acute care pharmacies when programs launched, not only after later expansion.</li>
+              <li>CDC program goals emphasized end-to-end LTC vaccination support and reduced administrative burden for facilities and health departments.</li>
+              <li>Retail pharmacy participation leveraged pharmacists' community access, vaccination training, and patient relationships.</li>
+            </ul>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">Result</p>
+          <h2>Access at launch</h2>
+          <p>MHA successfully advocated for member pharmacy participation in both federal COVID-19 vaccination programs, with MHA serving as network administrator for participating post-acute care pharmacies.</p>
+        </article>
+        <article class="panel">
+          <p class="section-label">Expansion signal</p>
+          <h2>Network scale by May 20, 2021</h2>
+          <div class="number-cloud" aria-label="MHA network scale as of May 20 2021">
+            <div class="number-pill">116<small>corporations</small></div>
+            <div class="number-pill">633<small>pharmacies</small></div>
+            <div class="number-pill">48<small>states</small></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="conclusion-band">
+        <p>Conclusion: early, multi-stakeholder advocacy enabled post-acute care pharmacies to participate in both federal COVID-19 pharmacy programs at their respective launches, supporting faster vaccine deployment through the MHA network.</p>
+      </section>
+
+      <footer class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/40-Enabling-Access-to-Federal-COVID-Pharmacy-Programs_2021.pdf">Open original poster PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/40-Enabling-Access-to-Federal-COVID-Pharmacy-Programs_2021.md">Open extracted markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Remote Demonstration Kits for Self-Injectables | NASP 2023</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -3.5rem;
+      bottom: -4.5rem;
+      width: 14rem;
+      height: 14rem;
+      border: 1.35rem solid rgba(24, 124, 143, 0.12);
+      border-radius: 50%;
+    }
+    .hero-card > * {
+      position: relative;
+      z-index: 1;
+    }
+    .device-visual {
+      display: grid;
+      gap: 0.65rem;
+    }
+    .device-visual svg {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 18px 24px rgba(36, 55, 112, 0.16));
+    }
+    .device-caption {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 780;
+    }
+    .metric-card strong small {
+      color: var(--red);
+      font-size: 0.92rem;
+    }
+    .metric-card em {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-style: normal;
+      font-weight: 760;
+      line-height: 1.28;
+    }
+    .study-flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+    .flow-step {
+      position: relative;
+      min-height: 10rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+      overflow: hidden;
+    }
+    .flow-step::before {
+      content: attr(data-step);
+      position: absolute;
+      right: 0.62rem;
+      top: 0.42rem;
+      color: rgba(36, 55, 112, 0.13);
+      font-family: var(--font-display);
+      font-size: 2.1rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .flow-step h3,
+    .flow-step p {
+      position: relative;
+      z-index: 1;
+    }
+    .flow-step p {
+      margin: 0.5rem 0 0;
+      color: var(--body);
+      font-size: 0.82rem;
+    }
+    .comparison-board {
+      display: grid;
+      grid-template-columns: minmax(16rem, 0.85fr) minmax(0, 1.15fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .injection-days {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+    .day-tile {
+      position: relative;
+      min-height: 11rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+      overflow: hidden;
+    }
+    .day-tile::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: var(--height);
+      background: linear-gradient(180deg, rgba(209, 38, 48, 0.24), rgba(209, 38, 48, 0.08));
+      z-index: 0;
+    }
+    .day-tile.rdk::after {
+      background: linear-gradient(180deg, rgba(24, 124, 143, 0.24), rgba(24, 124, 143, 0.08));
+    }
+    .day-tile > * {
+      position: relative;
+      z-index: 1;
+    }
+    .day-tile span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .day-tile strong {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 3.25rem;
+      line-height: 1;
+    }
+    .day-tile em {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--body);
+      font-size: 0.82rem;
+      font-style: normal;
+      font-weight: 800;
+    }
+    .bar-stack {
+      display: grid;
+      gap: 0.78rem;
+      margin-top: 0.8rem;
+    }
+    .bar-row {
+      display: grid;
+      grid-template-columns: 8.5rem minmax(0, 1fr) 3rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 850;
+    }
+    .bar-row b {
+      color: var(--ink);
+      font-size: 0.8rem;
+    }
+    .track {
+      height: 0.9rem;
+      border-radius: 999px;
+      background: #e8eef7;
+      overflow: hidden;
+    }
+    .track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--border-strong);
+    }
+    .bar-row.rdk .track i {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .bar-row.control .track i {
+      background: linear-gradient(90deg, var(--gold), var(--red));
+    }
+    .perception-grid {
+      display: grid;
+      grid-template-columns: 10.5rem minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+      margin-top: 0.75rem;
+    }
+    .ring svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .perception-list {
+      display: grid;
+      gap: 0.48rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      color: var(--body);
+      font-size: 0.84rem;
+      font-weight: 780;
+    }
+    .perception-list i {
+      display: inline-block;
+      width: 0.74rem;
+      height: 0.74rem;
+      margin-right: 0.35rem;
+      border-radius: 99px;
+      vertical-align: -0.08rem;
+      background: var(--teal);
+    }
+    .perception-list .reuse i {
+      background: var(--green);
+    }
+    .perception-list .helpful i {
+      background: var(--purple);
+    }
+    .limits {
+      border-left: 3px solid var(--gold);
+      background: var(--surface-warm);
+    }
+    .source-note {
+      margin: 0.45rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+    @media (max-width: 900px) {
+      .study-flow,
+      .comparison-board {
+        grid-template-columns: 1fr;
+      }
+      .study-flow {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 640px) {
+      .study-flow,
+      .injection-days,
+      .perception-grid {
+        grid-template-columns: 1fr;
+      }
+      .bar-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">NASP Posters</a>
+      <nav aria-label="Source files">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/7_Optimizing-initiation-for-self-injectable-medications-with-remote-demonstration-kits-delivered-via-specialty-pharmacy-_2023.pdf">Poster PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/7_Optimizing-initiation-for-self-injectable-medications-with-remote-demonstration-kits-delivered-via-specialty-pharmacy-_2023.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2023 exploratory pilot</p>
+        <h1>Optimizing initiation for self-injectable medications with remote demonstration kits</h1>
+        <p class="hero-summary">A specialty pharmacy distributed Remote Demonstration Kits (RDKs) with the first dose shipment to test whether at-home practice could accelerate first injection and support early adherence.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Self-injection training</li>
+          <li class="tag therapy">Specialty pharmacy</li>
+          <li class="tag">Randomized SoC vs SoC + RDK</li>
+          <li class="tag">14-day biologic dosing schedule</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Poster metadata and device illustration">
+        <div>
+          <div class="poster-code">2023</div>
+          <dl class="meta-grid">
+            <div>
+              <dt>Authors</dt>
+              <dd>Glynn, Greenwood, Prajapati, Xu, McLeroy, Reynolds</dd>
+            </div>
+            <div>
+              <dt>Organizations</dt>
+              <dd>ZS Associates; Noble International</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="device-visual" aria-label="Remote demonstration kit device components">
+          <svg viewBox="0 0 420 170" role="img" aria-labelledby="device-title">
+            <title id="device-title">Stylized injection demonstration device with training kit components</title>
+            <defs>
+              <linearGradient id="deviceBody" x1="0" x2="1">
+                <stop offset="0" stop-color="#eef4fb"/>
+                <stop offset="0.55" stop-color="#ffffff"/>
+                <stop offset="1" stop-color="#fff7ea"/>
+              </linearGradient>
+            </defs>
+            <rect x="31" y="56" width="260" height="58" rx="29" fill="url(#deviceBody)" stroke="#243770" stroke-width="4"/>
+            <rect x="60" y="69" width="70" height="32" rx="16" fill="#187c8f" opacity="0.16" stroke="#187c8f" stroke-width="3"/>
+            <rect x="145" y="69" width="78" height="32" rx="16" fill="#e99e25" opacity="0.18" stroke="#e99e25" stroke-width="3"/>
+            <rect x="238" y="69" width="34" height="32" rx="16" fill="#d12630" opacity="0.17" stroke="#d12630" stroke-width="3"/>
+            <line x1="291" y1="85" x2="365" y2="85" stroke="#243770" stroke-width="5" stroke-linecap="round"/>
+            <path d="M365 85 L394 73 L394 97 Z" fill="#7561a8" opacity="0.9"/>
+            <circle cx="47" cy="85" r="20" fill="#ffffff" stroke="#243770" stroke-width="4"/>
+            <path d="M74 41 C88 18 126 18 139 41" fill="none" stroke="#187c8f" stroke-width="4" stroke-linecap="round"/>
+            <path d="M165 128 C180 150 218 150 232 128" fill="none" stroke="#e99e25" stroke-width="4" stroke-linecap="round"/>
+            <text x="72" y="35" fill="#187c8f" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800">plunger speed</text>
+            <text x="156" y="158" fill="#e99e25" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800">reset practice</text>
+            <text x="294" y="123" fill="#7561a8" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800">needle simulation</text>
+          </svg>
+          <p class="device-caption">RDK contents included IFU, an injection demonstration device, and a video shipped with the first dose.</p>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Headline findings">
+        <article class="metric-card">
+          <span>Script-to-injection</span>
+          <strong>38<small>%</small></strong>
+          <em>Fewer days to first reported self-injection with SoC + RDK.</em>
+        </article>
+        <article class="metric-card">
+          <span>Good PDC</span>
+          <strong>90<small>%</small></strong>
+          <em>RDK group reached &gt;80% PDC versus 64% in standard care.</em>
+        </article>
+        <article class="metric-card">
+          <span>Persistence</span>
+          <strong>94<small>%</small></strong>
+          <em>Preliminary persistence rate among eligible RDK patients.</em>
+        </article>
+        <article class="metric-card">
+          <span>Patient response</span>
+          <strong>94<small>%</small></strong>
+          <em>Positive perception of RDK helpfulness in the treatment group.</em>
+        </article>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Study design</p>
+        <h2>Specialty pharmacy as the training kit delivery channel</h2>
+        <div class="study-flow">
+          <article class="flow-step" data-step="1">
+            <h3>Eligible patients</h3>
+            <p>Naive to self-injection and prescribed one of three biologics with a 14-day dosing schedule.</p>
+          </article>
+          <article class="flow-step" data-step="2">
+            <h3>Randomized arms</h3>
+            <p>Patients were equally assigned to standard of care or standard of care plus RDK.</p>
+          </article>
+          <article class="flow-step" data-step="3">
+            <h3>Same-day shipment</h3>
+            <p>The RDK was shipped by specialty pharmacy on the same day as the patient's first medication dose.</p>
+          </article>
+          <article class="flow-step" data-step="4">
+            <h3>PRO capture</h3>
+            <p>Patient-reported outcomes collected the first self-injection date and treatment experience.</p>
+          </article>
+          <article class="flow-step" data-step="5">
+            <h3>Refill signals</h3>
+            <p>Pharmacy refill data informed adherence and persistence endpoints across early therapy.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="comparison-board">
+        <article class="panel">
+          <p class="section-label">Speed to first dose</p>
+          <h2>First injection happened sooner with RDK support</h2>
+          <div class="injection-days">
+            <div class="day-tile control" style="--height: 88%;">
+              <span>SoC only</span>
+              <strong>8.8</strong>
+              <em>average script-to-injection days</em>
+            </div>
+            <div class="day-tile rdk" style="--height: 54%;">
+              <span>SoC + RDK</span>
+              <strong>5.4</strong>
+              <em>average script-to-injection days</em>
+            </div>
+          </div>
+          <p class="source-note">Reported one-tailed p value: 0.08 at the 0.1 confidence level.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Adherence and persistence</p>
+          <h2>Early refill behavior favored the RDK arm</h2>
+          <div class="bar-stack" aria-label="Adherence and persistence comparison bars">
+            <div class="bar-row control">
+              <b>Good PDC: SoC</b>
+              <div class="track"><i style="width: 64%;"></i></div>
+              <span>64%</span>
+            </div>
+            <div class="bar-row rdk">
+              <b>Good PDC: RDK</b>
+              <div class="track"><i style="width: 90%;"></i></div>
+              <span>90%</span>
+            </div>
+            <div class="bar-row control">
+              <b>Persistence: SoC</b>
+              <div class="track"><i style="width: 82%;"></i></div>
+              <span>82%</span>
+            </div>
+            <div class="bar-row rdk">
+              <b>Persistence: RDK</b>
+              <div class="track"><i style="width: 94%;"></i></div>
+              <span>94%</span>
+            </div>
+          </div>
+          <p class="source-note">Good PDC was defined as &gt;80%; persistence excluded patients discharged between refills due to co-pay and side effects.</p>
+        </article>
+      </section>
+
+      <section class="visual-grid">
+        <article class="panel">
+          <p class="section-label">Treatment group experience</p>
+          <h2>Patients used and reused the kit</h2>
+          <div class="perception-grid">
+            <div class="ring">
+              <svg viewBox="0 0 160 160" role="img" aria-labelledby="ring-title">
+                <title id="ring-title">RDK positive response rates</title>
+                <circle cx="80" cy="80" r="62" fill="none" stroke="#e4ebf5" stroke-width="18"/>
+                <circle cx="80" cy="80" r="62" fill="none" stroke="#187c8f" stroke-width="18" stroke-linecap="round" pathLength="100" stroke-dasharray="88 12" transform="rotate(-90 80 80)"/>
+                <circle cx="80" cy="80" r="39" fill="none" stroke="#4d8a67" stroke-width="12" stroke-linecap="round" pathLength="100" stroke-dasharray="88 12" transform="rotate(-90 80 80)"/>
+                <circle cx="80" cy="80" r="22" fill="none" stroke="#7561a8" stroke-width="10" stroke-linecap="round" pathLength="100" stroke-dasharray="94 6" transform="rotate(-90 80 80)"/>
+                <text x="80" y="77" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="25" font-weight="900">94%</text>
+                <text x="80" y="98" text-anchor="middle" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="800">helpful</text>
+              </svg>
+            </div>
+            <ul class="perception-list">
+              <li><i></i>88% used either the training device or video for first self-injection.</li>
+              <li class="reuse"><i></i>88% reused the RDK for re-orientation during later doses.</li>
+              <li class="helpful"><i></i>94% had a positive perception of the kit.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="panel limits">
+          <p class="section-label">Interpretation</p>
+          <h2>Promising signal, early evidence base</h2>
+          <div class="markdown-fragment">
+            <p>The poster concluded that specialty pharmacy-delivered RDKs may help patients initiate self-injectable therapy faster and improve short-term adherence.</p>
+            <ul>
+              <li>Small sample size warrants larger follow-up studies.</li>
+              <li>Script-to-injection days were unavailable when the first injection date was missing from survey data.</li>
+              <li>The pilot's short duration limited conclusions about longer-term adherence impact.</li>
+            </ul>
+          </div>
+        </article>
+      </section>
+
+      <section class="tables-grid">
+        <article class="table-card">
+          <p class="section-label">Endpoint pattern</p>
+          <h2>Measures used</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Measure</th>
+                  <th>Operational signal</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Script-to-injection</td>
+                  <td>Patient reported first self-injection</td>
+                </tr>
+                <tr>
+                  <td>Adherence</td>
+                  <td>Patient claimed first refill; PDC &gt;80% marked good PDC</td>
+                </tr>
+                <tr>
+                  <td>Persistence</td>
+                  <td>Patients eligible for three dispenses</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Main comparison</p>
+          <h2>SoC versus SoC + RDK</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Outcome</th>
+                  <th>SoC only</th>
+                  <th>SoC + RDK</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Average script-to-injection days</td>
+                  <td>8.8</td>
+                  <td>5.4</td>
+                </tr>
+                <tr>
+                  <td>Good PDC score</td>
+                  <td>64%</td>
+                  <td>90%</td>
+                </tr>
+                <tr>
+                  <td>Persistence rate</td>
+                  <td>82%</td>
+                  <td>94%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <footer class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/7_Optimizing-initiation-for-self-injectable-medications-with-remote-demonstration-kits-delivered-via-specialty-pharmacy-_2023.pdf">Open poster PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/7_Optimizing-initiation-for-self-injectable-medications-with-remote-demonstration-kits-delivered-via-specialty-pharmacy-_2023.md">Open source markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

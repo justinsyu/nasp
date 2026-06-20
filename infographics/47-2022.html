@@ -1,0 +1,668 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CF Refill Utilization Trends with CFTR Modulators | NASP 2022</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 27rem;
+    }
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -4.8rem -4.4rem auto auto;
+      width: 18rem;
+      height: 18rem;
+      border: 1.3rem solid rgba(24, 124, 143, 0.12);
+      border-radius: 50%;
+    }
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: auto auto -6rem -4rem;
+      width: 18rem;
+      height: 18rem;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(233, 158, 37, 0.25), transparent 65%);
+    }
+    .hero-card > * {
+      position: relative;
+      z-index: 1;
+    }
+    .cftr-visual {
+      display: grid;
+      gap: 0.8rem;
+      margin-top: 0.35rem;
+    }
+    .cftr-svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      filter: drop-shadow(0 16px 24px rgba(36, 55, 112, 0.13));
+    }
+    .hero-loop {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.45rem;
+    }
+    .loop-step {
+      min-height: 4.6rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.84);
+      padding: 0.56rem;
+    }
+    .loop-step b {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      line-height: 1.15;
+    }
+    .loop-step span {
+      display: block;
+      margin-top: 0.26rem;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 760;
+      line-height: 1.25;
+    }
+    .metric-card strong small {
+      color: var(--red);
+      font-size: 0.78rem;
+    }
+    .metric-card em {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--muted);
+      font-size: 0.73rem;
+      font-style: normal;
+      font-weight: 760;
+      line-height: 1.3;
+    }
+    .study-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .criteria-list {
+      display: grid;
+      gap: 0.52rem;
+      margin-top: 0.75rem;
+    }
+    .criterion {
+      display: grid;
+      grid-template-columns: 2.4rem minmax(0, 1fr);
+      gap: 0.62rem;
+      align-items: start;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.62rem;
+    }
+    .criterion i {
+      display: grid;
+      place-items: center;
+      width: 2.1rem;
+      height: 2.1rem;
+      border-radius: 50%;
+      background: var(--surface-blue);
+      color: var(--teal);
+      font-style: normal;
+      font-weight: 950;
+    }
+    .criterion b {
+      display: block;
+      color: var(--ink);
+      font-size: 0.86rem;
+      line-height: 1.24;
+    }
+    .criterion span {
+      display: block;
+      margin-top: 0.15rem;
+      color: var(--body);
+      font-size: 0.78rem;
+    }
+    .evidence-road {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.75rem;
+    }
+    .road-node {
+      position: relative;
+      min-height: 8.8rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.75rem;
+      overflow: hidden;
+    }
+    .road-node::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 0.32rem;
+      background: var(--accent, var(--red));
+    }
+    .road-node:nth-child(2) { --accent: var(--gold); }
+    .road-node:nth-child(3) { --accent: var(--teal); }
+    .road-node:nth-child(4) { --accent: var(--green); }
+    .road-node:nth-child(5) { --accent: var(--purple); }
+    .road-node span {
+      color: var(--red);
+      font-size: 0.66rem;
+      font-weight: 950;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+    .road-node b {
+      display: block;
+      margin-top: 0.34rem;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.92rem;
+      line-height: 1.16;
+    }
+    .road-node p {
+      margin: 0.38rem 0 0;
+      font-size: 0.76rem;
+      line-height: 1.34;
+    }
+    .fill-board {
+      display: grid;
+      gap: 0.86rem;
+      margin-top: 0.75rem;
+    }
+    .fill-row {
+      display: grid;
+      grid-template-columns: 7.2rem minmax(0, 1fr) 4.8rem;
+      gap: 0.7rem;
+      align-items: center;
+    }
+    .fill-row b {
+      color: var(--ink);
+      font-size: 0.84rem;
+      line-height: 1.16;
+    }
+    .fill-track {
+      display: grid;
+      gap: 0.28rem;
+    }
+    .fill-bar {
+      display: grid;
+      grid-template-columns: 4.1rem minmax(0, 1fr);
+      gap: 0.4rem;
+      align-items: center;
+    }
+    .fill-bar span {
+      color: var(--muted);
+      font-size: 0.66rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .fill-bar i {
+      display: block;
+      width: var(--w);
+      height: 0.66rem;
+      border-radius: 999px;
+      background: var(--c);
+    }
+    .fill-change {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.16rem;
+      font-weight: 950;
+      text-align: right;
+    }
+    .fill-change.down { color: var(--red); }
+    .fill-change.flat { color: var(--teal); }
+    .fill-change.up { color: var(--green); }
+    .direction-stack {
+      display: grid;
+      gap: 0.86rem;
+      margin-top: 0.75rem;
+    }
+    .stack-row {
+      display: grid;
+      grid-template-columns: 7.1rem minmax(0, 1fr);
+      gap: 0.65rem;
+      align-items: center;
+    }
+    .stack-row b {
+      color: var(--ink);
+      font-size: 0.84rem;
+    }
+    .stack-bar {
+      display: flex;
+      height: 2.1rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 999px;
+      overflow: hidden;
+      background: #fff;
+    }
+    .stack-bar span {
+      display: grid;
+      place-items: center;
+      width: var(--w);
+      min-width: 2.4rem;
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 900;
+    }
+    .stack-bar .decrease { background: var(--red); }
+    .stack-bar .same { background: var(--gold); color: var(--ink); }
+    .stack-bar .increase { background: var(--teal); }
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-top: 0.65rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 820;
+    }
+    .legend i {
+      display: inline-block;
+      width: 0.7rem;
+      height: 0.7rem;
+      margin-right: 0.24rem;
+      border-radius: 50%;
+      vertical-align: -0.08rem;
+      background: var(--dot);
+    }
+    .takeaway {
+      display: grid;
+      grid-template-columns: 8rem minmax(0, 1fr);
+      gap: 0.8rem;
+      align-items: center;
+      margin-top: 0.85rem;
+      border: 1px solid rgba(209, 38, 48, 0.25);
+      border-left: 5px solid var(--red);
+      border-radius: 8px;
+      background: linear-gradient(90deg, rgba(209, 38, 48, 0.1), #fff);
+      padding: 0.78rem;
+    }
+    .takeaway strong {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      line-height: 1;
+      text-align: center;
+    }
+    .takeaway p {
+      margin: 0;
+      font-size: 0.86rem;
+    }
+    .concise-list {
+      margin: 0.55rem 0 0 1rem;
+      padding: 0;
+    }
+    .concise-list li {
+      margin: 0.26rem 0;
+      font-size: 0.86rem;
+    }
+    .source-note {
+      margin: 0.65rem 0 0;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 760;
+    }
+    @media (max-width: 900px) {
+      .study-grid,
+      .evidence-road {
+        grid-template-columns: 1fr;
+      }
+      .hero-loop {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 640px) {
+      .hero-loop,
+      .fill-row,
+      .stack-row,
+      .takeaway,
+      .criterion {
+        grid-template-columns: 1fr;
+      }
+      .fill-change,
+      .takeaway strong {
+        text-align: left;
+      }
+      .stack-bar span {
+        min-width: 2rem;
+        font-size: 0.66rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/47-2022.pdf">PDF source</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/47-2022.md">Markdown source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2022 Annual Meeting | Poster 47-2022</p>
+        <h1>CF Refill Utilization Trends with CFTR Modulators</h1>
+        <p class="hero-summary">Maxor Specialty Pharmacy evaluated whether supportive cystic fibrosis therapy refill patterns shifted during the six months after Trikafta&reg; initiation. The clearest signal was fewer inhaled-antibiotic fills, while mucolytic and PERT trends were flat to higher.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag therapy">Cystic fibrosis</li>
+          <li class="tag therapy">Trikafta&reg;</li>
+          <li class="tag category">Refill utilization</li>
+          <li class="tag">Specialty pharmacy claims</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Visual summary">
+        <div>
+          <div class="poster-code">47-2022</div>
+          <dl class="meta-grid">
+            <div>
+              <dt>Study design</dt>
+              <dd>Retrospective observational</dd>
+            </div>
+            <div>
+              <dt>Cohort</dt>
+              <dd>39 CF patients</dd>
+            </div>
+            <div>
+              <dt>Window</dt>
+              <dd>6 months pre vs post</dd>
+            </div>
+            <div>
+              <dt>Index therapy</dt>
+              <dd>Trikafta&reg;</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="cftr-visual">
+          <svg class="cftr-svg" viewBox="0 0 430 250" role="img" aria-label="CFTR modulator concept showing mucus relief and refill shift">
+            <defs>
+              <linearGradient id="airwayGrad" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#187c8f"/>
+                <stop offset="0.62" stop-color="#e99e25"/>
+                <stop offset="1" stop-color="#d12630"/>
+              </linearGradient>
+              <marker id="arrow" markerHeight="8" markerWidth="8" orient="auto" refX="6" refY="3">
+                <path d="M0,0 L6,3 L0,6 Z" fill="#243770"/>
+              </marker>
+            </defs>
+            <rect x="12" y="16" width="406" height="218" rx="28" fill="#fff" stroke="#d9e1ef"/>
+            <path d="M74 78 C126 43, 175 42, 212 78 C249 115, 303 112, 358 74" fill="none" stroke="#aebbd2" stroke-width="17" stroke-linecap="round"/>
+            <path d="M74 113 C134 78, 176 84, 211 119 C247 154, 301 152, 358 112" fill="none" stroke="#aebbd2" stroke-width="17" stroke-linecap="round" opacity="0.6"/>
+            <path d="M87 78 C131 57, 164 59, 197 91" fill="none" stroke="#d12630" stroke-width="8" stroke-linecap="round" stroke-dasharray="2 13"/>
+            <path d="M238 138 C272 158, 308 150, 350 124" fill="none" stroke="#187c8f" stroke-width="8" stroke-linecap="round" stroke-dasharray="14 8"/>
+            <circle cx="213" cy="116" r="54" fill="url(#airwayGrad)" opacity="0.92"/>
+            <circle cx="213" cy="116" r="38" fill="#fff" opacity="0.96"/>
+            <text x="213" y="109" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="22" font-weight="900">CFTR</text>
+            <text x="213" y="132" text-anchor="middle" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800">modulator</text>
+            <g fill="none" stroke="#243770" stroke-width="2.2" marker-end="url(#arrow)" opacity="0.78">
+              <path d="M98 184 C138 214, 180 216, 207 185"/>
+              <path d="M230 185 C258 216, 302 214, 338 184"/>
+            </g>
+            <g font-family="Inter, Arial, sans-serif" font-weight="900" font-size="13">
+              <rect x="45" y="174" width="99" height="32" rx="16" fill="#eef4fb" stroke="#187c8f"/>
+              <text x="94" y="195" text-anchor="middle" fill="#187c8f">less mucus</text>
+              <rect x="165" y="174" width="95" height="32" rx="16" fill="#fff7ea" stroke="#e99e25"/>
+              <text x="212" y="195" text-anchor="middle" fill="#9c6310">relief</text>
+              <rect x="281" y="174" width="104" height="32" rx="16" fill="#fff" stroke="#d12630"/>
+              <text x="333" y="195" text-anchor="middle" fill="#d12630">fill shift</text>
+            </g>
+          </svg>
+          <div class="hero-loop" aria-label="Poster logic loop">
+            <div class="loop-step"><b>Trikafta&reg; starts</b><span>Oct 2019 to Jun 2020 index window</span></div>
+            <div class="loop-step"><b>Symptoms may ease</b><span>CFTR modulation targets mucus buildup</span></div>
+            <div class="loop-step"><b>Supportive fills tracked</b><span>Antibiotics, mucolytics, and PERT</span></div>
+            <div class="loop-step"><b>Utilization compared</b><span>Six months before vs after initiation</span></div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <div class="metric-card">
+          <span>Analyzed patients</span>
+          <strong>39</strong>
+          <em>all had at least three fills in each supportive class</em>
+        </div>
+        <div class="metric-card">
+          <span>Age range</span>
+          <strong>14-80</strong>
+          <em>cohort age range reported in the conclusion</em>
+        </div>
+        <div class="metric-card">
+          <span>Inhaled antibiotics</span>
+          <strong>-14.79<small>%</small></strong>
+          <em>145 fills pre-index vs 123 post-index</em>
+        </div>
+        <div class="metric-card">
+          <span>CF burden context</span>
+          <strong>3<small> hr/day</small></strong>
+          <em>average daily therapy time cited in the background</em>
+        </div>
+      </section>
+
+      <section class="study-grid">
+        <div class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Measure whether Trikafta&reg; changed refill behavior</h2>
+          <p>The poster compared cystic fibrosis supportive therapy utilization in patients before and after starting Trikafta&reg;, using percent change in refill counts as the main outcome.</p>
+          <div class="criteria-list" aria-label="Key inclusion criteria">
+            <div class="criterion">
+              <i>1</i>
+              <div><b>Diagnosis and age</b><span>Patients with CF who were 6 years or older.</span></div>
+            </div>
+            <div class="criterion">
+              <i>2</i>
+              <div><b>Trikafta&reg; initiation</b><span>Started between October 2019 and June 2020.</span></div>
+            </div>
+            <div class="criterion">
+              <i>3</i>
+              <div><b>Supportive therapy history</b><span>At least three refills of inhaled antibiotics, mucolytics, and PERT within six months of initiation.</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Evidence flow</p>
+          <h2>From CFTR modulation to refill trends</h2>
+          <div class="evidence-road" aria-label="Evidence map">
+            <article class="road-node">
+              <span>Context</span>
+              <b>High CF treatment burden</b>
+              <p>Patients average five medications and about three hours of daily therapy.</p>
+            </article>
+            <article class="road-node">
+              <span>Hypothesis</span>
+              <b>Modulators may reduce symptoms</b>
+              <p>Reduced mucus buildup could lower perceived need for supportive therapies.</p>
+            </article>
+            <article class="road-node">
+              <span>Data</span>
+              <b>Specialty pharmacy claims</b>
+              <p>Claims were collected for patients taking Trikafta&reg; through Maxor pharmacies.</p>
+            </article>
+            <article class="road-node">
+              <span>Comparison</span>
+              <b>Six-month windows</b>
+              <p>Fill counts were compared before and after Trikafta&reg; initiation.</p>
+            </article>
+            <article class="road-node">
+              <span>Interpretation</span>
+              <b>Payor-relevant signal</b>
+              <p>Fewer antibiotic refills may suggest lower infection-related burden and cost.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="visual-grid">
+        <div class="panel">
+          <p class="section-label">Pre/post fill counts</p>
+          <h2>Only inhaled antibiotics showed a meaningful drop</h2>
+          <div class="fill-board" aria-label="Percent change in fills by drug class">
+            <div class="fill-row">
+              <b>Inhaled antibiotics</b>
+              <div class="fill-track">
+                <div class="fill-bar"><span>Pre 145</span><i style="--w:70%; --c:var(--red)"></i></div>
+                <div class="fill-bar"><span>Post 123</span><i style="--w:59%; --c:rgba(209, 38, 48, 0.52)"></i></div>
+              </div>
+              <div class="fill-change down">-14.79%</div>
+            </div>
+            <div class="fill-row">
+              <b>Mucolytics</b>
+              <div class="fill-track">
+                <div class="fill-bar"><span>Pre 192</span><i style="--w:93%; --c:var(--teal)"></i></div>
+                <div class="fill-bar"><span>Post 194</span><i style="--w:94%; --c:rgba(24, 124, 143, 0.52)"></i></div>
+              </div>
+              <div class="fill-change flat">+1.04%</div>
+            </div>
+            <div class="fill-row">
+              <b>PERT</b>
+              <div class="fill-track">
+                <div class="fill-bar"><span>Pre 196</span><i style="--w:95%; --c:var(--green)"></i></div>
+                <div class="fill-bar"><span>Post 207</span><i style="--w:100%; --c:rgba(77, 138, 103, 0.54)"></i></div>
+              </div>
+              <div class="fill-change up">+5.61%</div>
+            </div>
+          </div>
+          <div class="takeaway">
+            <strong>-22</strong>
+            <p>Inhaled antibiotic fills fell from 145 to 123 after Trikafta&reg; initiation, the largest absolute and relative change in the dataset.</p>
+          </div>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Patient-level direction</p>
+          <h2>Class patterns differed across the 39-patient cohort</h2>
+          <div class="direction-stack" aria-label="Decrease, no change, increase by drug class">
+            <div class="stack-row">
+              <b>Inhaled antibiotics</b>
+              <div class="stack-bar">
+                <span class="decrease" style="--w:49%">19</span>
+                <span class="same" style="--w:38%">15</span>
+                <span class="increase" style="--w:13%">5</span>
+              </div>
+            </div>
+            <div class="stack-row">
+              <b>Mucolytics</b>
+              <div class="stack-bar">
+                <span class="decrease" style="--w:31%">12</span>
+                <span class="same" style="--w:31%">12</span>
+                <span class="increase" style="--w:38%">15</span>
+              </div>
+            </div>
+            <div class="stack-row">
+              <b>PERT</b>
+              <div class="stack-bar">
+                <span class="decrease" style="--w:28%">11</span>
+                <span class="same" style="--w:31%">12</span>
+                <span class="increase" style="--w:41%">16</span>
+              </div>
+            </div>
+          </div>
+          <div class="legend" aria-label="Legend">
+            <span><i style="--dot:var(--red)"></i>Decrease</span>
+            <span><i style="--dot:var(--gold)"></i>No change</span>
+            <span><i style="--dot:var(--teal)"></i>Increase</span>
+          </div>
+          <p class="source-note">Each row totals 39 patients. The PERT increase should be interpreted cautiously because enzymes can also be filled through retail pharmacies.</p>
+        </div>
+      </section>
+
+      <section class="section-stack">
+        <div class="panel">
+          <p class="section-label">Results</p>
+          <h2>Observed refill changes</h2>
+          <ul class="concise-list">
+            <li>Inhaled antibiotic claims decreased by 14.79% after Trikafta&reg; initiation.</li>
+            <li>Mucolytic fills were effectively unchanged, increasing by 1.04%.</li>
+            <li>PERT fills increased by 5.61%, but the specialty-channel-only data may not fully capture enzyme utilization.</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <p class="section-label">Conclusion</p>
+          <h2>Preliminary signal for real-world monitoring</h2>
+          <ul class="concise-list">
+            <li>The authors interpreted the inhaled antibiotic decline as potentially meaningful because pulmonary infections drive CF morbidity and mortality.</li>
+            <li>Reduced antibiotic refill demand may translate into lower transactional burden for patients and payors.</li>
+            <li>The poster calls for larger cohorts and longer follow-up to clarify the real-world effects of next-generation CFTR agents.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="tables-grid">
+        <div class="table-card">
+          <p class="section-label">Extracted table</p>
+          <h2>Direction of refill trend after Trikafta&reg;</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Drug class</th>
+                  <th>Decrease</th>
+                  <th>No change</th>
+                  <th>Increase</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Inhaled antibiotics</td><td>19</td><td>15</td><td>5</td></tr>
+                <tr><td>Mucolytics</td><td>12</td><td>12</td><td>15</td></tr>
+                <tr><td>PERT</td><td>11</td><td>12</td><td>16</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="table-card">
+          <p class="section-label">Extracted table</p>
+          <h2>Six-month fill counts</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Drug class</th>
+                  <th>6M pre-TKFT</th>
+                  <th>6M post-TKFT</th>
+                  <th>Percent change</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Inhaled antibiotics</td><td>145</td><td>123</td><td>-14.79%</td></tr>
+                <tr><td>Mucolytics</td><td>192</td><td>194</td><td>+1.04%</td></tr>
+                <tr><td>PERT</td><td>196</td><td>207</td><td>+5.61%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Poster team and source</p>
+        <h2>Venise R.N. De Etoulem, PharmD; Bonnie Dugie, PharmD, MBA, CSP; Sarah Richards, PharmD, CSP</h2>
+        <p>Organization shown in the extracted poster text: Maxor Pharmacy Management and Maxor Specialty Pharmacy.</p>
+        <div class="footer-actions">
+          <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/47-2022.pdf">Open original PDF</a>
+          <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/47-2022.md">Open extracted markdown</a>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

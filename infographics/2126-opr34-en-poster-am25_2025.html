@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2025 Infographic | Health Disparities Among Patients with Moderate to Severe Asthma</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .asthma-hero-art {
+      position: relative;
+      min-height: 23rem;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 84% 14%, rgba(233, 158, 37, 0.34), transparent 8rem),
+        linear-gradient(145deg, rgba(36, 55, 112, 0.98), rgba(24, 124, 143, 0.92) 55%, rgba(77, 138, 103, 0.9));
+      color: #fff;
+      padding: 1rem;
+    }
+
+    .asthma-hero-art svg {
+      position: absolute;
+      inset: auto -2rem -1.8rem auto;
+      width: min(26rem, 82%);
+      opacity: 0.7;
+    }
+
+    .hero-stat-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.55rem;
+      max-width: 18rem;
+    }
+
+    .hero-stat {
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.12);
+      padding: 0.65rem;
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-stat strong {
+      display: block;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+
+    .hero-stat span {
+      display: block;
+      margin-top: 0.25rem;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 0.68rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .asthma-hero-art .kicker {
+      position: relative;
+      z-index: 1;
+      margin: 0 0 0.7rem;
+      color: rgba(255, 255, 255, 0.74);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .finding-band {
+      display: grid;
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .headline-finding {
+      display: grid;
+      align-content: center;
+      min-height: 16rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        linear-gradient(150deg, rgba(209, 38, 48, 0.96), rgba(233, 158, 37, 0.86)),
+        var(--red);
+      color: #fff;
+      padding: 1rem;
+    }
+
+    .headline-finding span {
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .headline-finding strong {
+      margin-top: 0.2rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 8vw, 5.8rem);
+      line-height: 0.9;
+    }
+
+    .headline-finding p {
+      margin: 0.7rem 0 0;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 0.96rem;
+    }
+
+    .mini-flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.6rem;
+      margin-top: 0.7rem;
+    }
+
+    .mini-node {
+      position: relative;
+      min-height: 8.2rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.78rem;
+    }
+
+    .mini-node::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -0.48rem;
+      width: 0.7rem;
+      height: 0.7rem;
+      border-top: 2px solid var(--border-strong);
+      border-right: 2px solid var(--border-strong);
+      background: #fff;
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    .mini-node:last-child::after { display: none; }
+
+    .mini-node b {
+      display: inline-grid;
+      place-items: center;
+      width: 1.55rem;
+      height: 1.55rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+    }
+
+    .mini-node h3 {
+      margin-top: 0.48rem;
+      font-size: 0.92rem;
+    }
+
+    .mini-node p {
+      margin: 0.32rem 0 0;
+      font-size: 0.78rem;
+    }
+
+    .race-split {
+      display: grid;
+      grid-template-columns: 68fr 32fr;
+      height: 1.4rem;
+      margin-top: 0.75rem;
+      overflow: hidden;
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 999px;
+      background: var(--surface-blue);
+    }
+
+    .race-split span:first-child { background: var(--ink); }
+    .race-split span:last-child { background: var(--teal); }
+
+    .legend-pair {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem 0.9rem;
+      margin-top: 0.5rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    .legend-pair i {
+      display: inline-block;
+      width: 0.65rem;
+      height: 0.65rem;
+      margin-right: 0.25rem;
+      border-radius: 2px;
+      background: var(--ink);
+      vertical-align: -0.05rem;
+    }
+
+    .legend-pair span:last-child i { background: var(--teal); }
+
+    .bar-compare {
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 0.75rem;
+    }
+
+    .compare-row {
+      display: grid;
+      grid-template-columns: 9.5rem minmax(0, 1fr) 4.8rem;
+      gap: 0.58rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+
+    .compare-track {
+      height: 1rem;
+      overflow: hidden;
+      border: 1px solid rgba(174, 187, 210, 0.82);
+      border-radius: 999px;
+      background: #edf2f8;
+    }
+
+    .compare-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: var(--c, var(--red));
+    }
+
+    .compare-row em {
+      color: var(--ink);
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .aqi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.8rem;
+    }
+
+    .pollutant-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.8rem;
+    }
+
+    .pollutant-card h3 {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.5rem;
+      align-items: baseline;
+      font-size: 1rem;
+    }
+
+    .pollutant-card h3 span {
+      color: var(--red);
+      font-family: var(--font-body);
+      font-size: 0.66rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .paired-bars {
+      display: grid;
+      gap: 0.48rem;
+      margin-top: 0.68rem;
+    }
+
+    .paired-bar {
+      display: grid;
+      grid-template-columns: 4.4rem minmax(0, 1fr) 4.3rem;
+      gap: 0.45rem;
+      align-items: center;
+      font-size: 0.75rem;
+      font-weight: 850;
+    }
+
+    .paired-bar .track {
+      height: 0.82rem;
+      overflow: hidden;
+      border-radius: 999px;
+      background: var(--surface-blue);
+    }
+
+    .paired-bar i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: var(--c);
+    }
+
+    .paired-bar em {
+      color: var(--muted);
+      font-style: normal;
+      text-align: right;
+    }
+
+    .appointment-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-top: 0.7rem;
+    }
+
+    .appointment-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--surface-blue);
+      padding: 0.85rem;
+    }
+
+    .appointment-card strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2.3rem;
+      line-height: 1;
+    }
+
+    .appointment-card p {
+      margin: 0.35rem 0 0;
+      font-size: 0.86rem;
+    }
+
+    .outcome-matrix {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 0.42rem;
+      margin-top: 0.75rem;
+    }
+
+    .outcome-cell {
+      min-height: 7.2rem;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.55rem;
+    }
+
+    .outcome-cell strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+
+    .outcome-cell span {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+
+    .outcome-cell b {
+      display: block;
+      margin-top: 0.48rem;
+      color: var(--teal);
+      font-size: 0.67rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .medication-stack {
+      display: grid;
+      gap: 0.48rem;
+      margin-top: 0.65rem;
+    }
+
+    .medication-row {
+      display: grid;
+      grid-template-columns: 7.5rem minmax(0, 1fr) 3rem;
+      gap: 0.5rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+
+    .medication-track {
+      height: 0.78rem;
+      overflow: hidden;
+      border-radius: 999px;
+      background: var(--surface-blue);
+    }
+
+    .medication-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .source-note {
+      margin: 0.7rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 900px) {
+      .finding-band,
+      .mini-flow,
+      .aqi-grid,
+      .appointment-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .mini-node::after { display: none; }
+
+      .outcome-matrix {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 620px) {
+      .hero-stat-grid,
+      .outcome-matrix {
+        grid-template-columns: 1fr;
+      }
+
+      .compare-row,
+      .paired-bar,
+      .medication-row {
+        grid-template-columns: 1fr;
+      }
+
+      .compare-row em,
+      .paired-bar em {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">NASP Infographics</a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/2126-OPR34-EN-Poster-AM25_2025.pdf">Poster PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/2126-OPR34-EN-Poster-AM25_2025.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">AM25 2025 | 2126-OPR34-EN-Poster</p>
+        <h1>Health Disparities Among Patients with Moderate to Severe Asthma</h1>
+        <p class="hero-summary">A Vanderbilt retrospective chart review linked specialty pharmacy biologic starts with clinic engagement, 12-month clinical outcomes, and neighborhood air quality exposures by race.</p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag therapy">Asthma biologics</li>
+          <li class="tag category">Health disparities</li>
+          <li class="tag">Retrospective cohort</li>
+          <li class="tag">AQI geocoding</li>
+        </ul>
+      </div>
+      <aside class="asthma-hero-art" aria-label="Study snapshot">
+        <p class="kicker">Cohort snapshot</p>
+        <div class="hero-stat-grid">
+          <div class="hero-stat"><strong>185</strong><span>patients</span></div>
+          <div class="hero-stat"><strong>12 mo</strong><span>follow-up</span></div>
+          <div class="hero-stat"><strong>68%</strong><span>White</span></div>
+          <div class="hero-stat"><strong>32%</strong><span>Black/AA/Other</span></div>
+        </div>
+        <svg viewBox="0 0 520 360" role="img" aria-label="Stylized lungs and air quality network">
+          <defs>
+            <linearGradient id="lungLine" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0" stop-color="#fff" stop-opacity="0.96"/>
+              <stop offset="1" stop-color="#e99e25" stop-opacity="0.82"/>
+            </linearGradient>
+          </defs>
+          <path d="M255 52 C255 106 254 137 254 169" fill="none" stroke="url(#lungLine)" stroke-width="15" stroke-linecap="round"/>
+          <path d="M254 119 C216 129 186 164 174 222 C163 276 134 304 99 290 C61 274 54 217 72 166 C91 111 123 77 161 77 C203 77 225 102 254 119Z" fill="none" stroke="#fff" stroke-opacity="0.78" stroke-width="13" stroke-linejoin="round"/>
+          <path d="M266 119 C304 129 334 164 346 222 C357 276 386 304 421 290 C459 274 466 217 448 166 C429 111 397 77 359 77 C317 77 295 102 266 119Z" fill="none" stroke="#fff" stroke-opacity="0.78" stroke-width="13" stroke-linejoin="round"/>
+          <path d="M207 171 C191 194 184 225 181 254 M315 171 C331 194 338 225 341 254" fill="none" stroke="#fff" stroke-opacity="0.34" stroke-width="7" stroke-linecap="round"/>
+          <circle cx="90" cy="86" r="8" fill="#e99e25"/>
+          <circle cx="430" cy="112" r="10" fill="#d12630"/>
+          <circle cx="390" cy="38" r="6" fill="#fff"/>
+          <circle cx="126" cy="333" r="7" fill="#fff" opacity="0.8"/>
+          <circle cx="455" cy="300" r="5" fill="#e99e25"/>
+          <path d="M90 86 L161 77 L254 119 L359 77 L430 112 M254 119 L126 333 M254 119 L455 300 M359 77 L390 38" fill="none" stroke="#fff" stroke-opacity="0.28" stroke-width="2"/>
+        </svg>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key cohort measures">
+        <div class="metric-card"><span>Median age</span><strong>46</strong><p class="source-note">IQR 24, 58 years</p></div>
+        <div class="metric-card"><span>Female</span><strong>54%</strong><p class="source-note">100 of 185 patients</p></div>
+        <div class="metric-card"><span>Commercial insurance</span><strong>56%</strong><p class="source-note">103 patients</p></div>
+        <div class="metric-card"><span>Dupilumab starts</span><strong>82%</strong><p class="source-note">dominant biologic</p></div>
+      </section>
+
+      <section class="finding-band">
+        <div class="headline-finding">
+          <span>Central signal</span>
+          <strong>16%</strong>
+          <p>Average missed appointments without rescheduling among Black or African American patients, versus 4% among White patients (p&lt;0.001).</p>
+        </div>
+        <div class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Pair clinical response with exposure and engagement context</h2>
+          <p>This study described outcomes during the first year of biologic therapy and evaluated whether air quality exposure and clinic engagement differed by race.</p>
+          <div class="mini-flow" aria-label="Study design flow">
+            <div class="mini-node"><b>1</b><h3>Identify starts</h3><p>New benralizumab, dupilumab, mepolizumab, or omalizumab for moderate to severe asthma.</p></div>
+            <div class="mini-node"><b>2</b><h3>Geocode</h3><p>Patient locations matched to EPA Air Quality Index data.</p></div>
+            <div class="mini-node"><b>3</b><h3>Observe</h3><p>Clinic engagement and health care utilization measured after biologic initiation.</p></div>
+            <div class="mini-node"><b>4</b><h3>Compare</h3><p>Race-stratified engagement, AQI, and clinical outcome patterns.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="visual-grid">
+        <div class="panel">
+          <p class="section-label">Population mix</p>
+          <h2>Race and diagnosis profile</h2>
+          <div class="race-split" aria-label="Race split: 68 percent White, 32 percent Black or African American or Other">
+            <span></span><span></span>
+          </div>
+          <div class="legend-pair">
+            <span><i></i>68% White (n=126)</span>
+            <span><i></i>32% Black/AA/Other (n=59)</span>
+          </div>
+          <div class="number-cloud" aria-label="Baseline diagnosis and smoking status">
+            <div class="number-pill">48%<small>severe persistent</small></div>
+            <div class="number-pill">52%<small>moderate persistent</small></div>
+            <div class="number-pill">60%<small>never smoked/exposed/?</small></div>
+            <div class="number-pill">21%<small>previously smoked</small></div>
+          </div>
+        </div>
+        <div class="panel">
+          <p class="section-label">Medication pattern</p>
+          <h2>Most patients initiated dupilumab</h2>
+          <div class="medication-stack" aria-label="Biologic medication distribution">
+            <div class="medication-row"><span>Dupilumab</span><div class="medication-track"><i style="--w:82%"></i></div><em>82%</em></div>
+            <div class="medication-row"><span>Mepolizumab</span><div class="medication-track"><i style="--w:11%"></i></div><em>11%</em></div>
+            <div class="medication-row"><span>Benralizumab</span><div class="medication-track"><i style="--w:4%"></i></div><em>4%</em></div>
+            <div class="medication-row"><span>Omalizumab</span><div class="medication-track"><i style="--w:3%"></i></div><em>3%</em></div>
+          </div>
+          <p class="source-note">Enrollment covered biologic starts from January 1, 2019 to June 30, 2022, with 12-month follow-up through June 30, 2023.</p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Air quality</p>
+        <h2>Geocoded AQI showed pollutant-specific differences by race</h2>
+        <div class="aqi-grid">
+          <article class="pollutant-card">
+            <h3>NO<sub>2</sub> <span>p&lt;0.001</span></h3>
+            <p class="source-note">Median percent days of AQI parameter.</p>
+            <div class="paired-bars">
+              <div class="paired-bar"><span>White</span><div class="track"><i style="--w:0%; --c:var(--ink)"></i></div><em>0</em></div>
+              <div class="paired-bar"><span>Black/AA</span><div class="track"><i style="--w:92%; --c:var(--teal)"></i></div><em>5.5</em></div>
+            </div>
+          </article>
+          <article class="pollutant-card">
+            <h3>Ozone <span>p&lt;0.001</span></h3>
+            <p class="source-note">White patients had higher median ozone percent days in the source table.</p>
+            <div class="paired-bars">
+              <div class="paired-bar"><span>White</span><div class="track"><i style="--w:100%; --c:var(--ink)"></i></div><em>44.5</em></div>
+              <div class="paired-bar"><span>Black/AA</span><div class="track"><i style="--w:75%; --c:var(--teal)"></i></div><em>33.2</em></div>
+            </div>
+          </article>
+          <article class="pollutant-card">
+            <h3>PM<sub>2.5</sub> <span>p&lt;0.001</span></h3>
+            <p class="source-note">Small particle exposure was higher in the Black/AA group.</p>
+            <div class="paired-bars">
+              <div class="paired-bar"><span>White</span><div class="track"><i style="--w:84%; --c:var(--ink)"></i></div><em>51.2</em></div>
+              <div class="paired-bar"><span>Black/AA</span><div class="track"><i style="--w:100%; --c:var(--teal)"></i></div><em>60.8</em></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-stack">
+        <div class="panel">
+          <p class="section-label">Clinic engagement</p>
+          <h2>Missed visits and cancellations moved in opposite directions</h2>
+          <div class="appointment-grid">
+            <div class="appointment-card"><strong>19%</strong><p>Average canceled appointments for White patients, compared with 11% among Black/African American patients (p=0.04).</p></div>
+            <div class="appointment-card"><strong>16%</strong><p>Average missed appointments without rescheduling for Black/African American patients, compared with 4% among White patients (p&lt;0.001).</p></div>
+          </div>
+        </div>
+        <div class="panel">
+          <p class="section-label">Visual contrast</p>
+          <h2>Appointment behavior by group</h2>
+          <div class="bar-compare" aria-label="Average appointment cancellation and missed visit rates">
+            <div class="compare-row"><span>White cancellations</span><div class="compare-track"><i style="--w:100%; --c:var(--gold)"></i></div><em>19%</em></div>
+            <div class="compare-row"><span>Black/AA cancellations</span><div class="compare-track"><i style="--w:58%; --c:var(--gold)"></i></div><em>11%</em></div>
+            <div class="compare-row"><span>White no-shows</span><div class="compare-track"><i style="--w:25%; --c:var(--red)"></i></div><em>4%</em></div>
+            <div class="compare-row"><span>Black/AA no-shows</span><div class="compare-track"><i style="--w:100%; --c:var(--red)"></i></div><em>16%</em></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Clinical outcomes</p>
+        <h2>Most first-year utilization outcomes were zero events</h2>
+        <div class="outcome-matrix" aria-label="Percent of patients with zero outcomes at 12 months">
+          <div class="outcome-cell"><strong>92%</strong><span>had zero hospitalizations</span><b>171 patients</b></div>
+          <div class="outcome-cell"><strong>91%</strong><span>had zero urgent care visits</span><b>168 patients</b></div>
+          <div class="outcome-cell"><strong>81%</strong><span>had zero ambulatory visits</span><b>150 patients</b></div>
+          <div class="outcome-cell"><strong>81%</strong><span>had zero steroid bursts</span><b>149 patients</b></div>
+          <div class="outcome-cell"><strong>98%</strong><span>had zero injectable steroid administrations</span><b>181 patients</b></div>
+          <div class="outcome-cell"><strong>65%</strong><span>had zero exacerbations</span><b>120 patients</b></div>
+          <div class="outcome-cell"><strong>57%</strong><span>had zero rescue inhaler outcomes</span><b>30% had 3+</b></div>
+        </div>
+        <p class="source-note">The poster reported no significant race-based differences in clinical outcomes during the first year of biologic therapy.</p>
+      </section>
+
+      <section class="evidence-map" aria-label="Interpretive takeaways">
+        <article class="evidence-card"><h3>Objective</h3><p>Describe biologic-era asthma outcomes and evaluate AQI exposure and clinic engagement by race.</p></article>
+        <article class="evidence-card"><h3>Method</h3><p>Retrospective cohort, Vanderbilt Allergy/Immunology prescribing, geocoded AQI linkage, 12-month follow-up.</p></article>
+        <article class="evidence-card"><h3>Exposure</h3><p>NO<sub>2</sub> and PM<sub>2.5</sub> were higher for Black/African American patients in the AQI table.</p></article>
+        <article class="evidence-card"><h3>Engagement</h3><p>Black/African American patients had a higher missed-appointment percentage without rescheduling.</p></article>
+        <article class="evidence-card"><h3>Conclusion</h3><p>Disparities were visible in exposure and engagement, while clinical response outcomes did not differ by race.</p></article>
+      </section>
+
+      <footer class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/2126-OPR34-EN-Poster-AM25_2025.pdf">Open original poster PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/2126-OPR34-EN-Poster-AM25_2025.md">Open extracted markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

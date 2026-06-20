@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2023 | Hemophilia A Factor Utilization With Emicizumab</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hemo-hero-art {
+      min-height: 13rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 24% 18%, rgba(209, 38, 48, 0.18), transparent 7rem),
+        radial-gradient(circle at 80% 78%, rgba(24, 124, 143, 0.18), transparent 8rem),
+        linear-gradient(145deg, #ffffff, var(--surface-blue));
+      overflow: hidden;
+    }
+    .big-callout {
+      display: grid;
+      grid-template-columns: 10rem 1fr;
+      gap: 1rem;
+      align-items: center;
+      padding: 1rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(238, 244, 251, 0.88), #ffffff 58%, rgba(255, 247, 234, 0.8));
+    }
+    .donut {
+      width: 10rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: conic-gradient(var(--red) 0 71.7%, var(--surface-blue) 71.7% 100%);
+      display: grid;
+      place-items: center;
+      box-shadow: inset 0 0 0 1px rgba(36, 55, 112, 0.12);
+    }
+    .donut span {
+      width: 6.35rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #ffffff;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      font-weight: 900;
+      text-align: center;
+    }
+    .split-bars {
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 0.8rem;
+    }
+    .split-bars .lens-row {
+      grid-template-columns: 5.4rem minmax(0, 1fr) 3.8rem;
+    }
+    .split-bars b {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+    }
+    .flowline {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+    .flow-step {
+      position: relative;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #ffffff;
+      padding: 0.8rem;
+    }
+    .flow-step strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.9rem;
+      line-height: 1;
+    }
+    .flow-step span {
+      display: block;
+      margin-top: 0.3rem;
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .flow-step p {
+      margin: 0.35rem 0 0;
+      font-size: 0.84rem;
+    }
+    .abr-comparison {
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 0.65rem;
+    }
+    .abr-row {
+      display: grid;
+      grid-template-columns: 3.5rem minmax(0, 1fr) 5.5rem;
+      gap: 0.65rem;
+      align-items: center;
+    }
+    .abr-track {
+      height: 1.25rem;
+      border-radius: 999px;
+      background: var(--surface-blue);
+      overflow: hidden;
+    }
+    .abr-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+    }
+    .abr-track .shl { width: 100%; background: linear-gradient(90deg, var(--red), var(--gold)); }
+    .abr-track .ehl { width: 33%; background: linear-gradient(90deg, var(--teal), var(--green)); }
+    .abr-row b {
+      color: var(--ink);
+      font-family: var(--font-display);
+    }
+    .mini-table td:first-child,
+    .mini-table th:first-child {
+      width: 42%;
+    }
+    .quiet-note {
+      margin: 0.7rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+    .conclusion-panel {
+      border-color: rgba(209, 38, 48, 0.36);
+      background: linear-gradient(135deg, #ffffff, rgba(255, 247, 234, 0.95));
+    }
+    .conclusion-panel p {
+      margin: 0;
+      color: var(--ink);
+      font-size: 1.02rem;
+      font-weight: 750;
+    }
+    @media (max-width: 720px) {
+      .big-callout,
+      .flowline {
+        grid-template-columns: 1fr;
+      }
+      .donut {
+        width: 8.5rem;
+      }
+      .split-bars .lens-row,
+      .abr-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">NASP Posters</a>
+      <nav aria-label="Poster source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/65_Utilization-of-standard-half-life-or-extended-half-life-products-in-members-with-Hemophilia-A-prescribed-emicizumab_2023.pdf">PDF Source</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/65_Utilization-of-standard-half-life-or-extended-half-life-products-in-members-with-Hemophilia-A-prescribed-emicizumab_2023.md">Markdown Source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">2023 NASP Annual Meeting | Poster 65</p>
+        <h1>Factor fills remained common after emicizumab prophylaxis in Hemophilia A</h1>
+        <p class="hero-summary">A national payer cohort examined adult males with Hemophilia A prescribed Hemlibra&reg; and compared post-emicizumab factor utilization, specialty pharmacy dispenses, and annualized bleeding rates across standard half-life and extended half-life factor products.</p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag therapy">Hemophilia A</li>
+          <li class="tag category">Emicizumab</li>
+          <li class="tag">Factor utilization</li>
+          <li class="tag">Claims cohort</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Poster details">
+        <div class="poster-code">65</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Observation</dt>
+            <dd>Mar 31, 2020 to Mar 31, 2023</dd>
+          </div>
+          <div>
+            <dt>Cohort</dt>
+            <dd>Adult males, continuous enrollment</dd>
+          </div>
+          <div>
+            <dt>Population</dt>
+            <dd>Large US national healthcare payer</dd>
+          </div>
+          <div>
+            <dt>Contact</dt>
+            <dd>Natalie Watkins, PharmD</dd>
+          </div>
+        </dl>
+        <div class="hemo-hero-art" aria-hidden="true">
+          <svg viewBox="0 0 420 250" role="img" aria-label="Abstract blood cell and treatment path illustration">
+            <defs>
+              <linearGradient id="drop" x1="0" x2="1">
+                <stop offset="0" stop-color="#d12630"/>
+                <stop offset="1" stop-color="#e99e25"/>
+              </linearGradient>
+              <linearGradient id="tube" x1="0" x2="1">
+                <stop offset="0" stop-color="#187c8f"/>
+                <stop offset="1" stop-color="#4d8a67"/>
+              </linearGradient>
+            </defs>
+            <path d="M77 45 C53 77 30 112 30 149 C30 192 63 221 100 221 C137 221 169 193 169 150 C169 111 123 60 101 33 C94 24 84 35 77 45Z" fill="url(#drop)" opacity=".88"/>
+            <path d="M252 58 C229 87 207 119 207 153 C207 192 236 219 270 219 C305 219 333 193 333 154 C333 119 292 73 273 49 C267 41 258 50 252 58Z" fill="#d12630" opacity=".18"/>
+            <path d="M93 150 C133 121 173 104 219 105 C263 106 299 123 336 94" fill="none" stroke="url(#tube)" stroke-width="13" stroke-linecap="round"/>
+            <path d="M94 150 C136 146 181 146 223 162 C260 176 296 196 347 181" fill="none" stroke="#243770" stroke-width="4" stroke-linecap="round" stroke-dasharray="2 14" opacity=".55"/>
+            <circle cx="102" cy="145" r="14" fill="#fff7ea" stroke="#243770" stroke-width="3"/>
+            <circle cx="217" cy="107" r="14" fill="#ffffff" stroke="#187c8f" stroke-width="3"/>
+            <circle cx="336" cy="94" r="14" fill="#fff7ea" stroke="#243770" stroke-width="3"/>
+            <text x="54" y="236" fill="#243770" font-family="Montserrat, Arial" font-size="18" font-weight="900">SHL</text>
+            <text x="203" y="236" fill="#187c8f" font-family="Montserrat, Arial" font-size="18" font-weight="900">EHL</text>
+            <text x="312" y="236" fill="#d12630" font-family="Montserrat, Arial" font-size="18" font-weight="900">ABR</text>
+          </svg>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Screened</span>
+          <strong>2,981</strong>
+          <p class="quiet-note">Hemophilia A patients screened.</p>
+        </article>
+        <article class="metric-card">
+          <span>Final cohort</span>
+          <strong>53</strong>
+          <p class="quiet-note">Members met Hemlibra&reg; and enrollment criteria.</p>
+        </article>
+        <article class="metric-card">
+          <span>Filled factor</span>
+          <strong>71.7%</strong>
+          <p class="quiet-note">38 of 53 filled a factor product.</p>
+        </article>
+        <article class="metric-card">
+          <span>Overall ABR</span>
+          <strong>0.95</strong>
+          <p class="quiet-note">Bleeds per person-year, 95% CI 0.79-1.13.</p>
+        </article>
+      </section>
+
+      <section class="visual-grid">
+        <article class="panel">
+          <p class="section-label">Study Funnel</p>
+          <h2>From payer population to analytic cohort</h2>
+          <div class="flowline" aria-label="Study inclusion flow">
+            <div class="flow-step">
+              <strong>2,981</strong>
+              <span>Screened</span>
+              <p>Total Hemophilia A patients identified.</p>
+            </div>
+            <div class="flow-step">
+              <strong>143</strong>
+              <span>Hemlibra&reg;</span>
+              <p>Patients receiving emicizumab prophylaxis.</p>
+            </div>
+            <div class="flow-step">
+              <strong>53</strong>
+              <span>Included</span>
+              <p>Adult males with at least 6 months treatment and follow-up.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>What the poster measured</h2>
+          <div class="number-cloud">
+            <div class="number-pill">SHL<small>standard half-life</small></div>
+            <div class="number-pill">EHL<small>extended half-life</small></div>
+            <div class="number-pill">ABR<small>bleeding rate</small></div>
+            <div class="number-pill">SP<small>dispenses</small></div>
+          </div>
+          <p>The analysis assessed how often members prescribed Hemlibra&reg; filled factor products, how those fills split between SHL and EHL products, and whether bleeding rates or specialty pharmacy dispenses differed by factor type.</p>
+        </article>
+      </section>
+
+      <section class="big-callout" aria-label="Factor fill split">
+        <div class="donut"><span>71.7%</span></div>
+        <div>
+          <p class="section-label">Post-Hemlibra&reg; Factor Use</p>
+          <h2>Most members kept a factor product on hand</h2>
+          <p>Among 53 eligible members, 38 filled a factor product after Hemlibra&reg; initiation. Within those factor utilizers, SHL products were more common than EHL products.</p>
+          <div class="split-bars">
+            <div class="lens-row">
+              <span>SHL users</span>
+              <div class="lens-bar"><i style="width:71%"></i></div>
+              <b>27 / 38</b>
+            </div>
+            <div class="lens-row">
+              <span>EHL users</span>
+              <div class="lens-bar"><i style="width:29%; background:linear-gradient(90deg,var(--teal),var(--green))"></i></div>
+              <b>11 / 38</b>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">Bleeding Rate Signal</p>
+          <h2>ABR was higher in SHL utilizers than EHL utilizers</h2>
+          <div class="abr-comparison" aria-label="Annualized bleeding rate comparison">
+            <div class="abr-row">
+              <b>SHL</b>
+              <div class="abr-track"><i class="shl"></i></div>
+              <span>1.02</span>
+            </div>
+            <div class="abr-row">
+              <b>EHL</b>
+              <div class="abr-track"><i class="ehl"></i></div>
+              <span>0.34</span>
+            </div>
+          </div>
+          <p class="quiet-note">Post-Hemlibra&reg; ABR: SHL 1.02 (95% CI 0.75-1.36) vs EHL 0.34 (95% CI 0.15-0.67), p=0.002.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Utilization Pattern</p>
+          <h2>For members using factor in both periods, fill rate fell after Hemlibra&reg;</h2>
+          <div class="table-wrap">
+            <table class="mini-table">
+              <thead>
+                <tr>
+                  <th>Measure</th>
+                  <th>Pre-Hemlibra&reg;</th>
+                  <th>Post-Hemlibra&reg;</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Mean factor fills</td>
+                  <td>21.8</td>
+                  <td>7.6</td>
+                </tr>
+                <tr>
+                  <td>Fills/person-month</td>
+                  <td>0.884</td>
+                  <td>0.400</td>
+                </tr>
+                <tr>
+                  <td>Incidence rate ratio</td>
+                  <td colspan="2">0.452 (95% CI 0.35-0.58), p&lt;0.0001</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section>
+        <p class="section-label">Evidence Flow</p>
+        <h2>How to read the poster signal</h2>
+        <div class="evidence-map">
+          <article class="evidence-card">
+            <h3>Prophylaxis standard</h3>
+            <p>Hemlibra&reg; reduces bleeding events, but factor availability remains important for breakthrough bleed self-management.</p>
+          </article>
+          <article class="evidence-card">
+            <h3>Claims-defined cohort</h3>
+            <p>Adult male members required at least 6 months of Hemlibra&reg; use and continuous post-dose plan enrollment.</p>
+          </article>
+          <article class="evidence-card">
+            <h3>Factor fill split</h3>
+            <p>Most factor utilizers filled SHL products, creating a 27-member SHL group and 11-member EHL group.</p>
+          </article>
+          <article class="evidence-card">
+            <h3>Dispenses similar</h3>
+            <p>Mean SP dispenses did not differ significantly between EHL and SHL users: 3.0 vs 1.9, p=0.5.</p>
+          </article>
+          <article class="evidence-card">
+            <h3>Interpret cautiously</h3>
+            <p>The observed SHL/EHL ABR difference is limited by small sample size and potential underlying confounding.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="tables-grid">
+        <article class="table-card">
+          <p class="section-label">Demographic Pattern</p>
+          <h2>Factor fillers had higher comorbidity burden</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Characteristic</th>
+                  <th>No Factor</th>
+                  <th>Factor</th>
+                  <th>p-value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Mean age</td>
+                  <td>31.1</td>
+                  <td>32.6</td>
+                  <td>0.569</td>
+                </tr>
+                <tr>
+                  <td>Charlson score, mean</td>
+                  <td>0.3</td>
+                  <td>1.7</td>
+                  <td>0.009</td>
+                </tr>
+                <tr>
+                  <td>Years observed after first dose, mean</td>
+                  <td>1.46</td>
+                  <td>1.84</td>
+                  <td>0.132</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card conclusion-panel">
+          <p class="section-label">Conclusion</p>
+          <h2>Key take-away</h2>
+          <p>When prescribed Hemlibra&reg;, most members filled a factor product and had low overall ABR; SHL utilizers had higher observed ABR than EHL utilizers, but interpretation should account for limited sample size and possible confounding.</p>
+          <div class="footer-actions">
+            <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/65_Utilization-of-standard-half-life-or-extended-half-life-products-in-members-with-Hemophilia-A-prescribed-emicizumab_2023.pdf">Open poster PDF</a>
+            <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/65_Utilization-of-standard-half-life-or-extended-half-life-products-in-members-with-Hemophilia-A-prescribed-emicizumab_2023.md">Open extracted markdown</a>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

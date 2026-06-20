@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Economic Burden of Hemophilia B in the US | NASP 2019</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .burden-hero-art {
+      position: relative;
+      min-height: 16rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background:
+        linear-gradient(150deg, rgba(36, 55, 112, 0.1), rgba(255, 255, 255, 0.85)),
+        radial-gradient(circle at 18% 12%, rgba(209, 38, 48, 0.16), transparent 10rem),
+        var(--surface);
+      overflow: hidden;
+    }
+    .burden-hero-art svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 16rem;
+    }
+    .hero-card .callout {
+      margin: 0;
+      border-left: 4px solid var(--red);
+      background: rgba(209, 38, 48, 0.07);
+      padding: 0.65rem 0.72rem;
+      color: var(--ink);
+      font-size: 0.88rem;
+      font-weight: 750;
+    }
+    .screen-flow {
+      display: grid;
+      gap: 0.54rem;
+      margin-top: 0.8rem;
+    }
+    .screen-step {
+      display: grid;
+      grid-template-columns: 5.4rem minmax(0, 1fr);
+      gap: 0.65rem;
+      align-items: center;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.62rem;
+    }
+    .screen-step strong {
+      display: grid;
+      place-items: center;
+      min-height: 3.1rem;
+      border-radius: 6px;
+      background: var(--surface-blue);
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 900;
+      line-height: 1;
+      text-align: center;
+    }
+    .screen-step span {
+      color: var(--body);
+      font-size: 0.86rem;
+      font-weight: 720;
+    }
+    .cost-compare {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 0.85rem;
+    }
+    .cost-row {
+      display: grid;
+      grid-template-columns: 5rem minmax(0, 1fr) 8rem;
+      gap: 0.65rem;
+      align-items: center;
+    }
+    .cost-row .label {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-weight: 900;
+    }
+    .cost-track {
+      height: 1.25rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .cost-fill {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .cost-fill.ehl {
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .cost-value {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.98rem;
+      font-weight: 900;
+      text-align: right;
+      white-space: nowrap;
+    }
+    .range-board {
+      display: grid;
+      gap: 0.72rem;
+      margin-top: 0.8rem;
+    }
+    .range-card {
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.72rem;
+    }
+    .range-card header {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.8rem;
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+    .range-line {
+      position: relative;
+      height: 1rem;
+      margin: 0.78rem 0 0.25rem;
+      border-radius: 999px;
+      background: #edf2f8;
+    }
+    .range-line i {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .range-card.shl .range-line i {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .range-labels {
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+    .utilization-delta {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.75rem;
+    }
+    .util-card {
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.8rem;
+    }
+    .util-card strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      line-height: 1;
+    }
+    .util-card span {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 850;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .category-stack {
+      display: grid;
+      gap: 0.58rem;
+      margin-top: 0.75rem;
+    }
+    .category-item {
+      display: grid;
+      grid-template-columns: 2.2rem minmax(0, 1fr);
+      gap: 0.55rem;
+      align-items: start;
+    }
+    .category-dot {
+      width: 2.05rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--surface-blue);
+      color: var(--red);
+      display: grid;
+      place-items: center;
+      font-family: var(--font-display);
+      font-weight: 900;
+    }
+    .category-item h3 {
+      margin-bottom: 0.15rem;
+    }
+    .category-item p {
+      margin: 0;
+      font-size: 0.84rem;
+    }
+    .dominance-gauge {
+      margin-top: 0.7rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 8px;
+      background: linear-gradient(90deg, rgba(209, 38, 48, 0.1), rgba(255, 255, 255, 0));
+      padding: 0.78rem;
+    }
+    .gauge-track {
+      height: 1.45rem;
+      border-radius: 999px;
+      background: #e7edf6;
+      overflow: hidden;
+    }
+    .gauge-track i {
+      display: block;
+      width: 98%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .dominance-gauge strong {
+      display: block;
+      margin-top: 0.5rem;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+    }
+    .source-note {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    .compact-table td:first-child {
+      color: var(--ink);
+      font-weight: 850;
+    }
+    @media (max-width: 760px) {
+      .cost-row,
+      .screen-step,
+      .utilization-delta {
+        grid-template-columns: 1fr;
+      }
+      .cost-value {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar" aria-label="Infographic navigation">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav>
+        <a href="#evidence">Evidence</a>
+        <a href="#results">Results</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/26_2019.pdf">PDF source</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/26_2019.md">Markdown source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2019 Annual Meeting &amp; Expo</p>
+        <h1>Economic Burden of Hemophilia B in the US</h1>
+        <p class="hero-summary">A systematic literature review synthesized U.S. evidence on hemophilia B costs and resource use, showing that factor IX replacement dominates annual medical cost and that extended half-life products carried higher annual factor costs despite lower unit consumption.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Systematic literature review</li>
+          <li class="tag therapy">Hemophilia B</li>
+          <li class="tag therapy">Factor IX therapy</li>
+          <li class="tag">Economic burden</li>
+        </ul>
+        <div class="burden-hero-art" aria-hidden="true">
+          <svg viewBox="0 0 760 300">
+            <defs>
+              <linearGradient id="costWave" x1="0" x2="1" y1="0" y2="0">
+                <stop offset="0" stop-color="#187c8f"/>
+                <stop offset="0.55" stop-color="#e99e25"/>
+                <stop offset="1" stop-color="#d12630"/>
+              </linearGradient>
+              <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="8" stdDeviation="9" flood-color="#243770" flood-opacity="0.14"/>
+              </filter>
+            </defs>
+            <rect x="38" y="190" width="95" height="62" rx="10" fill="#eef4fb" stroke="#aebbd2"/>
+            <rect x="160" y="150" width="95" height="102" rx="10" fill="#eef4fb" stroke="#aebbd2"/>
+            <rect x="282" y="113" width="95" height="139" rx="10" fill="#eef4fb" stroke="#aebbd2"/>
+            <rect x="404" y="71" width="95" height="181" rx="10" fill="#fff7ea" stroke="#e99e25"/>
+            <rect x="526" y="35" width="95" height="217" rx="10" fill="#fff7ea" stroke="#d12630"/>
+            <path d="M76 184 C170 110 240 171 325 98 C403 31 493 73 585 26" fill="none" stroke="url(#costWave)" stroke-width="12" stroke-linecap="round" filter="url(#shadow)"/>
+            <circle cx="76" cy="184" r="13" fill="#187c8f"/>
+            <circle cx="325" cy="98" r="13" fill="#e99e25"/>
+            <circle cx="585" cy="26" r="13" fill="#d12630"/>
+            <g fill="#243770" font-family="Montserrat, Arial" font-weight="900">
+              <text x="50" y="232" font-size="30">98%</text>
+              <text x="168" y="194" font-size="24">SHL</text>
+              <text x="407" y="116" font-size="24">EHL</text>
+              <text x="514" y="93" font-size="24">$925k</text>
+            </g>
+            <g fill="#68758d" font-family="Inter, Arial" font-size="13" font-weight="800">
+              <text x="51" y="257">factor cost share</text>
+              <text x="156" y="221">standard half-life</text>
+              <text x="397" y="143">extended half-life</text>
+              <text x="505" y="118">upper annual range</text>
+            </g>
+            <path d="M672 52 C705 66 714 105 690 131 C721 164 693 223 646 212 C625 244 568 232 566 190 C524 174 531 112 574 105 C580 63 632 35 672 52Z" fill="#ffffff" stroke="#aebbd2" stroke-width="3"/>
+            <text x="604" y="136" fill="#d12630" font-family="Montserrat, Arial" font-size="52" font-weight="900">IX</text>
+            <text x="591" y="163" fill="#243770" font-family="Inter, Arial" font-size="14" font-weight="900">replacement</text>
+          </svg>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <div>
+          <p class="section-label">Poster file</p>
+          <div class="poster-code">26_2019</div>
+        </div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Search years</dt>
+            <dd>2009-2019</dd>
+          </div>
+          <div>
+            <dt>Included studies</dt>
+            <dd>17</dd>
+          </div>
+          <div>
+            <dt>Scope</dt>
+            <dd>United States</dd>
+          </div>
+          <div>
+            <dt>Perspective</dt>
+            <dd>94% payer</dd>
+          </div>
+        </dl>
+        <p class="callout">Authors identified three cost categories across studies: direct medical, direct non-medical, and indirect cost.</p>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Titles and abstracts screened</span>
+          <strong>693</strong>
+        </article>
+        <article class="metric-card">
+          <span>Studies included</span>
+          <strong>17</strong>
+        </article>
+        <article class="metric-card">
+          <span>Factor cost share of medical cost</span>
+          <strong>&gt;98%</strong>
+        </article>
+        <article class="metric-card">
+          <span>EHL mean factor cost</span>
+          <strong>$723k</strong>
+        </article>
+      </section>
+
+      <section class="visual-grid" id="evidence">
+        <article class="panel">
+          <p class="section-label">Objective and method</p>
+          <h2>Find U.S. evidence on hemophilia B cost and resource use</h2>
+          <div class="screen-flow" aria-label="Systematic literature review selection flow">
+            <div class="screen-step">
+              <strong>693</strong>
+              <span>Titles and abstracts screened from MEDLINE, Tufts CEA Registry, and conference sources.</span>
+            </div>
+            <div class="screen-step">
+              <strong>17</strong>
+              <span>Studies met criteria for HB cost, burden, resource utilization, budget impact, or economic evaluation.</span>
+            </div>
+            <div class="screen-step">
+              <strong>10+7</strong>
+              <span>Ten studies focused on HB only; seven reported hemophilia A and B with subtype-specific results.</span>
+            </div>
+          </div>
+          <p class="source-note">Outputs reported as PPPM, PPPQ, five-year, lifetime, and other periods were normalized to annual per-patient values when possible.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Cost architecture</p>
+          <h2>Factor IX therapy drove the medical cost story</h2>
+          <div class="dominance-gauge" aria-label="Factor IX cost share">
+            <div class="gauge-track"><i></i></div>
+            <strong>Over 98% of total annual medical cost</strong>
+            <p class="source-note">Reported for FIX therapy regardless of standard or extended half-life factor type in cited studies.</p>
+          </div>
+          <div class="category-stack" aria-label="Cost categories">
+            <div class="category-item">
+              <div class="category-dot">1</div>
+              <div>
+                <h3>Direct medical</h3>
+                <p>Factor replacement, medical visits, and other disease-management spending.</p>
+              </div>
+            </div>
+            <div class="category-item">
+              <div class="category-dot">2</div>
+              <div>
+                <h3>Direct non-medical</h3>
+                <p>Patient and caregiver expenses outside formal medical claims.</p>
+              </div>
+            </div>
+            <div class="category-item">
+              <div class="category-dot">3</div>
+              <div>
+                <h3>Indirect</h3>
+                <p>Lost productivity and broader societal burden, reported in only one study.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel" id="results">
+        <p class="section-label">Main comparison</p>
+        <h2>Extended half-life products had higher mean annual factor cost, but lower mean annual units</h2>
+        <div class="cost-compare" aria-label="Mean annual factor cost by half-life category">
+          <div class="cost-row">
+            <div class="label">SHL</div>
+            <div class="cost-track"><i class="cost-fill" style="width:56%"></i></div>
+            <div class="cost-value">$405,030</div>
+          </div>
+          <div class="cost-row">
+            <div class="label">EHL</div>
+            <div class="cost-track"><i class="cost-fill ehl" style="width:100%"></i></div>
+            <div class="cost-value">$722,792</div>
+          </div>
+        </div>
+        <div class="utilization-delta" aria-label="Mean annual utilization">
+          <div class="util-card">
+            <strong>313,717 IU</strong>
+            <span>Mean annual SHL consumption</span>
+          </div>
+          <div class="util-card">
+            <strong>232,708 IU</strong>
+            <span>Mean annual EHL consumption</span>
+          </div>
+        </div>
+        <p class="source-note">Mean values were calculated across available studies irrespective of disease severity or treatment regimen, as described in the poster.</p>
+      </section>
+
+      <section class="visual-grid">
+        <article class="panel">
+          <p class="section-label">Annual factor cost range</p>
+          <h2>The ranges were wide, especially for EHLs</h2>
+          <div class="range-board" aria-label="Annual per-patient clotting factor cost ranges">
+            <div class="range-card shl">
+              <header><span>Standard half-life FIX</span><span>$230k-$577k</span></header>
+              <div class="range-line"><i style="left:0%; width:49%;"></i></div>
+              <div class="range-labels"><span>$230,000</span><span>$577,363</span></div>
+            </div>
+            <div class="range-card">
+              <header><span>Extended half-life FIX</span><span>$454k-$926k</span></header>
+              <div class="range-line"><i style="left:32%; width:66%;"></i></div>
+              <div class="range-labels"><span>$454,000</span><span>$925,864</span></div>
+            </div>
+          </div>
+          <p class="source-note">Ranges correspond to the min/max values reported in the Figure 1 note.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Interpretive lens</p>
+          <h2>Variation came from clinical and treatment differences</h2>
+          <div class="lens-chart" aria-label="Drivers of cost variation">
+            <div class="lens-row">
+              <span>Disease severity</span>
+              <div class="lens-bar"><i style="width:92%"></i></div>
+            </div>
+            <div class="lens-row">
+              <span>Prophylaxis vs on-demand</span>
+              <div class="lens-bar"><i style="width:85%"></i></div>
+            </div>
+            <div class="lens-row">
+              <span>SHL vs EHL factor type</span>
+              <div class="lens-bar"><i style="width:78%"></i></div>
+            </div>
+            <div class="lens-row">
+              <span>Data source and costing methods</span>
+              <div class="lens-bar"><i style="width:64%"></i></div>
+            </div>
+          </div>
+          <p class="source-note">These are qualitative drivers highlighted in the discussion and limitations, not independently weighted effects.</p>
+        </article>
+      </section>
+
+      <section class="evidence-map" aria-label="Evidence flow">
+        <article class="evidence-card">
+          <h3>Rare disease, high burden</h3>
+          <p>HB affects a small population but requires lifelong management to prevent bleeding and morbidity.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Claims dominated</h3>
+          <p>Included studies primarily used insurance claims databases, followed by medical record analyses.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Cost concentrated</h3>
+          <p>FIX therapy accounted for nearly all annual medical cost in studies reporting that decomposition.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Severity mattered</h3>
+          <p>Patients with severe HB generally reported higher replacement-therapy costs than moderate or mild cohorts.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Need remained</h3>
+          <p>The authors concluded that substantial costs and resource use highlight unmet needs in HB management.</p>
+        </article>
+      </section>
+
+      <section class="section-stack">
+        <article class="table-card">
+          <p class="section-label">Table pattern</p>
+          <h2>Annual clotting factor cost summary</h2>
+          <div class="table-wrap">
+            <table class="compact-table">
+              <thead>
+                <tr>
+                  <th>FIX category</th>
+                  <th>Mean annual cost</th>
+                  <th>Reported min-max</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>SHL products</td>
+                  <td>$405,030</td>
+                  <td>$230,000-$577,363</td>
+                </tr>
+                <tr>
+                  <td>EHL products</td>
+                  <td>$722,792</td>
+                  <td>$454,000-$925,864</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Conclusion</p>
+          <h2>HB management imposed substantial annual economic burden</h2>
+          <div class="markdown-fragment">
+            <p>The review found annual clotting factor costs ranging from approximately $230,000 to $577,363 for SHL treatment and $454,000 to $925,864 for EHL treatment.</p>
+            <p>The authors emphasized that rising movement from SHL to EHL FIX prophylaxis could increase payer burden, while differences in clinical profiles may explain part of the observed consumption and cost differences.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="table-card">
+        <p class="section-label">Source links</p>
+        <h2>Poster materials</h2>
+        <div class="markdown-fragment">
+          <p><strong>Presented:</strong> National Association of Specialty Pharmacy Annual Meeting, Washington, DC, September 9-12, 2019.</p>
+          <p><strong>Support:</strong> uniQure Inc.</p>
+        </div>
+        <div class="footer-actions">
+          <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/26_2019.pdf">Open poster PDF</a>
+          <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/26_2019.md">Open extracted markdown</a>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

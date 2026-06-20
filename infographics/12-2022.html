@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>12-2022 | How Specialty Pharmacy Enhances The Patient Experience</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -3rem -4rem auto;
+      width: 14rem;
+      height: 14rem;
+      border: 1.2rem solid rgba(24, 124, 143, 0.12);
+      border-radius: 50%;
+    }
+
+    .care-engine {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .care-engine svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 1px solid rgba(174, 187, 210, 0.8);
+      border-radius: 8px;
+      background: linear-gradient(145deg, #fff, var(--surface-blue));
+    }
+
+    .metric-card strong small {
+      color: var(--red);
+      font-size: 0.95rem;
+    }
+
+    .metric-card em {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-style: normal;
+      font-weight: 750;
+      line-height: 1.28;
+    }
+
+    .scoreboard {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .headline-score {
+      display: grid;
+      align-content: center;
+      min-height: 17rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 20% 18%, rgba(233, 158, 37, 0.28), transparent 8rem),
+        linear-gradient(150deg, var(--ink), #1b2b5d);
+      padding: 1.15rem;
+      color: #fff;
+    }
+
+    .headline-score span {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .headline-score strong {
+      display: block;
+      margin-top: 0.3rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(3.7rem, 8vw, 6rem);
+      line-height: 0.88;
+    }
+
+    .headline-score p {
+      margin: 0.72rem 0 0;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 0.96rem;
+    }
+
+    .outcome-bars {
+      display: grid;
+      gap: 0.72rem;
+      margin-top: 0.85rem;
+    }
+
+    .outcome-row {
+      display: grid;
+      grid-template-columns: 8.3rem minmax(0, 1fr) 4.2rem;
+      gap: 0.65rem;
+      align-items: center;
+    }
+
+    .outcome-row b {
+      color: var(--ink);
+      font-size: 0.82rem;
+      line-height: 1.2;
+    }
+
+    .bar-track {
+      height: 1rem;
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .bar-fill.fast {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .outcome-row em {
+      color: var(--ink);
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .workflow-band {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .workflow-card {
+      position: relative;
+      min-height: 13.5rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.9rem;
+      overflow: hidden;
+    }
+
+    .workflow-card::before {
+      content: attr(data-step);
+      display: inline-grid;
+      place-items: center;
+      width: 2rem;
+      height: 2rem;
+      margin-bottom: 0.58rem;
+      border-radius: 50%;
+      background: var(--step-color, var(--red));
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+
+    .workflow-card:nth-child(2) { --step-color: var(--gold); }
+    .workflow-card:nth-child(3) { --step-color: var(--teal); }
+    .workflow-card:nth-child(4) { --step-color: var(--green); }
+
+    .workflow-card p {
+      margin: 0.5rem 0 0;
+      color: var(--body);
+      font-size: 0.84rem;
+    }
+
+    .toxicity-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+      gap: 1rem;
+    }
+
+    .cost-card {
+      display: grid;
+      gap: 0.75rem;
+      border: 1px solid rgba(233, 158, 37, 0.55);
+      border-radius: 8px;
+      background: var(--surface-warm);
+      padding: 1rem;
+    }
+
+    .cost-card .price {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 6vw, 4.1rem);
+      font-weight: 900;
+      line-height: 0.95;
+    }
+
+    .cost-card .price small {
+      color: var(--ink);
+      font-size: 1rem;
+    }
+
+    .assistance-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin: 0.8rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .assistance-list li {
+      border-left: 4px solid var(--teal);
+      background: var(--surface-blue);
+      padding: 0.55rem 0.65rem;
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .assistance-list li:nth-child(2) { border-color: var(--green); }
+    .assistance-list li:nth-child(3) { border-color: var(--gold); background: var(--surface-warm); }
+    .assistance-list li:nth-child(4) { border-color: var(--purple); }
+
+    .survey-loop {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.85rem;
+    }
+
+    .loop-node {
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.72rem;
+    }
+
+    .loop-node h3 {
+      color: var(--ink);
+      font-size: 0.94rem;
+    }
+
+    .loop-node p {
+      margin: 0.4rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 750;
+    }
+
+    .matrix-table td:last-child,
+    .matrix-table th:last-child {
+      text-align: right;
+    }
+
+    .accreditation-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.85rem;
+    }
+
+    .seal {
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.72rem;
+      text-align: center;
+    }
+
+    .seal strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+
+    .seal span {
+      display: block;
+      margin-top: 0.22rem;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 900px) {
+      .scoreboard,
+      .toxicity-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .workflow-band,
+      .survey-loop {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 620px) {
+      .workflow-band,
+      .survey-loop,
+      .assistance-list,
+      .accreditation-row {
+        grid-template-columns: 1fr;
+      }
+
+      .outcome-row {
+        grid-template-columns: 1fr;
+      }
+
+      .outcome-row em {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#metrics">Metrics</a>
+        <a href="#workflow">Workflow</a>
+        <a href="#evidence">Evidence</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2022 poster 12-2022</p>
+        <h1 id="poster-title">How Specialty Pharmacy Enhances The Patient Experience</h1>
+        <p class="hero-summary">
+          AON Pharmacy describes a measurement-driven specialty oncology pharmacy model built around adherence,
+          speed to therapy, approval support, financial assistance, and daily patient satisfaction feedback.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Specialty oncology pharmacy</li>
+          <li class="tag therapy">Oral oncolytics</li>
+          <li class="tag">Patient experience</li>
+          <li class="tag">Metric review</li>
+          <li class="tag">Triple accredited</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata and care engine graphic">
+        <div>
+          <div class="poster-code">12-2022</div>
+          <dl class="meta-grid">
+            <div>
+              <dt>Year</dt>
+              <dd>2022</dd>
+            </div>
+            <div>
+              <dt>Presenter</dt>
+              <dd>Douglas Braun</dd>
+            </div>
+            <div>
+              <dt>Setting</dt>
+              <dd>AON Pharmacy</dd>
+            </div>
+            <div>
+              <dt>Focus</dt>
+              <dd>Experience metrics</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="care-engine" aria-hidden="true">
+          <svg viewBox="0 0 420 280" role="img" aria-label="Specialty pharmacy metrics engine">
+            <defs>
+              <marker id="arrow12" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L9,3 z" fill="#243770"></path>
+              </marker>
+            </defs>
+            <circle cx="210" cy="138" r="66" fill="#ffffff" stroke="#243770" stroke-width="5"></circle>
+            <circle cx="210" cy="138" r="38" fill="#eef4fb" stroke="#187c8f" stroke-width="4"></circle>
+            <path d="M192 138l13 13 27-35" fill="none" stroke="#4d8a67" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></path>
+            <g fill="#fff" stroke-width="4">
+              <rect x="24" y="42" width="100" height="56" rx="8" stroke="#d12630"></rect>
+              <rect x="296" y="42" width="100" height="56" rx="8" stroke="#e99e25"></rect>
+              <rect x="24" y="188" width="100" height="56" rx="8" stroke="#187c8f"></rect>
+              <rect x="296" y="188" width="100" height="56" rx="8" stroke="#4d8a67"></rect>
+            </g>
+            <g fill="#243770" font-family="Arial, sans-serif" font-weight="800" font-size="15">
+              <text x="48" y="76">PDC</text>
+              <text x="316" y="76">Speed</text>
+              <text x="45" y="222">Approval</text>
+              <text x="316" y="222">Survey</text>
+            </g>
+            <g stroke="#243770" stroke-width="4" fill="none" stroke-linecap="round" marker-end="url(#arrow12)">
+              <path d="M126 70 C158 67, 176 78, 190 96"></path>
+              <path d="M294 70 C262 67, 244 78, 230 96"></path>
+              <path d="M126 216 C158 215, 176 201, 190 180"></path>
+              <path d="M294 216 C262 215, 244 201, 230 180"></path>
+            </g>
+            <g fill="#d12630" font-family="Arial, sans-serif" font-weight="900" font-size="22">
+              <text x="171" y="40">Measure</text>
+              <text x="159" y="254">Improve</text>
+            </g>
+          </svg>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section id="metrics" class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>PDC</span>
+          <strong>93<small>%</small></strong>
+          <em>Adherence for maintenance oral oncolytic patients.</em>
+        </article>
+        <article class="metric-card">
+          <span>Turnaround time</span>
+          <strong>2.7<small>d</small></strong>
+          <em>Business days from prescription arrival to patient availability.</em>
+        </article>
+        <article class="metric-card">
+          <span>Approval time</span>
+          <strong>1.5<small>d</small></strong>
+          <em>Insurance authorization average.</em>
+        </article>
+        <article class="metric-card">
+          <span>Satisfaction</span>
+          <strong>95.3<small>%</small></strong>
+          <em>Measured through daily patient phone surveys.</em>
+        </article>
+      </section>
+
+      <section class="scoreboard" aria-label="Outcome scoreboard">
+        <div class="headline-score">
+          <span>Patient experience signal</span>
+          <strong>95.3%</strong>
+          <p>
+            Daily satisfaction monitoring creates a direct feedback loop: negative survey responses trigger technician outreach to discuss and potentially resolve patient issues.
+          </p>
+        </div>
+        <article class="panel">
+          <p class="section-label">Performance dashboard</p>
+          <h2>Five metrics translate patient experience into operational action.</h2>
+          <div class="outcome-bars" aria-label="AON Pharmacy reported metrics">
+            <div class="outcome-row">
+              <b>PDC adherence</b>
+              <span class="bar-track"><span class="bar-fill fast" style="width:93%"></span></span>
+              <em>93%</em>
+            </div>
+            <div class="outcome-row">
+              <b>Satisfaction</b>
+              <span class="bar-track"><span class="bar-fill fast" style="width:95.3%"></span></span>
+              <em>95.3%</em>
+            </div>
+            <div class="outcome-row">
+              <b>Turnaround</b>
+              <span class="bar-track"><span class="bar-fill" style="width:54%"></span></span>
+              <em>2.7d</em>
+            </div>
+            <div class="outcome-row">
+              <b>Insurance approval</b>
+              <span class="bar-track"><span class="bar-fill" style="width:30%"></span></span>
+              <em>1.5d</em>
+            </div>
+            <div class="outcome-row">
+              <b>Financial approval</b>
+              <span class="bar-track"><span class="bar-fill" style="width:60%"></span></span>
+              <em>3d</em>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section id="workflow" class="workflow-band" aria-label="Evidence flow">
+        <article class="workflow-card" data-step="1">
+          <h3>Capture the prescription</h3>
+          <p>Track total turnaround time from prescription arrival through patient-ready medication access.</p>
+        </article>
+        <article class="workflow-card" data-step="2">
+          <h3>Resolve coverage</h3>
+          <p>Investigate benefits, submit test claims, coordinate prior authorization materials from the EMR, and follow up daily.</p>
+        </article>
+        <article class="workflow-card" data-step="3">
+          <h3>Remove cost barriers</h3>
+          <p>Review drug and patient financials, then pursue grants, copay cards, LIS, or manufacturer free-drug programs.</p>
+        </article>
+        <article class="workflow-card" data-step="4">
+          <h3>Monitor experience</h3>
+          <p>Review PDC, approval time, turnaround time, and satisfaction continually, with quarterly workflow and staffing review.</p>
+        </article>
+      </section>
+
+      <section class="toxicity-grid" id="evidence">
+        <aside class="cost-card">
+          <p class="section-label">Financial toxicity</p>
+          <div class="price">$15,000<small>/month</small></div>
+          <p>
+            The poster notes that after deductible, coinsurance, and coverage gap exposure, a Medicare Part D catastrophic 5% share can still leave a patient with a $750 monthly burden.
+          </p>
+        </aside>
+        <article class="panel">
+          <p class="section-label">Access playbook</p>
+          <h2>Technicians convert barriers into a daily follow-up queue.</h2>
+          <p>
+            The care model depends on persistent coordination: staff contact patients, collect financial information, work with prescribers on forms, and follow up until approval.
+          </p>
+          <ul class="assistance-list" aria-label="Financial assistance sources">
+            <li>Grants and funding</li>
+            <li>Copay cards</li>
+            <li>Low-income subsidy</li>
+            <li>Manufacturer free drug</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="visual-grid">
+        <article class="panel markdown-fragment">
+          <p class="section-label">Objective</p>
+          <h2>Show that measurement, review, and action plans improve the medication experience.</h2>
+          <p>
+            The poster asks how a specialty pharmacy can create an environment where high-touch care and service maximize experience and support adherence to complex therapies with financial and clinical toxicities.
+          </p>
+          <div class="survey-loop">
+            <div class="loop-node">
+              <h3>Measure</h3>
+              <p>PDC, turnaround time, approval time, and survey scores are monitored continually.</p>
+            </div>
+            <div class="loop-node">
+              <h3>Review</h3>
+              <p>Metrics are reviewed quarterly to identify workflow, staffing, or technology changes.</p>
+            </div>
+            <div class="loop-node">
+              <h3>Act</h3>
+              <p>Negative survey results trigger direct patient follow-up by pharmacy technicians.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel markdown-fragment">
+          <p class="section-label">Conclusion</p>
+          <h2>Specialty pharmacies are positioned to maximize care while minimizing time to therapy.</h2>
+          <p>
+            AON Pharmacy argues that developing and monitoring metrics supports accreditation requirements and, more importantly, helps patients access complicated, costly prescriptions with an elevated service model.
+          </p>
+          <div class="accreditation-row" aria-label="Accreditations">
+            <div class="seal"><strong>URAC</strong><span>Accredited</span></div>
+            <div class="seal"><strong>ACHC</strong><span>Accredited</span></div>
+            <div class="seal"><strong>NABP</strong><span>Accredited</span></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Extracted table patterns">
+        <article class="table-card">
+          <p class="section-label">Metric pattern</p>
+          <h2>Operational measures and reported results</h2>
+          <div class="table-wrap">
+            <table class="matrix-table">
+              <thead>
+                <tr>
+                  <th>Metric</th>
+                  <th>Role in experience</th>
+                  <th>Reported result</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>PDC</td>
+                  <td>Medication availability and adherence</td>
+                  <td>93%</td>
+                </tr>
+                <tr>
+                  <td>Turnaround time</td>
+                  <td>Speed from prescription receipt to patient access</td>
+                  <td>2.7 days</td>
+                </tr>
+                <tr>
+                  <td>Insurance approval</td>
+                  <td>Prior authorization speed</td>
+                  <td>1.5 days</td>
+                </tr>
+                <tr>
+                  <td>Financial approval</td>
+                  <td>Patient affordability support</td>
+                  <td>3 days</td>
+                </tr>
+                <tr>
+                  <td>Patient satisfaction</td>
+                  <td>Service quality feedback</td>
+                  <td>95.3%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Workflow pattern</p>
+          <h2>What gets reviewed and adjusted</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Workstream</th>
+                  <th>Observed friction</th>
+                  <th>Action lever</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Adherence</td>
+                  <td>Dose gaps and refill timing</td>
+                  <td>Proactive patient calls and remaining-dose checks</td>
+                </tr>
+                <tr>
+                  <td>Prior authorization</td>
+                  <td>Plan requirements and documentation needs</td>
+                  <td>EMR access, prescriber coordination, daily status follow-up</td>
+                </tr>
+                <tr>
+                  <td>Financial assistance</td>
+                  <td>High out-of-pocket cost</td>
+                  <td>Assistance screening, forms, submissions, and daily follow-up</td>
+                </tr>
+                <tr>
+                  <td>Satisfaction</td>
+                  <td>Patient-reported service gaps</td>
+                  <td>Technician outreach after negative survey responses</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/12-2022.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/12-2022.md">Source Markdown</a>
+      <a class="button-link" href="../index.html">NASP index</a>
+    </footer>
+  </div>
+</body>
+</html>

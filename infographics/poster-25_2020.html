@@ -1,0 +1,639 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rates, Reasons, and Timing for Denosumab Discontinuation | NASP 2020</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card.pathway-card {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .pathway-card::after {
+      content: "";
+      position: absolute;
+      right: -4rem;
+      bottom: -4.8rem;
+      z-index: -1;
+      width: 15rem;
+      aspect-ratio: 1;
+      border: 1.4rem solid rgba(24, 124, 143, 0.12);
+      border-radius: 50%;
+    }
+
+    .dose-badge {
+      display: grid;
+      place-items: center;
+      width: 8rem;
+      aspect-ratio: 1;
+      margin-inline: auto;
+      border: 2px solid rgba(209, 38, 48, 0.34);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 50% 42%, rgba(209, 38, 48, 0.12), transparent 3.6rem),
+        #fff;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 900;
+      line-height: 0.9;
+      text-align: center;
+    }
+
+    .dose-badge small {
+      display: block;
+      margin-top: 0.18rem;
+      color: var(--muted);
+      font-family: var(--font-body);
+      font-size: 0.58rem;
+      font-weight: 900;
+      letter-spacing: 0.09em;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .hero-summary strong,
+    .metric-card em strong {
+      color: var(--ink);
+    }
+
+    .metric-card em {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-style: normal;
+      font-weight: 750;
+    }
+
+    .patient-pathway {
+      width: 100%;
+      height: auto;
+      margin-top: 0.85rem;
+    }
+
+    .path-node {
+      fill: #fff;
+      stroke: rgba(174, 187, 210, 0.95);
+      stroke-width: 2;
+    }
+
+    .path-node.highlight {
+      fill: rgba(209, 38, 48, 0.08);
+      stroke: rgba(209, 38, 48, 0.58);
+    }
+
+    .path-node.teal {
+      fill: rgba(24, 124, 143, 0.08);
+      stroke: rgba(24, 124, 143, 0.48);
+    }
+
+    .path-node.gold {
+      fill: rgba(233, 158, 37, 0.1);
+      stroke: rgba(233, 158, 37, 0.56);
+    }
+
+    .path-line {
+      fill: none;
+      stroke: rgba(36, 55, 112, 0.42);
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .path-label {
+      fill: var(--ink);
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 900;
+      text-anchor: middle;
+    }
+
+    .path-sub {
+      fill: var(--muted);
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-anchor: middle;
+      text-transform: uppercase;
+    }
+
+    .objective-panel {
+      background:
+        linear-gradient(135deg, rgba(238, 244, 251, 0.92), rgba(255, 255, 255, 0.96)),
+        #fff;
+    }
+
+    .objective-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.62rem;
+      margin: 0.75rem 0 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: objectives;
+    }
+
+    .objective-list li {
+      position: relative;
+      min-height: 7rem;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 2.35rem 0.72rem 0.72rem;
+      color: var(--body);
+      font-size: 0.82rem;
+      font-weight: 760;
+    }
+
+    .objective-list li::before {
+      counter-increment: objectives;
+      content: counter(objectives);
+      position: absolute;
+      top: 0.66rem;
+      left: 0.72rem;
+      display: grid;
+      place-items: center;
+      width: 1.42rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--red);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      font-weight: 900;
+    }
+
+    .reason-board {
+      display: grid;
+      gap: 0.68rem;
+      margin-top: 0.8rem;
+    }
+
+    .reason-row {
+      display: grid;
+      grid-template-columns: 12.5rem minmax(0, 1fr) 3.8rem;
+      gap: 0.65rem;
+      align-items: center;
+    }
+
+    .reason-row .label {
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 850;
+    }
+
+    .reason-track {
+      height: 1.05rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+
+    .reason-fill {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .reason-fill.cost { background: linear-gradient(90deg, var(--gold), var(--teal)); }
+    .reason-fill.preference { background: linear-gradient(90deg, var(--purple), var(--teal)); }
+    .reason-fill.logistics { background: linear-gradient(90deg, var(--green), var(--teal)); }
+    .reason-fill.other { background: linear-gradient(90deg, var(--ink), var(--purple)); }
+
+    .reason-row .value {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .donut-panel {
+      display: grid;
+      grid-template-columns: minmax(13rem, 0.64fr) minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .donut-wrap {
+      display: grid;
+      place-items: center;
+    }
+
+    .donut {
+      width: min(100%, 17rem);
+      height: auto;
+    }
+
+    .adverse-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.7rem;
+    }
+
+    .adverse-card {
+      border: 1px solid rgba(174, 187, 210, 0.82);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.66rem;
+    }
+
+    .adverse-card strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+
+    .adverse-card span {
+      display: block;
+      margin-top: 0.22rem;
+      color: var(--body);
+      font-size: 0.75rem;
+      font-weight: 780;
+    }
+
+    .therapy-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.55rem;
+      margin-top: 0.65rem;
+    }
+
+    .therapy-card {
+      border: 1px solid rgba(174, 187, 210, 0.88);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.72rem;
+    }
+
+    .therapy-card strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      line-height: 1;
+    }
+
+    .therapy-card span {
+      display: block;
+      margin-top: 0.24rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 820;
+    }
+
+    .finding-list {
+      display: grid;
+      gap: 0.55rem;
+      margin: 0.72rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .finding-list li {
+      border-left: 4px solid var(--red);
+      background: linear-gradient(90deg, rgba(209, 38, 48, 0.07), rgba(255, 255, 255, 0));
+      padding: 0.52rem 0 0.52rem 0.7rem;
+      color: var(--body);
+      font-size: 0.86rem;
+      font-weight: 760;
+    }
+
+    .finding-list li:nth-child(2) { border-color: var(--gold); }
+    .finding-list li:nth-child(3) { border-color: var(--teal); }
+
+    .source-note {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+
+    @media (max-width: 900px) {
+      .objective-list,
+      .donut-panel {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .reason-row,
+      .therapy-split,
+      .adverse-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .reason-row .value {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar" aria-label="Infographic navigation">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav>
+        <a href="#pathway">Pathway</a>
+        <a href="#reasons">Reasons</a>
+        <a href="#findings">Findings</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-25_2020.pdf">PDF source</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-25_2020.md">Markdown source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2020 Annual Meeting &amp; Expo</p>
+        <h1>Rates, reasons, and timing for treatment discontinuation in patients prescribed denosumab</h1>
+        <p class="hero-summary">A retrospective cohort study at an academic health center examined <strong>534 adults</strong> who received at least two denosumab doses, focusing on why therapy stopped, whether patients transitioned to another osteoporosis treatment, and how fractures clustered around discontinuation.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Retrospective cohort</li>
+          <li class="tag therapy">Osteoporosis</li>
+          <li class="tag therapy">Denosumab</li>
+          <li class="tag">Persistence &amp; adherence</li>
+        </ul>
+      </div>
+      <aside class="hero-card pathway-card">
+        <div>
+          <p class="section-label">Poster file</p>
+          <div class="poster-code">Poster-25_2020</div>
+        </div>
+        <div class="dose-badge" aria-label="Average denosumab doses before discontinuation">
+          3.5
+          <small>average doses before discontinuation</small>
+        </div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Setting</dt>
+            <dd>Academic health center</dd>
+          </div>
+          <div>
+            <dt>Data period</dt>
+            <dd>2010-2018</dd>
+          </div>
+          <div>
+            <dt>Authors</dt>
+            <dd>Gregory, Gipson, Chakrabarti, Peter</dd>
+          </div>
+          <div>
+            <dt>Institution</dt>
+            <dd>Vanderbilt / UTHSC</dd>
+          </div>
+        </dl>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key study metrics">
+        <article class="metric-card">
+          <span>Cohort</span>
+          <strong>534</strong>
+          <em>Adults receiving <strong>2+</strong> denosumab doses</em>
+        </article>
+        <article class="metric-card">
+          <span>Discontinued</span>
+          <strong>10%</strong>
+          <em><strong>53</strong> patients stopped denosumab</em>
+        </article>
+        <article class="metric-card">
+          <span>Alternative therapy</span>
+          <strong>30%</strong>
+          <em><strong>16</strong> discontinuers transitioned</em>
+        </article>
+        <article class="metric-card">
+          <span>Fracture among discontinuers</span>
+          <strong>30%</strong>
+          <em><strong>16</strong> had a fracture; 14 occurred after stopping</em>
+        </article>
+      </section>
+
+      <section class="visual-grid" id="pathway">
+        <article class="panel objective-panel">
+          <p class="section-label">Objective</p>
+          <h2>Three discontinuation questions</h2>
+          <p class="source-note">The poster asked clinicians to look beyond whether denosumab stopped and capture the clinical context around that stop.</p>
+          <ol class="objective-list">
+            <li>How often did treatment discontinuation occur, and what reasons were documented?</li>
+            <li>What proportion of patients transitioned to an alternative therapy after discontinuation?</li>
+            <li>How frequently did fractures occur, and did they happen before or after discontinuation?</li>
+          </ol>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Evidence flow</p>
+          <h2>Most discontinuers had no documented treatment bridge</h2>
+          <svg class="patient-pathway" viewBox="0 0 720 310" role="img" aria-labelledby="pathway-title pathway-desc">
+            <title id="pathway-title">Denosumab cohort pathway</title>
+            <desc id="pathway-desc">Of 534 patients, 53 discontinued. Among discontinuers, 16 transitioned to alternative therapy and 16 experienced a fracture.</desc>
+            <path class="path-line" d="M118 92 C230 92 252 92 330 92" />
+            <path class="path-line" d="M406 92 C480 92 488 48 580 48" />
+            <path class="path-line" d="M406 92 C480 92 488 142 580 142" />
+            <path class="path-line" d="M406 92 C480 92 488 236 580 236" />
+            <circle class="path-node teal" cx="104" cy="92" r="68" />
+            <circle class="path-node highlight" cx="360" cy="92" r="68" />
+            <circle class="path-node gold" cx="610" cy="48" r="48" />
+            <circle class="path-node teal" cx="610" cy="142" r="48" />
+            <circle class="path-node" cx="610" cy="236" r="48" />
+            <text class="path-label" x="104" y="84">534</text>
+            <text class="path-sub" x="104" y="108">study patients</text>
+            <text class="path-label" x="360" y="84">53</text>
+            <text class="path-sub" x="360" y="108">discontinued</text>
+            <text class="path-label" x="610" y="43">16</text>
+            <text class="path-sub" x="610" y="63">transitioned</text>
+            <text class="path-label" x="610" y="137">16</text>
+            <text class="path-sub" x="610" y="157">fracture</text>
+            <text class="path-label" x="610" y="231">60</text>
+            <text class="path-sub" x="610" y="251">reasons</text>
+          </svg>
+          <div class="therapy-split">
+            <div class="therapy-card">
+              <strong>6</strong>
+              <span>transitioned to zoledronic acid</span>
+            </div>
+            <div class="therapy-card">
+              <strong>5 + 5</strong>
+              <span>transitioned to alendronate or another alternative</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="visual-grid" id="reasons">
+        <article class="panel">
+          <p class="section-label">Reasons for discontinuation</p>
+          <h2>Adverse effects accounted for nearly two thirds of documented reasons</h2>
+          <div class="reason-board" aria-label="Reasons for discontinuation">
+            <div class="reason-row">
+              <span class="label">Adverse effects (n=37)</span>
+              <span class="reason-track"><i class="reason-fill" style="width: 62%"></i></span>
+              <span class="value">62%</span>
+            </div>
+            <div class="reason-row">
+              <span class="label">Other or unknown (n=11)</span>
+              <span class="reason-track"><i class="reason-fill other" style="width: 18%"></i></span>
+              <span class="value">18%</span>
+            </div>
+            <div class="reason-row">
+              <span class="label">Patient preference (n=5)</span>
+              <span class="reason-track"><i class="reason-fill preference" style="width: 9%"></i></span>
+              <span class="value">9%</span>
+            </div>
+            <div class="reason-row">
+              <span class="label">Cost or insurance (n=5)</span>
+              <span class="reason-track"><i class="reason-fill cost" style="width: 8%"></i></span>
+              <span class="value">8%</span>
+            </div>
+            <div class="reason-row">
+              <span class="label">Transport or scheduling (n=2)</span>
+              <span class="reason-track"><i class="reason-fill logistics" style="width: 3%"></i></span>
+              <span class="value">3%</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel donut-panel">
+          <div class="donut-wrap">
+            <svg class="donut" viewBox="0 0 220 220" role="img" aria-labelledby="donut-title donut-desc">
+              <title id="donut-title">Adverse effect composition</title>
+              <desc id="donut-desc">Musculoskeletal pain and dermatologic problems were the largest named adverse effect categories.</desc>
+              <circle cx="110" cy="110" r="78" fill="none" stroke="#eef4fb" stroke-width="34" />
+              <circle cx="110" cy="110" r="78" fill="none" stroke="var(--red)" stroke-width="34" stroke-dasharray="100 390" stroke-dashoffset="0" transform="rotate(-90 110 110)" />
+              <circle cx="110" cy="110" r="78" fill="none" stroke="var(--gold)" stroke-width="34" stroke-dasharray="75 415" stroke-dashoffset="-105" transform="rotate(-90 110 110)" />
+              <circle cx="110" cy="110" r="78" fill="none" stroke="var(--teal)" stroke-width="34" stroke-dasharray="25 465" stroke-dashoffset="-184" transform="rotate(-90 110 110)" />
+              <circle cx="110" cy="110" r="78" fill="none" stroke="var(--green)" stroke-width="34" stroke-dasharray="17 473" stroke-dashoffset="-213" transform="rotate(-90 110 110)" />
+              <circle cx="110" cy="110" r="78" fill="none" stroke="var(--purple)" stroke-width="34" stroke-dasharray="75 415" stroke-dashoffset="-235" transform="rotate(-90 110 110)" />
+              <circle cx="110" cy="110" r="50" fill="#fff" />
+              <text x="110" y="105" text-anchor="middle" fill="var(--ink)" font-family="var(--font-display)" font-size="34" font-weight="900">37</text>
+              <text x="110" y="126" text-anchor="middle" fill="var(--muted)" font-family="var(--font-body)" font-size="11" font-weight="900">ADVERSE EFFECTS</text>
+            </svg>
+          </div>
+          <div>
+            <p class="section-label">Adverse effects</p>
+            <h2>Symptoms clustered around pain and skin concerns</h2>
+            <div class="adverse-grid">
+              <div class="adverse-card">
+                <strong>12</strong>
+                <span>Musculoskeletal pain</span>
+              </div>
+              <div class="adverse-card">
+                <strong>9</strong>
+                <span>Dermatologic problems</span>
+              </div>
+              <div class="adverse-card">
+                <strong>3</strong>
+                <span>Dental problems</span>
+              </div>
+              <div class="adverse-card">
+                <strong>2</strong>
+                <span>Infection</span>
+              </div>
+              <div class="adverse-card">
+                <strong>2</strong>
+                <span>Gastrointestinal problems</span>
+              </div>
+              <div class="adverse-card">
+                <strong>9</strong>
+                <span>Other adverse effects</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="tables-grid" id="findings">
+        <article class="table-card">
+          <p class="section-label">Sample pattern</p>
+          <h2>Discontinuers resembled the full cohort demographically</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Characteristic</th>
+                  <th>All patients</th>
+                  <th>Discontinued</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Age, median [IQR]</td>
+                  <td>69 [62-77]</td>
+                  <td>71 [65-79]</td>
+                </tr>
+                <tr>
+                  <td>Female</td>
+                  <td>461 (86%)</td>
+                  <td>49 (92%)</td>
+                </tr>
+                <tr>
+                  <td>White</td>
+                  <td>506 (95%)</td>
+                  <td>51 (96%)</td>
+                </tr>
+                <tr>
+                  <td>Black</td>
+                  <td>18 (3%)</td>
+                  <td>1 (2%)</td>
+                </tr>
+                <tr>
+                  <td>Other race</td>
+                  <td>10 (2%)</td>
+                  <td>1 (2%)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Interpretation</p>
+          <h2>Pharmacist opportunity starts before the missed injection</h2>
+          <ul class="finding-list">
+            <li>Denosumab discontinuation was most often attributed to adverse effects, making tolerability monitoring a central persistence strategy.</li>
+            <li>Cost, insurance, transportation, and scheduling barriers were smaller but actionable contributors to discontinuation.</li>
+            <li>Most discontinuers did not transition to alternative therapy, despite known fracture risk when denosumab is stopped without follow-on treatment.</li>
+          </ul>
+          <p class="source-note">Poster conclusion: pharmacists can educate patients on adherence, help mitigate adverse effects, and recommend alternative therapy when tolerability requires modification.</p>
+        </article>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">Methods</p>
+          <h2>Retrospective cohort design</h2>
+          <div class="markdown-fragment">
+            <p><strong>Population:</strong> Adults with at least two denosumab doses from 2010 to 2018.</p>
+            <p><strong>Measures:</strong> Demographics, treatment dates, fracture dates, discontinuation status, reasons for discontinuation, and alternative therapy transition.</p>
+            <p><strong>Clinical context:</strong> Denosumab is administered every six months; stopping without alternative therapy may increase fracture risk.</p>
+          </div>
+        </article>
+        <article class="panel">
+          <p class="section-label">Future direction</p>
+          <h2>Move from description to intervention</h2>
+          <div class="markdown-fragment">
+            <p>The poster calls for additional research to design and test pharmacist interventions that promote adherence and persistence in osteoporosis treatment.</p>
+            <p>Priority targets suggested by the data include adverse-effect triage, insurance navigation, appointment logistics, and planned transition pathways.</p>
+          </div>
+        </article>
+      </section>
+
+      <footer class="footer-actions" aria-label="Source files">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-25_2020.pdf">View original PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-25_2020.md">View source markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

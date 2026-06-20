@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Impact of a High-Touch Hepatitis C Specialty Clinical Program | NASP 2019</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .program-loop {
+      position: relative;
+      min-height: 17rem;
+      border: 1px solid rgba(36, 55, 112, 0.2);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 22% 18%, rgba(233, 158, 37, 0.2), transparent 11rem),
+        radial-gradient(circle at 86% 82%, rgba(24, 124, 143, 0.16), transparent 10rem),
+        #fff;
+      overflow: hidden;
+    }
+    .program-loop svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .loop-caption {
+      position: absolute;
+      inset: auto 1rem 1rem;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.75rem;
+      align-items: center;
+      border: 1px solid rgba(209, 38, 48, 0.18);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 0.72rem;
+    }
+    .loop-caption strong {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2.05rem;
+      line-height: 1;
+    }
+    .loop-caption span {
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+    .cohort-flow {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+      gap: 0.55rem;
+      align-items: stretch;
+      margin-top: 0.8rem;
+    }
+    .cohort-node {
+      display: grid;
+      place-items: center;
+      min-height: 6.2rem;
+      border: 1px solid rgba(36, 55, 112, 0.2);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.72rem;
+      text-align: center;
+    }
+    .cohort-node strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2.1rem;
+      line-height: 1;
+    }
+    .cohort-node span {
+      display: block;
+      margin-top: 0.28rem;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .cohort-node.included {
+      background: linear-gradient(145deg, rgba(77, 138, 103, 0.1), #fff);
+    }
+    .cohort-node.excluded {
+      background: linear-gradient(145deg, rgba(233, 158, 37, 0.14), #fff);
+    }
+    .cohort-arrow {
+      display: grid;
+      place-items: center;
+      color: var(--border-strong);
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 900;
+    }
+    .touchpoint-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.8rem;
+    }
+    .touchpoint {
+      position: relative;
+      min-height: 10.6rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.78rem;
+      overflow: hidden;
+    }
+    .touchpoint::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 0.28rem;
+      background: var(--accent, var(--red));
+    }
+    .touchpoint .step {
+      display: grid;
+      place-items: center;
+      width: 2rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--accent, var(--red));
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 900;
+    }
+    .touchpoint h3 {
+      margin-top: 0.7rem;
+      font-size: 0.92rem;
+    }
+    .touchpoint p {
+      margin: 0.45rem 0 0;
+      font-size: 0.78rem;
+    }
+    .touchpoint:nth-child(2) { --accent: var(--gold); }
+    .touchpoint:nth-child(3) { --accent: var(--teal); }
+    .touchpoint:nth-child(4) { --accent: var(--green); }
+    .touchpoint:nth-child(5) { --accent: var(--purple); }
+    .result-board {
+      display: grid;
+      grid-template-columns: 0.78fr 1.22fr;
+      gap: 0.8rem;
+      margin-top: 0.7rem;
+    }
+    .completion-dial {
+      display: grid;
+      place-items: center;
+      min-height: 15rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background:
+        conic-gradient(var(--green) 0 100%, #e9eef7 0),
+        #fff;
+      padding: 1rem;
+    }
+    .dial-core {
+      display: grid;
+      place-items: center;
+      width: min(11.5rem, 78%);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: #fff;
+      text-align: center;
+      box-shadow: 0 0 0 1px rgba(36, 55, 112, 0.12);
+    }
+    .dial-core strong {
+      color: var(--green);
+      font-family: var(--font-display);
+      font-size: 3.25rem;
+      line-height: 0.95;
+    }
+    .dial-core span {
+      color: var(--ink);
+      font-size: 0.74rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .stacked-bars {
+      display: grid;
+      gap: 0.7rem;
+      align-content: center;
+    }
+    .stack-row {
+      display: grid;
+      grid-template-columns: 9.8rem minmax(0, 1fr) 3.2rem;
+      gap: 0.55rem;
+      align-items: center;
+    }
+    .stack-row span {
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .stack-track {
+      height: 1rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: #eef3f8;
+      overflow: hidden;
+    }
+    .stack-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .stack-row strong {
+      color: var(--ink);
+      font-family: var(--font-display);
+      text-align: right;
+    }
+    .takeaway-panel {
+      border-left: 5px solid var(--green);
+      background:
+        linear-gradient(90deg, rgba(77, 138, 103, 0.11), rgba(255, 255, 255, 0)),
+        #fff;
+    }
+    .fine-note {
+      margin: 0.65rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    @media (max-width: 900px) {
+      .touchpoint-grid,
+      .result-board {
+        grid-template-columns: 1fr;
+      }
+      .touchpoint-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 650px) {
+      .cohort-flow,
+      .touchpoint-grid,
+      .stack-row {
+        grid-template-columns: 1fr;
+      }
+      .cohort-arrow {
+        transform: rotate(90deg);
+      }
+      .loop-caption {
+        position: static;
+        margin: 0 0.8rem 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar" aria-label="Infographic navigation">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav>
+        <a href="#program">Program</a>
+        <a href="#results">Results</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/43_2019.pdf">PDF source</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/43_2019.md">Markdown source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2019 Annual Meeting &amp; Expo</p>
+        <h1>Impact of a high-touch, collaborative, patient-centric, Hepatitis C specialty clinical program on completion of glecaprevir/pibrentasvir therapy</h1>
+        <p class="hero-summary">Walmart Specialty Pharmacy evaluated whether a collaborative, patient-centered clinical program could help patients complete glecaprevir/pibrentasvir therapy for chronic Hepatitis C.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Retrospective single-center study</li>
+          <li class="tag therapy">Hepatitis C</li>
+          <li class="tag therapy">Glecaprevir/pibrentasvir</li>
+          <li class="tag">Specialty pharmacy care model</li>
+        </ul>
+      </div>
+      <aside class="hero-card">
+        <div>
+          <p class="section-label">Poster file</p>
+          <div class="poster-code">43_2019</div>
+        </div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Study month</dt>
+            <dd>February 2019 starts</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>Walmart Specialty Pharmacy</dd>
+          </div>
+          <div>
+            <dt>Population</dt>
+            <dd>Patients initiating G/P</dd>
+          </div>
+          <div>
+            <dt>Outcome</dt>
+            <dd>Completion of therapy</dd>
+          </div>
+        </dl>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key poster metrics">
+        <article class="metric-card">
+          <span>Initial cohort</span>
+          <strong>46</strong>
+          <p class="fine-note">Patients initiated therapy.</p>
+        </article>
+        <article class="metric-card">
+          <span>Included</span>
+          <strong>44</strong>
+          <p class="fine-note">Eligible after allergy exclusions.</p>
+        </article>
+        <article class="metric-card">
+          <span>Eligible share</span>
+          <strong>96%</strong>
+          <p class="fine-note">Able to complete therapy.</p>
+        </article>
+        <article class="metric-card">
+          <span>Completion rate</span>
+          <strong>100%</strong>
+          <p class="fine-note">Among patients eligible to complete.</p>
+        </article>
+      </section>
+
+      <section class="visual-grid" id="program">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Test the value of coordinated specialty pharmacy contact</h2>
+          <div class="markdown-fragment">
+            <p>The poster measured the impact of a high-touch specialty clinical program on completion of glecaprevir/pibrentasvir therapy in Hepatitis C patients.</p>
+            <p>Its broader aim was to demonstrate clinical value to patients, prescribers, payors, and other supply-chain stakeholders through a high-performing specialty pharmacy model.</p>
+          </div>
+          <div class="cohort-flow" aria-label="Cohort attrition">
+            <div class="cohort-node">
+              <div><strong>46</strong><span>Total patients</span></div>
+            </div>
+            <div class="cohort-arrow" aria-hidden="true">&minus;</div>
+            <div class="cohort-node excluded">
+              <div><strong>2</strong><span>Excluded for allergic reaction</span></div>
+            </div>
+            <div class="cohort-arrow" aria-hidden="true">=</div>
+            <div class="cohort-node included">
+              <div><strong>44</strong><span>Included in completion assessment</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Care design</p>
+          <h2>A synchronized chain of calls and handoffs</h2>
+          <div class="program-loop" aria-label="High-touch specialty pharmacy program loop">
+            <svg viewBox="0 0 640 360" role="img" aria-labelledby="loop-title loop-desc">
+              <title id="loop-title">Specialty pharmacy care loop</title>
+              <desc id="loop-desc">Five connected care steps: welcome call, pharmacist counseling, refill reminder, synchronized shipment, and end-of-therapy verification.</desc>
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#aebbd2"></path>
+                </marker>
+              </defs>
+              <path d="M139 96 C240 28 407 31 502 112 C591 188 541 302 414 314 C281 327 115 290 96 190 C89 150 103 120 139 96Z" fill="none" stroke="#d9e1ef" stroke-width="14"></path>
+              <path d="M139 96 C240 28 407 31 502 112 C591 188 541 302 414 314 C281 327 115 290 96 190 C89 150 103 120 139 96Z" fill="none" stroke="#aebbd2" stroke-width="3" stroke-dasharray="12 10" marker-end="url(#arrow)"></path>
+              <g font-family="Inter, Arial, sans-serif" font-weight="850" text-anchor="middle">
+                <circle cx="147" cy="96" r="50" fill="#fff" stroke="#d12630" stroke-width="3"></circle>
+                <text x="147" y="84" fill="#d12630" font-size="24">1</text>
+                <text x="147" y="109" fill="#243770" font-size="13">Welcome</text>
+                <text x="147" y="126" fill="#243770" font-size="13">call</text>
+                <circle cx="333" cy="72" r="50" fill="#fff" stroke="#e99e25" stroke-width="3"></circle>
+                <text x="333" y="60" fill="#e99e25" font-size="24">2</text>
+                <text x="333" y="85" fill="#243770" font-size="13">Pharmacist</text>
+                <text x="333" y="102" fill="#243770" font-size="13">counseling</text>
+                <circle cx="510" cy="158" r="50" fill="#fff" stroke="#187c8f" stroke-width="3"></circle>
+                <text x="510" y="146" fill="#187c8f" font-size="24">3</text>
+                <text x="510" y="171" fill="#243770" font-size="13">Refill</text>
+                <text x="510" y="188" fill="#243770" font-size="13">reminder</text>
+                <circle cx="413" cy="288" r="50" fill="#fff" stroke="#4d8a67" stroke-width="3"></circle>
+                <text x="413" y="276" fill="#4d8a67" font-size="24">4</text>
+                <text x="413" y="301" fill="#243770" font-size="13">Shipment</text>
+                <text x="413" y="318" fill="#243770" font-size="13">sync</text>
+                <circle cx="145" cy="238" r="50" fill="#fff" stroke="#7561a8" stroke-width="3"></circle>
+                <text x="145" y="226" fill="#7561a8" font-size="24">5</text>
+                <text x="145" y="251" fill="#243770" font-size="13">End-of</text>
+                <text x="145" y="268" fill="#243770" font-size="13">therapy</text>
+              </g>
+            </svg>
+            <div class="loop-caption">
+              <strong>5</strong>
+              <span>Coordinated touchpoints spanning initiation, refill, shipment, and completion confirmation.</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Methods</p>
+        <h2>Patient-centric workflow from start to final refill</h2>
+        <div class="touchpoint-grid">
+          <article class="touchpoint">
+            <div class="step">1</div>
+            <h3>Technician welcome call</h3>
+            <p>All patients received a welcome call, and the technician identified the best time for pharmacist outreach through shared decision making.</p>
+          </article>
+          <article class="touchpoint">
+            <div class="step">2</div>
+            <h3>Pharmacist new-start counseling</h3>
+            <p>A specialty clinical pharmacist completed initial counseling with every patient in the start cohort.</p>
+          </article>
+          <article class="touchpoint">
+            <div class="step">3</div>
+            <h3>Nursing refill reminder</h3>
+            <p>Nursing refill reminder calls were initiated and completed when applicable, supporting therapy continuity.</p>
+          </article>
+          <article class="touchpoint">
+            <div class="step">4</div>
+            <h3>Shipment synchronization</h3>
+            <p>A patient care coordinator synchronized prescription shipment with the nurse to align dispensing and patient contact.</p>
+          </article>
+          <article class="touchpoint">
+            <div class="step">5</div>
+            <h3>Completion verification</h3>
+            <p>After final refill, nurses and pharmacy interns confirmed completion with patients or ordering physician offices.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="visual-grid" id="results">
+        <article class="panel">
+          <p class="section-label">Results</p>
+          <h2>Every eligible patient completed therapy</h2>
+          <div class="result-board">
+            <div class="completion-dial" aria-label="100 percent completion rate among patients eligible to complete therapy">
+              <div class="dial-core">
+                <div>
+                  <strong>100%</strong>
+                  <span>Eligible completion</span>
+                </div>
+              </div>
+            </div>
+            <div class="stacked-bars">
+              <div class="stack-row">
+                <span>Eligible to complete</span>
+                <div class="stack-track"><i style="width:96%"></i></div>
+                <strong>96%</strong>
+              </div>
+              <div class="stack-row">
+                <span>Allergic reaction</span>
+                <div class="stack-track"><i style="width:4%; background: var(--gold);"></i></div>
+                <strong>4%</strong>
+              </div>
+              <div class="stack-row">
+                <span>Initial counseling</span>
+                <div class="stack-track"><i style="width:100%; background: linear-gradient(90deg, var(--teal), var(--green));"></i></div>
+                <strong>46</strong>
+              </div>
+              <div class="stack-row">
+                <span>Refill reminder</span>
+                <div class="stack-track"><i style="width:65%; background: linear-gradient(90deg, var(--purple), var(--teal));"></i></div>
+                <strong>30</strong>
+              </div>
+              <div class="stack-row">
+                <span>End-of-therapy call</span>
+                <div class="stack-track"><i style="width:96%; background: linear-gradient(90deg, var(--green), var(--teal));"></i></div>
+                <strong>44</strong>
+              </div>
+              <p class="fine-note">Sixteen patients were not eligible for the refill reminder call because of patient-initiated shipment contact, non-applicable refill, or medication allergy.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel takeaway-panel">
+          <p class="section-label">Conclusion</p>
+          <h2>Coordinated specialty pharmacy processes supported value-based care claims</h2>
+          <div class="markdown-fragment">
+            <p>The poster concluded that a collaborative, high-touch specialty pharmacy managing Hepatitis C patients confirmed a high rate of completion, indicating better performance.</p>
+            <p>It also positioned coordinated specialty pharmacy care processes as evidence that specialty pharmacies can deliver measurable value in reimbursement conversations.</p>
+          </div>
+          <div class="number-cloud" aria-label="Study numbers">
+            <div class="number-pill">46<small>starts</small></div>
+            <div class="number-pill">2<small>excluded</small></div>
+            <div class="number-pill">44<small>included</small></div>
+            <div class="number-pill">30<small>refill calls</small></div>
+            <div class="number-pill">100%<small>completion</small></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Extracted table patterns">
+        <article class="table-card">
+          <p class="section-label">Eligibility pattern</p>
+          <h2>Inclusion and exclusion</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Included</th>
+                  <th>Excluded</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Patients who initiated glecaprevir/pibrentasvir during February 2019.</td>
+                  <td>Patients unable to complete therapy due to allergic reactions.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+        <article class="table-card">
+          <p class="section-label">Contact pattern</p>
+          <h2>Program calls by category</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Number of patients</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Pharmacist initial counseling</td>
+                  <td>46</td>
+                </tr>
+                <tr>
+                  <td>Nursing refill reminder</td>
+                  <td>30</td>
+                </tr>
+                <tr>
+                  <td>End of therapy</td>
+                  <td>44</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">Poster attribution</p>
+          <h2>Authors and organization</h2>
+          <div class="markdown-fragment">
+            <p>M. Swoope, PharmD; R. Krouskos, PharmD; G. Peeler, PharmD Candidate; C. Wood, PharmD Candidate; C. Bertram, PharmD, MBA.</p>
+            <p>Walmart Specialty Pharmacy, Orlando, FL.</p>
+          </div>
+        </article>
+        <article class="panel">
+          <p class="section-label">Background signal</p>
+          <h2>Why completion mattered</h2>
+          <div class="markdown-fragment">
+            <p>The source poster framed Hepatitis C as a common chronic blood-borne infection in the United States, often curable with newer, shorter-duration antiviral therapy.</p>
+            <p>The PQA Specialty Core Measure Set defined Hep C treatment completion as completion of the intended antiviral therapy duration without significant gaps.</p>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/43_2019.pdf">View original PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/43_2019.md">View extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

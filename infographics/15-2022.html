@@ -1,0 +1,708 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2022 | Leveraging Technology for Specialty Refills</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -4.5rem;
+      top: -4.5rem;
+      width: 14rem;
+      height: 14rem;
+      border: 1.2rem solid rgba(24, 124, 143, 0.1);
+      border-radius: 50%;
+    }
+    .hero-card > * {
+      position: relative;
+      z-index: 1;
+    }
+    .hero-card svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .metric-card p {
+      margin: 0.42rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 750;
+      line-height: 1.35;
+    }
+    .metric-card strong small {
+      color: var(--red);
+      font-size: 0.78rem;
+    }
+    .signal-board {
+      display: grid;
+      grid-template-columns: minmax(16rem, 0.8fr) minmax(0, 1.2fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .pressure-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(209, 38, 48, 0.1), transparent 46%),
+        linear-gradient(180deg, #ffffff, var(--surface-warm));
+      padding: 1.05rem;
+    }
+    .pressure-card strong {
+      display: block;
+      margin-top: 0.45rem;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 8vw, 5.2rem);
+      line-height: 0.92;
+    }
+    .pressure-card span {
+      display: block;
+      max-width: 19rem;
+      margin-top: 0.55rem;
+      color: var(--ink);
+      font-weight: 850;
+      line-height: 1.25;
+    }
+    .workflow-compare {
+      display: grid;
+      gap: 0.68rem;
+      margin-top: 0.75rem;
+    }
+    .workflow-row {
+      display: grid;
+      grid-template-columns: 7.8rem minmax(0, 1fr) 4.5rem;
+      gap: 0.6rem;
+      align-items: center;
+    }
+    .workflow-row b {
+      color: var(--ink);
+      font-size: 0.82rem;
+      line-height: 1.12;
+    }
+    .track {
+      height: 0.82rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--bar-color, var(--red));
+    }
+    .workflow-row span {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 850;
+      text-align: right;
+    }
+    .journey {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+    .journey-step {
+      position: relative;
+      min-height: 11.5rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+      overflow: hidden;
+    }
+    .journey-step::before {
+      content: attr(data-step);
+      display: inline-grid;
+      place-items: center;
+      width: 2rem;
+      height: 2rem;
+      margin-bottom: 0.55rem;
+      border-radius: 50%;
+      background: var(--step-color, var(--red));
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+    .journey-step::after {
+      content: "";
+      position: absolute;
+      inset: auto -1.4rem -3rem auto;
+      width: 7rem;
+      height: 7rem;
+      border-radius: 50%;
+      background: var(--step-color, var(--red));
+      opacity: 0.08;
+    }
+    .journey-step:nth-child(2) { --step-color: var(--gold); }
+    .journey-step:nth-child(3) { --step-color: var(--teal); }
+    .journey-step:nth-child(4) { --step-color: var(--green); }
+    .journey-step p {
+      margin: 0.45rem 0 0;
+      font-size: 0.82rem;
+    }
+    .expansion-panel {
+      display: grid;
+      grid-template-columns: minmax(16rem, 0.72fr) minmax(0, 1.28fr);
+      gap: 1rem;
+      align-items: center;
+    }
+    .scale-svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .scale-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.65rem;
+    }
+    .scale-card {
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 7px;
+      background: linear-gradient(180deg, #fff, #f8fbff);
+      padding: 0.72rem;
+    }
+    .scale-card strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.9rem;
+      line-height: 1;
+    }
+    .scale-card span {
+      display: block;
+      margin-top: 0.3rem;
+      color: var(--ink);
+      font-weight: 850;
+      line-height: 1.2;
+    }
+    .outcome-lanes {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-top: 0.8rem;
+    }
+    .lane {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--surface);
+      padding: 0.85rem;
+    }
+    .lane .icon {
+      display: inline-grid;
+      place-items: center;
+      width: 2.4rem;
+      height: 2.4rem;
+      margin-bottom: 0.55rem;
+      border-radius: 50%;
+      background: var(--lane-color, var(--red));
+      color: #fff;
+      font-family: var(--font-display);
+      font-weight: 900;
+    }
+    .lane:nth-child(2) { --lane-color: var(--teal); }
+    .lane:nth-child(3) { --lane-color: var(--purple); }
+    .lane p {
+      margin: 0.45rem 0 0;
+      font-size: 0.84rem;
+    }
+    .time-comparison {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+    .time-card {
+      position: relative;
+      min-height: 10rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+      overflow: hidden;
+    }
+    .time-card::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: var(--fill);
+      background: linear-gradient(180deg, rgba(209, 38, 48, 0.22), rgba(209, 38, 48, 0.07));
+      z-index: 0;
+    }
+    .time-card.texting::after {
+      background: linear-gradient(180deg, rgba(24, 124, 143, 0.24), rgba(24, 124, 143, 0.07));
+    }
+    .time-card > * {
+      position: relative;
+      z-index: 1;
+    }
+    .time-card span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+    .time-card strong {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 3.1rem;
+      line-height: 1;
+    }
+    .time-card em {
+      display: block;
+      margin-top: 0.4rem;
+      color: var(--body);
+      font-style: normal;
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+    .nps-board {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 1rem;
+      align-items: center;
+    }
+    .score-ring {
+      display: block;
+      width: min(100%, 20rem);
+      height: auto;
+      margin: 0 auto;
+    }
+    .compact-note {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 750;
+    }
+    .evidence-card strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+    .evidence-card h3 {
+      margin-top: 0.45rem;
+    }
+    @media (max-width: 900px) {
+      .signal-board,
+      .expansion-panel,
+      .nps-board {
+        grid-template-columns: 1fr;
+      }
+      .journey,
+      .outcome-lanes {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 560px) {
+      .journey,
+      .outcome-lanes,
+      .scale-grid,
+      .time-comparison,
+      .workflow-row {
+        grid-template-columns: 1fr;
+      }
+      .workflow-row span {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="#scale">Scale</a>
+        <a href="#outcomes">Outcomes</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/15-2022.pdf">Source PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/15-2022.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2022 / Poster 15-2022</p>
+        <h1>Leveraging technology for specialty refills</h1>
+        <p class="hero-summary">
+          Penn Medicine Specialty Pharmacy replaced a phone-heavy refill workflow with a Way to Health
+          texting platform that gathered refill, adherence, safety, and therapy-goal information while
+          auto-populating the EHR refill note.
+        </p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag therapy">Specialty pharmacy refills</li>
+          <li class="tag category">Texting workflow</li>
+          <li class="tag">Way to Health</li>
+          <li class="tag">EHR note automation</li>
+          <li class="tag">Patient experience</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Poster metadata and summary visual">
+        <div class="poster-code">15<br>2022</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Institution</dt>
+            <dd>Penn Medicine</dd>
+          </div>
+          <div>
+            <dt>Partner</dt>
+            <dd>Way to Health</dd>
+          </div>
+          <div>
+            <dt>Launch</dt>
+            <dd>July 2020 pilot</dd>
+          </div>
+          <div>
+            <dt>Current reach</dt>
+            <dd>3,593 enrolled patients</dd>
+          </div>
+        </dl>
+        <svg viewBox="0 0 360 220" role="img" aria-label="Texting workflow moving refill answers into the EHR">
+          <defs>
+            <linearGradient id="phoneFill" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0" stop-color="#ffffff"/>
+              <stop offset="1" stop-color="#eef4fb"/>
+            </linearGradient>
+          </defs>
+          <rect x="26" y="28" width="308" height="164" rx="18" fill="#fff" stroke="#aebbd2"/>
+          <rect x="55" y="47" width="92" height="126" rx="15" fill="url(#phoneFill)" stroke="#243770" stroke-width="4"/>
+          <circle cx="101" cy="158" r="5" fill="#243770"/>
+          <rect x="72" y="70" width="54" height="10" rx="5" fill="#d12630"/>
+          <rect x="72" y="91" width="34" height="10" rx="5" fill="#e99e25"/>
+          <rect x="72" y="112" width="61" height="10" rx="5" fill="#187c8f"/>
+          <path d="M154 111h52" fill="none" stroke="#243770" stroke-width="5" stroke-linecap="round"/>
+          <path d="M193 96l17 15-17 15" fill="none" stroke="#243770" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="216" y="58" width="86" height="104" rx="8" fill="#eef4fb" stroke="#187c8f" stroke-width="4"/>
+          <path d="M233 81h52M233 104h52M233 127h36" stroke="#243770" stroke-width="6" stroke-linecap="round"/>
+          <circle cx="286" cy="143" r="18" fill="#4d8a67"/>
+          <path d="M277 143l6 6 13-15" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="101" y="199" text-anchor="middle" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="850">patient text</text>
+          <text x="259" y="199" text-anchor="middle" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="850">EHR refill note</text>
+        </svg>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers from the poster">
+        <article class="metric-card">
+          <span>Program growth pressure</span>
+          <strong>85<small>%</small></strong>
+          <p>Specialty refill program growth over the prior 24 months in 2020.</p>
+        </article>
+        <article class="metric-card">
+          <span>Monthly workload</span>
+          <strong>7,000</strong>
+          <p>Approximate specialty refills per month before the technology redesign.</p>
+        </article>
+        <article class="metric-card">
+          <span>Successful text completions</span>
+          <strong>80<small>%</small></strong>
+          <p>Check-ins completed without telephonic intervention from staff.</p>
+        </article>
+        <article class="metric-card">
+          <span>Technician time reduction</span>
+          <strong>50<small>%</small></strong>
+          <p>Average process time fell from about 7 minutes to 3.5 minutes.</p>
+        </article>
+      </section>
+
+      <section class="signal-board" aria-label="Background problem and objective">
+        <article class="pressure-card">
+          <p class="section-label">Background pressure</p>
+          <strong>2 calls</strong>
+          <span>Most phone-based outreach required two attempts across more than three business days to reach patients and coordinate refills.</span>
+        </article>
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Make refill coordination faster without shrinking the clinical check-in.</h2>
+          <p>
+            The team sought to improve specialty refill efficiency, reduce technician administrative
+            burden, and preserve a strong patient experience while still collecting adherence,
+            adverse-effect, and goal-of-therapy information required for accreditation.
+          </p>
+          <div class="workflow-compare" aria-label="Phone workflow versus texting workflow">
+            <div class="workflow-row">
+              <b>Phone reach</b>
+              <div class="track"><i style="width: 100%;"></i></div>
+              <span>Day 3</span>
+            </div>
+            <div class="workflow-row">
+              <b>W2H reach</b>
+              <div class="track"><i style="width: 34%; --bar-color: var(--teal);"></i></div>
+              <span>Day 1</span>
+            </div>
+            <div class="workflow-row">
+              <b>Manual note</b>
+              <div class="track"><i style="width: 100%;"></i></div>
+              <span>7 min</span>
+            </div>
+            <div class="workflow-row">
+              <b>Text + auto note</b>
+              <div class="track"><i style="width: 50%; --bar-color: var(--green);"></i></div>
+              <span>3.5 min</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel" aria-label="Methods and implementation flow">
+        <p class="section-label">Methods as operating design</p>
+        <h2>The measurement plan followed three lenses: program, patient, and staff.</h2>
+        <div class="journey">
+          <article class="journey-step" data-step="1">
+            <h3>Build the texting platform</h3>
+            <p>Penn Medicine Specialty Pharmacy partnered with Way to Health in May 2020 to script chatbot logic and integrate refill questions with pharmacy workflows.</p>
+          </article>
+          <article class="journey-step" data-step="2">
+            <h3>Measure program completion</h3>
+            <p>Program impact was defined as successful check-ins that did not require staff telephone intervention.</p>
+          </article>
+          <article class="journey-step" data-step="3">
+            <h3>Survey patient experience</h3>
+            <p>Rolling NPS surveys began in November 2021 for patients who completed at least three refills, with annual surveying planned.</p>
+          </article>
+          <article class="journey-step" data-step="4">
+            <h3>Analyze staff time</h3>
+            <p>A February 2021 time study evaluated workflow steps among 670 patients enrolled in texting, including 25 W2H and 25 non-W2H refill comparisons.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="scale" class="panel">
+        <p class="section-label">Scale-up results</p>
+        <h2>A 42-patient pilot became a multi-pharmacy refill channel.</h2>
+        <div class="expansion-panel">
+          <svg class="scale-svg" viewBox="0 0 320 320" role="img" aria-label="Expansion from pilot to current program">
+            <circle cx="160" cy="160" r="122" fill="#eef4fb" stroke="#aebbd2"/>
+            <circle cx="160" cy="160" r="72" fill="#fff" stroke="#243770" stroke-width="4"/>
+            <text x="160" y="150" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="18" font-weight="900">Texting</text>
+            <text x="160" y="174" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="18" font-weight="900">scale-up</text>
+            <g fill="#fff" stroke-width="3">
+              <circle cx="160" cy="38" r="31" stroke="#d12630"/>
+              <circle cx="266" cy="99" r="31" stroke="#e99e25"/>
+              <circle cx="266" cy="221" r="31" stroke="#187c8f"/>
+              <circle cx="160" cy="282" r="31" stroke="#4d8a67"/>
+              <circle cx="54" cy="221" r="31" stroke="#7561a8"/>
+              <circle cx="54" cy="99" r="31" stroke="#243770"/>
+            </g>
+            <g fill="#243770" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="900" text-anchor="middle">
+              <text x="160" y="35">1 site</text><text x="160" y="49">pilot</text>
+              <text x="266" y="96">1 service</text><text x="266" y="110">line</text>
+              <text x="266" y="218">4 meds</text><text x="266" y="232">pilot</text>
+              <text x="160" y="279">7 Penn</text><text x="160" y="293">pharmacies</text>
+              <text x="54" y="218">8 service</text><text x="54" y="232">lines</text>
+              <text x="54" y="96">189</text><text x="54" y="110">meds</text>
+            </g>
+          </svg>
+          <div class="scale-grid">
+            <div class="scale-card">
+              <strong>42</strong>
+              <span>patients enrolled in the July 2020 pilot</span>
+            </div>
+            <div class="scale-card">
+              <strong>3,593</strong>
+              <span>patients enrolled after expansion</span>
+            </div>
+            <div class="scale-card">
+              <strong>7</strong>
+              <span>Penn pharmacies using the texting program</span>
+            </div>
+            <div class="scale-card">
+              <strong>189</strong>
+              <span>specialty medications included in the workflow</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="outcomes" class="visual-grid">
+        <article class="panel">
+          <p class="section-label">Staff impact</p>
+          <h2>Automation compressed the encounter and removed manual EHR work.</h2>
+          <p>
+            Text responses auto-populated a designated EHR refill note, replacing manual documentation
+            and reducing time spent communicating with the patient and documenting the encounter.
+          </p>
+          <div class="time-comparison" aria-label="Average time per refill workflow">
+            <div class="time-card" style="--fill: 100%;">
+              <span>Non-W2H process</span>
+              <strong>7</strong>
+              <em>minutes per patient, approximately</em>
+            </div>
+            <div class="time-card texting" style="--fill: 50%;">
+              <span>W2H texting process</span>
+              <strong>3.5</strong>
+              <em>minutes per patient, approximately</em>
+            </div>
+          </div>
+        </article>
+        <article class="panel">
+          <p class="section-label">Program and patient impact</p>
+          <h2>High completion and high satisfaction moved together.</h2>
+          <div class="nps-board">
+            <svg class="score-ring" viewBox="0 0 260 260" role="img" aria-label="Net promoter score ring for texting program">
+              <circle cx="130" cy="130" r="94" fill="#fff" stroke="#d9e1ef" stroke-width="24"/>
+              <path d="M130 36a94 94 0 1 1-76 149" fill="none" stroke="#187c8f" stroke-width="24" stroke-linecap="round"/>
+              <circle cx="130" cy="130" r="58" fill="#eef4fb" stroke="#aebbd2"/>
+              <text x="130" y="124" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="18" font-weight="900">W2H NPS</text>
+              <text x="130" y="160" text-anchor="middle" fill="#d12630" font-family="Montserrat, Arial, sans-serif" font-size="44" font-weight="900">85</text>
+            </svg>
+            <div>
+              <div class="number-cloud" aria-label="Patient experience metrics">
+                <div class="number-pill">1,352<small>NPS survey responses</small></div>
+                <div class="number-pill">91<small>overall pharmacy NPS</small></div>
+                <div class="number-pill">85<small>texting program NPS</small></div>
+                <div class="number-pill">80%<small>successful completions</small></div>
+              </div>
+              <p class="compact-note">
+                Successful completion meant the refill check-in did not require telephonic staff intervention;
+                exceptions included requests to speak with pharmacy staff or no response within 48 hours.
+              </p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="evidence-map" aria-label="Evidence cards">
+        <article class="evidence-card">
+          <strong>Capacity</strong>
+          <h3>Growth without matching phone burden</h3>
+          <p>The texting path absorbed refill demand while preserving escalation for patients who needed staff intervention.</p>
+        </article>
+        <article class="evidence-card">
+          <strong>Speed</strong>
+          <h3>Reach shifted from Day 3 to Day 1</h3>
+          <p>Most patients were reached on Day 1 with W2H compared with Day 3 for the non-W2H process.</p>
+        </article>
+        <article class="evidence-card">
+          <strong>EHR</strong>
+          <h3>Answers became structured notes</h3>
+          <p>Information collected during texting was auto-populated into a designated EHR refill note.</p>
+        </article>
+        <article class="evidence-card">
+          <strong>Staff</strong>
+          <h3>Administrative burden declined</h3>
+          <p>Fewer outreach attempts and less documentation time reduced technician workload.</p>
+        </article>
+        <article class="evidence-card">
+          <strong>Patients</strong>
+          <h3>Satisfaction stayed high</h3>
+          <p>The texting program NPS of 85 remained close to the overall pharmacy program NPS of 91.</p>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Extracted table patterns">
+        <article class="table-card">
+          <p class="section-label">Before and after pattern</p>
+          <h2>Phone workflow versus W2H texting workflow</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Workflow element</th>
+                  <th>Telephone-centered model</th>
+                  <th>W2H texting model</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Patient reach</td>
+                  <td>Majority required two attempts over more than three business days</td>
+                  <td>Majority reached on Day 1</td>
+                </tr>
+                <tr>
+                  <td>Documentation</td>
+                  <td>Manual technician entry into EHR refill note</td>
+                  <td>Texted information auto-populated into designated EHR note</td>
+                </tr>
+                <tr>
+                  <td>Time per patient</td>
+                  <td>Approximately 7 minutes</td>
+                  <td>Approximately 3.5 minutes</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+        <article class="table-card">
+          <p class="section-label">Measurement framework</p>
+          <h2>How impact was evaluated</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Impact lens</th>
+                  <th>Measure</th>
+                  <th>Key poster signal</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Program</td>
+                  <td>Successful completions without phone intervention</td>
+                  <td>80% completion remained high</td>
+                </tr>
+                <tr>
+                  <td>Patient</td>
+                  <td>Rolling NPS after at least three refills</td>
+                  <td>1,352 responses; texting NPS 85</td>
+                </tr>
+                <tr>
+                  <td>Staff</td>
+                  <td>Time analysis of W2H and non-W2H workflow steps</td>
+                  <td>50% reduction in average process time</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">Conclusion</p>
+          <h2>Texting expanded capacity while preserving clinical safeguards.</h2>
+          <p>
+            The W2H platform positively impacted program, staff, and patient outcomes by shortening
+            time to reach patients by two days, reducing process time by half, lowering administrative
+            burden, and maintaining strong patient satisfaction.
+          </p>
+        </article>
+        <article class="panel">
+          <p class="section-label">Practical takeaway</p>
+          <h2>The automation worked because it stayed inside the refill workflow.</h2>
+          <p>
+            The chatbot was scripted around pharmacy-defined parameters, integrated with pharmacy
+            systems, and routed information directly to the EHR, so technology replaced repetitive
+            coordination rather than removing clinical escalation.
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/15-2022.pdf">Open original PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/15-2022.md">Read extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

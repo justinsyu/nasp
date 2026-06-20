@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2025 OPR23 | WPAI Migraine Workflow</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .migraine-hero {
+      position: relative;
+      overflow: hidden;
+      border-bottom-color: var(--red);
+    }
+
+    .migraine-hero::after {
+      content: "";
+      position: absolute;
+      right: 0.5rem;
+      bottom: 0.7rem;
+      width: min(28rem, 42vw);
+      height: min(14rem, 24vw);
+      background:
+        linear-gradient(90deg, rgba(36, 55, 112, 0.14) 1px, transparent 1px) 0 0 / 1.8rem 1.8rem,
+        linear-gradient(180deg, rgba(36, 55, 112, 0.12) 1px, transparent 1px) 0 0 / 1.8rem 1.8rem;
+      clip-path: polygon(0 72%, 10% 60%, 21% 65%, 33% 48%, 45% 55%, 57% 30%, 70% 38%, 84% 18%, 100% 24%, 100% 100%, 0 100%);
+      opacity: 0.52;
+      pointer-events: none;
+    }
+
+    .hero-copy,
+    .hero-card {
+      position: relative;
+      z-index: 1;
+    }
+
+    .poster-code small {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .metric-card.emphasis {
+      background: linear-gradient(145deg, #ffffff 0%, var(--surface-warm) 100%);
+      border-color: rgba(209, 38, 48, 0.34);
+    }
+
+    .metric-card strong.teal { color: var(--teal); }
+    .metric-card strong.gold { color: var(--gold); }
+    .metric-card strong.green { color: var(--green); }
+
+    .score-panel {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .line-chart {
+      width: 100%;
+      min-height: 18rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #ffffff, var(--surface-blue));
+    }
+
+    .chart-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .chart-legend li {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+
+    .swatch {
+      width: 0.8rem;
+      height: 0.8rem;
+      border-radius: 999px;
+      background: var(--swatch, var(--red));
+    }
+
+    .workflow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.8rem;
+    }
+
+    .workflow-step {
+      position: relative;
+      min-height: 10rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #ffffff;
+      padding: 0.8rem;
+    }
+
+    .workflow-step::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -0.55rem;
+      width: 0.9rem;
+      height: 0.9rem;
+      border-top: 2px solid var(--red);
+      border-right: 2px solid var(--red);
+      transform: translateY(-50%) rotate(45deg);
+      background: #ffffff;
+    }
+
+    .workflow-step:last-child::after { display: none; }
+
+    .step-number {
+      display: inline-grid;
+      place-items: center;
+      width: 2rem;
+      height: 2rem;
+      margin-bottom: 0.6rem;
+      border-radius: 999px;
+      background: var(--ink);
+      color: #ffffff;
+      font-family: var(--font-display);
+      font-weight: 900;
+    }
+
+    .workflow-step p {
+      margin: 0.45rem 0 0;
+      font-size: 0.84rem;
+    }
+
+    .signal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+
+    .signal {
+      border-left: 4px solid var(--signal, var(--red));
+      padding: 0.75rem 0.8rem;
+      background: var(--surface-blue);
+      border-radius: 0 8px 8px 0;
+    }
+
+    .signal strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      line-height: 1.05;
+    }
+
+    .signal span {
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 850;
+      text-transform: uppercase;
+    }
+
+    .takeaway {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+    }
+
+    .takeaway .panel:first-child {
+      background: linear-gradient(145deg, #ffffff, rgba(24, 124, 143, 0.1));
+    }
+
+    .takeaway .panel:last-child {
+      background: linear-gradient(145deg, #ffffff, rgba(209, 38, 48, 0.08));
+    }
+
+    @media (max-width: 900px) {
+      .workflow,
+      .signal-grid,
+      .takeaway {
+        grid-template-columns: 1fr;
+      }
+
+      .workflow-step::after {
+        top: auto;
+        right: 50%;
+        bottom: -0.55rem;
+        transform: translateX(50%) rotate(135deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">NASP Poster Infographic</a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/1179-OPR23-OR-Poster-AM25_2025.pdf">PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/1179-OPR23-OR-Poster-AM25_2025.md">Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero migraine-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">2025 Annual Meeting | OPR23-OR</p>
+        <h1>Work productivity assessment for employed patients with migraine in a health-system specialty pharmacy</h1>
+        <p class="hero-summary">A single HSSP embedded the six-question WPAI:SHP instrument into migraine specialty therapy management to measure absenteeism, presenteeism, work productivity loss, and activity impairment over six months.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag therapy">Migraine</li>
+          <li class="tag category">Operations research</li>
+          <li class="tag">Quality improvement</li>
+          <li class="tag">WPAI:SHP</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div class="poster-code">OPR23-OR<small>AM25 poster</small></div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Setting</dt>
+            <dd>Single HSSP</dd>
+          </div>
+          <div>
+            <dt>Protocol start</dt>
+            <dd>Feb 2024</dd>
+          </div>
+          <div>
+            <dt>Population</dt>
+            <dd>Employed adults</dd>
+          </div>
+          <div>
+            <dt>Follow-up</dt>
+            <dd>6 months</dd>
+          </div>
+        </dl>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card emphasis">
+          <span>Patients enrolled</span>
+          <strong>18</strong>
+        </article>
+        <article class="metric-card">
+          <span>Completed follow-up</span>
+          <strong class="teal">16</strong>
+        </article>
+        <article class="metric-card">
+          <span>Female patients</span>
+          <strong class="gold">77.8%</strong>
+        </article>
+        <article class="metric-card">
+          <span>Median age</span>
+          <strong class="green">39.5</strong>
+        </article>
+      </section>
+
+      <section class="visual-grid" id="objective">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Turn productivity burden into a routine clinical signal</h2>
+          <p>Describe a work productivity and activity impairment assessment process for employed patients with migraine in a health-system specialty pharmacy setting.</p>
+          <div class="number-cloud" aria-label="Background numbers">
+            <div class="number-pill">4.4<small>missed workdays per year</small></div>
+            <div class="number-pill">11.4<small>reduced-productivity days</small></div>
+            <div class="number-pill">6<small>WPAI:SHP questions</small></div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Assessment Flow</p>
+          <h2>Monthly WPAI:SHP collection layered into care management</h2>
+          <div class="workflow" aria-label="WPAI assessment workflow">
+            <div class="workflow-step">
+              <span class="step-number">1</span>
+              <h3>Identify</h3>
+              <p>Full-time employed adults newly prescribed targeted migraine specialty therapy.</p>
+            </div>
+            <div class="workflow-step">
+              <span class="step-number">2</span>
+              <h3>Collect</h3>
+              <p>Administer WPAI:SHP once per month through the existing clinical management protocol.</p>
+            </div>
+            <div class="workflow-step">
+              <span class="step-number">3</span>
+              <h3>Score</h3>
+              <p>Translate six responses into absenteeism, presenteeism, productivity loss, and activity impairment scores.</p>
+            </div>
+            <div class="workflow-step">
+              <span class="step-number">4</span>
+              <h3>Compare</h3>
+              <p>Use Wilcoxon signed-rank tests from month 1 to months 3 and 6.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="visual-grid" id="results">
+        <article class="panel score-panel">
+          <div>
+            <p class="section-label">Results</p>
+            <h2>Six-month scores moved sharply downward across work and daily activity domains</h2>
+          </div>
+          <svg class="line-chart" viewBox="0 0 760 420" role="img" aria-label="WPAI metric scores at months 1, 3, and 6">
+            <defs>
+              <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+                <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#243770" flood-opacity="0.12"></feDropShadow>
+              </filter>
+            </defs>
+            <rect x="0" y="0" width="760" height="420" rx="8" fill="transparent"></rect>
+            <g stroke="#d9e1ef" stroke-width="1">
+              <line x1="92" y1="70" x2="710" y2="70"></line>
+              <line x1="92" y1="130" x2="710" y2="130"></line>
+              <line x1="92" y1="190" x2="710" y2="190"></line>
+              <line x1="92" y1="250" x2="710" y2="250"></line>
+              <line x1="92" y1="310" x2="710" y2="310"></line>
+            </g>
+            <g fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800">
+              <text x="48" y="75">60</text>
+              <text x="48" y="135">45</text>
+              <text x="48" y="195">30</text>
+              <text x="48" y="255">15</text>
+              <text x="56" y="315">0</text>
+              <text x="128" y="360">Month 1</text>
+              <text x="381" y="360">Month 3</text>
+              <text x="637" y="360">Month 6</text>
+            </g>
+            <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" filter="url(#shadow)">
+              <polyline points="170,289 425,245 680,307" stroke="#d12630"></polyline>
+              <polyline points="170,105 425,177 680,255" stroke="#e99e25"></polyline>
+              <polyline points="170,98 425,153 680,253" stroke="#187c8f"></polyline>
+              <polyline points="170,78 425,163 680,222" stroke="#4d8a67"></polyline>
+            </g>
+            <g stroke="#ffffff" stroke-width="3">
+              <circle cx="170" cy="289" r="7" fill="#d12630"></circle>
+              <circle cx="425" cy="245" r="7" fill="#d12630"></circle>
+              <circle cx="680" cy="307" r="7" fill="#d12630"></circle>
+              <circle cx="170" cy="105" r="7" fill="#e99e25"></circle>
+              <circle cx="425" cy="177" r="7" fill="#e99e25"></circle>
+              <circle cx="680" cy="255" r="7" fill="#e99e25"></circle>
+              <circle cx="170" cy="98" r="7" fill="#187c8f"></circle>
+              <circle cx="425" cy="153" r="7" fill="#187c8f"></circle>
+              <circle cx="680" cy="253" r="7" fill="#187c8f"></circle>
+              <circle cx="170" cy="78" r="7" fill="#4d8a67"></circle>
+              <circle cx="425" cy="163" r="7" fill="#4d8a67"></circle>
+              <circle cx="680" cy="222" r="7" fill="#4d8a67"></circle>
+            </g>
+          </svg>
+          <ul class="chart-legend" aria-label="Chart legend">
+            <li><span class="swatch" style="--swatch: var(--red);"></span>Absenteeism</li>
+            <li><span class="swatch" style="--swatch: var(--gold);"></span>Presenteeism</li>
+            <li><span class="swatch" style="--swatch: var(--teal);"></span>Work productivity loss</li>
+            <li><span class="swatch" style="--swatch: var(--green);"></span>Activity impairment</li>
+          </ul>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Magnitude of Change</p>
+          <h2>Month 1 to month 6 signals favored lower impairment</h2>
+          <div class="lens-chart" aria-label="Percent change at six months">
+            <div class="lens-row">
+              <span>Presenteeism</span>
+              <div class="lens-bar"><i style="width: 73.2%;"></i></div>
+            </div>
+            <div class="lens-row">
+              <span>Productivity loss</span>
+              <div class="lens-bar"><i style="width: 73.1%;"></i></div>
+            </div>
+            <div class="lens-row">
+              <span>Activity impairment</span>
+              <div class="lens-bar"><i style="width: 63.4%;"></i></div>
+            </div>
+            <div class="lens-row">
+              <span>Absenteeism</span>
+              <div class="lens-bar"><i style="width: 85.2%;"></i></div>
+            </div>
+          </div>
+          <div class="signal-grid" style="margin-top: 1rem;">
+            <div class="signal" style="--signal: var(--gold);">
+              <strong>73.2%</strong>
+              <span>Presenteeism decrease; p=0.001</span>
+            </div>
+            <div class="signal" style="--signal: var(--teal);">
+              <strong>73.1%</strong>
+              <span>Productivity loss decrease; p=0.002</span>
+            </div>
+            <div class="signal" style="--signal: var(--green);">
+              <strong>63.4%</strong>
+              <span>Activity impairment decrease; p=0.02</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="tables-grid" id="tables">
+        <article class="table-card">
+          <p class="section-label">WPAI Scores</p>
+          <h2>Observed score pattern</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Time</th>
+                  <th>Absenteeism</th>
+                  <th>Presenteeism</th>
+                  <th>Work productivity loss</th>
+                  <th>Activity impairment</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Month 1</td>
+                  <td>5.26</td>
+                  <td>51.25</td>
+                  <td>53.12</td>
+                  <td>58.13</td>
+                </tr>
+                <tr>
+                  <td>Month 3</td>
+                  <td>16.33</td>
+                  <td>33.33</td>
+                  <td>39.29</td>
+                  <td>36.67</td>
+                </tr>
+                <tr>
+                  <td>Month 6</td>
+                  <td>0.78</td>
+                  <td>13.75</td>
+                  <td>14.30</td>
+                  <td>21.88</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Feasibility</p>
+          <h2>Pharmacist survey created a practical counterweight</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Response</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>WPAI:SHP was easy to use</td>
+                  <td>100% true</td>
+                </tr>
+                <tr>
+                  <td>Provided useful information during migraine assessment</td>
+                  <td>100% false</td>
+                </tr>
+                <tr>
+                  <td>Would like to incorporate WPAI:SHP in future assessments</td>
+                  <td>100% false</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="takeaway" id="conclusion">
+        <article class="panel">
+          <p class="section-label">Conclusion</p>
+          <h2>Useful measurement, uncertain workflow value</h2>
+          <p>The WPAI:SHP helped quantify how HSSP clinical management for migraine related to work productivity and daily activities, with several scores improving by month 6.</p>
+        </article>
+        <article class="panel">
+          <p class="section-label">Interpretation Guardrails</p>
+          <h2>Promising pattern, limited generalizability</h2>
+          <p>The small sample, single-center design, two losses to follow-up, and three-item pharmacist feasibility survey limit the strength of broad conclusions.</p>
+        </article>
+      </section>
+
+      <section class="evidence-map" aria-label="Evidence flow summary">
+        <article class="evidence-card">
+          <h3>Need</h3>
+          <p>Migraine produces missed work and reduced productivity, but standardized work-impact tools are not routinely embedded in HSSP workflows.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Intervention</h3>
+          <p>WPAI:SHP added to an existing clinical management protocol for targeted migraine specialty therapies.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Analysis</h3>
+          <p>Month 1 scores compared with month 3 and month 6 using Wilcoxon signed-rank tests.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Patient Signal</h3>
+          <p>Presenteeism, productivity loss, and activity impairment showed statistically significant improvement by month 6.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Workflow Signal</h3>
+          <p>Pharmacists found the tool easy to use but did not view it as adding value beyond existing clinical data.</p>
+        </article>
+      </section>
+
+      <footer class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/1179-OPR23-OR-Poster-AM25_2025.pdf">Open source PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/1179-OPR23-OR-Poster-AM25_2025.md">Open markdown extraction</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

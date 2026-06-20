@@ -1,0 +1,618 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2024 Infographic | Pharmacist Intervention for MS Adherence Risk</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card .button-link {
+      justify-content: center;
+      background: #fff;
+    }
+    .signal-board {
+      position: relative;
+      min-height: 21rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 88% 15%, rgba(233, 158, 37, 0.34), transparent 12rem),
+        linear-gradient(135deg, rgba(36, 55, 112, 0.97), rgba(24, 124, 143, 0.92));
+      color: #fff;
+      overflow: hidden;
+      padding: 1.1rem;
+    }
+    .signal-board svg {
+      position: absolute;
+      right: -1rem;
+      bottom: -1.7rem;
+      width: min(28rem, 68%);
+      opacity: 0.82;
+    }
+    .signal-board .kicker {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+    .signal-board strong {
+      display: block;
+      max-width: 20rem;
+      margin-top: 0.28rem;
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 5.2vw, 4.7rem);
+      line-height: 0.96;
+    }
+    .signal-board span {
+      display: block;
+      max-width: 24rem;
+      margin-top: 0.62rem;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 0.95rem;
+    }
+    .cohort-balance {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.72rem;
+      margin-top: 0.68rem;
+    }
+    .cohort-card {
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background: var(--surface-blue);
+      padding: 0.78rem;
+    }
+    .cohort-card b {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 2.35rem;
+      line-height: 1;
+    }
+    .cohort-card span {
+      display: block;
+      margin-top: 0.18rem;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+    .flow-ribbon {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.74rem;
+    }
+    .flow-step {
+      position: relative;
+      min-height: 9.4rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.86rem;
+    }
+    .flow-step::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -0.51rem;
+      width: 0.74rem;
+      height: 0.74rem;
+      border-top: 2px solid var(--border-strong);
+      border-right: 2px solid var(--border-strong);
+      background: #fff;
+      transform: translateY(-50%) rotate(45deg);
+    }
+    .flow-step:last-child::after { display: none; }
+    .flow-step b {
+      display: inline-grid;
+      place-items: center;
+      width: 1.7rem;
+      height: 1.7rem;
+      border-radius: 50%;
+      background: var(--red);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+    }
+    .flow-step h3 {
+      margin-top: 0.5rem;
+      font-size: 0.94rem;
+    }
+    .flow-step p {
+      margin: 0.35rem 0 0;
+      font-size: 0.79rem;
+    }
+    .outcome-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.68rem;
+      margin-top: 0.7rem;
+    }
+    .outcome-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.82rem;
+    }
+    .outcome-card span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.62rem;
+      font-weight: 900;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+    .outcome-pair {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 0.42rem;
+      align-items: end;
+      margin-top: 0.42rem;
+    }
+    .outcome-pair strong {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.9rem;
+      line-height: 1;
+    }
+    .outcome-pair em {
+      color: var(--red);
+      font-style: normal;
+      font-size: 0.78rem;
+      font-weight: 900;
+      text-align: center;
+    }
+    .outcome-labels {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.55rem;
+      margin-top: 0.2rem;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 800;
+    }
+    .bar-panel {
+      display: grid;
+      gap: 0.68rem;
+      margin-top: 0.68rem;
+    }
+    .program-row {
+      display: grid;
+      grid-template-columns: 8rem minmax(0, 1fr) 3rem 3rem 3rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .program-track {
+      height: 0.92rem;
+      border-radius: 999px;
+      background: var(--surface-blue);
+      overflow: hidden;
+    }
+    .program-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--gold));
+    }
+    .program-row small {
+      color: var(--muted);
+      font-size: 0.64rem;
+      font-weight: 900;
+      text-align: right;
+      text-transform: uppercase;
+    }
+    .comparison-chart {
+      width: 100%;
+      height: auto;
+      margin-top: 0.4rem;
+    }
+    .compact-list {
+      margin: 0.55rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .compact-list li {
+      display: grid;
+      grid-template-columns: 0.78rem minmax(0, 1fr);
+      gap: 0.42rem;
+      margin-top: 0.42rem;
+      font-size: 0.88rem;
+    }
+    .compact-list li::before {
+      content: "";
+      width: 0.5rem;
+      height: 0.5rem;
+      margin-top: 0.44rem;
+      border-radius: 50%;
+      background: var(--red);
+    }
+    .source-note {
+      margin: 0.8rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+    @media (max-width: 900px) {
+      .flow-ribbon,
+      .outcome-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .flow-step::after { display: none; }
+      .program-row {
+        grid-template-columns: 7.2rem minmax(0, 1fr) 2.7rem 2.7rem 2.7rem;
+      }
+    }
+    @media (max-width: 560px) {
+      .cohort-balance,
+      .flow-ribbon,
+      .outcome-grid {
+        grid-template-columns: 1fr;
+      }
+      .program-row {
+        grid-template-columns: 1fr;
+      }
+      .program-row small {
+        text-align: left;
+      }
+      .signal-board {
+        min-height: 25rem;
+      }
+      .signal-board svg {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="https://naspnet.org/" aria-label="NASP website">NASP Posters</a>
+      <nav aria-label="Page sections">
+        <a href="#snapshot">Snapshot</a>
+        <a href="#model">Model</a>
+        <a href="#results">Results</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">2024 Annual Meeting Poster | DTS79-EN</p>
+        <h1>Targeted pharmacist outreach for patients with MS at high risk for nonadherence</h1>
+        <p class="hero-summary">
+          Optum Specialty Pharmacy tested whether a proprietary adherence-risk model plus a proactive pharmacist call could improve medication coverage,
+          close refill gaps, and connect patients to refill and clinical support programs.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Retrospective matched cohort</li>
+          <li class="tag therapy">Multiple sclerosis</li>
+          <li class="tag therapy">Disease modifying therapy</li>
+          <li class="tag">Predictive analytics</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Poster details">
+        <div class="poster-code">AM24<br>DTS79-EN</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Poster year</dt>
+            <dd>2024</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>Mail-order specialty pharmacy</dd>
+          </div>
+          <div>
+            <dt>Model threshold</dt>
+            <dd>Risk score >=70</dd>
+          </div>
+          <div>
+            <dt>Matched cohort</dt>
+            <dd>47 vs 47</dd>
+          </div>
+        </dl>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/79-DTS79-EN-Poster-AM24_2024.pdf">Open poster PDF</a>
+      </aside>
+    </section>
+
+    <main>
+      <section id="snapshot" class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Participants after PSM</span>
+          <strong>47</strong>
+        </article>
+        <article class="metric-card">
+          <span>Controls after PSM</span>
+          <strong>47</strong>
+        </article>
+        <article class="metric-card">
+          <span>Participant median PDC</span>
+          <strong>100%</strong>
+        </article>
+        <article class="metric-card">
+          <span>Participant total gap days</span>
+          <strong>0</strong>
+        </article>
+      </section>
+
+      <section class="visual-grid" aria-label="Study signal and matched cohort balance">
+        <article class="signal-board">
+          <p class="kicker">Primary endpoint signal</p>
+          <strong>+6 percentage points in median PDC</strong>
+          <span>
+            Participants who completed the pharmacist intervention reached 100% median proportion of days covered versus 94% among matched controls.
+            The difference did not reach statistical significance over the short follow-up period.
+          </span>
+          <svg viewBox="0 0 420 280" role="img" aria-label="Predictive model and pharmacist outreach illustration">
+            <defs>
+              <linearGradient id="modelLine" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ffffff" stop-opacity="0.96"></stop>
+                <stop offset="1" stop-color="#e99e25" stop-opacity="0.8"></stop>
+              </linearGradient>
+            </defs>
+            <path d="M53 206c52-102 96-112 132-72 30 34 55 36 91 4 25-23 54-42 99-40" fill="none" stroke="url(#modelLine)" stroke-width="16" stroke-linecap="round"></path>
+            <circle cx="79" cy="164" r="28" fill="#ffffff" opacity="0.92"></circle>
+            <path d="M70 164h18M79 155v18" stroke="#243770" stroke-width="8" stroke-linecap="round"></path>
+            <rect x="139" y="64" width="116" height="86" rx="16" fill="#ffffff" opacity="0.9"></rect>
+            <path d="M163 122l20-26 20 14 28-36" fill="none" stroke="#d12630" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></path>
+            <circle cx="332" cy="96" r="42" fill="#e99e25" opacity="0.8"></circle>
+            <path d="M315 96c8 13 25 13 33 0M315 78h34" fill="none" stroke="#243770" stroke-width="8" stroke-linecap="round"></path>
+            <circle cx="214" cy="218" r="24" fill="#187c8f" opacity="0.76"></circle>
+          </svg>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Matched baseline</p>
+          <h2>Propensity matching created similar risk profiles</h2>
+          <div class="cohort-balance">
+            <div class="cohort-card">
+              <b>85</b>
+              <span>Median adherence risk score, control</span>
+            </div>
+            <div class="cohort-card">
+              <b>85</b>
+              <span>Median adherence risk score, participant</span>
+            </div>
+            <div class="cohort-card">
+              <b>50</b>
+              <span>Median age, control</span>
+            </div>
+            <div class="cohort-card">
+              <b>46</b>
+              <span>Median age, participant</span>
+            </div>
+          </div>
+          <p class="source-note">Post-matching demographics also showed similar female representation: 68.1% in controls and 78.7% in participants.</p>
+        </article>
+      </section>
+
+      <section id="model" class="panel">
+        <p class="section-label">Clinical service model</p>
+        <h2>Risk score to refill outcomes</h2>
+        <div class="flow-ribbon">
+          <article class="flow-step">
+            <b>1</b>
+            <h3>Predict risk</h3>
+            <p>A proprietary model calculated nonadherence risk scores for MS patients receiving DMT fills 1-7.</p>
+          </article>
+          <article class="flow-step">
+            <b>2</b>
+            <h3>Reach out</h3>
+            <p>Pharmacists contacted high-risk patients and used an adherence-risk survey to identify barriers.</p>
+          </article>
+          <article class="flow-step">
+            <b>3</b>
+            <h3>Offer support</h3>
+            <p>Calls could include Schedule My Fill, Clinical Management Program enrollment, adherence texting, or other resources.</p>
+          </article>
+          <article class="flow-step">
+            <b>4</b>
+            <h3>Measure fills</h3>
+            <p>Dispense data were collected after a three-month lag to compare PDC, gap days, and days on therapy.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="results" class="visual-grid" aria-label="Endpoint results">
+        <article class="panel">
+          <p class="section-label">Endpoint comparison</p>
+          <h2>Directional adherence gains, not statistically significant</h2>
+          <div class="outcome-grid">
+            <div class="outcome-card">
+              <span>Median PDC</span>
+              <div class="outcome-pair"><strong>94%</strong><em>vs</em><strong>100%</strong></div>
+              <div class="outcome-labels"><span>Control</span><span>Participant</span></div>
+            </div>
+            <div class="outcome-card">
+              <span>Total gap days</span>
+              <div class="outcome-pair"><strong>5</strong><em>vs</em><strong>0</strong></div>
+              <div class="outcome-labels"><span>Control</span><span>Participant</span></div>
+            </div>
+            <div class="outcome-card">
+              <span>Median DOT</span>
+              <div class="outcome-pair"><strong>97</strong><em>vs</em><strong>102</strong></div>
+              <div class="outcome-labels"><span>Control</span><span>Participant</span></div>
+            </div>
+          </div>
+          <svg class="comparison-chart" viewBox="0 0 620 250" role="img" aria-label="Bar chart comparing PDC, total gap days, and days on therapy by cohort">
+            <line x1="70" y1="205" x2="580" y2="205" stroke="#aebbd2" stroke-width="2"></line>
+            <text x="66" y="211" text-anchor="end" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="12">0</text>
+            <g font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800" fill="#243770">
+              <text x="150" y="230" text-anchor="middle">PDC %</text>
+              <text x="325" y="230" text-anchor="middle">Gap days</text>
+              <text x="500" y="230" text-anchor="middle">DOT days</text>
+            </g>
+            <rect x="105" y="54" width="34" height="151" rx="4" fill="#aebbd2"></rect>
+            <rect x="146" y="45" width="34" height="160" rx="4" fill="#d12630"></rect>
+            <text x="122" y="44" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="15" font-weight="900">94</text>
+            <text x="163" y="35" text-anchor="middle" fill="#d12630" font-family="Montserrat, Arial, sans-serif" font-size="15" font-weight="900">100</text>
+            <rect x="280" y="172" width="34" height="33" rx="4" fill="#aebbd2"></rect>
+            <rect x="321" y="205" width="34" height="0" rx="4" fill="#d12630"></rect>
+            <text x="297" y="162" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="15" font-weight="900">5</text>
+            <text x="338" y="192" text-anchor="middle" fill="#d12630" font-family="Montserrat, Arial, sans-serif" font-size="15" font-weight="900">0</text>
+            <rect x="455" y="50" width="34" height="155" rx="4" fill="#aebbd2"></rect>
+            <rect x="496" y="42" width="34" height="163" rx="4" fill="#d12630"></rect>
+            <text x="472" y="40" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="15" font-weight="900">97</text>
+            <text x="513" y="32" text-anchor="middle" fill="#d12630" font-family="Montserrat, Arial, sans-serif" font-size="15" font-weight="900">102</text>
+            <g font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800">
+              <rect x="70" y="14" width="12" height="12" rx="2" fill="#aebbd2"></rect>
+              <text x="88" y="25" fill="#68758d">Control</text>
+              <rect x="155" y="14" width="12" height="12" rx="2" fill="#d12630"></rect>
+              <text x="173" y="25" fill="#68758d">Participant</text>
+            </g>
+          </svg>
+          <p class="source-note">Reported p-values were 0.09 for median PDC, 0.09 for total gap days, and 0.46 for days on therapy.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Program activation</p>
+          <h2>The call created new enrollment opportunities</h2>
+          <div class="bar-panel">
+            <div class="program-row">
+              <span>SMF</span>
+              <div class="program-track" aria-label="SMF offered during call 19"><i style="width: 36%;"></i></div>
+              <small>Prior 1</small>
+              <small>Offered 19</small>
+              <small>After 8</small>
+            </div>
+            <div class="program-row">
+              <span>CMP</span>
+              <div class="program-track" aria-label="CMP offered during call 53"><i style="width: 100%;"></i></div>
+              <small>Prior 10</small>
+              <small>Offered 53</small>
+              <small>After 49</small>
+            </div>
+            <div class="program-row">
+              <span>Texting</span>
+              <div class="program-track" aria-label="Adherence texting offered during call 39"><i style="width: 74%;"></i></div>
+              <small>Prior 0</small>
+              <small>Offered 39</small>
+              <small>After 11</small>
+            </div>
+          </div>
+          <ul class="compact-list">
+            <li>Clinical Management Program enrollment showed the strongest conversion signal: 49 enrolled after call among 53 offers.</li>
+            <li>Adherence texting and Schedule My Fill also added post-call enrollment, suggesting targeted outreach moved patients toward operational supports.</li>
+            <li>The pilot was limited by one clinician call, low volume, and only three months of dispense follow-up.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="evidence-map" aria-label="Extracted poster takeaways">
+        <article class="evidence-card">
+          <h3>Objective</h3>
+          <p>Evaluate proactive pharmacist intervention for MS patients predicted to be at high risk for suboptimal adherence.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Methods</h3>
+          <p>Single-center, observational, retrospective cohort with propensity score matching and Wilcoxon signed rank testing.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Population</h3>
+          <p>MS patients receiving fills 1-7 of a disease modifying therapy at Optum Specialty Pharmacy.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Signal</h3>
+          <p>PDC increased by 6 percentage points and total gap days decreased by 5 days in the participant group.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Conclusion</h3>
+          <p>Findings favored the intervention but were not statistically significant, likely because of low volume and short follow-up.</p>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Condensed source tables">
+        <article class="table-card">
+          <p class="section-label">Primary and secondary endpoints</p>
+          <h2>Matched cohort outcomes</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Endpoint</th>
+                  <th>Control</th>
+                  <th>Participant</th>
+                  <th>P-value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Median PDC, %</td>
+                  <td>94</td>
+                  <td>100</td>
+                  <td>0.09</td>
+                </tr>
+                <tr>
+                  <td>Median DOT, days</td>
+                  <td>97.0</td>
+                  <td>102.0</td>
+                  <td>0.46</td>
+                </tr>
+                <tr>
+                  <td>Total gap days</td>
+                  <td>5.0</td>
+                  <td>0.0</td>
+                  <td>0.09</td>
+                </tr>
+                <tr>
+                  <td>Average gap days per fill</td>
+                  <td>1.7</td>
+                  <td>0.0</td>
+                  <td>0.10</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Call-based resource offers</p>
+          <h2>Program enrollment pattern</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Program</th>
+                  <th>Enrolled prior</th>
+                  <th>Offered during call</th>
+                  <th>Enrolled after</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Schedule My Fill</td>
+                  <td>1</td>
+                  <td>19</td>
+                  <td>8</td>
+                </tr>
+                <tr>
+                  <td>Clinical Management Program</td>
+                  <td>10</td>
+                  <td>53</td>
+                  <td>49</td>
+                </tr>
+                <tr>
+                  <td>Adherence texting</td>
+                  <td>0</td>
+                  <td>39</td>
+                  <td>11</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/79-DTS79-EN-Poster-AM24_2024.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/79-DTS79-EN-Poster-AM24_2024.md">Source markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

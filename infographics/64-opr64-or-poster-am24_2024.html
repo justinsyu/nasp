@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OPR64 2024 | Oncology Specialty Pharmacy Outcomes</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .oncology-hero-art {
+      position: relative;
+      min-height: 20rem;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 84% 18%, rgba(233, 158, 37, 0.3), transparent 6.5rem),
+        radial-gradient(circle at 18% 84%, rgba(24, 124, 143, 0.22), transparent 8rem),
+        linear-gradient(145deg, #ffffff, var(--surface-blue) 62%, var(--surface-warm));
+    }
+
+    .oncology-hero-art svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 20rem;
+    }
+
+    .hero-card.program {
+      background:
+        linear-gradient(145deg, rgba(36, 55, 112, 0.96), rgba(36, 55, 112, 0.84)),
+        var(--ink);
+      color: #fff;
+    }
+
+    .hero-card.program .poster-code,
+    .hero-card.program h3,
+    .hero-card.program dd {
+      color: #fff;
+    }
+
+    .hero-card.program dt,
+    .hero-card.program p {
+      color: rgba(255, 255, 255, 0.76);
+    }
+
+    .hero-card.program .button-link {
+      border-color: rgba(255, 255, 255, 0.44);
+      color: #fff;
+    }
+
+    .impact-metric strong {
+      font-size: clamp(2.1rem, 4vw, 3.25rem);
+    }
+
+    .metric-card small {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--body);
+      font-size: 0.78rem;
+      line-height: 1.3;
+    }
+
+    .index-board {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+
+    .index-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.9rem;
+    }
+
+    .index-card h3 {
+      margin-bottom: 0.7rem;
+    }
+
+    .index-pair {
+      display: grid;
+      gap: 0.55rem;
+    }
+
+    .index-row {
+      display: grid;
+      grid-template-columns: 7.2rem minmax(0, 1fr) 3rem;
+      gap: 0.5rem;
+      align-items: center;
+      font-size: 0.74rem;
+    }
+
+    .index-row b {
+      color: var(--ink);
+      font-weight: 850;
+    }
+
+    .index-row em {
+      color: var(--ink);
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .index-track {
+      height: 1rem;
+      border: 1px solid rgba(174, 187, 210, 0.8);
+      border-radius: 999px;
+      background: var(--surface-blue);
+      overflow: hidden;
+    }
+
+    .index-fill {
+      display: block;
+      width: var(--value);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .index-fill.program-fill {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .delta-badge {
+      display: inline-flex;
+      align-items: center;
+      margin-top: 0.7rem;
+      border: 1px solid rgba(24, 124, 143, 0.28);
+      border-radius: 999px;
+      background: rgba(24, 124, 143, 0.08);
+      color: var(--teal);
+      padding: 0.25rem 0.52rem;
+      font-size: 0.72rem;
+      font-weight: 900;
+    }
+
+    .study-flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+
+    .flow-step {
+      position: relative;
+      min-height: 9rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.8rem;
+    }
+
+    .flow-step::after {
+      content: "";
+      position: absolute;
+      top: 2rem;
+      right: -0.43rem;
+      width: 0.72rem;
+      height: 0.72rem;
+      border-top: 2px solid var(--border-strong);
+      border-right: 2px solid var(--border-strong);
+      background: #fff;
+      transform: rotate(45deg);
+    }
+
+    .flow-step:last-child::after {
+      display: none;
+    }
+
+    .step-number {
+      display: inline-grid;
+      width: 2rem;
+      height: 2rem;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 900;
+    }
+
+    .flow-step h3 {
+      margin-top: 0.6rem;
+    }
+
+    .flow-step p {
+      margin: 0.4rem 0 0;
+      font-size: 0.8rem;
+    }
+
+    .mediator-panel {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 1rem;
+      align-items: center;
+      background:
+        radial-gradient(circle at 12% 20%, rgba(117, 97, 168, 0.14), transparent 8rem),
+        #fff;
+    }
+
+    .mediator-quote {
+      border-left: 4px solid var(--purple);
+      padding-left: 0.9rem;
+    }
+
+    .mediator-quote strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.7rem, 4vw, 3.3rem);
+      line-height: 0.95;
+    }
+
+    .mediator-quote span {
+      display: block;
+      margin-top: 0.45rem;
+      color: var(--body);
+      font-weight: 800;
+    }
+
+    .bridge {
+      display: grid;
+      gap: 0.55rem;
+    }
+
+    .bridge-node {
+      display: grid;
+      grid-template-columns: 2.4rem minmax(0, 1fr);
+      gap: 0.6rem;
+      align-items: center;
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 7px;
+      background: rgba(238, 244, 251, 0.6);
+      padding: 0.58rem;
+    }
+
+    .bridge-node i {
+      display: grid;
+      width: 2.4rem;
+      height: 2.4rem;
+      place-items: center;
+      border-radius: 7px;
+      background: var(--surface-warm);
+      color: var(--red);
+      font-style: normal;
+      font-weight: 900;
+    }
+
+    .bridge-node b {
+      display: block;
+      color: var(--ink);
+      font-size: 0.85rem;
+    }
+
+    .bridge-node span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+
+    .takeaway-band {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .conclusion-card {
+      display: grid;
+      align-content: center;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--ink);
+      color: #fff;
+      padding: 1rem;
+    }
+
+    .conclusion-card h2,
+    .conclusion-card p {
+      color: #fff;
+    }
+
+    .conclusion-card p {
+      margin: 0.6rem 0 0;
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .caveat-list {
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .caveat-list .panel {
+      padding: 0.85rem;
+    }
+
+    @media (max-width: 900px) {
+      .index-board,
+      .study-flow,
+      .mediator-panel,
+      .takeaway-band {
+        grid-template-columns: 1fr;
+      }
+
+      .flow-step::after {
+        top: auto;
+        right: 50%;
+        bottom: -0.43rem;
+        transform: translateX(50%) rotate(135deg);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .index-row {
+        grid-template-columns: 1fr;
+      }
+
+      .index-row em {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">NASP Posters</a>
+      <nav aria-label="Infographic sections">
+        <a href="#impact">Impact</a>
+        <a href="#methods">Methods</a>
+        <a href="#evidence">Evidence</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP Annual Conference 2024 | OPR64</p>
+        <h1>Impact of a specialty pharmacy clinical program on medical outcomes and costs in patients with cancer</h1>
+        <p class="hero-summary">A retrospective Medicare Part D analysis compared oncology patients using CenterWell Specialty Pharmacy's Oncology Center of Excellence with patients using non-affiliated pharmacies, then isolated the added value of engagement with dedicated clinicians.</p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag therapy">Oncology</li>
+          <li class="tag category">Clinical program</li>
+          <li class="tag">Medicare Part D</li>
+          <li class="tag">Retrospective analysis</li>
+          <li class="tag">Medical costs</li>
+        </ul>
+      </div>
+      <aside class="hero-card program" aria-label="Poster metadata">
+        <div class="poster-code">64-OPR64</div>
+        <h3>CenterWell Specialty Pharmacy</h3>
+        <p>Dedicated oncology clinicians, cancer-specific assessments, social determinants screening, and operational workflows formed the program model.</p>
+        <dl class="meta-grid">
+          <div>
+            <dt>Conference</dt>
+            <dd>NASP 2024</dd>
+          </div>
+          <div>
+            <dt>Location</dt>
+            <dd>Nashville, TN</dd>
+          </div>
+          <div>
+            <dt>Medication window</dt>
+            <dd>First 8 months of 2022</dd>
+          </div>
+          <div>
+            <dt>Outcome follow-up</dt>
+            <dd>12 months</dd>
+          </div>
+        </dl>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/64-OPR64-OR-Poster-AM24_2024.pdf">Open poster PDF</a>
+      </aside>
+    </section>
+
+    <main>
+      <section id="impact" class="metric-strip" aria-label="Key result metrics">
+        <article class="metric-card impact-metric">
+          <span>Affiliated pharmacy</span>
+          <strong>14.2%</strong>
+          <small>fewer acute hospitalizations versus non-affiliated pharmacies, P = .004.</small>
+        </article>
+        <article class="metric-card impact-metric">
+          <span>Affiliated pharmacy</span>
+          <strong>7.7%</strong>
+          <small>lower annual medical costs versus non-affiliated pharmacies, P = .005.</small>
+        </article>
+        <article class="metric-card impact-metric">
+          <span>Clinician engagement</span>
+          <strong>19.9%</strong>
+          <small>lower medical costs among engaged affiliated-pharmacy patients, P &lt; .001.</small>
+        </article>
+        <article class="metric-card impact-metric">
+          <span>Mediation signal</span>
+          <strong>Full</strong>
+          <small>Cost association was explained by Oncology Center of Excellence engagement.</small>
+        </article>
+      </section>
+
+      <section class="visual-grid" aria-labelledby="program-title">
+        <div class="panel">
+          <p class="section-label">Program Logic</p>
+          <h2 id="program-title">High-touch oncology support is the active ingredient</h2>
+          <p>The poster frames specialty pharmacy as more than fulfillment: the Oncology Center of Excellence layers disease management, side effect management, adherence coaching, social determinants review, and operational processes around cancer medication use.</p>
+          <div class="number-cloud" aria-label="Study timing">
+            <div class="number-pill">4<small>month predictor window</small></div>
+            <div class="number-pill">12<small>month outcome window</small></div>
+            <div class="number-pill">2022<small>qualifying fills</small></div>
+            <div class="number-pill">2024<small>NASP presentation</small></div>
+          </div>
+        </div>
+        <div class="oncology-hero-art" aria-hidden="true">
+          <svg viewBox="0 0 620 360" role="img" aria-label="Abstract oncology pharmacy care pathway">
+            <defs>
+              <linearGradient id="cellGrad" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#187c8f"/>
+                <stop offset="1" stop-color="#4d8a67"/>
+              </linearGradient>
+              <linearGradient id="careGrad" x1="0" x2="1">
+                <stop offset="0" stop-color="#d12630"/>
+                <stop offset="1" stop-color="#e99e25"/>
+              </linearGradient>
+            </defs>
+            <rect x="42" y="54" width="536" height="252" rx="26" fill="rgba(255,255,255,0.72)" stroke="#aebbd2"/>
+            <path d="M93 232 C146 140, 229 124, 302 180 S455 241, 526 130" fill="none" stroke="#d12630" stroke-width="12" stroke-linecap="round" opacity="0.85"/>
+            <path d="M93 260 C167 196, 227 214, 304 226 S430 252, 526 190" fill="none" stroke="#187c8f" stroke-width="12" stroke-linecap="round" opacity="0.78"/>
+            <circle cx="134" cy="126" r="40" fill="url(#cellGrad)" opacity="0.92"/>
+            <circle cx="134" cy="126" r="18" fill="#fff" opacity="0.9"/>
+            <circle cx="476" cy="238" r="44" fill="url(#careGrad)" opacity="0.9"/>
+            <path d="M456 238 h40 M476 218 v40" stroke="#fff" stroke-width="10" stroke-linecap="round"/>
+            <g fill="#243770" font-family="Arial, sans-serif" font-size="17" font-weight="700">
+              <text x="84" y="76">Cancer medication fill</text>
+              <text x="244" y="122">OCOE engagement</text>
+              <text x="373" y="302">Lower acute use + costs</text>
+            </g>
+            <g fill="#fff" stroke="#243770" stroke-width="2">
+              <circle cx="284" cy="182" r="22"/>
+              <circle cx="335" cy="203" r="22"/>
+              <circle cx="386" cy="214" r="22"/>
+            </g>
+            <g fill="#243770" font-family="Arial, sans-serif" font-size="22" font-weight="900" text-anchor="middle">
+              <text x="284" y="190">1</text>
+              <text x="335" y="211">2</text>
+              <text x="386" y="222">3</text>
+            </g>
+          </svg>
+        </div>
+      </section>
+
+      <section id="evidence" aria-labelledby="evidence-title">
+        <p class="section-label">Indexed Comparisons</p>
+        <h2 id="evidence-title">Three table patterns point in the same direction</h2>
+        <div class="index-board">
+          <article class="index-card">
+            <h3>Acute hospitalizations</h3>
+            <div class="index-pair">
+              <div class="index-row">
+                <b>Non-affiliated</b>
+                <span class="index-track"><span class="index-fill" style="--value: 100%;"></span></span>
+                <em>100.0</em>
+              </div>
+              <div class="index-row">
+                <b>Affiliated</b>
+                <span class="index-track"><span class="index-fill program-fill" style="--value: 85.6%;"></span></span>
+                <em>85.6</em>
+              </div>
+            </div>
+            <span class="delta-badge">Relative index down 14.4 points</span>
+          </article>
+          <article class="index-card">
+            <h3>Medical costs</h3>
+            <div class="index-pair">
+              <div class="index-row">
+                <b>Non-affiliated</b>
+                <span class="index-track"><span class="index-fill" style="--value: 100%;"></span></span>
+                <em>100.0</em>
+              </div>
+              <div class="index-row">
+                <b>Affiliated</b>
+                <span class="index-track"><span class="index-fill program-fill" style="--value: 92.3%;"></span></span>
+                <em>92.3</em>
+              </div>
+            </div>
+            <span class="delta-badge">Relative index down 7.7 points</span>
+          </article>
+          <article class="index-card">
+            <h3>Engagement among affiliated users</h3>
+            <div class="index-pair">
+              <div class="index-row">
+                <b>Non-engaged</b>
+                <span class="index-track"><span class="index-fill" style="--value: 100%;"></span></span>
+                <em>100.0</em>
+              </div>
+              <div class="index-row">
+                <b>Engaged</b>
+                <span class="index-track"><span class="index-fill program-fill" style="--value: 80.1%;"></span></span>
+                <em>80.1</em>
+              </div>
+            </div>
+            <span class="delta-badge">Relative index down 19.9 points</span>
+          </article>
+        </div>
+      </section>
+
+      <section id="methods" class="panel" aria-labelledby="methods-title">
+        <p class="section-label">Evidence Flow</p>
+        <h2 id="methods-title">How the analysis was structured</h2>
+        <div class="study-flow">
+          <article class="flow-step">
+            <span class="step-number">1</span>
+            <h3>Population</h3>
+            <p>Medicare Part D-insured beneficiaries administered by a large national insurer.</p>
+          </article>
+          <article class="flow-step">
+            <span class="step-number">2</span>
+            <h3>Exposure</h3>
+            <p>Use of the insurer's affiliated specialty pharmacy Oncology Center of Excellence.</p>
+          </article>
+          <article class="flow-step">
+            <span class="step-number">3</span>
+            <h3>Eligibility</h3>
+            <p>Cancer medication use in the first 8 months of 2022; hospice and delegation excluded.</p>
+          </article>
+          <article class="flow-step">
+            <span class="step-number">4</span>
+            <h3>Adjustment</h3>
+            <p>Age, sex, specialty classes, brand drugs, contract, LIS code, provider group, and oncology drug.</p>
+          </article>
+          <article class="flow-step">
+            <span class="step-number">5</span>
+            <h3>Outcomes</h3>
+            <p>Acute hospitalization rates and medical costs measured during the 12-month follow-up period.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel mediator-panel" aria-labelledby="mediation-title">
+        <div class="mediator-quote">
+          <p class="section-label">Mediation Finding</p>
+          <h2 id="mediation-title">Engagement carried the cost effect</h2>
+          <strong>P &lt; .001</strong>
+          <span>The poster reports that Oncology Center of Excellence engagement fully explained the affiliated-pharmacy association with medical costs.</span>
+        </div>
+        <div class="bridge" aria-label="Clinical engagement components">
+          <div class="bridge-node">
+            <i>1</i>
+            <div><b>Dedicated clinicians</b><span>Oncology-specific staff support patient management.</span></div>
+          </div>
+          <div class="bridge-node">
+            <i>2</i>
+            <div><b>Targeted assessments</b><span>Cancer-specific disease assessments and side effect management.</span></div>
+          </div>
+          <div class="bridge-node">
+            <i>3</i>
+            <div><b>Adherence coaching</b><span>Medication support is paired with social determinants evaluation.</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="takeaway-band" aria-labelledby="takeaway-title">
+        <article class="conclusion-card">
+          <p class="section-label">Conclusion</p>
+          <h2 id="takeaway-title">Clinical pharmacy programs can reduce negative health events and overall medical costs in oncology care.</h2>
+          <p>The largest cost reduction appeared among patients who actively engaged with the Oncology Center of Excellence.</p>
+        </article>
+        <div class="caveat-list">
+          <article class="panel">
+            <h3>Important limitation</h3>
+            <p>The study could not account for clinical programming and engagement offered by non-affiliated pharmacies.</p>
+          </article>
+          <article class="panel">
+            <h3>Next research questions</h3>
+            <p>Identify drivers of Oncology Center of Excellence engagement, determine which cancer medications benefit most from clinical intensity, and extend the analysis to other specialty disease states.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/64-OPR64-OR-Poster-AM24_2024.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/64-OPR64-OR-Poster-AM24_2024.md">Source markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

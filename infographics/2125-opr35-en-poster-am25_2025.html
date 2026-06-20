@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2025 Infographic | Race, Asthma Severity, and Biologic Response</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .equity-hero {
+      position: relative;
+      min-height: 22rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 82% 18%, rgba(233, 158, 37, 0.35), transparent 12rem),
+        linear-gradient(135deg, rgba(36, 55, 112, 0.98), rgba(24, 124, 143, 0.92));
+      color: #fff;
+      overflow: hidden;
+      padding: 1.15rem;
+    }
+    .equity-hero svg {
+      position: absolute;
+      right: -1.5rem;
+      bottom: -2.5rem;
+      width: min(24rem, 74%);
+      opacity: 0.5;
+    }
+    .equity-hero .kicker {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.74);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+    .equity-hero strong {
+      display: block;
+      margin-top: 0.28rem;
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 8vw, 6.4rem);
+      line-height: 0.9;
+    }
+    .equity-hero span {
+      display: block;
+      max-width: 18rem;
+      margin-top: 0.6rem;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.94rem;
+    }
+    .hero-card .button-link {
+      justify-content: center;
+      background: #fff;
+    }
+    .hero-card p {
+      margin: 0;
+      font-size: 0.86rem;
+    }
+    .split-callout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 0.8rem;
+      margin-top: 0.7rem;
+    }
+    .callout-box {
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: var(--surface-blue);
+      padding: 0.7rem;
+    }
+    .callout-box strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      line-height: 1;
+    }
+    .callout-box span {
+      display: block;
+      margin-top: 0.24rem;
+      color: var(--body);
+      font-size: 0.78rem;
+    }
+    .bar-compare {
+      display: grid;
+      gap: 0.72rem;
+      margin-top: 0.7rem;
+    }
+    .bar-row {
+      display: grid;
+      grid-template-columns: 9.5rem minmax(0, 1fr) 6rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .bar-track {
+      height: 1.05rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .bar-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .bar-track.teal i {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .bar-row em {
+      color: var(--ink);
+      font-style: normal;
+      text-align: right;
+    }
+    .attrition-line {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+    .attrition-node {
+      position: relative;
+      min-height: 8.6rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.78rem;
+    }
+    .attrition-node::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -0.5rem;
+      width: 0.72rem;
+      height: 0.72rem;
+      border-top: 2px solid var(--border-strong);
+      border-right: 2px solid var(--border-strong);
+      background: #fff;
+      transform: translateY(-50%) rotate(45deg);
+    }
+    .attrition-node:last-child::after { display: none; }
+    .attrition-node b {
+      display: inline-grid;
+      place-items: center;
+      width: 2.15rem;
+      height: 2.15rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.98rem;
+    }
+    .attrition-node h3 {
+      margin-top: 0.5rem;
+      font-size: 0.92rem;
+    }
+    .attrition-node p {
+      margin: 0.32rem 0 0;
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+    .delta-grid {
+      display: grid;
+      grid-template-columns: 16rem minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+      margin-top: 0.65rem;
+    }
+    .delta-grid svg {
+      width: 100%;
+      height: auto;
+    }
+    .legend {
+      display: grid;
+      gap: 0.45rem;
+      margin: 0.45rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .legend li {
+      display: grid;
+      grid-template-columns: 0.85rem minmax(0, 1fr) auto;
+      gap: 0.45rem;
+      align-items: center;
+      font-size: 0.8rem;
+    }
+    .legend i {
+      width: 0.85rem;
+      height: 0.85rem;
+      border-radius: 3px;
+      background: var(--legend-color, var(--red));
+    }
+    .mini-note {
+      margin: 0.65rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+    .table-card.compact td,
+    .table-card.compact th {
+      font-size: 0.74rem;
+      padding: 0.32rem 0.38rem;
+    }
+    .finding-list {
+      margin: 0.55rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .finding-list li {
+      display: grid;
+      grid-template-columns: 0.8rem minmax(0, 1fr);
+      gap: 0.45rem;
+      margin-top: 0.5rem;
+      font-size: 0.88rem;
+    }
+    .finding-list li::before {
+      content: "";
+      width: 0.52rem;
+      height: 0.52rem;
+      margin-top: 0.43rem;
+      border-radius: 50%;
+      background: var(--red);
+    }
+    .source-note {
+      margin: 0.8rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+    @media (max-width: 900px) {
+      .attrition-line,
+      .split-callout,
+      .delta-grid {
+        grid-template-columns: 1fr;
+      }
+      .attrition-node::after { display: none; }
+    }
+    @media (max-width: 560px) {
+      .bar-row {
+        grid-template-columns: 1fr;
+      }
+      .bar-row em {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/2125-OPR35-EN-Poster-AM25_2025.pdf">PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/2125-OPR35-EN-Poster-AM25_2025.md">Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP Annual Meeting 2025 | OPR35-EN</p>
+        <h1>Race, baseline asthma severity, and biologic response over 12 months</h1>
+        <p class="hero-summary">A Vanderbilt Specialty Pharmacy retrospective cohort evaluated whether racial and socioeconomic factors were associated with lung function, biologic adherence, and treatment gaps among patients initiating biologics for moderate-to-severe asthma.</p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Retrospective cohort</li>
+          <li class="tag therapy">Moderate-to-severe asthma</li>
+          <li class="tag">Biologic initiation</li>
+          <li class="tag">Pharmacoequity</li>
+        </ul>
+      </div>
+      <aside class="hero-card">
+        <div class="poster-code">2125<br>OPR35-EN</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Year</dt>
+            <dd>2025</dd>
+          </div>
+          <div>
+            <dt>Cohort</dt>
+            <dd>N=215</dd>
+          </div>
+          <div>
+            <dt>Follow-up</dt>
+            <dd>12 months</dd>
+          </div>
+          <div>
+            <dt>Primary measure</dt>
+            <dd>Race-neutral ppFEV1</dd>
+          </div>
+        </dl>
+        <p>Authors: Monica Littlejohn, Autumn D. Zuckerman, Katie Cruchelow, Nicholas Gargurevich, and Leena Choi.</p>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/2125-OPR35-EN-Poster-AM25_2025.pdf">Open source poster</a>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key study numbers">
+        <article class="metric-card">
+          <span>Baseline cohort</span>
+          <strong>215</strong>
+          patients prescribed a new asthma biologic.
+        </article>
+        <article class="metric-card">
+          <span>Race distribution</span>
+          <strong>31%</strong>
+          Black, African American, or Other race.
+        </article>
+        <article class="metric-card">
+          <span>Most common biologic</span>
+          <strong>83%</strong>
+          initiated dupilumab.
+        </article>
+        <article class="metric-card">
+          <span>Median adherence</span>
+          <strong>0.96</strong>
+          PDC during the first treatment year.
+        </article>
+      </section>
+
+      <section class="visual-grid">
+        <article class="equity-hero" aria-label="Main finding">
+          <p class="kicker">Main signal</p>
+          <strong>Gap narrowed</strong>
+          <span>Black/AA/Other patients started with lower lung function, but race was not significantly associated with ppFEV1 at follow-up.</span>
+          <svg viewBox="0 0 360 300" role="img" aria-label="Stylized lung and airflow illustration">
+            <defs>
+              <linearGradient id="lungGrad" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#ffffff"/>
+                <stop offset="1" stop-color="#e99e25"/>
+              </linearGradient>
+            </defs>
+            <path d="M177 42v82c-38 8-68 37-84 81-9 26-33 38-54 26-25-14-25-57-9-99 19-49 48-78 83-81 17-1 31 9 42 31V42h22Z" fill="url(#lungGrad)"/>
+            <path d="M183 42v82c38 8 68 37 84 81 9 26 33 38 54 26 25-14 25-57 9-99-19-49-48-78-83-81-17-1-31 9-42 31V42h-22Z" fill="url(#lungGrad)"/>
+            <path d="M142 129c-28 12-47 37-57 75M218 129c28 12 47 37 57 75M180 41v120" fill="none" stroke="#243770" stroke-width="8" stroke-linecap="round" opacity=".65"/>
+            <circle cx="86" cy="86" r="12" fill="#d12630"/>
+            <circle cx="294" cy="72" r="9" fill="#187c8f"/>
+            <circle cx="272" cy="246" r="14" fill="#4d8a67"/>
+          </svg>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Objective and design</p>
+          <h2>Look for racial and socioeconomic factors affecting response</h2>
+          <p>The study included patients prescribed a new biologic from January 1, 2019 through June 30, 2022, with follow-up through June 30, 2023. The primary outcome was race-neutral ppFEV1 within the first year after biologic initiation; secondary outcomes were adherence by PDC and cumulative treatment gap days.</p>
+          <div class="split-callout">
+            <div class="callout-box">
+              <strong>4</strong>
+              <span>Biologics included: benralizumab, dupilumab, mepolizumab, and omalizumab.</span>
+            </div>
+            <div class="callout-box">
+              <strong>5</strong>
+              <span>Regression covariates included smoking, COVID period, insurance, and distance to care.</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Cohort flow</p>
+        <h2>Follow-up lung-function data narrowed the analytic sample</h2>
+        <div class="attrition-line">
+          <div class="attrition-node">
+            <b>215</b>
+            <h3>Baseline cohort</h3>
+            <p>White n=148; Black/AA/Other n=67.</p>
+          </div>
+          <div class="attrition-node">
+            <b>185</b>
+            <h3>Initiated biologic</h3>
+            <p>White n=126; Black/AA/Other n=59.</p>
+          </div>
+          <div class="attrition-node">
+            <b>161</b>
+            <h3>Baseline ppFEV1</h3>
+            <p>White n=110; Black/AA/Other n=51.</p>
+          </div>
+          <div class="attrition-node">
+            <b>43</b>
+            <h3>Follow-up ppFEV1</h3>
+            <p>White n=26; Black/AA/Other n=17.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">Lung function by race</p>
+          <h2>Median ppFEV1 rose in both groups</h2>
+          <div class="delta-grid">
+            <svg viewBox="0 0 250 220" role="img" aria-label="Baseline and follow-up ppFEV1 by race">
+              <rect x="36" y="24" width="36" height="122" rx="6" fill="#d12630" opacity=".88"/>
+              <rect x="82" y="12" width="36" height="134" rx="6" fill="#e99e25" opacity=".9"/>
+              <rect x="146" y="42" width="36" height="104" rx="6" fill="#187c8f" opacity=".88"/>
+              <rect x="192" y="26" width="36" height="120" rx="6" fill="#4d8a67" opacity=".9"/>
+              <line x1="20" y1="146" x2="236" y2="146" stroke="#aebbd2" stroke-width="2"/>
+              <text x="54" y="167" text-anchor="middle" fill="#243770" font-size="12" font-weight="700">74</text>
+              <text x="100" y="167" text-anchor="middle" fill="#243770" font-size="12" font-weight="700">82</text>
+              <text x="164" y="167" text-anchor="middle" fill="#243770" font-size="12" font-weight="700">63</text>
+              <text x="210" y="167" text-anchor="middle" fill="#243770" font-size="12" font-weight="700">72</text>
+              <text x="77" y="194" text-anchor="middle" fill="#68758d" font-size="10">White</text>
+              <text x="187" y="194" text-anchor="middle" fill="#68758d" font-size="10">Black/AA/Other</text>
+            </svg>
+            <div>
+              <ul class="legend">
+                <li><i style="--legend-color:#d12630"></i><span>White baseline median</span><b>74</b></li>
+                <li><i style="--legend-color:#e99e25"></i><span>White follow-up median</span><b>82</b></li>
+                <li><i style="--legend-color:#187c8f"></i><span>Black/AA/Other baseline median</span><b>63</b></li>
+                <li><i style="--legend-color:#4d8a67"></i><span>Black/AA/Other follow-up median</span><b>72</b></li>
+              </ul>
+              <p class="mini-note">At baseline, Black/AA/Other patients had ppFEV1 estimated 6.87 lower than White patients (p=0.06). At follow-up, race was not significantly associated with ppFEV1 (p=0.71).</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Smoking and social deprivation</p>
+          <h2>Smoking marked lower baseline lung function</h2>
+          <div class="bar-compare" aria-label="ppFEV1 by smoking status">
+            <div class="bar-row">
+              <span>Never/exposed unknown</span>
+              <div class="bar-track teal"><i style="width:84%"></i></div>
+              <em>73 to 84</em>
+            </div>
+            <div class="bar-row">
+              <span>Exposure only</span>
+              <div class="bar-track teal"><i style="width:80%"></i></div>
+              <em>76 to 80</em>
+            </div>
+            <div class="bar-row">
+              <span>Previously smoked</span>
+              <div class="bar-track"><i style="width:64%"></i></div>
+              <em>65 to 64</em>
+            </div>
+            <div class="bar-row">
+              <span>Currently smoke</span>
+              <div class="bar-track"><i style="width:48%"></i></div>
+              <em>44 to 48</em>
+            </div>
+          </div>
+          <p class="mini-note">Previous (p=0.02) and current smokers (p=0.01) had significantly lower estimated baseline ppFEV1. Current smokers also had the highest median Social Deprivation Index score at 0.52.</p>
+        </article>
+      </section>
+
+      <section class="tables-grid">
+        <article class="table-card compact">
+          <p class="section-label">Baseline profile</p>
+          <h2>Who entered the cohort?</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Characteristic</th>
+                  <th>Pattern</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Gender</td>
+                  <td>55% female; 45% male</td>
+                </tr>
+                <tr>
+                  <td>Age</td>
+                  <td>Median 48 years; IQR 26, 60</td>
+                </tr>
+                <tr>
+                  <td>Insurance</td>
+                  <td>54% commercial; 22% Medicare; 16% Medicaid; 8% other</td>
+                </tr>
+                <tr>
+                  <td>Asthma diagnosis</td>
+                  <td>47% severe-persistent; 53% moderate-persistent</td>
+                </tr>
+                <tr>
+                  <td>Smoking status</td>
+                  <td>60% never/exposed unknown; 20% previous; 10% current; 10% exposure only</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card compact">
+          <p class="section-label">Access and persistence</p>
+          <h2>Adherence looked high; gap burden differed</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Measure</th>
+                  <th>White</th>
+                  <th>Black/AA/Other</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Median PDC</td>
+                  <td>0.97 (0.91, 1)</td>
+                  <td>0.95 (0.74, 0.99)</td>
+                </tr>
+                <tr>
+                  <td>Gap days &gt;16% of year</td>
+                  <td>19%</td>
+                  <td>32%</td>
+                </tr>
+                <tr>
+                  <td>Average gap days</td>
+                  <td>26 (SD 41)</td>
+                  <td>44 (SD 56)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="mini-note">The poster reports no significant PDC difference by race; the larger gap-day burden for non-White patients was not statistically significant.</p>
+        </article>
+      </section>
+
+      <section class="evidence-map" aria-label="Interpretive evidence map">
+        <article class="evidence-card">
+          <h3>Starting point</h3>
+          <p>Black/AA/Other patients showed worse baseline lung function before biologic treatment.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>First year</h3>
+          <p>The race-associated difference narrowed over 12 months after biologic initiation.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Smoking lens</h3>
+          <p>Current and previous smoking were associated with lower estimated baseline ppFEV1.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Treatment gaps</h3>
+          <p>Black/AA/Other patients had more average gap days and more frequent larger gaps.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Conclusion</h3>
+          <p>Interventions to reduce treatment gaps and promote pharmacoequity remain needed.</p>
+        </article>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Study conclusion</p>
+        <h2>Biologic response may improve equity in lung-function outcomes, but access gaps still matter</h2>
+        <ul class="finding-list">
+          <li>At initiation, Black/AA/Other patients had worse lung function than White patients.</li>
+          <li>By follow-up, the race-associated ppFEV1 difference was no longer statistically significant.</li>
+          <li>Gap days and socioeconomic signals point to opportunities for specialty pharmacy interventions.</li>
+        </ul>
+        <p class="source-note">Acknowledgement noted in poster: this research was supported by Sanofi, Inc.</p>
+      </section>
+
+      <footer class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/2125-OPR35-EN-Poster-AM25_2025.pdf">View PDF source</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/2125-OPR35-EN-Poster-AM25_2025.md">View extracted markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,773 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rheumatology PROs and Pharmacist Interventions | NASP 2022</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -3.6rem;
+      bottom: -3.4rem;
+      width: 14rem;
+      height: 14rem;
+      border: 1.2rem solid rgba(24, 124, 143, 0.1);
+      border-radius: 50%;
+    }
+
+    .hero-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .survey-card {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 0.35rem;
+    }
+
+    .survey-item {
+      display: grid;
+      grid-template-columns: 1.9rem minmax(0, 1fr);
+      gap: 0.55rem;
+      align-items: center;
+      border: 1px solid rgba(174, 187, 210, 0.82);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.78);
+      padding: 0.55rem;
+    }
+
+    .survey-item i {
+      display: inline-grid;
+      place-items: center;
+      width: 1.9rem;
+      height: 1.9rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      font-style: normal;
+      font-weight: 900;
+    }
+
+    .survey-item span {
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+
+    .metric-card strong small {
+      color: var(--red);
+      font-size: 0.92rem;
+    }
+
+    .metric-card em {
+      display: block;
+      margin-top: 0.38rem;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-style: normal;
+      font-weight: 760;
+      line-height: 1.32;
+    }
+
+    .thesis-band {
+      display: grid;
+      grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .big-signal {
+      display: grid;
+      align-content: center;
+      min-height: 18rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 84% 20%, rgba(233, 158, 37, 0.24), transparent 7rem),
+        linear-gradient(150deg, var(--ink), #1d5f7b 58%, var(--teal));
+      padding: 1.1rem;
+      color: #fff;
+    }
+
+    .big-signal span {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .big-signal strong {
+      margin-top: 0.35rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(4rem, 10vw, 7.5rem);
+      line-height: 0.85;
+    }
+
+    .big-signal p {
+      max-width: 24rem;
+      margin: 0.75rem 0 0;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 0.94rem;
+    }
+
+    .donut-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.85rem;
+    }
+
+    .donut-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.75rem;
+    }
+
+    .donut-card svg {
+      display: block;
+      width: min(9rem, 100%);
+      height: auto;
+      margin: 0 auto 0.45rem;
+    }
+
+    .donut-card h3 {
+      text-align: center;
+    }
+
+    .donut-card p {
+      margin: 0.28rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 760;
+      text-align: center;
+    }
+
+    .stacked-bar {
+      display: grid;
+      grid-template-columns: 67fr 29fr 3fr 1fr;
+      height: 1.35rem;
+      margin: 0.85rem 0 0.65rem;
+      overflow: hidden;
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 999px;
+      background: var(--surface-blue);
+    }
+
+    .stacked-bar span:nth-child(1) { background: var(--green); }
+    .stacked-bar span:nth-child(2) { background: var(--teal); }
+    .stacked-bar span:nth-child(3) { background: var(--gold); }
+    .stacked-bar span:nth-child(4) { background: var(--red); }
+
+    .legend-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.48rem 0.85rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 820;
+    }
+
+    .legend-row i {
+      display: inline-block;
+      width: 0.68rem;
+      height: 0.68rem;
+      margin-right: 0.25rem;
+      border-radius: 2px;
+      vertical-align: -0.06rem;
+      background: var(--legend-color, var(--green));
+    }
+
+    .workflow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.85rem;
+    }
+
+    .workflow-step {
+      position: relative;
+      min-height: 10rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.8rem;
+    }
+
+    .workflow-step::before {
+      content: attr(data-step);
+      display: inline-grid;
+      place-items: center;
+      width: 1.75rem;
+      height: 1.75rem;
+      margin-bottom: 0.55rem;
+      border-radius: 50%;
+      background: var(--red);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.76rem;
+      font-weight: 900;
+    }
+
+    .workflow-step p {
+      margin: 0.38rem 0 0;
+      color: var(--body);
+      font-size: 0.8rem;
+    }
+
+    .reason-bars {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 0.85rem;
+    }
+
+    .reason-row {
+      display: grid;
+      grid-template-columns: 8.2rem minmax(0, 1fr) 3.2rem;
+      gap: 0.55rem;
+      align-items: center;
+      font-size: 0.78rem;
+    }
+
+    .reason-row span:first-child {
+      color: var(--ink);
+      font-weight: 850;
+    }
+
+    .bar-track {
+      height: 0.82rem;
+      border: 1px solid rgba(174, 187, 210, 0.75);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .reason-row b {
+      color: var(--ink);
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .alert-list {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 0.85rem;
+    }
+
+    .alert-row {
+      display: grid;
+      grid-template-columns: minmax(7rem, 0.88fr) minmax(0, 1fr) 3.2rem;
+      gap: 0.55rem;
+      align-items: center;
+      font-size: 0.76rem;
+    }
+
+    .alert-row span:first-child {
+      color: var(--ink);
+      font-weight: 850;
+    }
+
+    .alert-row .bar-fill {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .alert-row b {
+      color: var(--teal);
+      text-align: right;
+    }
+
+    .condition-grid {
+      display: grid;
+      grid-template-columns: 1.06fr 0.94fr;
+      gap: 1rem;
+    }
+
+    .mini-tiles {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.75rem;
+    }
+
+    .mini-tile {
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.62rem;
+    }
+
+    .mini-tile strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.38rem;
+      line-height: 1;
+    }
+
+    .mini-tile span {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 820;
+      line-height: 1.22;
+    }
+
+    .takeaway-list {
+      display: grid;
+      gap: 0.55rem;
+      margin: 0.8rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .takeaway-list li {
+      border-left: 4px solid var(--teal);
+      background: var(--surface-blue);
+      padding: 0.62rem 0.75rem;
+      color: var(--body);
+      font-size: 0.86rem;
+    }
+
+    .takeaway-list li:nth-child(2) {
+      border-color: var(--green);
+      background: #f1f7f3;
+    }
+
+    .takeaway-list li:nth-child(3) {
+      border-color: var(--gold);
+      background: var(--surface-warm);
+    }
+
+    .compact-table td:last-child,
+    .compact-table th:last-child {
+      text-align: right;
+    }
+
+    .source-note {
+      margin: 0.7rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 900px) {
+      .thesis-band,
+      .condition-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .workflow,
+      .donut-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 620px) {
+      .infographic-shell {
+        width: calc(100vw - 1rem);
+        max-width: calc(100vw - 1rem);
+        margin-inline: 0.5rem;
+        overflow: hidden;
+      }
+
+      html,
+      body {
+        max-width: 100vw;
+        overflow-x: hidden;
+      }
+
+      .topbar {
+        margin-inline: 0;
+        width: calc(100vw - 1rem);
+      }
+
+      .topbar nav {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
+      }
+
+      .topbar nav a {
+        justify-content: center;
+        min-width: 0;
+        text-align: center;
+      }
+
+      h1,
+      .hero-summary,
+      .survey-item span,
+      .metric-card em {
+        overflow-wrap: anywhere;
+      }
+
+      .poster-hero,
+      .hero-copy,
+      .hero-card,
+      main,
+      section,
+      .panel,
+      .metric-card,
+      .big-signal,
+      .table-card {
+        width: calc(100vw - 1rem);
+        min-width: 0;
+        max-width: calc(100vw - 1rem);
+      }
+
+      h1 {
+        width: calc(100vw - 1rem);
+        max-width: calc(100vw - 1rem);
+        font-size: 1.78rem;
+        line-height: 1.12;
+      }
+
+      p,
+      li,
+      td,
+      th,
+      dd {
+        overflow-wrap: anywhere;
+      }
+
+      .workflow,
+      .donut-grid,
+      .mini-tiles {
+        grid-template-columns: 1fr;
+      }
+
+      .reason-row,
+      .alert-row {
+        grid-template-columns: 1fr;
+      }
+
+      .reason-row b,
+      .alert-row b {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#signals">PRO Signals</a>
+        <a href="#workflow">Workflow</a>
+        <a href="#interventions">Interventions</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2022 poster 43-2022 | Rheumatology specialty pharmacy</p>
+        <h1 id="poster-title">Assessing Patient-Reported Outcomes and Pharmacist Interventions in Rheumatology Specialty Disease States</h1>
+        <p class="hero-summary">
+          Vanderbilt Specialty Pharmacy used monthly refill questionnaires to surface adherence, adverse-effect,
+          and effectiveness concerns in rheumatology patients, then routed selected responses to specialty
+          pharmacist review and intervention.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Single-center retrospective analysis</li>
+          <li class="tag therapy">Rheumatology</li>
+          <li class="tag therapy">Integrated care center</li>
+          <li class="tag">January to March 2020</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata and survey triggers">
+        <div>
+          <div class="poster-code">43-2022</div>
+          <dl class="meta-grid">
+            <div>
+              <dt>Population</dt>
+              <dd>n = 809</dd>
+            </div>
+            <div>
+              <dt>MRQ responses</dt>
+              <dd>n = 2,306</dd>
+            </div>
+            <div>
+              <dt>Alerts</dt>
+              <dd>n = 339</dd>
+            </div>
+            <div>
+              <dt>Site</dt>
+              <dd>VUMC</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="survey-card" aria-label="Monthly refill questionnaire trigger questions">
+          <div class="survey-item"><i>AE</i><span>Are you experiencing adverse effects?</span></div>
+          <div class="survey-item"><i>AD</i><span>Have you missed any doses of medication?</span></div>
+          <div class="survey-item"><i>EF</i><span>How well do you think your medication is working?</span></div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Patients analyzed</span>
+          <strong>809</strong>
+          <em>Required at least 2 fills and 2 monthly refill questionnaire responses.</em>
+        </article>
+        <article class="metric-card">
+          <span>Questionnaire responses</span>
+          <strong>2,306</strong>
+          <em>Patient-reported adherence, adverse effects, and perceived effectiveness.</em>
+        </article>
+        <article class="metric-card">
+          <span>High effectiveness</span>
+          <strong>96<small>%</small></strong>
+          <em>Excellent or good perceived medication effectiveness.</em>
+        </article>
+        <article class="metric-card">
+          <span>Intervention alerts</span>
+          <strong>339</strong>
+          <em>Most often adherence, disease concern, or adverse-effect related.</em>
+        </article>
+      </section>
+
+      <section id="signals" class="thesis-band">
+        <article class="big-signal">
+          <span>Central PRO signal</span>
+          <strong>95%</strong>
+          <p>
+            Of monthly refill questionnaire responses reported no missed doses; only 1% reported an adverse effect.
+          </p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Three patient-reported lenses</p>
+          <h2>Most refill check-ins were clinically quiet, but actionable exceptions were captured.</h2>
+          <div class="donut-grid" aria-label="Patient-reported response summaries">
+            <div class="donut-card">
+              <svg viewBox="0 0 120 120" role="img" aria-label="95 percent no missed dose">
+                <circle cx="60" cy="60" r="46" fill="none" stroke="#edf2f8" stroke-width="16"></circle>
+                <circle cx="60" cy="60" r="46" fill="none" stroke="#187c8f" stroke-width="16" stroke-dasharray="274.6 289.0" stroke-linecap="round" transform="rotate(-90 60 60)"></circle>
+                <text x="60" y="66" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="26" font-weight="900">95%</text>
+              </svg>
+              <h3>No missed dose</h3>
+              <p>5% reported missed dose(s).</p>
+            </div>
+            <div class="donut-card">
+              <svg viewBox="0 0 120 120" role="img" aria-label="99 percent no adverse effect">
+                <circle cx="60" cy="60" r="46" fill="none" stroke="#edf2f8" stroke-width="16"></circle>
+                <circle cx="60" cy="60" r="46" fill="none" stroke="#4d8a67" stroke-width="16" stroke-dasharray="286.1 289.0" stroke-linecap="round" transform="rotate(-90 60 60)"></circle>
+                <text x="60" y="66" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="26" font-weight="900">99%</text>
+              </svg>
+              <h3>No adverse effect</h3>
+              <p>22 adverse-effect reports overall.</p>
+            </div>
+            <div class="donut-card">
+              <svg viewBox="0 0 120 120" role="img" aria-label="96 percent excellent or good effectiveness">
+                <circle cx="60" cy="60" r="46" fill="none" stroke="#edf2f8" stroke-width="16"></circle>
+                <circle cx="60" cy="60" r="46" fill="none" stroke="#d12630" stroke-width="16" stroke-dasharray="277.4 289.0" stroke-linecap="round" transform="rotate(-90 60 60)"></circle>
+                <text x="60" y="66" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="26" font-weight="900">96%</text>
+              </svg>
+              <h3>Excellent or good</h3>
+              <p>67% excellent, 29% good, 3% fair, &lt;1% poor.</p>
+            </div>
+          </div>
+          <div class="stacked-bar" aria-label="Perceived effectiveness distribution">
+            <span title="Excellent 67%"></span>
+            <span title="Good 29%"></span>
+            <span title="Fair 3%"></span>
+            <span title="Poor under 1%"></span>
+          </div>
+          <div class="legend-row" aria-label="Perceived effectiveness legend">
+            <span><i style="--legend-color: var(--green)"></i>Excellent 67%</span>
+            <span><i style="--legend-color: var(--teal)"></i>Good 29%</span>
+            <span><i style="--legend-color: var(--gold)"></i>Fair 3%</span>
+            <span><i style="--legend-color: var(--red)"></i>Poor &lt;1%</span>
+          </div>
+        </article>
+      </section>
+
+      <section id="workflow" class="panel">
+        <p class="section-label">Evidence flow</p>
+        <h2>Monthly refill questionnaires converted patient reports into targeted pharmacist work.</h2>
+        <div class="workflow" aria-label="Questionnaire and intervention workflow">
+          <article class="workflow-step" data-step="1">
+            <h3>Eligible patient</h3>
+            <p>Prescribed a specialty rheumatology medication by an outpatient rheumatology clinic provider.</p>
+          </article>
+          <article class="workflow-step" data-step="2">
+            <h3>Refill touchpoint</h3>
+            <p>Certified pharmacy technician completed the monthly refill questionnaire.</p>
+          </article>
+          <article class="workflow-step" data-step="3">
+            <h3>Trigger logic</h3>
+            <p>Missed dose, adverse effect, or poor/fair effectiveness response generated a PharmD review need.</p>
+          </article>
+          <article class="workflow-step" data-step="4">
+            <h3>Clinical review</h3>
+            <p>Pharmacist reviewed patient assessment responses and the electronic medical record.</p>
+          </article>
+          <article class="workflow-step" data-step="5">
+            <h3>Intervention</h3>
+            <p>Pharmacist contacted the patient or provider when follow-up was needed.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="interventions" class="visual-grid">
+        <article class="panel">
+          <p class="section-label">Missed-dose pattern</p>
+          <h2>Intentional holds dominated the adherence exceptions.</h2>
+          <p>
+            Among 116 missed-dose reasons, illness or procedure accounted for 69%, consistent with biologic
+            therapies that may be held for infection, surgery, or hospitalization.
+          </p>
+          <div class="reason-bars" aria-label="Reasons for missed doses">
+            <div class="reason-row"><span>Illness/procedure</span><span class="bar-track"><i class="bar-fill" style="width:100%"></i></span><b>80</b></div>
+            <div class="reason-row"><span>Forgetfulness</span><span class="bar-track"><i class="bar-fill" style="width:18.75%"></i></span><b>15</b></div>
+            <div class="reason-row"><span>Supply issue</span><span class="bar-track"><i class="bar-fill" style="width:11.25%"></i></span><b>9</b></div>
+            <div class="reason-row"><span>Hospitalization</span><span class="bar-track"><i class="bar-fill" style="width:8.75%"></i></span><b>7</b></div>
+            <div class="reason-row"><span>Other</span><span class="bar-track"><i class="bar-fill" style="width:5%"></i></span><b>4</b></div>
+            <div class="reason-row"><span>Financial barrier</span><span class="bar-track"><i class="bar-fill" style="width:1.25%"></i></span><b>1</b></div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Pharmacist alert mix</p>
+          <h2>Adherence alerts were the largest intervention category.</h2>
+          <p>
+            Intervention alerts clustered around missed doses, condition-related concerns, common side effects,
+            and urgent-care or hospitalization events.
+          </p>
+          <div class="alert-list" aria-label="Top pharmacist intervention alert categories">
+            <div class="alert-row"><span>Adherence/missed dose</span><span class="bar-track"><i class="bar-fill" style="width:100%"></i></span><b>124</b></div>
+            <div class="alert-row"><span>Condition-related concern</span><span class="bar-track"><i class="bar-fill" style="width:44%"></i></span><b>55</b></div>
+            <div class="alert-row"><span>Common side effect</span><span class="bar-track"><i class="bar-fill" style="width:26%"></i></span><b>32</b></div>
+            <div class="alert-row"><span>ED/hospital/urgent care</span><span class="bar-track"><i class="bar-fill" style="width:23%"></i></span><b>28</b></div>
+            <div class="alert-row"><span>Other types</span><span class="bar-track"><i class="bar-fill" style="width:21%"></i></span><b>26</b></div>
+            <div class="alert-row"><span>Medication list change</span><span class="bar-track"><i class="bar-fill" style="width:21%"></i></span><b>26</b></div>
+            <div class="alert-row"><span>Drug information</span><span class="bar-track"><i class="bar-fill" style="width:14%"></i></span><b>17</b></div>
+            <div class="alert-row"><span>Administration question</span><span class="bar-track"><i class="bar-fill" style="width:10%"></i></span><b>13</b></div>
+            <div class="alert-row"><span>Efficacy</span><span class="bar-track"><i class="bar-fill" style="width:9%"></i></span><b>11</b></div>
+            <div class="alert-row"><span>New condition/diagnosis</span><span class="bar-track"><i class="bar-fill" style="width:6%"></i></span><b>7</b></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="condition-grid">
+        <article class="panel">
+          <p class="section-label">Cohort texture</p>
+          <h2>Rheumatoid and psoriatic arthritis made up most indications.</h2>
+          <div class="mini-tiles" aria-label="Indication and medication highlights">
+            <div class="mini-tile"><strong>41%</strong><span>Seropositive rheumatoid arthritis</span></div>
+            <div class="mini-tile"><strong>21%</strong><span>Psoriatic arthritis</span></div>
+            <div class="mini-tile"><strong>15%</strong><span>Seronegative rheumatoid arthritis</span></div>
+            <div class="mini-tile"><strong>32%</strong><span>Adalimumab</span></div>
+            <div class="mini-tile"><strong>27%</strong><span>Etanercept</span></div>
+            <div class="mini-tile"><strong>13%</strong><span>Tofacitinib IR/XR</span></div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Conclusion</p>
+          <h2>PROs gave pharmacists a practical signal for next-step care.</h2>
+          <ul class="takeaway-list">
+            <li>Patients reported low rates of missed doses (5%) and adverse effects (1%).</li>
+            <li>Most patients rated perceived effectiveness as high, with 96% excellent or good.</li>
+            <li>Integrated specialty pharmacists used PROs to direct targeted medication-use interventions.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Extracted table patterns">
+        <article class="table-card">
+          <p class="section-label">Demographics</p>
+          <h2>Patient profile, n = 809</h2>
+          <div class="table-wrap">
+            <table class="compact-table">
+              <thead>
+                <tr>
+                  <th>Characteristic</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Median age [IQR]</td><td>57 [43-64]</td></tr>
+                <tr><td>Female</td><td>562 (69%)</td></tr>
+                <tr><td>White</td><td>731 (90%)</td></tr>
+                <tr><td>Commercial insurance</td><td>510 (63%)</td></tr>
+                <tr><td>Medicare</td><td>259 (32%)</td></tr>
+                <tr><td>Medicaid</td><td>40 (5%)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Adverse-effect reports</p>
+          <h2>Medication distribution among AE reports, n = 22</h2>
+          <div class="table-wrap">
+            <table class="compact-table">
+              <thead>
+                <tr>
+                  <th>Medication</th>
+                  <th>Reports</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Adalimumab</td><td>6</td></tr>
+                <tr><td>Secukinumab</td><td>4</td></tr>
+                <tr><td>Tofacitinib IR/XR</td><td>4</td></tr>
+                <tr><td>Etanercept</td><td>3</td></tr>
+                <tr><td>Abatacept</td><td>3</td></tr>
+                <tr><td>Other</td><td>2</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Objective and methods</p>
+        <h2>What was assessed</h2>
+        <p>
+          The study assessed patient-reported outcomes and pharmacist interventions for patients prescribed
+          specialty rheumatology medications at a health-system specialty pharmacy. The design was a
+          single-center retrospective analysis of patients with at least two specialty pharmacy fills and at
+          least two monthly refill questionnaire responses from January through March 2020.
+        </p>
+        <p class="source-note">
+          PRO questions addressed adverse effects, missed doses, and perceived medication effectiveness.
+        </p>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/43-2022.pdf">Open original PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/43-2022.md">Open extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

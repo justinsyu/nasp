@@ -1,0 +1,739 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clinical Outcomes Associated With Prescription Cannabidiol Use At 12-Months Post-Initiation | NASP 2023</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .cbd-hero-art {
+      min-height: 20rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(24, 124, 143, 0.18), transparent 8rem),
+        radial-gradient(circle at 80% 78%, rgba(233, 158, 37, 0.22), transparent 10rem),
+        linear-gradient(135deg, #ffffff 0%, var(--surface-blue) 58%, var(--surface-warm) 100%);
+      overflow: hidden;
+    }
+    .cbd-hero-art svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 20rem;
+    }
+    .hero-card .finding {
+      margin: 0;
+      border-left: 4px solid var(--red);
+      padding-left: 0.72rem;
+      color: var(--ink);
+      font-size: 0.95rem;
+      font-weight: 850;
+    }
+    .metric-card strong small {
+      display: inline;
+      color: inherit;
+      font-size: 0.55em;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+    .metric-card p {
+      margin: 0.45rem 0 0;
+      color: var(--body);
+      font-size: 0.78rem;
+    }
+    .cohort-panel {
+      display: grid;
+      grid-template-columns: minmax(14rem, 0.7fr) minmax(0, 1.3fr);
+      gap: 1rem;
+      align-items: center;
+    }
+    .cohort-donut {
+      display: grid;
+      place-items: center;
+      min-height: 16rem;
+      border: 1px solid rgba(174, 187, 210, 0.78);
+      border-radius: 8px;
+      background: #fff;
+    }
+    .cohort-donut svg {
+      width: min(100%, 16rem);
+      height: auto;
+    }
+    .cohort-legend {
+      display: grid;
+      gap: 0.55rem;
+    }
+    .legend-row {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 0.55rem;
+      align-items: center;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.55rem 0.65rem;
+    }
+    .legend-dot {
+      width: 0.78rem;
+      height: 0.78rem;
+      border-radius: 999px;
+      background: var(--c);
+    }
+    .legend-row b {
+      color: var(--ink);
+      font-size: 0.86rem;
+    }
+    .legend-row span:last-child {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 900;
+    }
+    .followup-flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+    .flow-step {
+      position: relative;
+      min-height: 12rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.85rem;
+      overflow: hidden;
+    }
+    .flow-step::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 0.32rem;
+      background: var(--accent, var(--red));
+    }
+    .flow-step::after {
+      content: attr(data-step);
+      position: absolute;
+      right: 0.48rem;
+      bottom: -0.6rem;
+      color: rgba(36, 55, 112, 0.1);
+      font-family: var(--font-display);
+      font-size: 4.8rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .flow-step:nth-child(2) { --accent: var(--gold); }
+    .flow-step:nth-child(3) { --accent: var(--teal); }
+    .flow-step:nth-child(4) { --accent: var(--green); }
+    .flow-step:nth-child(5) { --accent: var(--purple); }
+    .flow-step h3,
+    .flow-step p {
+      position: relative;
+      z-index: 1;
+    }
+    .flow-step p {
+      margin: 0.5rem 0 0;
+      font-size: 0.82rem;
+    }
+    .outcome-board {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 1rem;
+    }
+    .time-panel {
+      display: grid;
+      gap: 0.8rem;
+    }
+    .timeline-axis {
+      position: relative;
+      min-height: 8.6rem;
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 8px;
+      background:
+        linear-gradient(90deg, rgba(174, 187, 210, 0.38) 1px, transparent 1px) 0 0 / 25% 100%,
+        #fff;
+      padding: 1.2rem 0.8rem 0.8rem;
+    }
+    .axis-labels {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      margin-bottom: 0.55rem;
+      color: var(--muted);
+      font-size: 0.64rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+    .time-event {
+      position: absolute;
+      top: var(--top);
+      left: calc(var(--day) / 365 * 100%);
+      transform: translateX(-50%);
+      min-width: 5.2rem;
+      border: 1px solid rgba(36, 55, 112, 0.2);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.5rem;
+      box-shadow: 0 0.4rem 1.1rem rgba(36, 55, 112, 0.1);
+      text-align: center;
+    }
+    .time-event::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -2rem;
+      height: 2rem;
+      border-left: 2px solid var(--accent, var(--red));
+    }
+    .time-event b {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      line-height: 1;
+    }
+    .time-event span {
+      display: block;
+      margin-top: 0.18rem;
+      color: var(--ink);
+      font-size: 0.72rem;
+      font-weight: 900;
+      line-height: 1.15;
+    }
+    .discontinuation-bars {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 0.65rem;
+    }
+    .reason-row {
+      display: grid;
+      grid-template-columns: 8.2rem minmax(0, 1fr) 2.2rem;
+      gap: 0.55rem;
+      align-items: center;
+    }
+    .reason-row b {
+      color: var(--ink);
+      font-size: 0.78rem;
+      line-height: 1.15;
+    }
+    .reason-track {
+      height: 1rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .reason-track i {
+      display: block;
+      width: calc(var(--n) / 12 * 100%);
+      height: 100%;
+      border-radius: inherit;
+      background: var(--c, var(--red));
+    }
+    .reason-row span {
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-weight: 900;
+      text-align: right;
+    }
+    .asm-shift {
+      display: grid;
+      grid-template-columns: minmax(14rem, 0.82fr) minmax(0, 1.18fr);
+      gap: 1rem;
+      align-items: start;
+    }
+    .asm-card {
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background:
+        linear-gradient(145deg, rgba(24, 124, 143, 0.11), transparent 48%),
+        #fff;
+      padding: 1rem;
+    }
+    .asm-card strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(3.1rem, 7vw, 5.2rem);
+      line-height: 0.9;
+    }
+    .asm-card span {
+      display: block;
+      margin-top: 0.38rem;
+      color: var(--ink);
+      font-weight: 900;
+    }
+    .asm-card p {
+      margin: 0.65rem 0 0;
+      font-size: 0.85rem;
+    }
+    .heatmap {
+      display: grid;
+      grid-template-columns: 1.2fr repeat(7, minmax(0, 0.58fr));
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      font-size: 0.72rem;
+    }
+    .heatmap div {
+      min-height: 2.05rem;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 0.42rem;
+      text-align: center;
+    }
+    .heatmap div:nth-child(8n) {
+      border-right: 0;
+    }
+    .heatmap .head,
+    .heatmap .side {
+      background: var(--surface-blue);
+      color: var(--ink);
+      font-weight: 900;
+    }
+    .heatmap .side {
+      text-align: left;
+    }
+    .heatmap .hot-1 { background: rgba(24, 124, 143, 0.14); color: var(--ink); font-weight: 900; }
+    .heatmap .hot-2 { background: rgba(24, 124, 143, 0.24); color: var(--ink); font-weight: 900; }
+    .heatmap .hot-3 { background: rgba(233, 158, 37, 0.28); color: var(--ink); font-weight: 900; }
+    .heatmap .hot-4 { background: rgba(209, 38, 48, 0.22); color: var(--ink); font-weight: 900; }
+    .baseline-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+    .baseline-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.7rem;
+    }
+    .baseline-card span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.62rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .baseline-card b {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1rem;
+      line-height: 1.12;
+    }
+    .baseline-card small {
+      display: block;
+      margin-top: 0.22rem;
+      color: var(--body);
+      font-size: 0.72rem;
+      line-height: 1.25;
+    }
+    .source-note {
+      margin: 0.6rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    @media (max-width: 900px) {
+      .cohort-panel,
+      .outcome-board,
+      .asm-shift {
+        grid-template-columns: 1fr;
+      }
+      .followup-flow,
+      .baseline-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 560px) {
+      .followup-flow,
+      .baseline-grid {
+        grid-template-columns: 1fr;
+      }
+      .reason-row {
+        grid-template-columns: 1fr;
+      }
+      .reason-row span {
+        text-align: left;
+      }
+      .heatmap {
+        min-width: 39rem;
+      }
+      .time-event {
+        min-width: 4.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP infographic home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/29_Clinical-Outcomes-Associated-With-Prescription-Cannabidiol-Use-At-12-Months-Post-Initiation_2023.pdf">PDF Source</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/29_Clinical-Outcomes-Associated-With-Prescription-Cannabidiol-Use-At-12-Months-Post-Initiation_2023.md">Markdown Source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2023 | Prescription cannabidiol follow-up</p>
+        <h1 id="poster-title">Clinical Outcomes Associated With Prescription Cannabidiol Use At 12-Months Post-Initiation</h1>
+        <p class="hero-summary">A Vanderbilt integrated health-system specialty pharmacy cohort was followed for emergency healthcare utilization, anti-seizure medication burden, and prescription CBD discontinuation during the first year after initiation.</p>
+        <ul class="tag-row" aria-label="Poster topics">
+          <li class="tag category">Prescription cannabidiol</li>
+          <li class="tag therapy">Epilepsy care</li>
+          <li class="tag">Emergency HRU</li>
+          <li class="tag">ASM utilization</li>
+        </ul>
+      </div>
+      <aside class="hero-card">
+        <div class="poster-code">29</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Year</dt>
+            <dd>2023</dd>
+          </div>
+          <div>
+            <dt>Cohort</dt>
+            <dd>136 patients</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>Academic neurology + IHSSP</dd>
+          </div>
+          <div>
+            <dt>Window</dt>
+            <dd>12 months or discontinuation</dd>
+          </div>
+        </dl>
+        <p class="finding">Approximately one-fifth of patients discontinued prescription CBD within the first 12 months of therapy.</p>
+        <p class="finding">Emergency healthcare service utilization was common, while concurrent ASM use changed minimally.</p>
+      </aside>
+    </section>
+
+    <main>
+      <section class="cbd-hero-art" aria-label="Visual summary of cannabidiol follow-up">
+        <svg viewBox="0 0 1000 360" role="img" aria-labelledby="cbd-art-title cbd-art-desc">
+          <title id="cbd-art-title">Prescription cannabidiol 12-month outcomes pathway</title>
+          <desc id="cbd-art-desc">Patients start cannabidiol, receive monthly specialty pharmacy check-ins, and are assessed for emergency healthcare utilization, anti-seizure medication use, and discontinuation.</desc>
+          <defs>
+            <linearGradient id="dropFill" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0" stop-color="#187c8f"/>
+              <stop offset="1" stop-color="#4d8a67"/>
+            </linearGradient>
+            <linearGradient id="goldRed" x1="0" x2="1">
+              <stop offset="0" stop-color="#e99e25"/>
+              <stop offset="1" stop-color="#d12630"/>
+            </linearGradient>
+          </defs>
+          <rect x="32" y="42" width="936" height="252" rx="28" fill="#fff" opacity="0.8"/>
+          <path d="M118 252 C190 118, 314 88, 414 138 S584 222, 710 142 S894 94, 930 198" fill="none" stroke="#d9e1ef" stroke-width="16" stroke-linecap="round"/>
+          <path d="M118 252 C190 118, 314 88, 414 138 S584 222, 710 142 S894 94, 930 198" fill="none" stroke="#243770" stroke-width="3" stroke-dasharray="8 12" stroke-linecap="round"/>
+
+          <g transform="translate(98 102)">
+            <circle cx="66" cy="66" r="58" fill="#eef4fb" stroke="#aebbd2" stroke-width="3"/>
+            <path d="M67 18 C92 52, 108 76, 108 98 C108 122, 90 140, 66 140 C42 140, 24 122, 24 98 C24 76, 42 50, 67 18Z" fill="url(#dropFill)"/>
+            <path d="M68 48 C84 72, 93 86, 93 100 C93 115, 82 126, 66 126 C51 126, 39 115, 39 100 C39 86, 52 69, 68 48Z" fill="#fff" opacity="0.38"/>
+            <text x="66" y="180" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="22" font-weight="900">CBD start</text>
+          </g>
+
+          <g transform="translate(318 74)">
+            <rect x="0" y="0" width="210" height="126" rx="16" fill="#ffffff" stroke="#aebbd2" stroke-width="3"/>
+            <rect x="20" y="25" width="170" height="17" rx="8.5" fill="#d9e1ef"/>
+            <rect x="20" y="54" width="132" height="17" rx="8.5" fill="#187c8f" opacity="0.8"/>
+            <rect x="20" y="83" width="154" height="17" rx="8.5" fill="#e99e25" opacity="0.78"/>
+            <circle cx="178" cy="31" r="18" fill="#d12630"/>
+            <path d="M169 31 h18 M178 22 v18" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+            <text x="105" y="171" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="22" font-weight="900">Monthly IHSSP check-ins</text>
+          </g>
+
+          <g transform="translate(608 72)">
+            <rect x="0" y="0" width="274" height="178" rx="18" fill="#ffffff" stroke="#aebbd2" stroke-width="3"/>
+            <g transform="translate(26 28)">
+              <rect x="0" y="0" width="78" height="88" rx="12" fill="#eef4fb" stroke="#187c8f" stroke-width="3"/>
+              <path d="M39 20 v48 M15 44 h48" stroke="#187c8f" stroke-width="9" stroke-linecap="round"/>
+              <text x="39" y="121" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="16" font-weight="900">HRU</text>
+            </g>
+            <g transform="translate(118 32)">
+              <rect x="0" y="0" width="44" height="96" rx="22" fill="url(#goldRed)"/>
+              <path d="M0 48 h44" stroke="#fff" stroke-width="5"/>
+              <rect x="54" y="8" width="44" height="96" rx="22" fill="#7561a8"/>
+              <path d="M54 56 h44" stroke="#fff" stroke-width="5"/>
+              <text x="49" y="117" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="16" font-weight="900">ASM</text>
+            </g>
+            <g transform="translate(216 34)">
+              <circle cx="28" cy="28" r="28" fill="#fff7ea" stroke="#e99e25" stroke-width="4"/>
+              <path d="M17 17 l22 22 M39 17 L17 39" stroke="#d12630" stroke-width="6" stroke-linecap="round"/>
+              <text x="28" y="112" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="16" font-weight="900">Stop</text>
+            </g>
+            <text x="137" y="204" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="22" font-weight="900">12-month outcomes</text>
+          </g>
+        </svg>
+      </section>
+
+      <section class="metric-strip" aria-label="Key poster numbers">
+        <article class="metric-card">
+          <span>Total cohort</span>
+          <strong>136</strong>
+          <p>Patients prescribed CBD through neurology clinics with IHSSP access and fulfillment.</p>
+        </article>
+        <article class="metric-card">
+          <span>Discontinued CBD</span>
+          <strong>31 <small>pts</small></strong>
+          <p>About 23% discontinued within the first 12 months; 41 reasons were recorded.</p>
+        </article>
+        <article class="metric-card">
+          <span>First ER use</span>
+          <strong>69 <small>days</small></strong>
+          <p>Median time to first emergency room utilization among ER users.</p>
+        </article>
+        <article class="metric-card">
+          <span>ASM burden</span>
+          <strong>3 <small>median</small></strong>
+          <p>Median concurrent ASMs at CBD initiation and study close.</p>
+        </article>
+      </section>
+
+      <section class="visual-grid" aria-label="Objective and cohort">
+        <article class="panel markdown-fragment">
+          <p class="section-label">Objective</p>
+          <h2>Describe utilization, time-to-event, and medication changes after CBD start</h2>
+          <p>The poster evaluated emergency healthcare service use, time to first emergency healthcare related utilization, and changes in anti-seizure medication use after the first 12 months of prescription cannabidiol therapy.</p>
+          <ul>
+            <li>Population: patients prescribed CBD from January 2019 through April 2020.</li>
+            <li>Setting: outpatient neurology clinics at an academic medical center with an integrated health-system specialty pharmacy.</li>
+            <li>Follow-up: monthly check-ins until 12 months of therapy or discontinuation.</li>
+          </ul>
+        </article>
+
+        <article class="panel cohort-panel">
+          <div>
+            <p class="section-label">Baseline cohort</p>
+            <h2>Two-thirds pediatric, one-third adult</h2>
+            <p class="source-note">Baseline table pattern: pediatric patients were younger with fewer prior ASMs, while adult patients had more prior ASMs and more prior non-pharmacologic treatment.</p>
+          </div>
+          <div class="cohort-donut" aria-label="Pediatric 92 and adult 44 patients">
+            <svg viewBox="0 0 220 220" role="img" aria-label="Cohort split donut chart">
+              <circle cx="110" cy="110" r="74" fill="none" stroke="#d9e1ef" stroke-width="34"/>
+              <circle cx="110" cy="110" r="74" fill="none" stroke="#187c8f" stroke-width="34" stroke-dasharray="314 465" stroke-dashoffset="-116" stroke-linecap="round"/>
+              <circle cx="110" cy="110" r="74" fill="none" stroke="#e99e25" stroke-width="34" stroke-dasharray="151 465" stroke-dashoffset="198" stroke-linecap="round"/>
+              <text x="110" y="103" text-anchor="middle" fill="#d12630" font-family="Montserrat, Arial, sans-serif" font-size="38" font-weight="900">136</text>
+              <text x="110" y="130" text-anchor="middle" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="800">patients</text>
+            </svg>
+          </div>
+          <div class="cohort-legend">
+            <div class="legend-row">
+              <span class="legend-dot" style="--c: var(--teal)"></span>
+              <b>Pediatric patients</b>
+              <span>92</span>
+            </div>
+            <div class="legend-row">
+              <span class="legend-dot" style="--c: var(--gold)"></span>
+              <b>Adult patients</b>
+              <span>44</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel" aria-labelledby="methods-title">
+        <p class="section-label">Methods</p>
+        <h2 id="methods-title">Evidence flow: initiation to monthly monitoring to closeout</h2>
+        <div class="followup-flow">
+          <article class="flow-step" data-step="1">
+            <h3>CBD prescribed</h3>
+            <p>Neurology clinic prescriptions from January 2019 through April 2020 entered the IHSSP-supported cohort.</p>
+          </article>
+          <article class="flow-step" data-step="2">
+            <h3>Access + fulfillment</h3>
+            <p>The integrated specialty pharmacy handled access and fulfillment, anchoring the outpatient data stream.</p>
+          </article>
+          <article class="flow-step" data-step="3">
+            <h3>Monthly check-in</h3>
+            <p>Specialty pharmacy touchpoints tracked adherence, adverse effects, and emergency healthcare service use.</p>
+          </article>
+          <article class="flow-step" data-step="4">
+            <h3>Emergency HRU</h3>
+            <p>Time to first ER visit and hospitalization was summarized for patients with utilization events.</p>
+          </article>
+          <article class="flow-step" data-step="5">
+            <h3>Closeout</h3>
+            <p>At 12 months or discontinuation, reasons for stopping CBD and changes in ASM use were captured.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="outcome-board" aria-label="Emergency utilization and discontinuation outcomes">
+        <article class="panel time-panel">
+          <p class="section-label">Emergency HRU</p>
+          <h2>First emergency events clustered within the first few months</h2>
+          <div class="timeline-axis" aria-label="Median time to first ER and hospitalization">
+            <div class="axis-labels" aria-hidden="true">
+              <span>0</span>
+              <span>90d</span>
+              <span>180d</span>
+              <span>270d</span>
+              <span>365d</span>
+            </div>
+            <div class="time-event" style="--day:69; --top:3.1rem; --accent:var(--red)">
+              <b>69</b>
+              <span>ER median days<br>n = 29</span>
+            </div>
+            <div class="time-event" style="--day:104; --top:6.0rem; --accent:var(--teal)">
+              <b>104</b>
+              <span>Hospital median days<br>n = 30</span>
+            </div>
+          </div>
+          <p class="source-note">IQRs were 31-196 days for ER use and 38-179 days for hospitalization.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Discontinuation</p>
+          <h2>Side effects and suboptimal response led the reason profile</h2>
+          <div class="discontinuation-bars" aria-label="Reasons for discontinuation counts">
+            <div class="reason-row">
+              <b>Major side effects</b>
+              <div class="reason-track"><i style="--n:12; --c:var(--red)"></i></div>
+              <span>12</span>
+            </div>
+            <div class="reason-row">
+              <b>Common side effects</b>
+              <div class="reason-track"><i style="--n:11; --c:var(--gold)"></i></div>
+              <span>11</span>
+            </div>
+            <div class="reason-row">
+              <b>Suboptimal response</b>
+              <div class="reason-track"><i style="--n:11; --c:var(--teal)"></i></div>
+              <span>11</span>
+            </div>
+            <div class="reason-row">
+              <b>Patient decision</b>
+              <div class="reason-track"><i style="--n:2; --c:var(--purple)"></i></div>
+              <span>2</span>
+            </div>
+            <div class="reason-row">
+              <b>Non-compliance</b>
+              <div class="reason-track"><i style="--n:2; --c:var(--green)"></i></div>
+              <span>2</span>
+            </div>
+            <div class="reason-row">
+              <b>Not available</b>
+              <div class="reason-track"><i style="--n:2; --c:var(--border-strong)"></i></div>
+              <span>2</span>
+            </div>
+            <div class="reason-row">
+              <b>Deceased</b>
+              <div class="reason-track"><i style="--n:1; --c:var(--ink)"></i></div>
+              <span>1</span>
+            </div>
+          </div>
+          <p class="source-note">Thirty-one patients discontinued therapy for 41 total reasons; patients could have multiple reasons.</p>
+        </article>
+      </section>
+
+      <section class="panel asm-shift" aria-labelledby="asm-title">
+        <article class="asm-card">
+          <p class="section-label">Concurrent ASM use</p>
+          <h2 id="asm-title">Medication burden was broadly stable</h2>
+          <strong>3</strong>
+          <span>Median concurrent ASMs at initiation and close</span>
+          <p>Patients were continued on a median of 3 ASMs at CBD initiation (IQR 2, 4) and 3 ASMs at study close (IQR 2, 3).</p>
+        </article>
+        <article>
+          <h3>Transition heatmap from initial to study-close ASM count</h3>
+          <div class="table-wrap">
+            <div class="heatmap" role="table" aria-label="Concurrent ASM use heatmap">
+              <div class="head">Close \ Initial</div>
+              <div class="head">0</div>
+              <div class="head">1</div>
+              <div class="head">2</div>
+              <div class="head">3</div>
+              <div class="head">4</div>
+              <div class="head">5</div>
+              <div class="head">6</div>
+
+              <div class="side">5 ASMs</div>
+              <div></div><div></div><div></div><div></div><div></div><div></div><div class="hot-1">1</div>
+
+              <div class="side">4 ASMs</div>
+              <div></div><div></div><div></div><div></div><div class="hot-1">2</div><div class="hot-2">3</div><div></div>
+
+              <div class="side">3 ASMs</div>
+              <div></div><div></div><div></div><div class="hot-1">1</div><div class="hot-4">16</div><div></div><div></div>
+
+              <div class="side">2 ASMs</div>
+              <div></div><div></div><div class="hot-2">3</div><div class="hot-4">22</div><div class="hot-3">7</div><div class="hot-1">2</div><div></div>
+
+              <div class="side">1 ASM</div>
+              <div></div><div class="hot-2">3</div><div class="hot-4">17</div><div class="hot-2">4</div><div class="hot-1">1</div><div></div><div></div>
+
+              <div class="side">0 ASMs</div>
+              <div class="hot-1">2</div><div class="hot-4">13</div><div class="hot-3">5</div><div class="hot-1">1</div><div></div><div></div><div></div>
+            </div>
+          </div>
+          <p class="source-note">Darker cells indicate higher patient counts in the markdown's concurrent ASM table.</p>
+        </article>
+      </section>
+
+      <section class="panel" aria-labelledby="baseline-title">
+        <p class="section-label">Baseline characteristics</p>
+        <h2 id="baseline-title">Adult patients entered with longer prior ASM exposure</h2>
+        <div class="baseline-grid">
+          <article class="baseline-card">
+            <span>Age median</span>
+            <b>10 vs 28 years</b>
+            <small>Pediatric IQR 5-14; adult IQR 21-44.</small>
+          </article>
+          <article class="baseline-card">
+            <span>Male sex</span>
+            <b>53% vs 43%</b>
+            <small>49 pediatric and 19 adult patients.</small>
+          </article>
+          <article class="baseline-card">
+            <span>White race</span>
+            <b>84% vs 87%</b>
+            <small>Similar race distribution across groups.</small>
+          </article>
+          <article class="baseline-card">
+            <span>Prior ASM count</span>
+            <b>6 vs 12</b>
+            <small>Median prior ASMs; adults had higher prior exposure.</small>
+          </article>
+          <article class="baseline-card">
+            <span>Prior non-drug treatment</span>
+            <b>43% vs 64%</b>
+            <small>Reported for pediatric vs adult patients.</small>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-stack" aria-label="Interpretation">
+        <article class="panel markdown-fragment">
+          <p class="section-label">Conclusion signal</p>
+          <h2>Discontinuation was not rare in year one</h2>
+          <p>The poster's headline finding was that roughly one in five patients discontinued prescription CBD within the first 12 months. Side effects commonly led to discontinuation during the first 100 days, while suboptimal response appeared later in therapy.</p>
+        </article>
+        <article class="panel markdown-fragment">
+          <p class="section-label">Practice signal</p>
+          <h2>Emergency use remained part of the early follow-up story</h2>
+          <p>Emergency healthcare service utilization was common after prescription CBD initiation, with first ER and hospitalization medians occurring before month four among patients with events. Concurrent ASM utilization showed minimal median change by study close.</p>
+        </article>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/29_Clinical-Outcomes-Associated-With-Prescription-Cannabidiol-Use-At-12-Months-Post-Initiation_2023.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/29_Clinical-Outcomes-Associated-With-Prescription-Cannabidiol-Use-At-12-Months-Post-Initiation_2023.md">Source markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HBV Screening with Oral Anticancer Therapy | NASP 2024</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -4rem;
+      top: -4rem;
+      width: 14rem;
+      height: 14rem;
+      border: 1.3rem solid rgba(24, 124, 143, 0.12);
+      border-radius: 50%;
+    }
+
+    .screening-visual {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 0.2rem;
+    }
+
+    .screening-visual svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .hero-callout {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.55rem;
+    }
+
+    .hero-callout div {
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.82);
+      padding: 0.65rem;
+    }
+
+    .hero-callout strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+
+    .hero-callout span {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--muted);
+      font-size: 0.69rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .metric-card strong small {
+      color: var(--red);
+      font-size: 0.92rem;
+    }
+
+    .metric-card em {
+      display: block;
+      margin-top: 0.34rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-style: normal;
+      font-weight: 750;
+      line-height: 1.3;
+    }
+
+    .signal-band {
+      display: grid;
+      grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .dark-number {
+      display: grid;
+      align-content: center;
+      min-height: 15rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 85% 20%, rgba(233, 158, 37, 0.28), transparent 6rem),
+        var(--ink);
+      color: #fff;
+      padding: 1.15rem;
+    }
+
+    .dark-number span {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .dark-number strong {
+      margin-top: 0.25rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(3.2rem, 8vw, 6rem);
+      line-height: 0.9;
+    }
+
+    .dark-number p {
+      margin: 0.7rem 0 0;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 0.95rem;
+    }
+
+    .screen-bars {
+      display: grid;
+      gap: 0.72rem;
+      margin-top: 0.85rem;
+    }
+
+    .screen-row {
+      display: grid;
+      grid-template-columns: 9.4rem minmax(0, 1fr) 4.2rem;
+      gap: 0.65rem;
+      align-items: center;
+    }
+
+    .screen-row b {
+      color: var(--ink);
+      font-size: 0.8rem;
+      line-height: 1.2;
+    }
+
+    .screen-track {
+      height: 1rem;
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+
+    .screen-fill {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .screen-fill.teal {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .screen-row em {
+      color: var(--ink);
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .flow-ladder {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .flow-card {
+      position: relative;
+      min-height: 13rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.9rem 0.82rem;
+      overflow: hidden;
+    }
+
+    .flow-card::before {
+      content: attr(data-step);
+      display: inline-grid;
+      place-items: center;
+      width: 1.9rem;
+      height: 1.9rem;
+      margin-bottom: 0.5rem;
+      border-radius: 50%;
+      background: var(--card-accent, var(--red));
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+
+    .flow-card::after {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 0.32rem;
+      background: var(--card-accent, var(--red));
+    }
+
+    .flow-card:nth-child(2) { --card-accent: var(--gold); }
+    .flow-card:nth-child(3) { --card-accent: var(--teal); }
+    .flow-card:nth-child(4) { --card-accent: var(--green); }
+    .flow-card:nth-child(5) { --card-accent: var(--purple); }
+
+    .flow-card p {
+      margin: 0.48rem 0 0;
+      color: var(--body);
+      font-size: 0.82rem;
+    }
+
+    .panel-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 1rem;
+    }
+
+    .stacked-bars {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 0.8rem;
+    }
+
+    .stack-card {
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.75rem;
+    }
+
+    .stack-card h3 {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.46rem;
+    }
+
+    .stack-card h3 span {
+      color: var(--red);
+      font-family: var(--font-body);
+      font-size: 0.76rem;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .split-meter {
+      display: grid;
+      grid-template-columns: var(--left) var(--right);
+      height: 1.05rem;
+      overflow: hidden;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 999px;
+      background: #edf2f8;
+    }
+
+    .split-meter span:first-child { background: var(--teal); }
+    .split-meter span:last-child { background: rgba(209, 38, 48, 0.72); }
+
+    .legend-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem 0.82rem;
+      margin-top: 0.45rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 850;
+    }
+
+    .legend-row i {
+      display: inline-block;
+      width: 0.7rem;
+      height: 0.7rem;
+      margin-right: 0.25rem;
+      border-radius: 2px;
+      vertical-align: -0.08rem;
+      background: var(--teal);
+    }
+
+    .legend-row span:last-child i { background: rgba(209, 38, 48, 0.72); }
+
+    .assay-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+
+    .assay-card {
+      border-left: 4px solid var(--teal);
+      border-radius: 7px;
+      background: var(--surface-blue);
+      padding: 0.7rem;
+    }
+
+    .assay-card:nth-child(2) { border-color: var(--gold); background: var(--surface-warm); }
+    .assay-card:nth-child(3) { border-color: var(--green); }
+
+    .assay-card strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      line-height: 1;
+    }
+
+    .assay-card span {
+      display: block;
+      margin-top: 0.28rem;
+      color: var(--muted);
+      font-size: 0.73rem;
+      font-weight: 820;
+      line-height: 1.3;
+    }
+
+    .protocol-list {
+      display: grid;
+      gap: 0.55rem;
+      margin: 0.75rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .protocol-list li {
+      border-left: 4px solid var(--red);
+      background: #fff;
+      padding: 0.58rem 0.7rem;
+      color: var(--body);
+      font-size: 0.86rem;
+    }
+
+    .protocol-list li:nth-child(2) { border-color: var(--teal); }
+    .protocol-list li:nth-child(3) { border-color: var(--gold); background: var(--surface-warm); }
+
+    .compact-table td:nth-child(n+2),
+    .compact-table th:nth-child(n+2) {
+      text-align: right;
+    }
+
+    .source-note {
+      margin: 0.7rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 900px) {
+      .signal-band,
+      .panel-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .flow-ladder {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 620px) {
+      .hero-callout,
+      .assay-grid,
+      .flow-ladder {
+        grid-template-columns: 1fr;
+      }
+
+      .screen-row {
+        grid-template-columns: 1fr;
+      }
+
+      .screen-row em {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#results">Results</a>
+        <a href="#methods">Methods</a>
+        <a href="#tables">Tables</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2024 poster 9-OPR9-OR-Poster-AM24</p>
+        <h1 id="poster-title">Analysis of Hepatitis B Screening with Oral Anticancer Therapy Initiation</h1>
+        <p class="hero-summary">
+          Cleveland Clinic Specialty Pharmacy assessed whether patients starting oral anticancer therapy received hepatitis B virus screening and whether pharmacist recommendations improved alignment with ASCO's three-test screening guidance.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Retrospective observational study</li>
+          <li class="tag therapy">Oral anticancer therapy</li>
+          <li class="tag">HBsAg</li>
+          <li class="tag">HBcAb</li>
+          <li class="tag">HBsAb</li>
+          <li class="tag">May-August 2023</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata and screening visual">
+        <div>
+          <div class="poster-code">9-OPR9<br>2024</div>
+          <dl class="meta-grid">
+            <div>
+              <dt>Population</dt>
+              <dd>n = 483</dd>
+            </div>
+            <div>
+              <dt>Setting</dt>
+              <dd>CCSP oncology</dd>
+            </div>
+            <div>
+              <dt>Primary outcome</dt>
+              <dd>Pre-treatment HBV screening</dd>
+            </div>
+            <div>
+              <dt>Standard</dt>
+              <dd>ASCO 3-test panel</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="screening-visual">
+          <svg viewBox="0 0 420 250" role="img" aria-labelledby="svg-title svg-desc">
+            <title id="svg-title">HBV screening pathway</title>
+            <desc id="svg-desc">A pathway from oral anticancer therapy start to HBV panel review, pharmacist recommendation, provider acceptance, and antiviral safety planning.</desc>
+            <defs>
+              <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L9,3 z" fill="#243770"></path>
+              </marker>
+            </defs>
+            <rect x="22" y="44" width="92" height="118" rx="13" fill="#fff" stroke="#aebbd2" stroke-width="3"></rect>
+            <path d="M43 77h50M43 100h36M43 123h44" stroke="#187c8f" stroke-width="8" stroke-linecap="round"></path>
+            <circle cx="70" cy="180" r="25" fill="#fff7ea" stroke="#d12630" stroke-width="5"></circle>
+            <path d="M58 180h24M70 168v24" stroke="#d12630" stroke-width="7" stroke-linecap="round"></path>
+            <path d="M125 92 C175 50, 228 46, 280 76" fill="none" stroke="#243770" stroke-width="6" stroke-linecap="round" marker-end="url(#arrowhead)"></path>
+            <path d="M129 139 C178 178, 236 182, 306 156" fill="none" stroke="#d12630" stroke-width="7" stroke-linecap="round" stroke-dasharray="1 14" marker-end="url(#arrowhead)"></path>
+            <circle cx="304" cy="82" r="38" fill="#eef4fb" stroke="#187c8f" stroke-width="5"></circle>
+            <path d="M285 82h38M304 63v38" stroke="#187c8f" stroke-width="7" stroke-linecap="round"></path>
+            <circle cx="326" cy="155" r="33" fill="#fff" stroke="#e99e25" stroke-width="5"></circle>
+            <path d="M309 155l11 11 24-29" fill="none" stroke="#e99e25" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path>
+            <text x="140" y="38" fill="#243770" font-family="Arial, sans-serif" font-size="18" font-weight="800">HBV panel before therapy</text>
+            <text x="150" y="218" fill="#d12630" font-family="Arial, sans-serif" font-size="18" font-weight="800">RPh recommendation when missing</text>
+          </svg>
+          <div class="hero-callout">
+            <div>
+              <strong>17.4%</strong>
+              <span>screened before treatment</span>
+            </div>
+            <div>
+              <strong>73.4%</strong>
+              <span>recommendations accepted</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Total starts</span>
+          <strong>483</strong>
+          <em>Patients initiated on oral anticancer therapy from May 1-August 31, 2023.</em>
+        </article>
+        <article class="metric-card">
+          <span>Pre-treatment screening</span>
+          <strong>84<small>/483</small></strong>
+          <em>Only 17.4% had HBV screening before therapy started.</em>
+        </article>
+        <article class="metric-card">
+          <span>RPh recommendations</span>
+          <strong>229</strong>
+          <em>Recommendations were made for 57.4% of unscreened patients.</em>
+        </article>
+        <article class="metric-card">
+          <span>HBsAg positive</span>
+          <strong>0</strong>
+          <em>No screened patient had a positive HBsAg result.</em>
+        </article>
+      </section>
+
+      <section id="results" class="signal-band">
+        <div class="dark-number">
+          <span>Central gap</span>
+          <strong>82.6%</strong>
+          <p>Most oral anticancer therapy starts lacked HBV screening before treatment, creating a clear workflow opportunity for specialty pharmacists.</p>
+        </div>
+        <article class="panel">
+          <p class="section-label">Primary and secondary results</p>
+          <h2>Pharmacist intervention converted missing screens into completed panels.</h2>
+          <div class="screen-bars" aria-label="Screening and acceptance rates">
+            <div class="screen-row">
+              <b>Screened before treatment</b>
+              <span class="screen-track"><span class="screen-fill" style="width:17.4%"></span></span>
+              <em>17.4%</em>
+            </div>
+            <div class="screen-row">
+              <b>No prior screening</b>
+              <span class="screen-track"><span class="screen-fill" style="width:82.6%"></span></span>
+              <em>82.6%</em>
+            </div>
+            <div class="screen-row">
+              <b>RPh rec among unscreened</b>
+              <span class="screen-track"><span class="screen-fill teal" style="width:57.4%"></span></span>
+              <em>57.4%</em>
+            </div>
+            <div class="screen-row">
+              <b>Provider acceptance</b>
+              <span class="screen-track"><span class="screen-fill teal" style="width:73.4%"></span></span>
+              <em>73.4%</em>
+            </div>
+          </div>
+          <p class="source-note">After accepted pharmacist recommendations, 168 additional patients completed HBV screening; median time from recommendation to panel was 29 days [11.25-54].</p>
+        </article>
+      </section>
+
+      <section id="methods" class="flow-ladder" aria-label="Evidence flow">
+        <article class="flow-card" data-step="1">
+          <h3>Why screen?</h3>
+          <p>Patients receiving anticancer therapy are immunocompromised, and HBV reactivation can cause serious hepatic outcomes.</p>
+        </article>
+        <article class="flow-card" data-step="2">
+          <h3>Guideline target</h3>
+          <p>ASCO recommends HBsAg, HBcAb, and HBsAb screening at the start of anticancer therapy.</p>
+        </article>
+        <article class="flow-card" data-step="3">
+          <h3>Study frame</h3>
+          <p>Retrospective review of Cleveland Clinic oncology patients with oral anticancer medication dispensed by CCSP.</p>
+        </article>
+        <article class="flow-card" data-step="4">
+          <h3>Pharmacist action</h3>
+          <p>Specialty pharmacists recommended HBV screening when therapy was initiated without documented screening.</p>
+        </article>
+        <article class="flow-card" data-step="5">
+          <h3>Safety signal</h3>
+          <p>Acceptance was common, but incomplete panels remained a key optimization target.</p>
+        </article>
+      </section>
+
+      <section class="panel-grid">
+        <article class="panel">
+          <p class="section-label">Panel completeness</p>
+          <h2>Full panels were more common before treatment than after recommendation.</h2>
+          <div class="stacked-bars">
+            <div class="stack-card">
+              <h3>Pre-treatment screens <span>n = 84</span></h3>
+              <div class="split-meter" style="--left:79.8%; --right:20.2%" aria-hidden="true"><span></span><span></span></div>
+              <div class="legend-row">
+                <span><i></i>Full panel 67 (79.8%)</span>
+                <span><i></i>Partial panel 17 (20.2%)</span>
+              </div>
+            </div>
+            <div class="stack-card">
+              <h3>After accepted RPh rec <span>n = 168</span></h3>
+              <div class="split-meter" style="--left:55.4%; --right:44.6%" aria-hidden="true"><span></span><span></span></div>
+              <div class="legend-row">
+                <span><i></i>Full panel 93 (55.4%)</span>
+                <span><i></i>Partial panel 75 (44.6%)</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Serology outcomes</p>
+          <h2>Among screened patients, HBcAb positivity was uncommon but actionable.</h2>
+          <div class="assay-grid">
+            <div class="assay-card">
+              <strong>0%</strong>
+              <span>HBsAg positive result among 252 screened patients.</span>
+            </div>
+            <div class="assay-card">
+              <strong>17.5%</strong>
+              <span>HBsAb positive result, suggesting immunity in 44 patients.</span>
+            </div>
+            <div class="assay-card">
+              <strong>2.8%</strong>
+              <span>HBcAb positive result; 2 of 7 received antiviral therapy.</span>
+            </div>
+          </div>
+          <ul class="protocol-list">
+            <li><strong>Objective:</strong> quantify HBV screening before oral anticancer therapy initiation.</li>
+            <li><strong>Secondary lens:</strong> measure pharmacist recommendations, acceptance, positive serologies, and antiviral prophylaxis.</li>
+            <li><strong>Conclusion:</strong> accepted pharmacist recommendations helped optimize treatment safety before medication initiation.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="tables" class="tables-grid" aria-label="Extracted table patterns">
+        <article class="table-card">
+          <p class="section-label">Baseline pattern</p>
+          <h2>Population skewed older, Ohio-based, and later-line therapy</h2>
+          <div class="table-wrap">
+            <table class="compact-table">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Age, median [IQR]</td><td>68 [60-76]</td></tr>
+                <tr><td>Female</td><td>240 (49.7%)</td></tr>
+                <tr><td>Caucasian</td><td>370 (76.6%)</td></tr>
+                <tr><td>Ohio prescriber state</td><td>416 (86.1%)</td></tr>
+                <tr><td>Third line or greater</td><td>224 (46.4%)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Screening pattern</p>
+          <h2>Partial panels most often missed HBsAb</h2>
+          <div class="table-wrap">
+            <table class="compact-table">
+              <thead>
+                <tr>
+                  <th>Among partial panels (n = 92)</th>
+                  <th>Missing</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>HBsAg</td><td>18 (19.6%)</td></tr>
+                <tr><td>HBsAb</td><td>63 (68.5%)</td></tr>
+                <tr><td>HBcAb</td><td>40 (43.4%)</td></tr>
+                <tr><td>Full HBV panel collected overall</td><td>160 (63.5%)</td></tr>
+                <tr><td>Partial HBV panel collected overall</td><td>92 (36.5%)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel markdown-fragment">
+        <p class="section-label">Bottom line</p>
+        <h2>The strongest workflow signal was not test positivity; it was missed screening.</h2>
+        <p>
+          In this 483-patient cohort, only 84 patients were screened before oral anticancer therapy, while pharmacist recommendations led to 168 additional screens after provider acceptance. The remaining opportunity is earlier, complete three-test HBV screening before treatment begins.
+        </p>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/9-OPR9-OR-Poster-AM24_2024.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/9-OPR9-OR-Poster-AM24_2024.md">Source Markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

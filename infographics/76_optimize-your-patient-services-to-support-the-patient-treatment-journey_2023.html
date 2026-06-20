@@ -1,0 +1,684 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2023 Infographic | Optimize Patient Services</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .journey-hero {
+      position: relative;
+      min-height: 19rem;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 22% 18%, rgba(233, 158, 37, 0.27), transparent 8rem),
+        linear-gradient(145deg, rgba(36, 55, 112, 0.98), rgba(24, 124, 143, 0.92));
+      color: #fff;
+      padding: 1.05rem;
+    }
+
+    .journey-hero svg {
+      position: absolute;
+      inset: auto 0.45rem 0.45rem auto;
+      width: min(21rem, 82%);
+      opacity: 0.78;
+    }
+
+    .journey-hero .poster-code {
+      color: #fff;
+      text-shadow: 0 2px 18px rgba(0, 0, 0, 0.22);
+    }
+
+    .journey-hero p {
+      position: relative;
+      max-width: 18rem;
+      margin: 0.5rem 0 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.92rem;
+    }
+
+    .control-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.7rem;
+      margin-top: 0.85rem;
+    }
+
+    .control-cell {
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.12);
+      padding: 0.68rem;
+    }
+
+    .control-cell strong {
+      display: block;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+
+    .control-cell span {
+      display: block;
+      margin-top: 0.2rem;
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 0.66rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .service-compass {
+      display: grid;
+      grid-template-columns: 15rem minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+      margin-top: 0.4rem;
+    }
+
+    .service-compass svg {
+      width: 100%;
+      height: auto;
+      overflow: visible;
+    }
+
+    .compass-list {
+      display: grid;
+      gap: 0.6rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .compass-list li {
+      display: grid;
+      grid-template-columns: 2.2rem minmax(0, 1fr);
+      gap: 0.55rem;
+      align-items: start;
+      border-left: 3px solid var(--item-color, var(--red));
+      padding-left: 0.62rem;
+    }
+
+    .compass-list b {
+      display: grid;
+      place-items: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: var(--item-color, var(--red));
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.86rem;
+    }
+
+    .compass-list strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      line-height: 1.1;
+    }
+
+    .compass-list span {
+      display: block;
+      margin-top: 0.18rem;
+      color: var(--body);
+      font-size: 0.82rem;
+    }
+
+    .ab-test {
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 0.6rem;
+    }
+
+    .test-row {
+      display: grid;
+      grid-template-columns: 7.8rem minmax(0, 1fr) 5.3rem;
+      gap: 0.6rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 850;
+    }
+
+    .test-track {
+      height: 1.05rem;
+      overflow: hidden;
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 999px;
+      background: var(--surface-blue);
+    }
+
+    .test-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .test-row:nth-child(2) .test-track i {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .funnel-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      align-items: center;
+      margin-top: 0.55rem;
+    }
+
+    .funnel-svg {
+      width: 100%;
+      height: auto;
+    }
+
+    .funnel-steps {
+      display: grid;
+      gap: 0.55rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .funnel-steps li {
+      display: grid;
+      grid-template-columns: 4.3rem minmax(0, 1fr);
+      gap: 0.55rem;
+      align-items: center;
+      padding: 0.55rem;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: #fff;
+    }
+
+    .funnel-steps strong {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+
+    .funnel-steps span {
+      color: var(--body);
+      font-size: 0.79rem;
+    }
+
+    .lift-callout {
+      display: grid;
+      grid-template-columns: 0.72fr 1.28fr;
+      gap: 0.8rem;
+      align-items: stretch;
+    }
+
+    .lift-number {
+      display: grid;
+      align-content: center;
+      min-height: 12rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--ink);
+      color: #fff;
+      padding: 1rem;
+    }
+
+    .lift-number span {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .lift-number strong {
+      display: block;
+      margin-top: 0.25rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 7vw, 5.2rem);
+      line-height: 0.92;
+    }
+
+    .lift-number p {
+      margin: 0.5rem 0 0;
+      color: rgba(255, 255, 255, 0.84);
+      font-size: 0.9rem;
+    }
+
+    .impact-math {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.65rem;
+    }
+
+    .math-card {
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: var(--surface-blue);
+      padding: 0.62rem;
+    }
+
+    .math-card strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+
+    .math-card span {
+      display: block;
+      margin-top: 0.22rem;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 850;
+      line-height: 1.25;
+      text-transform: uppercase;
+    }
+
+    .month-bars {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 0.38rem;
+      min-height: 11.5rem;
+      margin-top: 0.7rem;
+      align-items: end;
+    }
+
+    .month {
+      display: grid;
+      grid-template-rows: 7.5rem auto;
+      gap: 0.35rem;
+      min-width: 0;
+    }
+
+    .month-stack {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.14rem;
+      align-items: end;
+      height: 7.5rem;
+      padding: 0.22rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+    }
+
+    .month-stack i {
+      display: block;
+      min-height: 1rem;
+      border-radius: 4px 4px 2px 2px;
+      background: var(--red);
+    }
+
+    .month-stack i:last-child {
+      background: var(--teal);
+    }
+
+    .month span {
+      overflow: hidden;
+      color: var(--muted);
+      font-size: 0.66rem;
+      font-weight: 850;
+      text-align: center;
+      text-overflow: ellipsis;
+    }
+
+    .pattern-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin: 0.65rem 0 0;
+      padding: 0;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 850;
+      list-style: none;
+    }
+
+    .pattern-legend i {
+      display: inline-block;
+      width: 0.75rem;
+      height: 0.75rem;
+      margin-right: 0.25rem;
+      border-radius: 3px;
+      background: var(--red);
+      vertical-align: -0.1rem;
+    }
+
+    .pattern-legend li:last-child i {
+      background: var(--teal);
+    }
+
+    .source-note {
+      margin: 0.7rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 900px) {
+      .service-compass,
+      .funnel-wrap,
+      .lift-callout {
+        grid-template-columns: 1fr;
+      }
+      .impact-math {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .month-bars {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .control-grid,
+      .impact-math {
+        grid-template-columns: 1fr;
+      }
+      .test-row {
+        grid-template-columns: 1fr;
+      }
+      .month-bars {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      .funnel-steps li {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/76_Optimize-Your-Patient-Services-to-Support-the-Patient-Treatment-Journey_2023.pdf">Poster PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/76_Optimize-Your-Patient-Services-to-Support-the-Patient-Treatment-Journey_2023.md">Markdown Source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">2023 poster 76 | Patient services optimization</p>
+        <h1>Optimize Your Patient Services to Support the Patient Treatment Journey</h1>
+        <p class="hero-summary">
+          Claritas Rx evaluated whether early insights and case coordination through a patient intervention platform could improve first-fill conversion and refill persistence across specialty therapy brands, with an immunology rheumatoid arthritis scenario used to translate lift into patient impact.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag therapy">Immunology</li>
+          <li class="tag therapy">Rheumatoid arthritis scenario</li>
+          <li class="tag category">Controlled A/B test</li>
+          <li class="tag category">Patient intervention platform</li>
+        </ul>
+      </div>
+      <aside class="journey-hero" aria-label="Poster metadata">
+        <div class="poster-code">76</div>
+        <p>Benchmarking access barriers, first-fill conversion, refill lift, and stay-on-therapy opportunities.</p>
+        <div class="control-grid">
+          <div class="control-cell">
+            <strong>2023</strong>
+            <span>Poster year</span>
+          </div>
+          <div class="control-cell">
+            <strong>3</strong>
+            <span>Brands analyzed</span>
+          </div>
+        </div>
+        <svg viewBox="0 0 360 260" role="img" aria-label="Patient journey arc from access issue to sustained therapy">
+          <defs>
+            <linearGradient id="arcGradient" x1="0" x2="1">
+              <stop offset="0" stop-color="#ffffff" stop-opacity="0.9"/>
+              <stop offset="0.5" stop-color="#e99e25" stop-opacity="0.9"/>
+              <stop offset="1" stop-color="#ffffff" stop-opacity="0.85"/>
+            </linearGradient>
+          </defs>
+          <path d="M34 196 C90 48 214 39 310 94" fill="none" stroke="url(#arcGradient)" stroke-width="14" stroke-linecap="round"/>
+          <path d="M55 202 C118 124 203 117 292 151" fill="none" stroke="#fff" stroke-opacity="0.28" stroke-width="5" stroke-linecap="round"/>
+          <g fill="#fff">
+            <circle cx="49" cy="184" r="17"/>
+            <circle cx="145" cy="79" r="22" opacity="0.95"/>
+            <circle cx="259" cy="74" r="16" opacity="0.92"/>
+            <circle cx="306" cy="101" r="28" opacity="0.9"/>
+          </g>
+          <g fill="#243770" font-family="Arial, sans-serif" font-size="13" font-weight="700" text-anchor="middle">
+            <text x="49" y="189">Rx</text>
+            <text x="145" y="84">Fill</text>
+            <text x="259" y="79">Refill</text>
+            <text x="306" y="106">Stay</text>
+          </g>
+        </svg>
+      </aside>
+    </section>
+
+    <main>
+      <section id="snapshot" class="metric-strip" aria-label="Key metrics">
+        <article class="metric-card">
+          <span>First-fill lift</span>
+          <strong>10%</strong>
+        </article>
+        <article class="metric-card">
+          <span>Refill lift</span>
+          <strong>11%</strong>
+        </article>
+        <article class="metric-card">
+          <span>Matched patients per arm</span>
+          <strong>2,642</strong>
+        </article>
+        <article class="metric-card">
+          <span>Scenario starts per year</span>
+          <strong>5,303</strong>
+        </article>
+      </section>
+
+      <section class="visual-grid" aria-label="Objective and methods">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Turn journey visibility into targeted intervention</h2>
+          <p>
+            The poster examined brand baskets across specialty therapies to measure how a patient intervention solution affected core patient-services KPIs, especially conversion to first fill and the ability to remain on therapy after issues appeared.
+          </p>
+          <div class="service-compass" aria-label="Patient services operating model">
+            <svg viewBox="0 0 220 220" role="img" aria-label="Understand, optimize, and benchmark patient services">
+              <circle cx="110" cy="110" r="82" fill="#eef4fb" stroke="#aebbd2" stroke-width="2"/>
+              <circle cx="110" cy="110" r="38" fill="#ffffff" stroke="#d9e1ef" stroke-width="2"/>
+              <path d="M110 28 A82 82 0 0 1 181 151" fill="none" stroke="#d12630" stroke-width="16" stroke-linecap="round"/>
+              <path d="M181 151 A82 82 0 0 1 39 151" fill="none" stroke="#187c8f" stroke-width="16" stroke-linecap="round"/>
+              <path d="M39 151 A82 82 0 0 1 110 28" fill="none" stroke="#e99e25" stroke-width="16" stroke-linecap="round"/>
+              <text x="110" y="105" text-anchor="middle" fill="#243770" font-family="Arial, sans-serif" font-weight="800" font-size="17">Patient</text>
+              <text x="110" y="124" text-anchor="middle" fill="#243770" font-family="Arial, sans-serif" font-weight="800" font-size="17">Journey</text>
+            </svg>
+            <ul class="compass-list">
+              <li style="--item-color: var(--red);">
+                <b>1</b>
+                <span><strong>Understand</strong>Access barriers affecting new starts and refills.</span>
+              </li>
+              <li style="--item-color: var(--gold);">
+                <b>2</b>
+                <span><strong>Optimize</strong>Coverage, enrollment, funding support, and coordination strategies.</span>
+              </li>
+              <li style="--item-color: var(--teal);">
+                <b>3</b>
+                <span><strong>Benchmark</strong>Patient services performance against comparator patterns.</span>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Methodology</p>
+          <h2>Matched A/B comparison across intervention exposure</h2>
+          <p>
+            Patients were assigned to groups with and without intervention exposure, matched on preset gender, age, and payer parameters. Claritas Rx's aggregation platform supplied faster visibility than traditional data sets.
+          </p>
+          <div class="ab-test" aria-label="A/B testing comparison">
+            <div class="test-row">
+              <span>Intervention</span>
+              <span class="test-track"><i style="--w: 100%;"></i></span>
+              <span>2,642 pts</span>
+            </div>
+            <div class="test-row">
+              <span>Control</span>
+              <span class="test-track"><i style="--w: 100%;"></i></span>
+              <span>2,642 pts</span>
+            </div>
+          </div>
+          <div class="number-cloud" aria-label="Study design notes">
+            <div class="number-pill">3<small>Brands</small></div>
+            <div class="number-pill">A/B<small>Design</small></div>
+            <div class="number-pill">Gender<small>Matched</small></div>
+            <div class="number-pill">Payer<small>Matched</small></div>
+          </div>
+        </article>
+      </section>
+
+      <section id="evidence" aria-label="Evidence flow">
+        <p class="section-label">Evidence flow</p>
+        <h2>Where the platform is positioned to change the journey</h2>
+        <div class="evidence-map">
+          <article class="evidence-card">
+            <h3>1. Detect access friction</h3>
+            <p>Identify new starts and refill patients encountering coverage, enrollment, delay, or funding barriers.</p>
+          </article>
+          <article class="evidence-card">
+            <h3>2. Coordinate early</h3>
+            <p>Use case coordination and market alerts while the patient is still recoverable in the therapy journey.</p>
+          </article>
+          <article class="evidence-card">
+            <h3>3. Convert first fill</h3>
+            <p>The observed average intervention effect was a 10% lift in patient fill rate.</p>
+          </article>
+          <article class="evidence-card">
+            <h3>4. Protect refill</h3>
+            <p>Among patients with at least one more fill opportunity, refill rate increased by 11% on average.</p>
+          </article>
+          <article class="evidence-card">
+            <h3>5. Keep patients on brand</h3>
+            <p>The conclusion emphasized more patients starting and staying on treatment by year two.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="results" class="lift-callout" aria-label="Results and application scenario">
+        <aside class="lift-number">
+          <span>Reported result</span>
+          <strong>10% + 11%</strong>
+          <p>Average lift in first fill and refill rates after intervention.</p>
+        </aside>
+        <article class="panel">
+          <p class="section-label">Application scenario</p>
+          <h2>Rheumatoid arthritis brand basket translated lift into opportunity</h2>
+          <p>
+            For an immunology product in ICD Group Rheumatoid Arthritis from January 1, 2022 through January 1, 2023, the poster modeled how known lift could affect patients experiencing moderate to significant time delays.
+          </p>
+          <div class="impact-math" aria-label="Scenario calculations">
+            <div class="math-card">
+              <strong>21%</strong>
+              <span>Patients with 11+ day delay issues</span>
+            </div>
+            <div class="math-card">
+              <strong>1,114</strong>
+              <span>Patients at risk for first fill</span>
+            </div>
+            <div class="math-card">
+              <strong>111</strong>
+              <span>Additional first fills from 10% lift</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="visual-grid" aria-label="Patient impact funnel and table pattern">
+        <article class="panel">
+          <p class="section-label">Impact funnel</p>
+          <h2>From written prescriptions to retained therapy</h2>
+          <div class="funnel-wrap">
+            <svg class="funnel-svg" viewBox="0 0 320 270" role="img" aria-label="Patient opportunity funnel">
+              <defs>
+                <linearGradient id="funnelGradient" x1="0" x2="1">
+                  <stop offset="0" stop-color="#d12630"/>
+                  <stop offset="0.55" stop-color="#e99e25"/>
+                  <stop offset="1" stop-color="#187c8f"/>
+                </linearGradient>
+              </defs>
+              <path d="M28 30 H292 L250 92 H70 Z" fill="#eef4fb" stroke="#aebbd2"/>
+              <path d="M70 104 H250 L218 158 H102 Z" fill="#fff7ea" stroke="#aebbd2"/>
+              <path d="M102 170 H218 L190 224 H130 Z" fill="#eef4fb" stroke="#aebbd2"/>
+              <path d="M130 236 H190 L176 262 H144 Z" fill="url(#funnelGradient)" opacity="0.92"/>
+              <text x="160" y="67" text-anchor="middle" fill="#243770" font-family="Arial, sans-serif" font-weight="800" font-size="25">5,303</text>
+              <text x="160" y="139" text-anchor="middle" fill="#243770" font-family="Arial, sans-serif" font-weight="800" font-size="24">2,127</text>
+              <text x="160" y="205" text-anchor="middle" fill="#243770" font-family="Arial, sans-serif" font-weight="800" font-size="22">425</text>
+              <text x="160" y="256" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-weight="800" font-size="15">+47</text>
+            </svg>
+            <ul class="funnel-steps">
+              <li><strong>5,303</strong><span>New patients with written prescriptions per year.</span></li>
+              <li><strong>2,127</strong><span>Patients past first fill after 38% baseline fill rate plus 111 incremental first fills.</span></li>
+              <li><strong>425</strong><span>Estimated patients likely to drop when applying a 20% drop-off risk.</span></li>
+              <li><strong>47</strong><span>Additional refill fills from the 11% lift, interpreted as more patients staying on brand.</span></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Table pattern</p>
+          <h2>Weekly abandonment and discontinuation counts moved together</h2>
+          <p>
+            The source table listed 53 weekly observations from January 2, 2022 through January 1, 2023. Abandonments averaged 27.1 per week, while discontinuations averaged 12.9 per week.
+          </p>
+          <div class="month-bars" aria-label="Monthly average abandonment and discontinuation pattern">
+            <div class="month"><div class="month-stack"><i style="height:79%;"></i><i style="height:71%;"></i></div><span>Jan</span></div>
+            <div class="month"><div class="month-stack"><i style="height:81%;"></i><i style="height:76%;"></i></div><span>Feb</span></div>
+            <div class="month"><div class="month-stack"><i style="height:94%;"></i><i style="height:91%;"></i></div><span>Mar</span></div>
+            <div class="month"><div class="month-stack"><i style="height:86%;"></i><i style="height:84%;"></i></div><span>Apr</span></div>
+            <div class="month"><div class="month-stack"><i style="height:81%;"></i><i style="height:75%;"></i></div><span>May</span></div>
+            <div class="month"><div class="month-stack"><i style="height:92%;"></i><i style="height:94%;"></i></div><span>Jun</span></div>
+            <div class="month"><div class="month-stack"><i style="height:80%;"></i><i style="height:73%;"></i></div><span>Jul</span></div>
+            <div class="month"><div class="month-stack"><i style="height:90%;"></i><i style="height:91%;"></i></div><span>Aug</span></div>
+            <div class="month"><div class="month-stack"><i style="height:87%;"></i><i style="height:84%;"></i></div><span>Sep</span></div>
+            <div class="month"><div class="month-stack"><i style="height:81%;"></i><i style="height:75%;"></i></div><span>Oct</span></div>
+            <div class="month"><div class="month-stack"><i style="height:92%;"></i><i style="height:94%;"></i></div><span>Nov</span></div>
+            <div class="month"><div class="month-stack"><i style="height:80%;"></i><i style="height:72%;"></i></div><span>Dec</span></div>
+          </div>
+          <ul class="pattern-legend">
+            <li><i></i>Average abandonments</li>
+            <li><i></i>Average discontinuations</li>
+          </ul>
+          <p class="source-note">Peak weeks in the table reached 32 abandonments and 16 discontinuations; both measures were elevated in March, June, August, and November.</p>
+        </article>
+      </section>
+
+      <section class="section-stack" aria-label="Conclusion and poster assets">
+        <article class="panel markdown-fragment">
+          <p class="section-label">Conclusion</p>
+          <h2>Faster insight plus coordination supported improved access</h2>
+          <p>
+            Customers using the patient intervention solution improved throughput of first-fill conversions and refill rates for patients encountering journey issues. The poster summarizes this as a 10% first-fill lift and 11% refill uplift, equating to more than 300 patients starting and staying on treatment by year two.
+          </p>
+        </article>
+        <article class="panel markdown-fragment">
+          <p class="section-label">Dashboard cues in the poster</p>
+          <h2>Benchmarking views point to operational follow-up</h2>
+          <ul>
+            <li>Patient status dashboard for journey segmentation.</li>
+            <li>Fill-rate dashboard for conversion monitoring.</li>
+            <li>Abandonment and discontinuation counts for tracking risk over time.</li>
+          </ul>
+        </article>
+      </section>
+
+      <footer id="sources" class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/76_Optimize-Your-Patient-Services-to-Support-the-Patient-Treatment-Journey_2023.pdf">Open original PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/76_Optimize-Your-Patient-Services-to-Support-the-Patient-Treatment-Journey_2023.md">Open extracted markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

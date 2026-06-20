@@ -1,0 +1,672 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2024 Infographic | Hybrid Work Employee Engagement</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .engagement-orbit {
+      position: relative;
+      min-height: 18rem;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 18% 22%, rgba(233, 158, 37, 0.28), transparent 7rem),
+        radial-gradient(circle at 82% 68%, rgba(24, 124, 143, 0.2), transparent 8rem),
+        linear-gradient(145deg, rgba(36, 55, 112, 0.96), rgba(24, 124, 143, 0.92));
+      padding: 1rem;
+      color: #fff;
+    }
+
+    .topbar {
+      margin-inline: 0;
+    }
+
+    .engagement-orbit svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .orbit-caption {
+      position: absolute;
+      left: 1rem;
+      right: 1rem;
+      bottom: 1rem;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.5rem;
+    }
+
+    .orbit-caption div {
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.12);
+      padding: 0.55rem;
+      backdrop-filter: blur(8px);
+    }
+
+    .orbit-caption strong {
+      display: block;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+
+    .orbit-caption span {
+      display: block;
+      margin-top: 0.22rem;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 0.66rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .score-lift {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 0.75rem;
+      align-items: stretch;
+      margin-top: 0.7rem;
+    }
+
+    .score-card {
+      min-height: 8.5rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+    }
+
+    .score-card.hybrid {
+      background: linear-gradient(145deg, #fff, var(--surface-warm));
+      border-color: rgba(233, 158, 37, 0.58);
+    }
+
+    .score-card span {
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    .score-card strong {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(3.2rem, 7vw, 5rem);
+      line-height: 0.9;
+    }
+
+    .score-card.hybrid strong {
+      color: var(--red);
+    }
+
+    .lift-arrow {
+      display: grid;
+      place-items: center;
+      width: 3.6rem;
+      color: var(--teal);
+      font-family: var(--font-display);
+      font-size: 2.6rem;
+      font-weight: 900;
+    }
+
+    .survey-frame {
+      position: relative;
+      min-height: 13rem;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(160deg, var(--surface-blue), #fff 58%, var(--surface-warm));
+      padding: 1rem;
+    }
+
+    .survey-frame::after {
+      content: "42";
+      position: absolute;
+      right: -0.4rem;
+      bottom: -1.4rem;
+      color: rgba(36, 55, 112, 0.08);
+      font-family: var(--font-display);
+      font-size: 9rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .survey-frame h3 {
+      max-width: 20rem;
+      font-size: 1.35rem;
+    }
+
+    .survey-frame p {
+      position: relative;
+      z-index: 1;
+      max-width: 28rem;
+      margin: 0.55rem 0 0;
+      font-size: 0.9rem;
+    }
+
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+
+    .method-tile {
+      min-height: 9.5rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+    }
+
+    .method-tile b {
+      display: inline-grid;
+      place-items: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+    }
+
+    .method-tile h3 {
+      margin-top: 0.55rem;
+      font-size: 0.95rem;
+    }
+
+    .method-tile p {
+      margin: 0.4rem 0 0;
+      font-size: 0.8rem;
+    }
+
+    .comparison-bars {
+      display: grid;
+      gap: 0.62rem;
+      margin-top: 0.7rem;
+    }
+
+    .comparison-row {
+      display: grid;
+      grid-template-columns: 11rem minmax(0, 1fr) 3.2rem;
+      gap: 0.6rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+
+    .comparison-track {
+      height: 0.95rem;
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+
+    .comparison-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .comparison-row.opportunity .comparison-track i {
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .favorability-grid {
+      display: grid;
+      grid-template-columns: 13rem minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+      margin-top: 0.55rem;
+    }
+
+    .favorability-grid svg {
+      width: 100%;
+      max-width: 13rem;
+      height: auto;
+    }
+
+    .legend {
+      display: grid;
+      gap: 0.48rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .legend li {
+      display: grid;
+      grid-template-columns: 0.8rem minmax(0, 1fr) auto;
+      gap: 0.45rem;
+      align-items: center;
+      font-size: 0.82rem;
+    }
+
+    .legend i {
+      width: 0.8rem;
+      height: 0.8rem;
+      border-radius: 3px;
+      background: var(--legend-color, var(--red));
+    }
+
+    .action-board {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.7rem;
+    }
+
+    .action-card {
+      min-height: 6.2rem;
+      border: 1px solid rgba(174, 187, 210, 0.92);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.75rem;
+    }
+
+    .action-card strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.98rem;
+      line-height: 1.18;
+    }
+
+    .action-card span {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+
+    .callout-band {
+      display: grid;
+      grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+      gap: 0.8rem;
+      align-items: stretch;
+    }
+
+    .conclusion-card {
+      display: grid;
+      align-content: center;
+      min-height: 12rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--ink);
+      padding: 1rem;
+      color: #fff;
+    }
+
+    .conclusion-card span {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .conclusion-card strong {
+      display: block;
+      margin-top: 0.28rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      line-height: 1.02;
+    }
+
+    .context-list {
+      margin: 0.65rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .context-list li {
+      display: grid;
+      grid-template-columns: 0.75rem minmax(0, 1fr);
+      gap: 0.45rem;
+      margin-top: 0.45rem;
+      font-size: 0.86rem;
+    }
+
+    .context-list li::before {
+      content: "";
+      width: 0.48rem;
+      height: 0.48rem;
+      margin-top: 0.45rem;
+      border-radius: 50%;
+      background: var(--red);
+    }
+
+    .source-note {
+      margin: 0.75rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 900px) {
+      .method-grid,
+      .action-board,
+      .callout-band {
+        grid-template-columns: 1fr;
+      }
+
+      .score-lift,
+      .favorability-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .lift-arrow {
+        width: auto;
+        min-height: 2.5rem;
+        transform: rotate(90deg);
+      }
+
+      .orbit-caption {
+        position: static;
+        margin-top: 0.5rem;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .orbit-caption,
+      .comparison-row {
+        grid-template-columns: 1fr;
+      }
+
+      .comparison-row em {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="https://naspnet.org/" aria-label="NASP website">NASP Posters</a>
+      <nav aria-label="Page sections">
+        <a href="#snapshot">Snapshot</a>
+        <a href="#methods">Methods</a>
+        <a href="#results">Results</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">2024 Annual Meeting Poster | PSP102-OR</p>
+        <h1>Improving employee engagement in a hybrid work setting at an integrated health system specialty pharmacy</h1>
+        <p class="hero-summary">
+          Yale New Haven Health's outpatient specialty pharmacy tracked whether engagement could be maintained or improved
+          as most staff moved into a hybrid work model.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Employee engagement</li>
+          <li class="tag therapy">Hybrid staffing model</li>
+          <li class="tag therapy">Health-system specialty pharmacy</li>
+          <li class="tag">Yale New Haven Health</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Poster details">
+        <div class="poster-code">AM24<br>PSP102-OR</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Poster year</dt>
+            <dd>2024</dd>
+          </div>
+          <div>
+            <dt>Survey year</dt>
+            <dd>2023</dd>
+          </div>
+          <div>
+            <dt>Employees</dt>
+            <dd>118 surveyed</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>Integrated HSSP</dd>
+          </div>
+        </dl>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/102-PSP102-OR-Poster-AM24_2024.pdf">Open poster PDF</a>
+      </aside>
+    </section>
+
+    <main>
+      <section id="snapshot" class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Scores improved</span>
+          <strong>35</strong>
+        </article>
+        <article class="metric-card">
+          <span>Scores decreased</span>
+          <strong>0</strong>
+        </article>
+        <article class="metric-card">
+          <span>Above benchmark</span>
+          <strong>42</strong>
+        </article>
+        <article class="metric-card">
+          <span>Response rate</span>
+          <strong>66%</strong>
+        </article>
+      </section>
+
+      <section class="visual-grid" aria-label="Engagement story">
+        <article class="engagement-orbit">
+          <svg viewBox="0 0 560 310" role="img" aria-label="Hybrid engagement network illustration">
+            <defs>
+              <linearGradient id="lineGradient" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ffffff" stop-opacity="0.7"></stop>
+                <stop offset="1" stop-color="#e99e25" stop-opacity="0.78"></stop>
+              </linearGradient>
+            </defs>
+            <path d="M92 152c62-88 147-102 254-42 48 27 88 31 128 13" fill="none" stroke="url(#lineGradient)" stroke-width="5" stroke-linecap="round"></path>
+            <path d="M96 205c82 47 160 41 235-19 51-40 92-50 133-29" fill="none" stroke="rgba(255,255,255,0.34)" stroke-width="4" stroke-linecap="round"></path>
+            <circle cx="112" cy="146" r="41" fill="#fff" opacity="0.95"></circle>
+            <circle cx="256" cy="85" r="34" fill="#e99e25" opacity="0.94"></circle>
+            <circle cx="356" cy="154" r="50" fill="#fff" opacity="0.92"></circle>
+            <circle cx="458" cy="124" r="30" fill="#4d8a67" opacity="0.92"></circle>
+            <circle cx="188" cy="224" r="31" fill="#187c8f" opacity="0.96"></circle>
+            <circle cx="426" cy="214" r="40" fill="#d12630" opacity="0.9"></circle>
+            <text x="112" y="139" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="15" font-weight="900">Social</text>
+            <text x="112" y="158" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="15" font-weight="900">support</text>
+            <text x="356" y="149" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="17" font-weight="900">Hybrid</text>
+            <text x="356" y="170" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="17" font-weight="900">engagement</text>
+            <text x="426" y="219" text-anchor="middle" fill="#fff" font-family="Montserrat, Arial, sans-serif" font-size="28" font-weight="900">86</text>
+            <text x="256" y="91" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="22" font-weight="900">42</text>
+            <text x="188" y="229" text-anchor="middle" fill="#fff" font-family="Montserrat, Arial, sans-serif" font-size="20" font-weight="900">90%</text>
+            <text x="458" y="129" text-anchor="middle" fill="#fff" font-family="Montserrat, Arial, sans-serif" font-size="20" font-weight="900">35</text>
+          </svg>
+          <div class="orbit-caption" aria-label="Visual highlights">
+            <div><strong>86</strong><span>Hybrid engagement score</span></div>
+            <div><strong>90%</strong><span>Favorable responses</span></div>
+            <div><strong>35</strong><span>Scores improved</span></div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Maintain or improve engagement while preserving workplace social support</h2>
+          <p>
+            The specialty pharmacy moved most staff into a hybrid model in 2023, creating a need to counter possible
+            isolation and disengagement with structured recognition, team-building, wellness, and management support.
+          </p>
+          <div class="score-lift" aria-label="Engagement score comparison">
+            <div class="score-card">
+              <span>Onsite 2022</span>
+              <strong>80</strong>
+              <p>Pre-transition engagement score</p>
+            </div>
+            <div class="lift-arrow" aria-hidden="true">+</div>
+            <div class="score-card hybrid">
+              <span>Hybrid 2023</span>
+              <strong>86</strong>
+              <p>Six-point improvement after transition</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section id="methods" class="panel">
+        <p class="section-label">Methods</p>
+        <h2>Twice-yearly engagement measurement paired with ongoing team support</h2>
+        <div class="method-grid">
+          <article class="method-tile">
+            <b>1</b>
+            <h3>Survey cadence</h3>
+            <p>Employee engagement surveys were administered twice per year.</p>
+          </article>
+          <article class="method-tile">
+            <b>2</b>
+            <h3>Broad question set</h3>
+            <p>Employees answered 42 items on satisfaction, engagement, and employee experience.</p>
+          </article>
+          <article class="method-tile">
+            <b>3</b>
+            <h3>Engagement activities</h3>
+            <p>Recognition, icebreakers, team building, and wellness sessions supported connection.</p>
+          </article>
+          <article class="method-tile">
+            <b>4</b>
+            <h3>System resources</h3>
+            <p>Managers leveraged health-system employee engagement resources.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="results" class="visual-grid" aria-label="Results charts">
+        <article class="panel">
+          <p class="section-label">Strengths and opportunities</p>
+          <h2>All top opportunity areas still met or exceeded benchmark</h2>
+          <div class="comparison-bars">
+            <div class="comparison-row">
+              <span>Growth strength</span>
+              <div class="comparison-track"><i style="width: 88%;"></i></div>
+              <em>88</em>
+            </div>
+            <div class="comparison-row">
+              <span>Patient care quality</span>
+              <div class="comparison-track"><i style="width: 86%;"></i></div>
+              <em>86</em>
+            </div>
+            <div class="comparison-row">
+              <span>Well-being</span>
+              <div class="comparison-track"><i style="width: 79%;"></i></div>
+              <em>79</em>
+            </div>
+            <div class="comparison-row opportunity">
+              <span>Purpose opportunity</span>
+              <div class="comparison-track"><i style="width: 91%;"></i></div>
+              <em>91</em>
+            </div>
+            <div class="comparison-row opportunity">
+              <span>Respectful treatment</span>
+              <div class="comparison-track"><i style="width: 83%;"></i></div>
+              <em>83</em>
+            </div>
+            <div class="comparison-row opportunity">
+              <span>Recognition</span>
+              <div class="comparison-track"><i style="width: 73%;"></i></div>
+              <em>73</em>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Response favorability</p>
+          <h2>A strong favorable signal in 2023</h2>
+          <div class="favorability-grid">
+            <svg viewBox="0 0 240 240" role="img" aria-label="Donut chart showing 90 percent favorable, 8 percent neutral, 2 percent unfavorable">
+              <circle cx="120" cy="120" r="76" fill="none" stroke="#d9e1ef" stroke-width="36"></circle>
+              <circle cx="120" cy="120" r="76" fill="none" stroke="#187c8f" stroke-width="36" stroke-dasharray="429.8 47.7" stroke-dashoffset="0" transform="rotate(-90 120 120)"></circle>
+              <circle cx="120" cy="120" r="76" fill="none" stroke="#e99e25" stroke-width="36" stroke-dasharray="38.2 439.3" stroke-dashoffset="-429.8" transform="rotate(-90 120 120)"></circle>
+              <circle cx="120" cy="120" r="76" fill="none" stroke="#d12630" stroke-width="36" stroke-dasharray="9.6 467.9" stroke-dashoffset="-468" transform="rotate(-90 120 120)"></circle>
+              <circle cx="120" cy="120" r="49" fill="#fff"></circle>
+              <text x="120" y="113" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="24" font-weight="900">90%</text>
+              <text x="120" y="136" text-anchor="middle" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="800">favorable</text>
+            </svg>
+            <ul class="legend">
+              <li style="--legend-color: var(--teal);"><i></i><span>Favorable</span><b>90%</b></li>
+              <li style="--legend-color: var(--gold);"><i></i><span>Neutral</span><b>8%</b></li>
+              <li style="--legend-color: var(--red);"><i></i><span>Unfavorable</span><b>2%</b></li>
+            </ul>
+          </div>
+          <p class="source-note">Survey summary: 118 employees participated, a 66% response rate.</p>
+        </article>
+      </section>
+
+      <section class="section-stack" aria-label="Survey interpretation">
+        <article class="survey-frame">
+          <p class="section-label">Benchmark result</p>
+          <h3>Every measured score was above benchmark</h3>
+          <p>
+            Compared with 2022, 35 scores increased, no scores decreased, and all 42 survey scores remained above the
+            health-system benchmark after implementation of the hybrid staffing model.
+          </p>
+        </article>
+        <article class="panel">
+          <p class="section-label">Interpretation</p>
+          <h2>Engagement gains likely reflected a broader support ecosystem</h2>
+          <ul class="context-list">
+            <li>Enhanced recruitment and specialty training helped address staffing pressure and supported efficient work.</li>
+            <li>Peer support and wellness resources, including meditation, reiki, chair massage, and therapy dog visits, may have contributed.</li>
+            <li>Administrative support may limit direct transferability to smaller health systems.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">2024 action planning</p>
+        <h2>Opportunities were translated into concrete next steps</h2>
+        <div class="action-board" aria-label="Action planning themes for 2024">
+          <article class="action-card"><strong>Employee recognition</strong><span>Reinforce recognition as the lowest-scoring opportunity area.</span></article>
+          <article class="action-card"><strong>Impactful patient stories</strong><span>Connect daily work to visible patient-care purpose.</span></article>
+          <article class="action-card"><strong>Individual contributions</strong><span>Make staff contributions easier to see and celebrate.</span></article>
+          <article class="action-card"><strong>Solicit engagement ideas</strong><span>Invite staff-generated improvements for hybrid work.</span></article>
+          <article class="action-card"><strong>Task delegation</strong><span>Balance workload and ownership across the team.</span></article>
+          <article class="action-card"><strong>Flexible scheduling</strong><span>Preserve the practical advantages of hybrid staffing.</span></article>
+          <article class="action-card"><strong>Wellness activities</strong><span>Continue structured support for well-being and connection.</span></article>
+        </div>
+      </section>
+
+      <section class="callout-band">
+        <article class="conclusion-card">
+          <span>Conclusion</span>
+          <strong>Ongoing engagement activities can improve engagement in a hybrid work setting.</strong>
+        </article>
+        <article class="panel">
+          <p class="section-label">Why it matters</p>
+          <h2>Hybrid work did not dilute the employee experience signal</h2>
+          <p>
+            The poster links a proactive employee-engagement program with improved 2023 survey performance, suggesting
+            that social support can be designed into a hybrid specialty pharmacy model rather than left to chance.
+          </p>
+          <p class="source-note">
+            Poster disclosure: authors reported no relevant financial or personal relationships with commercial entities.
+          </p>
+        </article>
+      </section>
+
+      <section id="sources" class="panel">
+        <p class="section-label">Source files</p>
+        <h2>Original poster and extracted markdown</h2>
+        <div class="footer-actions">
+          <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/102-PSP102-OR-Poster-AM24_2024.pdf">View source PDF</a>
+          <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/102-PSP102-OR-Poster-AM24_2024.md">View extracted markdown</a>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

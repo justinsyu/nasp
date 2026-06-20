@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Specialty Technician Training Program Development | NASP 2022</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .training-visual {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 0.85rem;
+      margin-top: 0.3rem;
+    }
+
+    .track-card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 88% 16%, rgba(233, 158, 37, 0.26), transparent 5rem),
+        linear-gradient(145deg, rgba(238, 244, 251, 0.96), #fff 58%, rgba(255, 247, 234, 0.96));
+      padding: 0.9rem;
+    }
+
+    .track-card svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -3rem;
+      bottom: -3rem;
+      width: 12rem;
+      height: 12rem;
+      border: 1.2rem solid rgba(24, 124, 143, 0.1);
+      border-radius: 50%;
+    }
+
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .comparison-stage {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .conversion-card {
+      display: grid;
+      align-content: center;
+      min-height: 17rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--ink);
+      color: #fff;
+      padding: 1.1rem;
+    }
+
+    .conversion-card span {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .conversion-card strong {
+      display: block;
+      margin-top: 0.25rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(4rem, 10vw, 7rem);
+      line-height: 0.86;
+    }
+
+    .conversion-card p {
+      margin: 0.75rem 0 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.95rem;
+    }
+
+    .bar-compare {
+      display: grid;
+      gap: 0.85rem;
+      margin-top: 0.85rem;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 9rem minmax(0, 1fr) 3.4rem;
+      gap: 0.7rem;
+      align-items: center;
+    }
+
+    .bar-row b {
+      color: var(--ink);
+      font-size: 0.82rem;
+      line-height: 1.18;
+    }
+
+    .bar-track {
+      height: 1.2rem;
+      border: 1px solid rgba(174, 187, 210, 0.8);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .bar-fill.specialty {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .bar-row em {
+      color: var(--ink);
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.85rem;
+    }
+
+    .timeline-step {
+      position: relative;
+      min-height: 9.5rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.75rem;
+    }
+
+    .timeline-step::before {
+      content: attr(data-month);
+      display: inline-flex;
+      align-items: center;
+      min-height: 1.6rem;
+      margin-bottom: 0.55rem;
+      border-radius: 999px;
+      background: var(--surface-blue);
+      color: var(--red);
+      padding: 0.22rem 0.5rem;
+      font-size: 0.66rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .timeline-step h3 {
+      font-size: 0.9rem;
+    }
+
+    .timeline-step p {
+      margin: 0.4rem 0 0;
+      color: var(--body);
+      font-size: 0.78rem;
+    }
+
+    .rotation-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.85rem;
+    }
+
+    .rotation-card {
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.7rem;
+    }
+
+    .rotation-card strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.92rem;
+      line-height: 1.15;
+    }
+
+    .rotation-card span {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    .week-strip {
+      display: grid;
+      grid-template-columns: repeat(9, minmax(0, 1fr));
+      gap: 0.22rem;
+      margin-top: 0.85rem;
+    }
+
+    .week {
+      min-height: 4.1rem;
+      border: 1px solid rgba(174, 187, 210, 0.88);
+      border-radius: 6px;
+      background: #fff;
+      padding: 0.42rem 0.32rem;
+      text-align: center;
+    }
+
+    .week b {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 0.76rem;
+    }
+
+    .week span {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--body);
+      font-size: 0.64rem;
+      font-weight: 800;
+      line-height: 1.16;
+    }
+
+    .competency-list {
+      display: grid;
+      gap: 0.45rem;
+      margin-top: 0.75rem;
+    }
+
+    .competency-item {
+      display: grid;
+      grid-template-columns: 2.6rem minmax(0, 1fr);
+      gap: 0.55rem;
+      align-items: center;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.52rem;
+    }
+
+    .competency-item b {
+      display: inline-grid;
+      place-items: center;
+      width: 2.1rem;
+      height: 2.1rem;
+      border-radius: 50%;
+      background: rgba(24, 124, 143, 0.12);
+      color: var(--teal);
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+    }
+
+    .competency-item span {
+      color: var(--body);
+      font-size: 0.8rem;
+      font-weight: 750;
+      line-height: 1.25;
+    }
+
+    .challenge-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+
+    .challenge-card {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.72rem;
+    }
+
+    .challenge-card h3 {
+      margin-bottom: 0.35rem;
+      color: var(--red);
+    }
+
+    .challenge-card p {
+      margin: 0;
+      color: var(--body);
+      font-size: 0.8rem;
+    }
+
+    .quote-panel {
+      border-left: 0.32rem solid var(--green);
+      background: linear-gradient(90deg, rgba(77, 138, 103, 0.12), #fff);
+    }
+
+    @media (max-width: 900px) {
+      .comparison-stage,
+      .timeline,
+      .rotation-grid,
+      .challenge-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .week-strip {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .bar-row {
+        grid-template-columns: 1fr;
+      }
+
+      .bar-row em {
+        text-align: left;
+      }
+
+      .week-strip {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">NASP Posters</a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/22-2022.pdf">Original PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/22-2022.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP Annual Meeting &amp; Expo 2022 | Poster 22-2022</p>
+        <h1>Specialty Technician Training Program Development</h1>
+        <p class="hero-summary">Yale New Haven Health built a specialty pharmacy technician rotation track inside its accredited technician training program to widen the candidate pool during a pandemic-era staffing shortage.</p>
+        <ul class="tag-row" aria-label="Poster topics">
+          <li class="tag category">Workforce development</li>
+          <li class="tag therapy">Specialty pharmacy</li>
+          <li class="tag">Technician training</li>
+          <li class="tag">ASHP/ACPE accredited program</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card">
+        <div class="poster-code">22<br>2022</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Organization</dt>
+            <dd>Yale New Haven Health</dd>
+          </div>
+          <div>
+            <dt>Program Build</dt>
+            <dd>5 months</dd>
+          </div>
+          <div>
+            <dt>First Rotation</dt>
+            <dd>Mar 28, 2022</dd>
+          </div>
+          <div>
+            <dt>Track Length</dt>
+            <dd>7 specialty weeks + IV exposure</dd>
+          </div>
+        </dl>
+        <div class="training-visual" aria-hidden="true">
+          <div class="track-card">
+            <svg viewBox="0 0 340 180" role="img" aria-label="Training track from candidate pool to retained specialty technicians">
+              <defs>
+                <linearGradient id="trackGradient" x1="0" x2="1">
+                  <stop offset="0" stop-color="#d12630"/>
+                  <stop offset="0.55" stop-color="#e99e25"/>
+                  <stop offset="1" stop-color="#187c8f"/>
+                </linearGradient>
+              </defs>
+              <path d="M35 132 C95 28, 176 28, 306 44" fill="none" stroke="url(#trackGradient)" stroke-width="12" stroke-linecap="round"/>
+              <path d="M35 132 C116 158, 200 142, 304 100" fill="none" stroke="#243770" stroke-width="3" stroke-linecap="round" stroke-dasharray="7 9" opacity="0.45"/>
+              <g fill="#fff" stroke="#243770" stroke-width="3">
+                <circle cx="35" cy="132" r="18"/>
+                <circle cx="119" cy="62" r="18"/>
+                <circle cx="204" cy="43" r="18"/>
+                <circle cx="306" cy="44" r="18"/>
+              </g>
+              <g fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="13" font-weight="900" text-anchor="middle">
+                <text x="35" y="137">Hire</text>
+                <text x="119" y="67">Plan</text>
+                <text x="204" y="48">Train</text>
+                <text x="306" y="49">SPT</text>
+              </g>
+              <g fill="#33415c" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="800" text-anchor="middle">
+                <text x="65" y="161">shortage pressure</text>
+                <text x="183" y="91">rotation objectives</text>
+                <text x="278" y="132">retained full-time</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <div class="metric-card">
+          <span>Baseline hiring</span>
+          <strong>13%</strong>
+        </div>
+        <div class="metric-card">
+          <span>Specialty track hiring</span>
+          <strong>100%</strong>
+        </div>
+        <div class="metric-card">
+          <span>Students completed</span>
+          <strong>2</strong>
+        </div>
+        <div class="metric-card">
+          <span>Development time</span>
+          <strong>5 mo</strong>
+        </div>
+      </section>
+
+      <section class="comparison-stage" id="results">
+        <div class="conversion-card">
+          <span>Core result</span>
+          <strong>+87</strong>
+          <p>Percentage-point difference between the historical YNHH technician training hiring rate and the specialty-focused track's first reported hiring rate.</p>
+        </div>
+        <div class="panel">
+          <p class="section-label">Hiring-rate pattern</p>
+          <h2>Specialty exposure changed the conversion curve</h2>
+          <p>The original program produced limited specialty technician hiring despite offering broad pharmacy exposure. The new track centered rotations around specialty pharmacy teams and retained both initial completers as full-time SPTs.</p>
+          <div class="bar-compare" aria-label="Hiring rate comparison">
+            <div class="bar-row">
+              <b>Original technician program</b>
+              <div class="bar-track"><span class="bar-fill" style="width:13%"></span></div>
+              <em>13%</em>
+            </div>
+            <div class="bar-row">
+              <b>Specialty-focused track</b>
+              <div class="bar-track"><span class="bar-fill specialty" style="width:100%"></span></div>
+              <em>100%</em>
+            </div>
+            <div class="bar-row">
+              <b>Not selected after completion</b>
+              <div class="bar-track"><span class="bar-fill" style="width:87%"></span></div>
+              <em>87%</em>
+            </div>
+            <div class="bar-row">
+              <b>Specialty-track non-selection</b>
+              <div class="bar-track"><span class="bar-fill specialty" style="width:0%"></span></div>
+              <em>0%</em>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="methods">
+        <p class="section-label">Evidence flow</p>
+        <h2>From staffing problem to live rotation in five months</h2>
+        <div class="timeline">
+          <article class="timeline-step" data-month="Oct 2021">
+            <h3>Set criteria</h3>
+            <p>Met with the technician training program coordinator and mapped requirements for a specialty track.</p>
+          </article>
+          <article class="timeline-step" data-month="Oct-Dec">
+            <h3>Map roles</h3>
+            <p>Outlined specialty pharmacy technician positions and reviewed objectives against ASHP accreditation standards.</p>
+          </article>
+          <article class="timeline-step" data-month="Jan 2022">
+            <h3>Build tools</h3>
+            <p>Created the student binder, competency checklists, objective assignments, and preceptor preparation materials.</p>
+          </article>
+          <article class="timeline-step" data-month="Mar 2022">
+            <h3>Align leaders</h3>
+            <p>Introduced the track to leadership and specialty pharmacy staff, including preceptor expectations.</p>
+          </article>
+          <article class="timeline-step" data-month="Mar 28">
+            <h3>Launch rotation</h3>
+            <p>The first student began the on-site specialty pharmacy rotation portion of the track.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="visual-grid">
+        <div class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Increase the available SPT candidate pool</h2>
+          <div class="markdown-fragment">
+            <p>The poster framed the track as a response to technician shortages that worsened during Covid-19 and strained specialty pharmacy workflow and patient care.</p>
+            <p>YNHH repurposed an established 23-week technician training program, treating completion as equivalent to one year of pharmacy experience for organizational hiring.</p>
+          </div>
+        </div>
+        <div class="panel">
+          <p class="section-label">Training architecture</p>
+          <h2>A rotating specialty curriculum replaced generic exposure</h2>
+          <div class="week-strip" aria-label="Student schedule by week">
+            <div class="week"><b>W1</b><span>HIT, compliance, MAP, Med B, 340B, customer service</span></div>
+            <div class="week"><b>W2</b><span>Multi-specialty and oncology intake</span></div>
+            <div class="week"><b>W3</b><span>Dispensing, shipping, inventory</span></div>
+            <div class="week"><b>W4</b><span>Transplant outreach, discharges, Med B/D, med sync</span></div>
+            <div class="week"><b>W5</b><span>Inflammatory bridge program, dosing, injectables, calls</span></div>
+            <div class="week"><b>W6</b><span>Oncology new starts, treatment plans, Medicare, outreach</span></div>
+            <div class="week"><b>W7</b><span>MS, HIV, Hep C, adherence, titration, reassessments</span></div>
+            <div class="week"><b>W8</b><span>Sterile compounding / IV exposure</span></div>
+            <div class="week"><b>W9</b><span>Hospital inpatient pharmacy scheduling</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Rotation pattern</p>
+        <h2>The schedule emphasized the operational work of specialty pharmacy</h2>
+        <div class="rotation-grid">
+          <div class="rotation-card">
+            <strong>Access and intake</strong>
+            <span>Multi-specialty intake, oncology intake, MAP, prior authorization, Med B, 340B.</span>
+          </div>
+          <div class="rotation-card">
+            <strong>Fulfillment operations</strong>
+            <span>Dispensing, shipping, inventory, customer service, safety and compliance.</span>
+          </div>
+          <div class="rotation-card">
+            <strong>Disease-state workflows</strong>
+            <span>Inflammatory disease, transplant, oncology, MS, HIV, and Hepatitis C rotations.</span>
+          </div>
+          <div class="rotation-card">
+            <strong>Clinical support tasks</strong>
+            <span>Medication adherence, reassessments, titration dosing, in-baskets, patient outreach.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-stack">
+        <div class="panel">
+          <p class="section-label">Competency scaffold</p>
+          <h2>Preceptors validated defined technician behaviors</h2>
+          <div class="competency-list">
+            <div class="competency-item"><b>3.1</b><span>Collect, organize, and record demographic and clinical information.</span></div>
+            <div class="competency-item"><b>3.7</b><span>Assist pharmacists in monitoring medication therapy.</span></div>
+            <div class="competency-item"><b>3.26</b><span>Initiate, verify, and manage complex billing adjudication.</span></div>
+            <div class="competency-item"><b>4.2</b><span>Apply patient and medication safety practices in technician roles.</span></div>
+          </div>
+        </div>
+        <div class="panel quote-panel">
+          <p class="section-label">Conclusion</p>
+          <h2>A specialty-focused training track can be a staffing strategy</h2>
+          <p>The authors concluded that a specialty-focused pharmacy technician training program offers a novel approach to addressing health-system specialty pharmacy technician shortages.</p>
+          <div class="challenge-grid">
+            <div class="challenge-card">
+              <h3>Recruitment</h3>
+              <p>Recruiting enough students for the specialty track remained a limitation.</p>
+            </div>
+            <div class="challenge-card">
+              <h3>Scheduling</h3>
+              <p>Ancillary department training, call-outs, and PTO complicated rotation planning.</p>
+            </div>
+            <div class="challenge-card">
+              <h3>Next step</h3>
+              <p>Grow enrollment and move sterile compounding / IV exposure to Home Infusion Pharmacy.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tables-grid" id="sources">
+        <div class="table-card">
+          <p class="section-label">Poster metadata</p>
+          <h2>Authors and venue</h2>
+          <div class="markdown-fragment">
+            <p>Diaramalys Rivera, Alijah Kosarko, Vanessa Batista, Brittany Dasher, Sharee Parker, and Vinay Sawant represented Yale New Haven Health, Department of Pharmacy, New Haven, CT.</p>
+            <p>Presented at NASP Annual Meeting &amp; Expo 2022, September 19-22, 2022.</p>
+          </div>
+        </div>
+        <div class="table-card">
+          <p class="section-label">Source files</p>
+          <h2>Trace back to the original poster</h2>
+          <div class="footer-actions">
+            <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/22-2022.pdf">Open PDF</a>
+            <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/22-2022.md">Open Markdown</a>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

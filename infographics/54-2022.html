@@ -1,0 +1,825 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Management of Prescription Cannabidiol Adverse Effects and Drug-Drug Interactions | NASP 2022</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .cbd-hero-art {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(36, 55, 112, 0.2);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 18% 16%, rgba(24, 124, 143, 0.2), transparent 6.5rem),
+        radial-gradient(circle at 86% 80%, rgba(233, 158, 37, 0.25), transparent 7rem),
+        linear-gradient(145deg, #fff, var(--surface-blue) 58%, var(--surface-warm));
+      padding: 0.75rem;
+    }
+
+    .cbd-hero-art svg,
+    .lab-gauge svg,
+    .management-web svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .metric-card strong small {
+      color: var(--red);
+      font-size: 0.88rem;
+    }
+
+    .metric-card em {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-style: normal;
+      font-weight: 760;
+      line-height: 1.34;
+    }
+
+    .study-board {
+      display: grid;
+      grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+      gap: 1rem;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 0.62rem;
+      margin-top: 0.75rem;
+    }
+
+    .timeline-step {
+      position: relative;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.72rem 0.78rem 0.72rem 2.5rem;
+    }
+
+    .timeline-step::before {
+      content: attr(data-step);
+      position: absolute;
+      left: 0.7rem;
+      top: 0.72rem;
+      display: grid;
+      place-items: center;
+      width: 1.25rem;
+      height: 1.25rem;
+      border-radius: 999px;
+      background: var(--red);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      font-weight: 900;
+    }
+
+    .timeline-step b {
+      display: block;
+      color: var(--ink);
+      font-size: 0.86rem;
+      line-height: 1.2;
+    }
+
+    .timeline-step span {
+      display: block;
+      margin-top: 0.18rem;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 730;
+    }
+
+    .cohort-tiles {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.72rem;
+      margin-top: 0.75rem;
+    }
+
+    .cohort-tile {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: var(--surface-blue);
+      padding: 0.78rem;
+    }
+
+    .cohort-tile strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2.25rem;
+      line-height: 1;
+    }
+
+    .cohort-tile span {
+      display: block;
+      margin-top: 0.22rem;
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+
+    .cohort-tile em {
+      display: block;
+      margin-top: 0.16rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-style: normal;
+      font-weight: 760;
+    }
+
+    .safety-board {
+      display: grid;
+      grid-template-columns: minmax(16rem, 0.75fr) minmax(0, 1.25fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .lab-gauge {
+      display: grid;
+      align-content: center;
+      min-height: 100%;
+      background:
+        linear-gradient(160deg, rgba(24, 124, 143, 0.1), rgba(255, 255, 255, 0.96) 48%),
+        #fff;
+    }
+
+    .bars {
+      display: grid;
+      gap: 0.58rem;
+      margin-top: 0.78rem;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 10.4rem minmax(0, 1fr) 3.1rem;
+      gap: 0.55rem;
+      align-items: center;
+    }
+
+    .bar-row b {
+      color: var(--ink);
+      font-size: 0.8rem;
+      line-height: 1.16;
+    }
+
+    .bar-row span:last-child {
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-weight: 850;
+      text-align: right;
+    }
+
+    .bar-track {
+      height: 0.78rem;
+      overflow: hidden;
+      border: 1px solid rgba(174, 187, 210, 0.88);
+      border-radius: 999px;
+      background: #edf2f8;
+    }
+
+    .bar-fill {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .bar-fill.teal {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .interaction-board {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(17rem, 0.72fr);
+      gap: 1rem;
+    }
+
+    .interaction-card {
+      display: grid;
+      gap: 0.7rem;
+      align-content: start;
+      min-height: 100%;
+    }
+
+    .ddi-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.62rem;
+      margin-top: 0.72rem;
+    }
+
+    .ddi-tile {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.72rem;
+    }
+
+    .ddi-tile strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.65rem;
+      line-height: 1;
+    }
+
+    .ddi-tile span {
+      display: block;
+      margin-top: 0.24rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 820;
+      line-height: 1.25;
+    }
+
+    .ade-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(17rem, 0.75fr);
+      gap: 1rem;
+    }
+
+    .ade-bars .bar-row {
+      grid-template-columns: 11.7rem minmax(0, 1fr) 2.5rem;
+    }
+
+    .management-web {
+      background:
+        linear-gradient(145deg, rgba(117, 97, 168, 0.1), rgba(255, 255, 255, 0.96) 52%),
+        #fff;
+    }
+
+    .callout-list {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 0.72rem;
+    }
+
+    .callout {
+      border-left: 4px solid var(--teal);
+      background: var(--surface-blue);
+      padding: 0.62rem 0.72rem;
+    }
+
+    .callout:nth-child(2) {
+      border-color: var(--gold);
+      background: var(--surface-warm);
+    }
+
+    .callout:nth-child(3) {
+      border-color: var(--purple);
+      background: #f4f0fb;
+    }
+
+    .callout b {
+      display: block;
+      color: var(--ink);
+      font-size: 0.84rem;
+    }
+
+    .callout span {
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 740;
+    }
+
+    .conclusion-panel {
+      display: grid;
+      grid-template-columns: minmax(15rem, 0.58fr) minmax(0, 1.42fr);
+      gap: 1rem;
+      align-items: stretch;
+      border-color: rgba(24, 124, 143, 0.42);
+      background:
+        linear-gradient(90deg, rgba(24, 124, 143, 0.12), rgba(255, 255, 255, 0.94) 34%),
+        #fff;
+    }
+
+    .conclusion-badge {
+      display: grid;
+      place-items: center;
+      min-height: 10rem;
+      border-radius: 7px;
+      background: var(--ink);
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .conclusion-badge strong {
+      display: block;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(3.1rem, 7vw, 5rem);
+      line-height: 0.9;
+    }
+
+    .conclusion-badge span {
+      display: block;
+      margin-top: 0.45rem;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 900px) {
+      .study-board,
+      .safety-board,
+      .interaction-board,
+      .ade-layout,
+      .conclusion-panel {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .cohort-tiles,
+      .ddi-grid,
+      .bar-row,
+      .ade-bars .bar-row {
+        grid-template-columns: 1fr;
+      }
+
+      .bar-row span:last-child {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#study">Study</a>
+        <a href="#safety">Safety</a>
+        <a href="#management">Management</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2022 / Poster 54-2022 / Prescription cannabidiol safety</p>
+        <h1 id="poster-title">Management of Prescription Cannabidiol Adverse Effects and Drug-Drug Interactions</h1>
+        <p class="hero-summary">
+          Vanderbilt Specialty Pharmacy followed real-world prescription CBD use for one year,
+          tracking drug-drug interactions, adverse drug events, liver function tests, and the
+          pharmacist actions used to keep therapy moving safely.
+        </p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Single-center retrospective cohort</li>
+          <li class="tag therapy">Dravet, Lennox-Gastaut, tuberous sclerosis</li>
+          <li class="tag">Integrated specialty pharmacy</li>
+          <li class="tag">Antiepileptic therapy</li>
+          <li class="tag">First treatment year</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata and visual summary">
+        <div>
+          <div class="poster-code">54-2022</div>
+          <dl class="meta-grid">
+            <div>
+              <dt>Institution</dt>
+              <dd>Vanderbilt University Medical Center</dd>
+            </div>
+            <div>
+              <dt>Study window</dt>
+              <dd>January 2019 - April 2020 starts</dd>
+            </div>
+            <div>
+              <dt>Population</dt>
+              <dd>136 patients prescribed CBD</dd>
+            </div>
+            <div>
+              <dt>Lens</dt>
+              <dd>ADE and DDI management</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="cbd-hero-art">
+          <svg viewBox="0 0 440 278" role="img" aria-labelledby="hero-svg-title hero-svg-desc">
+            <title id="hero-svg-title">Prescription CBD safety monitoring workflow</title>
+            <desc id="hero-svg-desc">A CBD bottle connects to seizure therapy, lab monitoring, drug interaction checks, and pharmacist intervention.</desc>
+            <defs>
+              <marker id="hero-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L9,3 z" fill="#187c8f"></path>
+              </marker>
+            </defs>
+            <rect x="172" y="56" width="96" height="150" rx="18" fill="#fff" stroke="#243770" stroke-width="6"></rect>
+            <rect x="189" y="34" width="62" height="30" rx="8" fill="#243770"></rect>
+            <rect x="190" y="98" width="60" height="66" rx="8" fill="#eef4fb" stroke="#aebbd2" stroke-width="3"></rect>
+            <path d="M220 111c13 20 7 36-12 42 5-14 1-28 12-42z" fill="#4d8a67"></path>
+            <path d="M224 116c-2 22 9 30 24 36-2-16-7-28-24-36z" fill="#187c8f"></path>
+            <text x="220" y="188" text-anchor="middle" fill="#243770" font-family="Arial, sans-serif" font-size="18" font-weight="900">Rx CBD</text>
+
+            <circle cx="76" cy="74" r="38" fill="#fff" stroke="#d12630" stroke-width="5"></circle>
+            <path d="M58 76c10-22 29-22 38 0M57 77c16 19 31 20 41 0" fill="none" stroke="#d12630" stroke-width="6" stroke-linecap="round"></path>
+            <text x="76" y="132" text-anchor="middle" fill="#d12630" font-family="Arial, sans-serif" font-size="15" font-weight="900">seizure syndromes</text>
+
+            <circle cx="358" cy="74" r="38" fill="#fff" stroke="#e99e25" stroke-width="5"></circle>
+            <path d="M342 74h32M358 58v32" stroke="#e99e25" stroke-width="7" stroke-linecap="round"></path>
+            <text x="358" y="132" text-anchor="middle" fill="#e99e25" font-family="Arial, sans-serif" font-size="15" font-weight="900">DDI checks</text>
+
+            <circle cx="84" cy="218" r="38" fill="#fff7ea" stroke="#7561a8" stroke-width="5"></circle>
+            <path d="M69 235h31M76 202v33M93 212v23" stroke="#7561a8" stroke-width="7" stroke-linecap="round"></path>
+            <text x="84" y="270" text-anchor="middle" fill="#7561a8" font-family="Arial, sans-serif" font-size="15" font-weight="900">AST / ALT labs</text>
+
+            <circle cx="354" cy="218" r="38" fill="#fff" stroke="#187c8f" stroke-width="5"></circle>
+            <path d="M338 218h32M354 202v32" stroke="#187c8f" stroke-width="7" stroke-linecap="round"></path>
+            <circle cx="354" cy="218" r="18" fill="none" stroke="#187c8f" stroke-width="5"></circle>
+            <text x="354" y="270" text-anchor="middle" fill="#187c8f" font-family="Arial, sans-serif" font-size="15" font-weight="900">pharmacist action</text>
+
+            <path d="M113 82 C139 82, 153 91, 171 108" fill="none" stroke="#187c8f" stroke-width="6" stroke-linecap="round" marker-end="url(#hero-arrow)"></path>
+            <path d="M269 108 C294 87, 316 80, 326 78" fill="none" stroke="#187c8f" stroke-width="6" stroke-linecap="round" marker-end="url(#hero-arrow)"></path>
+            <path d="M173 178 C141 190, 121 202, 113 211" fill="none" stroke="#187c8f" stroke-width="6" stroke-linecap="round" marker-end="url(#hero-arrow)"></path>
+            <path d="M268 177 C304 188, 326 203, 329 214" fill="none" stroke="#187c8f" stroke-width="6" stroke-linecap="round" marker-end="url(#hero-arrow)"></path>
+          </svg>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Cohort</span>
+          <strong>136</strong>
+          <em>92 pediatric and 44 adult patients.</em>
+        </article>
+        <article class="metric-card">
+          <span>Drug interactions</span>
+          <strong>65</strong>
+          <em>Most were pharmacokinetic and involved clobazam.</em>
+        </article>
+        <article class="metric-card">
+          <span>Adverse drug events</span>
+          <strong>138</strong>
+          <em>Drowsiness or sedation led the event profile.</em>
+        </article>
+        <article class="metric-card">
+          <span>Post-initiation interventions</span>
+          <strong>73</strong>
+          <em>Pharmacists documented checks, counseling, and provider recommendations.</em>
+        </article>
+      </section>
+
+      <section id="study" class="study-board">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Describe first-year CBD safety signals and how specialty pharmacists managed them.</h2>
+          <p>
+            The poster focused on adverse drug events and drug-drug interactions experienced
+            during the first year of prescription CBD use in a real-world neurology clinic setting.
+          </p>
+          <div class="timeline" aria-label="Study design">
+            <div class="timeline-step" data-step="1">
+              <b>Design</b>
+              <span>Single-center retrospective cohort study.</span>
+            </div>
+            <div class="timeline-step" data-step="2">
+              <b>Inclusion</b>
+              <span>Patients prescribed CBD through the center's neurology clinic from January 2019 through April 2020.</span>
+            </div>
+            <div class="timeline-step" data-step="3">
+              <b>Outcomes</b>
+              <span>Medication use, adverse effects, DDIs, liver function tests, and management actions.</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Patient mix</p>
+          <h2>Pediatric patients made up roughly two-thirds of the cohort.</h2>
+          <div class="cohort-tiles" aria-label="Cohort characteristics">
+            <div class="cohort-tile">
+              <strong>92</strong>
+              <span>Pediatric patients</span>
+              <em>Median age 10 years; 89% Lennox-Gastaut syndrome.</em>
+            </div>
+            <div class="cohort-tile">
+              <strong>44</strong>
+              <span>Adult patients</span>
+              <em>Median age 28 years; 80% Lennox-Gastaut syndrome.</em>
+            </div>
+            <div class="cohort-tile">
+              <strong>78<small>%</small></strong>
+              <span>Pediatric by-mouth administration</span>
+              <em>Other routes included G-tube, J-tube, or combined routes.</em>
+            </div>
+            <div class="cohort-tile">
+              <strong>93<small>%</small></strong>
+              <span>Adult by-mouth administration</span>
+              <em>Medication use patterns were reviewed throughout treatment.</em>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section id="safety" class="safety-board">
+        <article class="panel lab-gauge">
+          <p class="section-label">Liver monitoring</p>
+          <h2>One in four monitored patients had an elevated AST.</h2>
+          <svg viewBox="0 0 360 245" role="img" aria-labelledby="lab-title lab-desc">
+            <title id="lab-title">AST and ALT elevated liver function tests</title>
+            <desc id="lab-desc">AST was high in 25 percent of 76 monitored patients and ALT was high in 20 percent of 72 monitored patients.</desc>
+            <circle cx="112" cy="120" r="74" fill="none" stroke="#eef4fb" stroke-width="28"></circle>
+            <circle cx="112" cy="120" r="74" fill="none" stroke="#d12630" stroke-width="28" stroke-dasharray="116 465" stroke-linecap="round" transform="rotate(-90 112 120)"></circle>
+            <text x="112" y="113" text-anchor="middle" fill="#243770" font-family="Arial, sans-serif" font-size="38" font-weight="900">25%</text>
+            <text x="112" y="142" text-anchor="middle" fill="#68758d" font-family="Arial, sans-serif" font-size="15" font-weight="800">AST high</text>
+
+            <circle cx="250" cy="120" r="74" fill="none" stroke="#eef4fb" stroke-width="28"></circle>
+            <circle cx="250" cy="120" r="74" fill="none" stroke="#187c8f" stroke-width="28" stroke-dasharray="93 465" stroke-linecap="round" transform="rotate(-90 250 120)"></circle>
+            <text x="250" y="113" text-anchor="middle" fill="#243770" font-family="Arial, sans-serif" font-size="38" font-weight="900">20%</text>
+            <text x="250" y="142" text-anchor="middle" fill="#68758d" font-family="Arial, sans-serif" font-size="15" font-weight="800">ALT high</text>
+            <text x="180" y="220" text-anchor="middle" fill="#68758d" font-family="Arial, sans-serif" font-size="14" font-weight="800">Highest follow-up result among patients without high baseline labs</text>
+          </svg>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Drug interaction pattern</p>
+          <h2>Clobazam drove the DDI story.</h2>
+          <p>
+            Among 65 documented DDIs, 89% were pharmacokinetic and 89% involved clobazam,
+            making dose adjustment of the interacting antiepileptic drug a recurring management pathway.
+          </p>
+          <div class="ddi-grid" aria-label="Drug interaction table highlights">
+            <div class="ddi-tile">
+              <strong>89%</strong>
+              <span>Pharmacokinetic interactions; changes in absorption, distribution, metabolism, or elimination.</span>
+            </div>
+            <div class="ddi-tile">
+              <strong>11%</strong>
+              <span>Pharmacodynamic interactions; cumulative adverse-effect risk.</span>
+            </div>
+            <div class="ddi-tile">
+              <strong>58</strong>
+              <span>Clobazam interactions, equal to 89% of DDIs.</span>
+            </div>
+            <div class="ddi-tile">
+              <strong>3</strong>
+              <span>Valproic acid interactions; phenobarbital and other drugs were less frequent.</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="ade-layout">
+        <article class="panel">
+          <p class="section-label">Adverse drug events</p>
+          <h2>Drowsiness and sedation were the most common reported events.</h2>
+          <div class="bars ade-bars" aria-label="Adverse drug event counts">
+            <div class="bar-row">
+              <b>Drowsiness or sedation</b>
+              <div class="bar-track"><i class="bar-fill" style="width:100%"></i></div>
+              <span>44</span>
+            </div>
+            <div class="bar-row">
+              <b>Other events</b>
+              <div class="bar-track"><i class="bar-fill" style="width:59%"></i></div>
+              <span>26</span>
+            </div>
+            <div class="bar-row">
+              <b>GI upset</b>
+              <div class="bar-track"><i class="bar-fill" style="width:45%"></i></div>
+              <span>20</span>
+            </div>
+            <div class="bar-row">
+              <b>Mood or behavior changes</b>
+              <div class="bar-track"><i class="bar-fill" style="width:39%"></i></div>
+              <span>17</span>
+            </div>
+            <div class="bar-row">
+              <b>Lethargy or fatigue</b>
+              <div class="bar-track"><i class="bar-fill" style="width:25%"></i></div>
+              <span>11</span>
+            </div>
+            <div class="bar-row">
+              <b>Sleep changes</b>
+              <div class="bar-track"><i class="bar-fill" style="width:18%"></i></div>
+              <span>8</span>
+            </div>
+            <div class="bar-row">
+              <b>Reduced appetite</b>
+              <div class="bar-track"><i class="bar-fill" style="width:14%"></i></div>
+              <span>6</span>
+            </div>
+            <div class="bar-row">
+              <b>LFT elevation</b>
+              <div class="bar-track"><i class="bar-fill" style="width:9%"></i></div>
+              <span>4</span>
+            </div>
+            <div class="bar-row">
+              <b>Rash</b>
+              <div class="bar-track"><i class="bar-fill" style="width:5%"></i></div>
+              <span>2</span>
+            </div>
+          </div>
+        </article>
+
+        <article id="management" class="panel management-web">
+          <p class="section-label">Pharmacist interventions</p>
+          <h2>Most post-initiation interventions were DDI checks.</h2>
+          <div class="bars" aria-label="Specialty pharmacist intervention counts">
+            <div class="bar-row">
+              <b>DDI check</b>
+              <div class="bar-track"><i class="bar-fill teal" style="width:100%"></i></div>
+              <span>34</span>
+            </div>
+            <div class="bar-row">
+              <b>Patient counseling</b>
+              <div class="bar-track"><i class="bar-fill teal" style="width:47%"></i></div>
+              <span>16</span>
+            </div>
+            <div class="bar-row">
+              <b>Provider recommendation</b>
+              <div class="bar-track"><i class="bar-fill teal" style="width:32%"></i></div>
+              <span>11</span>
+            </div>
+            <div class="bar-row">
+              <b>Chart review</b>
+              <div class="bar-track"><i class="bar-fill teal" style="width:29%"></i></div>
+              <span>10</span>
+            </div>
+            <div class="bar-row">
+              <b>Provider notification</b>
+              <div class="bar-track"><i class="bar-fill teal" style="width:6%"></i></div>
+              <span>2</span>
+            </div>
+          </div>
+          <div class="callout-list" aria-label="Management themes">
+            <div class="callout">
+              <b>DDI management</b>
+              <span>Clobazam interactions most often led to other-medication dose changes.</span>
+            </div>
+            <div class="callout">
+              <b>ADE management</b>
+              <span>Drowsiness or sedation was commonly addressed through CBD or interacting-drug dose changes.</span>
+            </div>
+            <div class="callout">
+              <b>Continuity goal</b>
+              <span>Monitoring and management were framed around helping patients safely continue therapy.</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="evidence-map" aria-label="Evidence flow">
+        <article class="evidence-card">
+          <h3>Need</h3>
+          <p>Post-approval real-world data were needed to describe longitudinal CBD safety management.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Integrated review</h3>
+          <p>Specialty pharmacists evaluated safety and appropriateness before and during treatment.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Interaction signal</h3>
+          <p>Clobazam accounted for 58 of 65 interactions, most classified as pharmacokinetic.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Event signal</h3>
+          <p>Drowsiness or sedation accounted for 44 of 138 reported adverse drug events.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Action</h3>
+          <p>Pharmacists used DDI checks, counseling, chart review, and provider-facing recommendations.</p>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Extracted table patterns">
+        <article class="table-card">
+          <p class="section-label">Table pattern</p>
+          <h2>Top DDI management actions</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Management action</th>
+                  <th>Clobazam</th>
+                  <th>Valproic acid</th>
+                  <th>Phenobarbital</th>
+                  <th>Other</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Other medication dose change</td>
+                  <td>37</td>
+                  <td>1</td>
+                  <td>2</td>
+                  <td>2</td>
+                </tr>
+                <tr>
+                  <td>Patient counseling provided</td>
+                  <td>15</td>
+                  <td>0</td>
+                  <td>1</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>CBD dose change</td>
+                  <td>3</td>
+                  <td>0</td>
+                  <td>1</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>CBD discontinued</td>
+                  <td>2</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>0</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Table pattern</p>
+          <h2>Common ADE management examples</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>ADE</th>
+                  <th>Other medication dose change</th>
+                  <th>CBD dose change</th>
+                  <th>CBD discontinued</th>
+                  <th>Counseling</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Drowsiness or sedation</td>
+                  <td>22</td>
+                  <td>14</td>
+                  <td>0</td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                  <td>GI upset</td>
+                  <td>3</td>
+                  <td>4</td>
+                  <td>0</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td>Mood or behavior changes</td>
+                  <td>2</td>
+                  <td>7</td>
+                  <td>5</td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                  <td>LFT elevation</td>
+                  <td>0</td>
+                  <td>2</td>
+                  <td>1</td>
+                  <td>0</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel conclusion-panel">
+        <div class="conclusion-badge" aria-hidden="true">
+          <div>
+            <strong>89%</strong>
+            <span>DDIs with clobazam</span>
+          </div>
+        </div>
+        <div class="markdown-fragment">
+          <p class="section-label">Conclusion</p>
+          <h2>Specialty pharmacists were positioned as safety managers for first-year CBD therapy.</h2>
+          <p>
+            The authors concluded that clobazam was the most common DDI, drowsiness and sedation
+            were common adverse events, and both were frequently managed through CBD or interacting
+            medication dose changes.
+          </p>
+          <p>
+            The poster frames pharmacist monitoring as a practical safeguard for mitigating ADEs
+            and DDIs so patients can continue prescription cannabidiol therapy when appropriate.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/54-2022.pdf">Open original PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/54-2022.md">Read extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

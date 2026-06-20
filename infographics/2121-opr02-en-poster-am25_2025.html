@@ -1,0 +1,794 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clinical Characteristics and Treatment Persistence with Abemaciclib | NASP 2025</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-art {
+      position: relative;
+      min-height: 22rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 22% 20%, rgba(209, 38, 48, 0.12), transparent 8rem),
+        radial-gradient(circle at 82% 72%, rgba(24, 124, 143, 0.16), transparent 10rem),
+        linear-gradient(145deg, #fff, var(--surface-blue) 56%, var(--surface-warm));
+      overflow: hidden;
+    }
+
+    .hero-art svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 22rem;
+    }
+
+    .hero-card .finding {
+      margin: 0;
+      border-left: 4px solid var(--red);
+      padding-left: 0.75rem;
+      color: var(--ink);
+      font-size: 0.95rem;
+      font-weight: 850;
+    }
+
+    .metric-card p {
+      margin: 0.45rem 0 0;
+      font-size: 0.78rem;
+    }
+
+    .persistence-layout {
+      display: grid;
+      grid-template-columns: minmax(16rem, 0.62fr) minmax(0, 1.38fr);
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .donut-wrap {
+      display: grid;
+      place-items: center;
+      min-height: 17rem;
+    }
+
+    .donut {
+      display: grid;
+      place-items: center;
+      width: min(15rem, 62vw);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, #fff 0 55%, transparent 56%),
+        conic-gradient(var(--teal) 0 88%, var(--red) 88% 99%, var(--gold) 99% 100%);
+      box-shadow: inset 0 0 0 1px rgba(36, 55, 112, 0.15);
+    }
+
+    .donut strong {
+      display: block;
+      color: var(--teal);
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 9vw, 5.1rem);
+      line-height: 0.86;
+      text-align: center;
+    }
+
+    .donut span {
+      display: block;
+      max-width: 8rem;
+      color: var(--ink);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      line-height: 1.25;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .legend-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.6rem;
+    }
+
+    .legend-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.72rem;
+    }
+
+    .legend-card i {
+      display: inline-block;
+      width: 0.75rem;
+      height: 0.75rem;
+      margin-right: 0.28rem;
+      border-radius: 2px;
+      background: var(--c);
+      vertical-align: -0.08rem;
+    }
+
+    .legend-card strong {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+
+    .legend-card span {
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 850;
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.05fr 0.35fr 0.35fr;
+      gap: 0.6rem;
+      margin-top: 0.75rem;
+      padding-top: 1.5rem;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 0.5rem;
+      right: 0;
+      left: 0;
+      height: 0.38rem;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--red), var(--gold), var(--teal));
+    }
+
+    .time-cell {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.84);
+      padding: 0.68rem;
+    }
+
+    .time-cell b {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.94rem;
+    }
+
+    .time-cell span {
+      display: block;
+      margin-top: 0.2rem;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 800;
+    }
+
+    .dose-flow {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .flow-canvas {
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      overflow: hidden;
+    }
+
+    .flow-canvas svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .dose-bars {
+      display: grid;
+      gap: 0.68rem;
+    }
+
+    .dose-row {
+      display: grid;
+      grid-template-columns: 6.8rem minmax(0, 1fr) 3.4rem;
+      gap: 0.55rem;
+      align-items: center;
+      font-size: 0.78rem;
+    }
+
+    .dose-row b {
+      color: var(--ink);
+      line-height: 1.15;
+    }
+
+    .dose-track {
+      height: 1rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+
+    .dose-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: var(--c, var(--red));
+    }
+
+    .dose-row span {
+      color: var(--muted);
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .age-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(15rem, 0.72fr);
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .age-bars {
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .age-row {
+      display: grid;
+      gap: 0.3rem;
+    }
+
+    .age-row header {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 850;
+    }
+
+    .split-bar {
+      display: grid;
+      grid-template-columns: var(--no) var(--yes);
+      height: 1.25rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 999px;
+      overflow: hidden;
+      background: #edf2f8;
+    }
+
+    .split-bar span:first-child {
+      background: rgba(24, 124, 143, 0.72);
+    }
+
+    .split-bar span:last-child {
+      background: rgba(209, 38, 48, 0.72);
+    }
+
+    .mini-kpi {
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    .mini-kpi div {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.75rem;
+    }
+
+    .mini-kpi strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .mini-kpi span {
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 850;
+    }
+
+    .callout-band {
+      display: grid;
+      grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .takeaway {
+      display: grid;
+      align-content: center;
+      min-height: 13rem;
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(24, 124, 143, 0.13), transparent 48%),
+        #fff;
+      padding: 1.05rem;
+    }
+
+    .takeaway strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4.8vw, 3.7rem);
+      line-height: 0.98;
+    }
+
+    .takeaway p {
+      margin: 0.7rem 0 0;
+      color: var(--body);
+      font-size: 0.95rem;
+    }
+
+    .compact-list {
+      margin: 0.45rem 0 0 1.05rem;
+      padding: 0;
+    }
+
+    .compact-list li {
+      margin: 0.24rem 0;
+      font-size: 0.86rem;
+    }
+
+    .source-note {
+      margin: 0.5rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+
+    @media (max-width: 900px) {
+      .persistence-layout,
+      .dose-flow,
+      .age-panel,
+      .callout-band {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .legend-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .dose-row {
+        grid-template-columns: 1fr;
+      }
+
+      .dose-row span {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source files">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/2121-OPR02-EN-Poster-AM25_2025.pdf">Source PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/2121-OPR02-EN-Poster-AM25_2025.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <h1>Clinical characteristics and treatment persistence in US patients with HR+/HER2-, node-positive early breast cancer treated with abemaciclib</h1>
+        <p class="hero-summary">A real-world Flatiron Health study of patients starting adjuvant abemaciclib 150 mg twice daily during the first year after FDA approval for early breast cancer.</p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">NASP 2025</li>
+          <li class="tag therapy">HR+/HER2- EBC</li>
+          <li class="tag">Abemaciclib + endocrine therapy</li>
+          <li class="tag">Real-world EHR study</li>
+        </ul>
+        <div class="hero-art" aria-label="Illustrated study journey from cohort selection through dose modification and persistence">
+          <svg viewBox="0 0 760 430" role="img">
+            <title>Study journey showing cohort, dosing paths, and 3-month persistence</title>
+            <defs>
+              <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#243770"></path>
+              </marker>
+              <linearGradient id="studyFill" x1="0" x2="1">
+                <stop offset="0" stop-color="#d12630"></stop>
+                <stop offset="0.55" stop-color="#e99e25"></stop>
+                <stop offset="1" stop-color="#187c8f"></stop>
+              </linearGradient>
+            </defs>
+            <rect x="56" y="54" width="178" height="126" rx="8" fill="#fff" stroke="#aebbd2" stroke-width="2"></rect>
+            <text x="82" y="92" fill="#68758d" font-family="Inter, Arial" font-size="15" font-weight="800">ELIGIBLE COHORT</text>
+            <text x="82" y="135" fill="#d12630" font-family="Montserrat, Arial" font-size="54" font-weight="900">354</text>
+            <text x="82" y="160" fill="#243770" font-family="Inter, Arial" font-size="17" font-weight="800">started 150 mg BID</text>
+
+            <path d="M236 117 C300 117 304 82 362 82" fill="none" stroke="#243770" stroke-width="5" marker-end="url(#arrow)"></path>
+            <path d="M236 117 C300 117 304 160 362 160" fill="none" stroke="#243770" stroke-width="5" marker-end="url(#arrow)"></path>
+
+            <rect x="364" y="34" width="172" height="92" rx="8" fill="#ffffff" stroke="#aebbd2" stroke-width="2"></rect>
+            <text x="390" y="67" fill="#243770" font-family="Inter, Arial" font-size="16" font-weight="900">No dose change</text>
+            <text x="390" y="103" fill="#187c8f" font-family="Montserrat, Arial" font-size="34" font-weight="900">49%</text>
+
+            <rect x="364" y="134" width="172" height="112" rx="8" fill="#ffffff" stroke="#aebbd2" stroke-width="2"></rect>
+            <text x="390" y="167" fill="#243770" font-family="Inter, Arial" font-size="16" font-weight="900">Dose decrease</text>
+            <text x="390" y="205" fill="#d12630" font-family="Montserrat, Arial" font-size="38" font-weight="900">51%</text>
+            <text x="390" y="226" fill="#68758d" font-family="Inter, Arial" font-size="14" font-weight="800">median 59 days</text>
+
+            <path d="M538 190 C596 190 592 280 650 280" fill="none" stroke="url(#studyFill)" stroke-width="10" stroke-linecap="round" marker-end="url(#arrow)"></path>
+            <path d="M536 82 C612 82 602 272 650 272" fill="none" stroke="#187c8f" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)"></path>
+
+            <circle cx="650" cy="278" r="82" fill="#fff" stroke="#aebbd2" stroke-width="2"></circle>
+            <path d="M650 196 A82 82 0 1 1 594 338" fill="none" stroke="#187c8f" stroke-width="26"></path>
+            <path d="M594 338 A82 82 0 0 1 644 196" fill="none" stroke="#d12630" stroke-width="26"></path>
+            <text x="650" y="270" text-anchor="middle" fill="#187c8f" font-family="Montserrat, Arial" font-size="56" font-weight="900">88%</text>
+            <text x="650" y="300" text-anchor="middle" fill="#243770" font-family="Inter, Arial" font-size="15" font-weight="900">continued</text>
+            <text x="650" y="320" text-anchor="middle" fill="#243770" font-family="Inter, Arial" font-size="15" font-weight="900">beyond 3 months</text>
+
+            <rect x="60" y="250" width="464" height="104" rx="8" fill="rgba(255,255,255,0.78)" stroke="#aebbd2" stroke-width="2"></rect>
+            <text x="88" y="285" fill="#243770" font-family="Inter, Arial" font-size="17" font-weight="900">Dose reduction persistence signal</text>
+            <text x="88" y="320" fill="#187c8f" font-family="Montserrat, Arial" font-size="42" font-weight="900">93%</text>
+            <text x="180" y="319" fill="#33415c" font-family="Inter, Arial" font-size="17" font-weight="800">of patients with dose reductions continued beyond 3 months.</text>
+          </svg>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <div class="poster-code">2121-OPR02-EN</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Meeting</dt>
+            <dd>NASP 2025</dd>
+          </div>
+          <div>
+            <dt>Location</dt>
+            <dd>Denver, CO</dd>
+          </div>
+          <div>
+            <dt>Study type</dt>
+            <dd>Retrospective EHR</dd>
+          </div>
+          <div>
+            <dt>Data source</dt>
+            <dd>Flatiron Health</dd>
+          </div>
+        </dl>
+        <p class="finding">Objective: describe clinical characteristics, dose modification patterns, and 3-month persistence after initiating abemaciclib 150 mg BID.</p>
+        <div class="number-cloud" aria-label="Key cohort descriptors">
+          <div class="number-pill">354<small>patients</small></div>
+          <div class="number-pill">56<small>median age</small></div>
+          <div class="number-pill">8.8<small>months follow-up</small></div>
+          <div class="number-pill">80.8%<small>community practice</small></div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key findings">
+        <article class="metric-card">
+          <span>3-month persistence</span>
+          <strong>88%</strong>
+          <p>312 of 354 patients continued abemaciclib beyond 3 months.</p>
+        </article>
+        <article class="metric-card">
+          <span>Dose decrease</span>
+          <strong>51%</strong>
+          <p>180 patients had a dose decrease, nearly all as first dose change.</p>
+        </article>
+        <article class="metric-card">
+          <span>Median time to decrease</span>
+          <strong>59d</strong>
+          <p>IQR 35 to 99 days, approximately 2 months after initiation.</p>
+        </article>
+        <article class="metric-card">
+          <span>Persistence after reduction</span>
+          <strong>93%</strong>
+          <p>Continuation was high among patients who experienced dose reductions.</p>
+        </article>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Methods Snapshot</p>
+        <h2>First-year post-approval cohort with at least 3 months of observable follow-up</h2>
+        <div class="timeline" aria-label="Study period timeline">
+          <div class="time-cell">
+            <b>Oct 13, 2021 to Nov 30, 2022</b>
+            <span>Index period: first year after FDA approval for abemaciclib in early breast cancer.</span>
+          </div>
+          <div class="time-cell">
+            <b>Index date</b>
+            <span>Each patient's abemaciclib start date.</span>
+          </div>
+          <div class="time-cell">
+            <b>Through Feb 28, 2023</b>
+            <span>Follow-up window to assess 3-month persistence.</span>
+          </div>
+        </div>
+        <div class="evidence-map" style="margin-top:0.9rem">
+          <article class="evidence-card">
+            <h3>Population</h3>
+            <p>Adults with node-positive stage I-III early breast cancer initiating abemaciclib at 150 mg BID.</p>
+          </article>
+          <article class="evidence-card">
+            <h3>Exclusions</h3>
+            <p>Prior CDK4/6 inhibitor use or another primary malignancy except defined low-risk exceptions.</p>
+          </article>
+          <article class="evidence-card">
+            <h3>Persistence rule</h3>
+            <p>On treatment at 3 months, allowing up to a 60-day medication gap.</p>
+          </article>
+          <article class="evidence-card">
+            <h3>Dose modification</h3>
+            <p>Dose hold or dose change, including increase or decrease, as recorded in the chart.</p>
+          </article>
+          <article class="evidence-card">
+            <h3>Analysis</h3>
+            <p>Descriptive summaries of baseline characteristics, dose changes, and persistence.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel persistence-layout">
+        <div class="donut-wrap">
+          <div class="donut" aria-label="88 percent continued treatment, 11 percent discontinued due to adverse events, 1 percent discontinued for other reasons">
+            <div>
+              <strong>88%</strong>
+              <span>continued beyond 3 months</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p class="section-label">Treatment Persistence</p>
+          <h2>Most patients remained on therapy beyond the early tolerability window</h2>
+          <div class="legend-grid">
+            <div class="legend-card" style="--c:var(--teal)">
+              <span><i></i>Continued treatment</span>
+              <strong>312</strong>
+              <span>88% of cohort</span>
+            </div>
+            <div class="legend-card" style="--c:var(--red)">
+              <span><i></i>Discontinued due to AEs</span>
+              <strong>40</strong>
+              <span>11% of cohort</span>
+            </div>
+            <div class="legend-card" style="--c:var(--gold)">
+              <span><i></i>Other discontinuation</span>
+              <strong>2</strong>
+              <span>1% of cohort</span>
+            </div>
+          </div>
+          <div class="section-stack" style="margin-top:0.9rem">
+            <article class="panel">
+              <h3>Among AE discontinuations</h3>
+              <ul class="compact-list">
+                <li>Diarrhea: n=24</li>
+                <li>Fatigue: n=16</li>
+                <li>Nausea/vomiting: n=12</li>
+              </ul>
+            </article>
+            <article class="panel">
+              <h3>Early stop pattern</h3>
+              <ul class="compact-list">
+                <li>Median discontinuation: 39 days</li>
+                <li>70% had no dose modification attempted before discontinuation.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel dose-flow">
+        <div>
+          <p class="section-label">Dose Modification Patterns</p>
+          <h2>Half stayed at 150 mg BID; half reduced dose, usually to 100 mg BID</h2>
+          <p>Of 354 patients, 174 had no dose change or hold and 180 had a dose decrease. The first dose-change distribution was dominated by 100 mg BID, with a smaller shift to 50 mg BID and once-daily regimens.</p>
+          <div class="dose-bars" aria-label="First dose change destinations">
+            <div class="dose-row">
+              <b>100 mg BID</b>
+              <div class="dose-track"><i style="--w:79%;--c:var(--teal)"></i></div>
+              <span>79%</span>
+            </div>
+            <div class="dose-row">
+              <b>50 mg BID</b>
+              <div class="dose-track"><i style="--w:11%;--c:var(--gold)"></i></div>
+              <span>11%</span>
+            </div>
+            <div class="dose-row">
+              <b>150 mg QD</b>
+              <div class="dose-track"><i style="--w:6%;--c:var(--purple)"></i></div>
+              <span>6%</span>
+            </div>
+            <div class="dose-row">
+              <b>100 mg QD</b>
+              <div class="dose-track"><i style="--w:3%;--c:var(--green)"></i></div>
+              <span>3%</span>
+            </div>
+            <div class="dose-row">
+              <b>50 mg QD / increase</b>
+              <div class="dose-track"><i style="--w:2%;--c:var(--red)"></i></div>
+              <span>2%</span>
+            </div>
+          </div>
+          <p class="source-note">First dose-change details exclude 1 patient with unknown dose. Percentages are poster-reported rounded values.</p>
+        </div>
+        <div class="flow-canvas" aria-label="Dose modification flow diagram">
+          <svg viewBox="0 0 560 440" role="img">
+            <title>Dose modification flow from overall cohort to first and second dose changes</title>
+            <defs>
+              <marker id="flowArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                <path d="M0 0 L10 5 L0 10z" fill="#243770"></path>
+              </marker>
+            </defs>
+            <rect x="36" y="172" width="148" height="84" rx="8" fill="#243770"></rect>
+            <text x="110" y="205" text-anchor="middle" fill="#fff" font-family="Inter, Arial" font-size="15" font-weight="900">Overall cohort</text>
+            <text x="110" y="236" text-anchor="middle" fill="#fff" font-family="Montserrat, Arial" font-size="30" font-weight="900">N=354</text>
+
+            <path d="M184 201 C236 176 238 114 292 106" fill="none" stroke="#243770" stroke-width="4" marker-end="url(#flowArrow)"></path>
+            <path d="M184 227 C236 254 238 312 292 322" fill="none" stroke="#243770" stroke-width="4" marker-end="url(#flowArrow)"></path>
+
+            <rect x="296" y="66" width="206" height="94" rx="8" fill="#fff" stroke="#aebbd2" stroke-width="2"></rect>
+            <text x="318" y="101" fill="#243770" font-family="Inter, Arial" font-size="16" font-weight="900">No dose change/hold</text>
+            <text x="318" y="137" fill="#187c8f" font-family="Montserrat, Arial" font-size="34" font-weight="900">174 (49%)</text>
+
+            <rect x="296" y="282" width="206" height="112" rx="8" fill="#fff" stroke="#aebbd2" stroke-width="2"></rect>
+            <text x="318" y="317" fill="#243770" font-family="Inter, Arial" font-size="16" font-weight="900">Dose decrease</text>
+            <text x="318" y="353" fill="#d12630" font-family="Montserrat, Arial" font-size="34" font-weight="900">180 (51%)</text>
+            <text x="318" y="376" fill="#68758d" font-family="Inter, Arial" font-size="14" font-weight="800">47% also had a dose hold</text>
+
+            <rect x="292" y="186" width="218" height="54" rx="8" fill="#fff7ea" stroke="#e99e25" stroke-width="2"></rect>
+            <text x="401" y="220" text-anchor="middle" fill="#243770" font-family="Inter, Arial" font-size="16" font-weight="900">Median time to decrease: 59 days</text>
+
+            <path d="M401 282 C401 270 401 260 401 244" fill="none" stroke="#e99e25" stroke-width="4" marker-end="url(#flowArrow)"></path>
+            <circle cx="496" cy="48" r="23" fill="#eef4fb" stroke="#aebbd2"></circle>
+            <text x="496" y="55" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial" font-size="18" font-weight="900">1:1</text>
+          </svg>
+        </div>
+      </section>
+
+      <section class="panel age-panel">
+        <div>
+          <p class="section-label">Age Pattern</p>
+          <h2>Dose modification became more common in older age groups</h2>
+          <div class="age-bars" aria-label="Dose modification by age group">
+            <div class="age-row">
+              <header><span>&lt;50 years (n=107)</span><span>34% modified</span></header>
+              <div class="split-bar" style="--no:66%;--yes:34%"><span></span><span></span></div>
+            </div>
+            <div class="age-row">
+              <header><span>50-64 years (n=164)</span><span>57% modified</span></header>
+              <div class="split-bar" style="--no:43%;--yes:57%"><span></span><span></span></div>
+            </div>
+            <div class="age-row">
+              <header><span>&ge;65 years (n=83)</span><span>61% modified</span></header>
+              <div class="split-bar" style="--no:39%;--yes:61%"><span></span><span></span></div>
+            </div>
+          </div>
+          <p class="source-note"><span style="color:var(--teal);font-weight:900">Teal</span> = no modification; <span style="color:var(--red);font-weight:900">red</span> = modification.</p>
+        </div>
+        <div class="mini-kpi">
+          <div>
+            <strong>83.1%</strong>
+            <span>received chemotherapy before abemaciclib initiation.</span>
+          </div>
+          <div>
+            <strong>91.0%</strong>
+            <span>received abemaciclib with an aromatase inhibitor.</span>
+          </div>
+          <div>
+            <strong>80.8%</strong>
+            <span>were treated in community practice settings.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="tables-grid">
+        <article class="table-card">
+          <p class="section-label">Cohort Profile</p>
+          <h2>Baseline clinical context</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Characteristic</th>
+                  <th>Reported value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Follow-up, median (IQR)</td>
+                  <td>8.8 months (5.9, 12.1)</td>
+                </tr>
+                <tr>
+                  <td>Age, median (IQR)</td>
+                  <td>56.0 years (48.0, 64.0)</td>
+                </tr>
+                <tr>
+                  <td>Stage II / Stage III</td>
+                  <td>41.8% / 38.4%</td>
+                </tr>
+                <tr>
+                  <td>Pathologic node N1 / N2 / N3</td>
+                  <td>45.2% / 35.3% / 14.1%</td>
+                </tr>
+                <tr>
+                  <td>Tumor grade 2 / grade 3</td>
+                  <td>52.3% / 38.4%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+        <article class="table-card">
+          <p class="section-label">Treatment Status</p>
+          <h2>3-month outcome pattern</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Status</th>
+                  <th>n</th>
+                  <th>%</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Continued on treatment</td>
+                  <td>312</td>
+                  <td>88%</td>
+                </tr>
+                <tr>
+                  <td>Discontinued due to adverse events</td>
+                  <td>40</td>
+                  <td>11%</td>
+                </tr>
+                <tr>
+                  <td>Discontinued for other reasons</td>
+                  <td>2</td>
+                  <td>1%</td>
+                </tr>
+                <tr>
+                  <td>Dose reductions: continued beyond 3 months</td>
+                  <td>not specified</td>
+                  <td>93%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="callout-band">
+        <div class="takeaway">
+          <strong>Early dose management may support persistence.</strong>
+          <p>The poster concludes that adjuvant abemaciclib discontinuation was low in US clinical practice, while patients with dose reductions had higher 3-month continuation.</p>
+        </div>
+        <div class="panel">
+          <p class="section-label">Conclusion</p>
+          <h2>Practical implication from the poster</h2>
+          <p>Given early onset of diarrhea in abemaciclib treatment and evidence that dose reductions do not compromise efficacy, the authors emphasize anti-diarrheal medicine and timely dose modifications to improve tolerability and treatment persistence.</p>
+          <ul class="compact-list">
+            <li>88% continued beyond 3 months in the overall cohort.</li>
+            <li>70% of patients who discontinued due to AEs did not attempt dose modifications.</li>
+            <li>Half of patients stayed on 150 mg BID and half had a dose reduction.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/2121-OPR02-EN-Poster-AM25_2025.pdf">Open source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/2121-OPR02-EN-Poster-AM25_2025.md">Open source markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2025 Infographic | Specialty Pharmacy Stockpiling Reduction</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 84% 14%, rgba(233, 158, 37, 0.28), transparent 7rem),
+        linear-gradient(145deg, var(--surface-blue), #fff 58%, var(--surface-warm));
+    }
+
+    .hero-card svg {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin-top: 0.25rem;
+    }
+
+    .stockpile-meter {
+      display: grid;
+      grid-template-columns: 0.72fr 1.28fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .savings-tile {
+      display: grid;
+      align-content: center;
+      min-height: 18rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 84% 18%, rgba(233, 158, 37, 0.34), transparent 9rem),
+        linear-gradient(135deg, var(--ink), #1d6f82);
+      color: #fff;
+      padding: 1.15rem;
+      overflow: hidden;
+    }
+
+    .savings-tile span {
+      color: rgba(255, 255, 255, 0.74);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .savings-tile strong {
+      margin-top: 0.25rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(3.3rem, 8vw, 5.9rem);
+      line-height: 0.88;
+    }
+
+    .savings-tile p {
+      max-width: 24rem;
+      margin: 0.8rem 0 0;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 0.98rem;
+    }
+
+    .case-funnel {
+      display: grid;
+      gap: 0.65rem;
+      margin-top: 0.65rem;
+    }
+
+    .funnel-row {
+      display: grid;
+      grid-template-columns: 5.2rem minmax(0, 1fr) 3.2rem;
+      gap: 0.6rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 850;
+    }
+
+    .funnel-row strong {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      line-height: 1;
+    }
+
+    .funnel-track {
+      height: 1.18rem;
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+
+    .funnel-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .flow-line {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.8rem;
+    }
+
+    .flow-node {
+      position: relative;
+      min-height: 11.2rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.86rem;
+    }
+
+    .flow-node::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -0.55rem;
+      width: 0.78rem;
+      height: 0.78rem;
+      border-top: 2px solid var(--border-strong);
+      border-right: 2px solid var(--border-strong);
+      background: #fff;
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    .flow-node:last-child::after { display: none; }
+
+    .flow-node b {
+      display: inline-grid;
+      place-items: center;
+      width: 1.72rem;
+      height: 1.72rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+    }
+
+    .flow-node h3 {
+      margin-top: 0.55rem;
+      font-size: 0.96rem;
+    }
+
+    .flow-node p {
+      margin: 0.38rem 0 0;
+      font-size: 0.8rem;
+    }
+
+    .medication-map {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 1rem;
+    }
+
+    .share-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.7rem;
+    }
+
+    .share-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface-blue);
+      padding: 0.68rem;
+    }
+
+    .share-card strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+
+    .share-card span {
+      display: block;
+      margin-top: 0.2rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 850;
+    }
+
+    .money-bars .lens-row {
+      grid-template-columns: 12.6rem minmax(0, 1fr) 5.6rem;
+    }
+
+    .money-bars .lens-row em {
+      color: var(--ink);
+      font-style: normal;
+      font-size: 0.78rem;
+      font-weight: 850;
+      text-align: right;
+    }
+
+    .days-strip {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.7rem;
+    }
+
+    .day-cell {
+      min-height: 6.7rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.58rem;
+    }
+
+    .day-cell strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.7rem;
+      line-height: 1;
+    }
+
+    .day-cell span {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 850;
+    }
+
+    .med-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.4rem;
+      margin-top: 0.62rem;
+    }
+
+    .med-grid span {
+      min-height: 2.75rem;
+      border: 1px solid rgba(174, 187, 210, 0.78);
+      border-radius: 7px;
+      background: var(--surface-blue);
+      padding: 0.45rem 0.5rem;
+      color: var(--ink);
+      font-size: 0.72rem;
+      font-weight: 850;
+      line-height: 1.2;
+    }
+
+    .med-grid span.hit {
+      border-color: rgba(209, 38, 48, 0.36);
+      background: rgba(209, 38, 48, 0.08);
+      color: var(--red);
+    }
+
+    .callout-panel {
+      border-left: 5px solid var(--teal);
+      background: linear-gradient(90deg, rgba(24, 124, 143, 0.1), #fff 48%);
+    }
+
+    .source-note {
+      margin: 0.65rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 900px) {
+      .stockpile-meter,
+      .medication-map,
+      .flow-line {
+        grid-template-columns: 1fr;
+      }
+
+      .flow-node::after { display: none; }
+      .days-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 560px) {
+      .share-grid,
+      .days-strip,
+      .med-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .funnel-row,
+      .money-bars .lens-row {
+        grid-template-columns: 1fr;
+      }
+
+      .money-bars .lens-row em { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">NASP Posters</a>
+      <nav aria-label="Source files">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/1110-OPR59-OR-Poster-AM25_2025.pdf">Poster PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/1110-OPR59-OR-Poster-AM25_2025.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">2025 NASP Annual Meeting | 1110-OPR59-OR</p>
+        <h1>Specialty pharmacy-driven stockpiling reduction program outcomes and savings</h1>
+        <p class="hero-summary">Walgreens evaluated a specialty pharmacy program that used dispense history, pharmacist EMR review, and refill rescheduling to prevent excess medication accumulation across 12 high-cost specialty therapies.</p>
+        <ul class="tag-row" aria-label="Poster themes">
+          <li class="tag category">Stockpiling prevention</li>
+          <li class="tag therapy">Specialty pharmacy</li>
+          <li class="tag">Cost avoidance</li>
+          <li class="tag">Proactive refill coordination</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata and visual summary">
+        <div class="poster-code">1110-OPR59-OR</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Year</dt>
+            <dd>2025</dd>
+          </div>
+          <div>
+            <dt>Organization</dt>
+            <dd>Walgreen Co.</dd>
+          </div>
+          <div>
+            <dt>Population</dt>
+            <dd>Patients with possible surplus</dd>
+          </div>
+          <div>
+            <dt>Window</dt>
+            <dd>Jan 1-Dec 31, 2024</dd>
+          </div>
+        </dl>
+        <svg viewBox="0 0 360 190" role="img" aria-label="Medication supply reduced from surplus to right-timed refill">
+          <defs>
+            <linearGradient id="bottleFill" x1="0" x2="1">
+              <stop offset="0" stop-color="#d12630"/>
+              <stop offset="1" stop-color="#e99e25"/>
+            </linearGradient>
+          </defs>
+          <rect x="18" y="112" width="324" height="28" rx="14" fill="#eef4fb" stroke="#aebbd2"/>
+          <rect x="18" y="112" width="228" height="28" rx="14" fill="url(#bottleFill)"/>
+          <path d="M251 99 L284 126 L251 153" fill="none" stroke="#243770" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+          <g transform="translate(40 28)">
+            <rect x="0" y="28" width="54" height="78" rx="10" fill="#fff" stroke="#243770" stroke-width="4"/>
+            <rect x="12" y="6" width="30" height="24" rx="4" fill="#243770"/>
+            <rect x="8" y="58" width="38" height="20" rx="4" fill="#d12630" opacity="0.9"/>
+          </g>
+          <g transform="translate(154 38)">
+            <rect x="0" y="28" width="54" height="68" rx="10" fill="#fff" stroke="#187c8f" stroke-width="4"/>
+            <rect x="12" y="6" width="30" height="24" rx="4" fill="#187c8f"/>
+            <rect x="8" y="58" width="38" height="16" rx="4" fill="#4d8a67" opacity="0.9"/>
+          </g>
+          <g transform="translate(266 52)">
+            <rect x="0" y="28" width="54" height="54" rx="10" fill="#fff" stroke="#7561a8" stroke-width="4"/>
+            <rect x="12" y="6" width="30" height="24" rx="4" fill="#7561a8"/>
+            <rect x="8" y="58" width="38" height="12" rx="4" fill="#e99e25" opacity="0.9"/>
+          </g>
+        </svg>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key study numbers">
+        <article class="metric-card">
+          <span>Potential surplus cases</span>
+          <strong>78</strong>
+        </article>
+        <article class="metric-card">
+          <span>Successful postponements</span>
+          <strong>45</strong>
+        </article>
+        <article class="metric-card">
+          <span>Total days saved</span>
+          <strong>796</strong>
+        </article>
+        <article class="metric-card">
+          <span>Total cost avoidance</span>
+          <strong>$590K</strong>
+        </article>
+      </section>
+
+      <section class="stockpile-meter">
+        <article class="savings-tile">
+          <span>Direct transactional savings</span>
+          <strong>$590,077</strong>
+          <p>Refills were deferred by an average of 17.7 days, avoiding nearly 2.2 patient-years of unnecessary specialty medication supply.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Case inclusion funnel</p>
+          <h2>Pharmacist review separated true excess supply from clinically justified on-hand quantities.</h2>
+          <div class="case-funnel" aria-label="Patient case funnel">
+            <div class="funnel-row">
+              <strong>78</strong>
+              <div class="funnel-track"><i style="width:100%"></i></div>
+              <span>flagged</span>
+            </div>
+            <div class="funnel-row">
+              <strong>31</strong>
+              <div class="funnel-track"><i style="width:39.7%"></i></div>
+              <span>excluded</span>
+            </div>
+            <div class="funnel-row">
+              <strong>47</strong>
+              <div class="funnel-track"><i style="width:60.3%"></i></div>
+              <span>deferred</span>
+            </div>
+            <div class="funnel-row">
+              <strong>45</strong>
+              <div class="funnel-track"><i style="width:57.7%"></i></div>
+              <span>success</span>
+            </div>
+          </div>
+          <p class="source-note">Two patients self-requested early refills after their proactive refill process was deferred.</p>
+        </article>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Evidence flow</p>
+        <h2>Program logic: identify, verify, postpone, quantify.</h2>
+        <div class="flow-line">
+          <article class="flow-node">
+            <b>1</b>
+            <h3>Detect surplus risk</h3>
+            <p>Computational logic screened 12 select high-cost specialty medications using the prior 12 months of central-fill dispense history.</p>
+          </article>
+          <article class="flow-node">
+            <b>2</b>
+            <h3>Validate context</h3>
+            <p>A clinical pharmacist reviewed the EMR for dose changes, lost prescriptions, or other explanations for apparent medication on hand.</p>
+          </article>
+          <article class="flow-node">
+            <b>3</b>
+            <h3>Defer refill outreach</h3>
+            <p>When at least 28 potential excess days were present, proactive refill outreach was postponed until roughly two weeks of supply remained.</p>
+          </article>
+          <article class="flow-node">
+            <b>4</b>
+            <h3>Calculate avoided waste</h3>
+            <p>Savings were based on the gap between original and actual refill dates, using medication cost per dose and number of doses saved.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="medication-map">
+        <article class="panel">
+          <p class="section-label">Where savings concentrated</p>
+          <h2>Two therapies accounted for most interventions.</h2>
+          <div class="share-grid">
+            <div class="share-card">
+              <strong>82.2%</strong>
+              <span>of interventions came from elexacaftor/tezacaftor/ivacaftor and tolvaptan</span>
+            </div>
+            <div class="share-card">
+              <strong>5 of 12</strong>
+              <span>monitored medications produced successful interventions</span>
+            </div>
+          </div>
+          <div class="lens-chart money-bars" aria-label="Savings by medication">
+            <div class="lens-row">
+              <span>Elexacaftor/tezacaftor/ivacaftor</span>
+              <div class="lens-bar"><i style="width:100%"></i></div>
+              <em>$342,855</em>
+            </div>
+            <div class="lens-row">
+              <span>Tolvaptan</span>
+              <div class="lens-bar"><i style="width:55.4%"></i></div>
+              <em>$190,017</em>
+            </div>
+            <div class="lens-row">
+              <span>Ruxolitinib</span>
+              <div class="lens-bar"><i style="width:9.6%"></i></div>
+              <em>$32,902</em>
+            </div>
+            <div class="lens-row">
+              <span>Eltrombopag</span>
+              <div class="lens-bar"><i style="width:3.9%"></i></div>
+              <em>$13,227</em>
+            </div>
+            <div class="lens-row">
+              <span>Ivacaftor</span>
+              <div class="lens-bar"><i style="width:3.2%"></i></div>
+              <em>$11,076</em>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Days saved by therapy</p>
+          <h2>796 days saved across five monitored products.</h2>
+          <div class="days-strip" aria-label="Days saved by medication">
+            <div class="day-cell">
+              <strong>368</strong>
+              <span>elexacaftor/tezacaftor/ivacaftor</span>
+            </div>
+            <div class="day-cell">
+              <strong>278</strong>
+              <span>tolvaptan</span>
+            </div>
+            <div class="day-cell">
+              <strong>97</strong>
+              <span>ruxolitinib</span>
+            </div>
+            <div class="day-cell">
+              <strong>41</strong>
+              <span>eltrombopag</span>
+            </div>
+            <div class="day-cell">
+              <strong>12</strong>
+              <span>ivacaftor</span>
+            </div>
+          </div>
+          <p class="source-note">Average days saved per successful intervention: 17.7 days.</p>
+        </article>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">Monitored specialty medications</p>
+          <h2>Program began with the payor's 12 high-cost specialty medications.</h2>
+          <div class="med-grid" aria-label="Included medications">
+            <span>cabozantinib</span>
+            <span class="hit">ivacaftor</span>
+            <span>tetrabenazine</span>
+            <span class="hit">elexacaftor/tezacaftor/ivacaftor</span>
+            <span>lumacaftor/ivacaftor</span>
+            <span>tezacaftor/ivacaftor</span>
+            <span>eliglustat</span>
+            <span class="hit">ruxolitinib</span>
+            <span class="hit">tolvaptan</span>
+            <span class="hit">eltrombopag</span>
+            <span>tasimelteon</span>
+            <span>vigabatrin</span>
+          </div>
+          <p class="source-note">Red tiles indicate medications with successful interventions in 2024.</p>
+        </article>
+
+        <article class="panel callout-panel">
+          <p class="section-label">Conclusion</p>
+          <h2>Specialty pharmacies can reduce waste without blocking patient access.</h2>
+          <div class="markdown-fragment">
+            <p>The initiative met its objective by pairing utilization monitoring with individualized clinical oversight. Deferred outreach reduced unnecessary medication accumulation, produced payor cost avoidance, and could inform cumulative quantity-limit policy opportunities.</p>
+            <p>The intervention adjusted proactive refill timing only; patients could still request a refill when needed.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="table-card">
+        <p class="section-label">Outcome table pattern</p>
+        <h2>Intervention volume, days saved, and average savings moved together, but medication cost per dose shaped the dollar impact.</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Medication</th>
+                <th>Interventions</th>
+                <th>Total days saved</th>
+                <th>Total savings</th>
+                <th>Average savings</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>elexacaftor/tezacaftor/ivacaftor</td>
+                <td>19</td>
+                <td>368</td>
+                <td>$342,855</td>
+                <td>$18,045</td>
+              </tr>
+              <tr>
+                <td>tolvaptan</td>
+                <td>18</td>
+                <td>278</td>
+                <td>$190,017</td>
+                <td>$10,557</td>
+              </tr>
+              <tr>
+                <td>ruxolitinib</td>
+                <td>5</td>
+                <td>97</td>
+                <td>$32,902</td>
+                <td>$6,580</td>
+              </tr>
+              <tr>
+                <td>eltrombopag</td>
+                <td>2</td>
+                <td>41</td>
+                <td>$13,227</td>
+                <td>$6,614</td>
+              </tr>
+              <tr>
+                <td>ivacaftor</td>
+                <td>1</td>
+                <td>12</td>
+                <td>$11,076</td>
+                <td>$11,076</td>
+              </tr>
+              <tr>
+                <th>Total</th>
+                <th>45</th>
+                <th>796</th>
+                <th>$590,077</th>
+                <th>$13,113</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/1110-OPR59-OR-Poster-AM25_2025.pdf">Open original poster PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/1110-OPR59-OR-Poster-AM25_2025.md">Open extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

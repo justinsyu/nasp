@@ -1,0 +1,611 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CalOPT: Optimizing Calcium Intake | NASP 2021</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -3.8rem -4rem auto;
+      width: 14rem;
+      height: 14rem;
+      border: 1.4rem solid rgba(24, 124, 143, 0.12);
+      border-radius: 50%;
+    }
+    .hero-card > * {
+      position: relative;
+      z-index: 1;
+    }
+    .calcium-icon {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-top: 0.25rem;
+    }
+    .hero-note {
+      margin: 0;
+      border-left: 4px solid var(--red);
+      padding-left: 0.75rem;
+      color: var(--ink);
+      font-size: 0.95rem;
+      font-weight: 850;
+    }
+    .metric-card p,
+    .panel p,
+    .food-card p {
+      margin: 0.45rem 0 0;
+    }
+    .metric-card strong small {
+      color: var(--red);
+      font-size: 0.9rem;
+    }
+    .goal-board {
+      display: grid;
+      grid-template-columns: minmax(18rem, 0.74fr) minmax(0, 1.26fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .delta-card {
+      display: grid;
+      align-content: center;
+      min-height: 20rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 16% 18%, rgba(233, 158, 37, 0.18), transparent 7rem),
+        linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 1rem;
+      text-align: center;
+    }
+    .delta-card strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(4rem, 9vw, 7rem);
+      line-height: 0.9;
+    }
+    .delta-card span {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 900;
+    }
+    .goal-bars {
+      display: grid;
+      gap: 0.9rem;
+      margin-top: 0.9rem;
+    }
+    .goal-row {
+      display: grid;
+      grid-template-columns: 7rem minmax(0, 1fr) 4rem;
+      gap: 0.65rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 850;
+    }
+    .goal-track {
+      height: 1.55rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: #e7eef7;
+      overflow: hidden;
+    }
+    .goal-track i {
+      display: block;
+      width: var(--width);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .target-line {
+      position: relative;
+      margin-top: 1rem;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.8rem;
+    }
+    .target-line::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 42%;
+      width: 2px;
+      background: rgba(209, 38, 48, 0.5);
+    }
+    .target-line b {
+      color: var(--red);
+      font-family: var(--font-display);
+    }
+    .intake-map {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.75rem;
+    }
+    .intake-step {
+      min-height: 10.4rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.78rem;
+    }
+    .intake-step::before {
+      content: attr(data-step);
+      display: inline-grid;
+      place-items: center;
+      width: 1.85rem;
+      height: 1.85rem;
+      margin-bottom: 0.55rem;
+      border-radius: 50%;
+      background: var(--step-color, var(--ink));
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 900;
+    }
+    .intake-step:nth-child(2) { --step-color: var(--red); }
+    .intake-step:nth-child(3) { --step-color: var(--gold); }
+    .intake-step:nth-child(4) { --step-color: var(--teal); }
+    .intake-step:nth-child(5) { --step-color: var(--green); }
+    .intake-step p {
+      margin: 0.3rem 0 0;
+      font-size: 0.78rem;
+      line-height: 1.35;
+    }
+    .patient-lens {
+      display: grid;
+      gap: 0.6rem;
+      margin-top: 0.7rem;
+    }
+    .lens-row {
+      display: grid;
+      grid-template-columns: 9.5rem minmax(0, 1fr) 4.2rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .lens-track {
+      height: 0.9rem;
+      border-radius: 999px;
+      background: #e8eef7;
+      overflow: hidden;
+    }
+    .lens-track i {
+      display: block;
+      width: var(--width);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .lens-track.teal i {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .foods-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 1rem;
+    }
+    .food-bars {
+      display: grid;
+      gap: 0.52rem;
+      margin-top: 0.75rem;
+    }
+    .food-row {
+      display: grid;
+      grid-template-columns: 7.5rem minmax(0, 1fr) 2.8rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .food-track {
+      height: 1rem;
+      border-radius: 999px;
+      background: #e8eef7;
+      overflow: hidden;
+    }
+    .food-track i {
+      display: block;
+      width: var(--width);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--green), var(--teal));
+    }
+    .mrp-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.75rem;
+    }
+    .mrp-card {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.8rem;
+    }
+    .mrp-card strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.9rem;
+      line-height: 1;
+    }
+    .mrp-card span {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--body);
+      font-size: 0.8rem;
+      font-weight: 780;
+    }
+    .callout-panel {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(24, 124, 143, 0.12), transparent 48%),
+        #fff;
+    }
+    .callout-panel p {
+      max-width: 66rem;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.05rem, 1.7vw, 1.42rem);
+      font-weight: 850;
+      line-height: 1.35;
+    }
+    .source-note {
+      margin: 0.58rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 760;
+    }
+    @media (max-width: 900px) {
+      .topbar {
+        margin-left: 0;
+        margin-right: 0;
+      }
+      .goal-board,
+      .foods-grid {
+        grid-template-columns: 1fr;
+      }
+      .intake-map,
+      .mrp-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 560px) {
+      .topbar {
+        margin-left: 0;
+        margin-right: 0;
+      }
+      .goal-row,
+      .lens-row,
+      .food-row {
+        grid-template-columns: 1fr;
+      }
+      .intake-map,
+      .mrp-grid {
+        grid-template-columns: 1fr;
+      }
+      .target-line::before {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/08-CalOPT-Optimizing-Calcium-Intake_2021.pdf">Source PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/08-CalOPT-Optimizing-Calcium-Intake_2021.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2021 / Poster 08</p>
+        <h1 id="poster-title">CalOPT: Optimizing Calcium Intake</h1>
+        <p class="hero-summary">
+          Price Chopper Specialty Pharmacy and nutrition services tested a grocery-chain intervention to help specialty pharmacy patients on osteoporosis therapy or bone-loss-risk medications reach recommended daily calcium intake.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag therapy">Osteoporosis and bone loss risk</li>
+          <li class="tag category">Pharmacist and dietitian model</li>
+          <li class="tag">Telephonic assessment</li>
+          <li class="tag">Food and supplement counseling</li>
+          <li class="tag">3-6 month follow-up</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Study snapshot">
+        <div class="poster-code">08<br>2021</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Patients</dt>
+            <dd>n = 50</dd>
+          </div>
+          <div>
+            <dt>Goal RDA</dt>
+            <dd>1000-1200 mg</dd>
+          </div>
+          <div>
+            <dt>Baseline at goal</dt>
+            <dd>34%</dd>
+          </div>
+          <div>
+            <dt>Follow-up at goal</dt>
+            <dd>60%</dd>
+          </div>
+        </dl>
+        <p class="hero-note">The intervention moved 13 additional patients to goal intake and another 8 patients closer to the goal.</p>
+        <svg class="calcium-icon" viewBox="0 0 390 185" role="img" aria-label="Illustration of calcium progress from assessment to goal">
+          <defs>
+            <linearGradient id="cupMilk" x1="0" x2="1">
+              <stop offset="0" stop-color="#187c8f"/>
+              <stop offset="1" stop-color="#4d8a67"/>
+            </linearGradient>
+            <linearGradient id="boneLine" x1="0" x2="1">
+              <stop offset="0" stop-color="#e99e25"/>
+              <stop offset="1" stop-color="#d12630"/>
+            </linearGradient>
+          </defs>
+          <rect x="32" y="64" width="70" height="92" rx="12" fill="#ffffff" stroke="#187c8f" stroke-width="4"/>
+          <path d="M42 96 h50 v42 a8 8 0 0 1-8 8H50a8 8 0 0 1-8-8Z" fill="url(#cupMilk)" opacity="0.82"/>
+          <path d="M141 98 C180 57 229 58 267 98 S333 133 357 89" fill="none" stroke="url(#boneLine)" stroke-width="10" stroke-linecap="round"/>
+          <circle cx="141" cy="98" r="10" fill="#fff" stroke="#e99e25" stroke-width="4"/>
+          <circle cx="267" cy="98" r="10" fill="#fff" stroke="#d12630" stroke-width="4"/>
+          <circle cx="357" cy="89" r="10" fill="#fff" stroke="#4d8a67" stroke-width="4"/>
+          <text x="68" y="42" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="17" font-weight="900">Food</text>
+          <text x="205" y="42" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="17" font-weight="900">Supplement</text>
+          <text x="326" y="42" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="17" font-weight="900">Goal</text>
+          <text x="195" y="172" text-anchor="middle" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="850">Patient-specific intake plan plus follow-up</text>
+        </svg>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key poster numbers">
+        <article class="metric-card">
+          <span>At goal calcium intake</span>
+          <strong>34<small>% to</small> 60<small>%</small></strong>
+          <p>Baseline to follow-up after education and recommendations.</p>
+        </article>
+        <article class="metric-card">
+          <span>Mean dietary calcium</span>
+          <strong>500<small> mg</small></strong>
+          <p>Baseline daily intake from food, mean +/- 247 mg.</p>
+        </article>
+        <article class="metric-card">
+          <span>Supplement use</span>
+          <strong>44<small>%</small></strong>
+          <p>Patients reporting daily calcium supplement use.</p>
+        </article>
+        <article class="metric-card">
+          <span>Coupon redemption</span>
+          <strong>54<small>%</small></strong>
+          <p>Signal of interest in nutritional routes to RDA intake.</p>
+        </article>
+      </section>
+
+      <section id="outcomes" class="goal-board" aria-label="Primary outcome">
+        <div class="delta-card">
+          <span>Additional patients at goal</span>
+          <strong>+13</strong>
+          <span>26 percentage-point gain</span>
+          <p class="source-note">17 of 50 patients were at goal at baseline; 30 of 50 were at goal at follow-up.</p>
+        </div>
+        <div class="panel">
+          <p class="section-label">Primary goal and outcome</p>
+          <h2>CalOPT exceeded the planned 20% increase in patients reaching 1000-1200 mg/day.</h2>
+          <div class="goal-bars" aria-label="At-goal calcium intake comparison">
+            <div class="goal-row">
+              <span>Baseline</span>
+              <div class="goal-track"><i style="--width:34%"></i></div>
+              <span>34%</span>
+            </div>
+            <div class="goal-row">
+              <span>Follow-up</span>
+              <div class="goal-track"><i style="--width:60%"></i></div>
+              <span>60%</span>
+            </div>
+            <div class="goal-row">
+              <span>Closer, not goal</span>
+              <div class="goal-track"><i style="--width:16%"></i></div>
+              <span>16%</span>
+            </div>
+          </div>
+          <div class="target-line">
+            <b>Goal range:</b> National Osteoporosis Foundation materials were used to define recommended daily calcium intake by age and gender, generally 1000-1200 mg/day.
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" aria-label="Intervention workflow">
+        <p class="section-label">Evidence flow</p>
+        <h2>A specialty pharmacist and dietitian turned a phone assessment into a tailored calcium plan.</h2>
+        <div class="intake-map">
+          <article class="intake-step" data-step="1">
+            <h3>Identify patients</h3>
+            <p>Targeted adults receiving osteoporosis therapy or medications associated with bone loss, including denosumab, elagolix, leuprorelin acetate, and chronic prednisone.</p>
+          </article>
+          <article class="intake-step" data-step="2">
+            <h3>Estimate intake</h3>
+            <p>Telephonic interviews combined dietary calcium estimates with supplement use using a validated dietary intake tool.</p>
+          </article>
+          <article class="intake-step" data-step="3">
+            <h3>Screen risk</h3>
+            <p>Medication history captured PPI, H2RA, levothyroxine, and supplement issues; FRAX was calculated for patients older than 40.</p>
+          </article>
+          <article class="intake-step" data-step="4">
+            <h3>Mail guidance</h3>
+            <p>Patients received a cover letter with progress, FRAX results, NOF calcium materials, supplement advice, and food coupons.</p>
+          </article>
+          <article class="intake-step" data-step="5">
+            <h3>Follow up</h3>
+            <p>At 3-6 months, staff assessed behavior change and whether patients reached their goal calcium intake.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="visual-grid" aria-label="Population and baseline intake">
+        <article class="panel">
+          <p class="section-label">Patient profile</p>
+          <h2>The cohort was older, predominantly female, and frequently exposed to calcium interaction risks.</h2>
+          <div class="patient-lens">
+            <div class="lens-row"><span>Female</span><div class="lens-track teal"><i style="--width:94%"></i></div><span>94%</span></div>
+            <div class="lens-row"><span>Denosumab</span><div class="lens-track teal"><i style="--width:72%"></i></div><span>72%</span></div>
+            <div class="lens-row"><span>PPI or H2RA</span><div class="lens-track"><i style="--width:50%"></i></div><span>50%</span></div>
+            <div class="lens-row"><span>Prescriber calcium talk</span><div class="lens-track"><i style="--width:38%"></i></div><span>38%</span></div>
+            <div class="lens-row"><span>Less than 200 mg/day</span><div class="lens-track"><i style="--width:10%"></i></div><span>10%</span></div>
+          </div>
+          <p class="source-note">Mean age was 66.6 years +/- 15.3; mean FRAX probability was 18.5% for major osteoporotic fracture and 6.6% for hip fracture.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Why intervene?</p>
+          <h2>Baseline calls exposed a substantial calcium gap before the formal project began.</h2>
+          <div class="number-cloud">
+            <div class="number-pill">38%<small>US adults below calcium RDA</small></div>
+            <div class="number-pill">55%<small>pilot calls below 600 mg/day</small></div>
+            <div class="number-pill">50<small>patients needed by power estimate</small></div>
+            <div class="number-pill">77<small>community pharmacy locations</small></div>
+          </div>
+          <p>The poster positioned the supermarket pharmacy model as a way to connect medication safety, nutrition counseling, and access to calcium-rich foods.</p>
+        </article>
+      </section>
+
+      <section class="foods-grid" aria-label="Coupon and medication related problem signals">
+        <article class="panel">
+          <p class="section-label">Nutrition reinforcement</p>
+          <h2>Coupon use clustered around simple calcium-rich foods.</h2>
+          <div class="food-bars" aria-label="Coupon redemptions">
+            <div class="food-row"><span>Cottage cheese</span><div class="food-track"><i style="--width:100%"></i></div><span>27</span></div>
+            <div class="food-row"><span>Broccoli</span><div class="food-track"><i style="--width:67%"></i></div><span>18</span></div>
+            <div class="food-row"><span>Orange juice</span><div class="food-track"><i style="--width:44%"></i></div><span>12</span></div>
+            <div class="food-row"><span>Soy milk</span><div class="food-track"><i style="--width:22%"></i></div><span>6</span></div>
+            <div class="food-row"><span>Greek yogurt</span><div class="food-track"><i style="--width:19%"></i></div><span>5</span></div>
+          </div>
+          <p class="source-note">Redemptions are counts; the poster reported overall coupon redemption by 54% of patients.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Medication-related problems</p>
+          <h2>The intervention identified supplement timing, formulation, and label-comprehension issues.</h2>
+          <div class="mrp-grid">
+            <div class="mrp-card">
+              <strong>7/7</strong>
+              <span>Levothyroxine patients using calcium separated doses by at least 1 hour.</span>
+            </div>
+            <div class="mrp-card">
+              <strong>3/6</strong>
+              <span>Patients on calcium carbonate with PPI/H2RA changed to calcium citrate.</span>
+            </div>
+            <div class="mrp-card">
+              <strong>3</strong>
+              <span>Patients misread supplement labels where 3 tablets equaled a serving.</span>
+            </div>
+            <div class="mrp-card">
+              <strong>1</strong>
+              <span>Patient with poor intake was referred to the prescriber.</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-stack" aria-label="Objective and interpretation">
+        <article class="panel markdown-fragment">
+          <p class="section-label">Objective</p>
+          <h2>Increase the share of targeted specialty pharmacy patients reaching calcium RDA by 20%.</h2>
+          <p>
+            The primary outcome tested whether collaboration between specialty pharmacy and a registered dietitian-nutritionist in a grocery chain model could move patients to 1000-1200 mg/day.
+          </p>
+          <p>
+            Secondary outcomes included awareness of medication risk for bone mineral density loss, medication-related problem resolution, and coupon tracking.
+          </p>
+        </article>
+        <article class="panel markdown-fragment">
+          <p class="section-label">Lessons learned</p>
+          <h2>Patients moved toward goal, but prescriber counseling and nutrition infrastructure remained gaps.</h2>
+          <ul>
+            <li>Only 38% reported that prescribers discussed calcium and vitamin D intake.</li>
+            <li>Ten percent of at-risk patients reported less than 200 mg/day of dietary calcium.</li>
+            <li>Coupon redemption suggested patient interest in food-based calcium support.</li>
+            <li>The authors noted an opportunity for a calcium-focused grocery shelf-tag program.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Extracted table patterns">
+        <article class="table-card">
+          <p class="section-label">Demographics table pattern</p>
+          <h2>Selected baseline characteristics</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Measure</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Age, mean +/- SD</td><td>66.6 +/- 15.3 years</td></tr>
+                <tr><td>Female</td><td>47 patients (94%)</td></tr>
+                <tr><td>Denosumab</td><td>36 patients (72%)</td></tr>
+                <tr><td>PPI or H2RA use</td><td>25 patients (50%)</td></tr>
+                <tr><td>Levothyroxine use</td><td>7 patients (14%)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+        <article class="table-card">
+          <p class="section-label">Calcium intake table pattern</p>
+          <h2>Baseline intake and follow-up movement</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Measure</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Dietary calcium intake, mean +/- SD</td><td>500 +/- 247 mg/day</td></tr>
+                <tr><td>Daily supplement use</td><td>22 patients (44%)</td></tr>
+                <tr><td>Supplement calcium, mean +/- SD</td><td>686 +/- 284 mg/day</td></tr>
+                <tr><td>At goal at baseline</td><td>17 patients (34%)</td></tr>
+                <tr><td>At goal at follow-up</td><td>30 patients (60%)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel callout-panel">
+        <p>
+          Conclusion: a grocery-chain specialty pharmacy and dietitian intervention improved calcium-intake goal attainment from 34% to 60%, with additional patients moving closer to goal and actionable supplement-related issues identified during follow-up.
+        </p>
+      </section>
+    </main>
+
+    <footer class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/08-CalOPT-Optimizing-Calcium-Intake_2021.pdf">Open original PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/08-CalOPT-Optimizing-Calcium-Intake_2021.md">Read extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

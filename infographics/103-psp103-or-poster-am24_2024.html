@@ -1,0 +1,664 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2024 Infographic | Medication Assistance Renewal Process Optimization</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .workflow-hero {
+      position: relative;
+      min-height: 18rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 88% 12%, rgba(233, 158, 37, 0.34), transparent 12rem),
+        linear-gradient(135deg, rgba(36, 55, 112, 0.98), rgba(24, 124, 143, 0.92));
+      color: #fff;
+      overflow: hidden;
+      padding: 1rem;
+    }
+    .workflow-hero svg {
+      position: absolute;
+      right: -1.4rem;
+      bottom: -1.8rem;
+      width: min(25rem, 72%);
+      opacity: 0.72;
+    }
+    .workflow-hero .kicker {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.74);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+    .workflow-hero strong {
+      display: block;
+      max-width: 14rem;
+      margin-top: 0.35rem;
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 5vw, 4.6rem);
+      line-height: 0.94;
+    }
+    .workflow-hero span {
+      display: block;
+      max-width: 18rem;
+      margin-top: 0.7rem;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.92rem;
+    }
+    .hero-card .button-link {
+      justify-content: center;
+      background: #fff;
+    }
+    .team-split {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 4rem minmax(0, 1fr);
+      gap: 0.7rem;
+      align-items: stretch;
+      margin-top: 0.72rem;
+    }
+    .team-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+    }
+    .team-card strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2.6rem;
+      line-height: 1;
+    }
+    .team-card span {
+      display: block;
+      margin-top: 0.28rem;
+      color: var(--ink);
+      font-size: 0.86rem;
+      font-weight: 850;
+    }
+    .team-card p {
+      margin: 0.35rem 0 0;
+      font-size: 0.8rem;
+    }
+    .split-arrow {
+      display: grid;
+      place-items: center;
+      color: var(--ink);
+    }
+    .split-arrow svg {
+      width: 3.4rem;
+      height: auto;
+    }
+    .compact-list {
+      margin: 0.6rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .compact-list li {
+      display: grid;
+      grid-template-columns: 0.8rem minmax(0, 1fr);
+      gap: 0.42rem;
+      margin-top: 0.42rem;
+      font-size: 0.88rem;
+    }
+    .compact-list li::before {
+      content: "";
+      width: 0.52rem;
+      height: 0.52rem;
+      margin-top: 0.43rem;
+      border-radius: 50%;
+      background: var(--red);
+    }
+    .flow-line {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.62rem;
+      margin-top: 0.75rem;
+    }
+    .flow-node {
+      position: relative;
+      min-height: 9rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.82rem;
+    }
+    .flow-node::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -0.49rem;
+      width: 0.72rem;
+      height: 0.72rem;
+      border-top: 2px solid var(--border-strong);
+      border-right: 2px solid var(--border-strong);
+      background: #fff;
+      transform: translateY(-50%) rotate(45deg);
+    }
+    .flow-node:last-child::after { display: none; }
+    .flow-node b {
+      display: inline-grid;
+      place-items: center;
+      width: 1.65rem;
+      height: 1.65rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+    }
+    .flow-node h3 {
+      margin-top: 0.48rem;
+      font-size: 0.94rem;
+    }
+    .flow-node p {
+      margin: 0.35rem 0 0;
+      font-size: 0.78rem;
+    }
+    .renewal-bars {
+      display: grid;
+      gap: 0.8rem;
+      margin-top: 0.75rem;
+    }
+    .renewal-row {
+      display: grid;
+      grid-template-columns: 4.2rem minmax(0, 1fr) 4.4rem;
+      gap: 0.62rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.84rem;
+      font-weight: 850;
+    }
+    .renewal-track {
+      height: 1.25rem;
+      border-radius: 999px;
+      background: var(--surface-blue);
+      overflow: hidden;
+    }
+    .renewal-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .grant-lens {
+      display: grid;
+      grid-template-columns: 13rem minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+      margin-top: 0.5rem;
+    }
+    .grant-lens svg {
+      width: 100%;
+      max-width: 13rem;
+      height: auto;
+    }
+    .legend {
+      display: grid;
+      gap: 0.46rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .legend li {
+      display: grid;
+      grid-template-columns: 0.8rem minmax(0, 1fr) auto;
+      gap: 0.45rem;
+      align-items: center;
+      font-size: 0.82rem;
+    }
+    .legend i {
+      width: 0.8rem;
+      height: 0.8rem;
+      border-radius: 3px;
+      background: var(--legend-color, var(--red));
+    }
+    .trend-chart {
+      display: grid;
+      gap: 0.42rem;
+      margin-top: 0.72rem;
+    }
+    .trend-row {
+      display: grid;
+      grid-template-columns: 3.3rem minmax(0, 1fr) 4.6rem;
+      gap: 0.5rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .trend-track {
+      position: relative;
+      height: 0.95rem;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #eef4fb 0 50%, #fff7ea 50% 100%);
+      overflow: hidden;
+    }
+    .trend-track::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: var(--border-strong);
+    }
+    .trend-track i {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      border-radius: inherit;
+    }
+    .trend-track .positive {
+      left: 50%;
+      background: var(--green);
+    }
+    .trend-track .negative {
+      right: 50%;
+      background: var(--red);
+    }
+    .source-note {
+      margin: 0.75rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+    .callout-band {
+      display: grid;
+      grid-template-columns: 0.72fr 1.28fr;
+      gap: 1rem;
+      align-items: center;
+      border: 1px solid rgba(209, 38, 48, 0.28);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(209, 38, 48, 0.09), rgba(233, 158, 37, 0.12)),
+        #fff;
+      padding: 1rem;
+    }
+    .callout-band strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(2.7rem, 6vw, 5.4rem);
+      line-height: 0.92;
+    }
+    .callout-band span {
+      display: block;
+      color: var(--ink);
+      font-weight: 850;
+    }
+    @media (max-width: 900px) {
+      .flow-line,
+      .team-split,
+      .grant-lens,
+      .callout-band {
+        grid-template-columns: 1fr;
+      }
+      .flow-node::after,
+      .split-arrow {
+        display: none;
+      }
+    }
+    @media (max-width: 560px) {
+      .renewal-row,
+      .trend-row {
+        grid-template-columns: 1fr;
+      }
+      .workflow-hero svg {
+        opacity: 0.28;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#objective">Objective</a>
+        <a href="#workflow">Workflow</a>
+        <a href="#results">Results</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP Annual Meeting &amp; Expo 2024 | PSP103-OR</p>
+        <h1>Medication Assistance Renewal Process Optimization at an Integrated Health System Specialty Pharmacy</h1>
+        <p class="hero-summary">
+          Yale New Haven Health specialty pharmacy redesigned its medication assistance program renewal season by separating re-enrollment work from new-patient enrollment, allowing the team to manage a larger annual renewal load while continuing intake for patients newly seeking assistance.
+        </p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Operations redesign</li>
+          <li class="tag therapy">Medication assistance</li>
+          <li class="tag">Specialty pharmacy</li>
+          <li class="tag">Medicare Part D</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div class="poster-code">PSP103-OR</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Year</dt>
+            <dd>2024</dd>
+          </div>
+          <div>
+            <dt>Venue</dt>
+            <dd>NASP AM24</dd>
+          </div>
+          <div>
+            <dt>System</dt>
+            <dd>Yale New Haven Health</dd>
+          </div>
+          <div>
+            <dt>Focus</dt>
+            <dd>MAP renewal workflow</dd>
+          </div>
+        </dl>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/103-PSP103-OR-Poster-AM24_2024.pdf">Open source PDF</a>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key poster metrics">
+        <article class="metric-card">
+          <span>Renewals, 2024</span>
+          <strong>968</strong>
+          <p class="source-note">Up from 762 in 2023.</p>
+        </article>
+        <article class="metric-card">
+          <span>Increase</span>
+          <strong>27%</strong>
+          <p class="source-note">206 more year-end re-enrollments.</p>
+        </article>
+        <article class="metric-card">
+          <span>Grant patients</span>
+          <strong>264</strong>
+          <p class="source-note">More than $2M in grant funding established.</p>
+        </article>
+        <article class="metric-card">
+          <span>OOP met</span>
+          <strong>232</strong>
+          <p class="source-note">88% of patients receiving grant assistance.</p>
+        </article>
+      </section>
+
+      <section id="objective" class="visual-grid">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Make renewal season faster without closing the front door</h2>
+          <p>
+            The poster objective was to optimize the MAP workflow so the year-end renewal process could improve while the health-system specialty pharmacy continued serving new patients seeking medication assistance.
+          </p>
+          <ul class="compact-list">
+            <li>MAP support covers grant or foundation assistance and free drug applications for patients unable to afford medication.</li>
+            <li>Grant and foundation assistance was preferred because funding counts toward patients' out-of-pocket maximums.</li>
+            <li>Medicare out-of-pocket maximum changes in 2024 prompted a reassessment of the renewal workflow.</li>
+          </ul>
+        </article>
+
+        <article class="workflow-hero" aria-label="Visual summary of the intervention">
+          <p class="kicker">Core move</p>
+          <strong>Split the queue</strong>
+          <span>Dedicated renewal staff handled existing MAP patients while a separate team protected capacity for new enrollments.</span>
+          <svg viewBox="0 0 420 270" role="img" aria-label="Stylized workflow fork from one queue into renewal and new enrollment teams">
+            <defs>
+              <linearGradient id="forkGrad" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#ffffff" stop-opacity="0.95"></stop>
+                <stop offset="1" stop-color="#e99e25" stop-opacity="0.78"></stop>
+              </linearGradient>
+            </defs>
+            <path d="M40 178 C100 178 113 113 176 113 L229 113" fill="none" stroke="url(#forkGrad)" stroke-width="18" stroke-linecap="round"></path>
+            <path d="M40 178 C100 178 113 224 176 224 L236 224" fill="none" stroke="#ffffff" stroke-opacity="0.55" stroke-width="18" stroke-linecap="round"></path>
+            <path d="M229 113 L204 88 M229 113 L204 138" fill="none" stroke="#ffffff" stroke-width="14" stroke-linecap="round"></path>
+            <path d="M236 224 L211 199 M236 224 L211 249" fill="none" stroke="#ffffff" stroke-opacity="0.7" stroke-width="14" stroke-linecap="round"></path>
+            <circle cx="55" cy="178" r="34" fill="#ffffff" fill-opacity="0.18"></circle>
+            <circle cx="299" cy="113" r="52" fill="#ffffff" fill-opacity="0.18"></circle>
+            <circle cx="309" cy="224" r="45" fill="#ffffff" fill-opacity="0.13"></circle>
+            <text x="299" y="106" text-anchor="middle" fill="#fff" font-family="Montserrat, Arial, sans-serif" font-size="26" font-weight="900">MART</text>
+            <text x="309" y="218" text-anchor="middle" fill="#fff" font-family="Montserrat, Arial, sans-serif" font-size="25" font-weight="900">MAPT</text>
+          </svg>
+        </article>
+      </section>
+
+      <section id="workflow" class="panel">
+        <p class="section-label">Methods</p>
+        <h2>A five-step operating model turned annual renewal into parallel workstreams</h2>
+        <div class="flow-line">
+          <article class="flow-node">
+            <b>1</b>
+            <h3>Brainstorm</h3>
+            <p>MAP team members met in July 2023 to redesign the re-enrollment process.</p>
+          </article>
+          <article class="flow-node">
+            <b>2</b>
+            <h3>Split teams</h3>
+            <p>MART handled re-enrollments while MAPT handled all new patient enrollments.</p>
+          </article>
+          <article class="flow-node">
+            <b>3</b>
+            <h3>Pull report</h3>
+            <p>The clinical management platform generated the list of patients needing renewal.</p>
+          </article>
+          <article class="flow-node">
+            <b>4</b>
+            <h3>Segment</h3>
+            <p>Excel was used to organize patients by disease state for faster grant enrollment.</p>
+          </article>
+          <article class="flow-node">
+            <b>5</b>
+            <h3>Execute</h3>
+            <p>Renewal and new-enrollment queues moved at the same time during peak season.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="results" class="visual-grid" aria-label="Primary result charts">
+        <article class="panel">
+          <p class="section-label">Team design</p>
+          <h2>Renewals became a dedicated lane</h2>
+          <div class="team-split">
+            <div class="team-card">
+              <strong>3</strong>
+              <span>MART members</span>
+              <p>Medication assistance renewal team focused on re-enrolling current MAP patients.</p>
+            </div>
+            <div class="split-arrow" aria-hidden="true">
+              <svg viewBox="0 0 80 80">
+                <path d="M12 22 H42 C57 22 57 40 68 40" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"></path>
+                <path d="M12 58 H42 C57 58 57 40 68 40" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"></path>
+                <path d="M58 30 L70 40 L58 50" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </div>
+            <div class="team-card">
+              <strong>4</strong>
+              <span>MAPT members</span>
+              <p>Medication assistance program team preserved capacity for new enrollments.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Renewal volume</p>
+          <h2>Year-end re-enrollments increased by 206 patients</h2>
+          <div class="renewal-bars">
+            <div class="renewal-row">
+              <span>2023</span>
+              <div class="renewal-track" aria-label="762 re-enrollments in 2023"><i style="width: 78.7%;"></i></div>
+              <span>762</span>
+            </div>
+            <div class="renewal-row">
+              <span>2024</span>
+              <div class="renewal-track" aria-label="968 re-enrollments in 2024"><i style="width: 100%;"></i></div>
+              <span>968</span>
+            </div>
+          </div>
+          <p class="source-note">The poster's separate 2024 breakdown table lists a total of 986, while the year-over-year figure lists 968 re-enrollments.</p>
+        </article>
+      </section>
+
+      <section class="visual-grid" aria-label="Grant and new enrollment outcomes">
+        <article class="panel">
+          <p class="section-label">Grant conversion</p>
+          <h2>Most grant-assisted renewal patients reached the Part D out-of-pocket maximum</h2>
+          <div class="grant-lens">
+            <svg viewBox="0 0 240 240" role="img" aria-label="Donut chart showing 232 of 264 grant patients met out of pocket spending">
+              <circle cx="120" cy="120" r="76" fill="none" stroke="#d9e1ef" stroke-width="36"></circle>
+              <circle cx="120" cy="120" r="76" fill="none" stroke="#d12630" stroke-width="36" stroke-dasharray="420 57.5" stroke-dashoffset="0" transform="rotate(-90 120 120)"></circle>
+              <circle cx="120" cy="120" r="49" fill="#fff"></circle>
+              <text x="120" y="113" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="24" font-weight="900">88%</text>
+              <text x="120" y="137" text-anchor="middle" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="800">232 / 264</text>
+            </svg>
+            <ul class="legend">
+              <li style="--legend-color: var(--red);"><i></i><span>Grant patients who met OOP maximum</span><b>232</b></li>
+              <li style="--legend-color: var(--border-strong);"><i></i><span>Grant patients not yet reported as OOP met</span><b>32</b></li>
+              <li style="--legend-color: var(--gold);"><i></i><span>Grant funding established</span><b>$2M+</b></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">New patients</p>
+          <h2>The parallel lane protected new-enrollment throughput</h2>
+          <div class="number-cloud">
+            <div class="number-pill">2,379<small>May 2023 to May 2024</small></div>
+            <div class="number-pill">891<small>Oct 2023 to Feb 2024</small></div>
+          </div>
+          <ul class="compact-list">
+            <li>New-patient assistance continued while MART concentrated on annual re-enrollments.</li>
+            <li>The workflow helped retain specialty prescriptions at the HSSP when patients moved from free drug assistance to grant assistance.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">Grant funding trend</p>
+          <h2>After January, grant contribution was lower than 2023</h2>
+          <div class="trend-chart">
+            <div class="trend-row">
+              <span>Jan</span>
+              <div class="trend-track"><i class="positive" style="width: 4.5%;"></i></div>
+              <span>+7.21%</span>
+            </div>
+            <div class="trend-row">
+              <span>Feb</span>
+              <div class="trend-track"><i class="negative" style="width: 18.5%;"></i></div>
+              <span>-29.38%</span>
+            </div>
+            <div class="trend-row">
+              <span>Mar</span>
+              <div class="trend-track"><i class="negative" style="width: 34.2%;"></i></div>
+              <span>-54.38%</span>
+            </div>
+            <div class="trend-row">
+              <span>Apr</span>
+              <div class="trend-track"><i class="negative" style="width: 30.4%;"></i></div>
+              <span>-48.39%</span>
+            </div>
+            <div class="trend-row">
+              <span>May</span>
+              <div class="trend-track"><i class="negative" style="width: 37.8%;"></i></div>
+              <span>-60.09%</span>
+            </div>
+            <div class="trend-row">
+              <span>Jun</span>
+              <div class="trend-track"><i class="negative" style="width: 50%;"></i></div>
+              <span>-79.51%</span>
+            </div>
+            <div class="trend-row">
+              <span>Jul</span>
+              <div class="trend-track"><i class="negative" style="width: 35.5%;"></i></div>
+              <span>-56.51%</span>
+            </div>
+          </div>
+          <p class="source-note">Poster interpretation: the decline may reflect patients reaching the Medicare maximum out-of-pocket threshold.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Discussion pattern</p>
+          <h2>Diagnosis-based sorting made fast grant access the operational lever</h2>
+          <ul class="compact-list">
+            <li>Grant applications close quickly after opening, making speed and disease-state organization important.</li>
+            <li>Dividing patients by diagnosis helped the team pursue grant applications more efficiently.</li>
+            <li>Grant assistance supports continuity of care, specialty pharmacy prescription volume, and revenue retention.</li>
+            <li>The clinical documentation system supported date and outcome tracking, which the authors noted may limit generalizability to other health systems.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="callout-band" aria-label="Conclusion">
+        <div>
+          <strong>2 lanes</strong>
+          <span>one renewal engine, one new-patient intake lane</span>
+        </div>
+        <p>
+          The authors concluded that the two-team approach improved year-end renewal processing, converted some patients from free drug assistance to grant assistance, retained prescriptions within the health-system specialty pharmacy, and supported continuity of care.
+        </p>
+      </section>
+
+      <section class="tables-grid" aria-label="Condensed source tables">
+        <article class="table-card">
+          <p class="section-label">Table pattern</p>
+          <h2>Re-enrollment breakdown in 2024</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Metric</th>
+                  <th>Value</th>
+                  <th>Infographic read</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Total</td>
+                  <td>986</td>
+                  <td>Broader 2024 breakdown denominator reported in Figure 2.</td>
+                </tr>
+                <tr>
+                  <td>Grant</td>
+                  <td>264</td>
+                  <td>Patients supported through grant assistance.</td>
+                </tr>
+                <tr>
+                  <td>Out of pocket met</td>
+                  <td>232</td>
+                  <td>Reported as 232 of 264 grant patients in the discussion.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Future direction</p>
+          <h2>Next operating pressure: 2025 Medicare changes</h2>
+          <div class="markdown-fragment">
+            <p>
+              The poster points to adapting the workflow for 2025 Medicare out-of-pocket maximum changes and expanding need-based assistance for all patients using the health-system specialty pharmacy.
+            </p>
+            <ul>
+              <li>Renewal structure can be reused as policy rules shift.</li>
+              <li>Need-based assistance may broaden beyond the annual renewal cohort.</li>
+              <li>Documentation fidelity remains central to measuring task dates and outcomes.</li>
+            </ul>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/103-PSP103-OR-Poster-AM24_2024.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/103-PSP103-OR-Poster-AM24_2024.md">Source markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

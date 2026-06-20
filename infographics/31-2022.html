@@ -1,0 +1,920 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2022 | Compassionate Care in a Specialty Pharmacy</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .poster-hero {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .poster-hero::after {
+      content: "";
+      position: absolute;
+      right: 20rem;
+      bottom: -6rem;
+      width: 17rem;
+      height: 17rem;
+      border: 1.15rem solid rgba(117, 97, 168, 0.1);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-summary strong,
+    .callout-copy strong {
+      color: var(--ink);
+    }
+
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 85% 18%, rgba(233, 158, 37, 0.18), transparent 6rem),
+        linear-gradient(135deg, rgba(24, 124, 143, 0.08), transparent 52%);
+      pointer-events: none;
+    }
+
+    .hero-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .care-visual {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-top: 0.35rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.78);
+    }
+
+    .metric-card strong {
+      color: var(--ink);
+      font-size: clamp(2.1rem, 4.4vw, 3.15rem);
+    }
+
+    .metric-card strong small {
+      color: var(--red);
+      font-size: 1rem;
+    }
+
+    .metric-card em {
+      display: block;
+      margin-top: 0.38rem;
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-style: normal;
+      font-weight: 760;
+      line-height: 1.35;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.98fr) minmax(0, 1.02fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .callout-copy {
+      margin: 0.55rem 0 0;
+      font-size: 0.92rem;
+    }
+
+    .survey-blueprint {
+      display: grid;
+      gap: 0.6rem;
+      margin-top: 0.75rem;
+    }
+
+    .blueprint-row {
+      display: grid;
+      grid-template-columns: 3.2rem minmax(0, 1fr);
+      gap: 0.55rem;
+      align-items: center;
+      border: 1px solid rgba(174, 187, 210, 0.78);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.58rem;
+    }
+
+    .blueprint-row b {
+      display: grid;
+      place-items: center;
+      width: 3.2rem;
+      height: 3.2rem;
+      border-radius: 50%;
+      background: var(--surface-blue);
+      color: var(--teal);
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 900;
+    }
+
+    .blueprint-row:nth-child(2) b {
+      background: var(--surface-warm);
+      color: var(--gold);
+    }
+
+    .blueprint-row:nth-child(3) b {
+      background: rgba(117, 97, 168, 0.13);
+      color: var(--purple);
+    }
+
+    .blueprint-row span {
+      color: var(--ink);
+      font-size: 0.86rem;
+      font-weight: 850;
+    }
+
+    .knowledge-board {
+      display: grid;
+      grid-template-columns: minmax(15rem, 0.72fr) minmax(0, 1.28fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .gap-card {
+      display: grid;
+      align-content: center;
+      min-height: 20rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 88% 12%, rgba(255, 255, 255, 0.14), transparent 6rem),
+        linear-gradient(145deg, var(--ink), #1a2c60);
+      padding: 1rem;
+      color: #fff;
+    }
+
+    .gap-card span {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .gap-card strong {
+      display: block;
+      margin-top: 0.16rem;
+      color: var(--gold);
+      font-family: var(--font-display);
+      font-size: clamp(3.2rem, 8vw, 5.4rem);
+      line-height: 0.92;
+    }
+
+    .gap-card p {
+      margin: 0.7rem 0 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.92rem;
+    }
+
+    .knowledge-bars {
+      display: grid;
+      gap: 0.8rem;
+      margin-top: 0.85rem;
+    }
+
+    .knowledge-row {
+      display: grid;
+      grid-template-columns: 8.8rem minmax(0, 1fr) 4.2rem;
+      gap: 0.62rem;
+      align-items: center;
+    }
+
+    .knowledge-row b {
+      color: var(--ink);
+      font-size: 0.84rem;
+      line-height: 1.15;
+    }
+
+    .knowledge-track {
+      height: 1.05rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 999px;
+      background: #e7edf6;
+      overflow: hidden;
+    }
+
+    .knowledge-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--bar, linear-gradient(90deg, var(--red), var(--gold)));
+    }
+
+    .knowledge-row span {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .listening-grid {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 0.5rem;
+      margin-top: 0.8rem;
+    }
+
+    .listen-tile {
+      min-height: 9rem;
+      border: 1px solid rgba(174, 187, 210, 0.88);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.56rem;
+      display: grid;
+      align-content: end;
+      gap: 0.42rem;
+    }
+
+    .listen-tile.incorrect {
+      background: linear-gradient(180deg, #fff, var(--surface-warm));
+    }
+
+    .listen-bar {
+      display: flex;
+      align-items: flex-end;
+      height: 5rem;
+      border-bottom: 1px solid rgba(36, 55, 112, 0.2);
+    }
+
+    .listen-bar i {
+      display: block;
+      width: 100%;
+      height: var(--h);
+      border-radius: 6px 6px 0 0;
+      background: linear-gradient(180deg, var(--teal), var(--green));
+    }
+
+    .listen-tile.incorrect .listen-bar i {
+      background: linear-gradient(180deg, var(--red), var(--gold));
+    }
+
+    .listen-tile b {
+      color: var(--ink);
+      font-size: 0.72rem;
+      font-weight: 900;
+      line-height: 1.12;
+    }
+
+    .listen-tile strong {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      line-height: 1;
+    }
+
+    .perception-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.78rem;
+    }
+
+    .perception-card {
+      position: relative;
+      min-height: 15rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.9rem;
+      overflow: hidden;
+    }
+
+    .perception-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 0.34rem;
+      background: var(--accent, var(--red));
+    }
+
+    .perception-card:nth-child(2) {
+      --accent: var(--purple);
+    }
+
+    .perception-card:nth-child(3) {
+      --accent: var(--teal);
+    }
+
+    .perception-card svg {
+      display: block;
+      width: 4.8rem;
+      height: 4.8rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .perception-card strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 2.75rem;
+      line-height: 0.9;
+    }
+
+    .perception-card p {
+      margin: 0.55rem 0 0;
+      font-size: 0.86rem;
+    }
+
+    .education-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(17rem, 0.92fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .topic-bars {
+      display: grid;
+      gap: 0.62rem;
+      margin-top: 0.75rem;
+    }
+
+    .topic-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 3rem;
+      gap: 0.58rem;
+      align-items: center;
+    }
+
+    .topic-row b {
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 850;
+    }
+
+    .topic-row span {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .topic-track {
+      grid-column: 1 / -1;
+      height: 0.78rem;
+      border-radius: 999px;
+      background: #e7edf6;
+      overflow: hidden;
+    }
+
+    .topic-track i {
+      display: block;
+      height: 100%;
+      width: var(--w);
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .training-stack {
+      display: grid;
+      gap: 0.72rem;
+      margin-top: 0.8rem;
+    }
+
+    .training-role {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.72rem;
+    }
+
+    .training-role h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .stack-bar {
+      display: grid;
+      grid-template-columns: var(--comprehensive) var(--some) var(--none);
+      height: 1.25rem;
+      border-radius: 999px;
+      background: #e7edf6;
+      overflow: hidden;
+    }
+
+    .stack-bar i:nth-child(1) {
+      background: var(--green);
+    }
+
+    .stack-bar i:nth-child(2) {
+      background: var(--gold);
+    }
+
+    .stack-bar i:nth-child(3) {
+      background: var(--red);
+    }
+
+    .stack-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.55rem;
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 850;
+    }
+
+    .barrier-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-top: 0.8rem;
+    }
+
+    .barrier-chip {
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 999px;
+      background: var(--surface-blue);
+      padding: 0.42rem 0.68rem;
+      color: var(--ink);
+      font-size: 0.79rem;
+      font-weight: 850;
+    }
+
+    .action-panel {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--surface-warm), #fff 56%, var(--surface-blue));
+      padding: 1rem;
+    }
+
+    .action-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin: 0.85rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .action-list li {
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.82);
+      padding: 0.76rem;
+      color: var(--ink);
+      font-size: 0.84rem;
+      font-weight: 850;
+    }
+
+    .source-note {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 740;
+    }
+
+    @media (max-width: 900px) {
+      .story-grid,
+      .knowledge-board,
+      .education-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .listening-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .perception-grid,
+      .action-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      body {
+        overflow-x: hidden;
+      }
+
+      .poster-hero > *,
+      .hero-copy,
+      .tag-row,
+      .tag,
+      .metric-card,
+      .perception-card,
+      .action-list li {
+        min-width: 0;
+      }
+
+      h1,
+      h2,
+      h3,
+      p,
+      li,
+      dd,
+      em,
+      span,
+      strong,
+      .tag,
+      .button-link {
+        overflow-wrap: anywhere;
+      }
+
+      h1 {
+        font-size: 1.65rem;
+        line-height: 1.08;
+      }
+
+      h2 {
+        font-size: 1.25rem;
+      }
+
+      .hero-summary {
+        font-size: 0.92rem;
+      }
+
+      .tag {
+        font-size: 0.68rem;
+      }
+
+      .knowledge-row,
+      .topic-row {
+        grid-template-columns: 1fr;
+      }
+
+      .knowledge-row span,
+      .topic-row span {
+        text-align: left;
+      }
+
+      .listening-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/31-2022.pdf">Source PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/31-2022.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2022 / Poster 31-2022</p>
+        <h1 id="poster-title">Compassionate care in a specialty pharmacy</h1>
+        <p class="hero-summary"><strong>Yale New Haven Health Outpatient Pharmacy Services</strong> surveyed specialty pharmacy staff to compare compassionate-care knowledge, confidence, grief exposure, and perceived training gaps for conversations with patients who have poor prognoses.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag therapy">Health-system specialty pharmacy</li>
+          <li class="tag category">Compassionate communication</li>
+          <li class="tag">Staff education</li>
+          <li class="tag">Anonymous survey</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Study snapshot">
+        <div class="poster-code">31<br>2022</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Institution</dt>
+            <dd>Yale New Haven Health</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>Outpatient Pharmacy Services</dd>
+          </div>
+          <div>
+            <dt>Participants</dt>
+            <dd>49 staff respondents</dd>
+          </div>
+          <div>
+            <dt>Survey</dt>
+            <dd>14 electronic items</dd>
+          </div>
+        </dl>
+        <svg class="care-visual" viewBox="0 0 430 210" role="img" aria-label="Stylized pharmacist, patient, and compassionate care signal">
+          <rect x="26" y="132" width="378" height="38" rx="19" fill="#eef4fb" stroke="#aebbd2"/>
+          <circle cx="110" cy="82" r="34" fill="#fff7ea" stroke="#aebbd2" stroke-width="2"/>
+          <path d="M85 141c9-30 41-30 50 0" fill="none" stroke="#243770" stroke-width="12" stroke-linecap="round"/>
+          <circle cx="315" cy="76" r="28" fill="#eef4fb" stroke="#aebbd2" stroke-width="2"/>
+          <path d="M283 142c11-36 53-36 64 0" fill="none" stroke="#187c8f" stroke-width="12" stroke-linecap="round"/>
+          <rect x="294" y="53" width="42" height="10" rx="5" fill="#187c8f"/>
+          <rect x="310" y="37" width="10" height="42" rx="5" fill="#187c8f"/>
+          <path d="M188 79c0-24 34-27 42-5 8-22 42-19 42 5 0 31-42 50-42 50s-42-19-42-50Z" fill="#d12630" opacity=".88"/>
+          <path d="M160 151c30-21 107-21 139 0" fill="none" stroke="#e99e25" stroke-width="10" stroke-linecap="round"/>
+          <path d="M194 51c18-18 51-18 72 0" fill="none" stroke="#7561a8" stroke-width="7" stroke-linecap="round" stroke-dasharray="9 10"/>
+          <circle cx="110" cy="75" r="6" fill="#243770"/>
+          <circle cx="315" cy="70" r="5" fill="#243770"/>
+        </svg>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Response rate</span>
+          <strong>32<small>%</small></strong>
+          <em>49 completed surveys: 26 specialty pharmacists and 23 pharmacy liaisons.</em>
+        </article>
+        <article class="metric-card">
+          <span>Compassion definition correct</span>
+          <strong>6<small>%</small></strong>
+          <em>Only 3 of 49 respondents selected the correct compassion definition.</em>
+        </article>
+        <article class="metric-card">
+          <span>Experienced grief</span>
+          <strong>82<small>%</small></strong>
+          <em>Respondents reported sadness or grief after a patient died.</em>
+        </article>
+        <article class="metric-card">
+          <span>Education gaps perceived</span>
+          <strong>68<small>%</small></strong>
+          <em>Gaps centered on compassion, therapeutic communication, active listening, and coping.</em>
+        </article>
+      </section>
+
+      <section class="story-grid" aria-label="Objective and methods">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Measure readiness for emotionally difficult specialty pharmacy conversations.</h2>
+          <p class="callout-copy">OPS provides disease management for <strong>more than 40 disease states</strong>. Staff often support patients with chronic progressive diseases, poor prognoses, or end-of-life needs, but the poster notes variation in counseling expertise.</p>
+          <ul class="finding-list">
+            <li><strong>Question:</strong> What do staff know about compassion, empathy, and active listening?</li>
+            <li><strong>Perception lens:</strong> How confident and prepared do staff feel?</li>
+            <li><strong>Use case:</strong> Guide an education program for all staff.</li>
+          </ul>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Methods</p>
+          <h2>A 14-item anonymous electronic survey separated knowledge from perception.</h2>
+          <div class="survey-blueprint" aria-label="Survey item composition">
+            <div class="blueprint-row">
+              <b>3</b>
+              <span>Knowledge items on empathy, compassion, and active listening.</span>
+            </div>
+            <div class="blueprint-row">
+              <b>8</b>
+              <span>Perception items about confidence, grief, education needs, barriers, and skills.</span>
+            </div>
+            <div class="blueprint-row">
+              <b>3</b>
+              <span>Demographic items; survey links and QR codes were distributed by email and in person.</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="knowledge-board" aria-label="Knowledge results">
+        <aside class="gap-card">
+          <span>Core knowledge gap</span>
+          <strong>10%</strong>
+          <p>Only one in ten respondents correctly identified five elements of active listening, while compassion definition accuracy was even lower.</p>
+        </aside>
+
+        <article class="panel">
+          <p class="section-label">Knowledge results</p>
+          <h2>Correct answers were uneven across empathy, compassion, and active listening.</h2>
+          <div class="knowledge-bars" aria-label="Knowledge item accuracy chart">
+            <div class="knowledge-row">
+              <b>Empathy</b>
+              <div class="knowledge-track"><i style="width: 57.1%; --bar: linear-gradient(90deg, var(--teal), var(--green));"></i></div>
+              <span>57.1%</span>
+            </div>
+            <div class="knowledge-row">
+              <b>Compassion</b>
+              <div class="knowledge-track"><i style="width: 6.12%; --bar: linear-gradient(90deg, var(--red), var(--gold));"></i></div>
+              <span>6.12%</span>
+            </div>
+            <div class="knowledge-row">
+              <b>5 active-listening elements</b>
+              <div class="knowledge-track"><i style="width: 10%; --bar: linear-gradient(90deg, var(--purple), var(--red));"></i></div>
+              <span>10%</span>
+            </div>
+          </div>
+          <p class="source-note">The poster also reports that 71% did not find it difficult to demonstrate compassion despite the low correct definition rate.</p>
+        </article>
+      </section>
+
+      <section class="panel" aria-label="Active listening response pattern">
+        <p class="section-label">Active-listening pattern</p>
+        <h2>Respondents recognized showing interest and asking questions, but fewer selected paraphrasing and verbal cues.</h2>
+        <div class="listening-grid">
+          <div class="listen-tile">
+            <div class="listen-bar"><i style="--h: 100%;"></i></div>
+            <b>Showing interest</b>
+            <strong>49</strong>
+          </div>
+          <div class="listen-tile">
+            <div class="listen-bar"><i style="--h: 51%;"></i></div>
+            <b>Paraphrasing</b>
+            <strong>25</strong>
+          </div>
+          <div class="listen-tile">
+            <div class="listen-bar"><i style="--h: 96%;"></i></div>
+            <b>Asking questions</b>
+            <strong>47</strong>
+          </div>
+          <div class="listen-tile">
+            <div class="listen-bar"><i style="--h: 57%;"></i></div>
+            <b>Verbal cues</b>
+            <strong>28</strong>
+          </div>
+          <div class="listen-tile">
+            <div class="listen-bar"><i style="--h: 61%;"></i></div>
+            <b>Taking notes</b>
+            <strong>30</strong>
+          </div>
+          <div class="listen-tile incorrect">
+            <div class="listen-bar"><i style="--h: 4%;"></i></div>
+            <b>Jumping to conclusions</b>
+            <strong>2</strong>
+          </div>
+          <div class="listen-tile incorrect">
+            <div class="listen-bar"><i style="--h: 2%;"></i></div>
+            <b>Speeding up speaker</b>
+            <strong>1</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="perception-grid" aria-label="Perception results">
+        <article class="perception-card">
+          <svg viewBox="0 0 90 90" aria-hidden="true">
+            <circle cx="30" cy="34" r="13" fill="#eef4fb" stroke="#187c8f" stroke-width="4"/>
+            <path d="M13 74c4-20 30-20 35 0" fill="none" stroke="#187c8f" stroke-width="8" stroke-linecap="round"/>
+            <path d="M48 29h25M48 45h18M48 61h28" stroke="#d12630" stroke-width="6" stroke-linecap="round"/>
+          </svg>
+          <strong>53%</strong>
+          <h3>Confident with poor-prognosis conversations</h3>
+          <p>Reported being confident or very confident communicating with patients who have a poor prognosis.</p>
+        </article>
+
+        <article class="perception-card">
+          <svg viewBox="0 0 90 90" aria-hidden="true">
+            <path d="M45 76S15 57 15 34c0-17 24-19 30-4 6-15 30-13 30 4 0 23-30 42-30 42Z" fill="#7561a8" opacity=".24" stroke="#7561a8" stroke-width="5"/>
+            <path d="M24 69h42" stroke="#243770" stroke-width="7" stroke-linecap="round"/>
+          </svg>
+          <strong>82%</strong>
+          <h3>Sadness or grief after patient death</h3>
+          <p>The emotional burden was common, underscoring the need for coping skills alongside communication training.</p>
+        </article>
+
+        <article class="perception-card">
+          <svg viewBox="0 0 90 90" aria-hidden="true">
+            <circle cx="43" cy="34" r="19" fill="#fff7ea" stroke="#e99e25" stroke-width="5"/>
+            <path d="M35 72h18M38 59h12" stroke="#243770" stroke-width="7" stroke-linecap="round"/>
+            <path d="M65 22l8-8M71 40h12M20 22l-8-8" stroke="#d12630" stroke-width="5" stroke-linecap="round"/>
+          </svg>
+          <strong>68%</strong>
+          <h3>Perceived education gaps</h3>
+          <p>Respondents identified gaps tied to compassionate care, therapeutic communication, active listening, and coping.</p>
+        </article>
+      </section>
+
+      <section class="education-grid" aria-label="Education and training results">
+        <article class="panel">
+          <p class="section-label">Requested education</p>
+          <h2>Training requests clustered around communication and coping.</h2>
+          <div class="topic-bars" aria-label="Education opportunities requested">
+            <div class="topic-row">
+              <b>Therapeutic communication / active listening</b>
+              <span>6</span>
+              <div class="topic-track"><i style="--w: 100%;"></i></div>
+            </div>
+            <div class="topic-row">
+              <b>Other</b>
+              <span>5</span>
+              <div class="topic-track"><i style="--w: 83%;"></i></div>
+            </div>
+            <div class="topic-row">
+              <b>Communicating poor prognosis</b>
+              <span>4</span>
+              <div class="topic-track"><i style="--w: 67%;"></i></div>
+            </div>
+            <div class="topic-row">
+              <b>Coping education</b>
+              <span>3</span>
+              <div class="topic-track"><i style="--w: 50%;"></i></div>
+            </div>
+            <div class="topic-row">
+              <b>Motivational interviewing</b>
+              <span>2</span>
+              <div class="topic-track"><i style="--w: 33%;"></i></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Prior training</p>
+          <h2>Formal communication preparation was limited, especially for technicians.</h2>
+          <div class="training-stack">
+            <div class="training-role">
+              <h3>Pharmacists: 3 comprehensive, 16 some, 7 none</h3>
+              <div class="stack-bar" style="--comprehensive: 3fr; --some: 16fr; --none: 7fr;" aria-label="Pharmacist communication training distribution">
+                <i></i><i></i><i></i>
+              </div>
+            </div>
+            <div class="training-role">
+              <h3>Technicians: 0 comprehensive, 9 some, 9 none</h3>
+              <div class="stack-bar" style="--comprehensive: 0fr; --some: 9fr; --none: 9fr;" aria-label="Technician communication training distribution">
+                <i></i><i></i><i></i>
+              </div>
+            </div>
+          </div>
+          <div class="stack-legend">
+            <span>Green = comprehensive</span>
+            <span>Gold = some training</span>
+            <span>Red = no training</span>
+          </div>
+        </article>
+      </section>
+
+      <section class="story-grid" aria-label="Barriers and conclusion">
+        <article class="panel">
+          <p class="section-label">Barriers named by staff</p>
+          <h2>The practical barriers were workflow pressures, not only knowledge.</h2>
+          <div class="barrier-cloud" aria-label="Barriers to providing compassionate care">
+            <span class="barrier-chip">Time</span>
+            <span class="barrier-chip">Multitasking</span>
+            <span class="barrier-chip">Phone</span>
+            <span class="barrier-chip">Lack of experience / training</span>
+            <span class="barrier-chip">Workload</span>
+            <span class="barrier-chip">Metrics</span>
+            <span class="barrier-chip">Language</span>
+          </div>
+          <p class="source-note">Skills respondents wanted to improve included how to respond, communication skills, and listening skills.</p>
+        </article>
+
+        <article class="action-panel">
+          <p class="section-label">Conclusion</p>
+          <h2>Formal training was positioned as the bridge between compassionate intent and consistent practice.</h2>
+          <p class="callout-copy">The survey found knowledge gaps in compassion, empathy, and active listening, plus role-specific education gaps in therapeutic communication and personal coping. The poster concludes these results should guide an education program offered to all staff.</p>
+          <ul class="action-list">
+            <li>Define compassion and empathy using shared language.</li>
+            <li>Practice active listening and poor-prognosis communication.</li>
+            <li>Include coping strategies for grief after patient death.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Extracted source table patterns">
+        <article class="table-card">
+          <h3>Survey participation</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Specialty pharmacists</th>
+                  <th>Pharmacy liaisons</th>
+                  <th>Response rate</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>26</td>
+                  <td>23</td>
+                  <td>32%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <h3>Definition-answer pattern</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Knowledge item</th>
+                  <th>Correct count</th>
+                  <th>Correct percent</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Empathy definition</td><td>28 of 49</td><td>57.1%</td></tr>
+                <tr><td>Compassion definition</td><td>3 of 49</td><td>6.12%</td></tr>
+                <tr><td>Five active-listening elements</td><td>About 5 of 49</td><td>10%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/31-2022.pdf">Open source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/31-2022.md">Open source markdown</a>
+      <a class="button-link" href="../index.html">Back to index</a>
+    </footer>
+  </div>
+</body>
+</html>

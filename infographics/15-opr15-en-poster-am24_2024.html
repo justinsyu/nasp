@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2024 Infographic | Long-Acting Injectable ART Versus Oral Therapy</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .therapy-hero-art {
+      position: relative;
+      min-height: 20rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 84% 20%, rgba(233, 158, 37, 0.36), transparent 9rem),
+        linear-gradient(145deg, rgba(36, 55, 112, 0.98), rgba(24, 124, 143, 0.92));
+      color: #fff;
+      overflow: hidden;
+      padding: 1rem;
+    }
+    .therapy-hero-art svg {
+      position: absolute;
+      inset: auto -1.5rem -1.8rem auto;
+      width: min(27rem, 78%);
+      opacity: 0.86;
+    }
+    .therapy-hero-art .kicker {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+    .therapy-hero-art strong {
+      display: block;
+      margin-top: 0.35rem;
+      max-width: 17rem;
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 5.5vw, 4.8rem);
+      line-height: 0.94;
+    }
+    .therapy-hero-art span {
+      display: block;
+      max-width: 18rem;
+      margin-top: 0.7rem;
+      color: rgba(255, 255, 255, 0.84);
+      font-size: 0.92rem;
+    }
+    .hero-card .button-link {
+      justify-content: center;
+      background: #fff;
+    }
+    .split-stat {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.7rem;
+    }
+    .split-stat div {
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 8px;
+      background: var(--surface-blue);
+      padding: 0.72rem;
+    }
+    .split-stat b {
+      display: block;
+      color: var(--ink);
+      font-size: 0.74rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .split-stat strong {
+      display: block;
+      margin-top: 0.2rem;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      line-height: 1;
+    }
+    .comparison-bars {
+      display: grid;
+      gap: 1rem;
+      margin-top: 0.75rem;
+    }
+    .comparison-row {
+      display: grid;
+      grid-template-columns: 5rem minmax(0, 1fr);
+      gap: 0.7rem;
+      align-items: center;
+    }
+    .comparison-row h3 {
+      color: var(--red);
+      font-size: 1.25rem;
+    }
+    .bar-group {
+      display: grid;
+      gap: 0.5rem;
+    }
+    .bar-line {
+      display: grid;
+      grid-template-columns: 9.5rem minmax(0, 1fr) 3.3rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+    .bar-track {
+      height: 1.1rem;
+      border: 1px solid rgba(36, 55, 112, 0.15);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .bar-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .bar-track.oral i {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .flow-line {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.72rem;
+    }
+    .flow-node {
+      position: relative;
+      min-height: 9.5rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+    }
+    .flow-node::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -0.53rem;
+      width: 0.78rem;
+      height: 0.78rem;
+      border-top: 2px solid var(--border-strong);
+      border-right: 2px solid var(--border-strong);
+      background: #fff;
+      transform: translateY(-50%) rotate(45deg);
+    }
+    .flow-node:last-child::after { display: none; }
+    .flow-node b {
+      display: inline-grid;
+      place-items: center;
+      width: 1.65rem;
+      height: 1.65rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+    }
+    .flow-node h3 {
+      margin-top: 0.48rem;
+      font-size: 0.94rem;
+    }
+    .flow-node p {
+      margin: 0.35rem 0 0;
+      font-size: 0.78rem;
+    }
+    .cd4-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.72rem;
+    }
+    .cd4-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface-blue);
+      padding: 0.72rem;
+    }
+    .cd4-card h3 {
+      margin-bottom: 0.55rem;
+      font-size: 0.9rem;
+    }
+    .mini-bars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.42rem;
+      align-items: end;
+      height: 8rem;
+      padding-top: 0.4rem;
+    }
+    .mini-bar {
+      display: grid;
+      align-items: end;
+      height: 100%;
+    }
+    .mini-bar i {
+      display: block;
+      border-radius: 6px 6px 0 0;
+      background: var(--bar-color, var(--red));
+    }
+    .mini-bar span {
+      display: block;
+      margin-top: 0.32rem;
+      color: var(--ink);
+      font-size: 0.7rem;
+      font-weight: 850;
+      text-align: center;
+    }
+    .compact-list {
+      margin: 0.55rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .compact-list li {
+      display: grid;
+      grid-template-columns: 0.8rem minmax(0, 1fr);
+      gap: 0.42rem;
+      margin-top: 0.42rem;
+      font-size: 0.88rem;
+    }
+    .compact-list li::before {
+      content: "";
+      width: 0.52rem;
+      height: 0.52rem;
+      margin-top: 0.43rem;
+      border-radius: 50%;
+      background: var(--red);
+    }
+    .delta-badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 2rem;
+      margin-top: 0.65rem;
+      border: 1px solid rgba(209, 38, 48, 0.22);
+      border-radius: 999px;
+      background: rgba(209, 38, 48, 0.08);
+      color: var(--red);
+      padding: 0.35rem 0.65rem;
+      font-size: 0.8rem;
+      font-weight: 900;
+    }
+    .table-pattern {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: 0;
+      margin-top: 0.7rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      overflow: hidden;
+      font-size: 0.78rem;
+    }
+    .table-pattern span {
+      border-bottom: 1px solid var(--border);
+      padding: 0.45rem 0.5rem;
+    }
+    .table-pattern span:nth-child(-n+3) {
+      background: var(--surface-blue);
+      color: var(--ink);
+      font-weight: 900;
+    }
+    .table-pattern span:nth-last-child(-n+3) { border-bottom: 0; }
+    .table-pattern strong {
+      color: var(--ink);
+    }
+    .source-note {
+      margin: 0.75rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+    @media (max-width: 900px) {
+      .flow-line,
+      .cd4-grid {
+        grid-template-columns: 1fr;
+      }
+      .flow-node::after { display: none; }
+    }
+    @media (max-width: 560px) {
+      .bar-line,
+      .comparison-row {
+        grid-template-columns: 1fr;
+      }
+      .split-stat {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/15-OPR15-EN-Poster-AM24_2024.pdf">Poster PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/15-OPR15-EN-Poster-AM24_2024.md">Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2024 | 15-OPR15-EN-Poster-AM24</p>
+        <h1>A Comparison of Viral Suppression Rates of Patients Receiving Long-Acting Injectable ART Versus Oral Therapy</h1>
+        <p class="hero-summary">A retrospective chart review compared cabotegravir/rilpivirine long-acting injectable ART with oral ART across Maxor National Pharmacy Services facilities, focusing on viral suppression, CD4 count, quality of life, and adherence signals.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag therapy">HIV therapy</li>
+          <li class="tag category">Retrospective chart review</li>
+          <li class="tag">Long-acting injectable ART</li>
+          <li class="tag">Oral ART comparator</li>
+        </ul>
+      </div>
+      <aside class="hero-card">
+        <div class="poster-code">15-OPR15-EN</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Year</dt>
+            <dd>2024</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>Maxor pharmacies</dd>
+          </div>
+          <div>
+            <dt>Cohorts</dt>
+            <dd>34 + 34</dd>
+          </div>
+          <div>
+            <dt>Period</dt>
+            <dd>Feb 2021-Aug 2023</dd>
+          </div>
+        </dl>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/15-OPR15-EN-Poster-AM24_2024.pdf">Open source poster</a>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key poster numbers">
+        <div class="metric-card">
+          <span>Per cohort</span>
+          <strong>34</strong>
+          <p class="source-note">Long-acting injectable and oral ART groups.</p>
+        </div>
+        <div class="metric-card">
+          <span>60-day suppression</span>
+          <strong>93%</strong>
+          <p class="source-note">Long-acting injectable cohort versus 77% oral.</p>
+        </div>
+        <div class="metric-card">
+          <span>180-day suppression</span>
+          <strong>91%</strong>
+          <p class="source-note">Long-acting injectable cohort versus 58% oral.</p>
+        </div>
+        <div class="metric-card">
+          <span>Missed doses</span>
+          <strong>0 vs 10</strong>
+          <p class="source-note">Average patient-reported missed doses through 180 days.</p>
+        </div>
+      </section>
+
+      <section class="visual-grid" id="objective">
+        <div class="therapy-hero-art" aria-label="Study visual">
+          <p class="kicker">Primary question</p>
+          <strong>Does delivery route track with suppression?</strong>
+          <span>Objective: determine undetectable viral load rates and CD4 count at 60 days, with secondary assessment at 180 and 365 days plus adherence and patient-reported measures.</span>
+          <svg viewBox="0 0 520 360" role="img" aria-label="Illustration of injectable and oral ART pathways">
+            <defs>
+              <linearGradient id="needleGrad" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#ffffff" stop-opacity="0.95"/>
+                <stop offset="1" stop-color="#e99e25" stop-opacity="0.9"/>
+              </linearGradient>
+            </defs>
+            <path d="M76 272 C146 165 262 162 345 72" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" opacity="0.18"/>
+            <g transform="translate(228 72) rotate(-38)">
+              <rect x="0" y="40" width="170" height="54" rx="14" fill="url(#needleGrad)"/>
+              <rect x="24" y="54" width="74" height="8" rx="4" fill="#243770" opacity="0.35"/>
+              <rect x="-38" y="50" width="44" height="34" rx="8" fill="#ffffff" opacity="0.85"/>
+              <path d="M170 66 L260 66" stroke="#ffffff" stroke-width="9" stroke-linecap="round"/>
+              <path d="M258 66 L294 55 L294 77 Z" fill="#ffffff"/>
+            </g>
+            <g transform="translate(70 210)">
+              <rect x="0" y="0" width="168" height="92" rx="28" fill="#ffffff" opacity="0.92"/>
+              <path d="M84 0 v92" stroke="#243770" stroke-width="6" opacity="0.42"/>
+              <circle cx="50" cy="46" r="13" fill="#d12630"/>
+              <circle cx="118" cy="46" r="13" fill="#187c8f"/>
+            </g>
+            <g fill="none" stroke="#ffffff" stroke-width="5" opacity="0.7">
+              <circle cx="118" cy="92" r="24"/>
+              <circle cx="374" cy="230" r="32"/>
+              <circle cx="430" cy="118" r="14"/>
+            </g>
+          </svg>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Results signal</p>
+          <h2>Viral suppression favored the injectable cohort at both reported follow-up points.</h2>
+          <div class="comparison-bars">
+            <div class="comparison-row">
+              <h3>60 days</h3>
+              <div class="bar-group">
+                <div class="bar-line">
+                  <span>Long-acting injectable</span>
+                  <div class="bar-track"><i style="width: 93%"></i></div>
+                  <span>93%</span>
+                </div>
+                <div class="bar-line">
+                  <span>Oral therapy</span>
+                  <div class="bar-track oral"><i style="width: 77%"></i></div>
+                  <span>77%</span>
+                </div>
+              </div>
+            </div>
+            <div class="comparison-row">
+              <h3>180 days</h3>
+              <div class="bar-group">
+                <div class="bar-line">
+                  <span>Long-acting injectable</span>
+                  <div class="bar-track"><i style="width: 91%"></i></div>
+                  <span>91%</span>
+                </div>
+                <div class="bar-line">
+                  <span>Oral therapy</span>
+                  <div class="bar-track oral"><i style="width: 58%"></i></div>
+                  <span>58%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <span class="delta-badge">Largest observed gap: +33 percentage points at 180 days</span>
+        </div>
+      </section>
+
+      <section class="panel" id="methods">
+        <p class="section-label">Evidence flow</p>
+        <h2>How the chart review was assembled</h2>
+        <div class="flow-line">
+          <div class="flow-node">
+            <b>1</b>
+            <h3>Network source</h3>
+            <p>Data came from applicable Maxor National Pharmacy Services facilities in a corporation managing more than 60 pharmacies nationally.</p>
+          </div>
+          <div class="flow-node">
+            <b>2</b>
+            <h3>Eligibility frame</h3>
+            <p>Adults with a first documented dispense of long-acting injectable or oral therapy in the internal medical record were considered.</p>
+          </div>
+          <div class="flow-node">
+            <b>3</b>
+            <h3>Comparison design</h3>
+            <p>Patients were randomly selected for a one-to-one cohort ratio, with a target of up to 50 patients per cohort.</p>
+          </div>
+          <div class="flow-node">
+            <b>4</b>
+            <h3>Descriptive analysis</h3>
+            <p>Viral load, CD4 count, adherence, depression, quality-of-life, labs, insurance, and related chart variables were summarized descriptively.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-stack" id="results">
+        <div class="panel">
+          <p class="section-label">CD4 pattern</p>
+          <h2>Average CD4 counts remained above the stated goal threshold.</h2>
+          <p class="hero-summary">Both cohorts declined from baseline to 180 days but stayed above the poster's goal of &gt;200 cells/mm<sup>3</sup>.</p>
+          <div class="cd4-grid">
+            <div class="cd4-card">
+              <h3>Long-acting injectable ART</h3>
+              <div class="mini-bars" aria-label="Long-acting injectable CD4 averages">
+                <div class="mini-bar"><i style="height: 66%; --bar-color: var(--red)"></i><span>874 baseline</span></div>
+                <div class="mini-bar"><i style="height: 66%; --bar-color: var(--gold)"></i><span>875 day 60</span></div>
+                <div class="mini-bar"><i style="height: 54%; --bar-color: var(--teal)"></i><span>715 day 180</span></div>
+              </div>
+            </div>
+            <div class="cd4-card">
+              <h3>Oral ART</h3>
+              <div class="mini-bars" aria-label="Oral ART CD4 averages">
+                <div class="mini-bar"><i style="height: 45%; --bar-color: var(--red)"></i><span>597 baseline</span></div>
+                <div class="mini-bar"><i style="height: 47%; --bar-color: var(--gold)"></i><span>622 day 60</span></div>
+                <div class="mini-bar"><i style="height: 41%; --bar-color: var(--teal)"></i><span>543 day 180</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Table patterns</p>
+          <h2>Baseline mix differed across facilities and prior ART history.</h2>
+          <div class="table-pattern" role="table" aria-label="Selected baseline table pattern">
+            <span><strong>Selected baseline field</strong></span>
+            <span><strong>Injectable</strong></span>
+            <span><strong>Oral</strong></span>
+            <span>Cohort size</span>
+            <span>34</span>
+            <span>34</span>
+            <span>Baseline viral load &lt;20 copies/mL</span>
+            <span>91%</span>
+            <span>50%</span>
+            <span>Baseline CD4 average</span>
+            <span>874</span>
+            <span>597</span>
+            <span>Previous ART years, average</span>
+            <span>6.5</span>
+            <span>3.5</span>
+          </div>
+          <p class="source-note">The full poster table also breaks down sex assigned at birth/gender identity, pharmacy site, and ART regimen used.</p>
+        </div>
+      </section>
+
+      <section class="evidence-map" aria-label="Condensed findings">
+        <article class="evidence-card">
+          <h3>Therapy exposure</h3>
+          <p>Injectable ART patients received cabotegravir/rilpivirine; oral ART was primarily bictegravir/emtricitabine/tenofovir alafenamide.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Quality of life</h3>
+          <p>Average quality-of-life ratings were 9 in both groups at baseline, 60 days, and 180 days where reported.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Depression screen</h3>
+          <p>PHQ-2 averages were 0 where available; 60-day PHQ-2 scores were not available in the poster table.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Adherence signal</h3>
+          <p>MMAS-4 averages were similar, but reported missed doses were higher with oral therapy through 180 days.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Study limits</h3>
+          <p>Requested lab dates were not always available, and the planned target of 50 patients per cohort was not reached.</p>
+        </article>
+      </section>
+
+      <section class="section-stack" id="conclusions">
+        <div class="panel markdown-fragment">
+          <p class="section-label">Conclusion</p>
+          <h2>Concise interpretation</h2>
+          <ul class="compact-list">
+            <li>Long-acting injectable ART showed higher viral suppression at 60 days and 180 days in this descriptive cohort comparison.</li>
+            <li>CD4 averages declined by 180 days in both cohorts but remained above 200 cells/mm<sup>3</sup>.</li>
+            <li>Oral therapy patients reported more missed doses within 180 days, despite similar MMAS-4 averages.</li>
+          </ul>
+        </div>
+        <div class="panel markdown-fragment">
+          <p class="section-label">Clinical context</p>
+          <h2>Why this poster matters</h2>
+          <p>The authors framed the work around identifying opportunities to optimize HIV care, assess quality of life, and evaluate cost-effectiveness considerations for cabotegravir/rilpivirine versus oral ART.</p>
+          <div class="split-stat">
+            <div>
+              <b>Injectable regimen</b>
+              <strong>100%</strong>
+              <span>cabotegravir/rilpivirine in the injectable cohort</span>
+            </div>
+            <div>
+              <b>Dominant oral regimen</b>
+              <strong>91%</strong>
+              <span>bictegravir/emtricitabine/tenofovir alafenamide</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/15-OPR15-EN-Poster-AM24_2024.pdf">View original PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/15-OPR15-EN-Poster-AM24_2024.md">View extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,718 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2021 Infographic | Specialty Clinic Pharmacist Collaborative Model</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .collab-hero-art {
+      position: relative;
+      min-height: 18rem;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 88% 18%, rgba(233, 158, 37, 0.35), transparent 10rem),
+        radial-gradient(circle at 14% 82%, rgba(24, 124, 143, 0.24), transparent 9rem),
+        linear-gradient(135deg, rgba(36, 55, 112, 0.98), rgba(117, 97, 168, 0.92));
+      color: #fff;
+      padding: 1rem;
+    }
+    .collab-hero-art svg {
+      position: absolute;
+      inset: auto -1.8rem -2.4rem auto;
+      width: min(29rem, 82%);
+      height: auto;
+      opacity: 0.95;
+    }
+    .collab-hero-art span {
+      display: block;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+    .collab-hero-art strong {
+      display: block;
+      max-width: 13rem;
+      margin-top: 0.35rem;
+      font-family: var(--font-display);
+      font-size: clamp(2.1rem, 5vw, 4.1rem);
+      line-height: 0.92;
+    }
+    .collab-hero-art p {
+      max-width: 18rem;
+      margin: 0.7rem 0 0;
+      color: rgba(255, 255, 255, 0.84);
+      font-size: 0.88rem;
+    }
+    .author-line {
+      margin: 0;
+      color: var(--body);
+      font-size: 0.82rem;
+    }
+    .hero-card .button-link {
+      justify-content: center;
+      background: #fff;
+    }
+    .objective-box {
+      border: 1px solid rgba(209, 38, 48, 0.28);
+      border-left: 5px solid var(--red);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.82);
+      padding: 0.72rem;
+    }
+    .objective-box b {
+      display: block;
+      color: var(--red);
+      font-size: 0.66rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .objective-box p {
+      margin: 0.28rem 0 0;
+      color: var(--body);
+      font-size: 0.82rem;
+    }
+    .metric-card p {
+      margin: 0.45rem 0 0;
+      color: var(--body);
+      font-size: 0.8rem;
+    }
+    .metric-card strong small {
+      display: inline;
+      color: inherit;
+      font-size: 0.52em;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+    .model-panel {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, #fff 0%, rgba(238, 244, 251, 0.78) 100%);
+    }
+    .model-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.75rem;
+    }
+    .model-node {
+      position: relative;
+      min-height: 9.4rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.72rem;
+    }
+    .model-node::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -0.48rem;
+      width: 0.72rem;
+      height: 0.72rem;
+      border-top: 2px solid var(--border-strong);
+      border-right: 2px solid var(--border-strong);
+      background: #fff;
+      transform: translateY(-50%) rotate(45deg);
+      z-index: 2;
+    }
+    .model-node:last-child::after { display: none; }
+    .model-node b {
+      display: inline-grid;
+      place-items: center;
+      width: 1.75rem;
+      height: 1.75rem;
+      border-radius: 50%;
+      background: var(--node-color, var(--ink));
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+    }
+    .model-node h3 {
+      margin-top: 0.48rem;
+      font-size: 0.88rem;
+    }
+    .model-node p {
+      margin: 0.32rem 0 0;
+      color: var(--body);
+      font-size: 0.76rem;
+    }
+    .model-node:nth-child(2) { --node-color: var(--red); }
+    .model-node:nth-child(3) { --node-color: var(--gold); }
+    .model-node:nth-child(4) { --node-color: var(--teal); }
+    .model-node:nth-child(5) { --node-color: var(--green); }
+    .model-node:nth-child(6) { --node-color: var(--purple); }
+    .timeline-rail {
+      display: grid;
+      gap: 0.6rem;
+      margin-top: 0.7rem;
+    }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 8.4rem minmax(0, 1fr);
+      gap: 0.7rem;
+      align-items: stretch;
+    }
+    .timeline-item time {
+      border-radius: 8px;
+      background: var(--ink);
+      color: #fff;
+      padding: 0.62rem;
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .timeline-item div {
+      border: 1px solid var(--border);
+      border-left: 5px solid var(--accent, var(--red));
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.62rem 0.7rem;
+      font-size: 0.82rem;
+    }
+    .timeline-item:nth-child(2) { --accent: var(--gold); }
+    .timeline-item:nth-child(3) { --accent: var(--teal); }
+    .timeline-item:nth-child(4) { --accent: var(--green); }
+    .referral-chart {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.55rem;
+      align-items: end;
+      height: 15rem;
+      margin-top: 0.8rem;
+      padding: 0.6rem 0.2rem 0;
+      border-bottom: 2px solid var(--border-strong);
+    }
+    .referral-bar {
+      display: grid;
+      align-items: end;
+      height: 100%;
+      gap: 0.35rem;
+      text-align: center;
+    }
+    .referral-bar i {
+      display: block;
+      min-height: 0.5rem;
+      border-radius: 7px 7px 0 0;
+      background: linear-gradient(180deg, var(--red), var(--gold));
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.34);
+    }
+    .referral-bar b {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      line-height: 1;
+    }
+    .referral-bar span {
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .target-note {
+      margin: 0.6rem 0 0;
+      border-left: 4px solid var(--gold);
+      padding-left: 0.6rem;
+      color: var(--body);
+      font-size: 0.82rem;
+    }
+    .continuity-card {
+      display: grid;
+      gap: 0.62rem;
+      margin-top: 0.75rem;
+    }
+    .continuity-row {
+      display: grid;
+      grid-template-columns: 6.9rem minmax(0, 1fr) 3rem;
+      gap: 0.52rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+    .continuity-track {
+      height: 0.92rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .continuity-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.7rem;
+    }
+    .service-chip {
+      min-height: 5.6rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface-blue);
+      padding: 0.7rem;
+    }
+    .service-chip b {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.88rem;
+      line-height: 1.16;
+    }
+    .service-chip span {
+      display: block;
+      margin-top: 0.34rem;
+      color: var(--body);
+      font-size: 0.76rem;
+    }
+    .endpoint-stack {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.6rem;
+      margin-top: 0.7rem;
+    }
+    .endpoint-card {
+      border: 1px solid var(--border-strong);
+      border-top: 5px solid var(--accent, var(--red));
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.75rem;
+    }
+    .endpoint-card:nth-child(2) { --accent: var(--teal); }
+    .endpoint-card:nth-child(3) { --accent: var(--purple); }
+    .endpoint-card h3 {
+      font-size: 0.9rem;
+    }
+    .endpoint-card p {
+      margin: 0.35rem 0 0;
+      font-size: 0.78rem;
+    }
+    .quote-strip {
+      border: 1px solid rgba(24, 124, 143, 0.32);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(238, 244, 251, 0.9), #fff),
+        radial-gradient(circle at 92% 20%, rgba(233, 158, 37, 0.18), transparent 12rem);
+      padding: 1rem;
+    }
+    .quote-strip blockquote {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.2rem, 2.4vw, 1.85rem);
+      font-weight: 850;
+      line-height: 1.15;
+    }
+    .quote-strip p {
+      margin: 0.5rem 0 0;
+      color: var(--body);
+      font-size: 0.88rem;
+    }
+    .limits-list {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin: 0.7rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .limits-list li {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.62rem;
+      color: var(--body);
+      font-size: 0.78rem;
+    }
+    @media (max-width: 980px) {
+      .model-grid,
+      .endpoint-stack,
+      .service-grid,
+      .limits-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .model-node:nth-child(2n)::after { display: none; }
+    }
+    @media (max-width: 640px) {
+      .model-grid,
+      .endpoint-stack,
+      .service-grid,
+      .limits-list,
+      .referral-chart {
+        grid-template-columns: 1fr;
+      }
+      .model-node::after { display: none; }
+      .referral-chart {
+        height: auto;
+        align-items: stretch;
+        border-bottom: 0;
+      }
+      .referral-bar {
+        grid-template-columns: 3.5rem minmax(0, 1fr) 3rem;
+        align-items: center;
+        text-align: left;
+      }
+      .referral-bar i {
+        height: 0.9rem !important;
+        width: var(--mobile-width);
+        border-radius: 999px;
+      }
+      .timeline-item,
+      .continuity-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="https://naspnet.org">NASP Infographic</a>
+      <nav aria-label="Poster links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/53-Specialty-clinic-pharmacist-collaborative-model_2021.pdf">Source PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/53-Specialty-clinic-pharmacist-collaborative-model_2021.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2021 poster 53 | Yale New Haven Health</p>
+        <h1>Specialty Clinic Pharmacist Collaborative Model</h1>
+        <p class="hero-summary">A decentralized ambulatory care pharmacist model moved specialty pharmacy services closer to disease-state clinics, using a new collaborative practice agreement, EHR workflow, and marketing package to increase prescription continuity and clinician referrals.</p>
+        <ul class="tag-row" aria-label="Poster themes">
+          <li class="tag category">Collaborative practice</li>
+          <li class="tag therapy">Specialty clinics</li>
+          <li class="tag">Clinical continuity</li>
+          <li class="tag">Medication Management Clinic</li>
+        </ul>
+      </div>
+      <aside class="hero-card">
+        <div class="collab-hero-art" aria-label="Clinic, pharmacist, and health system pharmacy collaboration diagram">
+          <span>Decentralized model</span>
+          <strong>Clinic to pharmacy loop</strong>
+          <p>Integrated pharmacists coordinate education, access, monitoring, and prescriptions with the health system pharmacy.</p>
+          <svg viewBox="0 0 520 360" role="img" aria-label="Network of clinics connected to pharmacist and pharmacy">
+            <defs>
+              <linearGradient id="nodeFill" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#ffffff" stop-opacity="0.96"/>
+                <stop offset="1" stop-color="#eef4fb" stop-opacity="0.84"/>
+              </linearGradient>
+            </defs>
+            <path d="M95 235 C155 120 270 110 335 185 C380 238 422 250 482 206" fill="none" stroke="#e99e25" stroke-width="14" stroke-linecap="round" opacity="0.85"/>
+            <path d="M95 235 C155 120 270 110 335 185 C380 238 422 250 482 206" fill="none" stroke="#ffffff" stroke-width="3" stroke-dasharray="10 13" opacity="0.8"/>
+            <g fill="url(#nodeFill)" stroke="#ffffff" stroke-width="4">
+              <circle cx="95" cy="235" r="46"/>
+              <circle cx="244" cy="128" r="58"/>
+              <circle cx="335" cy="185" r="48"/>
+              <circle cx="482" cy="206" r="44"/>
+            </g>
+            <g fill="#243770" font-family="Montserrat, Arial, sans-serif" font-weight="900" text-anchor="middle">
+              <text x="95" y="230" font-size="22">Clinic</text>
+              <text x="95" y="253" font-size="14">sites</text>
+              <text x="244" y="121" font-size="24">CPA</text>
+              <text x="244" y="146" font-size="14">workflow</text>
+              <text x="335" y="180" font-size="19">MMC</text>
+              <text x="335" y="203" font-size="13">pharmacist</text>
+              <text x="482" y="201" font-size="17">YNHHS</text>
+              <text x="482" y="223" font-size="12">pharmacy</text>
+            </g>
+            <g stroke="#ffffff" stroke-width="3" opacity="0.82">
+              <line x1="244" y1="190" x2="244" y2="285"/>
+              <line x1="193" y1="155" x2="120" y2="213"/>
+              <line x1="291" y1="154" x2="323" y2="166"/>
+            </g>
+            <g fill="#d12630">
+              <circle cx="244" cy="297" r="18"/>
+              <circle cx="174" cy="271" r="13"/>
+              <circle cx="307" cy="277" r="13"/>
+            </g>
+          </svg>
+        </div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Conference</dt>
+            <dd>NASP 2021</dd>
+          </div>
+          <div>
+            <dt>Poster</dt>
+            <dd>53</dd>
+          </div>
+          <div>
+            <dt>System</dt>
+            <dd>YNHHS</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>Adult specialty clinics</dd>
+          </div>
+        </dl>
+        <div class="objective-box">
+          <b>Objective</b>
+          <p>Expand specialty pharmacy prescription clinical continuity and support by implementing an integrated decentralized pharmacist practice model at target sites.</p>
+        </div>
+        <p class="author-line">Natasha Stroedecke, Jenna Lee, Kimhouy Tong, Kimberly Boothe, Steph Luon, Martha Stutsky, Esther Eom, Vinay Sawant, Marie Renauer.</p>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key poster results">
+        <div class="metric-card">
+          <span>Referral growth</span>
+          <strong>309</strong>
+          <p>Patients referred by Quarter 3 after implementation.</p>
+        </div>
+        <div class="metric-card">
+          <span>Referral target</span>
+          <strong>165<small>%</small></strong>
+          <p>Pharmacist referrals exceeded the stated target.</p>
+        </div>
+        <div class="metric-card">
+          <span>Clinical continuity</span>
+          <strong>70<small>%</small></strong>
+          <p>Quarter 3 prescriptions sent to the health system pharmacy.</p>
+        </div>
+        <div class="metric-card">
+          <span>Continuity gain</span>
+          <strong>+23<small> pts</small></strong>
+          <p>Increase from 47% baseline to 70% in Quarter 3.</p>
+        </div>
+      </section>
+
+      <section class="panel model-panel" id="model">
+        <p class="section-label">Implementation logic</p>
+        <h2>From clinic opportunity to pharmacy-linked clinical continuity</h2>
+        <div class="model-grid">
+          <article class="model-node">
+            <b>1</b>
+            <h3>Map opportunity</h3>
+            <p>Environmental analysis identified specialty clinics where medication complexity required closer coordination.</p>
+          </article>
+          <article class="model-node">
+            <b>2</b>
+            <h3>Align stakeholders</h3>
+            <p>Clinic, pharmacy, compliance, credentialing, and marketing stakeholders shaped the model.</p>
+          </article>
+          <article class="model-node">
+            <b>3</b>
+            <h3>Build CPA</h3>
+            <p>Disease state, therapy class, initiation, modification, refill, discontinuation, labs, and guidelines were defined.</p>
+          </article>
+          <article class="model-node">
+            <b>4</b>
+            <h3>Optimize EHR</h3>
+            <p>Standardized documentation and referral workflows were added to support decentralized practice.</p>
+          </article>
+          <article class="model-node">
+            <b>5</b>
+            <h3>Market services</h3>
+            <p>Patient brochures, clinician brochures, website copy, scripting, and pharmacist flyers introduced the service.</p>
+          </article>
+          <article class="model-node">
+            <b>6</b>
+            <h3>Measure impact</h3>
+            <p>Primary endpoints tracked clinical continuity and signed referrals, with disease outcomes in development.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="visual-grid" id="results">
+        <article class="panel">
+          <p class="section-label">Primary endpoint</p>
+          <h2>Referrals accelerated after launch</h2>
+          <div class="referral-chart" aria-label="Patient referrals by quarter">
+            <div class="referral-bar" style="--mobile-width: 4%;">
+              <b>11</b>
+              <i style="height: 4%;"></i>
+              <span>Q1</span>
+            </div>
+            <div class="referral-bar" style="--mobile-width: 44%;">
+              <b>135</b>
+              <i style="height: 44%;"></i>
+              <span>Q2</span>
+            </div>
+            <div class="referral-bar" style="--mobile-width: 100%;">
+              <b>309</b>
+              <i style="height: 100%;"></i>
+              <span>Q3</span>
+            </div>
+          </div>
+          <p class="target-note">Poster conclusion reports pharmacist referrals exceeded target at 165%; the source chart also labels a target near the Q2 bar.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Prescription continuity</p>
+          <h2>More prescriptions stayed within YNHHS pharmacy</h2>
+          <div class="continuity-card" aria-label="Percent of prescriptions sent to YNHHS">
+            <div class="continuity-row">
+              <span>Baseline</span>
+              <div class="continuity-track"><i style="width: 47%;"></i></div>
+              <b>47%</b>
+            </div>
+            <div class="continuity-row">
+              <span>Q1-Q2</span>
+              <div class="continuity-track"><i style="width: 53%;"></i></div>
+              <b>53%</b>
+            </div>
+            <div class="continuity-row">
+              <span>Quarter 3</span>
+              <div class="continuity-track"><i style="width: 70%;"></i></div>
+              <b>70%</b>
+            </div>
+          </div>
+          <div class="number-cloud" aria-label="Service evaluation endpoints">
+            <div class="number-pill">RAPID 3<small>Rheumatology</small></div>
+            <div class="number-pill">Flares<small>Digestive health</small></div>
+            <div class="number-pill">SVR<small>Hepatitis C</small></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="visual-grid" id="methods">
+        <article class="panel">
+          <p class="section-label">Timeline</p>
+          <h2>Four staged workstreams turned the model live</h2>
+          <div class="timeline-rail">
+            <div class="timeline-item">
+              <time>Aug - Sept 2020</time>
+              <div>Environmental analysis, stakeholder identification, and project planning.</div>
+            </div>
+            <div class="timeline-item">
+              <time>Oct 2020 - Jan 2021</time>
+              <div>Stakeholder engagement, CPA development, credentialing updates, recruitment, and EHR optimizations.</div>
+            </div>
+            <div class="timeline-item">
+              <time>Dec 2020 - Apr 2021</time>
+              <div>Finalized CPA, standardized workflow, EHR documentation updates, and continued credentialing work.</div>
+            </div>
+            <div class="timeline-item">
+              <time>Mar - May 2021</time>
+              <div>CPA approval, target clinic go-live, finalized workflow, and marketing strategies.</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Marketed pharmacy services</p>
+          <h2>The service bundle paired access, education, and monitoring</h2>
+          <div class="service-grid">
+            <div class="service-chip">
+              <b>Medication counseling</b>
+              <span>Direct support for high-complexity specialty medications.</span>
+            </div>
+            <div class="service-chip">
+              <b>Disease education</b>
+              <span>Follow-up tailored to rheumatology, digestive health, and hepatitis C needs.</span>
+            </div>
+            <div class="service-chip">
+              <b>Administration teaching</b>
+              <span>Patient instruction for medication use and self-management.</span>
+            </div>
+            <div class="service-chip">
+              <b>Medication management</b>
+              <span>Comprehensive review across specialty and ambulatory therapy.</span>
+            </div>
+            <div class="service-chip">
+              <b>Prescription coordination</b>
+              <span>Linkage with the health system specialty pharmacy.</span>
+            </div>
+            <div class="service-chip">
+              <b>Lab monitoring</b>
+              <span>CPA-supported laboratory follow-up and documentation.</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-stack" id="evidence">
+        <article class="panel">
+          <p class="section-label">Endpoint architecture</p>
+          <h2>Primary and secondary measures separated operational lift from clinical outcomes</h2>
+          <div class="endpoint-stack">
+            <div class="endpoint-card">
+              <h3>Clinical continuity</h3>
+              <p>Percent of prescriptions sent to the health system pharmacy.</p>
+            </div>
+            <div class="endpoint-card">
+              <h3>Signed referrals</h3>
+              <p>Number of patients referred into pharmacist services.</p>
+            </div>
+            <div class="endpoint-card">
+              <h3>Disease outcomes</h3>
+              <p>RAPID 3, flare reduction, and sustained viral suppression were planned secondary measures.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Implementation constraints</p>
+          <h2>What limited interpretation and scale</h2>
+          <ul class="limits-list">
+            <li>Clinicians needed fuller understanding of the ambulatory care pharmacist role.</li>
+            <li>Existing CPA regulations required monthly documentation.</li>
+            <li>The model was developed in a limited number of adult ambulatory care clinics.</li>
+            <li>Outcome data were limited by short time since implementation.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="quote-strip">
+        <p class="section-label">Clinician reception</p>
+        <blockquote>"Best patient care improvement in my 30 years in practice."</blockquote>
+        <p>Across testimonials, clinicians described the pharmacist as critical for medication approvals, insurance navigation, monitoring, Epic ordering, and overall confidence in patient care.</p>
+      </section>
+
+      <section class="tables-grid">
+        <article class="table-card">
+          <p class="section-label">Source table pattern</p>
+          <h2>Implementation building blocks</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Practice framework</th>
+                  <th>Operational support</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Innovative collaborative practice agreement</td>
+                  <td>Credentialing policy updates and regulatory compliance</td>
+                </tr>
+                <tr>
+                  <td>Stakeholder collaboration and new workflow</td>
+                  <td>Marketing strategy and EHR enhancements</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+        <article class="table-card">
+          <p class="section-label">Conclusion</p>
+          <h2>Poster takeaway</h2>
+          <div class="markdown-fragment">
+            <p>Expanding integrated decentralized pharmacists into target practices increased clinical continuity and drove pharmacist referrals beyond target.</p>
+            <p>The authors positioned the Medication Management Clinic model as adaptable to other health systems with specialty pharmacies, with future expansion into additional disease-state clinics and advanced technician roles.</p>
+          </div>
+        </article>
+      </section>
+
+      <footer class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/53-Specialty-clinic-pharmacist-collaborative-model_2021.pdf">Open original PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/53-Specialty-clinic-pharmacist-collaborative-model_2021.md">Open extracted markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

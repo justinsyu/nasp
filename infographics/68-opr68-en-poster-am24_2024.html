@@ -1,0 +1,778 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2024 Infographic | Lebrikizumab in Skin of Color</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .ad-hero-art {
+      position: relative;
+      min-height: 20rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 78% 16%, rgba(233, 158, 37, 0.28), transparent 8rem),
+        linear-gradient(145deg, rgba(36, 55, 112, 0.98), rgba(24, 124, 143, 0.9));
+      color: #fff;
+      padding: 1.05rem;
+    }
+
+    .ad-hero-art svg {
+      position: absolute;
+      inset: auto -1rem -1.5rem auto;
+      width: min(25rem, 78%);
+      opacity: 0.92;
+    }
+
+    .ad-hero-art .art-label {
+      position: relative;
+      z-index: 1;
+      max-width: 14rem;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .ad-hero-art strong {
+      position: relative;
+      z-index: 1;
+      display: block;
+      margin-top: 0.35rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(3.4rem, 8vw, 5.6rem);
+      line-height: 0.86;
+    }
+
+    .ad-hero-art span {
+      position: relative;
+      z-index: 1;
+      display: block;
+      max-width: 15rem;
+      margin-top: 0.75rem;
+      color: rgba(255, 255, 255, 0.84);
+      font-size: 0.92rem;
+    }
+
+    .hero-card .button-link {
+      justify-content: center;
+      background: #fff;
+    }
+
+    .trial-line {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.75rem;
+    }
+
+    .trial-step {
+      position: relative;
+      min-height: 7.2rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.72rem;
+    }
+
+    .trial-step::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -0.45rem;
+      width: 0.65rem;
+      height: 0.65rem;
+      border-top: 2px solid var(--border-strong);
+      border-right: 2px solid var(--border-strong);
+      background: #fff;
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    .trial-step:last-child::after { display: none; }
+
+    .trial-step b {
+      display: inline-grid;
+      place-items: center;
+      width: 1.55rem;
+      height: 1.55rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+    }
+
+    .trial-step h3 {
+      margin-top: 0.45rem;
+      font-size: 0.92rem;
+    }
+
+    .trial-step p {
+      margin: 0.3rem 0 0;
+      font-size: 0.76rem;
+    }
+
+    .response-board {
+      display: grid;
+      grid-template-columns: minmax(0, 1.12fr) minmax(17rem, 0.88fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .week-chart {
+      display: grid;
+      gap: 0.58rem;
+      margin-top: 0.72rem;
+    }
+
+    .week-row {
+      display: grid;
+      grid-template-columns: 4rem minmax(0, 1fr) 3.6rem 4.1rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+
+    .week-track {
+      height: 1rem;
+      border: 1px solid rgba(36, 55, 112, 0.15);
+      border-radius: 999px;
+      background: var(--surface-blue);
+      overflow: hidden;
+    }
+
+    .week-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .week-row em {
+      color: var(--muted);
+      font-style: normal;
+      text-align: right;
+    }
+
+    .outcome-stack {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.72rem;
+    }
+
+    .outcome-tile {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--surface-blue);
+      padding: 0.8rem;
+    }
+
+    .outcome-tile strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2.25rem;
+      line-height: 1;
+    }
+
+    .outcome-tile span {
+      display: block;
+      margin-top: 0.3rem;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+
+    .population-band {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: 1rem;
+    }
+
+    .donut-layout {
+      display: grid;
+      grid-template-columns: 12rem minmax(0, 1fr);
+      gap: 0.8rem;
+      align-items: center;
+      margin-top: 0.55rem;
+    }
+
+    .donut-layout svg {
+      width: 100%;
+      max-width: 12rem;
+      height: auto;
+    }
+
+    .legend {
+      display: grid;
+      gap: 0.42rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .legend li {
+      display: grid;
+      grid-template-columns: 0.8rem minmax(0, 1fr) auto;
+      gap: 0.42rem;
+      align-items: center;
+      font-size: 0.78rem;
+    }
+
+    .legend i {
+      width: 0.8rem;
+      height: 0.8rem;
+      border-radius: 3px;
+      background: var(--legend-color, var(--red));
+    }
+
+    .severity-matrix {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.5rem;
+      margin-top: 0.65rem;
+    }
+
+    .severity-cell {
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.58rem;
+    }
+
+    .severity-cell strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+
+    .severity-cell span {
+      display: block;
+      margin-top: 0.22rem;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 850;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .pigment-panel {
+      display: grid;
+      grid-template-columns: 12rem minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .tone-scale {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.25rem;
+      margin-top: 0.7rem;
+    }
+
+    .tone-scale i {
+      display: block;
+      aspect-ratio: 1;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 6px;
+    }
+
+    .pigment-stats {
+      display: grid;
+      gap: 0.65rem;
+    }
+
+    .pigment-stat {
+      border-left: 4px solid var(--teal);
+      background: var(--surface-blue);
+      padding: 0.65rem 0.75rem;
+    }
+
+    .pigment-stat:nth-child(2) { border-color: var(--green); }
+
+    .pigment-stat strong {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      line-height: 1;
+    }
+
+    .pigment-stat span {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--body);
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .criteria-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.48rem;
+      margin: 0.65rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .criteria-list li {
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.5rem 0.58rem;
+      color: var(--ink);
+      font-size: 0.79rem;
+      font-weight: 850;
+    }
+
+    .therapy-bars .lens-row {
+      grid-template-columns: 10.2rem minmax(0, 1fr) 3.5rem;
+    }
+
+    .therapy-bars .lens-row em {
+      color: var(--ink);
+      font-style: normal;
+      font-size: 0.78rem;
+      font-weight: 850;
+      text-align: right;
+    }
+
+    .source-note {
+      margin: 0.72rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+
+    @media (max-width: 900px) {
+      .trial-line,
+      .response-board,
+      .population-band,
+      .pigment-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .trial-step::after { display: none; }
+    }
+
+    @media (max-width: 680px) {
+      .donut-layout,
+      .outcome-stack,
+      .severity-matrix,
+      .criteria-list {
+        grid-template-columns: 1fr;
+      }
+
+      .week-row,
+      .therapy-bars .lens-row {
+        grid-template-columns: 1fr;
+        gap: 0.32rem;
+      }
+
+      .week-row em,
+      .therapy-bars .lens-row em {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="./">NASP Infographics</a>
+      <nav aria-label="Poster sections">
+        <a href="#design">Design</a>
+        <a href="#results">Results</a>
+        <a href="#population">Population</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2024 poster OPR68-EN</p>
+        <h1>Efficacy and Safety of Lebrikizumab in Patients With Skin of Color and Moderate-to-Severe Atopic Dermatitis</h1>
+        <p class="hero-summary">Interim 16-week results from ADmirable, an open-label Phase 3b trial evaluating lebrikizumab 250 mg every 2 weeks in adults and adolescents with Fitzpatrick Phototype IV-VI.</p>
+        <ul class="tag-row" aria-label="Key poster tags">
+          <li class="tag therapy">Lebrikizumab</li>
+          <li class="tag category">Atopic dermatitis</li>
+          <li class="tag">Skin of color</li>
+          <li class="tag">Phase 3b</li>
+          <li class="tag">Open-label interim analysis</li>
+        </ul>
+      </div>
+      <aside class="hero-card">
+        <div class="poster-code">OPR68-EN</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Year</dt>
+            <dd>2024</dd>
+          </div>
+          <div>
+            <dt>Study</dt>
+            <dd>ADmirable</dd>
+          </div>
+          <div>
+            <dt>Trial ID</dt>
+            <dd>NCT05372419</dd>
+          </div>
+          <div>
+            <dt>Interim set</dt>
+            <dd>N=50</dd>
+          </div>
+        </dl>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/68-OPR68-EN-Poster-AM24_2024.pdf">Open source PDF</a>
+      </aside>
+    </section>
+
+    <main>
+      <section class="visual-grid" id="design">
+        <div class="ad-hero-art" aria-label="Visual summary of the study population and treatment window">
+          <p class="art-label">Week 16 treatment signal</p>
+          <strong>68%</strong>
+          <span>EASI 75 response as observed after lebrikizumab treatment in the interim analysis.</span>
+          <svg viewBox="0 0 420 300" role="img" aria-label="Abstract skin tone and inflammation response illustration">
+            <defs>
+              <linearGradient id="skinWave" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#f1c27d"/>
+                <stop offset="0.38" stop-color="#a66a3f"/>
+                <stop offset="0.74" stop-color="#6b3b25"/>
+                <stop offset="1" stop-color="#2f1d18"/>
+              </linearGradient>
+              <linearGradient id="calm" x1="0" x2="1">
+                <stop offset="0" stop-color="#187c8f"/>
+                <stop offset="1" stop-color="#4d8a67"/>
+              </linearGradient>
+            </defs>
+            <path d="M28 215 C80 108 136 78 201 124 C267 171 306 65 384 83 L384 298 L28 298 Z" fill="url(#skinWave)" opacity="0.95"/>
+            <path d="M61 235 C129 159 182 161 244 202 C291 233 338 209 384 156" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" opacity="0.66"/>
+            <path d="M75 221 C138 172 190 176 247 213 C296 243 338 220 376 179" fill="none" stroke="url(#calm)" stroke-width="8" stroke-linecap="round"/>
+            <circle cx="309" cy="86" r="23" fill="#e99e25" opacity="0.9"/>
+            <circle cx="253" cy="70" r="10" fill="#d12630" opacity="0.8"/>
+            <circle cx="351" cy="132" r="11" fill="#fff" opacity="0.45"/>
+            <g fill="none" stroke="#fff" stroke-width="2" opacity="0.45">
+              <path d="M94 91h72"/>
+              <path d="M94 116h46"/>
+              <path d="M94 141h83"/>
+            </g>
+          </svg>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Measure clinical response in a historically under-represented population</h2>
+          <div class="markdown-fragment">
+            <p>The poster reports interim 16-week safety and efficacy findings for lebrikizumab in patients with moderate-to-severe atopic dermatitis and skin of color.</p>
+            <p>It also highlights objective assessment of pigment, erythema, and post-inflammatory hyper- or hypo-pigmentation, including PDCA-Derm&trade;.</p>
+          </div>
+          <div class="trial-line" aria-label="Study flow">
+            <div class="trial-step">
+              <b>1</b>
+              <h3>Screen</h3>
+              <p>Week -4 eligibility review.</p>
+            </div>
+            <div class="trial-step">
+              <b>2</b>
+              <h3>Baseline</h3>
+              <p>N=50 entered interim analysis.</p>
+            </div>
+            <div class="trial-step">
+              <b>3</b>
+              <h3>Treat</h3>
+              <p>Lebrikizumab 250 mg Q2W.</p>
+            </div>
+            <div class="trial-step">
+              <b>4</b>
+              <h3>Assess</h3>
+              <p>Week 16 signs, symptoms, and pigment outcomes.</p>
+            </div>
+            <div class="trial-step">
+              <b>5</b>
+              <h3>Continue</h3>
+              <p>Responders Q4W; non-responders Q2W to Week 24.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="metric-strip" aria-label="Headline study numbers">
+        <div class="metric-card">
+          <span>Interim cohort</span>
+          <strong>50</strong>
+          <p class="source-note">Patients at baseline</p>
+        </div>
+        <div class="metric-card">
+          <span>Completed Week 16</span>
+          <strong>40</strong>
+          <p class="source-note">10 discontinued by Week 16</p>
+        </div>
+        <div class="metric-card">
+          <span>Black or African American</span>
+          <strong>80%</strong>
+          <p class="source-note">n=40 of 50</p>
+        </div>
+        <div class="metric-card">
+          <span>Serious adverse events</span>
+          <strong>0</strong>
+          <p class="source-note">Interim safety report</p>
+        </div>
+      </section>
+
+      <section class="response-board" id="results">
+        <div class="panel">
+          <p class="section-label">EASI trajectory</p>
+          <h2>Skin signs improved early and were sustained through Week 16</h2>
+          <div class="week-chart" aria-label="EASI 75 and EASI percent change from baseline by week">
+            <div class="week-row">
+              <span>Week 0</span>
+              <div class="week-track"><i style="width: 0%"></i></div>
+              <strong>0%</strong>
+              <em>0% BL</em>
+            </div>
+            <div class="week-row">
+              <span>Week 2</span>
+              <div class="week-track"><i style="width: 20%"></i></div>
+              <strong>20%</strong>
+              <em>-20%</em>
+            </div>
+            <div class="week-row">
+              <span>Week 4</span>
+              <div class="week-track"><i style="width: 40%; background: var(--teal)"></i></div>
+              <strong>-</strong>
+              <em>-40%</em>
+            </div>
+            <div class="week-row">
+              <span>Week 8</span>
+              <div class="week-track"><i style="width: 66%"></i></div>
+              <strong>66%</strong>
+              <em>-78%</em>
+            </div>
+            <div class="week-row">
+              <span>Week 16</span>
+              <div class="week-track"><i style="width: 68%"></i></div>
+              <strong>68%</strong>
+              <em>-79%</em>
+            </div>
+          </div>
+          <p class="source-note">EASI 75 and EASI percent change from baseline were reported as observed; Week 16 included one early termination visit with efficacy data.</p>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Week 16 outcomes</p>
+          <h2>Core response measures pointed in the same direction</h2>
+          <div class="outcome-stack">
+            <div class="outcome-tile">
+              <strong>68%</strong>
+              <span>EASI 75 response, as observed</span>
+            </div>
+            <div class="outcome-tile">
+              <strong>39%</strong>
+              <span>IGA (0,1) with &ge;2-point improvement</span>
+            </div>
+            <div class="outcome-tile">
+              <strong>56%</strong>
+              <span>Pruritus NRS &ge;4-point improvement, NRI/MI</span>
+            </div>
+            <div class="outcome-tile">
+              <strong>55%</strong>
+              <span>Pruritus NRS &ge;3-point improvement, NRI/MI</span>
+            </div>
+          </div>
+          <p class="source-note">As-observed pruritus response was 66% for &ge;4-point improvement and 64% for &ge;3-point improvement.</p>
+        </div>
+      </section>
+
+      <section class="population-band" id="population">
+        <div class="panel">
+          <p class="section-label">Who enrolled</p>
+          <h2>Fitzpatrick IV-VI cohort with broad racial representation</h2>
+          <div class="donut-layout">
+            <svg viewBox="0 0 180 180" role="img" aria-label="Race distribution donut chart">
+              <circle cx="90" cy="90" r="62" fill="none" stroke="#eef4fb" stroke-width="28"/>
+              <circle cx="90" cy="90" r="62" fill="none" stroke="#d12630" stroke-width="28" stroke-dasharray="311.6 77.9" transform="rotate(-90 90 90)"/>
+              <circle cx="90" cy="90" r="62" fill="none" stroke="#187c8f" stroke-width="28" stroke-dasharray="54.5 335" stroke-dashoffset="-311.6" transform="rotate(-90 90 90)"/>
+              <circle cx="90" cy="90" r="62" fill="none" stroke="#e99e25" stroke-width="28" stroke-dasharray="23.4 366.1" stroke-dashoffset="-366.1" transform="rotate(-90 90 90)"/>
+              <text x="90" y="84" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="28" font-weight="900">80%</text>
+              <text x="90" y="105" text-anchor="middle" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="800">Black or African</text>
+              <text x="90" y="119" text-anchor="middle" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="800">American</text>
+            </svg>
+            <ul class="legend">
+              <li style="--legend-color: var(--red)"><i></i><span>Black or African American</span><strong>80%</strong></li>
+              <li style="--legend-color: var(--teal)"><i></i><span>Asian</span><strong>14%</strong></li>
+              <li style="--legend-color: var(--gold)"><i></i><span>American Indian or Alaska Native</span><strong>6%</strong></li>
+              <li style="--legend-color: var(--purple)"><i></i><span>Hispanic or Latino ethnicity</span><strong>22%</strong></li>
+            </ul>
+          </div>
+          <div class="lens-chart" aria-label="Fitzpatrick phototype distribution">
+            <div class="lens-row"><span>Phototype IV</span><div class="lens-bar"><i style="width:42%"></i></div></div>
+            <div class="lens-row"><span>Phototype V</span><div class="lens-bar"><i style="width:22%; background: var(--teal)"></i></div></div>
+            <div class="lens-row"><span>Phototype VI</span><div class="lens-bar"><i style="width:36%; background: var(--purple)"></i></div></div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Baseline disease</p>
+          <h2>Moderate-to-severe burden at study entry</h2>
+          <div class="severity-matrix">
+            <div class="severity-cell">
+              <strong>28.1</strong>
+              <span>Mean EASI</span>
+            </div>
+            <div class="severity-cell">
+              <strong>41.7%</strong>
+              <span>BSA affected</span>
+            </div>
+            <div class="severity-cell">
+              <strong>7.2</strong>
+              <span>Pruritus NRS</span>
+            </div>
+            <div class="severity-cell">
+              <strong>54%</strong>
+              <span>Hyperpigmented lesions</span>
+            </div>
+          </div>
+          <ul class="criteria-list">
+            <li>Adults &ge;18 years and adolescents &ge;12 to &lt;18 years</li>
+            <li>Fitzpatrick Phototype IV, V, or VI</li>
+            <li>Chronic AD for at least 1 year</li>
+            <li>Baseline EASI &ge;16, IGA &ge;3, and BSA &ge;10%</li>
+            <li>Inadequate response to topical medications</li>
+            <li>Naive to biologics indicated for AD</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="visual-grid">
+        <div class="panel pigment-panel">
+          <div>
+            <p class="section-label">Pigment lens</p>
+            <h2>PDCA-Derm&trade; captured improvement in post-inflammatory lesions</h2>
+            <div class="tone-scale" aria-hidden="true">
+              <i style="background:#f1d0a9"></i>
+              <i style="background:#c28b5c"></i>
+              <i style="background:#8a5535"></i>
+              <i style="background:#5d3325"></i>
+              <i style="background:#2f1d18"></i>
+            </div>
+            <p class="source-note">The original poster notes that PDCA-Derm colors are visual aids and not actual skin tones.</p>
+          </div>
+          <div class="pigment-stats">
+            <div class="pigment-stat">
+              <strong>12/21</strong>
+              <span>Patients with improved hyperpigmented lesions at Week 16.</span>
+            </div>
+            <div class="pigment-stat">
+              <strong>6/21</strong>
+              <span>Patients whose hyperpigmented lesions improved to normal skin tone.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel therapy-bars">
+          <p class="section-label">Allowed concomitant care</p>
+          <h2>Topical support was permitted, while rescue therapies triggered discontinuation</h2>
+          <div class="lens-chart" aria-label="Concomitant therapy use">
+            <div class="lens-row"><span>Low-potency TCS</span><div class="lens-bar"><i style="width:28%; background: var(--green)"></i></div><em>28%</em></div>
+            <div class="lens-row"><span>Mid-potency TCS</span><div class="lens-bar"><i style="width:26%; background: var(--teal)"></i></div><em>26%</em></div>
+            <div class="lens-row"><span>TCIs</span><div class="lens-bar"><i style="width:14%; background: var(--gold)"></i></div><em>14%</em></div>
+            <div class="lens-row"><span>Topical PDE-4 inhibitor</span><div class="lens-bar"><i style="width:14%; background: var(--purple)"></i></div><em>14%</em></div>
+            <div class="lens-row"><span>Prednisone</span><div class="lens-bar"><i style="width:2%; background: var(--red)"></i></div><em>2%</em></div>
+          </div>
+          <p class="source-note">No high-potency TCS use, topical JAK inhibitor use, biologic use, immunosuppressant use, or phototherapy was reported in the table.</p>
+        </div>
+      </section>
+
+      <section class="evidence-map" aria-label="Evidence flow summary">
+        <div class="evidence-card">
+          <p class="section-label">Why</p>
+          <h3>Evidence gap</h3>
+          <p>Moderate-to-severe AD data are limited for populations traditionally under-represented in clinical trials.</p>
+        </div>
+        <div class="evidence-card">
+          <p class="section-label">Who</p>
+          <h3>Skin of color</h3>
+          <p>The cohort required Fitzpatrick Phototype IV-VI and included 80% Black or African American patients.</p>
+        </div>
+        <div class="evidence-card">
+          <p class="section-label">How</p>
+          <h3>Open-label treatment</h3>
+          <p>Patients received lebrikizumab 250 mg Q2W through the Week 16 interim assessment.</p>
+        </div>
+        <div class="evidence-card">
+          <p class="section-label">What</p>
+          <h3>Signs and symptoms</h3>
+          <p>Responses were assessed by EASI, IGA, Pruritus NRS, patient measures, pigment tools, biomarkers, and microbiome endpoints.</p>
+        </div>
+        <div class="evidence-card">
+          <p class="section-label">So what</p>
+          <h3>Week 16 signal</h3>
+          <p>Lebrikizumab improved AD signs and symptoms, with no serious adverse events in this interim analysis.</p>
+        </div>
+      </section>
+
+      <section class="tables-grid">
+        <div class="table-card">
+          <p class="section-label">Pattern extracted from results tables</p>
+          <h2>Response summary</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Measure</th>
+                  <th>Week 16 value</th>
+                  <th>Analysis view</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>EASI 75</td>
+                  <td>68%</td>
+                  <td>As observed</td>
+                </tr>
+                <tr>
+                  <td>EASI % change from baseline</td>
+                  <td>-79%</td>
+                  <td>As observed</td>
+                </tr>
+                <tr>
+                  <td>IGA (0,1) with &ge;2-point improvement</td>
+                  <td>39%</td>
+                  <td>As observed and NRI/MI</td>
+                </tr>
+                <tr>
+                  <td>Pruritus NRS &ge;4-point improvement</td>
+                  <td>56%</td>
+                  <td>NRI/MI</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="table-card">
+          <p class="section-label">Conclusion</p>
+          <h2>Interim interpretation</h2>
+          <div class="markdown-fragment">
+            <p>ADmirable is described as the first Phase 3b clinical trial of lebrikizumab for moderate-to-severe AD in patients with skin of color and Fitzpatrick Phototype IV-VI.</p>
+            <p>After 16 weeks, lebrikizumab improved clinician- and patient-reported signs and symptoms, and PDCA-Derm&trade; detected improvement in hyperpigmented lesions.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer-actions" id="sources">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/68-OPR68-EN-Poster-AM24_2024.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/68-OPR68-EN-Poster-AM24_2024.md">Source markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

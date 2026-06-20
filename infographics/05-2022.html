@@ -1,0 +1,724 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HealthBeacon Smart Reminders Improve Adherence | NASP 2022</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 26rem;
+    }
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -4rem -4.5rem auto;
+      width: 16rem;
+      height: 16rem;
+      border: 1.2rem solid rgba(24, 124, 143, 0.1);
+      border-radius: 50%;
+    }
+    .device-scene {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 0.85rem;
+      margin-top: 0.4rem;
+    }
+    .device-scene svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      filter: drop-shadow(0 16px 24px rgba(36, 55, 112, 0.13));
+    }
+    .light-pulse {
+      display: grid;
+      grid-template-columns: 2.4rem minmax(0, 1fr);
+      gap: 0.65rem;
+      align-items: center;
+      border: 1px solid rgba(24, 124, 143, 0.22);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.82);
+      padding: 0.65rem;
+    }
+    .pulse-dot {
+      width: 2.15rem;
+      height: 2.15rem;
+      border-radius: 50%;
+      background: radial-gradient(circle, #fff 0 20%, rgba(24, 124, 143, 0.95) 22% 44%, rgba(24, 124, 143, 0.18) 45% 100%);
+      box-shadow: 0 0 0.8rem rgba(24, 124, 143, 0.45);
+    }
+    .light-pulse b {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      line-height: 1.1;
+    }
+    .light-pulse span {
+      display: block;
+      margin-top: 0.18rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 750;
+    }
+    .metric-card strong small {
+      color: var(--red);
+      font-size: 0.86rem;
+    }
+    .metric-card em {
+      display: block;
+      margin-top: 0.34rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-style: normal;
+      font-weight: 750;
+      line-height: 1.3;
+    }
+    .impact-board {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .comparison-stage {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+    .comparison-tile {
+      position: relative;
+      min-height: 9.2rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+      overflow: hidden;
+    }
+    .comparison-tile::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: var(--tile-height);
+      background: linear-gradient(180deg, rgba(209, 38, 48, 0.24), rgba(209, 38, 48, 0.08));
+      z-index: 0;
+    }
+    .comparison-tile.no-sms::after {
+      background: linear-gradient(180deg, rgba(104, 117, 141, 0.22), rgba(104, 117, 141, 0.08));
+    }
+    .comparison-tile > * {
+      position: relative;
+      z-index: 1;
+    }
+    .comparison-tile span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.66rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .comparison-tile strong {
+      display: block;
+      margin-top: 0.28rem;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 3.1rem;
+      line-height: 1;
+    }
+    .comparison-tile p {
+      max-width: 18rem;
+      margin: 0.45rem 0 0;
+      color: var(--body);
+      font-size: 0.82rem;
+      font-weight: 750;
+    }
+    .difference-callout {
+      border-left: 4px solid var(--red);
+      background: linear-gradient(90deg, rgba(209, 38, 48, 0.1), #fff);
+    }
+    .difference-callout .poster-code {
+      font-size: clamp(2rem, 5vw, 4rem);
+    }
+    .pathway {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.8rem;
+    }
+    .path-step {
+      position: relative;
+      min-height: 9.6rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.78rem;
+    }
+    .path-step::before {
+      content: attr(data-step);
+      display: inline-grid;
+      place-items: center;
+      width: 1.78rem;
+      height: 1.78rem;
+      margin-bottom: 0.5rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+    .path-step:nth-child(2)::before { background: var(--gold); }
+    .path-step:nth-child(3)::before { background: var(--red); }
+    .path-step:nth-child(4)::before { background: var(--teal); }
+    .path-step p {
+      margin: 0.35rem 0 0;
+      color: var(--body);
+      font-size: 0.8rem;
+    }
+    .drop-split {
+      display: grid;
+      grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+      gap: 1rem;
+      align-items: center;
+    }
+    .split-total {
+      display: grid;
+      place-items: center;
+      min-height: 14rem;
+      border: 1px solid rgba(36, 55, 112, 0.2);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 35% 28%, rgba(209, 38, 48, 0.12), transparent 34%),
+        linear-gradient(145deg, #fff, var(--surface-blue));
+      padding: 1rem;
+      text-align: center;
+    }
+    .split-total strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 3rem;
+      line-height: 1;
+    }
+    .split-total span {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--ink);
+      font-weight: 850;
+    }
+    .group-tree {
+      display: grid;
+      gap: 0.72rem;
+    }
+    .group-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.78rem;
+    }
+    .group-card h3 {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.58rem;
+    }
+    .group-card h3 span {
+      color: var(--muted);
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 850;
+    }
+    .stack-bar {
+      display: grid;
+      grid-template-columns: var(--eligible) 1fr;
+      height: 1.45rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .stack-bar i:first-child {
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .stack-bar i:last-child {
+      background: #e7edf6;
+    }
+    .stack-labels {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.7rem;
+      margin-top: 0.45rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 850;
+    }
+    .therapy-bars {
+      display: grid;
+      gap: 0.72rem;
+      margin-top: 0.75rem;
+    }
+    .therapy-row {
+      display: grid;
+      grid-template-columns: 9.5rem minmax(0, 1fr) 3.5rem;
+      gap: 0.65rem;
+      align-items: center;
+    }
+    .therapy-row b {
+      color: var(--ink);
+      font-size: 0.82rem;
+      line-height: 1.15;
+    }
+    .therapy-track {
+      height: 0.82rem;
+      border-radius: 999px;
+      background: #e7edf6;
+      overflow: hidden;
+    }
+    .therapy-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .therapy-row span {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 900;
+      text-align: right;
+    }
+    .model-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+      gap: 1rem;
+    }
+    .or-dial {
+      display: grid;
+      place-items: center;
+      min-height: 16rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background:
+        conic-gradient(from 220deg, rgba(209, 38, 48, 0.12), rgba(233, 158, 37, 0.28), rgba(24, 124, 143, 0.12), rgba(209, 38, 48, 0.12));
+      padding: 1rem;
+      text-align: center;
+    }
+    .or-dial strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 4.4rem;
+      line-height: 0.94;
+    }
+    .or-dial span {
+      color: var(--ink);
+      font-weight: 900;
+    }
+    .or-dial p {
+      max-width: 18rem;
+      margin: 0.45rem auto 0;
+      color: var(--body);
+      font-size: 0.82rem;
+    }
+    .compact-table td:first-child,
+    .compact-table th:first-child {
+      width: 52%;
+    }
+    .conclusion-card {
+      border-color: rgba(77, 138, 103, 0.42);
+      background: linear-gradient(135deg, rgba(77, 138, 103, 0.1), #fff 55%, rgba(238, 244, 251, 0.9));
+    }
+    .takeaway-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin: 0.8rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .takeaway-list li {
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.74);
+      padding: 0.72rem;
+      color: var(--ink);
+      font-size: 0.84rem;
+      font-weight: 800;
+    }
+    .source-note {
+      margin: 0.62rem 0 0;
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+    @media (max-width: 900px) {
+      .impact-board,
+      .drop-split,
+      .model-grid,
+      .pathway {
+        grid-template-columns: 1fr;
+      }
+      .takeaway-list {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 560px) {
+      .therapy-row {
+        grid-template-columns: 1fr;
+      }
+      .therapy-row span {
+        text-align: left;
+      }
+      .comparison-tile strong,
+      .split-total strong,
+      .or-dial strong {
+        font-size: 2.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/05-2022.pdf">Source PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/05-2022.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2022 / Poster 05-2022</p>
+        <h1>HealthBeacon smart Late SMS reminders were linked with higher adherence to late injections.</h1>
+        <p class="hero-summary">HealthBeacon evaluated whether a connected sharps bin plus a smart text reminder could recover doses that were already more than 24 hours late. Across 2,514 patients and 30,129 late-SMS-eligible drops, the reminder group recorded more than twice the late-dose drop rate.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag therapy">Self-administered injections</li>
+          <li class="tag category">Digital adherence support</li>
+          <li class="tag">Smart sharps bin</li>
+          <li class="tag">Mixed-effects logistic regression</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Connected sharps bin reminder system">
+        <div class="poster-code">05<br>2022</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Authors</dt>
+            <dd>Sarhan, Chougule, Aher, McWhinney</dd>
+          </div>
+          <div>
+            <dt>Period</dt>
+            <dd>Jan 2018-Mar 2022</dd>
+          </div>
+          <div>
+            <dt>Patients</dt>
+            <dd>2,514 ICMS users</dd>
+          </div>
+          <div>
+            <dt>Therapies</dt>
+            <dd>GI, derm, rheum</dd>
+          </div>
+        </dl>
+        <div class="device-scene" aria-hidden="true">
+          <svg viewBox="0 0 360 260" role="img" aria-label="Illustration of a smart sharps bin sending a late SMS reminder">
+            <defs>
+              <linearGradient id="binBody" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#ffffff"/>
+                <stop offset="1" stop-color="#eef4fb"/>
+              </linearGradient>
+              <linearGradient id="phoneBody" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#243770"/>
+                <stop offset="1" stop-color="#187c8f"/>
+              </linearGradient>
+            </defs>
+            <rect x="54" y="58" width="140" height="176" rx="22" fill="url(#binBody)" stroke="#243770" stroke-width="5"/>
+            <rect x="78" y="82" width="92" height="18" rx="9" fill="#d9e1ef"/>
+            <rect x="86" y="116" width="76" height="86" rx="10" fill="#ffffff" stroke="#aebbd2" stroke-width="3"/>
+            <circle cx="124" cy="45" r="22" fill="#187c8f" opacity="0.18"/>
+            <circle cx="124" cy="45" r="11" fill="#187c8f"/>
+            <path d="M198 96 C230 82, 246 82, 268 98" fill="none" stroke="#d12630" stroke-width="5" stroke-linecap="round" stroke-dasharray="8 9"/>
+            <path d="M259 84 L286 102 L256 116" fill="none" stroke="#d12630" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="242" y="98" width="74" height="132" rx="15" fill="url(#phoneBody)"/>
+            <rect x="253" y="120" width="52" height="88" rx="8" fill="#ffffff"/>
+            <rect x="260" y="132" width="38" height="13" rx="6.5" fill="#eef4fb"/>
+            <rect x="260" y="152" width="31" height="13" rx="6.5" fill="#fff7ea"/>
+            <rect x="260" y="172" width="38" height="13" rx="6.5" fill="#eef4fb"/>
+            <circle cx="279" cy="216" r="4" fill="#ffffff" opacity="0.82"/>
+            <path d="M104 142 L121 159 L151 129" fill="none" stroke="#4d8a67" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="light-pulse">
+            <i class="pulse-dot"></i>
+            <div>
+              <b>Blue light + Late SMS</b>
+              <span>Reminder fires after a scheduled dose has no bin drop for 24 hours.</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key study metrics">
+        <article class="metric-card">
+          <span>Total drops monitored</span>
+          <strong>105,637</strong>
+          <em>All recorded ICMS drops in the analysis population.</em>
+        </article>
+        <article class="metric-card">
+          <span>Late-SMS eligible drops</span>
+          <strong>30,129</strong>
+          <em>Doses not dropped within 24 hours of schedule.</em>
+        </article>
+        <article class="metric-card">
+          <span>Reminder effect</span>
+          <strong>8.32<small>x</small></strong>
+          <em>Odds ratio for making a drop after Late SMS vs no SMS.</em>
+        </article>
+        <article class="metric-card">
+          <span>Late-dose adherence gap</span>
+          <strong>+15<small> pts</small></strong>
+          <em>26.09% with SMS vs 11.09% without SMS.</em>
+        </article>
+      </section>
+
+      <section class="impact-board">
+        <article class="panel">
+          <p class="section-label">Primary Result</p>
+          <h2>Late reminders shifted late-dose behavior.</h2>
+          <div class="comparison-stage">
+            <div class="comparison-tile" style="--tile-height: 63%">
+              <span>Group 1 / smart Late SMS</span>
+              <strong>26.09%</strong>
+              <p>Eligible late drops that were ultimately recorded in the HealthBeacon bin.</p>
+            </div>
+            <div class="comparison-tile no-sms" style="--tile-height: 27%">
+              <span>Group 2 / no Late SMS</span>
+              <strong>11.09%</strong>
+              <p>Eligible late drops recorded without the additional SMS intervention.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel difference-callout">
+          <p class="section-label">Objective</p>
+          <h2>Test whether a smart Late SMS improves adherence when a scheduled injection is already late.</h2>
+          <p class="hero-summary">The poster framed a "drop" into the smart sharps bin as an adherence signal. If no drop appeared 24 hours after the scheduled dose, the dose became eligible for a Late SMS. The analysis compared patients who received that smart reminder with patients who did not.</p>
+          <div class="number-cloud" aria-label="Study design numbers">
+            <div class="number-pill">1,807<small>SMS patients</small></div>
+            <div class="number-pill">707<small>No-SMS patients</small></div>
+            <div class="number-pill">p&lt;0.001<small>Group difference</small></div>
+            <div class="number-pill">24h<small>Late threshold</small></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Evidence Flow</p>
+        <h2>How the connected intervention turns a missed-window dose into a measurable adherence event.</h2>
+        <div class="pathway" aria-label="ICMS adherence pathway">
+          <article class="path-step" data-step="1">
+            <h3>Personal schedule</h3>
+            <p>The ICMS tracks individualized injection schedules and expected drop timing.</p>
+          </article>
+          <article class="path-step" data-step="2">
+            <h3>Late-dose signal</h3>
+            <p>A dose becomes eligible when no bin drop is detected 24 hours after its scheduled time.</p>
+          </article>
+          <article class="path-step" data-step="3">
+            <h3>Smart reminder</h3>
+            <p>Group 1 patients receive a Late SMS, layered on top of the bin's due-dose blue light.</p>
+          </article>
+          <article class="path-step" data-step="4">
+            <h3>Adherence record</h3>
+            <p>A later bin drop updates the medication schedule and contributes to the adherence score.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="drop-split">
+        <article class="split-total">
+          <div>
+            <strong>105,637</strong>
+            <span>total drops split into two analytic groups</span>
+          </div>
+        </article>
+        <article class="panel">
+          <p class="section-label">Table Pattern</p>
+          <h2>Group 2 had a larger share of drops become Late-SMS eligible.</h2>
+          <div class="group-tree">
+            <div class="group-card">
+              <h3>Group 1: Late SMS available <span>79,515 drops / n=1,807</span></h3>
+              <div class="stack-bar" style="--eligible: 24.8%">
+                <i aria-label="19,726 eligible drops"></i>
+                <i aria-label="59,789 not eligible drops"></i>
+              </div>
+              <div class="stack-labels">
+                <span>19,726 eligible (25%)</span>
+                <span>59,789 not eligible</span>
+              </div>
+            </div>
+            <div class="group-card">
+              <h3>Group 2: no Late SMS <span>26,122 drops / n=707</span></h3>
+              <div class="stack-bar" style="--eligible: 39.8%">
+                <i aria-label="10,403 eligible drops"></i>
+                <i aria-label="15,719 not eligible drops"></i>
+              </div>
+              <div class="stack-labels">
+                <span>10,403 eligible (40%)</span>
+                <span>15,719 not eligible</span>
+              </div>
+            </div>
+          </div>
+          <p class="source-note">Interpretation from poster text: without the additional reminder, patients were more likely not to drop within 24 hours after the scheduled time.</p>
+        </article>
+      </section>
+
+      <section class="model-grid">
+        <article class="panel">
+          <p class="section-label">Model Signal</p>
+          <h2>The SMS variable dominated the measured predictors.</h2>
+          <div class="or-dial">
+            <div>
+              <strong>8.32</strong>
+              <span>odds ratio for SMS 1 vs SMS 0</span>
+              <p>Mixed-effects logistic regression: estimate 2.12, 95% CI 6.78-10.23, z=20.24, p&lt;0.001.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Selected Regression Outputs</p>
+          <h2>Other significant categorical contrasts were smaller than the Late SMS effect.</h2>
+          <div class="table-wrap">
+            <table class="compact-table">
+              <thead>
+                <tr>
+                  <th>Contrast</th>
+                  <th>OR</th>
+                  <th>95% CI</th>
+                  <th>p-value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>SMS 1 - SMS 0</td>
+                  <td>8.32</td>
+                  <td>6.78-10.23</td>
+                  <td>&lt;0.001</td>
+                </tr>
+                <tr>
+                  <td>Dermatology - Gastroenterology</td>
+                  <td>1.52</td>
+                  <td>1.18-1.98</td>
+                  <td>0.004</td>
+                </tr>
+                <tr>
+                  <td>Rheumatology - Gastroenterology</td>
+                  <td>1.50</td>
+                  <td>1.24-1.82</td>
+                  <td>&lt;0.001</td>
+                </tr>
+                <tr>
+                  <td>Male vs Female</td>
+                  <td>1.25</td>
+                  <td>1.05-1.48</td>
+                  <td>0.010</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="visual-grid">
+        <article class="panel">
+          <p class="section-label">Therapeutic Areas</p>
+          <h2>Late-drop adherence varied by condition area.</h2>
+          <div class="therapy-bars" aria-label="Late-drop adherence by therapeutic area">
+            <div class="therapy-row">
+              <b>Rheumatology</b>
+              <div class="therapy-track"><i style="--w: 100%"></i></div>
+              <span>23%</span>
+            </div>
+            <div class="therapy-row">
+              <b>Dermatology</b>
+              <div class="therapy-track"><i style="--w: 87%"></i></div>
+              <span>20%</span>
+            </div>
+            <div class="therapy-row">
+              <b>Gastroenterology</b>
+              <div class="therapy-track"><i style="--w: 83%"></i></div>
+              <span>19%</span>
+            </div>
+          </div>
+          <p class="source-note">Differences across the three areas were statistically significant while controlling for age and gender (chi-square=20.18, p&lt;0.001).</p>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Sample Balance</p>
+          <h2>The two groups were similar by gender and therapeutic mix.</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Characteristic</th>
+                  <th>Group 1</th>
+                  <th>Group 2</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Patients</td>
+                  <td>1,807</td>
+                  <td>707</td>
+                </tr>
+                <tr>
+                  <td>Female</td>
+                  <td>942 (52.13%)</td>
+                  <td>377 (53.32%)</td>
+                </tr>
+                <tr>
+                  <td>Rheumatology</td>
+                  <td>835 (46.21%)</td>
+                  <td>339 (47.95%)</td>
+                </tr>
+                <tr>
+                  <td>Gastroenterology</td>
+                  <td>694 (38.41%)</td>
+                  <td>275 (38.90%)</td>
+                </tr>
+                <tr>
+                  <td>Dermatology</td>
+                  <td>278 (15.38%)</td>
+                  <td>93 (13.15%)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel conclusion-card">
+        <p class="section-label">Conclusion</p>
+        <h2>Smart late-dose prompts can support adherence for patients using injectable therapies.</h2>
+        <p class="hero-summary">The poster concludes that smart Late SMS reminders had a significant impact on adherence to doses that might otherwise have been missed. The analysis also notes that additional factors may contribute, but the intervention should be considered as part of adherence support for injectable medications.</p>
+        <ul class="takeaway-list" aria-label="Key findings">
+          <li>Eligible-drop adherence was higher among patients receiving the Late SMS reminder.</li>
+          <li>Patients receiving the reminder were more than eight times as likely to make a drop.</li>
+          <li>Automated reminders paired with real-time monitoring created an actionable adherence signal.</li>
+        </ul>
+      </section>
+
+      <footer class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/05-2022.pdf">Open source PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/05-2022.md">Open source markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

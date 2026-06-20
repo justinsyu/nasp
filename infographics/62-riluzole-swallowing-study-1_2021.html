@@ -1,0 +1,700 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Swallowing Safety With Riluzole Oral Film | NASP 2021</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -4.2rem;
+      bottom: -4rem;
+      width: 14rem;
+      height: 14rem;
+      border: 1.2rem solid rgba(24, 124, 143, 0.1);
+      border-radius: 50%;
+    }
+
+    .hero-visual {
+      position: relative;
+      z-index: 1;
+      min-height: 17.5rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 17% 20%, rgba(209, 38, 48, 0.12), transparent 7rem),
+        radial-gradient(circle at 86% 78%, rgba(233, 158, 37, 0.22), transparent 8rem),
+        linear-gradient(145deg, #fff, var(--surface-blue));
+      overflow: hidden;
+    }
+
+    .hero-visual svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 17.5rem;
+    }
+
+    .hero-card .finding {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      border-left: 4px solid var(--red);
+      padding-left: 0.72rem;
+      color: var(--ink);
+      font-size: 0.95rem;
+      font-weight: 850;
+    }
+
+    .metric-card p {
+      margin: 0.45rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 750;
+    }
+
+    .metric-card strong.small {
+      font-size: clamp(1.45rem, 3vw, 2rem);
+    }
+
+    .study-split {
+      display: grid;
+      grid-template-columns: minmax(16rem, 0.85fr) minmax(0, 1.15fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .headline-panel {
+      display: grid;
+      align-content: center;
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 94% 12%, rgba(233, 158, 37, 0.24), transparent 7rem),
+        linear-gradient(145deg, var(--ink), #162657);
+      padding: 1.15rem;
+      color: #fff;
+    }
+
+    .headline-panel span {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .headline-panel strong {
+      display: block;
+      margin-top: 0.2rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 8vw, 6.3rem);
+      line-height: 0.9;
+    }
+
+    .headline-panel p {
+      margin: 0.72rem 0 0;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 0.94rem;
+    }
+
+    .flow-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.68rem;
+      margin-top: 0.75rem;
+    }
+
+    .flow-node {
+      position: relative;
+      min-height: 9.4rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.82rem;
+      overflow: hidden;
+    }
+
+    .flow-node::before {
+      content: attr(data-step);
+      position: absolute;
+      right: 0.48rem;
+      bottom: -0.55rem;
+      color: rgba(36, 55, 112, 0.1);
+      font-family: var(--font-display);
+      font-size: 4.4rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .flow-node h3,
+    .flow-node p {
+      position: relative;
+      z-index: 1;
+    }
+
+    .flow-node p {
+      margin: 0.48rem 0 0;
+      font-size: 0.8rem;
+    }
+
+    .pk-board {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(15rem, 0.92fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .chart-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 1rem;
+    }
+
+    .pk-chart {
+      width: 100%;
+      min-height: 17rem;
+      margin-top: 0.7rem;
+    }
+
+    .legend-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-top: 0.55rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 850;
+    }
+
+    .legend-line i {
+      display: inline-block;
+      width: 0.72rem;
+      height: 0.72rem;
+      margin-right: 0.25rem;
+      border-radius: 999px;
+      vertical-align: -0.1rem;
+    }
+
+    .effect-list {
+      display: grid;
+      gap: 0.64rem;
+      margin-top: 0.7rem;
+    }
+
+    .effect-row {
+      display: grid;
+      grid-template-columns: 7.5rem minmax(0, 1fr) 3.6rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+
+    .effect-track {
+      height: 0.88rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: rgba(36, 55, 112, 0.08);
+      overflow: hidden;
+    }
+
+    .effect-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .effect-row em {
+      color: var(--red);
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .swallow-layout {
+      display: grid;
+      grid-template-columns: minmax(15rem, 0.74fr) minmax(0, 1.26fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .vfss-timeline {
+      display: grid;
+      gap: 0.62rem;
+      margin-top: 0.75rem;
+    }
+
+    .vfss-step {
+      border-left: 4px solid var(--teal);
+      border-radius: 6px;
+      background: var(--surface-blue);
+      padding: 0.65rem 0.75rem;
+    }
+
+    .vfss-step:nth-child(2) {
+      border-left-color: var(--red);
+      background: #fff7f2;
+    }
+
+    .vfss-step:nth-child(3) {
+      border-left-color: var(--green);
+      background: #f2f8f4;
+    }
+
+    .vfss-step h3 {
+      font-size: 0.92rem;
+    }
+
+    .vfss-step p {
+      margin: 0.24rem 0 0;
+      font-size: 0.8rem;
+    }
+
+    .pas-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+
+    .pas-tile {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.82rem;
+      text-align: center;
+    }
+
+    .pas-tile strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(2.25rem, 5vw, 4rem);
+      line-height: 0.95;
+    }
+
+    .pas-tile span {
+      display: block;
+      margin-top: 0.36rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .pas-bars {
+      display: grid;
+      gap: 0.42rem;
+      margin-top: 0.8rem;
+    }
+
+    .pas-row {
+      display: grid;
+      grid-template-columns: 4.5rem minmax(0, 1fr) 3.1rem;
+      gap: 0.45rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.72rem;
+      font-weight: 850;
+    }
+
+    .dual-pas {
+      display: grid;
+      gap: 0.16rem;
+    }
+
+    .pas-track {
+      height: 0.46rem;
+      border-radius: 999px;
+      background: rgba(36, 55, 112, 0.1);
+      overflow: hidden;
+    }
+
+    .pas-track i {
+      display: block;
+      height: 100%;
+      width: var(--w);
+      border-radius: inherit;
+      background: var(--c);
+    }
+
+    .safety-columns {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+
+    .safety-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.9rem;
+    }
+
+    .safety-card strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2.1rem;
+      line-height: 1;
+    }
+
+    .safety-card p {
+      margin: 0.45rem 0 0;
+      font-size: 0.82rem;
+    }
+
+    .bottom-line {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(15rem, 0.52fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .conclusion-card {
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background: linear-gradient(135deg, #fff, var(--surface-warm));
+      padding: 1rem;
+    }
+
+    .conclusion-card p {
+      margin: 0.48rem 0 0;
+      color: var(--ink);
+      font-size: 1rem;
+      font-weight: 850;
+    }
+
+    @media (max-width: 940px) {
+      .study-split,
+      .pk-board,
+      .swallow-layout,
+      .bottom-line {
+        grid-template-columns: 1fr;
+      }
+
+      .flow-grid,
+      .safety-columns {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 620px) {
+      .flow-grid,
+      .pas-grid,
+      .safety-columns {
+        grid-template-columns: 1fr;
+      }
+
+      .effect-row,
+      .pas-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/62-Riluzole-Swallowing-Study-1_2021.pdf">Poster PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/62-Riluzole-Swallowing-Study-1_2021.md">Extracted Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP Annual Meeting &amp; Expo 2021 | ALS dysphagia</p>
+        <h1>Swallowing Safety With Riluzole Oral Film</h1>
+        <p class="hero-summary">A two-study poster links riluzole oral film bioavailability with videofluoroscopic swallowing safety in ALS, asking whether a tongue-dissolving film can offer an alternative to tablet or liquid swallowing burden.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag therapy">Amyotrophic lateral sclerosis</li>
+          <li class="tag category">Oral film</li>
+          <li class="tag">Pharmacokinetics</li>
+          <li class="tag">VFSS swallowing study</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div class="hero-visual" aria-hidden="true">
+          <svg viewBox="0 0 420 280" role="img">
+            <defs>
+              <linearGradient id="filmGradient" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#d12630"/>
+                <stop offset="1" stop-color="#e99e25"/>
+              </linearGradient>
+              <linearGradient id="throatGradient" x1="0" x2="1">
+                <stop offset="0" stop-color="#187c8f"/>
+                <stop offset="1" stop-color="#4d8a67"/>
+              </linearGradient>
+            </defs>
+            <rect x="42" y="36" width="336" height="198" rx="28" fill="#ffffff" opacity="0.75"/>
+            <path d="M74 128 C122 86, 177 81, 232 108 C270 127, 304 126, 344 100" fill="none" stroke="#243770" stroke-width="18" stroke-linecap="round" opacity="0.2"/>
+            <path d="M75 131 C126 97, 169 98, 214 124 C248 144, 294 147, 342 116" fill="none" stroke="#243770" stroke-width="8" stroke-linecap="round"/>
+            <path d="M208 132 C209 173, 225 199, 262 218" fill="none" stroke="url(#throatGradient)" stroke-width="18" stroke-linecap="round"/>
+            <path d="M209 132 C213 169, 230 190, 260 207" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" opacity="0.55"/>
+            <rect x="142" y="88" width="112" height="48" rx="11" transform="rotate(-10 198 112)" fill="url(#filmGradient)"/>
+            <rect x="156" y="101" width="84" height="9" rx="4.5" transform="rotate(-10 198 105)" fill="#ffffff" opacity="0.58"/>
+            <circle cx="112" cy="200" r="24" fill="#eef4fb" stroke="#aebbd2"/>
+            <text x="112" y="196" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="16" font-weight="900">50</text>
+            <text x="112" y="214" text-anchor="middle" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="800">mg film</text>
+            <circle cx="310" cy="62" r="30" fill="#fff7ea" stroke="#e99e25" stroke-width="3"/>
+            <path d="M294 64 L306 76 L329 48" fill="none" stroke="#4d8a67" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="210" y="260" text-anchor="middle" fill="#243770" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="850">Tongue-dissolving route evaluated before and after VFSS</text>
+          </svg>
+        </div>
+        <p class="finding">Objective: describe riluzole oral film bioavailability and pharmacokinetic data, with a focused swallowing safety study in ALS.</p>
+        <dl class="meta-grid">
+          <div>
+            <dt>Poster code</dt>
+            <dd>MA-EV-US-0009</dd>
+          </div>
+          <div>
+            <dt>Meeting</dt>
+            <dd>NASP 2021</dd>
+          </div>
+          <div>
+            <dt>Study 1</dt>
+            <dd>162020</dd>
+          </div>
+          <div>
+            <dt>Study 2</dt>
+            <dd>17MOIR-0012</dd>
+          </div>
+        </dl>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key poster numbers">
+        <article class="metric-card">
+          <span>Bioavailability cohort</span>
+          <strong>32</strong>
+          <p>Healthy volunteers received at least one dose in the phase 1 crossover PK study.</p>
+        </article>
+        <article class="metric-card">
+          <span>Swallowing cohort</span>
+          <strong>9</strong>
+          <p>Patients with ALS completed baseline and post-dose videofluoroscopic swallowing assessment.</p>
+        </article>
+        <article class="metric-card">
+          <span>Safe both times</span>
+          <strong>55.6%</strong>
+          <p>Patients able to swallow safely by PAS standards both pre-dose and post-dose.</p>
+        </article>
+        <article class="metric-card">
+          <span>Safety signal</span>
+          <strong class="small">0 serious AEs</strong>
+          <p>No serious adverse events and no AE-related discontinuations were observed.</p>
+        </article>
+      </section>
+
+      <section class="study-split" id="methods">
+        <div class="headline-panel">
+          <span>Clinical design logic</span>
+          <strong>2</strong>
+          <p>One study tested exposure comparability. One study tested whether a single oral-film dose changed swallowing safety.</p>
+        </div>
+        <div class="panel">
+          <p class="section-label">Evidence flow</p>
+          <h2>From comparative exposure to same-visit swallowing challenge</h2>
+          <div class="flow-grid" aria-label="Study flow">
+            <article class="flow-node" data-step="A">
+              <h3>ROF fasting</h3>
+              <p>Riluzole oral film 50 mg under fasting conditions, repeated in the crossover design.</p>
+            </article>
+            <article class="flow-node" data-step="B">
+              <h3>Tablet fasting</h3>
+              <p>Rilutek 50 mg tablet under fasting conditions as the active comparator.</p>
+            </article>
+            <article class="flow-node" data-step="C">
+              <h3>ROF fed</h3>
+              <p>Food-effect period after a fatty meal to estimate exposure changes.</p>
+            </article>
+            <article class="flow-node" data-step="11">
+              <h3>Baseline VFSS</h3>
+              <p>Eleven bolus trials before dosing in patients with ALS.</p>
+            </article>
+            <article class="flow-node" data-step="11">
+              <h3>Post-ROF VFSS</h3>
+              <p>Eleven matched bolus trials after one 50 mg oral-film dose.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="pk-board" id="results">
+        <article class="chart-card">
+          <p class="section-label">Pharmacokinetics</p>
+          <h2>Fasting curves tracked closely; food reduced peak exposure</h2>
+          <svg class="pk-chart" viewBox="0 0 640 320" role="img" aria-label="Simplified riluzole concentration curves">
+            <rect x="58" y="24" width="540" height="236" rx="8" fill="#f6f9fe" stroke="#d9e1ef"/>
+            <g stroke="#d9e1ef" stroke-width="1">
+              <line x1="58" y1="72" x2="598" y2="72"/>
+              <line x1="58" y1="120" x2="598" y2="120"/>
+              <line x1="58" y1="168" x2="598" y2="168"/>
+              <line x1="58" y1="216" x2="598" y2="216"/>
+            </g>
+            <g fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800">
+              <text x="18" y="264">0</text>
+              <text x="16" y="218">50</text>
+              <text x="10" y="170">100</text>
+              <text x="10" y="122">150</text>
+              <text x="10" y="74">200</text>
+              <text x="56" y="288">0h</text>
+              <text x="122" y="288">1</text>
+              <text x="188" y="288">2</text>
+              <text x="282" y="288">8</text>
+              <text x="378" y="288">24</text>
+              <text x="492" y="288">72</text>
+              <text x="574" y="288">120</text>
+            </g>
+            <path d="M58 260 L126 62 L192 104 L252 152 L310 194 L378 232 L492 255 L598 260" fill="none" stroke="#d12630" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M58 260 L126 72 L192 116 L252 164 L310 206 L378 245 L492 258 L598 260" fill="none" stroke="#187c8f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M58 260 L126 158 L192 154 L252 168 L310 202 L378 232 L492 255 L598 260" fill="none" stroke="#e99e25" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 8"/>
+            <circle cx="126" cy="62" r="6" fill="#d12630"/>
+            <circle cx="126" cy="72" r="5" fill="#187c8f"/>
+            <circle cx="126" cy="158" r="5" fill="#e99e25"/>
+            <text x="326" y="35" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="14" font-weight="900">Nominal time after dose</text>
+          </svg>
+          <div class="legend-line">
+            <span><i style="background:#d12630"></i>ROF fasting</span>
+            <span><i style="background:#187c8f"></i>Rilutek fasting</span>
+            <span><i style="background:#e99e25"></i>ROF fed</span>
+          </div>
+        </article>
+        <aside class="panel">
+          <p class="section-label">Exposure and tolerability</p>
+          <h2>Key patterns from Study 162020</h2>
+          <div class="effect-list" aria-label="Food effect and adverse-event patterns">
+            <div class="effect-row">
+              <span>AUC with food</span>
+              <div class="effect-track"><i style="--w:85%"></i></div>
+              <em>-15%</em>
+            </div>
+            <div class="effect-row">
+              <span>Cmax with food</span>
+              <div class="effect-track"><i style="--w:55%"></i></div>
+              <em>-45%</em>
+            </div>
+            <div class="effect-row">
+              <span>Completed periods</span>
+              <div class="effect-track"><i style="--w:94%"></i></div>
+              <em>30/32</em>
+            </div>
+          </div>
+          <div class="number-cloud" aria-label="Safety numbers">
+            <div class="number-pill">44<small>TEAEs, all mild</small></div>
+            <div class="number-pill">17<small>oral/pharyngeal hypoesthesia events</small></div>
+            <div class="number-pill">14<small>subjects with hypoesthesia oral</small></div>
+            <div class="number-pill">0<small>serious AEs</small></div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="swallow-layout">
+        <aside class="panel">
+          <p class="section-label">VFSS protocol</p>
+          <h2>Same patient, same bolus sequence, before and after film</h2>
+          <div class="vfss-timeline">
+            <article class="vfss-step">
+              <h3>1. Pre-dose VFSS</h3>
+              <p>Baseline swallowing was measured across 11 bolus trials.</p>
+            </article>
+            <article class="vfss-step">
+              <h3>2. ROF administration</h3>
+              <p>A single 50 mg film was placed on the median sulcus of the tongue.</p>
+            </article>
+            <article class="vfss-step">
+              <h3>3. Post-dose VFSS</h3>
+              <p>After a short interval, the same VFSS structure was repeated.</p>
+            </article>
+          </div>
+        </aside>
+        <article class="chart-card">
+          <p class="section-label">Swallowing result</p>
+          <h2>PAS scores showed little change and no observed deterioration</h2>
+          <div class="pas-grid" aria-label="PAS summary metrics">
+            <div class="pas-tile">
+              <strong>5/9</strong>
+              <span>Safe both pre and post</span>
+            </div>
+            <div class="pas-tile">
+              <strong>7</strong>
+              <span>Patients unchanged</span>
+            </div>
+            <div class="pas-tile">
+              <strong>2</strong>
+              <span>Lower PAS totals post-dose</span>
+            </div>
+          </div>
+          <div class="pas-bars" aria-label="Patient-level PAS pre and post dose totals">
+            <div class="pas-row"><span>Patient 1</span><div class="dual-pas"><b class="pas-track"><i style="--w:41%;--c:#187c8f"></i></b><b class="pas-track"><i style="--w:41%;--c:#4d8a67"></i></b></div><span>11 / 11</span></div>
+            <div class="pas-row"><span>Patient 2</span><div class="dual-pas"><b class="pas-track"><i style="--w:100%;--c:#187c8f"></i></b><b class="pas-track"><i style="--w:78%;--c:#4d8a67"></i></b></div><span>27 / 21</span></div>
+            <div class="pas-row"><span>Patient 3</span><div class="dual-pas"><b class="pas-track"><i style="--w:44%;--c:#187c8f"></i></b><b class="pas-track"><i style="--w:44%;--c:#4d8a67"></i></b></div><span>12 / 12</span></div>
+            <div class="pas-row"><span>Patient 4</span><div class="dual-pas"><b class="pas-track"><i style="--w:63%;--c:#187c8f"></i></b><b class="pas-track"><i style="--w:59%;--c:#4d8a67"></i></b></div><span>17 / 16</span></div>
+            <div class="pas-row"><span>Patient 5</span><div class="dual-pas"><b class="pas-track"><i style="--w:70%;--c:#187c8f"></i></b><b class="pas-track"><i style="--w:70%;--c:#4d8a67"></i></b></div><span>19 / 19</span></div>
+            <div class="pas-row"><span>Patients 6-9</span><div class="dual-pas"><b class="pas-track"><i style="--w:59%;--c:#187c8f"></i></b><b class="pas-track"><i style="--w:59%;--c:#4d8a67"></i></b></div><span>stable</span></div>
+          </div>
+          <div class="legend-line">
+            <span><i style="background:#187c8f"></i>Pre-dose PAS total</span>
+            <span><i style="background:#4d8a67"></i>Post-dose PAS total</span>
+          </div>
+        </article>
+      </section>
+
+      <section class="safety-columns" aria-label="Patient and safety context">
+        <article class="safety-card">
+          <strong>61.6</strong>
+          <h3>Mean age in ALS swallowing cohort</h3>
+          <p>Participants ranged from 37 to 77 years in Study 17MOIR-0012.</p>
+        </article>
+        <article class="safety-card">
+          <strong>66%</strong>
+          <h3>Female participants</h3>
+          <p>The ALS cohort included 66% female and 34% male participants.</p>
+        </article>
+        <article class="safety-card">
+          <strong>38</strong>
+          <h3>Median ALSFRS-R</h3>
+          <p>The poster reported no correlation between baseline ALSFRS-R and PAS change.</p>
+        </article>
+      </section>
+
+      <section class="bottom-line">
+        <article class="conclusion-card">
+          <p class="section-label">Poster conclusion</p>
+          <h2>Oral film was presented as an alternative administration route for ALS patients with dysphagia.</h2>
+          <p>The poster concludes that ROF was bioequivalent to Rilutek tablets and well tolerated in healthy adults, while a single 50 mg dose had no detrimental effect on swallowing in the small ALS VFSS study.</p>
+        </article>
+        <aside class="panel">
+          <p class="section-label">Source files</p>
+          <h2>Trace back to the original poster</h2>
+          <p class="hero-summary">This infographic summarizes extracted markdown from the NASP poster file and links to both the source PDF and markdown.</p>
+          <div class="footer-actions">
+            <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/62-Riluzole-Swallowing-Study-1_2021.pdf">Open PDF</a>
+            <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/62-Riluzole-Swallowing-Study-1_2021.md">Open Markdown</a>
+          </div>
+        </aside>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

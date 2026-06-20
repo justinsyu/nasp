@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CBAM Immunosuppressant Adherence Monitoring | NASP 2024</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .cbam-hero-art {
+      position: relative;
+      min-height: 24rem;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 76% 18%, rgba(233, 158, 37, 0.22), transparent 7rem),
+        radial-gradient(circle at 18% 84%, rgba(24, 124, 143, 0.15), transparent 9rem),
+        linear-gradient(145deg, #fff, var(--surface-blue) 58%, var(--surface-warm));
+      overflow: hidden;
+    }
+
+    .cbam-hero-art svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 24rem;
+    }
+
+    .finding {
+      margin: 0;
+      border-left: 4px solid var(--red);
+      padding-left: 0.78rem;
+      color: var(--ink);
+      font-size: 1rem;
+      font-weight: 850;
+    }
+
+    .metric-card strong small {
+      color: var(--red);
+      font-size: 1.05rem;
+    }
+
+    .signal-grid {
+      display: grid;
+      grid-template-columns: minmax(16rem, 0.72fr) minmax(0, 1.28fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .signal-card {
+      display: grid;
+      align-content: center;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--ink);
+      padding: 1.15rem;
+      color: #fff;
+    }
+
+    .signal-card span {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .signal-card strong {
+      display: block;
+      margin-top: 0.25rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(4rem, 10vw, 7rem);
+      line-height: 0.85;
+    }
+
+    .signal-card p {
+      margin: 0.75rem 0 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.92rem;
+    }
+
+    .quarter-chart {
+      display: grid;
+      gap: 0.62rem;
+      margin-top: 0.8rem;
+    }
+
+    .quarter-row {
+      display: grid;
+      grid-template-columns: 4.4rem minmax(0, 1fr) 3rem minmax(0, 1fr) 3rem;
+      gap: 0.52rem;
+      align-items: center;
+      font-size: 0.78rem;
+    }
+
+    .quarter-row b {
+      color: var(--ink);
+      font-weight: 900;
+    }
+
+    .quarter-row em {
+      color: var(--ink);
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .track {
+      height: 0.9rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: rgba(36, 55, 112, 0.08);
+      overflow: hidden;
+    }
+
+    .track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .track i.short {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.7rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 850;
+    }
+
+    .legend i {
+      display: inline-block;
+      width: 0.7rem;
+      height: 0.7rem;
+      margin-right: 0.25rem;
+      border-radius: 99px;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+      vertical-align: -0.08rem;
+    }
+
+    .legend span:last-child i {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .workflow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .workflow-step {
+      position: relative;
+      min-height: 13rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.9rem;
+      overflow: hidden;
+    }
+
+    .workflow-step::before {
+      content: attr(data-step);
+      position: absolute;
+      right: 0.7rem;
+      top: 0.45rem;
+      color: rgba(36, 55, 112, 0.12);
+      font-family: var(--font-display);
+      font-size: 3.8rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .step-icon {
+      display: grid;
+      place-items: center;
+      width: 2.75rem;
+      height: 2.75rem;
+      margin-bottom: 0.8rem;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: var(--surface-blue);
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 900;
+    }
+
+    .workflow-step p {
+      position: relative;
+      margin: 0.48rem 0 0;
+      font-size: 0.84rem;
+    }
+
+    .reason-board {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 1rem;
+    }
+
+    .reason-list {
+      display: grid;
+      gap: 0.56rem;
+      margin-top: 0.75rem;
+    }
+
+    .reason-row {
+      display: grid;
+      grid-template-columns: minmax(7.4rem, 0.75fr) minmax(0, 1fr) 3.5rem;
+      gap: 0.56rem;
+      align-items: center;
+      font-size: 0.78rem;
+    }
+
+    .reason-row span:first-child {
+      color: var(--ink);
+      font-weight: 850;
+      line-height: 1.15;
+    }
+
+    .reason-row strong {
+      color: var(--ink);
+      text-align: right;
+    }
+
+    .reason-bar {
+      height: 0.82rem;
+      border-radius: 999px;
+      background: rgba(36, 55, 112, 0.09);
+      overflow: hidden;
+    }
+
+    .reason-bar i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .reason-row:nth-child(even) .reason-bar i {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .misid-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 90% 12%, rgba(117, 97, 168, 0.18), transparent 7rem),
+        linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 1rem;
+    }
+
+    .misid-topline {
+      display: grid;
+      grid-template-columns: 7rem minmax(0, 1fr);
+      gap: 0.8rem;
+      align-items: center;
+      margin: 0.75rem 0;
+    }
+
+    .donut {
+      width: 7rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background:
+        conic-gradient(var(--teal) 0 44.7%, var(--gold) 44.7% 65.7%, var(--red) 65.7% 79.7%, var(--purple) 79.7% 100%);
+      display: grid;
+      place-items: center;
+    }
+
+    .donut span {
+      display: grid;
+      place-items: center;
+      width: 4.5rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: #fff;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.32rem;
+      font-weight: 900;
+      line-height: 1;
+      text-align: center;
+    }
+
+    .callout-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .callout {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+    }
+
+    .callout b {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      line-height: 1;
+    }
+
+    .callout span {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+      line-height: 1.2;
+    }
+
+    .conclusion-band {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(120deg, var(--ink), #31537f 62%, var(--teal));
+      padding: 1.05rem;
+      color: #fff;
+    }
+
+    .conclusion-band h2 {
+      color: #fff;
+    }
+
+    .conclusion-band p {
+      max-width: 64rem;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 0.98rem;
+    }
+
+    .source-note {
+      margin: 0.6rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+
+    @media (max-width: 900px) {
+      .signal-grid,
+      .reason-board,
+      .callout-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .workflow {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .quarter-row,
+      .reason-row,
+      .misid-topline {
+        grid-template-columns: 1fr;
+      }
+
+      .workflow {
+        grid-template-columns: 1fr;
+      }
+
+      .reason-row strong,
+      .quarter-row em {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/24-OPR24-OR-Poster-AM24_2024.pdf">Poster PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/24-OPR24-OR-Poster-AM24_2024.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2024 &bull; 24-OPR24-OR-Poster-AM24</p>
+        <h1>Computer-based adherence monitoring for kidney transplant immunosuppressants</h1>
+        <p class="hero-summary">Vanderbilt Transplant Pharmacy built CBAM to combine outpatient pharmacy fill data with pharmacist review, turning low proportion of days covered into targeted monitoring and outreach decisions.</p>
+        <p class="finding">The six-quarter signal: 12-month PDC below 80% among high-risk patients moved from 64% in Q1 2022 to 47% in Q2 2023, while misidentification remained a major reason low PDC alone could mislead.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag therapy">Kidney transplant</li>
+          <li class="tag category">Adherence monitoring</li>
+          <li class="tag">Immunosuppressants</li>
+          <li class="tag">PDC threshold &le;80%</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card">
+        <div class="poster-code">CBAM</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Population</dt>
+            <dd>Adult kidney transplant patients</dd>
+          </div>
+          <div>
+            <dt>Window</dt>
+            <dd>Jan 2022 - Jun 2023</dd>
+          </div>
+          <div>
+            <dt>Sample</dt>
+            <dd>N=305 high-risk patients</dd>
+          </div>
+          <div>
+            <dt>Analysis</dt>
+            <dd>Descriptive statistics</dd>
+          </div>
+        </dl>
+        <div class="cbam-hero-art" aria-label="Illustration of CBAM connecting data, pharmacist review, alerts, and patient monitoring">
+          <svg viewBox="0 0 520 420" role="img">
+            <title>CBAM adherence monitoring loop</title>
+            <defs>
+              <linearGradient id="cbamLine" x1="0" x2="1">
+                <stop offset="0" stop-color="#d12630"/>
+                <stop offset="0.55" stop-color="#e99e25"/>
+                <stop offset="1" stop-color="#187c8f"/>
+              </linearGradient>
+              <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#243770" flood-opacity="0.18"/>
+              </filter>
+            </defs>
+            <path d="M78 216 C96 98 198 52 294 76 C407 104 467 211 424 309 C382 402 260 411 170 356 C102 314 66 267 78 216Z" fill="#eef4fb" stroke="#aebbd2" stroke-width="2"/>
+            <path d="M147 198 C205 109 341 108 389 202" fill="none" stroke="url(#cbamLine)" stroke-width="12" stroke-linecap="round"/>
+            <path d="M384 198 l-2 -32 l27 18Z" fill="#187c8f"/>
+            <path d="M386 243 C333 332 198 335 142 247" fill="none" stroke="url(#cbamLine)" stroke-width="12" stroke-linecap="round"/>
+            <path d="M146 249 l4 32 l-28 -16Z" fill="#d12630"/>
+            <g filter="url(#shadow)">
+              <rect x="62" y="166" width="116" height="82" rx="10" fill="#fff" stroke="#aebbd2"/>
+              <rect x="202" y="54" width="116" height="82" rx="10" fill="#fff" stroke="#aebbd2"/>
+              <rect x="344" y="166" width="116" height="82" rx="10" fill="#fff" stroke="#aebbd2"/>
+              <rect x="202" y="282" width="116" height="82" rx="10" fill="#fff" stroke="#aebbd2"/>
+            </g>
+            <g fill="#243770" font-family="Montserrat, Arial, sans-serif" font-weight="900" text-anchor="middle">
+              <text x="120" y="201" font-size="15">PDC</text>
+              <text x="120" y="223" font-size="13">engine</text>
+              <text x="260" y="90" font-size="15">Pharmacist</text>
+              <text x="260" y="112" font-size="13">review</text>
+              <text x="402" y="201" font-size="15">Risk</text>
+              <text x="402" y="223" font-size="13">reason</text>
+              <text x="260" y="317" font-size="15">Patient</text>
+              <text x="260" y="339" font-size="13">monitoring</text>
+            </g>
+            <g fill="none" stroke-width="5" stroke-linecap="round">
+              <path d="M96 205 h48 M96 218 h35" stroke="#d12630"/>
+              <path d="M240 102 c12 12 28 12 40 0 M232 84 c18 -18 38 -18 56 0" stroke="#e99e25"/>
+              <path d="M386 211 h32 M402 195 v32" stroke="#187c8f"/>
+              <path d="M238 325 c13 -18 31 -18 44 0 M224 340 c24 22 48 22 72 0" stroke="#4d8a67"/>
+            </g>
+            <text x="260" y="216" fill="#d12630" font-family="Montserrat, Arial, sans-serif" font-size="58" font-weight="900" text-anchor="middle">&le;80%</text>
+            <text x="260" y="244" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800" text-anchor="middle">4-month or 12-month PDC trigger</text>
+          </svg>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key poster metrics">
+        <div class="metric-card">
+          <span>High-risk cohort</span>
+          <strong>305</strong>
+        </div>
+        <div class="metric-card">
+          <span>Monitoring period</span>
+          <strong>18<small> mo</small></strong>
+        </div>
+        <div class="metric-card">
+          <span>PDC risk threshold</span>
+          <strong>&le;80<small>%</small></strong>
+        </div>
+        <div class="metric-card">
+          <span>12-month PDC change</span>
+          <strong>-17<small> pts</small></strong>
+        </div>
+      </section>
+
+      <section class="signal-grid" id="results">
+        <div class="signal-card">
+          <span>Primary pattern</span>
+          <strong>64%<br>to 47%</strong>
+          <p>All high-risk patients with 12-month PDC below 80% decreased between Q1 2022 and Q2 2023.</p>
+        </div>
+        <div class="panel">
+          <p class="section-label">Quarterly adherence signal</p>
+          <h2>Low PDC trend over six quarters</h2>
+          <p class="hero-summary">The poster tracked both a long lookback and a shorter, action-oriented 4-month PDC view for patients flagged as high risk.</p>
+          <div class="quarter-chart" aria-label="All high-risk patients with PDC below 80 percent">
+            <div class="quarter-row"><b>Q1 2022</b><div class="track"><i style="width:64%"></i></div><em>64%</em><div class="track"><i class="short" style="width:36%"></i></div><em>36%</em></div>
+            <div class="quarter-row"><b>Q2 2022</b><div class="track"><i style="width:66%"></i></div><em>66%</em><div class="track"><i class="short" style="width:36%"></i></div><em>36%</em></div>
+            <div class="quarter-row"><b>Q3 2022</b><div class="track"><i style="width:58%"></i></div><em>58%</em><div class="track"><i class="short" style="width:36%"></i></div><em>36%</em></div>
+            <div class="quarter-row"><b>Q4 2022</b><div class="track"><i style="width:53%"></i></div><em>53%</em><div class="track"><i class="short" style="width:33%"></i></div><em>33%</em></div>
+            <div class="quarter-row"><b>Q1 2023</b><div class="track"><i style="width:45%"></i></div><em>45%</em><div class="track"><i class="short" style="width:37%"></i></div><em>37%</em></div>
+            <div class="quarter-row"><b>Q2 2023</b><div class="track"><i style="width:47%"></i></div><em>47%</em><div class="track"><i class="short" style="width:34%"></i></div><em>34%</em></div>
+          </div>
+          <div class="legend">
+            <span><i></i>12-month PDC &lt;80%</span>
+            <span><i></i>4-month PDC &lt;80%</span>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <p class="section-label">CBAM model</p>
+        <h2>From fill data to pharmacist-directed monitoring</h2>
+        <div class="workflow" aria-label="CBAM workflow">
+          <article class="workflow-step" data-step="01">
+            <div class="step-icon">PDC</div>
+            <h3>Calculate continuously</h3>
+            <p>CBAM continuously calculated proportion of days covered for immunosuppressant fills.</p>
+          </article>
+          <article class="workflow-step" data-step="02">
+            <div class="step-icon">&le;80</div>
+            <h3>Review low PDC</h3>
+            <p>Pharmacists reviewed patients whose 4-month immunosuppressant PDC was at or below 80%.</p>
+          </article>
+          <article class="workflow-step" data-step="03">
+            <div class="step-icon">!</div>
+            <h3>Classify risk</h3>
+            <p>The team determined high-risk status, outreach need, and the apparent reason for low PDC.</p>
+          </article>
+          <article class="workflow-step" data-step="04">
+            <div class="step-icon">Rx</div>
+            <h3>Monitor dynamically</h3>
+            <p>Patients were enrolled or unenrolled from high-risk monitoring based on need and engagement in care.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="reason-board">
+        <div class="panel">
+          <p class="section-label">High-risk reasons</p>
+          <h2>Three categories made up nearly three quarters of reasons</h2>
+          <div class="callout-grid">
+            <div class="callout"><b>25.5%</b><span>Unresponsive</span></div>
+            <div class="callout"><b>25.0%</b><span>Misidentified</span></div>
+            <div class="callout"><b>23.0%</b><span>No known reason</span></div>
+          </div>
+          <div class="reason-list" aria-label="High-risk reason percentages">
+            <div class="reason-row"><span>Unresponsive</span><div class="reason-bar"><i style="width:25.5%"></i></div><strong>25.5%</strong></div>
+            <div class="reason-row"><span>Misidentified</span><div class="reason-bar"><i style="width:25%"></i></div><strong>25.0%</strong></div>
+            <div class="reason-row"><span>No known reason</span><div class="reason-bar"><i style="width:23%"></i></div><strong>23.0%</strong></div>
+            <div class="reason-row"><span>Health literacy</span><div class="reason-bar"><i style="width:4.9%"></i></div><strong>4.9%</strong></div>
+            <div class="reason-row"><span>Clinical</span><div class="reason-bar"><i style="width:4.5%"></i></div><strong>4.5%</strong></div>
+            <div class="reason-row"><span>Unreachable</span><div class="reason-bar"><i style="width:3.9%"></i></div><strong>3.9%</strong></div>
+          </div>
+        </div>
+
+        <aside class="misid-card">
+          <p class="section-label">Why PDC alone can misclassify</p>
+          <h2>Misidentified low adherence was often a data-context issue</h2>
+          <div class="misid-topline">
+            <div class="donut" aria-label="44.7 percent external pharmacy among misidentified reasons"><span>44.7%</span></div>
+            <p class="hero-summary">Among 76 misidentified cases, external pharmacy use was the largest explanation, followed by hospitalization and dose changes.</p>
+          </div>
+          <div class="reason-list" aria-label="Misidentified reason percentages">
+            <div class="reason-row"><span>External pharmacy</span><div class="reason-bar"><i style="width:44.7%"></i></div><strong>44.7%</strong></div>
+            <div class="reason-row"><span>Hospitalization</span><div class="reason-bar"><i style="width:21%"></i></div><strong>21.0%</strong></div>
+            <div class="reason-row"><span>Dose change</span><div class="reason-bar"><i style="width:14%"></i></div><strong>14.0%</strong></div>
+            <div class="reason-row"><span>Surplus on hand</span><div class="reason-bar"><i style="width:6.5%"></i></div><strong>6.5%</strong></div>
+            <div class="reason-row"><span>External provider</span><div class="reason-bar"><i style="width:5.2%"></i></div><strong>5.2%</strong></div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="tables-grid">
+        <div class="table-card">
+          <p class="section-label">Setting and sample</p>
+          <h2>Study frame</h2>
+          <div class="table-wrap">
+            <table>
+              <tbody>
+                <tr><th>Setting</th><td>Outpatient transplant pharmacy at a large academic hospital</td></tr>
+                <tr><th>Sample</th><td>Adult kidney transplant recipients who filled immunosuppressants at the center</td></tr>
+                <tr><th>Dates</th><td>1/1/2022 - 6/30/2023</td></tr>
+                <tr><th>Analysis</th><td>Descriptive statistics of high-risk enrollment and high-risk reasons</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="table-card">
+          <p class="section-label">Pharmacy-serviced lens</p>
+          <h2>VUMC-serviced patients showed a different short-term pattern</h2>
+          <div class="number-cloud">
+            <div class="number-pill">59%<small>Q1 2022 12-mo</small></div>
+            <div class="number-pill">43%<small>Q2 2023 12-mo</small></div>
+            <div class="number-pill">28%<small>Q1 2022 4-mo</small></div>
+            <div class="number-pill">42%<small>Q2 2023 4-mo</small></div>
+          </div>
+          <p class="source-note">Deceased patients were removed in the VUMC pharmacy-serviced analysis.</p>
+        </div>
+      </section>
+
+      <section class="conclusion-band">
+        <p class="section-label">Conclusion</p>
+        <h2>CBAM converted adherence surveillance into a pharmacist review workflow</h2>
+        <p>The poster concludes that integrating clinical and outpatient pharmacy data can empower targeted adherence monitoring and outreach for kidney transplant patients, while the high rate of misidentified reasons shows why PDC should be interpreted with clinical and pharmacy context.</p>
+      </section>
+
+      <footer class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/24-OPR24-OR-Poster-AM24_2024.pdf">Open original poster PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/24-OPR24-OR-Poster-AM24_2024.md">Open source markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

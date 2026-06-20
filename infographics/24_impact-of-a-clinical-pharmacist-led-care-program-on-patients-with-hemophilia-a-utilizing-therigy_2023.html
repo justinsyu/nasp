@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Impact of a Clinical Pharmacist-Led Care Program on Patients with Hemophilia A | NASP 2023 Infographic</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hemophilia-hero-art {
+      position: relative;
+      display: grid;
+      min-height: 18rem;
+      place-items: center;
+      overflow: hidden;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 24% 20%, rgba(209, 38, 48, 0.18), transparent 7rem),
+        radial-gradient(circle at 78% 82%, rgba(24, 124, 143, 0.18), transparent 8rem),
+        linear-gradient(145deg, #fff, var(--surface-blue) 54%, var(--surface-warm));
+    }
+
+    .hemophilia-hero-art svg {
+      width: min(100%, 25rem);
+      height: auto;
+      padding: 1rem;
+    }
+
+    .hero-card .author-line {
+      margin: 0;
+      color: var(--body);
+      font-size: 0.82rem;
+    }
+
+    .metric-card p {
+      margin: 0.55rem 0 0;
+      font-size: 0.82rem;
+    }
+
+    .care-loop {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.8rem;
+    }
+
+    .loop-step {
+      position: relative;
+      min-height: 9rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, rgba(238, 244, 251, 0.75));
+      padding: 0.85rem;
+    }
+
+    .loop-step::before {
+      content: attr(data-step);
+      display: grid;
+      width: 2rem;
+      height: 2rem;
+      place-items: center;
+      margin-bottom: 0.55rem;
+      border-radius: 6px;
+      background: var(--accent, var(--red));
+      color: #fff;
+      font-family: var(--font-display);
+      font-weight: 900;
+    }
+
+    .loop-step:nth-child(2) { --accent: var(--teal); }
+    .loop-step:nth-child(3) { --accent: var(--gold); }
+    .loop-step:nth-child(4) { --accent: var(--green); }
+
+    .loop-step p {
+      margin: 0.45rem 0 0;
+      font-size: 0.82rem;
+    }
+
+    .outcome-board {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .outcome-tile {
+      display: grid;
+      gap: 0.75rem;
+      align-content: center;
+      min-height: 18rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--ink);
+      padding: 1.1rem;
+      color: #fff;
+    }
+
+    .outcome-tile span {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .outcome-tile strong {
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(4rem, 11vw, 7rem);
+      line-height: 0.9;
+    }
+
+    .outcome-tile p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.86);
+    }
+
+    .status-grid {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .status-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+    }
+
+    .status-card h3 {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.8rem;
+      align-items: baseline;
+    }
+
+    .status-card h3 b {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+    }
+
+    .split-meter {
+      display: grid;
+      grid-template-columns: var(--yes) var(--no);
+      height: 1.05rem;
+      margin: 0.65rem 0 0.55rem;
+      overflow: hidden;
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 999px;
+      background: var(--surface-blue);
+    }
+
+    .split-meter span:first-child { background: var(--red); }
+    .split-meter span:last-child { background: var(--teal); }
+
+    .legend-pair {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem 0.85rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    .legend-pair i {
+      display: inline-block;
+      width: 0.65rem;
+      height: 0.65rem;
+      margin-right: 0.25rem;
+      border-radius: 2px;
+      vertical-align: -0.05rem;
+      background: var(--red);
+    }
+
+    .legend-pair span:last-child i { background: var(--teal); }
+
+    .intervention-panel {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 1rem;
+    }
+
+    .reason-chart {
+      display: grid;
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+
+    .reason-row {
+      display: grid;
+      grid-template-columns: 10.5rem minmax(0, 1fr) 3rem;
+      gap: 0.6rem;
+      align-items: center;
+      font-size: 0.78rem;
+    }
+
+    .reason-row b {
+      color: var(--ink);
+      font-weight: 850;
+    }
+
+    .reason-row em {
+      color: var(--ink);
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .bar-track {
+      height: 0.82rem;
+      overflow: hidden;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: #edf2f8;
+    }
+
+    .bar-track i {
+      display: block;
+      width: var(--value);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .success-gauge {
+      display: grid;
+      grid-template-columns: 9rem minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+      margin-top: 0.75rem;
+    }
+
+    .success-gauge svg {
+      width: 100%;
+      height: auto;
+    }
+
+    .success-gauge ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .success-gauge li {
+      margin: 0.45rem 0;
+      border-left: 3px solid var(--accent);
+      background: rgba(238, 244, 251, 0.72);
+      padding: 0.5rem 0.6rem;
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .success-gauge li:last-child { --accent: var(--gold); }
+
+    .cohort-table td:last-child,
+    .cohort-table th:last-child {
+      text-align: right;
+    }
+
+    .source-note {
+      margin: 0.45rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+
+    @media (max-width: 860px) {
+      .care-loop,
+      .outcome-board,
+      .intervention-panel {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .reason-row,
+      .success-gauge {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP infographic home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/24_Impact-of-a-Clinical-Pharmacist-Led-Care-Program-on-Patients-with-Hemophilia-A-Utilizing%20Therigy_2023.pdf">PDF Source</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/24_Impact-of-a-Clinical-Pharmacist-Led-Care-Program-on-Patients-with-Hemophilia-A-Utilizing%20Therigy_2023.md">Markdown Source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2023 | Poster 24 | Hemophilia A care management</p>
+        <h1 id="poster-title">Impact of a Clinical Pharmacist-Led Care Program on Patients with Hemophilia A, Utilizing Therigy</h1>
+        <p class="hero-summary">A single-center hemophilia A patient care management program used Therigy to document pharmacist care, medication adherence, bleeding events, absenteeism, healthcare use, and intervention outcomes for patients prescribed emicizumab-kxwh.</p>
+        <ul class="tag-row" aria-label="Poster topics">
+          <li class="tag category">Clinical pharmacist-led PCMP</li>
+          <li class="tag therapy">Hemophilia A</li>
+          <li class="tag">Emicizumab-kxwh</li>
+          <li class="tag">Therigy documentation</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div class="poster-code">2023<br>Poster 24</div>
+        <p class="author-line">Lily Duong; Khang Tran; Abbas Dewji; Catlin Goodfriend; Jessica Mourani; Casey Fitzpatrick; Carly Giavatto</p>
+        <dl class="meta-grid">
+          <div>
+            <dt>Design</dt>
+            <dd>Retrospective observational</dd>
+          </div>
+          <div>
+            <dt>Window</dt>
+            <dd>May 2022 to Apr 2023</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>Washington Center for Bleeding Disorders</dd>
+          </div>
+          <div>
+            <dt>Platform</dt>
+            <dd>Therigy</dd>
+          </div>
+        </dl>
+      </aside>
+    </section>
+
+    <main>
+      <section class="visual-grid" aria-label="Program summary">
+        <div class="hemophilia-hero-art" aria-hidden="true">
+          <svg viewBox="0 0 420 320" role="img" aria-label="Pharmacist care loop around hemophilia A patient outcomes">
+            <defs>
+              <linearGradient id="dropGradient" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#d12630"/>
+                <stop offset="1" stop-color="#e99e25"/>
+              </linearGradient>
+              <linearGradient id="tealGradient" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#187c8f"/>
+                <stop offset="1" stop-color="#4d8a67"/>
+              </linearGradient>
+            </defs>
+            <circle cx="210" cy="160" r="110" fill="#fff" stroke="#aebbd2" stroke-width="3"/>
+            <path d="M210 54c47 22 79 61 86 108" fill="none" stroke="#187c8f" stroke-width="10" stroke-linecap="round"/>
+            <path d="M295 177c-10 48-45 81-91 91" fill="none" stroke="#e99e25" stroke-width="10" stroke-linecap="round"/>
+            <path d="M184 266c-47-12-80-48-91-92" fill="none" stroke="#4d8a67" stroke-width="10" stroke-linecap="round"/>
+            <path d="M91 143c7-45 39-78 82-91" fill="none" stroke="#d12630" stroke-width="10" stroke-linecap="round"/>
+            <path d="M210 88c24 34 50 63 50 98 0 30-22 55-50 55s-50-25-50-55c0-35 26-64 50-98z" fill="url(#dropGradient)"/>
+            <circle cx="210" cy="170" r="39" fill="rgba(255,255,255,0.86)"/>
+            <path d="M193 169h34M210 152v34" stroke="#243770" stroke-width="9" stroke-linecap="round"/>
+            <g fill="#243770" font-family="Montserrat, Arial, sans-serif" font-weight="900" text-anchor="middle">
+              <text x="210" y="37" font-size="20">Assess</text>
+              <text x="344" y="167" font-size="20">Document</text>
+              <text x="210" y="307" font-size="20">Intervene</text>
+              <text x="67" y="167" font-size="20">Monitor</text>
+            </g>
+            <g>
+              <circle cx="322" cy="62" r="23" fill="url(#tealGradient)"/>
+              <path d="M310 62h24M322 50v24" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+              <circle cx="98" cy="259" r="23" fill="#7561a8"/>
+              <path d="M88 259h20l6-10 8 22 7-12h13" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+          </svg>
+        </div>
+        <article class="panel markdown-fragment">
+          <p class="section-label">Objective</p>
+          <h2>Measure whether pharmacist-led care management translates into better monitored outcomes.</h2>
+          <p>The evaluation focused on clinical outcomes, patient-reported outcomes, adherence, and pharmacist interventions among hemophilia A patients prescribed emicizumab-kxwh.</p>
+          <div class="number-cloud" aria-label="Study population highlights">
+            <div class="number-pill">138<small>patients</small></div>
+            <div class="number-pill">97%<small>male</small></div>
+            <div class="number-pill">70%<small>&ge; 18 years</small></div>
+            <div class="number-pill">29<small>mean age</small></div>
+            <div class="number-pill">82%<small>severe FVIII deficiency</small></div>
+            <div class="number-pill">17%<small>moderate FVIII deficiency</small></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Cohort</span>
+          <strong>138</strong>
+          <p>patients prescribed emicizumab-kxwh for hemophilia A.</p>
+        </article>
+        <article class="metric-card">
+          <span>Medication adherence</span>
+          <strong>93%</strong>
+          <p>average PDC among patients receiving prophylactic therapy.</p>
+        </article>
+        <article class="metric-card">
+          <span>No missed activities</span>
+          <strong>96%</strong>
+          <p>reported no missed school, work, or planned activities.</p>
+        </article>
+        <article class="metric-card">
+          <span>Successful interventions</span>
+          <strong>86%</strong>
+          <p>of documented pharmacist intervention outcomes were successful.</p>
+        </article>
+      </section>
+
+      <section aria-labelledby="workflow-title">
+        <p class="section-label">Evidence flow</p>
+        <h2 id="workflow-title">How the care program turned routine data into pharmacist action</h2>
+        <div class="care-loop">
+          <article class="loop-step" data-step="1">
+            <h3>Identify eligible patients</h3>
+            <p>Included patients had a hemophilia A diagnosis in Therigy, at least one emicizumab-kxwh dispense, and pharmacist drug therapy management.</p>
+          </article>
+          <article class="loop-step" data-step="2">
+            <h3>Track patient outcomes</h3>
+            <p>Bleeding events, absenteeism, healthcare utilization, and PDC were extracted from documented clinical care data.</p>
+          </article>
+          <article class="loop-step" data-step="3">
+            <h3>Evaluate therapy</h3>
+            <p>Pharmacists assessed appropriateness, dosing, education needs, and access barriers during the PCMP workflow.</p>
+          </article>
+          <article class="loop-step" data-step="4">
+            <h3>Resolve care gaps</h3>
+            <p>Medication-related issues triggered documented interventions with outcomes categorized as successful or unable to reach/refused.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="outcome-board" aria-labelledby="outcomes-title">
+        <article class="outcome-tile">
+          <span>Patient-reported outcome pattern</span>
+          <strong>77%</strong>
+          <p>reported no bleeding events during the study period. Among bleeding events, 6% required a hospital, acute care, or primary physician visit.</p>
+        </article>
+        <div>
+          <p class="section-label">Outcomes</p>
+          <h2 id="outcomes-title">Most patients reported no absenteeism and no bleeding events.</h2>
+          <div class="status-grid">
+            <article class="status-card">
+              <h3>Health status absenteeism <b>4% yes</b></h3>
+              <div class="split-meter" style="--yes: 4%; --no: 96%;" aria-label="4 percent yes and 96 percent no">
+                <span></span><span></span>
+              </div>
+              <div class="legend-pair"><span><i></i>Yes 4%</span><span><i></i>No 96%</span></div>
+            </article>
+            <article class="status-card">
+              <h3>Reported bleeding events <b>23% yes</b></h3>
+              <div class="split-meter" style="--yes: 23%; --no: 77%;" aria-label="23 percent yes and 77 percent no">
+                <span></span><span></span>
+              </div>
+              <div class="legend-pair"><span><i></i>Yes 23%</span><span><i></i>No 77%</span></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="intervention-panel" aria-labelledby="intervention-title">
+        <article class="panel">
+          <p class="section-label">Pharmacist intervention profile</p>
+          <h2 id="intervention-title">Adherence and dosing concerns drove most documented pharmacist interventions.</h2>
+          <div class="reason-chart">
+            <div class="reason-row">
+              <b>Adherence</b>
+              <div class="bar-track"><i style="--value: 46%;"></i></div>
+              <em>46%</em>
+            </div>
+            <div class="reason-row">
+              <b>Undertreatment/suboptimal dosage</b>
+              <div class="bar-track"><i style="--value: 25%;"></i></div>
+              <em>25%</em>
+            </div>
+            <div class="reason-row">
+              <b>Administration</b>
+              <div class="bar-track"><i style="--value: 23%;"></i></div>
+              <em>23%</em>
+            </div>
+            <div class="reason-row">
+              <b>Other clinical</b>
+              <div class="bar-track"><i style="--value: 6%;"></i></div>
+              <em>6%</em>
+            </div>
+          </div>
+        </article>
+        <article class="panel">
+          <p class="section-label">Intervention outcomes</p>
+          <h2>Most pharmacist interventions closed successfully.</h2>
+          <div class="success-gauge">
+            <svg viewBox="0 0 120 120" role="img" aria-label="86 percent successful interventions">
+              <circle cx="60" cy="60" r="47" fill="none" stroke="#edf2f8" stroke-width="16"/>
+              <circle cx="60" cy="60" r="47" fill="none" stroke="#187c8f" stroke-width="16" stroke-linecap="round" stroke-dasharray="254 295" transform="rotate(-90 60 60)"/>
+              <text x="60" y="57" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="28" font-weight="900">86%</text>
+              <text x="60" y="77" text-anchor="middle" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="800">successful</text>
+            </svg>
+            <ul>
+              <li style="--accent: var(--teal);">Successful: 86%</li>
+              <li>Unable to reach/refused: 14%</li>
+            </ul>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-stack" aria-label="Methods and conclusion">
+        <article class="panel markdown-fragment">
+          <p class="section-label">Methods snapshot</p>
+          <h2>Single-center, retrospective, observational assessment</h2>
+          <p>Clinical data were derived from Washington Center for Bleeding Disorders documentation in Therigy. Descriptive statistics summarized demographics, bleeding events, absenteeism, resource utilization, PDC, intervention reasons, and intervention outcomes.</p>
+          <p>Patients were excluded if they opted out of the PCMP or received factor therapy other than emicizumab-kxwh.</p>
+        </article>
+        <article class="panel markdown-fragment">
+          <p class="section-label">Conclusion</p>
+          <h2>Program value centered on structured monitoring and timely pharmacist intervention.</h2>
+          <p>The poster frames pharmacist integration, technology-supported reporting, and ongoing benchmarking as best practices for maximizing adherence while minimizing sickness absenteeism and healthcare resource use.</p>
+          <p>Future work called for understanding declined interventions, monitoring interaction timeliness, and exploring mobile messaging for patient engagement.</p>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Extracted table patterns">
+        <article class="table-card">
+          <h3>Cohort and clinical pattern</h3>
+          <div class="table-wrap">
+            <table class="cohort-table">
+              <thead>
+                <tr>
+                  <th>Measure</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Patients prescribed emicizumab-kxwh</td>
+                  <td>138</td>
+                </tr>
+                <tr>
+                  <td>Male</td>
+                  <td>97%</td>
+                </tr>
+                <tr>
+                  <td>&ge; 18 years of age</td>
+                  <td>70%</td>
+                </tr>
+                <tr>
+                  <td>Mean age</td>
+                  <td>29 years</td>
+                </tr>
+                <tr>
+                  <td>Severe factor VIII deficiency</td>
+                  <td>82%</td>
+                </tr>
+                <tr>
+                  <td>Moderate factor VIII deficiency</td>
+                  <td>17%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+        <article class="table-card">
+          <h3>Poster table pattern</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Domain</th>
+                  <th>Main signal</th>
+                  <th>Counter-signal</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Absenteeism</td>
+                  <td>No: 96%</td>
+                  <td>Yes: 4%</td>
+                </tr>
+                <tr>
+                  <td>Bleeding events</td>
+                  <td>No: 77%</td>
+                  <td>Yes: 23%</td>
+                </tr>
+                <tr>
+                  <td>Intervention outcome</td>
+                  <td>Successful: 86%</td>
+                  <td>Unable to reach/refused: 14%</td>
+                </tr>
+                <tr>
+                  <td>Adherence</td>
+                  <td>PDC: 93%</td>
+                  <td>Prophylactic therapy subset</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <footer class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/24_Impact-of-a-Clinical-Pharmacist-Led-Care-Program-on-Patients-with-Hemophilia-A-Utilizing%20Therigy_2023.pdf">Open original PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/24_Impact-of-a-Clinical-Pharmacist-Led-Care-Program-on-Patients-with-Hemophilia-A-Utilizing%20Therigy_2023.md">Open extracted markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

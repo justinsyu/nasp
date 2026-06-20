@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2025 Infographic | Streamlining Hepatitis C Management</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .workflow-panel {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(238, 244, 251, 0.96), rgba(255, 255, 255, 0.9)),
+        radial-gradient(circle at 92% 8%, rgba(233, 158, 37, 0.2), transparent 16rem);
+    }
+
+    .workflow-svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-top: 0.6rem;
+    }
+
+    .workflow-svg text {
+      font-family: var(--font-body);
+      fill: var(--ink);
+      font-weight: 800;
+    }
+
+    .node {
+      fill: #fff;
+      stroke: var(--border-strong);
+      stroke-width: 1.6;
+    }
+
+    .node.baseline {
+      stroke: rgba(209, 38, 48, 0.48);
+    }
+
+    .node.integrated {
+      stroke: rgba(24, 124, 143, 0.55);
+    }
+
+    .lane-title {
+      font-size: 15px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .node-label {
+      font-size: 13px;
+    }
+
+    .bridge {
+      fill: none;
+      stroke: var(--gold);
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-dasharray: 8 7;
+    }
+
+    .arrow {
+      fill: none;
+      stroke: var(--ink);
+      stroke-width: 2.3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .touchpoint-stack {
+      display: grid;
+      grid-template-columns: repeat(9, minmax(0, 1fr));
+      gap: 0.28rem;
+      margin-top: 0.75rem;
+    }
+
+    .touchpoint-stack span {
+      display: block;
+      height: 2.1rem;
+      border: 1px solid rgba(209, 38, 48, 0.24);
+      border-radius: 5px;
+      background: linear-gradient(180deg, rgba(209, 38, 48, 0.15), rgba(233, 158, 37, 0.13));
+    }
+
+    .objective-list {
+      display: grid;
+      gap: 0.5rem;
+      margin: 0.75rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .objective-list li {
+      display: grid;
+      grid-template-columns: 2rem minmax(0, 1fr);
+      gap: 0.55rem;
+      align-items: start;
+      color: var(--body);
+      font-size: 0.9rem;
+    }
+
+    .objective-list b {
+      display: inline-grid;
+      width: 2rem;
+      height: 2rem;
+      place-items: center;
+      border-radius: 999px;
+      background: var(--surface-blue);
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+    }
+
+    .callout {
+      border-left: 4px solid var(--teal);
+      background: linear-gradient(90deg, rgba(24, 124, 143, 0.1), rgba(255, 255, 255, 0));
+      padding: 0.72rem 0.85rem;
+      color: var(--ink);
+      font-weight: 850;
+    }
+
+    .mini-table td:first-child {
+      width: 68%;
+      color: var(--ink);
+      font-weight: 800;
+    }
+
+    .mini-table td:last-child {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-weight: 900;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .handoff-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.6rem;
+      margin-top: 0.75rem;
+    }
+
+    .handoff-grid div {
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 7px;
+      background: var(--surface-blue);
+      padding: 0.62rem;
+    }
+
+    .handoff-grid strong {
+      display: block;
+      color: var(--ink);
+      font-size: 0.85rem;
+    }
+
+    .handoff-grid span {
+      display: block;
+      margin-top: 0.18rem;
+      color: var(--muted);
+      font-size: 0.76rem;
+      line-height: 1.35;
+    }
+
+    @media (max-width: 700px) {
+      .touchpoint-stack {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .handoff-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar" aria-label="Poster navigation">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav>
+        <a href="#metrics">Metrics</a>
+        <a href="#workflow">Workflow</a>
+        <a href="#takeaways">Takeaways</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/1184-PSP84-RP-Poster-AM25_2025.pdf">PDF</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP Annual Meeting 2025 | PSP84-RP</p>
+        <h1>Streamlining Hepatitis C Management</h1>
+        <p class="hero-summary">
+          Geisinger describes a co-management model that links embedded Medication Therapy Disease Management pharmacists with the health-system specialty pharmacy to remove duplicate HCV monitoring work, preserve adherence, and accelerate treatment starts.
+        </p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag therapy">Hepatitis C</li>
+          <li class="tag category">Specialty pharmacy workflow</li>
+          <li class="tag">Clinical pharmacist integration</li>
+          <li class="tag">Adherence and SVR</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card">
+        <div class="poster-code">1184<br>PSP84-RP</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Institution</dt>
+            <dd>Geisinger</dd>
+          </div>
+          <div>
+            <dt>Location</dt>
+            <dd>Danville, PA</dd>
+          </div>
+          <div>
+            <dt>Meeting</dt>
+            <dd>NASP 2025</dd>
+          </div>
+          <div>
+            <dt>Focus</dt>
+            <dd>HCV care model</dd>
+          </div>
+        </dl>
+      </aside>
+    </section>
+
+    <main>
+      <section id="metrics" class="metric-strip" aria-label="Baseline metrics">
+        <article class="metric-card">
+          <span>Patients managed</span>
+          <strong>294</strong>
+        </article>
+        <article class="metric-card">
+          <span>SVR rate</span>
+          <strong>99.7%</strong>
+        </article>
+        <article class="metric-card">
+          <span>PDC adherence</span>
+          <strong>95.64%</strong>
+        </article>
+        <article class="metric-card">
+          <span>Avg start time</span>
+          <strong>3.42d</strong>
+        </article>
+      </section>
+
+      <section class="visual-grid">
+        <article class="panel">
+          <p class="section-label">Poster Objective</p>
+          <h2>Measure whether integration reduces friction without diluting outcomes.</h2>
+          <ul class="objective-list">
+            <li><b>1</b><span>Describe MTDM pharmacist co-management before and after specialty pharmacy integration.</span></li>
+            <li><b>2</b><span>Evaluate time to treatment initiation, patient adherence, and patient outreach volume.</span></li>
+            <li><b>3</b><span>Assess pharmacist engagement after duplicate clinical tasks are removed.</span></li>
+          </ul>
+        </article>
+
+        <article class="panel workflow-panel">
+          <p class="section-label">Baseline Signal</p>
+          <h2>Strong outcomes, but nine average touchpoints per treatment.</h2>
+          <p class="hero-summary">
+            The redesign targets operational redundancy: embedded pharmacists and specialty pharmacy teams were both assessing, reassessing, and closing therapy milestones.
+          </p>
+          <div class="touchpoint-stack" aria-label="Nine average touchpoints per treatment">
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </article>
+      </section>
+
+      <section id="workflow" class="panel workflow-panel">
+        <p class="section-label">Evidence Flow</p>
+        <h2>From parallel work streams to a bidirectional handoff model</h2>
+        <svg class="workflow-svg" viewBox="0 0 1040 450" role="img" aria-labelledby="workflow-title workflow-desc">
+          <title id="workflow-title">Hepatitis C workflow before and after specialty pharmacy integration</title>
+          <desc id="workflow-desc">The baseline model has MTDM pharmacist and specialty pharmacy lanes with duplicate assessments; the integrated model combines assessments into pharmacist visits and leaves focused dispensing and follow-up to the specialty pharmacy.</desc>
+          <defs>
+            <marker id="arrowhead" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+              <path d="M0,0 L10,4 L0,8 Z" fill="#243770"></path>
+            </marker>
+          </defs>
+
+          <text class="lane-title" x="24" y="34">Baseline: independent workflows</text>
+          <text class="lane-title" x="560" y="34">Integrated: shared clinical milestones</text>
+
+          <rect x="24" y="58" width="430" height="160" rx="16" fill="#f9fbff" stroke="#aebbd2"></rect>
+          <rect x="24" y="248" width="430" height="128" rx="16" fill="#fff7ea" stroke="#aebbd2"></rect>
+          <text class="lane-title" x="44" y="86">MTDM pharmacist</text>
+          <text class="lane-title" x="44" y="276">Specialty pharmacy</text>
+
+          <rect class="node baseline" x="45" y="112" width="86" height="54" rx="8"></rect>
+          <text class="node-label" x="88" y="133" text-anchor="middle">Referral</text>
+          <text class="node-label" x="88" y="151" text-anchor="middle">review</text>
+          <rect class="node baseline" x="150" y="112" width="105" height="54" rx="8"></rect>
+          <text class="node-label" x="202" y="134" text-anchor="middle">Provider/RPh</text>
+          <text class="node-label" x="202" y="152" text-anchor="middle">visit</text>
+          <rect class="node baseline" x="274" y="112" width="72" height="54" rx="8"></rect>
+          <text class="node-label" x="310" y="134" text-anchor="middle">Issue</text>
+          <text class="node-label" x="310" y="152" text-anchor="middle">Rx</text>
+          <rect class="node baseline" x="365" y="112" width="68" height="54" rx="8"></rect>
+          <text class="node-label" x="399" y="134" text-anchor="middle">SVR</text>
+          <text class="node-label" x="399" y="152" text-anchor="middle">visit</text>
+
+          <rect class="node baseline" x="45" y="302" width="92" height="54" rx="8"></rect>
+          <text class="node-label" x="91" y="324" text-anchor="middle">Rx intake</text>
+          <text class="node-label" x="91" y="342" text-anchor="middle">dispense</text>
+          <rect class="node baseline" x="158" y="302" width="86" height="54" rx="8"></rect>
+          <text class="node-label" x="201" y="324" text-anchor="middle">Initial</text>
+          <text class="node-label" x="201" y="342" text-anchor="middle">assessment</text>
+          <rect class="node baseline" x="265" y="302" width="82" height="54" rx="8"></rect>
+          <text class="node-label" x="306" y="324" text-anchor="middle">Monthly</text>
+          <text class="node-label" x="306" y="342" text-anchor="middle">calls</text>
+          <rect class="node baseline" x="368" y="302" width="66" height="54" rx="8"></rect>
+          <text class="node-label" x="401" y="324" text-anchor="middle">Final</text>
+          <text class="node-label" x="401" y="342" text-anchor="middle">assess</text>
+
+          <path class="arrow" marker-end="url(#arrowhead)" d="M131 139 H148"></path>
+          <path class="arrow" marker-end="url(#arrowhead)" d="M255 139 H272"></path>
+          <path class="arrow" marker-end="url(#arrowhead)" d="M346 139 H363"></path>
+          <path class="arrow" marker-end="url(#arrowhead)" d="M137 329 H156"></path>
+          <path class="arrow" marker-end="url(#arrowhead)" d="M244 329 H263"></path>
+          <path class="arrow" marker-end="url(#arrowhead)" d="M347 329 H366"></path>
+          <path class="bridge" d="M310 168 C320 214, 123 238, 91 298"></path>
+          <path class="bridge" d="M399 168 C412 218, 414 246, 401 298"></path>
+
+          <rect x="560" y="58" width="456" height="160" rx="16" fill="#f9fbff" stroke="#aebbd2"></rect>
+          <rect x="560" y="248" width="456" height="128" rx="16" fill="#fff7ea" stroke="#aebbd2"></rect>
+          <text class="lane-title" x="580" y="86">Embedded MTDM pharmacist</text>
+          <text class="lane-title" x="580" y="276">Health-system specialty pharmacy</text>
+
+          <rect class="node integrated" x="582" y="112" width="92" height="54" rx="8"></rect>
+          <text class="node-label" x="628" y="134" text-anchor="middle">Referral</text>
+          <text class="node-label" x="628" y="152" text-anchor="middle">review</text>
+          <rect class="node integrated" x="696" y="112" width="126" height="54" rx="8"></rect>
+          <text class="node-label" x="759" y="133" text-anchor="middle">Joint visit +</text>
+          <text class="node-label" x="759" y="151" text-anchor="middle">initial assess</text>
+          <rect class="node integrated" x="844" y="112" width="64" height="54" rx="8"></rect>
+          <text class="node-label" x="876" y="134" text-anchor="middle">Issue</text>
+          <text class="node-label" x="876" y="152" text-anchor="middle">Rx</text>
+          <rect class="node integrated" x="930" y="112" width="64" height="54" rx="8"></rect>
+          <text class="node-label" x="962" y="134" text-anchor="middle">SVR +</text>
+          <text class="node-label" x="962" y="152" text-anchor="middle">final</text>
+
+          <rect class="node integrated" x="618" y="302" width="106" height="54" rx="8"></rect>
+          <text class="node-label" x="671" y="324" text-anchor="middle">Rx intake</text>
+          <text class="node-label" x="671" y="342" text-anchor="middle">dispense</text>
+          <rect class="node integrated" x="760" y="302" width="112" height="54" rx="8"></rect>
+          <text class="node-label" x="816" y="324" text-anchor="middle">1-week start</text>
+          <text class="node-label" x="816" y="342" text-anchor="middle">verification</text>
+          <rect class="node integrated" x="908" y="302" width="84" height="54" rx="8"></rect>
+          <text class="node-label" x="950" y="324" text-anchor="middle">Refill</text>
+          <text class="node-label" x="950" y="342" text-anchor="middle">calls</text>
+
+          <path class="arrow" marker-end="url(#arrowhead)" d="M674 139 H694"></path>
+          <path class="arrow" marker-end="url(#arrowhead)" d="M822 139 H842"></path>
+          <path class="arrow" marker-end="url(#arrowhead)" d="M908 139 H928"></path>
+          <path class="arrow" marker-end="url(#arrowhead)" d="M724 329 H758"></path>
+          <path class="arrow" marker-end="url(#arrowhead)" d="M872 329 H906"></path>
+          <path class="bridge" d="M876 168 C872 220, 700 238, 671 298"></path>
+
+          <text x="42" y="416" fill="#68758d" font-size="14">Duplicate assessment burden visible across lanes</text>
+          <text x="580" y="416" fill="#68758d" font-size="14">Assessments move into pharmacist visits; SP focuses on access, start confirmation, and refills</text>
+        </svg>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">Methods</p>
+          <h2>Operational data pull</h2>
+          <p>
+            Baseline metrics were collected from EPIC Hyperspace and Willow Ambulatory, then mapped against the MTDM and specialty pharmacy task sequences to identify duplication and define post-integration endpoints.
+          </p>
+          <div class="handoff-grid">
+            <div><strong>Initial assessment</strong><span>Shifted to joint in-person provider and pharmacist visit.</span></div>
+            <div><strong>Start confirmation</strong><span>Specialty pharmacy completes one-week follow-up call.</span></div>
+            <div><strong>Final assessment</strong><span>Completed at SVR confirmation with end-of-treatment education.</span></div>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Baseline Table Pattern</p>
+          <h2>Resource mix and performance</h2>
+          <div class="table-wrap">
+            <table class="mini-table">
+              <tbody>
+                <tr><td>Embedded hepatology pharmacists</td><td>2</td></tr>
+                <tr><td>Hep C specialty pharmacists</td><td>3</td></tr>
+                <tr><td>Average start to treatment</td><td>3.42 days</td></tr>
+                <tr><td>Average touchpoints per treatment</td><td>9</td></tr>
+                <tr><td>Patients managed</td><td>294</td></tr>
+                <tr><td>Proportion of days covered</td><td>95.64%</td></tr>
+                <tr><td>Sustained virologic response rate</td><td>99.7%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section id="takeaways" class="evidence-map" aria-label="Key takeaways">
+        <article class="evidence-card">
+          <h3>Care model</h3>
+          <p>Embedded MTDM pharmacists remain responsible for high-value clinical checkpoints.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Specialty pharmacy role</h3>
+          <p>The health-system SP concentrates on medication access, dispensing, start verification, and refill calls.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Efficiency target</h3>
+          <p>Fewer missed-communication delays are expected to shorten time to therapy initiation.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Adherence watchpoint</h3>
+          <p>PDC will be compared before and after integration to test whether reduced outreach preserves adherence.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Broader use</h3>
+          <p>The model may translate to other specialties with embedded pharmacists or emerging SP clinical programs.</p>
+        </article>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Conclusion</p>
+        <h2>Integration is positioned as a workflow intervention, with outcome evaluation next.</h2>
+        <p class="callout">
+          The poster anticipates that combining MTDM pharmacist workflows with specialty pharmacy patient-management programs will streamline care, reduce duplicative tasks, and support faster HCV treatment initiation.
+        </p>
+      </section>
+
+      <footer class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/1184-PSP84-RP-Poster-AM25_2025.pdf">View source PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/1184-PSP84-RP-Poster-AM25_2025.md">View extracted markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

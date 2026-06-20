@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2024 Infographic | Oral Oncology Inventory Management</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card svg {
+      width: 100%;
+      height: auto;
+    }
+    .hero-card .button-link {
+      justify-content: center;
+      background: #fff;
+    }
+    .savings-ribbon {
+      position: relative;
+      min-height: 18rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 82% 12%, rgba(233, 158, 37, 0.36), transparent 12rem),
+        linear-gradient(135deg, rgba(36, 55, 112, 0.98), rgba(24, 124, 143, 0.94));
+      color: #fff;
+      overflow: hidden;
+      padding: 1.15rem;
+    }
+    .savings-ribbon .kicker {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+    .savings-ribbon strong {
+      display: block;
+      margin-top: 0.16rem;
+      font-family: var(--font-display);
+      font-size: clamp(2.75rem, 6vw, 5.1rem);
+      line-height: 0.95;
+    }
+    .savings-ribbon span {
+      display: block;
+      max-width: 23rem;
+      margin-top: 0.55rem;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 0.95rem;
+    }
+    .savings-ribbon svg {
+      position: absolute;
+      right: -2.3rem;
+      bottom: -2.4rem;
+      width: min(28rem, 62%);
+      opacity: 0.78;
+    }
+    .role-split {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.65rem;
+      margin-top: 0.7rem;
+    }
+    .role-row {
+      display: grid;
+      grid-template-columns: 7rem minmax(0, 1fr) 8.6rem;
+      gap: 0.6rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 850;
+    }
+    .role-track {
+      height: 1.1rem;
+      border: 1px solid rgba(36, 55, 112, 0.12);
+      border-radius: 999px;
+      background: var(--surface-blue);
+      overflow: hidden;
+    }
+    .role-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .role-row small {
+      display: block;
+      color: var(--muted);
+      font-size: 0.66rem;
+      font-weight: 800;
+    }
+    .flow-line {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+    .flow-node {
+      position: relative;
+      min-height: 8.5rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.82rem;
+    }
+    .flow-node::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -0.51rem;
+      width: 0.75rem;
+      height: 0.75rem;
+      border-top: 2px solid var(--border-strong);
+      border-right: 2px solid var(--border-strong);
+      background: #fff;
+      transform: translateY(-50%) rotate(45deg);
+    }
+    .flow-node:last-child::after {
+      display: none;
+    }
+    .flow-node b {
+      display: inline-grid;
+      place-items: center;
+      width: 1.65rem;
+      height: 1.65rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+    }
+    .flow-node h3 {
+      margin-top: 0.48rem;
+      font-size: 0.94rem;
+    }
+    .flow-node p {
+      margin: 0.35rem 0 0;
+      font-size: 0.78rem;
+    }
+    .reason-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.7rem;
+    }
+    .reason-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface-blue);
+      padding: 0.75rem;
+    }
+    .reason-card strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.65rem;
+      line-height: 1;
+    }
+    .reason-card span {
+      display: block;
+      margin-top: 0.2rem;
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 850;
+    }
+    .money-bars .lens-row {
+      grid-template-columns: 13rem minmax(0, 1fr) 6rem;
+    }
+    .money-bars .lens-row em {
+      color: var(--ink);
+      font-style: normal;
+      font-size: 0.78rem;
+      font-weight: 850;
+      text-align: right;
+    }
+    .two-axis {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+      margin-top: 0.7rem;
+    }
+    .axis-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+    }
+    .axis-card h3 {
+      margin-bottom: 0.5rem;
+    }
+    .mini-bars {
+      display: grid;
+      gap: 0.5rem;
+    }
+    .mini-row {
+      display: grid;
+      grid-template-columns: 7.5rem minmax(0, 1fr) 3rem;
+      gap: 0.45rem;
+      align-items: center;
+      font-size: 0.76rem;
+      font-weight: 850;
+    }
+    .mini-track {
+      height: 0.72rem;
+      border-radius: 999px;
+      background: var(--surface-blue);
+      overflow: hidden;
+    }
+    .mini-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--teal);
+    }
+    .med-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.7rem;
+    }
+    .med-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.75rem;
+    }
+    .med-card span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.63rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .med-card strong {
+      display: block;
+      margin-top: 0.18rem;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      line-height: 1.05;
+    }
+    .med-card em {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--red);
+      font-style: normal;
+      font-weight: 900;
+    }
+    .callout {
+      margin: 0.75rem 0 0;
+      border-left: 4px solid var(--gold);
+      background: var(--surface-warm);
+      padding: 0.72rem 0.85rem;
+      color: var(--ink);
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+    .source-note {
+      margin: 0.8rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+    @media (max-width: 900px) {
+      .flow-line,
+      .two-axis,
+      .med-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .flow-node::after {
+        display: none;
+      }
+    }
+    @media (max-width: 560px) {
+      .role-row,
+      .money-bars .lens-row,
+      .mini-row {
+        grid-template-columns: 1fr;
+      }
+      .role-row > span:last-child,
+      .money-bars .lens-row em {
+        text-align: left;
+      }
+      .flow-line,
+      .reason-grid,
+      .two-axis,
+      .med-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="https://naspnet.org/" aria-label="NASP website">NASP Posters</a>
+      <nav aria-label="Page sections">
+        <a href="#snapshot">Snapshot</a>
+        <a href="#evidence">Evidence</a>
+        <a href="#results">Results</a>
+        <a href="#medications">Medications</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">2024 Annual Meeting Poster | 49-OPR49-OR</p>
+        <h1>Oral oncology inventory management interventions by a specialty pharmacy</h1>
+        <p class="hero-summary">
+          Fairview Specialty Pharmacy reviewed refill deviations to estimate how pharmacist and liaison inventory management
+          reduced waste and avoided costs for high-value oral oncology medications.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Retrospective inventory review</li>
+          <li class="tag therapy">Oral oncology</li>
+          <li class="tag therapy">Medication waste reduction</li>
+          <li class="tag">Fairview Pharmacy Services</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Poster details">
+        <div class="poster-code">AM24<br>49-OPR49-OR</div>
+        <svg viewBox="0 0 360 160" role="img" aria-label="Oral oncology inventory illustration">
+          <defs>
+            <linearGradient id="bottleFill" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#eef4fb"></stop>
+              <stop offset="1" stop-color="#fff7ea"></stop>
+            </linearGradient>
+          </defs>
+          <rect x="34" y="38" width="76" height="98" rx="12" fill="url(#bottleFill)" stroke="#243770" stroke-width="4"></rect>
+          <rect x="48" y="20" width="48" height="24" rx="5" fill="#243770"></rect>
+          <rect x="46" y="70" width="52" height="10" rx="5" fill="#d12630"></rect>
+          <rect x="46" y="90" width="38" height="8" rx="4" fill="#187c8f"></rect>
+          <path d="M150 110c28-54 70-72 126-58" fill="none" stroke="#187c8f" stroke-width="10" stroke-linecap="round"></path>
+          <path d="M248 34l36 22-38 18" fill="none" stroke="#187c8f" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"></path>
+          <circle cx="168" cy="65" r="16" fill="#e99e25"></circle>
+          <circle cx="205" cy="112" r="13" fill="#7561a8"></circle>
+          <circle cx="291" cy="101" r="20" fill="#d12630" opacity="0.9"></circle>
+        </svg>
+        <dl class="meta-grid">
+          <div>
+            <dt>Study period</dt>
+            <dd>Apr 2023-Mar 2024</dd>
+          </div>
+          <div>
+            <dt>Poster year</dt>
+            <dd>2024</dd>
+          </div>
+          <div>
+            <dt>Interventions</dt>
+            <dd>120</dd>
+          </div>
+          <div>
+            <dt>Cost basis</dt>
+            <dd>AWP</dd>
+          </div>
+        </dl>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/49-OPR49-OR-Poster-AM24_2024.pdf">Open poster PDF</a>
+      </aside>
+    </section>
+
+    <main>
+      <section id="snapshot" class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Total interventions</span>
+          <strong>120</strong>
+        </article>
+        <article class="metric-card">
+          <span>Total avoided cost</span>
+          <strong>$1.15M</strong>
+        </article>
+        <article class="metric-card">
+          <span>Average per intervention</span>
+          <strong>$9,543</strong>
+        </article>
+        <article class="metric-card">
+          <span>Pharmacist share</span>
+          <strong>87%</strong>
+        </article>
+      </section>
+
+      <section class="visual-grid" aria-label="Cost avoidance and role split">
+        <article class="savings-ribbon">
+          <p class="kicker">Total inventory management value</p>
+          <strong>$1,145,114</strong>
+          <span>Strict refill, cycle, and dose checks avoided dispensing oral oncology medication that patients were unlikely to need immediately.</span>
+          <svg viewBox="0 0 380 250" role="img" aria-label="Savings and avoided waste illustration">
+            <path d="M198 30l114 36v70c0 68-46 106-114 138C130 242 84 204 84 136V66l114-36z" fill="#fff" opacity="0.86"></path>
+            <path d="M114 92h118a38 38 0 0 1 0 76H114a38 38 0 0 1 0-76z" fill="#e99e25" opacity="0.9"></path>
+            <path d="M114 92h59v76h-59a38 38 0 0 1 0-76z" fill="#d12630"></path>
+            <path d="M256 79l42 28-44 27" fill="none" stroke="#243770" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M284 107H162" fill="none" stroke="#243770" stroke-width="14" stroke-linecap="round"></path>
+            <circle cx="78" cy="192" r="24" fill="#187c8f" opacity="0.7"></circle>
+            <circle cx="302" cy="178" r="18" fill="#7561a8" opacity="0.72"></circle>
+          </svg>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Who intervened</p>
+          <h2>Pharmacists drove most documented value</h2>
+          <div class="role-split">
+            <div class="role-row">
+              <span>Pharmacists</span>
+              <div class="role-track" aria-label="Pharmacist cost share 79.4 percent"><i style="width: 79.4%;"></i></div>
+              <span>$909,885<small>104 interventions</small></span>
+            </div>
+            <div class="role-row">
+              <span>Liaisons</span>
+              <div class="role-track" aria-label="Liaison cost share 20.6 percent"><i style="width: 20.6%; background: var(--teal);"></i></div>
+              <span>$235,229<small>16 interventions</small></span>
+            </div>
+          </div>
+          <div class="reason-grid">
+            <div class="reason-card">
+              <strong>$532K</strong>
+              <span>High likelihood of medication or dose change across 51 interventions</span>
+            </div>
+            <div class="reason-card">
+              <strong>$437K</strong>
+              <span>Excess supply from a previous cycle or fill across 55 interventions</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section id="evidence" class="panel">
+        <p class="section-label">Methods translated into a workflow</p>
+        <h2>From expected refill to avoided waste</h2>
+        <div class="flow-line">
+          <article class="flow-node">
+            <b>1</b>
+            <h3>Expected fill flagged</h3>
+            <p>The team documented situations where the full oncology medication amount was not dispensed at the expected refill time.</p>
+          </article>
+          <article class="flow-node">
+            <b>2</b>
+            <h3>Inventory reason captured</h3>
+            <p>Rationale included excess supply, therapy hold, likely medication change, likely dose change, split fill, or dose optimization.</p>
+          </article>
+          <article class="flow-node">
+            <b>3</b>
+            <h3>Medication amount tracked</h3>
+            <p>Medication, strength, and amount not dispensed were recorded to quantify avoided inventory movement.</p>
+          </article>
+          <article class="flow-node">
+            <b>4</b>
+            <h3>AWP converted to value</h3>
+            <p>Average wholesale price was used to estimate cost avoidance for the pharmacy, patients, and payers.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="results" class="visual-grid" aria-label="Intervention category results">
+        <article class="panel">
+          <p class="section-label">Category pattern</p>
+          <h2>Hold/delay and quantity adjustment accounted for nearly all value</h2>
+          <div class="lens-chart money-bars">
+            <div class="lens-row">
+              <span>Hold or delay dispense</span>
+              <div class="lens-bar"><i style="width: 100%;"></i></div>
+              <em>$664,298</em>
+            </div>
+            <div class="lens-row">
+              <span>Quantity adjustment</span>
+              <div class="lens-bar"><i style="width: 50.3%;"></i></div>
+              <em>$334,046</em>
+            </div>
+            <div class="lens-row">
+              <span>Proactive split fill</span>
+              <div class="lens-bar"><i style="width: 16.7%;"></i></div>
+              <em>$111,058</em>
+            </div>
+            <div class="lens-row">
+              <span>Dose optimization</span>
+              <div class="lens-bar"><i style="width: 5.4%;"></i></div>
+              <em>$35,712</em>
+            </div>
+          </div>
+          <p class="source-note">Category totals combine pharmacist and liaison tables where the poster reported both roles.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Interpretation</p>
+          <h2>Inventory stewardship depended on live clinical context</h2>
+          <div class="markdown-fragment">
+            <p>
+              Oral oncology regimens can be expensive, complex, and frequently changed because of adverse effects or disease status.
+              The pharmacy process paired refill timing with patient and provider engagement so supply decisions reflected the current plan.
+            </p>
+            <ul>
+              <li>High-change-risk and excess-supply rationales drove the largest combined avoided-cost signal.</li>
+              <li>Dose optimization had the highest average category savings at $17,856 per intervention, but occurred only twice.</li>
+              <li>Access to medical record information was highlighted as a way to enable additional inventory interventions.</li>
+            </ul>
+          </div>
+          <p class="callout">Conclusion: strict oral oncology inventory management reduced waste and generated more than $1.1 million in estimated cost avoidance over one year.</p>
+        </article>
+      </section>
+
+      <section id="medications" class="panel">
+        <p class="section-label">Medication-level signals</p>
+        <h2>Different views surfaced different high-priority drugs</h2>
+        <div class="two-axis">
+          <article class="axis-card">
+            <h3>Top total cost avoidance</h3>
+            <div class="mini-bars" aria-label="Top medications by total cost avoidance">
+              <div class="mini-row"><span>Verzenio</span><div class="mini-track"><i style="width: 100%;"></i></div><span>$99K</span></div>
+              <div class="mini-row"><span>everolimus</span><div class="mini-track"><i style="width: 90%;"></i></div><span>$90K</span></div>
+              <div class="mini-row"><span>Inqovi</span><div class="mini-track"><i style="width: 89%;"></i></div><span>$88K</span></div>
+              <div class="mini-row"><span>Kisqali</span><div class="mini-track"><i style="width: 86%;"></i></div><span>$86K</span></div>
+              <div class="mini-row"><span>Xospata</span><div class="mini-track"><i style="width: 74%;"></i></div><span>$74K</span></div>
+            </div>
+          </article>
+          <article class="axis-card">
+            <h3>Top intervention frequency</h3>
+            <div class="mini-bars" aria-label="Top medications by intervention frequency">
+              <div class="mini-row"><span>capecitabine/Xeloda</span><div class="mini-track"><i style="width: 100%; background: var(--red);"></i></div><span>22</span></div>
+              <div class="mini-row"><span>Kisqali</span><div class="mini-track"><i style="width: 45%; background: var(--red);"></i></div><span>10</span></div>
+              <div class="mini-row"><span>Verzenio</span><div class="mini-track"><i style="width: 41%; background: var(--red);"></i></div><span>9</span></div>
+              <div class="mini-row"><span>everolimus</span><div class="mini-track"><i style="width: 32%; background: var(--red);"></i></div><span>7</span></div>
+              <div class="mini-row"><span>Brukinsa</span><div class="mini-track"><i style="width: 27%; background: var(--red);"></i></div><span>6</span></div>
+            </div>
+          </article>
+        </div>
+        <div class="med-grid">
+          <article class="med-card">
+            <span>Highest total cost avoidance</span>
+            <strong>Verzenio</strong>
+            <em>$99,487</em>
+          </article>
+          <article class="med-card">
+            <span>Greatest intervention frequency</span>
+            <strong>capecitabine/Xeloda</strong>
+            <em>22 interventions</em>
+          </article>
+          <article class="med-card">
+            <span>Highest cost per dispense</span>
+            <strong>Inqovi</strong>
+            <em>$1,919 per dispense</em>
+          </article>
+        </div>
+      </section>
+
+      <section class="evidence-map" aria-label="Extracted poster takeaways">
+        <article class="evidence-card">
+          <h3>Objective</h3>
+          <p>Describe interventions that reduced oral oncology medication waste and calculate cost avoidance from specialty pharmacy processes.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Study frame</h3>
+          <p>Inventory management interventions by oncology pharmacists and liaisons from April 2023 through March 2024.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Table pattern</h3>
+          <p>Interventions were grouped by role, category, rationale, frequency, total cost, and average cost per intervention.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Result</h3>
+          <p>120 interventions generated $1,145,114 in estimated cost avoidance, averaging $9,543 per intervention.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Conclusion</h3>
+          <p>Strong engagement with patients and providers was necessary to avoid excess cost or waste and maintain appropriate supply.</p>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Condensed source tables">
+        <article class="table-card">
+          <p class="section-label">Condensed intervention table</p>
+          <h2>Role totals</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Role</th>
+                  <th>Interventions</th>
+                  <th>Total cost avoidance</th>
+                  <th>Average</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Pharmacist interventions</td>
+                  <td>104</td>
+                  <td>$909,885</td>
+                  <td>$8,749</td>
+                </tr>
+                <tr>
+                  <td>Liaison interventions</td>
+                  <td>16</td>
+                  <td>$235,229</td>
+                  <td>$14,702</td>
+                </tr>
+                <tr>
+                  <td><strong>Total</strong></td>
+                  <td><strong>120</strong></td>
+                  <td><strong>$1,145,114</strong></td>
+                  <td><strong>$9,543</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Rationale pattern</p>
+          <h2>Most common reasons not to dispense full amounts</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Reason</th>
+                  <th>Interventions</th>
+                  <th>Cost avoidance</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Excess supply from previous cycle or fill</td>
+                  <td>55</td>
+                  <td>$436,709</td>
+                </tr>
+                <tr>
+                  <td>High likelihood of medication or dose change</td>
+                  <td>51</td>
+                  <td>$532,341</td>
+                </tr>
+                <tr>
+                  <td>Dose optimization</td>
+                  <td>2</td>
+                  <td>$35,712</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/49-OPR49-OR-Poster-AM24_2024.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/49-OPR49-OR-Poster-AM24_2024.md">Source markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

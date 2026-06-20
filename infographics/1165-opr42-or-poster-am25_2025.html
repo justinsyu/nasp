@@ -1,0 +1,728 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OPR42-OR Poster AM25 2025 | Rare Disease Management</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .rare-hero {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .rare-hero::after {
+      content: "";
+      position: absolute;
+      right: -8rem;
+      bottom: -10rem;
+      width: 24rem;
+      height: 24rem;
+      border: 3.2rem solid rgba(24, 124, 143, 0.1);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-card.access-engine {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 88% 8%, rgba(233, 158, 37, 0.2), transparent 8.5rem),
+        linear-gradient(145deg, rgba(238, 244, 251, 0.98), #fff 48%, rgba(255, 247, 234, 0.96));
+    }
+
+    .access-engine svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-top: 0.25rem;
+    }
+
+    .metric-card strong small {
+      color: var(--muted);
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+
+    .metric-card b {
+      display: block;
+      margin-top: 0.34rem;
+      color: var(--body);
+      font-size: 0.78rem;
+      font-weight: 750;
+      line-height: 1.35;
+    }
+
+    .condition-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-top: 0.7rem;
+    }
+
+    .condition-card {
+      border: 1px solid rgba(174, 187, 210, 0.88);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, rgba(238, 244, 251, 0.62));
+      padding: 0.85rem;
+    }
+
+    .condition-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.7rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .condition-head h3 {
+      font-size: 1.02rem;
+    }
+
+    .condition-head span {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 900;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .mini-facts {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.45rem;
+    }
+
+    .mini-facts div {
+      border-left: 3px solid rgba(36, 55, 112, 0.22);
+      padding-left: 0.48rem;
+    }
+
+    .mini-facts b {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      line-height: 1;
+    }
+
+    .mini-facts small {
+      color: var(--muted);
+      font-size: 0.64rem;
+      font-weight: 850;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .tat-board {
+      display: grid;
+      gap: 0.78rem;
+      margin-top: 0.75rem;
+    }
+
+    .tat-row {
+      display: grid;
+      grid-template-columns: 9.6rem minmax(0, 1fr) 5.3rem;
+      gap: 0.58rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 850;
+    }
+
+    .tat-row em {
+      color: var(--muted);
+      font-style: normal;
+      font-weight: 800;
+    }
+
+    .tat-track {
+      height: 1rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+
+    .tat-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .tat-track.intervention i {
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .service-radar {
+      position: relative;
+      min-height: 24rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 50% 48%, rgba(24, 124, 143, 0.12), transparent 9rem),
+        linear-gradient(135deg, rgba(36, 55, 112, 0.97), rgba(24, 124, 143, 0.92));
+      color: #fff;
+      overflow: hidden;
+      padding: 1rem;
+    }
+
+    .service-radar svg {
+      position: absolute;
+      inset: 1rem 1rem auto auto;
+      width: min(28rem, 56%);
+      opacity: 0.85;
+    }
+
+    .service-radar span {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .service-radar strong {
+      display: block;
+      max-width: 26rem;
+      margin-top: 0.24rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(2.1rem, 4.8vw, 4.25rem);
+      line-height: 0.96;
+    }
+
+    .service-radar p {
+      max-width: 22rem;
+      margin: 0.65rem 0 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.92rem;
+    }
+
+    .service-stack {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 0.8rem;
+      max-width: 22rem;
+    }
+
+    .service-item {
+      display: grid;
+      grid-template-columns: 4.2rem minmax(0, 1fr);
+      gap: 0.6rem;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.12);
+      padding: 0.55rem;
+    }
+
+    .service-item b {
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      line-height: 1;
+    }
+
+    .service-item small {
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 0.75rem;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
+    .retention-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.78rem;
+      margin-top: 0.7rem;
+    }
+
+    .retention-card {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.82rem;
+    }
+
+    .retention-ring {
+      display: grid;
+      grid-template-columns: 6.5rem minmax(0, 1fr);
+      gap: 0.7rem;
+      align-items: center;
+    }
+
+    .retention-ring svg {
+      width: 6.5rem;
+      height: 6.5rem;
+    }
+
+    .retention-ring strong {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      line-height: 1.08;
+    }
+
+    .retention-ring p {
+      margin: 0.32rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    .number-cloud.flush {
+      margin-top: 0;
+    }
+
+    .impact-line {
+      display: grid;
+      grid-template-columns: 1.7rem minmax(0, 1fr);
+      gap: 0.55rem;
+      align-items: start;
+      margin-top: 0.55rem;
+    }
+
+    .impact-line b {
+      display: inline-grid;
+      place-items: center;
+      width: 1.7rem;
+      height: 1.7rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+    }
+
+    .impact-line p {
+      margin: 0;
+      font-size: 0.86rem;
+    }
+
+    .source-note {
+      margin: 0.72rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 900px) {
+      .condition-grid,
+      .retention-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-radar svg {
+        position: static;
+        width: 100%;
+        max-width: 28rem;
+        margin-top: 0.6rem;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .tat-row,
+      .retention-ring,
+      .service-item {
+        grid-template-columns: 1fr;
+      }
+
+      .mini-facts {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav aria-label="Poster sections">
+        <a href="#snapshot">Snapshot</a>
+        <a href="#turnaround">Turnaround</a>
+        <a href="#services">Services</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero rare-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">2025 NASP poster | 1165-OPR42-OR | Rare disease management</p>
+        <h1>Transforming Rare Disease Management: Real-World Impact of an Integrated Health System Specialty Pharmacy Services</h1>
+        <p class="hero-summary">
+          Yale New Haven Health reviewed 2024 prescriptions for mavacamten and Wilson disease therapies to show how an integrated health system specialty pharmacy supports access, turnaround time, financial assistance, and high-touch pharmacist services.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Retrospective chart review</li>
+          <li class="tag therapy">Mavacamten</li>
+          <li class="tag therapy">Trientine and penicillamine</li>
+          <li class="tag">URAC Rare Disease Certification context</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card access-engine" aria-label="Poster metadata">
+        <div class="poster-code">1165<br>OPR42-OR<br>AM25</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Year</dt>
+            <dd>2025</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>Yale New Haven Health</dd>
+          </div>
+          <div>
+            <dt>Review window</dt>
+            <dd>Jan 1 to Dec 30, 2024</dd>
+          </div>
+          <div>
+            <dt>Cohort</dt>
+            <dd>116 patients</dd>
+          </div>
+        </dl>
+        <svg viewBox="0 0 420 230" role="img" aria-label="Integrated specialty pharmacy access engine">
+          <defs>
+            <linearGradient id="engineGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#d12630"/>
+              <stop offset="0.52" stop-color="#e99e25"/>
+              <stop offset="1" stop-color="#187c8f"/>
+            </linearGradient>
+          </defs>
+          <rect x="20" y="24" width="380" height="182" rx="24" fill="#fff" opacity="0.75"/>
+          <circle cx="210" cy="115" r="58" fill="none" stroke="url(#engineGrad)" stroke-width="15"/>
+          <circle cx="210" cy="115" r="26" fill="#243770"/>
+          <path d="M210 70v90M165 115h90" stroke="#fff" stroke-width="11" stroke-linecap="round"/>
+          <g fill="#fff" stroke="#243770" stroke-width="5">
+            <circle cx="84" cy="68" r="24"/>
+            <circle cx="338" cy="72" r="24"/>
+            <circle cx="88" cy="170" r="24"/>
+            <circle cx="336" cy="164" r="24"/>
+          </g>
+          <g stroke="#243770" stroke-width="5" stroke-linecap="round" fill="none">
+            <path d="M109 76l47 20M314 81l-52 22M113 162l45-31M311 155l-48-29"/>
+          </g>
+          <g fill="#d12630">
+            <rect x="75" y="60" width="18" height="8" rx="4"/>
+            <rect x="79" y="56" width="10" height="16" rx="4"/>
+          </g>
+          <path d="M329 70h18M338 61v18" stroke="#187c8f" stroke-width="6" stroke-linecap="round"/>
+          <path d="M77 169h22" stroke="#e99e25" stroke-width="7" stroke-linecap="round"/>
+          <path d="M326 154h20v20h-20z" fill="#7561a8"/>
+        </svg>
+      </aside>
+    </section>
+
+    <main>
+      <section id="snapshot" class="metric-strip" aria-label="Key poster numbers">
+        <article class="metric-card">
+          <span>Rare-disease patients</span>
+          <strong>116</strong>
+          <b>65 cardiomyopathy patients and 51 Wilson disease patients.</b>
+        </article>
+        <article class="metric-card">
+          <span>Clinical assessments</span>
+          <strong>311</strong>
+          <b>Specialty pharmacist assessment activity across the rare disease cohort.</b>
+        </article>
+        <article class="metric-card">
+          <span>Medication therapy interventions</span>
+          <strong>73</strong>
+          <b>Clinical interventions documented by the integrated HSSP.</b>
+        </article>
+        <article class="metric-card">
+          <span>Financial assistance</span>
+          <strong>26<small> pts</small></strong>
+          <b>About 22% of the enrolled cardiomyopathy and Wilson disease cohort.</b>
+        </article>
+      </section>
+
+      <section class="visual-grid" aria-label="Cohort demographics and objective">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Measure access, affordability, and clinical support for rare disease therapy</h2>
+          <div class="impact-line">
+            <b>1</b>
+            <p>Describe integrated HSSP impact on turnaround time for clean prescriptions versus prescriptions requiring clinical or insurance intervention.</p>
+          </div>
+          <div class="impact-line">
+            <b>2</b>
+            <p>Quantify medication assistance and pharmacist clinical services supporting rare disease management.</p>
+          </div>
+          <div class="impact-line">
+            <b>3</b>
+            <p>Track whether patients remained on therapy as of May 2025 after high-touch pharmacy outreach and refill coordination.</p>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Two rare-disease pathways</p>
+          <h2>Cardiomyopathy and Wilson disease cohorts were similar in size, but different in age</h2>
+          <div class="condition-grid">
+            <div class="condition-card">
+              <div class="condition-head">
+                <h3>Obstructive hypertrophic cardiomyopathy</h3>
+                <span>65</span>
+              </div>
+              <div class="mini-facts">
+                <div><b>52%</b><small>Male</small></div>
+                <div><b>48%</b><small>Female</small></div>
+                <div><b>66</b><small>Avg age</small></div>
+              </div>
+            </div>
+            <div class="condition-card">
+              <div class="condition-head">
+                <h3>Wilson disease</h3>
+                <span>51</span>
+              </div>
+              <div class="mini-facts">
+                <div><b>51%</b><small>Male</small></div>
+                <div><b>49%</b><small>Female</small></div>
+                <div><b>39</b><small>Avg age</small></div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section id="turnaround" class="section-stack" aria-label="Turnaround time and therapy retention">
+        <article class="panel">
+          <p class="section-label">Turnaround time</p>
+          <h2>Interventions doubled mavacamten TAT, but Wilson disease fills stayed at 2 business days</h2>
+          <div class="tat-board">
+            <div class="tat-row">
+              <em>Mavacamten clean</em>
+              <div class="tat-track"><i style="width: 50%;"></i></div>
+              <strong>2 days | n=525</strong>
+            </div>
+            <div class="tat-row">
+              <em>Mavacamten intervention</em>
+              <div class="tat-track intervention"><i style="width: 100%;"></i></div>
+              <strong>4 days | n=49</strong>
+            </div>
+            <div class="tat-row">
+              <em>Wilson therapies clean</em>
+              <div class="tat-track"><i style="width: 50%;"></i></div>
+              <strong>2 days | n=146</strong>
+            </div>
+            <div class="tat-row">
+              <em>Wilson therapies intervention</em>
+              <div class="tat-track intervention"><i style="width: 50%;"></i></div>
+              <strong>2 days | n=22</strong>
+            </div>
+          </div>
+          <p class="source-note">Wilson therapies include penicillamine and trientine; TAT is reported in business days.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Stayed on therapy as of May 2025</p>
+          <h2>Persistence remained high after pharmacy-led refill and clinical outreach</h2>
+          <div class="retention-grid">
+            <div class="retention-card">
+              <div class="retention-ring">
+                <svg viewBox="0 0 120 120" role="img" aria-label="92 percent cardiomyopathy patients staying on therapy">
+                  <circle cx="60" cy="60" r="46" fill="none" stroke="#d9e1ef" stroke-width="16"/>
+                  <circle cx="60" cy="60" r="46" fill="none" stroke="#d12630" stroke-width="16" stroke-linecap="round" stroke-dasharray="266 289" transform="rotate(-90 60 60)"/>
+                  <text x="60" y="66" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="25" font-weight="900">92%</text>
+                </svg>
+                <div>
+                  <strong>Cardiomyopathy</strong>
+                  <p>Mavacamten patients staying on therapy.</p>
+                </div>
+              </div>
+            </div>
+            <div class="retention-card">
+              <div class="retention-ring">
+                <svg viewBox="0 0 120 120" role="img" aria-label="100 percent Wilson disease patients staying on therapy">
+                  <circle cx="60" cy="60" r="46" fill="none" stroke="#d9e1ef" stroke-width="16"/>
+                  <circle cx="60" cy="60" r="46" fill="none" stroke="#187c8f" stroke-width="16" stroke-linecap="round" stroke-dasharray="289 289" transform="rotate(-90 60 60)"/>
+                  <text x="60" y="66" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="23" font-weight="900">100%</text>
+                </svg>
+                <div>
+                  <strong>Wilson disease</strong>
+                  <p>Penicillamine and trientine patients staying on therapy.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="source-note">The poster attributes high persistence to clinical assessments, medication therapy interventions, and routine refill outreach.</p>
+        </article>
+      </section>
+
+      <section id="services" class="visual-grid" aria-label="Specialty pharmacy services">
+        <article class="service-radar">
+          <span>High-touch specialty pharmacy services</span>
+          <strong>Access work plus clinical monitoring formed the rare-disease support model.</strong>
+          <p>Specialty pharmacy liaisons helped with prior authorizations, appeals, and prescription processing, while pharmacists provided longitudinal assessments and medication therapy interventions.</p>
+          <div class="service-stack" aria-label="Specialty pharmacy service metrics">
+            <div class="service-item"><b>517</b><small>Mavacamten deliveries</small></div>
+            <div class="service-item"><b>311</b><small>Clinical assessments</small></div>
+            <div class="service-item"><b>73</b><small>Medication therapy interventions</small></div>
+          </div>
+          <svg viewBox="0 0 430 300" role="img" aria-label="Rare disease service network visualization">
+            <defs>
+              <linearGradient id="networkLine" x1="0" x2="1">
+                <stop offset="0" stop-color="#fff" stop-opacity="0.82"/>
+                <stop offset="1" stop-color="#e99e25" stop-opacity="0.88"/>
+              </linearGradient>
+            </defs>
+            <g fill="none" stroke="url(#networkLine)" stroke-width="5" stroke-linecap="round" opacity="0.78">
+              <path d="M83 79C154 21 251 23 333 82"/>
+              <path d="M76 213c83 54 181 53 281-2"/>
+              <path d="M82 80c33 44 35 91-6 133"/>
+              <path d="M334 82c-42 39-37 89 23 129"/>
+              <path d="M83 79l274 132M333 82L76 213"/>
+            </g>
+            <g>
+              <circle cx="83" cy="79" r="35" fill="#fff" opacity="0.92"/>
+              <circle cx="333" cy="82" r="35" fill="#fff" opacity="0.92"/>
+              <circle cx="76" cy="213" r="35" fill="#fff" opacity="0.92"/>
+              <circle cx="357" cy="211" r="35" fill="#fff" opacity="0.92"/>
+              <circle cx="216" cy="147" r="48" fill="#e99e25" opacity="0.98"/>
+            </g>
+            <path d="M216 112v70M181 147h70" stroke="#243770" stroke-width="12" stroke-linecap="round"/>
+            <path d="M70 80h26M83 67v26" stroke="#d12630" stroke-width="7" stroke-linecap="round"/>
+            <path d="M321 72h24v20h-24z" fill="#187c8f"/>
+            <path d="M62 213h29" stroke="#7561a8" stroke-width="8" stroke-linecap="round"/>
+            <path d="M344 200h25v25h-25z" fill="#4d8a67"/>
+          </svg>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Methods</p>
+          <h2>Prescription processing was split into clean fills versus fills requiring intervention</h2>
+          <div class="evidence-map" style="grid-template-columns: 1fr; gap: 0.55rem;">
+            <article class="evidence-card">
+              <h3>Population</h3>
+              <p>Patients receiving mavacamten for cardiomyopathy or trientine and penicillamine for Wilson disease.</p>
+            </article>
+            <article class="evidence-card">
+              <h3>Classification</h3>
+              <p>Dispenses were clean unless clinical or insurance issues occurred during prescription processing.</p>
+            </article>
+            <article class="evidence-card">
+              <h3>Primary outcome</h3>
+              <p>Evaluate specialty clinical pharmacist services for rare disease management.</p>
+            </article>
+            <article class="evidence-card">
+              <h3>Secondary outcomes</h3>
+              <p>Evaluate turnaround time and financial assistance.</p>
+            </article>
+          </div>
+        </article>
+      </section>
+
+      <section class="evidence-map" aria-label="Condensed poster takeaways">
+        <article class="evidence-card">
+          <h3>Background</h3>
+          <p>Rare disease medications require close monitoring, coordination, and sometimes REMS-related management.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Access pressure</h3>
+          <p>Complex payor models, carve-outs, deductibles, and limited distribution drugs can hinder specialty medication access.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Financial assistance</h3>
+          <p>Twenty-six patients received assistance, representing about 22% of the combined cohort.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Service signal</h3>
+          <p>High-touch pharmacist assessments, interventions, and refill outreach aligned with very high therapy persistence.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Conclusion</h3>
+          <p>The integrated HSSP high-touch model was described as suited for navigating rare disease patient management.</p>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Extracted source tables">
+        <article class="table-card">
+          <p class="section-label">Fill pattern</p>
+          <h2>Clean and intervention TAT by therapy group</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Therapy group</th>
+                  <th>Clean fills</th>
+                  <th>Intervention fills</th>
+                  <th>TAT pattern</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Mavacamten</td>
+                  <td>525 fills, 2 days</td>
+                  <td>49 fills, 4 days</td>
+                  <td>Interventions added 2 business days</td>
+                </tr>
+                <tr>
+                  <td>Penicillamine, trientine</td>
+                  <td>146 fills, 2 days</td>
+                  <td>22 fills, 2 days</td>
+                  <td>No reported TAT increase</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Service totals</p>
+          <h2>Specialty pharmacy services for rare diseases</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Service</th>
+                  <th>Reported count</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Clinical assessments</td>
+                  <td>311</td>
+                </tr>
+                <tr>
+                  <td>Medication therapy interventions</td>
+                  <td>73</td>
+                </tr>
+                <tr>
+                  <td>Deliveries for mavacamten</td>
+                  <td>517</td>
+                </tr>
+                <tr>
+                  <td>Patients receiving financial assistance</td>
+                  <td>26</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-stack" aria-label="Limitations and future direction">
+        <article class="panel markdown-fragment">
+          <p class="section-label">Limitations</p>
+          <h2>Measurement caveats</h2>
+          <p>Turnaround time definitions are not standardized across specialty pharmacies, and health systems may not have access to limited distribution rare disease medications.</p>
+        </article>
+        <article class="panel markdown-fragment">
+          <p class="section-label">Future direction</p>
+          <h2>Access to limited distribution drugs</h2>
+          <p>The poster argues that patients with rare diseases need easier treatment access and resources, and that integrated HSSP access to limited distribution medications may improve outcomes.</p>
+        </article>
+      </section>
+
+      <footer id="sources" class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/1165-OPR42-OR-Poster-AM25_2025.pdf">View source PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/1165-OPR42-OR-Poster-AM25_2025.md">View extracted markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

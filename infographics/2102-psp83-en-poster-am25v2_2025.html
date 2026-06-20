@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Evaluation of a Pharmacy Delivered Oncofertility Intervention | NASP 2025</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .poster-hero {
+      grid-template-columns: minmax(0, 1.25fr) minmax(19rem, 0.75fr);
+    }
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 27rem;
+    }
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -5rem -5rem auto auto;
+      width: 17rem;
+      height: 17rem;
+      border: 1.1rem solid rgba(209, 38, 48, 0.08);
+      border-radius: 50%;
+    }
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: auto auto -4.5rem -4rem;
+      width: 15rem;
+      height: 15rem;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(24, 124, 143, 0.14), transparent 68%);
+    }
+    .fertility-visual {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 0.8rem;
+    }
+    .fertility-visual svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      filter: drop-shadow(0 18px 28px rgba(36, 55, 112, 0.15));
+    }
+    .visual-caption {
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.86);
+      padding: 0.72rem;
+    }
+    .visual-caption b {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.92rem;
+      line-height: 1.15;
+    }
+    .visual-caption span {
+      display: block;
+      margin-top: 0.22rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 750;
+      line-height: 1.35;
+    }
+    .metric-card strong small {
+      color: var(--red);
+      font-size: 1rem;
+    }
+    .metric-card em {
+      display: block;
+      margin-top: 0.34rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-style: normal;
+      font-weight: 750;
+      line-height: 1.32;
+    }
+    .conversation-board {
+      display: grid;
+      grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .donut-panel {
+      display: grid;
+      gap: 0.8rem;
+      align-content: center;
+      min-height: 23rem;
+    }
+    .donut-wrap {
+      position: relative;
+      display: grid;
+      place-items: center;
+      min-height: 15.5rem;
+    }
+    .donut-wrap svg {
+      width: min(100%, 16rem);
+      height: auto;
+      transform: rotate(-90deg);
+    }
+    .donut-center {
+      position: absolute;
+      display: grid;
+      place-items: center;
+      width: 8.3rem;
+      height: 8.3rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 50%;
+      background: #fff;
+      text-align: center;
+    }
+    .donut-center strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2.35rem;
+      line-height: 1;
+    }
+    .donut-center span {
+      display: block;
+      margin-top: 0.28rem;
+      color: var(--muted);
+      font-size: 0.66rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      line-height: 1.18;
+      text-transform: uppercase;
+    }
+    .response-list {
+      display: grid;
+      gap: 0.55rem;
+    }
+    .response-row {
+      display: grid;
+      grid-template-columns: 2.8rem minmax(0, 1fr) 3.2rem;
+      gap: 0.55rem;
+      align-items: center;
+    }
+    .response-dot {
+      width: 0.82rem;
+      height: 0.82rem;
+      border-radius: 50%;
+      background: var(--row-color);
+      justify-self: center;
+    }
+    .response-row b {
+      color: var(--ink);
+      font-size: 0.86rem;
+    }
+    .response-row span:last-child {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-weight: 900;
+      text-align: right;
+    }
+    .age-heatmap {
+      display: grid;
+      gap: 0.62rem;
+      margin-top: 0.75rem;
+    }
+    .heat-row {
+      display: grid;
+      grid-template-columns: 7.7rem repeat(4, minmax(0, 1fr));
+      gap: 0.42rem;
+      align-items: stretch;
+    }
+    .heat-row.header span {
+      min-height: auto;
+      background: transparent;
+      color: var(--muted);
+      font-size: 0.64rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .heat-row span {
+      display: grid;
+      place-items: center;
+      min-height: 2.65rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 7px;
+      background: rgba(var(--heat), 0.12);
+      color: var(--ink);
+      font-weight: 850;
+      text-align: center;
+    }
+    .heat-row .label {
+      justify-content: start;
+      padding: 0 0.55rem;
+      background: var(--surface-blue);
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+    }
+    .heat-high { background: rgba(var(--heat), 0.55) !important; }
+    .heat-mid { background: rgba(var(--heat), 0.34) !important; }
+    .heat-low { background: rgba(var(--heat), 0.16) !important; }
+    .pathway {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.8rem;
+    }
+    .path-step {
+      position: relative;
+      min-height: 11rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.78rem;
+      overflow: hidden;
+    }
+    .path-step::before {
+      content: attr(data-step);
+      display: inline-grid;
+      place-items: center;
+      width: 1.85rem;
+      height: 1.85rem;
+      margin-bottom: 0.52rem;
+      border-radius: 50%;
+      background: var(--step-color, var(--red));
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+    .path-step:nth-child(2) { --step-color: var(--gold); }
+    .path-step:nth-child(3) { --step-color: var(--teal); }
+    .path-step:nth-child(4) { --step-color: var(--green); }
+    .path-step:nth-child(5) { --step-color: var(--purple); }
+    .path-step p {
+      margin: 0.38rem 0 0;
+      color: var(--body);
+      font-size: 0.8rem;
+      line-height: 1.42;
+    }
+    .callout-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+      gap: 1rem;
+      align-items: center;
+      background:
+        radial-gradient(circle at 8% 24%, rgba(233, 158, 37, 0.14), transparent 18rem),
+        linear-gradient(135deg, #fff, var(--surface-warm));
+    }
+    .callout-number {
+      border-right: 1px solid var(--border-strong);
+      padding-right: 1rem;
+    }
+    .callout-number strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(3.4rem, 8vw, 6rem);
+      line-height: 0.9;
+    }
+    .callout-number span {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--ink);
+      font-weight: 900;
+      line-height: 1.2;
+    }
+    .insight-list {
+      display: grid;
+      gap: 0.58rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .insight-list li {
+      border-left: 4px solid var(--teal);
+      background: rgba(255, 255, 255, 0.72);
+      padding: 0.52rem 0.68rem;
+      color: var(--body);
+      font-size: 0.88rem;
+    }
+    .insight-list li:nth-child(2) { border-left-color: var(--gold); }
+    .insight-list li:nth-child(3) { border-left-color: var(--purple); }
+    @media (max-width: 900px) {
+      .conversation-board,
+      .callout-panel {
+        grid-template-columns: 1fr;
+      }
+      .pathway {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .callout-number {
+        border-right: 0;
+        border-bottom: 1px solid var(--border-strong);
+        padding-right: 0;
+        padding-bottom: 1rem;
+      }
+    }
+    @media (max-width: 620px) {
+      .pathway {
+        grid-template-columns: 1fr;
+      }
+      .heat-row {
+        grid-template-columns: 1fr 1fr;
+      }
+      .heat-row.header {
+        display: none;
+      }
+      .heat-row .label {
+        grid-column: 1 / -1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/2102-PSP83-EN-Poster-AM25v2_2025.pdf">Source PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/2102-PSP83-EN-Poster-AM25v2_2025.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2025 | PSP83 | Walgreens Specialty Pharmacy</p>
+        <h1>Evaluation of a Pharmacy Delivered Oncofertility Intervention</h1>
+        <p class="hero-summary">A descriptive retrospective review examined whether specialty pharmacy touchpoints could surface fertility preservation conversations for new-to-therapy oncology patients receiving gonadotoxic treatment before treatment starts.</p>
+        <ul class="tag-row" aria-label="Poster attributes">
+          <li class="tag category">Oncology</li>
+          <li class="tag therapy">Fertility preservation</li>
+          <li class="tag">Retrospective review</li>
+          <li class="tag">Patient counseling</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Poster metadata and visual summary">
+        <div class="fertility-visual">
+          <div>
+            <div class="poster-code">PSP83</div>
+            <dl class="meta-grid">
+              <div>
+                <dt>Presented</dt>
+                <dd>NASP 2025</dd>
+              </div>
+              <div>
+                <dt>Location</dt>
+                <dd>Denver, CO</dd>
+              </div>
+              <div>
+                <dt>Study Window</dt>
+                <dd>Dec 2023-May 2025</dd>
+              </div>
+              <div>
+                <dt>Population</dt>
+                <dd>New oncology therapy, age &lt;50</dd>
+              </div>
+            </dl>
+          </div>
+          <svg viewBox="0 0 360 240" role="img" aria-label="Pharmacy counseling pathway to fertility specialist consult">
+            <defs>
+              <linearGradient id="careGradient" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#d12630"/>
+                <stop offset="0.55" stop-color="#e99e25"/>
+                <stop offset="1" stop-color="#187c8f"/>
+              </linearGradient>
+            </defs>
+            <rect x="28" y="42" width="304" height="156" rx="24" fill="#fff" stroke="#aebbd2" stroke-width="3"/>
+            <circle cx="96" cy="120" r="42" fill="#eef4fb" stroke="#243770" stroke-width="3"/>
+            <path d="M76 119h40M96 99v40" stroke="#d12630" stroke-width="9" stroke-linecap="round"/>
+            <path d="M142 120h78" stroke="url(#careGradient)" stroke-width="10" stroke-linecap="round"/>
+            <path d="M207 99l29 21-29 21" fill="none" stroke="#187c8f" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="264" cy="120" r="39" fill="#fff7ea" stroke="#e99e25" stroke-width="3"/>
+            <path d="M248 120c0-16 32-16 32 0 0 18-32 18-32 0Z" fill="none" stroke="#7561a8" stroke-width="5"/>
+            <circle cx="264" cy="120" r="8" fill="#7561a8"/>
+            <rect x="68" y="174" width="224" height="18" rx="9" fill="#eef4fb"/>
+            <circle cx="84" cy="183" r="5" fill="#d12630"/>
+            <circle cx="180" cy="183" r="5" fill="#e99e25"/>
+            <circle cx="276" cy="183" r="5" fill="#187c8f"/>
+            <text x="180" y="32" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="16" font-weight="800">Choice before treatment</text>
+          </svg>
+          <div class="visual-caption">
+            <b>Intervention prompt</b>
+            <span>Pharmacy staff asked eligible patients whether they had discussed fertility preservation with a reproductive endocrinologist.</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Patients screened</span>
+          <strong>1,763</strong>
+          <em>New-to-therapy cancer patients receiving gonadotoxic treatment.</em>
+        </article>
+        <article class="metric-card">
+          <span>Consult completed</span>
+          <strong>17<small>%</small></strong>
+          <em>Reported a fertility specialist consultation.</em>
+        </article>
+        <article class="metric-card">
+          <span>No discussion</span>
+          <strong>21<small>%</small></strong>
+          <em>Stated their oncologist had not discussed it with them.</em>
+        </article>
+        <article class="metric-card">
+          <span>Not necessary</span>
+          <strong>61<small>%</small></strong>
+          <em>Felt a fertility preservation conversation was not needed.</em>
+        </article>
+      </section>
+
+      <section class="conversation-board">
+        <article class="panel donut-panel">
+          <div>
+            <p class="section-label">Response pattern</p>
+            <h2>Most patients declined the need, but one in five flagged an awareness gap.</h2>
+          </div>
+          <div class="donut-wrap" aria-label="Response distribution: 61% not necessary, 21% no, 17% yes">
+            <svg viewBox="0 0 220 220" aria-hidden="true">
+              <circle cx="110" cy="110" r="78" fill="none" stroke="#edf2f8" stroke-width="34"/>
+              <circle cx="110" cy="110" r="78" fill="none" stroke="#187c8f" stroke-width="34" stroke-dasharray="299 491" stroke-dashoffset="0"/>
+              <circle cx="110" cy="110" r="78" fill="none" stroke="#e99e25" stroke-width="34" stroke-dasharray="103 491" stroke-dashoffset="-304"/>
+              <circle cx="110" cy="110" r="78" fill="none" stroke="#d12630" stroke-width="34" stroke-dasharray="83 491" stroke-dashoffset="-412"/>
+            </svg>
+            <div class="donut-center">
+              <div>
+                <strong>1,763</strong>
+                <span>Total asked about fertility preservation</span>
+              </div>
+            </div>
+          </div>
+          <div class="response-list">
+            <div class="response-row" style="--row-color: var(--teal);">
+              <span class="response-dot"></span>
+              <b>Not Necessary</b>
+              <span>61%</span>
+            </div>
+            <div class="response-row" style="--row-color: var(--gold);">
+              <span class="response-dot"></span>
+              <b>No prior discussion</b>
+              <span>21%</span>
+            </div>
+            <div class="response-row" style="--row-color: var(--red);">
+              <span class="response-dot"></span>
+              <b>Yes, specialist consult</b>
+              <span>17%</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Age distribution by response</p>
+          <h2>The consultation and missed-discussion groups skewed toward ages 15-39.</h2>
+          <div class="age-heatmap" style="--heat: 209, 38, 48;" role="table" aria-label="Response by age range">
+            <div class="heat-row header" role="row">
+              <span></span>
+              <span>0-14</span>
+              <span>15-39</span>
+              <span>40-44</span>
+              <span>45-50</span>
+            </div>
+            <div class="heat-row" role="row">
+              <span class="label">Yes</span>
+              <span class="heat-low">5%</span>
+              <span class="heat-high">58%</span>
+              <span class="heat-low">17%</span>
+              <span class="heat-mid">20%</span>
+            </div>
+            <div class="heat-row" role="row" style="--heat: 233, 158, 37;">
+              <span class="label">No</span>
+              <span class="heat-low">6%</span>
+              <span class="heat-high">48%</span>
+              <span class="heat-mid">19%</span>
+              <span class="heat-mid">27%</span>
+            </div>
+            <div class="heat-row" role="row" style="--heat: 24, 124, 143;">
+              <span class="label">Not Necessary</span>
+              <span class="heat-low">13%</span>
+              <span class="heat-mid">27%</span>
+              <span class="heat-mid">20%</span>
+              <span class="heat-high">40%</span>
+            </div>
+            <div class="heat-row" role="row" style="--heat: 117, 97, 168;">
+              <span class="label">Average</span>
+              <span class="heat-low">10%</span>
+              <span class="heat-high">37%</span>
+              <span class="heat-mid">19%</span>
+              <span class="heat-mid">34%</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Evidence flow</p>
+        <h2>How the pharmacy intervention turned eligibility into a time-sensitive counseling prompt</h2>
+        <div class="pathway" aria-label="Study and intervention flow">
+          <article class="path-step" data-step="1">
+            <h3>Identify risk</h3>
+            <p>Patients were new to oncology therapy, younger than 50, and receiving treatment with gonadotoxic potential.</p>
+          </article>
+          <article class="path-step" data-step="2">
+            <h3>Ask directly</h3>
+            <p>The prompt introduced reproductive endocrinologists and asked whether fertility preservation had been discussed.</p>
+          </article>
+          <article class="path-step" data-step="3">
+            <h3>Capture response</h3>
+            <p>Responses were grouped as Yes, No, or Not Necessary to quantify uptake and unmet counseling opportunity.</p>
+          </article>
+          <article class="path-step" data-step="4">
+            <h3>Route if needed</h3>
+            <p>Patients answering No were directed to schedule a consult quickly, including virtual options through the Walgreens App.</p>
+          </article>
+          <article class="path-step" data-step="5">
+            <h3>Assess value</h3>
+            <p>The poster frames pharmacy teams as an added resource for awareness, risk counseling, and financial assistance navigation.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel callout-panel">
+        <div class="callout-number">
+          <strong>377</strong>
+          <span>patients said their oncologist had not discussed fertility preservation.</span>
+        </div>
+        <ul class="insight-list">
+          <li>ASCO and NCCN recommend offering fertility preservation services before oncologic treatment begins.</li>
+          <li>The intervention was designed to preserve patient choice without delaying cancer treatment.</li>
+          <li>Future evaluation can measure understanding, engagement in reproductive risk counseling, outcomes, and satisfaction.</li>
+        </ul>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel markdown-fragment">
+          <p class="section-label">Objective</p>
+          <h2>Measure utilization and awareness creation</h2>
+          <p>The study aimed to understand use of the Connected Care Oncology Fertility Preservation intervention among eligible newly diagnosed or new-to-therapy cancer patients.</p>
+          <p>Future work will assess whether the intervention improves understanding of fertility preservation options, counseling engagement, patient outcomes, and satisfaction.</p>
+        </article>
+        <article class="panel markdown-fragment">
+          <p class="section-label">Conclusion</p>
+          <h2>Pharmacy teams can reinforce fertility preservation counseling.</h2>
+          <p>The findings support prior evidence that opportunities remain to counsel oncology patients on fertility preservation options.</p>
+          <p>Pharmacists may help identify eligible patients, educate on reproductive risk and medication effects, and connect patients to resources that reduce barriers.</p>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Extracted table patterns">
+        <article class="table-card">
+          <p class="section-label">Table pattern</p>
+          <h3>Overall intervention response</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Percentage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Yes</td>
+                  <td>17%</td>
+                </tr>
+                <tr>
+                  <td>No</td>
+                  <td>21%</td>
+                </tr>
+                <tr>
+                  <td>Not Necessary</td>
+                  <td>61%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+        <article class="table-card">
+          <p class="section-label">Table pattern</p>
+          <h3>Response by age range</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Response</th>
+                  <th>0-14</th>
+                  <th>15-39</th>
+                  <th>40-44</th>
+                  <th>45-50</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Yes</td>
+                  <td>5%</td>
+                  <td>58%</td>
+                  <td>17%</td>
+                  <td>20%</td>
+                </tr>
+                <tr>
+                  <td>No</td>
+                  <td>6%</td>
+                  <td>48%</td>
+                  <td>19%</td>
+                  <td>27%</td>
+                </tr>
+                <tr>
+                  <td>Not Necessary</td>
+                  <td>13%</td>
+                  <td>27%</td>
+                  <td>20%</td>
+                  <td>40%</td>
+                </tr>
+                <tr>
+                  <td>Average</td>
+                  <td>10%</td>
+                  <td>37%</td>
+                  <td>19%</td>
+                  <td>34%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <footer class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/2102-PSP83-EN-Poster-AM25v2_2025.pdf">Open source PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/2102-PSP83-EN-Poster-AM25v2_2025.md">Open extracted markdown</a>
+        <a class="button-link" href="#top">Back to top</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

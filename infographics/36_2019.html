@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CGRP Patient Education Sessions | NASP 2019</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .education-hero-art {
+      position: relative;
+      display: grid;
+      place-items: center;
+      min-height: 12.8rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 17% 17%, rgba(209, 38, 48, 0.12), transparent 5.6rem),
+        radial-gradient(circle at 84% 78%, rgba(24, 124, 143, 0.14), transparent 6rem),
+        linear-gradient(135deg, #ffffff 0%, #eef4fb 100%);
+      overflow: hidden;
+    }
+    .education-hero-art svg {
+      width: min(100%, 21rem);
+      height: auto;
+    }
+    .gain-board {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+    .gain-row {
+      display: grid;
+      grid-template-columns: 10.2rem minmax(0, 1fr) 4.2rem;
+      gap: 0.65rem;
+      align-items: center;
+    }
+    .gain-label {
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .gain-track {
+      position: relative;
+      display: grid;
+      gap: 0.22rem;
+    }
+    .gain-bar {
+      height: 0.88rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: #e9eff7;
+      overflow: hidden;
+    }
+    .gain-bar i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+    }
+    .gain-bar.pre i {
+      background: linear-gradient(90deg, var(--purple), var(--teal));
+    }
+    .gain-bar.post i {
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .gain-value {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 900;
+      text-align: right;
+    }
+    .gain-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 0.55rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 820;
+    }
+    .gain-legend span::before {
+      content: "";
+      display: inline-block;
+      width: 0.75rem;
+      height: 0.75rem;
+      margin-right: 0.3rem;
+      border-radius: 50%;
+      vertical-align: -0.1rem;
+      background: linear-gradient(90deg, var(--purple), var(--teal));
+    }
+    .gain-legend span:last-child::before {
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .curriculum {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.8rem;
+    }
+    .curriculum-step {
+      position: relative;
+      min-height: 10.4rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.72rem;
+      overflow: hidden;
+    }
+    .curriculum-step::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 0.32rem;
+      background: var(--accent, var(--red));
+    }
+    .curriculum-step:nth-child(2) { --accent: var(--gold); }
+    .curriculum-step:nth-child(3) { --accent: var(--teal); }
+    .curriculum-step:nth-child(4) { --accent: var(--green); }
+    .curriculum-step:nth-child(5) { --accent: var(--purple); }
+    .curriculum-step strong {
+      display: inline-grid;
+      place-items: center;
+      width: 2rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.86rem;
+      font-weight: 900;
+    }
+    .curriculum-step h3 {
+      margin-top: 0.58rem;
+      font-size: 0.92rem;
+    }
+    .curriculum-step p {
+      margin: 0.38rem 0 0;
+      font-size: 0.78rem;
+    }
+    .delivery-map {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 0.75rem;
+      align-items: stretch;
+      margin-top: 0.75rem;
+    }
+    .delivery-card {
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.8rem;
+    }
+    .delivery-card strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2.05rem;
+      line-height: 1;
+    }
+    .delivery-card span {
+      display: block;
+      margin-top: 0.28rem;
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 840;
+    }
+    .delivery-bridge {
+      display: grid;
+      place-items: center;
+      color: var(--ink);
+    }
+    .delivery-bridge svg {
+      width: 4.4rem;
+      height: auto;
+    }
+    .study-line {
+      width: 100%;
+      height: auto;
+      margin-top: 0.7rem;
+    }
+    .profile-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.62rem;
+      margin-top: 0.72rem;
+    }
+    .profile-tile {
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.65rem;
+    }
+    .profile-tile b {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.48rem;
+      line-height: 1;
+    }
+    .profile-tile span {
+      display: block;
+      margin-top: 0.22rem;
+      color: var(--body);
+      font-size: 0.73rem;
+      font-weight: 780;
+    }
+    .equivalence-panel {
+      border-left: 5px solid var(--teal);
+      background: linear-gradient(90deg, rgba(24, 124, 143, 0.08), rgba(255, 255, 255, 0));
+    }
+    .small-note {
+      margin: 0.5rem 0 0;
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+    .callout-strip {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: center;
+      border: 1px solid rgba(36, 55, 112, 0.2);
+      border-radius: 8px;
+      background:
+        linear-gradient(90deg, rgba(209, 38, 48, 0.08), rgba(233, 158, 37, 0.08)),
+        #fff;
+      padding: 1rem;
+    }
+    .recommend-badge {
+      display: grid;
+      place-items: center;
+      width: 7rem;
+      aspect-ratio: 1;
+      border: 2px solid rgba(209, 38, 48, 0.34);
+      border-radius: 50%;
+      background: #fff;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 900;
+      line-height: 1;
+      text-align: center;
+    }
+    .recommend-badge small {
+      display: block;
+      margin-top: 0.2rem;
+      color: var(--muted);
+      font-family: var(--font-body);
+      font-size: 0.58rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .source-card .footer-actions {
+      padding-top: 0.75rem;
+      border-top: 0;
+    }
+    @media (max-width: 900px) {
+      .curriculum,
+      .delivery-map,
+      .profile-grid,
+      .callout-strip {
+        grid-template-columns: 1fr;
+      }
+      .delivery-bridge {
+        min-height: 2.6rem;
+      }
+      .delivery-bridge svg {
+        transform: rotate(90deg);
+      }
+    }
+    @media (max-width: 560px) {
+      .gain-row {
+        grid-template-columns: 1fr;
+      }
+      .gain-value {
+        text-align: left;
+      }
+      .curriculum-step {
+        min-height: auto;
+      }
+      .recommend-badge {
+        width: 5.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar" aria-label="Infographic navigation">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav>
+        <a href="#methods">Methods</a>
+        <a href="#results">Results</a>
+        <a href="#conclusion">Conclusion</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/36_2019.pdf">PDF source</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/36_2019.md">Markdown source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2019 Annual Meeting &amp; Expo</p>
+        <h1>Impact of Multidisciplinary Patient Education Sessions on Expectations and Understanding of New CGRP Treatments</h1>
+        <p class="hero-summary">Wake Forest Baptist Health evaluated whether a neurologist plus specialty pharmacist education model could help patients understand new CGRP migraine prevention therapies while reducing repetitive provider education burden.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Patient education</li>
+          <li class="tag therapy">Migraine prevention</li>
+          <li class="tag therapy">CGRP treatments</li>
+          <li class="tag">Specialty pharmacy</li>
+        </ul>
+      </div>
+      <aside class="hero-card">
+        <div>
+          <p class="section-label">Poster file</p>
+          <div class="poster-code">36_2019</div>
+        </div>
+        <div class="education-hero-art" aria-hidden="true">
+          <svg viewBox="0 0 360 230" role="img">
+            <defs>
+              <linearGradient id="brainGrad" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#d12630"/>
+                <stop offset="0.52" stop-color="#e99e25"/>
+                <stop offset="1" stop-color="#187c8f"/>
+              </linearGradient>
+              <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="10" stdDeviation="8" flood-color="#243770" flood-opacity="0.16"/>
+              </filter>
+            </defs>
+            <rect x="30" y="42" width="300" height="146" rx="18" fill="#fff" stroke="#aebbd2" filter="url(#softShadow)"/>
+            <path d="M97 125c-20-11-24-43-2-58 6-24 43-27 55-7 19-12 45 0 45 23 23 2 36 27 22 46 13 19-6 45-29 38-14 21-49 13-53-12-18 9-39-8-38-30z" fill="#eef4fb" stroke="#243770" stroke-width="5" stroke-linejoin="round"/>
+            <path d="M119 83c17 12 4 30 22 42m26-44c-15 13-8 30-23 42m-34 25c17-9 36-2 54-17m22-23c-18 1-31 3-45-7" fill="none" stroke="url(#brainGrad)" stroke-width="6" stroke-linecap="round"/>
+            <circle cx="256" cy="78" r="22" fill="#d12630"/>
+            <path d="M246 78h20m-10-10v20" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+            <rect x="231" y="124" width="56" height="30" rx="15" fill="#187c8f"/>
+            <path d="M244 139h30" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+            <circle cx="69" cy="165" r="10" fill="#e99e25"/>
+            <circle cx="306" cy="48" r="8" fill="#7561a8"/>
+          </svg>
+        </div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Education mode</dt>
+            <dd>Live and online</dd>
+          </div>
+          <div>
+            <dt>Data through</dt>
+            <dd>May 2019</dd>
+          </div>
+          <div>
+            <dt>Institution</dt>
+            <dd>Wake Forest Baptist Health</dd>
+          </div>
+          <div>
+            <dt>IRB</dt>
+            <dd>Approved</dd>
+          </div>
+        </dl>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Total participants</span>
+          <strong>84</strong>
+        </article>
+        <article class="metric-card">
+          <span>Completed pre/post surveys</span>
+          <strong>71</strong>
+        </article>
+        <article class="metric-card">
+          <span>Confident in understanding</span>
+          <strong>97%</strong>
+        </article>
+        <article class="metric-card">
+          <span>Would recommend session</span>
+          <strong>97%</strong>
+        </article>
+      </section>
+
+      <section class="visual-grid" id="methods">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Turn a new drug class into a shared patient learning experience</h2>
+          <div class="markdown-fragment">
+            <p>New calcitonin gene-related peptide antagonist therapies created demand for efficient patient education around expectations, administration, access, and safety.</p>
+            <p>The team developed a patient-oriented multidisciplinary presentation led by headache medicine and specialty pharmacy clinicians.</p>
+          </div>
+          <div class="delivery-map" aria-label="Education delivery modes">
+            <div class="delivery-card">
+              <strong>41</strong>
+              <span>patients attended one of three live 1-hour sessions in Oct-Nov 2018</span>
+            </div>
+            <div class="delivery-bridge" aria-hidden="true">
+              <svg viewBox="0 0 120 54">
+                <path d="M10 27h82" fill="none" stroke="#243770" stroke-width="8" stroke-linecap="round"/>
+                <path d="M78 10l28 17-28 17" fill="none" stroke="#d12630" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="delivery-card">
+              <strong>43</strong>
+              <span>patients viewed the recorded session online or in clinic beginning Feb 2019</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Multidisciplinary format</p>
+          <h2>The curriculum paired clinical context with access logistics</h2>
+          <svg class="study-line" viewBox="0 0 640 190" role="img" aria-label="Neurologist and specialty pharmacist co-led education session">
+            <defs>
+              <linearGradient id="teamGrad" x1="0" x2="1" y1="0" y2="0">
+                <stop offset="0" stop-color="#d12630"/>
+                <stop offset="0.52" stop-color="#e99e25"/>
+                <stop offset="1" stop-color="#187c8f"/>
+              </linearGradient>
+            </defs>
+            <rect x="18" y="28" width="604" height="132" rx="18" fill="#eef4fb" stroke="#aebbd2"/>
+            <circle cx="122" cy="92" r="38" fill="#fff" stroke="#243770" stroke-width="5"/>
+            <path d="M103 100c10-28 28-28 38 0M107 82h30" stroke="#d12630" stroke-width="6" stroke-linecap="round"/>
+            <circle cx="518" cy="92" r="38" fill="#fff" stroke="#243770" stroke-width="5"/>
+            <path d="M498 91h40M518 71v40" stroke="#187c8f" stroke-width="6" stroke-linecap="round"/>
+            <line x1="178" y1="92" x2="462" y2="92" stroke="url(#teamGrad)" stroke-width="10" stroke-linecap="round"/>
+            <circle cx="320" cy="92" r="27" fill="#fff" stroke="#243770" stroke-width="5"/>
+            <path d="M309 93l8 8 16-20" fill="none" stroke="#4d8a67" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="67" y="151" fill="#243770" font-family="Inter, Arial" font-size="14" font-weight="900">Neurology</text>
+            <text x="277" y="151" fill="#243770" font-family="Inter, Arial" font-size="14" font-weight="900">Shared session</text>
+            <text x="452" y="151" fill="#243770" font-family="Inter, Arial" font-size="14" font-weight="900">Specialty pharmacy</text>
+          </svg>
+          <p class="small-note">Patients could fill at the institution's specialty pharmacy, which helped with benefits investigation and prior authorization.</p>
+        </article>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Education content</p>
+        <h2>Five practical topics moved patients from mechanism to medication access</h2>
+        <div class="curriculum" aria-label="Session topics">
+          <article class="curriculum-step">
+            <strong>1</strong>
+            <h3>Treatment options</h3>
+            <p>Migraine prevention choices and the overall approach to therapy selection.</p>
+          </article>
+          <article class="curriculum-step">
+            <strong>2</strong>
+            <h3>CGRP biology</h3>
+            <p>How CGRP pathophysiology connects to the new medication class.</p>
+          </article>
+          <article class="curriculum-step">
+            <strong>3</strong>
+            <h3>Benefits and risks</h3>
+            <p>Expected benefit, adverse effects, and pregnancy-related precautions.</p>
+          </article>
+          <article class="curriculum-step">
+            <strong>4</strong>
+            <h3>Injection technique</h3>
+            <p>Subcutaneous administration training to build self-injection comfort.</p>
+          </article>
+          <article class="curriculum-step">
+            <strong>5</strong>
+            <h3>Cost and access</h3>
+            <p>Coverage, prior authorization, medication access, and fulfillment logistics.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel" id="results">
+        <p class="section-label">Pre/post survey result</p>
+        <h2>Knowledge and administration confidence rose to 97% after the session</h2>
+        <div class="gain-board" aria-label="Pre and post survey response improvements">
+          <div class="gain-row">
+            <div class="gain-label">Comfortable with administration technique</div>
+            <div class="gain-track">
+              <div class="gain-bar pre"><i style="width:84%"></i></div>
+              <div class="gain-bar post"><i style="width:97%"></i></div>
+            </div>
+            <div class="gain-value">84% to 97%</div>
+          </div>
+          <div class="gain-row">
+            <div class="gain-label">Confident in CGRP understanding</div>
+            <div class="gain-track">
+              <div class="gain-bar pre"><i style="width:68%"></i></div>
+              <div class="gain-bar post"><i style="width:97%"></i></div>
+            </div>
+            <div class="gain-value">68% to 97%</div>
+          </div>
+          <div class="gain-row">
+            <div class="gain-label">Confident in monthly injection adherence</div>
+            <div class="gain-track">
+              <div class="gain-bar pre"><i style="width:98%"></i></div>
+              <div class="gain-bar post"><i style="width:100%"></i></div>
+            </div>
+            <div class="gain-value">98% to 100%</div>
+          </div>
+        </div>
+        <div class="gain-legend" aria-label="Legend">
+          <span>Pre-session</span>
+          <span>Post-session</span>
+        </div>
+        <p class="small-note">Administration technique and CGRP understanding improvements were reported as statistically significant, p&lt;0.01. Seventy-one participants completed both surveys.</p>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">Participant profile</p>
+          <h2>Participants reported high disease burden and extensive prior treatment exposure</h2>
+          <div class="profile-grid" aria-label="Baseline characteristics">
+            <div class="profile-tile"><b>49</b><span>mean age, years</span></div>
+            <div class="profile-tile"><b>18</b><span>mean monthly headache frequency</span></div>
+            <div class="profile-tile"><b>63</b><span>mean MIDAS score; &gt;21 indicates severe disability</span></div>
+            <div class="profile-tile"><b>7.3</b><span>mean prior preventive medications</span></div>
+            <div class="profile-tile"><b>2.3</b><span>mean prior supplements</span></div>
+            <div class="profile-tile"><b>5.6</b><span>mean prior integrative treatments</span></div>
+          </div>
+        </article>
+
+        <article class="panel equivalence-panel">
+          <p class="section-label">Access finding</p>
+          <h2>Online viewing performed comparably to live sessions</h2>
+          <div class="markdown-fragment">
+            <p>The poster reported no statistically significant difference between in-person and online sessions for post-session comfort with administration technique or confidence in CGRP understanding.</p>
+            <p>This made the recorded session a scalable access strategy for patients who could not attend live sessions.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="evidence-map" aria-label="Evidence flow">
+        <article class="evidence-card">
+          <h3>Need</h3>
+          <p>New CGRP treatments required efficient patient education around a novel migraine prevention class.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Build</h3>
+          <p>A neurologist and specialty pharmacist co-led one-hour informational sessions.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Extend</h3>
+          <p>The third live session was recorded for online or in-clinic viewing.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Measure</h3>
+          <p>Patients completed surveys before and after viewing the education session.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Signal</h3>
+          <p>Post-session understanding and administration comfort both reached 97%.</p>
+        </article>
+      </section>
+
+      <section class="callout-strip" id="conclusion">
+        <div>
+          <p class="section-label">Conclusion</p>
+          <h2>Multidisciplinary education improved patient knowledge while preserving access through an online option.</h2>
+          <p>The authors concluded the education session was effective and efficient, patients felt well-informed, and future studies could evaluate effects on adherence and clinical response.</p>
+        </div>
+        <div class="recommend-badge">97%<small>would recommend</small></div>
+      </section>
+
+      <section class="tables-grid">
+        <article class="table-card">
+          <p class="section-label">Baseline table pattern</p>
+          <h3>Selected patient characteristics, n=84</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Characteristic</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Caucasian</td><td>73 (87%)</td></tr>
+                <tr><td>Commercially insured</td><td>61 (73%)</td></tr>
+                <tr><td>At least bachelor's degree</td><td>44 (52%)</td></tr>
+                <tr><td>Monthly headache frequency, mean (SD)</td><td>18 (9.2)</td></tr>
+                <tr><td>MIDAS score, mean (SD)</td><td>63 (53)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card source-card">
+          <p class="section-label">Source links</p>
+          <h3>Poster materials</h3>
+          <div class="markdown-fragment">
+            <p><strong>Authors:</strong> Alyssa Stewart; Jennifer Young; Lauren Strauss; Starla Wise; Laura Granetzke; Sandhya Kumar; Jaime Speiser; Amy Guzik; Nathaniel O'Connell; Rebecca Erwin Wells.</p>
+            <p><strong>Affiliations:</strong> Wake Forest Baptist Health departments of pharmacy, neurology, and biostatistics/data science.</p>
+          </div>
+          <div class="footer-actions">
+            <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/36_2019.pdf">Open poster PDF</a>
+            <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/36_2019.md">Open extracted markdown</a>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

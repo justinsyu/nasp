@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Development and Implementation of CPPAs | NASP 2023</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .cppa-hero-art {
+      min-height: 20rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 18% 20%, rgba(209, 38, 48, 0.15), transparent 8rem),
+        radial-gradient(circle at 82% 82%, rgba(24, 124, 143, 0.18), transparent 8rem),
+        linear-gradient(135deg, #ffffff 0%, var(--surface-blue) 56%, var(--surface-warm) 100%);
+      overflow: hidden;
+    }
+    .cppa-hero-art svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 20rem;
+    }
+    .hero-card .finding {
+      margin: 0;
+      border-left: 4px solid var(--red);
+      padding-left: 0.72rem;
+      color: var(--ink);
+      font-size: 0.94rem;
+      font-weight: 850;
+    }
+    .metric-card strong small {
+      display: inline;
+      color: inherit;
+      font-size: 0.48em;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+    .implementation-flow {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+    .flow-step {
+      position: relative;
+      min-height: 12rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.88rem;
+      overflow: hidden;
+    }
+    .flow-step::after {
+      content: attr(data-step);
+      position: absolute;
+      right: 0.5rem;
+      bottom: -0.7rem;
+      color: rgba(36, 55, 112, 0.1);
+      font-family: var(--font-display);
+      font-size: 5rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .flow-step p {
+      position: relative;
+      z-index: 1;
+      margin: 0.48rem 0 0;
+      font-size: 0.84rem;
+    }
+    .participant-stack {
+      display: grid;
+      grid-template-columns: 14fr 4fr 3fr;
+      min-height: 3.8rem;
+      margin-top: 0.75rem;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      color: #fff;
+      font-weight: 900;
+    }
+    .participant-stack div {
+      display: grid;
+      align-content: center;
+      justify-items: center;
+      padding: 0.5rem 0.25rem;
+      text-align: center;
+    }
+    .participant-stack b {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+    .participant-stack span {
+      display: block;
+      margin-top: 0.18rem;
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .participant-stack .pharmacists { background: var(--teal); }
+    .participant-stack .physicians { background: var(--red); }
+    .participant-stack .leaders { background: var(--purple); }
+    .clinic-bars {
+      display: grid;
+      gap: 0.62rem;
+      margin-top: 0.75rem;
+    }
+    .clinic-row {
+      display: grid;
+      grid-template-columns: 9.7rem minmax(0, 1fr) 6.4rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .clinic-row span:last-child {
+      color: var(--muted);
+      font-weight: 900;
+      text-align: right;
+    }
+    .dual-bar {
+      display: grid;
+      gap: 0.18rem;
+    }
+    .dual-bar i {
+      display: block;
+      height: 0.6rem;
+      border-radius: 999px;
+      background: var(--red);
+    }
+    .dual-bar i.lab {
+      background: var(--gold);
+    }
+    .clinic-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.65rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 850;
+    }
+    .clinic-legend i {
+      display: inline-block;
+      width: 0.75rem;
+      height: 0.75rem;
+      border-radius: 99px;
+      margin-right: 0.28rem;
+      vertical-align: -0.12rem;
+    }
+    .legend-med { background: var(--red); }
+    .legend-lab { background: var(--gold); }
+    .domain-ring {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.75rem;
+    }
+    .domain-chip {
+      min-height: 5.4rem;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.72rem;
+    }
+    .domain-chip b {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      line-height: 1.15;
+    }
+    .domain-chip span {
+      display: block;
+      margin-top: 0.34rem;
+      color: var(--muted);
+      font-size: 0.68rem;
+      line-height: 1.25;
+    }
+    .theme-board {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+    .theme-card {
+      position: relative;
+      min-height: 15.5rem;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.9rem;
+    }
+    .theme-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 0.34rem;
+      background: var(--accent, var(--red));
+    }
+    .theme-card:nth-child(2) { --accent: var(--gold); }
+    .theme-card:nth-child(3) { --accent: var(--teal); }
+    .theme-card:nth-child(4) { --accent: var(--purple); }
+    .theme-card p {
+      margin: 0.55rem 0 0;
+      font-size: 0.82rem;
+    }
+    .theme-card blockquote {
+      margin: 0.72rem 0 0;
+      border-left: 3px solid rgba(36, 55, 112, 0.22);
+      padding-left: 0.58rem;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .takeaway-panel {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(24, 124, 143, 0.12), transparent 42%),
+        #fff;
+    }
+    .takeaway-panel p {
+      max-width: 64rem;
+      margin: 0;
+      color: var(--ink);
+      font-size: 1.04rem;
+      font-weight: 850;
+    }
+    @media (max-width: 900px) {
+      .implementation-flow,
+      .theme-board,
+      .domain-ring {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 640px) {
+      .implementation-flow,
+      .theme-board,
+      .domain-ring {
+        grid-template-columns: 1fr;
+      }
+      .clinic-row {
+        grid-template-columns: 1fr;
+      }
+      .clinic-row span:last-child {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar" aria-label="Infographic navigation">
+      <a class="brand" href="../index.html">NASP Posters</a>
+      <nav>
+        <a href="#methods">Methods</a>
+        <a href="#results">Results</a>
+        <a href="#themes">Themes</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Poster 55 | NASP 2023 | Vanderbilt University Medical Center</p>
+        <h1>Collaborative pharmacy practice agreements embedded into specialty clinics</h1>
+        <p class="hero-summary">A qualitative analysis of how an integrated health system specialty pharmacy developed and implemented CPPAs using the Consolidated Framework for Implementation Research.</p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Qualitative study</li>
+          <li class="tag therapy">Integrated specialty pharmacy</li>
+          <li class="tag">CFIR-guided coding</li>
+          <li class="tag">Clinic implementation</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Primary conclusion">
+        <div class="poster-code">55</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Year</dt>
+            <dd>2023</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>IHSSP</dd>
+          </div>
+          <div>
+            <dt>Framework</dt>
+            <dd>CFIR</dd>
+          </div>
+          <div>
+            <dt>Focus</dt>
+            <dd>CPPA adoption</dd>
+          </div>
+        </dl>
+        <p class="finding">Implementation was viewed as improving quality and efficiency of patient care and was favorably accepted by clinic staff.</p>
+      </aside>
+    </section>
+
+    <main>
+      <section class="visual-grid" aria-labelledby="objective-title">
+        <div class="panel">
+          <p class="section-label">Objective</p>
+          <h2 id="objective-title">Explain what made CPPA implementation work</h2>
+          <p>Investigators described development and implementation of collaborative pharmacy practice agreements within an integrated health system specialty pharmacy, emphasizing how clinic-embedded pharmacists fit into existing care workflows.</p>
+          <div class="number-cloud" aria-label="Study snapshot">
+            <div class="number-pill">6<small>clinics</small></div>
+            <div class="number-pill">21<small>participants</small></div>
+            <div class="number-pill">5<small>CFIR domains</small></div>
+            <div class="number-pill">4<small>themes</small></div>
+          </div>
+        </div>
+        <div class="cppa-hero-art" aria-label="Integrated clinic CPPA model illustration">
+          <svg viewBox="0 0 520 320" role="img" aria-labelledby="svg-title svg-desc">
+            <title id="svg-title">Integrated clinic CPPA model</title>
+            <desc id="svg-desc">A central CPPA agreement connecting pharmacists, physicians, clinics, and patient care actions.</desc>
+            <defs>
+              <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#243770" flood-opacity="0.14"/>
+              </filter>
+            </defs>
+            <rect x="70" y="52" width="380" height="216" rx="22" fill="#ffffff" stroke="#aebbd2"/>
+            <path d="M116 104 H404 M116 160 H404 M116 216 H404" stroke="#d9e1ef" stroke-width="3"/>
+            <circle cx="260" cy="160" r="58" fill="#eef4fb" stroke="#243770" stroke-width="3" filter="url(#shadow)"/>
+            <text x="260" y="150" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial" font-size="26" font-weight="900">CPPA</text>
+            <text x="260" y="174" text-anchor="middle" fill="#68758d" font-family="Inter, Arial" font-size="13" font-weight="800">shared authority</text>
+            <g fill="#ffffff" stroke-width="3" filter="url(#shadow)">
+              <circle cx="116" cy="104" r="34" stroke="#187c8f"/>
+              <circle cx="404" cy="104" r="34" stroke="#d12630"/>
+              <circle cx="116" cy="216" r="34" stroke="#e99e25"/>
+              <circle cx="404" cy="216" r="34" stroke="#7561a8"/>
+            </g>
+            <g font-family="Montserrat, Arial" font-size="12" font-weight="900" text-anchor="middle">
+              <text x="116" y="101" fill="#187c8f">Pharmacy</text>
+              <text x="116" y="116" fill="#187c8f">team</text>
+              <text x="404" y="101" fill="#d12630">Physician</text>
+              <text x="404" y="116" fill="#d12630">champions</text>
+              <text x="116" y="213" fill="#e99e25">Clinic</text>
+              <text x="116" y="228" fill="#e99e25">workflow</text>
+              <text x="404" y="213" fill="#7561a8">Patient</text>
+              <text x="404" y="228" fill="#7561a8">access</text>
+            </g>
+            <g stroke="#243770" stroke-width="4" stroke-linecap="round" opacity="0.72">
+              <path d="M151 104 C188 110 205 128 220 144"/>
+              <path d="M369 104 C332 110 315 128 300 144"/>
+              <path d="M151 216 C188 210 205 192 220 176"/>
+              <path d="M369 216 C332 210 315 192 300 176"/>
+            </g>
+            <g fill="#d12630">
+              <circle cx="259" cy="52" r="6"/>
+              <circle cx="452" cy="159" r="6"/>
+              <circle cx="260" cy="268" r="6"/>
+              <circle cx="68" cy="160" r="6"/>
+            </g>
+          </svg>
+        </div>
+      </section>
+
+      <section class="metric-strip" id="results" aria-label="Key metrics">
+        <div class="metric-card">
+          <span>Medication orders</span>
+          <strong>2,388</strong>
+        </div>
+        <div class="metric-card">
+          <span>Laboratory orders</span>
+          <strong>764</strong>
+        </div>
+        <div class="metric-card">
+          <span>Total orders captured</span>
+          <strong>3,152</strong>
+        </div>
+        <div class="metric-card">
+          <span>Average CPPA age</span>
+          <strong>8.5<small> mo</small></strong>
+        </div>
+      </section>
+
+      <section class="visual-grid" aria-labelledby="clinic-title">
+        <div class="panel">
+          <p class="section-label">Clinic order pattern</p>
+          <h2 id="clinic-title">Medication activity was broad; lab ordering concentrated in three clinics</h2>
+          <div class="clinic-bars">
+            <div class="clinic-row">
+              <b>Multiple Sclerosis</b>
+              <div class="dual-bar"><i style="width:100%"></i><i class="lab" style="width:64%"></i></div>
+              <span>803 med | 512 lab</span>
+            </div>
+            <div class="clinic-row">
+              <b>Cystic Fibrosis</b>
+              <div class="dual-bar"><i style="width:89%"></i><i class="lab" style="width:0%"></i></div>
+              <span>717 med | 0 lab</span>
+            </div>
+            <div class="clinic-row">
+              <b>Neurology</b>
+              <div class="dual-bar"><i style="width:47%"></i><i class="lab" style="width:0%"></i></div>
+              <span>374 med | 0 lab</span>
+            </div>
+            <div class="clinic-row">
+              <b>Hemophilia</b>
+              <div class="dual-bar"><i style="width:36%"></i><i class="lab" style="width:0%"></i></div>
+              <span>292 med | 0 lab</span>
+            </div>
+            <div class="clinic-row">
+              <b>Hepatology</b>
+              <div class="dual-bar"><i style="width:14%"></i><i class="lab" style="width:21%"></i></div>
+              <span>111 med | 169 lab</span>
+            </div>
+            <div class="clinic-row">
+              <b>Infectious Diseases</b>
+              <div class="dual-bar"><i style="width:11%"></i><i class="lab" style="width:10%"></i></div>
+              <span>91 med | 83 lab</span>
+            </div>
+          </div>
+          <div class="clinic-legend">
+            <span><i class="legend-med"></i>Medication orders at 6 months</span>
+            <span><i class="legend-lab"></i>Laboratory orders at 6 months</span>
+          </div>
+        </div>
+        <div class="panel">
+          <p class="section-label">Interview sample</p>
+          <h2>Clinic-embedded perspectives drove the analysis</h2>
+          <p>Focus groups included IHSSP leadership and clinical pharmacists; semi-structured interviews included physician champions involved in CPPA development and implementation.</p>
+          <div class="participant-stack" aria-label="Participant mix">
+            <div class="pharmacists"><b>14</b><span>clinical pharmacists</span></div>
+            <div class="physicians"><b>4</b><span>physician champions</span></div>
+            <div class="leaders"><b>3</b><span>IHSSP leaders</span></div>
+          </div>
+          <div class="number-cloud" aria-label="CPPA duration range">
+            <div class="number-pill">5-14.5<small>months active</small></div>
+            <div class="number-pill">30<small>minute sessions</small></div>
+            <div class="number-pill">2<small>coders</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="methods" aria-labelledby="methods-title">
+        <p class="section-label">Methods flow</p>
+        <h2 id="methods-title">Criterion sampling, semi-structured collection, deductive CFIR coding</h2>
+        <div class="implementation-flow">
+          <div class="flow-step" data-step="01">
+            <h3>Recruit implementation insiders</h3>
+            <p>All clinical pharmacists, IHSSP leaders, and physician champions involved in CPPA implementation were recruited regardless of data saturation.</p>
+          </div>
+          <div class="flow-step" data-step="02">
+            <h3>Capture structured narratives</h3>
+            <p>Two study team members conducted focus groups and interviews using a semi-structured guide developed from CFIR domains.</p>
+          </div>
+          <div class="flow-step" data-step="03">
+            <h3>Map experience to CFIR</h3>
+            <p>Recordings were transcribed from Microsoft Teams and deductively coded by two researchers in Dedoose.</p>
+          </div>
+        </div>
+        <div class="domain-ring" aria-label="CFIR implementation domains">
+          <div class="domain-chip"><b>Intervention characteristics</b><span>Relative advantage, complexity, adaptability, cost.</span></div>
+          <div class="domain-chip"><b>Outer setting</b><span>Patient needs, external policies, peer pressure.</span></div>
+          <div class="domain-chip"><b>Inner setting</b><span>Culture, compatibility, priority, leadership engagement.</span></div>
+          <div class="domain-chip"><b>Individuals</b><span>Beliefs, knowledge, self-efficacy, attributes.</span></div>
+          <div class="domain-chip"><b>Process</b><span>Planning, executing, evaluating, champions.</span></div>
+        </div>
+      </section>
+
+      <section class="panel" id="themes" aria-labelledby="themes-title">
+        <p class="section-label">Identified themes</p>
+        <h2 id="themes-title">The qualitative signal centered on fit, acceptance, and support</h2>
+        <div class="theme-board">
+          <article class="theme-card">
+            <h3>Patient care</h3>
+            <p>Participants believed CPPAs shortened the path from treatment decision to specialty medication access and reduced repeated provider outreach.</p>
+            <blockquote>"It helped us get the patient the drug sooner."</blockquote>
+          </article>
+          <article class="theme-card">
+            <h3>Acceptability</h3>
+            <p>Clinics accepted pharmacist ordering and prescribing support as a practical extension of specialty medication management.</p>
+            <blockquote>"Universally accepted by our group."</blockquote>
+          </article>
+          <article class="theme-card">
+            <h3>Compatibility</h3>
+            <p>Existing pharmacist-physician relationships made CPPAs feel like an added authorization layer rather than a disruptive redesign.</p>
+            <blockquote>"I was already very actively engaging and relying on a pharmacist."</blockquote>
+          </article>
+          <article class="theme-card">
+            <h3>Implementation support</h3>
+            <p>Leadership, clinic leads, and resident support helped clinics handle logistics, education, and setup work.</p>
+            <blockquote>"It would have been hard to do."</blockquote>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel takeaway-panel" aria-labelledby="conclusion-title">
+        <p class="section-label">Conclusion</p>
+        <h2 id="conclusion-title">Integrated specialty pharmacy structure made CPPA adoption easier</h2>
+        <p>Because pharmacists and pharmacy technicians were already embedded in clinics to manage specialty medications, CPPAs could be integrated into established workflows while improving perceived quality, efficiency, and team acceptance.</p>
+      </section>
+
+      <section class="tables-grid" aria-label="Source data tables">
+        <div class="table-card">
+          <h3>Clinic demographics</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Clinic</th>
+                  <th>CPPA length</th>
+                  <th>Medication</th>
+                  <th>Lab</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Multiple Sclerosis</td><td>14.5 mo</td><td>803</td><td>512</td></tr>
+                <tr><td>Infectious Diseases</td><td>13 mo</td><td>91</td><td>83</td></tr>
+                <tr><td>Hepatology</td><td>7 mo</td><td>111</td><td>169</td></tr>
+                <tr><td>Hemophilia</td><td>6 mo</td><td>292</td><td>0</td></tr>
+                <tr><td>Neurology</td><td>5.5 mo</td><td>374</td><td>0</td></tr>
+                <tr><td>Cystic Fibrosis</td><td>5 mo</td><td>717</td><td>0</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="table-card">
+          <h3>Participant demographics</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Participant type</th>
+                  <th>Number</th>
+                  <th>Share</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Clinical specialty pharmacists</td><td>14</td><td>67%</td></tr>
+                <tr><td>Physician champions</td><td>4</td><td>19%</td></tr>
+                <tr><td>IHSSP leadership</td><td>3</td><td>14%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer-actions" id="sources">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/55_Development-and-Implementation-of-Collaborative-Pharmacy-Practice-Agreements-in-an-Integrated-Health-System-Specialty-Pharmacy-A-Qualitative-Analysis_2023.pdf">Source PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/55_Development-and-Implementation-of-Collaborative-Pharmacy-Practice-Agreements-in-an-Integrated-Health-System-Specialty-Pharmacy-A-Qualitative-Analysis_2023.md">Source Markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

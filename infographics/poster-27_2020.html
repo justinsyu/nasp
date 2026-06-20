@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Provider Satisfaction After Clinically Integrated Specialty Pharmacy Services | NASP 2020</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -2.5rem -2rem auto auto;
+      width: 14rem;
+      height: 14rem;
+      border: 1.5rem solid rgba(24, 124, 143, 0.12);
+      border-radius: 50%;
+    }
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: 1.2rem;
+      bottom: 1rem;
+      width: 6.5rem;
+      height: 6.5rem;
+      border: 0.8rem solid rgba(209, 38, 48, 0.09);
+      border-radius: 50%;
+    }
+    .hero-card > * {
+      position: relative;
+      z-index: 1;
+    }
+    .clinic-map {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 0.35rem;
+      margin-top: 0.4rem;
+    }
+    .clinic-node {
+      display: grid;
+      place-items: center;
+      min-height: 2.4rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.82);
+      color: var(--teal);
+      font-family: var(--font-display);
+      font-weight: 900;
+    }
+    .metric-card strong small {
+      color: var(--red);
+      font-size: 0.8rem;
+    }
+    .metric-card em {
+      display: block;
+      margin-top: 0.34rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-style: normal;
+      font-weight: 760;
+      line-height: 1.35;
+    }
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.8rem;
+      position: relative;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 2.1rem;
+      left: 12%;
+      right: 12%;
+      height: 0.34rem;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--red), var(--gold), var(--teal));
+    }
+    .timepoint {
+      position: relative;
+      display: grid;
+      gap: 0.28rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.72rem;
+      text-align: center;
+    }
+    .timepoint b {
+      display: grid;
+      place-items: center;
+      width: 3rem;
+      aspect-ratio: 1;
+      margin: 0 auto 0.2rem;
+      border: 3px solid #fff;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 1.12rem;
+      line-height: 1;
+      box-shadow: 0 0 0 1px rgba(36, 55, 112, 0.2);
+    }
+    .timepoint span {
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+    .timepoint small {
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 760;
+    }
+    .nps-board {
+      display: grid;
+      grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
+      gap: 1rem;
+      align-items: center;
+    }
+    .nps-gauge {
+      width: 100%;
+      height: auto;
+    }
+    .nps-list {
+      display: grid;
+      gap: 0.55rem;
+    }
+    .nps-row {
+      display: grid;
+      grid-template-columns: 8.3rem minmax(0, 1fr) 3.2rem;
+      gap: 0.55rem;
+      align-items: center;
+    }
+    .nps-row span {
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .nps-track {
+      position: relative;
+      height: 0.95rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(209, 38, 48, 0.16), rgba(233, 158, 37, 0.16), rgba(24, 124, 143, 0.16));
+      overflow: hidden;
+    }
+    .nps-track i {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: var(--w);
+      transform: translateX(var(--x));
+      border-radius: 999px;
+      background: var(--fill);
+    }
+    .nps-row strong {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1rem;
+      text-align: right;
+    }
+    .experience-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.8rem;
+    }
+    .experience-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.75rem;
+    }
+    .experience-card h3 {
+      min-height: 2.5rem;
+      margin-bottom: 0.6rem;
+    }
+    .score-stack {
+      display: grid;
+      gap: 0.4rem;
+    }
+    .score-row {
+      display: grid;
+      grid-template-columns: 3.4rem minmax(0, 1fr) 2.2rem;
+      gap: 0.42rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.72rem;
+      font-weight: 850;
+    }
+    .score-track {
+      height: 0.68rem;
+      border-radius: 999px;
+      background: #e7edf6;
+      overflow: hidden;
+    }
+    .score-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .score-row:first-child .score-track i {
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .participant-flow {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.8rem;
+    }
+    .participant {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.75rem;
+    }
+    .participant strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2rem;
+      line-height: 1;
+    }
+    .participant span {
+      display: block;
+      margin-top: 0.28rem;
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+    .model-svg {
+      width: 100%;
+      height: auto;
+      margin-top: 0.5rem;
+    }
+    .takeaway {
+      border-left: 5px solid var(--red);
+      background: linear-gradient(90deg, rgba(209, 38, 48, 0.08), #fff 68%);
+    }
+    .source-note {
+      margin: 0.5rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    @media (max-width: 900px) {
+      .nps-board,
+      .experience-grid,
+      .participant-flow {
+        grid-template-columns: 1fr;
+      }
+      .timeline::before {
+        display: none;
+      }
+    }
+    @media (max-width: 560px) {
+      .clinic-map,
+      .timeline,
+      .nps-row,
+      .score-row {
+        grid-template-columns: 1fr;
+      }
+      .nps-row strong {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="#results">Results</a>
+        <a href="#methods">Methods</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-27_2020.pdf">Source PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-27_2020.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2020 / Poster 27</p>
+        <h1 id="poster-title">Provider satisfaction after clinically integrated specialty pharmacy services</h1>
+        <p class="hero-summary">
+          Trellis Rx assessed provider experience before and after embedding specialty pharmacy
+          services into outpatient clinics, tracking referral ease, adherence visibility,
+          medication affordability, and Net Promoter Score over one year.
+        </p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Provider satisfaction</li>
+          <li class="tag therapy">Health-system specialty pharmacy</li>
+          <li class="tag">Seven health centers</li>
+          <li class="tag">Pre / 6 months / 1 year</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Study snapshot">
+        <div>
+          <p class="section-label">Poster file</p>
+          <div class="poster-code">27<br>2020</div>
+        </div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Author</dt>
+            <dd>Jayna Patel, PharmD</dd>
+          </div>
+          <div>
+            <dt>Organization</dt>
+            <dd>Trellis Rx</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>Outpatient clinics</dd>
+          </div>
+          <div>
+            <dt>Primary tool</dt>
+            <dd>Provider Experience Survey + NPS</dd>
+          </div>
+        </dl>
+        <div class="clinic-map" aria-label="Seven health centers">
+          <div class="clinic-node">1</div>
+          <div class="clinic-node">2</div>
+          <div class="clinic-node">3</div>
+          <div class="clinic-node">4</div>
+          <div class="clinic-node">5</div>
+          <div class="clinic-node">6</div>
+          <div class="clinic-node">7</div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key poster numbers">
+        <article class="metric-card">
+          <span>NPS change at 1 year</span>
+          <strong>+127</strong>
+          <em>From -40 before implementation to 87 after one year.</em>
+        </article>
+        <article class="metric-card">
+          <span>1-year respondents</span>
+          <strong>143</strong>
+          <em>Largest survey wave after embedded services matured.</em>
+        </article>
+        <article class="metric-card">
+          <span>Adherence visibility</span>
+          <strong>91<small>/100</small></strong>
+          <em>Up from 67 pre-implementation.</em>
+        </article>
+        <article class="metric-card">
+          <span>Referral ease</span>
+          <strong>89<small>/100</small></strong>
+          <em>Up from 58 pre-implementation.</em>
+        </article>
+      </section>
+
+      <section class="visual-grid" id="methods">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Measure whether embedded specialty pharmacy changes the provider experience.</h2>
+          <p>
+            The study compared provider satisfaction before implementation, at 6 months,
+            and at 1 year after a clinically integrated health-system specialty pharmacy
+            was placed alongside outpatient care teams.
+          </p>
+          <div class="timeline" aria-label="Survey timeline">
+            <div class="timepoint">
+              <b>0</b>
+              <span>Pre-implementation</span>
+              <small>External specialty pharmacy experience</small>
+            </div>
+            <div class="timepoint">
+              <b>6</b>
+              <span>6 months</span>
+              <small>On-site model in early operation</small>
+            </div>
+            <div class="timepoint">
+              <b>12</b>
+              <span>1 year</span>
+              <small>Embedded model after maturation</small>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Care model</p>
+          <h2>Pharmacists and liaisons moved into the clinic workflow.</h2>
+          <svg class="model-svg" viewBox="0 0 700 300" role="img" aria-label="Clinically integrated specialty pharmacy model">
+            <defs>
+              <linearGradient id="teamGrad" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#eef4fb"/>
+                <stop offset="1" stop-color="#fff7ea"/>
+              </linearGradient>
+            </defs>
+            <rect x="22" y="28" width="656" height="244" rx="18" fill="url(#teamGrad)" stroke="#aebbd2"/>
+            <circle cx="350" cy="150" r="58" fill="#ffffff" stroke="#243770" stroke-width="5"/>
+            <text x="350" y="143" fill="#243770" font-family="Montserrat, Arial" font-size="19" font-weight="900" text-anchor="middle">SPECIALTY</text>
+            <text x="350" y="167" fill="#243770" font-family="Montserrat, Arial" font-size="19" font-weight="900" text-anchor="middle">PHARMACY</text>
+            <g fill="#fff" stroke-width="4">
+              <circle cx="145" cy="86" r="40" stroke="#d12630"/>
+              <circle cx="555" cy="86" r="40" stroke="#187c8f"/>
+              <circle cx="145" cy="214" r="40" stroke="#e99e25"/>
+              <circle cx="555" cy="214" r="40" stroke="#4d8a67"/>
+            </g>
+            <g stroke="#243770" stroke-width="5" stroke-linecap="round">
+              <path d="M188 103 C238 122 271 136 291 143"/>
+              <path d="M512 103 C462 122 429 136 409 143"/>
+              <path d="M188 197 C238 178 271 164 291 157"/>
+              <path d="M512 197 C462 178 429 164 409 157"/>
+            </g>
+            <g fill="#243770" font-family="Inter, Arial" font-size="17" font-weight="900" text-anchor="middle">
+              <text x="145" y="82">Providers</text>
+              <text x="145" y="104" font-size="13" font-weight="760">Referral flow</text>
+              <text x="555" y="82">Patients</text>
+              <text x="555" y="104" font-size="13" font-weight="760">Access support</text>
+              <text x="145" y="210">Adherence</text>
+              <text x="145" y="232" font-size="13" font-weight="760">Visibility</text>
+              <text x="555" y="210">Affordability</text>
+              <text x="555" y="232" font-size="13" font-weight="760">Navigation</text>
+            </g>
+          </svg>
+        </article>
+      </section>
+
+      <section class="panel" id="results">
+        <p class="section-label">Primary result</p>
+        <h2>Net Promoter Score moved from detractor territory to strong promoter territory.</h2>
+        <div class="nps-board">
+          <svg class="nps-gauge" viewBox="0 0 360 230" role="img" aria-label="Net Promoter Score improved from -40 to 87">
+            <defs>
+              <linearGradient id="npsArc" x1="0" x2="1" y1="0" y2="0">
+                <stop offset="0" stop-color="#d12630"/>
+                <stop offset="0.5" stop-color="#e99e25"/>
+                <stop offset="1" stop-color="#187c8f"/>
+              </linearGradient>
+            </defs>
+            <path d="M55 178 A125 125 0 0 1 305 178" fill="none" stroke="#d9e1ef" stroke-width="34" stroke-linecap="round"/>
+            <path d="M55 178 A125 125 0 0 1 305 178" fill="none" stroke="url(#npsArc)" stroke-width="24" stroke-linecap="round"/>
+            <line x1="180" y1="178" x2="272" y2="92" stroke="#243770" stroke-width="7" stroke-linecap="round"/>
+            <circle cx="180" cy="178" r="13" fill="#243770"/>
+            <text x="180" y="66" fill="#d12630" font-family="Montserrat, Arial" font-size="42" font-weight="900" text-anchor="middle">+127</text>
+            <text x="180" y="94" fill="#33415c" font-family="Inter, Arial" font-size="15" font-weight="850" text-anchor="middle">point NPS improvement</text>
+            <text x="55" y="213" fill="#68758d" font-family="Inter, Arial" font-size="13" font-weight="850" text-anchor="middle">-100</text>
+            <text x="180" y="218" fill="#68758d" font-family="Inter, Arial" font-size="13" font-weight="850" text-anchor="middle">0</text>
+            <text x="305" y="213" fill="#68758d" font-family="Inter, Arial" font-size="13" font-weight="850" text-anchor="middle">100</text>
+          </svg>
+          <div class="nps-list" aria-label="NPS by survey wave">
+            <div class="nps-row">
+              <span>Pre-implementation</span>
+              <div class="nps-track"><i style="--w:20%;--x:-100%;--fill:var(--red);"></i></div>
+              <strong>-40</strong>
+            </div>
+            <div class="nps-row">
+              <span>6 months</span>
+              <div class="nps-track"><i style="--w:28.5%;--x:0;--fill:var(--gold);"></i></div>
+              <strong>57</strong>
+            </div>
+            <div class="nps-row">
+              <span>1 year</span>
+              <div class="nps-track"><i style="--w:43.5%;--x:0;--fill:var(--teal);"></i></div>
+              <strong>87</strong>
+            </div>
+          </div>
+        </div>
+        <p class="source-note">NPS range is -100 to 100; the poster reported a 127-point improvement at one year.</p>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Provider experience scores</p>
+        <h2>Every measured experience domain improved by 1 year.</h2>
+        <div class="experience-grid" aria-label="Provider experience survey results">
+          <article class="experience-card">
+            <h3>Visibility into patient adherence</h3>
+            <div class="score-stack">
+              <div class="score-row"><span>Pre</span><div class="score-track"><i style="--w:67%"></i></div><span>67</span></div>
+              <div class="score-row"><span>6 mo</span><div class="score-track"><i style="--w:81%"></i></div><span>81</span></div>
+              <div class="score-row"><span>1 yr</span><div class="score-track"><i style="--w:91%"></i></div><span>91</span></div>
+            </div>
+          </article>
+          <article class="experience-card">
+            <h3>Ease of referral process</h3>
+            <div class="score-stack">
+              <div class="score-row"><span>Pre</span><div class="score-track"><i style="--w:58%"></i></div><span>58</span></div>
+              <div class="score-row"><span>6 mo</span><div class="score-track"><i style="--w:82%"></i></div><span>82</span></div>
+              <div class="score-row"><span>1 yr</span><div class="score-track"><i style="--w:89%"></i></div><span>89</span></div>
+            </div>
+          </article>
+          <article class="experience-card">
+            <h3>Medication affordability for patients</h3>
+            <div class="score-stack">
+              <div class="score-row"><span>Pre</span><div class="score-track"><i style="--w:63%"></i></div><span>63</span></div>
+              <div class="score-row"><span>6 mo</span><div class="score-track"><i style="--w:81%"></i></div><span>81</span></div>
+              <div class="score-row"><span>1 yr</span><div class="score-track"><i style="--w:90%"></i></div><span>90</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="evidence-map" aria-label="Evidence flow">
+        <article class="evidence-card">
+          <h3>Problem</h3>
+          <p>External specialty pharmacies can leave clinic teams with limited visibility into adherence, access, and affordability barriers.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Intervention</h3>
+          <p>Pharmacists and pharmacy liaisons were embedded directly in outpatient clinics as part of the care team.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Measurement</h3>
+          <p>Provider Experience Surveys and Net Promoter Score were collected before implementation, at 6 months, and at 1 year.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Signal</h3>
+          <p>Experience scores rose across all domains, and NPS improved from -40 to 57 and then 87.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Meaning</h3>
+          <p>The poster concluded that clinically integrated specialty pharmacy dramatically improved provider satisfaction.</p>
+        </article>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">Survey waves</p>
+          <h2>Respondent counts increased as implementation matured.</h2>
+          <div class="participant-flow" aria-label="Provider survey participants">
+            <div class="participant">
+              <strong>65</strong>
+              <span>Pre-implementation survey completions</span>
+            </div>
+            <div class="participant">
+              <strong>87</strong>
+              <span>6-month post-implementation completions</span>
+            </div>
+            <div class="participant">
+              <strong>143</strong>
+              <span>1-year post-implementation completions</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel takeaway">
+          <p class="section-label">Conclusion</p>
+          <h2>The embedded model improved satisfaction and operational confidence.</h2>
+          <p>
+            Providers reported better visibility into adherence, easier referrals, and improved
+            medication affordability support after implementation. The clearest headline was the
+            127-point rise in Net Promoter Score from baseline to one year.
+          </p>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Extracted table patterns">
+        <article class="table-card">
+          <p class="section-label">Table pattern</p>
+          <h2>Provider experience survey</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Time period</th>
+                  <th>Adherence visibility</th>
+                  <th>Referral ease</th>
+                  <th>Affordability</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Pre-implementation</td><td>67</td><td>58</td><td>63</td></tr>
+                <tr><td>Post-implementation, 6 mo.</td><td>81</td><td>82</td><td>81</td></tr>
+                <tr><td>Post-implementation, 1 yr.</td><td>91</td><td>89</td><td>90</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Source links</p>
+          <h2>Poster materials</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Time period</th>
+                  <th>Net Promoter Score</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Pre-implementation</td><td>-40</td></tr>
+                <tr><td>Post-implementation, 6 mo.</td><td>57</td></tr>
+                <tr><td>Post-implementation, 1 yr.</td><td>87</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="footer-actions">
+            <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-27_2020.pdf">Open original PDF</a>
+            <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-27_2020.md">Read extracted markdown</a>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

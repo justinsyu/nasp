@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2024 Infographic | Oncology Biosimilar Adoption</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .biosimilar-stage {
+      position: relative;
+      min-height: 21rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 86% 16%, rgba(233, 158, 37, 0.36), transparent 9rem),
+        linear-gradient(145deg, rgba(36, 55, 112, 0.97), rgba(24, 124, 143, 0.92));
+      color: #fff;
+      overflow: hidden;
+      padding: 1rem;
+    }
+    .biosimilar-stage svg {
+      position: absolute;
+      right: -1.6rem;
+      bottom: -1.25rem;
+      width: min(27rem, 86%);
+      height: auto;
+      opacity: 0.9;
+    }
+    .stage-text {
+      position: relative;
+      z-index: 1;
+      max-width: 20rem;
+    }
+    .stage-text .kicker {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+    .stage-text strong {
+      display: block;
+      margin-top: 0.2rem;
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 6vw, 5.2rem);
+      line-height: 0.9;
+    }
+    .stage-text span {
+      display: block;
+      margin-top: 0.58rem;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.95rem;
+    }
+    .hero-card .button-link {
+      justify-content: center;
+      background: #fff;
+    }
+    .callout-list {
+      display: grid;
+      gap: 0.52rem;
+      margin: 0.65rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .callout-list li {
+      display: grid;
+      grid-template-columns: 0.75rem minmax(0, 1fr);
+      gap: 0.45rem;
+      font-size: 0.88rem;
+    }
+    .callout-list li::before {
+      content: "";
+      width: 0.55rem;
+      height: 0.55rem;
+      margin-top: 0.43rem;
+      border-radius: 50%;
+      background: var(--red);
+    }
+    .metric-card strong small {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.08rem;
+      font-weight: 900;
+    }
+    .cohort-visual {
+      display: grid;
+      grid-template-columns: 14rem minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+      margin-top: 0.55rem;
+    }
+    .donut {
+      width: 100%;
+      max-width: 14rem;
+      height: auto;
+    }
+    .legend {
+      display: grid;
+      gap: 0.48rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .legend li {
+      display: grid;
+      grid-template-columns: 0.85rem minmax(0, 1fr) auto;
+      gap: 0.5rem;
+      align-items: center;
+      color: var(--body);
+      font-size: 0.84rem;
+    }
+    .legend i {
+      width: 0.82rem;
+      height: 0.82rem;
+      border-radius: 3px;
+      background: var(--legend-color, var(--red));
+    }
+    .legend b {
+      color: var(--ink);
+      font-weight: 900;
+    }
+    .split-bars {
+      display: grid;
+      gap: 0.72rem;
+      margin-top: 0.75rem;
+    }
+    .split-row {
+      display: grid;
+      grid-template-columns: 8.8rem minmax(0, 1fr) 4.4rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+    .split-track {
+      display: grid;
+      grid-template-columns: var(--ref, 58%) 1fr;
+      height: 1.15rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: var(--surface-blue);
+      overflow: hidden;
+    }
+    .split-track i:first-child { background: var(--ink); }
+    .split-track i:last-child { background: var(--teal); }
+    .outcome-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.7rem;
+    }
+    .outcome-tile {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface-blue);
+      padding: 0.7rem;
+    }
+    .outcome-tile strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.18rem;
+      line-height: 1.05;
+    }
+    .outcome-tile span {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--muted);
+      font-size: 0.73rem;
+      font-weight: 800;
+    }
+    .cost-ladder {
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 0.72rem;
+    }
+    .cost-row {
+      display: grid;
+      grid-template-columns: 9.5rem minmax(0, 1fr) 4rem;
+      gap: 0.55rem;
+      align-items: center;
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+    .cost-row span { color: var(--ink); }
+    .cost-track {
+      height: 1.2rem;
+      border-radius: 999px;
+      background: var(--surface-blue);
+      overflow: hidden;
+    }
+    .cost-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .flow-line {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+    .flow-node {
+      position: relative;
+      min-height: 9.2rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.82rem;
+    }
+    .flow-node::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -0.5rem;
+      width: 0.75rem;
+      height: 0.75rem;
+      border-top: 2px solid var(--border-strong);
+      border-right: 2px solid var(--border-strong);
+      background: #fff;
+      transform: translateY(-50%) rotate(45deg);
+    }
+    .flow-node:last-child::after { display: none; }
+    .flow-node b {
+      display: inline-grid;
+      place-items: center;
+      width: 1.65rem;
+      height: 1.65rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+    }
+    .flow-node h3 {
+      margin-top: 0.48rem;
+      font-size: 0.94rem;
+    }
+    .flow-node p {
+      margin: 0.34rem 0 0;
+      font-size: 0.79rem;
+    }
+    .table-card table {
+      min-width: 32rem;
+    }
+    .source-note {
+      margin: 0.7rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+    @media (max-width: 900px) {
+      .cohort-visual,
+      .flow-line,
+      .outcome-grid {
+        grid-template-columns: 1fr;
+      }
+      .flow-node::after { display: none; }
+    }
+    @media (max-width: 560px) {
+      .split-row,
+      .cost-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar" aria-label="Infographic navigation">
+      <a class="brand" href="../nasp_abstracts_posters_pdfs_2019_2025/71-OPR71-OR-Poster-AM24_2024.md">NASP 2024</a>
+      <nav>
+        <a href="#cohort">Cohort</a>
+        <a href="#outcomes">Outcomes</a>
+        <a href="#evidence">Evidence flow</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/71-OPR71-OR-Poster-AM24_2024.pdf">PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/71-OPR71-OR-Poster-AM24_2024.md">Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">OPR71-OR Poster AM24 | 2024 National Association of Specialty Pharmacy Annual Meeting</p>
+        <h1>Real-World Evaluation of Oncolytic Biosimilar Adoption on Medication Adherence and Out-of-Pocket Costs</h1>
+        <p class="hero-summary">A national payor claims analysis compared adult members receiving oncology biosimilars with those receiving reference branded products, focusing on treatment duration, adherence, and member out-of-pocket cost.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Oncology biosimilars</li>
+          <li class="tag therapy">Administrative claims</li>
+          <li class="tag">Commercial + Medicare Advantage</li>
+          <li class="tag">12/01/2020 to 11/30/2022</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div class="poster-code">71<br>OPR71-OR</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Members</dt>
+            <dd>2,597</dd>
+          </div>
+          <div>
+            <dt>Claims</dt>
+            <dd>41,182</dd>
+          </div>
+          <div>
+            <dt>Meeting</dt>
+            <dd>NASP 2024</dd>
+          </div>
+          <div>
+            <dt>Location</dt>
+            <dd>Nashville, TN</dd>
+          </div>
+        </dl>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/71-OPR71-OR-Poster-AM24_2024.pdf">Open source poster PDF</a>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key metrics">
+        <article class="metric-card">
+          <span>Total cohort</span>
+          <strong>2,597</strong>
+        </article>
+        <article class="metric-card">
+          <span>Reference biologic users</span>
+          <strong>57.9<small>%</small></strong>
+        </article>
+        <article class="metric-card">
+          <span>Biosimilar users</span>
+          <strong>42.1<small>%</small></strong>
+        </article>
+        <article class="metric-card">
+          <span>Reference claims</span>
+          <strong>59.2<small>%</small></strong>
+        </article>
+      </section>
+
+      <section id="cohort" class="visual-grid">
+        <article class="panel">
+          <p class="section-label">Cohort structure</p>
+          <h2>Reference products remained the larger share overall</h2>
+          <div class="cohort-visual">
+            <svg class="donut" viewBox="0 0 180 180" role="img" aria-label="Donut chart showing 57.9 percent reference biologic and 42.1 percent biosimilar members">
+              <circle cx="90" cy="90" r="66" fill="none" stroke="#eef4fb" stroke-width="28"></circle>
+              <circle cx="90" cy="90" r="66" fill="none" stroke="#243770" stroke-width="28" stroke-dasharray="240.2 414.7" transform="rotate(-90 90 90)"></circle>
+              <circle cx="90" cy="90" r="66" fill="none" stroke="#187c8f" stroke-width="28" stroke-dasharray="174.5 414.7" stroke-dashoffset="-240.2" transform="rotate(-90 90 90)"></circle>
+              <circle cx="90" cy="90" r="42" fill="#fff"></circle>
+              <text x="90" y="84" text-anchor="middle" fill="#243770" font-size="28" font-family="Montserrat, Arial, sans-serif" font-weight="900">2,597</text>
+              <text x="90" y="105" text-anchor="middle" fill="#68758d" font-size="11" font-family="Inter, sans-serif" font-weight="800">members</text>
+            </svg>
+            <ul class="legend">
+              <li style="--legend-color: var(--ink);"><i></i><span>Reference biologic</span><b>1,504</b></li>
+              <li style="--legend-color: var(--teal);"><i></i><span>Biosimilar</span><b>1,093</b></li>
+              <li style="--legend-color: var(--gold);"><i></i><span>Medication-member combinations</span><b>3,817</b></li>
+              <li style="--legend-color: var(--red);"><i></i><span>Total evaluated claims</span><b>41,182</b></li>
+            </ul>
+          </div>
+          <p class="source-note">Included adult commercial fully-insured and Medicare Advantage members with at least one physician-administered oncology biosimilar or reference product claim.</p>
+        </article>
+
+        <article class="biosimilar-stage">
+          <div class="stage-text">
+            <p class="kicker">Core interpretation</p>
+            <strong>Lower OOP, higher monthly fills</strong>
+            <span>Biosimilar recipients had more claims per month and markedly lower out-of-pocket spend, while reference branded products were used more often and had longer observed time on therapy.</span>
+          </div>
+          <svg viewBox="0 0 520 330" aria-hidden="true">
+            <defs>
+              <linearGradient id="pillGrad" x1="0" x2="1">
+                <stop offset="0" stop-color="#ffffff" stop-opacity="0.98"></stop>
+                <stop offset="1" stop-color="#e99e25" stop-opacity="0.95"></stop>
+              </linearGradient>
+            </defs>
+            <path d="M52 249 C142 161 236 288 328 184 C386 118 446 116 505 72" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" opacity="0.7"></path>
+            <path d="M67 117 C164 196 233 56 319 122 C391 177 445 216 503 171" fill="none" stroke="#e99e25" stroke-width="8" stroke-linecap="round" opacity="0.78"></path>
+            <g transform="translate(94 56) rotate(-18)">
+              <rect width="118" height="48" rx="24" fill="url(#pillGrad)"></rect>
+              <line x1="59" y1="4" x2="59" y2="44" stroke="#243770" stroke-width="4" opacity="0.36"></line>
+            </g>
+            <g transform="translate(286 210) rotate(17)">
+              <rect width="132" height="52" rx="26" fill="#ffffff" opacity="0.94"></rect>
+              <line x1="66" y1="5" x2="66" y2="47" stroke="#187c8f" stroke-width="4" opacity="0.45"></line>
+            </g>
+            <g fill="#fff" opacity="0.6">
+              <circle cx="262" cy="88" r="9"></circle>
+              <circle cx="438" cy="120" r="6"></circle>
+              <circle cx="190" cy="256" r="7"></circle>
+              <circle cx="480" cy="239" r="10"></circle>
+            </g>
+          </svg>
+        </article>
+      </section>
+
+      <section class="visual-grid" id="outcomes">
+        <article class="panel">
+          <p class="section-label">Adherence signal</p>
+          <h2>Biosimilars showed more monthly claims across analysis levels</h2>
+          <div class="outcome-grid">
+            <div class="outcome-tile">
+              <strong>1.4 vs 1.3</strong>
+              <span>Overall claims per month, biosimilar vs reference; p&lt;0.001</span>
+            </div>
+            <div class="outcome-tile">
+              <strong>1.4 vs 1.3</strong>
+              <span>Oncology therapy claims per month; p&lt;0.001</span>
+            </div>
+            <div class="outcome-tile">
+              <strong>1.7 vs 1.4</strong>
+              <span>Oncology support claims per month; p=0.008</span>
+            </div>
+          </div>
+          <div class="split-bars" aria-label="Treatment duration and claims comparison">
+            <div class="split-row">
+              <span>Overall claims</span>
+              <div class="split-track" style="--ref:48.5%" aria-hidden="true"><i></i><i></i></div>
+              <span>13.1 / 13.9</span>
+            </div>
+            <div class="split-row">
+              <span>Claims per month</span>
+              <div class="split-track" style="--ref:48.1%" aria-hidden="true"><i></i><i></i></div>
+              <span>1.3 / 1.4</span>
+            </div>
+            <div class="split-row">
+              <span>Time on therapy</span>
+              <div class="split-track" style="--ref:51.2%" aria-hidden="true"><i></i><i></i></div>
+              <span>10.5 / 10.0</span>
+            </div>
+          </div>
+          <p class="source-note">Bar labels show reference biologic / biosimilar means. Time on therapy is reported in weeks.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Cost outcomes</p>
+          <h2>Reference branded products carried substantially higher member OOP spend</h2>
+          <div class="cost-ladder" aria-label="Out-of-pocket cost increases for reference branded products">
+            <div class="cost-row">
+              <span>Overall</span>
+              <div class="cost-track"><i style="width:54.7%"></i></div>
+              <span>+260%</span>
+            </div>
+            <div class="cost-row">
+              <span>Oncology therapy</span>
+              <div class="cost-track"><i style="width:73.7%"></i></div>
+              <span>+350%</span>
+            </div>
+            <div class="cost-row">
+              <span>Oncology support</span>
+              <div class="cost-track"><i style="width:100%"></i></div>
+              <span>+475%</span>
+            </div>
+          </div>
+          <ul class="callout-list">
+            <li>All three OOP comparisons favored biosimilars with p&lt;0.001.</li>
+            <li>The largest relative difference appeared in oncology support products.</li>
+            <li>Despite lower OOP spend, biosimilars represented a minority of the overall cohort.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="evidence" class="panel">
+        <p class="section-label">Evidence flow</p>
+        <h2>How the poster framed the real-world comparison</h2>
+        <div class="flow-line">
+          <article class="flow-node">
+            <b>1</b>
+            <h3>Policy question</h3>
+            <p>Can biosimilar adoption expand access while preserving or improving member-centric outcomes?</p>
+          </article>
+          <article class="flow-node">
+            <b>2</b>
+            <h3>Claims cohort</h3>
+            <p>Adult members with oncology biosimilar or reference branded product claims during the 24-month window.</p>
+          </article>
+          <article class="flow-node">
+            <b>3</b>
+            <h3>Comparative metrics</h3>
+            <p>Claims, claims per month, time on therapy, and OOP costs were compared using t-tests or chi-squared tests.</p>
+          </article>
+          <article class="flow-node">
+            <b>4</b>
+            <h3>Observed result</h3>
+            <p>Biosimilars had higher adherence measures and lower OOP costs, but reference products were prescribed more often.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel markdown-fragment">
+          <p class="section-label">Objective</p>
+          <h2>Compare treatment experience and cost</h2>
+          <p>To compare treatment duration, adherence, and out-of-pocket costs between individuals receiving oncology biosimilars and those receiving oncology reference branded products.</p>
+        </article>
+        <article class="panel markdown-fragment">
+          <p class="section-label">Conclusion</p>
+          <h2>Biosimilar outcomes looked member-favorable</h2>
+          <p>The evaluation found shorter observed time on therapy, higher adherence, and lower OOP spend among individuals receiving oncology biosimilars, even though biosimilars were prescribed less often than reference branded products.</p>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Condensed table patterns">
+        <article class="table-card">
+          <p class="section-label">Table pattern 1</p>
+          <h2>Member and product mix</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Measure</th>
+                  <th>Overall</th>
+                  <th>Reference</th>
+                  <th>Biosimilar</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Members</td>
+                  <td>2,597</td>
+                  <td>1,504 (57.9%)</td>
+                  <td>1,093 (42.1%)</td>
+                </tr>
+                <tr>
+                  <td>Mean age</td>
+                  <td>59.6</td>
+                  <td>61.0</td>
+                  <td>57.8</td>
+                </tr>
+                <tr>
+                  <td>Oncology class</td>
+                  <td>1,992 (76.7%)</td>
+                  <td>944 (62.8%)</td>
+                  <td>1,048 (95.9%)</td>
+                </tr>
+                <tr>
+                  <td>Oncology support</td>
+                  <td>605 (23.3%)</td>
+                  <td>560 (37.2%)</td>
+                  <td>45 (4.1%)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Table pattern 2</p>
+          <h2>Adherence and duration</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Metric</th>
+                  <th>Reference</th>
+                  <th>Biosimilar</th>
+                  <th>p-value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Overall claims, mean (SD)</td>
+                  <td>13.1 (7.5)</td>
+                  <td>13.9 (6.3)</td>
+                  <td>0.003</td>
+                </tr>
+                <tr>
+                  <td>Overall claims/month, mean (SD)</td>
+                  <td>1.3 (0.6)</td>
+                  <td>1.4 (0.5)</td>
+                  <td>&lt;0.001</td>
+                </tr>
+                <tr>
+                  <td>Overall time on therapy, mean (SD)</td>
+                  <td>10.5 (4.1)</td>
+                  <td>10.0 (3.7)</td>
+                  <td>0.006</td>
+                </tr>
+                <tr>
+                  <td>Oncology support claims/month</td>
+                  <td>1.4 (0.7)</td>
+                  <td>1.7 (0.8)</td>
+                  <td>0.008</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <footer class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/71-OPR71-OR-Poster-AM24_2024.pdf">Source PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/71-OPR71-OR-Poster-AM24_2024.md">Source markdown</a>
+        <a class="button-link" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">Back to top</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

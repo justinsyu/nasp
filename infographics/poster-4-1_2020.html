@@ -1,0 +1,724 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Assessing Reasons for Primary Medication Non-adherence in Oncology Specialty Medications | NASP 2020</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card .study-note {
+      margin: 0;
+      border-left: 4px solid var(--red);
+      padding-left: 0.72rem;
+      color: var(--ink);
+      font-size: 0.94rem;
+      font-weight: 850;
+    }
+    .metric-card p {
+      margin: 0.44rem 0 0;
+      font-size: 0.78rem;
+    }
+    .metric-card strong.tight {
+      font-size: clamp(1.55rem, 3vw, 2.1rem);
+    }
+    .pmn-hero-art {
+      min-height: 19rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 18% 22%, rgba(209, 38, 48, 0.12), transparent 9rem),
+        radial-gradient(circle at 84% 78%, rgba(24, 124, 143, 0.17), transparent 10rem),
+        linear-gradient(135deg, #ffffff 0%, var(--surface-blue) 56%, var(--surface-warm) 100%);
+      overflow: hidden;
+    }
+    .pmn-hero-art svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 19rem;
+    }
+    .rate-board {
+      display: grid;
+      grid-template-columns: minmax(15rem, 0.78fr) minmax(0, 1.22fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .rate-card {
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background:
+        linear-gradient(145deg, rgba(209, 38, 48, 0.10), transparent 44%),
+        #fff;
+      padding: 1rem;
+    }
+    .rate-card strong {
+      display: block;
+      margin: 0.16rem 0 0.5rem;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 6vw, 5.8rem);
+      line-height: 0.9;
+    }
+    .rate-card b {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.02rem;
+    }
+    .rate-card p {
+      margin: 0.48rem 0 0;
+      font-size: 0.88rem;
+    }
+    .funnel {
+      display: grid;
+      gap: 0.58rem;
+      margin-top: 0.8rem;
+    }
+    .funnel-row {
+      display: grid;
+      grid-template-columns: 8.2rem minmax(0, 1fr) 5.6rem;
+      gap: 0.58rem;
+      align-items: center;
+    }
+    .funnel-row b {
+      color: var(--ink);
+      font-size: 0.8rem;
+      line-height: 1.15;
+    }
+    .funnel-row span {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 900;
+      text-align: right;
+    }
+    .funnel-track {
+      height: 1.18rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .funnel-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: var(--c, linear-gradient(90deg, var(--red), var(--gold)));
+    }
+    .truth-ratio {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-top: 0.78rem;
+    }
+    .ratio-tile {
+      border: 1px solid rgba(174, 187, 210, 0.92);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.82rem;
+    }
+    .ratio-tile strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.7rem, 3.4vw, 2.55rem);
+      line-height: 1;
+    }
+    .ratio-tile span {
+      display: block;
+      margin-top: 0.38rem;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+    .window-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.78rem;
+    }
+    .window-tile {
+      position: relative;
+      min-height: 8.8rem;
+      border: 1px solid rgba(174, 187, 210, 0.95);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.86rem;
+      overflow: hidden;
+    }
+    .window-tile::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 0.32rem;
+      background: var(--accent, var(--red));
+    }
+    .window-tile:nth-child(2) { --accent: var(--gold); }
+    .window-tile:nth-child(3) { --accent: var(--teal); }
+    .window-tile:nth-child(4) { --accent: var(--purple); }
+    .window-tile strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+    .window-tile b {
+      display: block;
+      margin-top: 0.44rem;
+      color: var(--ink);
+      font-size: 0.82rem;
+      line-height: 1.2;
+    }
+    .window-tile span {
+      display: block;
+      margin-top: 0.42rem;
+      color: var(--muted);
+      font-size: 0.76rem;
+      line-height: 1.32;
+    }
+    .rank-board {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 0.9rem;
+    }
+    .rank-list {
+      display: grid;
+      gap: 0.5rem;
+      margin-top: 0.68rem;
+    }
+    .rank-row {
+      display: grid;
+      grid-template-columns: minmax(7.8rem, 0.78fr) minmax(0, 1fr) 2.4rem;
+      gap: 0.52rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .rank-row span:last-child {
+      color: var(--muted);
+      font-weight: 900;
+      text-align: right;
+    }
+    .rank-track {
+      height: 0.82rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .rank-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: var(--bar, var(--teal));
+    }
+    .rank-card.false-positive .rank-track i {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .rank-card.true-pmn .rank-track i {
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .source-note {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    .demographic-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 0.62rem;
+      margin-top: 0.72rem;
+    }
+    .demo-tile {
+      border: 1px solid rgba(174, 187, 210, 0.95);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.76rem;
+    }
+    .demo-tile strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+    .demo-tile span {
+      display: block;
+      margin-top: 0.32rem;
+      color: var(--ink);
+      font-size: 0.72rem;
+      font-weight: 850;
+      line-height: 1.2;
+    }
+    .cancer-mix {
+      display: grid;
+      grid-template-columns: minmax(12rem, 0.58fr) minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+    }
+    .donut-wrap svg {
+      display: block;
+      width: min(13rem, 100%);
+      height: auto;
+      margin-inline: auto;
+    }
+    .mix-legend {
+      display: grid;
+      gap: 0.55rem;
+    }
+    .mix-legend div {
+      display: grid;
+      grid-template-columns: 0.8rem 1fr auto;
+      gap: 0.46rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 850;
+    }
+    .mix-legend i {
+      display: block;
+      width: 0.8rem;
+      height: 0.8rem;
+      border-radius: 99px;
+      background: var(--dot);
+    }
+    .takeaway {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(24, 124, 143, 0.13), transparent 43%),
+        #fff;
+    }
+    .takeaway p {
+      max-width: 64rem;
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.05rem, 1.7vw, 1.42rem);
+      font-weight: 850;
+      line-height: 1.35;
+    }
+    @media (max-width: 900px) {
+      .rate-board,
+      .rank-board,
+      .cancer-mix {
+        grid-template-columns: 1fr;
+      }
+      .window-strip,
+      .demographic-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 560px) {
+      .window-strip,
+      .demographic-grid,
+      .truth-ratio,
+      .funnel-row,
+      .rank-row {
+        grid-template-columns: 1fr;
+      }
+      .funnel-row span,
+      .rank-row span:last-child {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-4-1_2020.pdf">Source PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-4-1_2020.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2020 / Poster 4-1</p>
+        <h1 id="poster-title">Assessing reasons for primary medication non-adherence in oncology specialty medications</h1>
+        <p class="hero-summary">
+          Vanderbilt Specialty Pharmacy reviewed specialty oral oncolytic prescriptions to test whether a claims-style primary medication non-adherence definition reflected true patient-level non-initiation after clinical review.
+        </p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag therapy">Oncology specialty pharmacy</li>
+          <li class="tag category">Primary medication non-adherence</li>
+          <li class="tag">Oral oncolytics</li>
+          <li class="tag">Quality metric validation</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Study snapshot">
+        <div class="poster-code">4-1<br>2020</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Setting</dt>
+            <dd>Vanderbilt Specialty Pharmacy</dd>
+          </div>
+          <div>
+            <dt>Design</dt>
+            <dd>Retrospective cohort</dd>
+          </div>
+          <div>
+            <dt>Prescription window</dt>
+            <dd>Jan-Dec 2018</dd>
+          </div>
+          <div>
+            <dt>Therapy type</dt>
+            <dd>Specialty oral oncolytics</dd>
+          </div>
+        </dl>
+        <p class="study-note">Core finding: raw algorithmic PMN grossly overestimated true PMN; only 37 of 198 potential cases remained true PMN after review.</p>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <div class="metric-card">
+          <span>Prescriptions reviewed</span>
+          <strong>4,482</strong>
+          <p>Oral oncolytic prescriptions sent to Vanderbilt Specialty Pharmacy.</p>
+        </div>
+        <div class="metric-card">
+          <span>Eligible prescriptions</span>
+          <strong>1,004</strong>
+          <p>Met the study algorithm's PMN-eligible prescription criteria.</p>
+        </div>
+        <div class="metric-card">
+          <span>Calculated PMN rate</span>
+          <strong>19.7%</strong>
+          <p>Potential PMN when using the traditional operational definition.</p>
+        </div>
+        <div class="metric-card">
+          <span>True PMN rate</span>
+          <strong>3.7%</strong>
+          <p>Confirmed PMN after chart review and reason adjudication.</p>
+        </div>
+      </section>
+
+      <section class="visual-grid" aria-label="Objective and PMN model">
+        <div class="pmn-hero-art" role="img" aria-label="Illustration of algorithmic PMN cases shrinking after clinical review">
+          <svg viewBox="0 0 680 470" aria-hidden="true">
+            <defs>
+              <linearGradient id="pmnPipe" x1="0" x2="1">
+                <stop offset="0" stop-color="#d12630"/>
+                <stop offset="0.55" stop-color="#e99e25"/>
+                <stop offset="1" stop-color="#187c8f"/>
+              </linearGradient>
+              <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="14" stdDeviation="13" flood-color="#243770" flood-opacity="0.16"/>
+              </filter>
+            </defs>
+            <path d="M88 140 h194 c45 0 70 24 70 59s-25 59-70 59H88Z" fill="#fff" stroke="#d12630" stroke-width="5" filter="url(#softShadow)"/>
+            <text x="182" y="178" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="24" font-weight="900">198</text>
+            <text x="182" y="207" text-anchor="middle" fill="#68758d" font-family="Inter, sans-serif" font-size="15" font-weight="850">potential PMN</text>
+            <text x="182" y="230" text-anchor="middle" fill="#68758d" font-family="Inter, sans-serif" font-size="15" font-weight="850">from claims logic</text>
+            <path d="M331 199 C394 199 414 199 474 199" stroke="url(#pmnPipe)" stroke-width="16" stroke-linecap="round"/>
+            <path d="M448 166 l43 33 -43 33" fill="none" stroke="#187c8f" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="537" cy="199" r="76" fill="#fff" stroke="#187c8f" stroke-width="5" filter="url(#softShadow)"/>
+            <text x="537" y="190" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="30" font-weight="900">37</text>
+            <text x="537" y="220" text-anchor="middle" fill="#68758d" font-family="Inter, sans-serif" font-size="16" font-weight="850">true PMN</text>
+            <rect x="142" y="318" width="396" height="56" rx="28" fill="#fff" stroke="#aebbd2" stroke-width="3"/>
+            <circle cx="198" cy="346" r="24" fill="#243770"/>
+            <circle cx="340" cy="346" r="24" fill="#e99e25"/>
+            <circle cx="482" cy="346" r="24" fill="#187c8f"/>
+            <text x="198" y="352" text-anchor="middle" fill="#fff" font-family="Montserrat, Arial, sans-serif" font-size="15" font-weight="900">180d</text>
+            <text x="340" y="352" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="15" font-weight="900">2d</text>
+            <text x="482" y="352" text-anchor="middle" fill="#fff" font-family="Montserrat, Arial, sans-serif" font-size="15" font-weight="900">30d</text>
+            <text x="340" y="416" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="22" font-weight="900">Lookback, duplicate, and fill windows shaped the algorithm.</text>
+          </svg>
+        </div>
+
+        <div class="panel markdown-fragment">
+          <p class="section-label">Objective</p>
+          <h2>Identify why adult patients prescribed specialty oral oncolytics appeared not to start therapy.</h2>
+          <p>The study tested whether PMN status based on prescription and fill timing accurately represented true primary medication non-adherence, then categorized the reasons behind both misidentified and true PMN cases.</p>
+          <div class="number-cloud" aria-label="Study design anchors">
+            <div class="number-pill">180d<small>lookback window</small></div>
+            <div class="number-pill">2d<small>duplicate window</small></div>
+            <div class="number-pill">30d<small>fill window</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="rate-board" aria-label="Algorithm versus true PMN rate">
+        <div class="rate-card">
+          <p class="section-label">Overestimation signal</p>
+          <strong>5.3x</strong>
+          <b>Calculated PMN rate exceeded the clinically confirmed rate.</b>
+          <p>The algorithm produced a 19.7% rate; adjudication found a 3.7% true PMN rate.</p>
+        </div>
+        <div class="panel">
+          <p class="section-label">Eligibility funnel</p>
+          <h2>Most apparent PMN disappeared after fill timing, routing, and chart-review context.</h2>
+          <div class="funnel" aria-label="Prescription eligibility and PMN rates">
+            <div class="funnel-row">
+              <b>Reviewed</b>
+              <div class="funnel-track"><i style="--w:100%; --c: linear-gradient(90deg, var(--ink), var(--teal));"></i></div>
+              <span>4,482</span>
+            </div>
+            <div class="funnel-row">
+              <b>Eligible</b>
+              <div class="funnel-track"><i style="--w:22.4%; --c: var(--teal);"></i></div>
+              <span>1,004</span>
+            </div>
+            <div class="funnel-row">
+              <b>Potential PMN</b>
+              <div class="funnel-track"><i style="--w:19.7%; --c: linear-gradient(90deg, var(--red), var(--gold));"></i></div>
+              <span>198</span>
+            </div>
+            <div class="funnel-row">
+              <b>True PMN</b>
+              <div class="funnel-track"><i style="--w:3.7%; --c: var(--red);"></i></div>
+              <span>37</span>
+            </div>
+          </div>
+          <div class="truth-ratio">
+            <div class="ratio-tile">
+              <strong>161</strong>
+              <span>potential cases were misidentified as PMN after clinical review.</span>
+            </div>
+            <div class="ratio-tile">
+              <strong>18.6%</strong>
+              <span>of potential PMN prescriptions were true PMN in the authors' conclusion.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" aria-label="PMN parameter definitions">
+        <p class="section-label">Algorithm structure</p>
+        <h2>PMN was first defined mechanically, using timing windows around the index prescription.</h2>
+        <div class="window-strip">
+          <article class="window-tile">
+            <strong>180d</strong>
+            <b>Lookback window</b>
+            <span>Minimum period before the index prescription in which a patient could revert to naive status.</span>
+          </article>
+          <article class="window-tile">
+            <strong>2d</strong>
+            <b>Duplicate window</b>
+            <span>Time in which two sequential prescriptions could be considered duplicate orders.</span>
+          </article>
+          <article class="window-tile">
+            <strong>30d</strong>
+            <b>Fill window</b>
+            <span>Duration in which an eligible prescription needed a fill to avoid PMN status.</span>
+          </article>
+          <article class="window-tile">
+            <strong>PMN</strong>
+            <b>Eligibility rule</b>
+            <span>No oncology fill in the lookback window, no duplicate within two days, and no external SP reroute within two days.</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="rank-board" aria-label="Reasons for misidentified and true PMN">
+        <div class="panel rank-card false-positive">
+          <p class="section-label">Misidentified PMN reasons / N=161</p>
+          <h2>False positives were usually alternate fulfillment pathways.</h2>
+          <div class="rank-list">
+            <div class="rank-row">
+              <span>Rerouted to external SP</span>
+              <div class="rank-track"><i style="--w:100%"></i></div>
+              <span>52</span>
+            </div>
+            <div class="rank-row">
+              <span>Manufacturer fill</span>
+              <div class="rank-track"><i style="--w:80.8%"></i></div>
+              <span>42</span>
+            </div>
+            <div class="rank-row">
+              <span>Duplicate outside DW</span>
+              <div class="rank-track"><i style="--w:28.8%"></i></div>
+              <span>15</span>
+            </div>
+            <div class="rank-row">
+              <span>Non-onc/heme condition</span>
+              <div class="rank-track"><i style="--w:26.9%"></i></div>
+              <span>14</span>
+            </div>
+            <div class="rank-row">
+              <span>Inpatient fill</span>
+              <div class="rank-track"><i style="--w:26.9%"></i></div>
+              <span>14</span>
+            </div>
+            <div class="rank-row">
+              <span>Clinical trial medication</span>
+              <div class="rank-track"><i style="--w:19.2%"></i></div>
+              <span>10</span>
+            </div>
+            <div class="rank-row">
+              <span>Prescribed early</span>
+              <div class="rank-track"><i style="--w:13.5%"></i></div>
+              <span>7</span>
+            </div>
+            <div class="rank-row">
+              <span>Other / filled by VSP</span>
+              <div class="rank-track"><i style="--w:13.5%"></i></div>
+              <span>7</span>
+            </div>
+          </div>
+          <p class="source-note">External SP reroutes and manufacturer fills account for 94 of 161 misidentified cases.</p>
+        </div>
+
+        <div class="panel rank-card true-pmn">
+          <p class="section-label">True PMN reasons / N=37</p>
+          <h2>Confirmed PMN clustered around patient decision and evolving clinical status.</h2>
+          <div class="rank-list">
+            <div class="rank-row">
+              <span>Patient decision</span>
+              <div class="rank-track"><i style="--w:100%"></i></div>
+              <span>12</span>
+            </div>
+            <div class="rank-row">
+              <span>Medication change</span>
+              <div class="rank-track"><i style="--w:66.7%"></i></div>
+              <span>8</span>
+            </div>
+            <div class="rank-row">
+              <span>Clinical decline</span>
+              <div class="rank-track"><i style="--w:50%"></i></div>
+              <span>6</span>
+            </div>
+            <div class="rank-row">
+              <span>Death</span>
+              <div class="rank-track"><i style="--w:33.3%"></i></div>
+              <span>4</span>
+            </div>
+            <div class="rank-row">
+              <span>Other</span>
+              <div class="rank-track"><i style="--w:25%"></i></div>
+              <span>3</span>
+            </div>
+            <div class="rank-row">
+              <span>Dose change</span>
+              <div class="rank-track"><i style="--w:16.7%"></i></div>
+              <span>2</span>
+            </div>
+            <div class="rank-row">
+              <span>Financial</span>
+              <div class="rank-track"><i style="--w:16.7%"></i></div>
+              <span>2</span>
+            </div>
+          </div>
+          <p class="source-note">Patient decision, medication change, and clinical decline together explain 26 of 37 true PMN cases.</p>
+        </div>
+      </section>
+
+      <section class="section-stack" aria-label="True PMN demographics and cancer type">
+        <div class="panel">
+          <p class="section-label">True PMN case profile / n=37</p>
+          <h2>Confirmed cases were older and clinically complex.</h2>
+          <div class="demographic-grid">
+            <div class="demo-tile">
+              <strong>65</strong>
+              <span>mean age, years (+/- 16)</span>
+            </div>
+            <div class="demo-tile">
+              <strong>68%</strong>
+              <span>male</span>
+            </div>
+            <div class="demo-tile">
+              <strong>87%</strong>
+              <span>Caucasian</span>
+            </div>
+            <div class="demo-tile">
+              <strong>7.1</strong>
+              <span>Charlson score (+/- 3.6)</span>
+            </div>
+            <div class="demo-tile">
+              <strong>22%</strong>
+              <span>hospitalized in prior 3 months</span>
+            </div>
+            <div class="demo-tile">
+              <strong>65%</strong>
+              <span>current or former smoker</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel cancer-mix">
+          <div class="donut-wrap" aria-label="Cancer type split: 54% solid organ and 46% hematologic">
+            <svg viewBox="0 0 220 220" role="img" aria-labelledby="donut-title">
+              <title id="donut-title">Cancer type for true PMN cases</title>
+              <circle cx="110" cy="110" r="72" fill="none" stroke="#d9e1ef" stroke-width="34"/>
+              <circle cx="110" cy="110" r="72" fill="none" stroke="#187c8f" stroke-width="34" stroke-dasharray="244 452" stroke-dashoffset="-113" transform="rotate(-90 110 110)"/>
+              <circle cx="110" cy="110" r="72" fill="none" stroke="#7561a8" stroke-width="34" stroke-dasharray="208 452" stroke-dashoffset="-357" transform="rotate(-90 110 110)"/>
+              <circle cx="110" cy="110" r="42" fill="#fff"/>
+              <text x="110" y="104" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="24" font-weight="900">37</text>
+              <text x="110" y="128" text-anchor="middle" fill="#68758d" font-family="Inter, sans-serif" font-size="13" font-weight="850">true PMN</text>
+            </svg>
+          </div>
+          <div>
+            <p class="section-label">Cancer type</p>
+            <h2>True PMN cases were split between solid organ and hematologic cancers.</h2>
+            <div class="mix-legend">
+              <div><i style="--dot: var(--teal);"></i><span>Solid organ</span><b>54%</b></div>
+              <div><i style="--dot: var(--purple);"></i><span>Hematologic</span><b>46%</b></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="evidence-map" aria-label="Evidence flow">
+        <article class="evidence-card">
+          <h3>Define PMN</h3>
+          <p>Use lookback, duplicate, and fill windows to classify PMN-eligible prescriptions.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Identify signal</h3>
+          <p>The algorithm flagged 198 of 1,004 eligible prescriptions as potential PMN.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Review context</h3>
+          <p>Clinical review separated true non-initiation from reroutes, manufacturer fills, duplicates, and other explanations.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Confirm true cases</h3>
+          <p>Only 37 prescriptions represented true PMN after adjudication.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Reframe metric</h3>
+          <p>Raw PMN alone is a limited quality metric for specialty pharmacies.</p>
+        </article>
+      </section>
+
+      <section class="section-stack" aria-label="Methods and conclusions">
+        <div class="panel markdown-fragment">
+          <p class="section-label">Methods</p>
+          <h2>A single-center cohort focused on adult oncology prescriptions sent to VSP in 2018.</h2>
+          <ul>
+            <li>Prescribed by a Vanderbilt University Medical Center provider.</li>
+            <li>Prescribed to an adult patient.</li>
+            <li>Sent to Vanderbilt Specialty Pharmacy between January and December 2018.</li>
+            <li>Reviewed for fill timing, duplicate prescriptions, rerouting, and clinical context.</li>
+          </ul>
+        </div>
+        <div class="panel markdown-fragment">
+          <p class="section-label">Conclusion</p>
+          <h2>Traditional PMN logic overestimated the true non-adherence burden for oral oncolytics.</h2>
+          <p>Because most potential PMN was not true PMN, the authors cautioned against using raw PMN alone as a specialty pharmacy quality metric.</p>
+        </div>
+      </section>
+
+      <section class="panel takeaway">
+        <p>
+          Bottom line: a 19.7% algorithmic PMN rate shrank to 3.7% after clinical adjudication, showing that oncology specialty pharmacy PMN measures need chart-level context to distinguish non-initiation from alternate fulfillment and care-plan changes.
+        </p>
+      </section>
+    </main>
+
+    <footer class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-4-1_2020.pdf">Open original PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-4-1_2020.md">Read extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

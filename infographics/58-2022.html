@@ -1,0 +1,735 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Health System Specialty Pharmacy Integration Impact on Fill Time | NASP 2022</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -3.6rem;
+      bottom: -4rem;
+      width: 14rem;
+      height: 14rem;
+      border: 1.2rem solid rgba(24, 124, 143, 0.13);
+      border-radius: 50%;
+    }
+
+    .fill-clock {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 0.25rem;
+    }
+
+    .clock-face {
+      display: grid;
+      place-items: center;
+      width: min(100%, 17.5rem);
+      aspect-ratio: 1;
+      margin: 0 auto;
+      border: 1px solid rgba(36, 55, 112, 0.22);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, #fff 0 42%, transparent 43%),
+        conic-gradient(from -90deg, rgba(24, 124, 143, 0.84) 0 200deg, rgba(209, 38, 48, 0.72) 200deg 360deg);
+      box-shadow: 0 18px 34px rgba(36, 55, 112, 0.13);
+    }
+
+    .clock-center {
+      display: grid;
+      place-items: center;
+      width: 64%;
+      aspect-ratio: 1;
+      border: 5px solid #fff;
+      border-radius: 50%;
+      background: var(--surface-blue);
+      color: var(--ink);
+      text-align: center;
+    }
+
+    .clock-center strong {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 6vw, 4.1rem);
+      line-height: 0.92;
+    }
+
+    .clock-center span {
+      max-width: 8rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .mini-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 850;
+    }
+
+    .mini-legend i {
+      display: inline-block;
+      width: 0.72rem;
+      height: 0.72rem;
+      margin-right: 0.22rem;
+      border-radius: 2px;
+      vertical-align: -0.08rem;
+      background: var(--teal);
+    }
+
+    .mini-legend span:last-child i { background: var(--red); }
+
+    .metric-card strong small {
+      color: var(--red);
+      font-size: 0.82rem;
+    }
+
+    .metric-card em {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-style: normal;
+      font-weight: 750;
+      line-height: 1.3;
+    }
+
+    .hero-thesis {
+      display: grid;
+      grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .reduction-tile {
+      display: grid;
+      align-content: center;
+      min-height: 14rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        linear-gradient(140deg, rgba(36, 55, 112, 0.98), rgba(24, 124, 143, 0.92)),
+        var(--ink);
+      padding: 1.1rem;
+      color: #fff;
+    }
+
+    .reduction-tile span {
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .reduction-tile strong {
+      margin-top: 0.25rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(3.2rem, 8vw, 5.6rem);
+      line-height: 0.88;
+    }
+
+    .reduction-tile p {
+      margin: 0.7rem 0 0;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 0.95rem;
+    }
+
+    .turnaround-bars {
+      display: grid;
+      gap: 0.85rem;
+      margin-top: 0.9rem;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 9.4rem minmax(0, 1fr) 4rem;
+      gap: 0.7rem;
+      align-items: center;
+    }
+
+    .bar-row b {
+      color: var(--ink);
+      font-size: 0.82rem;
+      line-height: 1.18;
+    }
+
+    .bar-track {
+      height: 1.08rem;
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .bar-fill.hssp {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .bar-row em {
+      color: var(--ink);
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .cohort-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+
+    .cohort-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.9rem;
+    }
+
+    .cohort-card strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2.25rem;
+      line-height: 1;
+    }
+
+    .cohort-card p {
+      margin: 0.42rem 0 0;
+      color: var(--body);
+      font-size: 0.86rem;
+    }
+
+    .criteria-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.85rem;
+    }
+
+    .criteria-card {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 7px;
+      background: var(--surface-blue);
+      padding: 0.8rem;
+    }
+
+    .criteria-card.exclusion {
+      background: var(--surface-warm);
+    }
+
+    .criteria-card h3 {
+      margin-bottom: 0.45rem;
+      font-size: 0.9rem;
+    }
+
+    .criteria-card ul {
+      margin: 0;
+      padding-left: 1rem;
+    }
+
+    .criteria-card li {
+      margin: 0.22rem 0;
+      font-size: 0.8rem;
+    }
+
+    .pathway {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.85rem;
+    }
+
+    .path-step {
+      position: relative;
+      min-height: 8rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.75rem;
+    }
+
+    .path-step::before {
+      content: attr(data-step);
+      display: inline-grid;
+      place-items: center;
+      width: 1.7rem;
+      height: 1.7rem;
+      margin-bottom: 0.45rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.76rem;
+      font-weight: 900;
+    }
+
+    .path-step p {
+      margin: 0.35rem 0 0;
+      color: var(--body);
+      font-size: 0.78rem;
+      line-height: 1.38;
+    }
+
+    .boxplot-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-top: 0.9rem;
+    }
+
+    .boxplot-card {
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.75rem;
+    }
+
+    .boxplot-card h3 {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .boxplot-card h3 span {
+      color: var(--teal);
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 900;
+    }
+
+    .boxplot-card svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .table-card caption {
+      margin-bottom: 0.35rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 850;
+      text-align: left;
+    }
+
+    .compact-table td:not(:first-child),
+    .compact-table th:not(:first-child) {
+      text-align: right;
+    }
+
+    .callout-list {
+      display: grid;
+      gap: 0.55rem;
+      margin: 0.7rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .callout-list li {
+      border-left: 4px solid var(--teal);
+      background: var(--surface-blue);
+      padding: 0.62rem 0.72rem;
+      color: var(--body);
+      font-size: 0.86rem;
+    }
+
+    .callout-list li:nth-child(2) {
+      border-color: var(--gold);
+      background: var(--surface-warm);
+    }
+
+    .callout-list li:nth-child(3) { border-color: var(--green); }
+
+    @media (max-width: 900px) {
+      .hero-thesis,
+      .cohort-grid,
+      .criteria-grid,
+      .boxplot-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pathway {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 620px) {
+      .bar-row {
+        grid-template-columns: 1fr;
+      }
+
+      .bar-row em {
+        text-align: left;
+      }
+
+      .pathway {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#results">Results</a>
+        <a href="#methods">Methods</a>
+        <a href="#tables">Tables</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2022 poster 58-2022 | Oral oncolytic access</p>
+        <h1 id="poster-title">Health System Specialty Pharmacy Integration Impact on Fill Time</h1>
+        <p class="hero-summary">
+          Parkview Health and Trellis Rx evaluated whether integrating a health system specialty
+          pharmacy into a genitourinary oncology clinic shortened the business-day interval from a
+          new oral oncolytic order to patient receipt.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Retrospective comparative time-series</li>
+          <li class="tag therapy">Genitourinary oncology</li>
+          <li class="tag therapy">Oral oncolytics</li>
+          <li class="tag">Access time</li>
+          <li class="tag">Parkview Health / Trellis Rx</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata and key result visual">
+        <div>
+          <div class="poster-code">58-2022</div>
+          <dl class="meta-grid">
+            <div>
+              <dt>Year</dt>
+              <dd>2022</dd>
+            </div>
+            <div>
+              <dt>Cohorts</dt>
+              <dd>80 pre / 82 post</dd>
+            </div>
+            <div>
+              <dt>Primary lens</dt>
+              <dd>Before vs after</dd>
+            </div>
+            <div>
+              <dt>Secondary lens</dt>
+              <dd>HSSP vs outside</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="fill-clock" aria-hidden="true">
+          <div class="clock-face">
+            <div class="clock-center">
+              <div>
+                <strong>43%</strong>
+                <span>shorter median access time when filled internally</span>
+              </div>
+            </div>
+          </div>
+          <div class="mini-legend">
+            <span><i></i>Integrated HSSP</span>
+            <span><i></i>Outside specialty pharmacy</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Pre-integration median</span>
+          <strong>7<small> business days</small></strong>
+          <em>Year before integrated specialty pharmacy service.</em>
+        </article>
+        <article class="metric-card">
+          <span>Post-integration median</span>
+          <strong>6<small> business days</small></strong>
+          <em>First year after HSSP integration.</em>
+        </article>
+        <article class="metric-card">
+          <span>Primary reduction</span>
+          <strong>15%</strong>
+          <em>Median access time reduction after integration.</em>
+        </article>
+        <article class="metric-card">
+          <span>Internal-fill reduction</span>
+          <strong>43%</strong>
+          <em>HSSP median 5 days vs 9 days outside.</em>
+        </article>
+      </section>
+
+      <section id="results" class="hero-thesis">
+        <div class="reduction-tile">
+          <span>Most actionable signal</span>
+          <strong>9 -> 5</strong>
+          <p>
+            Patients whose oral oncolytics were dispensed through the integrated HSSP reached
+            medication about four business days faster than patients using outside specialty pharmacies.
+          </p>
+        </div>
+
+        <article class="panel">
+          <p class="section-label">Median access time</p>
+          <h2>Integration helped; internal dispensing helped more.</h2>
+          <p>
+            The pre/post comparison improved by one median business day. The internal-fill
+            comparison showed a larger gap, suggesting the integrated pharmacy's operational control
+            over benefits work, review, and delivery was the stronger access lever.
+          </p>
+          <div class="turnaround-bars" aria-label="Median business-day access comparisons">
+            <div class="bar-row">
+              <b>Pre-HSSP integration</b>
+              <span class="bar-track"><span class="bar-fill" style="width:78%"></span></span>
+              <em>7d</em>
+            </div>
+            <div class="bar-row">
+              <b>Post-HSSP integration</b>
+              <span class="bar-track"><span class="bar-fill hssp" style="width:67%"></span></span>
+              <em>6d</em>
+            </div>
+            <div class="bar-row">
+              <b>Outside specialty pharmacy</b>
+              <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
+              <em>9d</em>
+            </div>
+            <div class="bar-row">
+              <b>Integrated HSSP fill</b>
+              <span class="bar-track"><span class="bar-fill hssp" style="width:56%"></span></span>
+              <em>5d</em>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="cohort-grid" aria-label="Study populations">
+        <article class="cohort-card">
+          <p class="section-label">Before integration</p>
+          <strong>80 patients</strong>
+          <p>Started an oral oncolytic prior to the health system specialty pharmacy integration.</p>
+        </article>
+        <article class="cohort-card">
+          <p class="section-label">After integration</p>
+          <strong>82 patients</strong>
+          <p>Started therapy after integration of the Parkview Health specialty pharmacy service.</p>
+        </article>
+      </section>
+
+      <section id="methods" class="panel">
+        <p class="section-label">Objective and methods</p>
+        <h2>Define access as new order to patient receipt, then compare operational eras.</h2>
+        <p>
+          The poster's objective was to compare time to access oral oncolytic treatments before and
+          after health system specialty pharmacy integration. Access time was defined as the
+          difference in business days between a new order and the patient's receipt of the ordered product.
+        </p>
+        <div class="criteria-grid">
+          <article class="criteria-card">
+            <h3>Included</h3>
+            <ul>
+              <li>Renal cell carcinoma or prostate cancer diagnosis code.</li>
+              <li>Associated prescription for one of 12 listed genitourinary oral anticancer agents.</li>
+              <li>First prescription order between November 2018 and October 202- as shown in the extracted poster.</li>
+            </ul>
+          </article>
+          <article class="criteria-card exclusion">
+            <h3>Excluded</h3>
+            <ul>
+              <li>Patients under 18 years old.</li>
+              <li>Patients actively breastfeeding.</li>
+              <li>Patients incarcerated.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Access pathway</p>
+        <h2>Where an integrated HSSP can compress time.</h2>
+        <div class="pathway" aria-label="Evidence flow from barriers to conclusion">
+          <article class="path-step" data-step="1">
+            <h3>Order</h3>
+            <p>Provider writes a new oral oncolytic prescription for a GU oncology patient.</p>
+          </article>
+          <article class="path-step" data-step="2">
+            <h3>Barriers</h3>
+            <p>Prior authorization, financial toxicity, pharmacy review, and delivery can create lag.</p>
+          </article>
+          <article class="path-step" data-step="3">
+            <h3>Integration</h3>
+            <p>HSSP embeds specialty pharmacy service into the clinic's access workflow.</p>
+          </article>
+          <article class="path-step" data-step="4">
+            <h3>Dispense lens</h3>
+            <p>Internal fills are compared with outside specialty pharmacy fills across the period.</p>
+          </article>
+          <article class="path-step" data-step="5">
+            <h3>Receipt</h3>
+            <p>Median time to patient receipt falls most sharply when the integrated HSSP fills.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="visual-grid" aria-label="Box plot patterns and interpretation">
+        <article class="panel">
+          <p class="section-label">Distribution pattern</p>
+          <h2>Quartiles show fewer low-end delays after integration.</h2>
+          <p>
+            The before/after whisker summary shifts downward after integration: Q1 moved from
+            6 to 4 business days, the median moved from 7 to 6, and the mean moved from 8.68 to 6.98.
+          </p>
+          <div class="boxplot-grid">
+            <div class="boxplot-card">
+              <h3>Before <span>median 7d</span></h3>
+              <svg viewBox="0 0 250 170" role="img" aria-label="Before integration boxplot values">
+                <rect x="34" y="14" width="182" height="126" fill="#f6f9fe" stroke="#d9e1ef"></rect>
+                <line x1="66" y1="28" x2="184" y2="28" stroke="#d9e1ef"></line>
+                <line x1="66" y1="68" x2="184" y2="68" stroke="#d9e1ef"></line>
+                <line x1="66" y1="108" x2="184" y2="108" stroke="#d9e1ef"></line>
+                <line x1="125" y1="28" x2="125" y2="125" stroke="#243770" stroke-width="2"></line>
+                <line x1="105" y1="28" x2="145" y2="28" stroke="#243770" stroke-width="3"></line>
+                <line x1="105" y1="125" x2="145" y2="125" stroke="#243770" stroke-width="3"></line>
+                <rect x="92" y="70" width="66" height="39" fill="#243770" opacity="0.86"></rect>
+                <line x1="92" y1="96" x2="158" y2="96" stroke="#d12630" stroke-width="3"></line>
+                <text x="170" y="32" fill="#243770" font-size="11" font-family="Inter, Arial">Max 16</text>
+                <text x="170" y="100" fill="#d12630" font-size="11" font-family="Inter, Arial">Median 7</text>
+                <text x="170" y="128" fill="#243770" font-size="11" font-family="Inter, Arial">Min 3</text>
+              </svg>
+            </div>
+            <div class="boxplot-card">
+              <h3>After <span>median 6d</span></h3>
+              <svg viewBox="0 0 250 170" role="img" aria-label="After integration boxplot values">
+                <rect x="34" y="14" width="182" height="126" fill="#f6f9fe" stroke="#d9e1ef"></rect>
+                <line x1="66" y1="28" x2="184" y2="28" stroke="#d9e1ef"></line>
+                <line x1="66" y1="68" x2="184" y2="68" stroke="#d9e1ef"></line>
+                <line x1="66" y1="108" x2="184" y2="108" stroke="#d9e1ef"></line>
+                <line x1="125" y1="28" x2="125" y2="139" stroke="#187c8f" stroke-width="2"></line>
+                <line x1="105" y1="28" x2="145" y2="28" stroke="#187c8f" stroke-width="3"></line>
+                <line x1="105" y1="139" x2="145" y2="139" stroke="#187c8f" stroke-width="3"></line>
+                <rect x="92" y="82" width="66" height="50" fill="#187c8f" opacity="0.84"></rect>
+                <line x1="92" y1="104" x2="158" y2="104" stroke="#e99e25" stroke-width="3"></line>
+                <text x="170" y="32" fill="#243770" font-size="11" font-family="Inter, Arial">Max 16</text>
+                <text x="170" y="108" fill="#187c8f" font-size="11" font-family="Inter, Arial">Median 6</text>
+                <text x="170" y="142" fill="#243770" font-size="11" font-family="Inter, Arial">Min 1</text>
+              </svg>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel markdown-fragment">
+          <p class="section-label">Conclusion</p>
+          <h2>The access-time conclusion was directional and operational.</h2>
+          <p>
+            Integration of a health system specialty pharmacy resulted in a 15% reduction in patient
+            access time, demonstrating the impact HSSP can play in avoiding treatment delays.
+          </p>
+          <ul class="callout-list">
+            <li>The internal-fill analysis produced the larger effect: 43% shorter median access time.</li>
+            <li>The post-integration distribution lowered Q1, Q3, mean, median, and minimum values.</li>
+            <li>Outside specialty pharmacy fills carried a longer median and multiple high outliers.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="tables" class="tables-grid" aria-label="Extracted table patterns">
+        <article class="table-card">
+          <p class="section-label">Primary endpoint table</p>
+          <h2>Before vs after integration</h2>
+          <div class="table-wrap">
+            <table class="compact-table">
+              <caption>Business-day turnaround distribution from the poster's whisker plot table.</caption>
+              <thead>
+                <tr>
+                  <th>Metric</th>
+                  <th>Before</th>
+                  <th>After</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Max</td><td>16.00</td><td>16.00</td></tr>
+                <tr><td>Q3</td><td>10.75</td><td>9.00</td></tr>
+                <tr><td>Mean</td><td>8.68</td><td>6.98</td></tr>
+                <tr><td>Median</td><td>7.00</td><td>6.00</td></tr>
+                <tr><td>Q1</td><td>6.00</td><td>4.00</td></tr>
+                <tr><td>Min</td><td>3.00</td><td>1.00</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Secondary endpoint table</p>
+          <h2>Outside pharmacy vs Parkview</h2>
+          <div class="table-wrap">
+            <table class="compact-table">
+              <caption>Selected distribution values; outside fills had several high outliers.</caption>
+              <thead>
+                <tr>
+                  <th>Metric</th>
+                  <th>Outside SP</th>
+                  <th>Parkview</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>High outliers</td><td>19, 21, 22, 26, 29, 35</td><td>16</td></tr>
+                <tr><td>Max</td><td>16.0</td><td>16.0</td></tr>
+                <tr><td>Q3</td><td>11.0</td><td>13.0</td></tr>
+                <tr><td>Mean</td><td>8.9</td><td>11.0</td></tr>
+                <tr><td>Median</td><td>9.0</td><td>5.1</td></tr>
+                <tr><td>Q1</td><td>7.0</td><td>6.0</td></tr>
+                <tr><td>Min</td><td>3.0</td><td>4.0</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel markdown-fragment">
+        <p class="section-label">Poster context</p>
+        <h2>Why time-to-fill mattered in this study.</h2>
+        <p>
+          The background framed oral oncolytic access as a source of patient and prescriber anxiety,
+          citing prior median access-time estimates ranging from four to twelve days. The study
+          positioned HSSPs as a way to overcome prior authorization, financial toxicity, pharmacy
+          review, and delivery barriers.
+        </p>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/58-2022.pdf">Open original PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/58-2022.md">Open extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2024 Infographic | RAPID3 Aggregate Score Interpretation</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card.rapid3-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 25rem;
+    }
+    .rapid3-svg {
+      width: 100%;
+      height: auto;
+      margin-top: 0.2rem;
+    }
+    .rapid3-card .poster-code {
+      position: relative;
+      z-index: 1;
+      font-size: clamp(1.45rem, 3.3vw, 2.65rem);
+    }
+    .hero-card .button-link {
+      justify-content: center;
+      background: #fff;
+    }
+    .insight-banner {
+      display: grid;
+      grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .signal-card {
+      position: relative;
+      min-height: 17rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 86% 20%, rgba(233, 158, 37, 0.42), transparent 12rem),
+        linear-gradient(135deg, var(--ink), #1b6678 72%, var(--teal));
+      color: #fff;
+      overflow: hidden;
+      padding: 1rem;
+    }
+    .signal-card::after {
+      content: "";
+      position: absolute;
+      right: -4rem;
+      bottom: -5rem;
+      width: 17rem;
+      height: 17rem;
+      border: 2rem solid rgba(255, 255, 255, 0.12);
+      border-radius: 50%;
+    }
+    .signal-card p,
+    .signal-card strong,
+    .signal-card span {
+      position: relative;
+      z-index: 1;
+    }
+    .signal-card .kicker {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+    .signal-card strong {
+      display: block;
+      margin-top: 0.3rem;
+      font-family: var(--font-display);
+      font-size: clamp(3.2rem, 8vw, 6.2rem);
+      line-height: 0.9;
+    }
+    .signal-card span {
+      display: block;
+      max-width: 22rem;
+      margin-top: 0.55rem;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 0.96rem;
+    }
+    .activity-bars {
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 0.75rem;
+    }
+    .activity-row {
+      display: grid;
+      grid-template-columns: 10.6rem minmax(0, 1fr) 4.2rem;
+      gap: 0.6rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+    .activity-track {
+      height: 1rem;
+      border-radius: 999px;
+      background: var(--surface-blue);
+      overflow: hidden;
+    }
+    .activity-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+    }
+    .bar-low i { width: 40.5%; background: var(--green); }
+    .bar-mod i { width: 33.1%; background: var(--gold); }
+    .bar-high i { width: 26.4%; background: var(--red); }
+    .domain-split {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.75rem;
+    }
+    .domain-card {
+      min-height: 10.7rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.78rem;
+    }
+    .domain-card b {
+      display: inline-grid;
+      place-items: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: var(--domain-color, var(--red));
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+    }
+    .domain-card h3 {
+      margin-top: 0.5rem;
+      font-size: 0.93rem;
+    }
+    .domain-card p {
+      margin: 0.38rem 0 0;
+      font-size: 0.8rem;
+    }
+    .qol-grid {
+      display: grid;
+      gap: 0.72rem;
+      margin-top: 0.7rem;
+    }
+    .qol-row {
+      display: grid;
+      grid-template-columns: 8.5rem minmax(0, 1fr);
+      gap: 0.65rem;
+      align-items: center;
+    }
+    .qol-row span {
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+    .stacked-bar {
+      display: flex;
+      height: 1.55rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 999px;
+      overflow: hidden;
+      background: var(--surface-blue);
+    }
+    .stacked-bar i {
+      display: block;
+      height: 100%;
+      width: var(--w);
+      background: var(--c);
+    }
+    .legend-inline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem 0.9rem;
+      margin: 0.8rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .legend-inline li {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+    .legend-inline i {
+      width: 0.72rem;
+      height: 0.72rem;
+      border-radius: 3px;
+      background: var(--c);
+    }
+    .score-scale {
+      display: grid;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+    .scale-track {
+      display: grid;
+      grid-template-columns: 10fr 10fr 20fr 20fr;
+      min-height: 2.6rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      overflow: hidden;
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 900;
+    }
+    .scale-track span {
+      display: grid;
+      place-items: center;
+      padding: 0.28rem;
+      text-align: center;
+    }
+    .scale-remission { background: var(--green); }
+    .scale-low { background: var(--teal); }
+    .scale-moderate { background: var(--gold); color: var(--ink); }
+    .scale-high { background: var(--red); }
+    .callout-note {
+      margin: 0.75rem 0 0;
+      border-left: 4px solid var(--red);
+      background: var(--surface-warm);
+      padding: 0.72rem 0.82rem;
+      color: var(--ink);
+      font-size: 0.88rem;
+      font-weight: 780;
+    }
+    .method-list {
+      display: grid;
+      gap: 0.5rem;
+      margin: 0.65rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .method-list li {
+      display: grid;
+      grid-template-columns: 1.5rem minmax(0, 1fr);
+      gap: 0.5rem;
+      align-items: start;
+      font-size: 0.88rem;
+    }
+    .method-list li::before {
+      content: attr(data-step);
+      display: grid;
+      place-items: center;
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.7rem;
+      font-weight: 900;
+    }
+    .source-note {
+      margin: 0.7rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+    @media (max-width: 900px) {
+      .insight-banner,
+      .domain-split {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 560px) {
+      .activity-row,
+      .qol-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="https://naspnet.org/" aria-label="NASP website">NASP Posters</a>
+      <nav aria-label="Page sections">
+        <a href="#snapshot">Snapshot</a>
+        <a href="#lens">Domain Lens</a>
+        <a href="#evidence">Evidence</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">2024 Annual Meeting Poster | 6-OPR6-OR</p>
+        <h1>Values and pitfalls of using RAPID3 aggregate scores to guide rheumatoid arthritis interventions</h1>
+        <p class="hero-summary">
+          Clearway Health reviewed RAPID3 domain scores in patients with rheumatoid arthritis to test whether the
+          total disease-activity score aligned with functional status, pain, and global health signals that may not all
+          be RA-specific.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Multi-center retrospective observational study</li>
+          <li class="tag therapy">Rheumatoid arthritis</li>
+          <li class="tag therapy">Patient-reported outcomes</li>
+          <li class="tag">Clearway Health</li>
+        </ul>
+      </div>
+      <aside class="hero-card rapid3-card" aria-label="Poster details and RAPID3 concept">
+        <div class="poster-code">AM24<br>6-OPR6-OR</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Poster year</dt>
+            <dd>2024</dd>
+          </div>
+          <div>
+            <dt>Population</dt>
+            <dd>RA patients</dd>
+          </div>
+          <div>
+            <dt>Program</dt>
+            <dd>Specialty care management</dd>
+          </div>
+          <div>
+            <dt>Window</dt>
+            <dd>Jan 1-May 25, 2024</dd>
+          </div>
+        </dl>
+        <svg class="rapid3-svg" viewBox="0 0 420 260" role="img" aria-label="Three RAPID3 domains converging into an aggregate score">
+          <defs>
+            <marker id="arrowHead" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L7,3 z" fill="#243770"></path>
+            </marker>
+          </defs>
+          <rect x="18" y="28" width="112" height="64" rx="10" fill="#187c8f"></rect>
+          <rect x="154" y="28" width="112" height="64" rx="10" fill="#e99e25"></rect>
+          <rect x="290" y="28" width="112" height="64" rx="10" fill="#7561a8"></rect>
+          <text x="74" y="55" text-anchor="middle" fill="#fff" font-family="Montserrat, Arial, sans-serif" font-size="13" font-weight="900">Function</text>
+          <text x="74" y="73" text-anchor="middle" fill="#fff" font-family="Inter, Arial, sans-serif" font-size="11">0-10</text>
+          <text x="210" y="55" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="13" font-weight="900">Pain</text>
+          <text x="210" y="73" text-anchor="middle" fill="#243770" font-family="Inter, Arial, sans-serif" font-size="11">0-10</text>
+          <text x="346" y="55" text-anchor="middle" fill="#fff" font-family="Montserrat, Arial, sans-serif" font-size="13" font-weight="900">Global health</text>
+          <text x="346" y="73" text-anchor="middle" fill="#fff" font-family="Inter, Arial, sans-serif" font-size="11">0-10</text>
+          <path d="M74 92 C96 132 134 140 168 160" fill="none" stroke="#243770" stroke-width="4" marker-end="url(#arrowHead)"></path>
+          <path d="M210 92 L210 150" fill="none" stroke="#243770" stroke-width="4" marker-end="url(#arrowHead)"></path>
+          <path d="M346 92 C322 132 286 140 252 160" fill="none" stroke="#243770" stroke-width="4" marker-end="url(#arrowHead)"></path>
+          <circle cx="210" cy="184" r="54" fill="#fff" stroke="#d12630" stroke-width="8"></circle>
+          <text x="210" y="179" text-anchor="middle" fill="#d12630" font-family="Montserrat, Arial, sans-serif" font-size="26" font-weight="900">0-30</text>
+          <text x="210" y="202" text-anchor="middle" fill="#243770" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800">aggregate score</text>
+        </svg>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/6-OPR6-OR-Poster-AM24_2024.pdf">Open poster PDF</a>
+      </aside>
+    </section>
+
+    <main>
+      <section id="snapshot" class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Low/remission</span>
+          <strong>40.5%</strong>
+        </article>
+        <article class="metric-card">
+          <span>Moderate activity</span>
+          <strong>33.1%</strong>
+        </article>
+        <article class="metric-card">
+          <span>Severe activity</span>
+          <strong>26.4%</strong>
+        </article>
+        <article class="metric-card">
+          <span>Improved RAPID3</span>
+          <strong>48.5%</strong>
+        </article>
+      </section>
+
+      <section class="insight-banner" aria-label="Primary interpretation">
+        <article class="signal-card">
+          <p class="kicker">Main interpretation signal</p>
+          <strong>76.4%</strong>
+          <span>
+            of patients with moderate-to-severe disease activity had little to no physical or functional disability,
+            indicating that aggregate RAPID3 scores need domain-level review before therapy optimization.
+          </span>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Disease activity mix</p>
+          <h2>Aggregate scores showed a broad RA activity distribution</h2>
+          <div class="activity-bars">
+            <div class="activity-row bar-low">
+              <span>Low/remission</span>
+              <div class="activity-track" aria-label="Low disease activity or remission 40.5 percent"><i></i></div>
+              <span>40.5%</span>
+            </div>
+            <div class="activity-row bar-mod">
+              <span>Moderate disease activity</span>
+              <div class="activity-track" aria-label="Moderate disease activity 33.1 percent"><i></i></div>
+              <span>33.1%</span>
+            </div>
+            <div class="activity-row bar-high">
+              <span>Severe disease activity</span>
+              <div class="activity-track" aria-label="Severe disease activity 26.4 percent"><i></i></div>
+              <span>26.4%</span>
+            </div>
+          </div>
+          <p class="callout-note">
+            The poster's caution: domains for pain and global health may reflect comorbidities or overall well-being, not only active RA.
+          </p>
+        </article>
+      </section>
+
+      <section id="lens" class="panel">
+        <p class="section-label">RAPID3 domain lens</p>
+        <h2>Three patient-reported domains can point in different clinical directions</h2>
+        <div class="domain-split" aria-label="RAPID3 scoring domains">
+          <article class="domain-card" style="--domain-color: var(--teal);">
+            <b>1</b>
+            <h3>Functional status</h3>
+            <p>Physical function questions are scored from 0 to 10 and showed low limitation for many moderate-to-severe patients.</p>
+          </article>
+          <article class="domain-card" style="--domain-color: var(--gold);">
+            <b>2</b>
+            <h3>Pain</h3>
+            <p>Pain is scored on a 0 to 10 scale; more than half of higher-activity patients scored above 5 on pain/global assessment.</p>
+          </article>
+          <article class="domain-card" style="--domain-color: var(--purple);">
+            <b>3</b>
+            <h3>Global health</h3>
+            <p>Overall well-being can be affected by non-RA conditions, so it can skew the cumulative score if read in isolation.</p>
+          </article>
+        </div>
+        <div class="score-scale" aria-label="RAPID3 reference ranges">
+          <div class="scale-track">
+            <span class="scale-remission">Remission<br>0-3.0</span>
+            <span class="scale-low">Low<br>&gt;3.1-6.0</span>
+            <span class="scale-moderate">Moderate<br>&gt;6.1-12.0</span>
+            <span class="scale-high">High<br>&gt;12</span>
+          </div>
+          <p class="source-note">RAPID3 combines function, pain, and global health into a cumulative score ranging from 0 to 30.</p>
+        </div>
+      </section>
+
+      <section id="evidence" class="evidence-map" aria-label="Extracted poster takeaways">
+        <article class="evidence-card">
+          <h3>Objective</h3>
+          <p>Investigate whether the three RAPID3 domain scores align with the aggregate score and how the pattern can tailor interventions.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Design</h3>
+          <p>Multi-center, retrospective, observational descriptive study using clinical and pharmacist intervention dashboard data.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Population</h3>
+          <p>Patients with rheumatoid arthritis enrolled in Clearway Health specialty care management services from January 1 to May 25, 2024.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Result pattern</h3>
+          <p>Moderate and severe aggregate activity did not always mean substantial functional difficulty.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Conclusion</h3>
+          <p>RAPID3 is useful, but aggregate scores should be interpreted carefully when deciding on therapy optimization.</p>
+        </article>
+      </section>
+
+      <section class="visual-grid" aria-label="Functional and quality-of-life patterns">
+        <article class="panel">
+          <p class="section-label">Physical function finding</p>
+          <h2>Most higher-activity patients reported little functional limitation</h2>
+          <div class="lens-chart">
+            <div class="lens-row">
+              <span>Little/no difficulty</span>
+              <div class="lens-bar" aria-label="76.4 percent with little to no difficulty"><i style="width: 76.4%; background: var(--teal);"></i></div>
+            </div>
+            <div class="lens-row">
+              <span>Much difficulty</span>
+              <div class="lens-bar" aria-label="23.6 percent with much difficulty"><i style="width: 23.6%; background: var(--gold);"></i></div>
+            </div>
+            <div class="lens-row">
+              <span>Unable to do</span>
+              <div class="lens-bar" aria-label="0 percent unable to do"><i style="width: 0%; background: var(--red);"></i></div>
+            </div>
+          </div>
+          <p class="callout-note">
+            For moderate-to-severe aggregate scores, the functional domain alone would often suggest a less aggressive intervention posture.
+          </p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Quality-of-life pattern</p>
+          <h2>Well-being measures showed a wider difficulty spread</h2>
+          <div class="qol-grid">
+            <div class="qol-row">
+              <span>Depression</span>
+              <div class="stacked-bar" aria-label="Depression difficulty distribution">
+                <i style="--w: 35%; --c: var(--green);"></i>
+                <i style="--w: 40%; --c: var(--teal);"></i>
+                <i style="--w: 20%; --c: var(--gold);"></i>
+                <i style="--w: 5%; --c: var(--red);"></i>
+              </div>
+            </div>
+            <div class="qol-row">
+              <span>Anxiety feelings</span>
+              <div class="stacked-bar" aria-label="Anxiety difficulty distribution">
+                <i style="--w: 30%; --c: var(--green);"></i>
+                <i style="--w: 42%; --c: var(--teal);"></i>
+                <i style="--w: 23%; --c: var(--gold);"></i>
+                <i style="--w: 5%; --c: var(--red);"></i>
+              </div>
+            </div>
+            <div class="qol-row">
+              <span>Good night sleep</span>
+              <div class="stacked-bar" aria-label="Sleep difficulty distribution">
+                <i style="--w: 25%; --c: var(--green);"></i>
+                <i style="--w: 38%; --c: var(--teal);"></i>
+                <i style="--w: 27%; --c: var(--gold);"></i>
+                <i style="--w: 10%; --c: var(--red);"></i>
+              </div>
+            </div>
+          </div>
+          <ul class="legend-inline" aria-label="Quality-of-life legend">
+            <li><i style="--c: var(--green);"></i>None</li>
+            <li><i style="--c: var(--teal);"></i>Some</li>
+            <li><i style="--c: var(--gold);"></i>Much</li>
+            <li><i style="--c: var(--red);"></i>Unable</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">Method snapshot</p>
+          <h2>How the analysis was framed</h2>
+          <ul class="method-list">
+            <li data-step="1">Patients were included if enrolled in multi-site specialty pharmacy services during the 2024 study window.</li>
+            <li data-step="2">RAPID3 data were pulled from a clinical and pharmacist intervention dashboard.</li>
+            <li data-step="3">Descriptive statistics summarized aggregate activity, function, and quality-of-life patterns.</li>
+          </ul>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Condensed table pattern</p>
+          <h2>Disease activity by RAPID3 aggregate score</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Disease activity category</th>
+                  <th>Reported share</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Low disease activity/remission</td>
+                  <td>40.5%</td>
+                </tr>
+                <tr>
+                  <td>Moderate disease activity</td>
+                  <td>33.1%</td>
+                </tr>
+                <tr>
+                  <td>Severe disease activity</td>
+                  <td>26.4%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/6-OPR6-OR-Poster-AM24_2024.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/6-OPR6-OR-Poster-AM24_2024.md">Source markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

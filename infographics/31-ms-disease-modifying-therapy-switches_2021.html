@@ -1,0 +1,810 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DMT Switches in Relapsing Multiple Sclerosis | NASP 2021</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -4rem;
+      bottom: -4.5rem;
+      width: 14rem;
+      height: 14rem;
+      border: 1.05rem solid rgba(117, 97, 168, 0.13);
+      border-radius: 50%;
+    }
+
+    .hero-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .ms-hero-art {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-top: 0.35rem;
+    }
+
+    .hero-summary strong,
+    .finding-list strong {
+      color: var(--ink);
+      font-weight: 900;
+    }
+
+    .metric-card strong {
+      color: var(--ink);
+      font-size: clamp(1.85rem, 4vw, 3.1rem);
+    }
+
+    .metric-card em {
+      display: block;
+      margin-top: 0.42rem;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-style: normal;
+      font-weight: 760;
+      line-height: 1.35;
+    }
+
+    .spotlight {
+      display: grid;
+      grid-template-columns: minmax(16rem, 0.82fr) minmax(0, 1.18fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .switch-gauge {
+      display: grid;
+      place-items: center;
+      min-height: 22rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(233, 158, 37, 0.18), transparent 7rem),
+        linear-gradient(145deg, #ffffff, var(--surface-blue));
+      padding: 1rem;
+    }
+
+    .gauge-ring {
+      --p: 25;
+      position: relative;
+      display: grid;
+      place-items: center;
+      width: min(16rem, 72vw);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: conic-gradient(var(--red) 0 25%, rgba(36, 55, 112, 0.1) 25% 100%);
+      box-shadow: inset 0 0 0 1px rgba(36, 55, 112, 0.12);
+    }
+
+    .gauge-ring::before {
+      content: "";
+      position: absolute;
+      inset: 1.25rem;
+      border-radius: inherit;
+      background: #fff;
+      box-shadow: 0 0 0 1px rgba(174, 187, 210, 0.75);
+    }
+
+    .gauge-ring span {
+      position: relative;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(3.3rem, 8vw, 5.3rem);
+      font-weight: 900;
+      line-height: 0.9;
+    }
+
+    .gauge-ring small {
+      display: block;
+      margin-top: 0.3rem;
+      color: var(--muted);
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .finding-list {
+      display: grid;
+      gap: 0.58rem;
+      margin: 0.7rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .finding-list li {
+      border-left: 3px solid var(--border-strong);
+      padding-left: 0.65rem;
+      font-size: 0.88rem;
+    }
+
+    .pathway {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 3rem minmax(0, 1fr);
+      gap: 0.7rem;
+      align-items: stretch;
+      margin-top: 0.85rem;
+    }
+
+    .path-box {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.9rem;
+    }
+
+    .path-box h3 {
+      margin-bottom: 0.65rem;
+    }
+
+    .path-arrow {
+      display: grid;
+      place-items: center;
+      color: var(--red);
+    }
+
+    .path-arrow svg {
+      width: 2.6rem;
+      height: 2.6rem;
+    }
+
+    .rank-bars {
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .rank-row {
+      display: grid;
+      grid-template-columns: minmax(7.2rem, 0.9fr) minmax(0, 1fr) 3.1rem;
+      gap: 0.5rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.76rem;
+      font-weight: 850;
+    }
+
+    .rank-row span:last-child {
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .rank-track {
+      height: 0.82rem;
+      border: 1px solid rgba(36, 55, 112, 0.13);
+      border-radius: 999px;
+      background: rgba(36, 55, 112, 0.08);
+      overflow: hidden;
+    }
+
+    .rank-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: var(--c, linear-gradient(90deg, var(--red), var(--gold)));
+    }
+
+    .reason-board {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(16rem, 0.95fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .reason-stack {
+      display: grid;
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+
+    .reason-row {
+      display: grid;
+      grid-template-columns: 8.8rem minmax(0, 1fr) 3rem;
+      gap: 0.58rem;
+      align-items: center;
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+
+    .reason-row b {
+      color: var(--ink);
+    }
+
+    .reason-track {
+      height: 1.05rem;
+      border-radius: 999px;
+      background: #e7edf6;
+      overflow: hidden;
+    }
+
+    .reason-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: var(--c);
+    }
+
+    .reason-row span {
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .matrix-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-warm));
+      padding: 0.9rem;
+    }
+
+    .matrix-card p {
+      margin: 0.45rem 0 0;
+      font-size: 0.84rem;
+    }
+
+    .heat-grid {
+      display: grid;
+      grid-template-columns: 8.2rem repeat(5, minmax(0, 1fr));
+      gap: 0.34rem;
+      margin-top: 0.8rem;
+      align-items: stretch;
+      font-size: 0.66rem;
+      font-weight: 850;
+    }
+
+    .heat-grid span {
+      display: grid;
+      min-height: 2.1rem;
+      place-items: center;
+      border: 1px solid rgba(174, 187, 210, 0.86);
+      border-radius: 5px;
+      background: #fff;
+      color: var(--ink);
+      padding: 0.2rem;
+      text-align: center;
+    }
+
+    .heat-grid .label {
+      justify-content: start;
+      place-items: center start;
+      color: var(--body);
+      text-align: left;
+    }
+
+    .heat-grid .hot {
+      background: rgba(209, 38, 48, 0.86);
+      color: #fff;
+      border-color: rgba(209, 38, 48, 0.9);
+    }
+
+    .heat-grid .warm {
+      background: rgba(233, 158, 37, 0.8);
+      color: #17285a;
+      border-color: rgba(233, 158, 37, 0.9);
+    }
+
+    .heat-grid .cool {
+      background: rgba(24, 124, 143, 0.2);
+      color: var(--ink);
+      border-color: rgba(24, 124, 143, 0.32);
+    }
+
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .year-bars {
+      display: grid;
+      gap: 0.72rem;
+      margin-top: 0.8rem;
+    }
+
+    .year-row {
+      display: grid;
+      grid-template-columns: 3.6rem minmax(0, 1fr);
+      gap: 0.58rem;
+      align-items: center;
+      color: var(--ink);
+      font-weight: 900;
+    }
+
+    .stack-track {
+      display: grid;
+      grid-template-columns: var(--non) var(--ins) minmax(0, 1fr);
+      height: 1.35rem;
+      border-radius: 999px;
+      background: rgba(36, 55, 112, 0.08);
+      overflow: hidden;
+    }
+
+    .stack-track i:nth-child(1) {
+      background: var(--teal);
+    }
+
+    .stack-track i:nth-child(2) {
+      background: var(--red);
+    }
+
+    .legend-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 0.72rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 850;
+    }
+
+    .legend-line i {
+      display: inline-block;
+      width: 0.72rem;
+      height: 0.72rem;
+      margin-right: 0.25rem;
+      border-radius: 999px;
+      vertical-align: -0.1rem;
+      background: var(--teal);
+    }
+
+    .legend-line span:nth-child(2) i {
+      background: var(--red);
+    }
+
+    .initiator-wrap {
+      display: grid;
+      grid-template-columns: 13rem minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+      margin-top: 0.7rem;
+    }
+
+    .donut {
+      display: grid;
+      place-items: center;
+      width: 13rem;
+      height: 13rem;
+      border-radius: 50%;
+      background: conic-gradient(var(--ink) 0 61%, var(--teal) 61% 97%, var(--gold) 97% 98%, var(--green) 98% 99%, var(--purple) 99% 100%);
+      box-shadow: inset 0 0 0 1px rgba(36, 55, 112, 0.14);
+    }
+
+    .donut::before {
+      content: "36%";
+      display: grid;
+      place-items: center;
+      width: 7.9rem;
+      height: 7.9rem;
+      border-radius: 50%;
+      background: #fff;
+      color: var(--teal);
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 900;
+      box-shadow: 0 0 0 1px rgba(174, 187, 210, 0.75);
+    }
+
+    .role-list {
+      display: grid;
+      gap: 0.42rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .role-list li {
+      display: grid;
+      grid-template-columns: 0.8rem minmax(0, 1fr) 3.4rem;
+      gap: 0.45rem;
+      align-items: center;
+      color: var(--body);
+      font-size: 0.82rem;
+    }
+
+    .role-list i {
+      width: 0.8rem;
+      height: 0.8rem;
+      border-radius: 50%;
+      background: var(--ink);
+    }
+
+    .role-list li:nth-child(2) i { background: var(--teal); }
+    .role-list li:nth-child(3) i { background: var(--gold); }
+    .role-list li:nth-child(4) i { background: var(--green); }
+    .role-list li:nth-child(5) i { background: var(--purple); }
+
+    .method-river {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+
+    .method-node {
+      position: relative;
+      min-height: 10.2rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+      overflow: hidden;
+    }
+
+    .method-node::before {
+      content: attr(data-step);
+      position: absolute;
+      right: 0.48rem;
+      bottom: -0.48rem;
+      color: rgba(36, 55, 112, 0.1);
+      font-family: var(--font-display);
+      font-size: 4.4rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .method-node h3,
+    .method-node p {
+      position: relative;
+      z-index: 1;
+    }
+
+    .method-node p {
+      margin: 0.5rem 0 0;
+      font-size: 0.82rem;
+    }
+
+    .source-note {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+
+    @media (max-width: 900px) {
+      .spotlight,
+      .reason-board,
+      .timeline-grid,
+      .pathway {
+        grid-template-columns: 1fr;
+      }
+
+      .path-arrow {
+        min-height: 2.6rem;
+        transform: rotate(90deg);
+      }
+
+      .method-river {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 680px) {
+      .heat-grid {
+        grid-template-columns: 6.4rem repeat(5, minmax(2.2rem, 1fr));
+        overflow-x: auto;
+      }
+
+      .initiator-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .donut {
+        width: 11rem;
+        height: 11rem;
+      }
+
+      .donut::before {
+        width: 6.8rem;
+        height: 6.8rem;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .method-river {
+        grid-template-columns: 1fr;
+      }
+
+      .rank-row,
+      .reason-row,
+      .year-row {
+        grid-template-columns: 1fr;
+      }
+
+      .rank-row span:last-child,
+      .reason-row span {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/31-MS-Disease-Modifying-Therapy-Switches_2021.pdf">Source PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/31-MS-Disease-Modifying-Therapy-Switches_2021.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2021 / Poster 31</p>
+        <h1>Changes in disease-modifying therapies in patients with relapsing multiple sclerosis</h1>
+        <p class="hero-summary"><strong>Vanderbilt Specialty Pharmacy</strong> reviewed long-term DMT switching in an integrated health-system specialty pharmacy cohort, finding that one in four patients switched therapy and that insurance, clinical decline, and side effects shaped most transitions.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag therapy">Relapsing multiple sclerosis</li>
+          <li class="tag category">Disease-modifying therapy</li>
+          <li class="tag">Retrospective review</li>
+          <li class="tag">Integrated specialty pharmacy</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Study snapshot">
+        <div class="poster-code">31<br>2021</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Site</dt>
+            <dd>Vanderbilt University Medical Center</dd>
+          </div>
+          <div>
+            <dt>Cohort</dt>
+            <dd>540 RMS patients</dd>
+          </div>
+          <div>
+            <dt>Index period</dt>
+            <dd>May-Oct 2017 fills</dd>
+          </div>
+          <div>
+            <dt>Data sources</dt>
+            <dd>EHR, pharmacy system, claims</dd>
+          </div>
+        </dl>
+        <svg class="ms-hero-art" viewBox="0 0 430 220" role="img" aria-label="Stylized therapy switch network for multiple sclerosis medications">
+          <rect x="12" y="18" width="406" height="178" rx="18" fill="#fff" stroke="#aebbd2" stroke-width="2"/>
+          <path d="M75 150c32-52 64-86 112-86 42 0 67 28 105 28 26 0 47-13 68-32" fill="none" stroke="#d9e1ef" stroke-width="14" stroke-linecap="round"/>
+          <path d="M75 150c32-52 64-86 112-86 42 0 67 28 105 28 26 0 47-13 68-32" fill="none" stroke="#187c8f" stroke-width="4" stroke-linecap="round" stroke-dasharray="9 11"/>
+          <circle cx="74" cy="150" r="28" fill="#eef4fb" stroke="#187c8f" stroke-width="3"/>
+          <circle cx="187" cy="64" r="28" fill="#fff7ea" stroke="#e99e25" stroke-width="3"/>
+          <circle cx="292" cy="92" r="28" fill="#fef1f2" stroke="#d12630" stroke-width="3"/>
+          <circle cx="360" cy="60" r="28" fill="#f1eef8" stroke="#7561a8" stroke-width="3"/>
+          <text x="74" y="146" text-anchor="middle" fill="#243770" font-family="Arial, sans-serif" font-size="14" font-weight="700">Index</text>
+          <text x="74" y="162" text-anchor="middle" fill="#243770" font-family="Arial, sans-serif" font-size="14" font-weight="700">DMT</text>
+          <text x="187" y="68" text-anchor="middle" fill="#243770" font-family="Arial, sans-serif" font-size="18" font-weight="700">136</text>
+          <text x="292" y="96" text-anchor="middle" fill="#243770" font-family="Arial, sans-serif" font-size="18" font-weight="700">32%</text>
+          <text x="360" y="64" text-anchor="middle" fill="#243770" font-family="Arial, sans-serif" font-size="18" font-weight="700">36%</text>
+          <rect x="54" y="184" width="322" height="2" fill="#d9e1ef"/>
+          <circle cx="75" cy="185" r="5" fill="#187c8f"/>
+          <circle cx="187" cy="185" r="5" fill="#e99e25"/>
+          <circle cx="292" cy="185" r="5" fill="#d12630"/>
+          <circle cx="360" cy="185" r="5" fill="#7561a8"/>
+        </svg>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <div class="metric-card">
+          <span>Study cohort</span>
+          <strong>540</strong>
+          <em>Patients with RMS and at least three DMT fills at Vanderbilt Specialty Pharmacy.</em>
+        </div>
+        <div class="metric-card">
+          <span>Patients switching</span>
+          <strong>136</strong>
+          <em>Twenty-five percent switched from their index disease-modifying therapy.</em>
+        </div>
+        <div class="metric-card">
+          <span>Most common switch reason</span>
+          <strong>36%</strong>
+          <em>Insurance change, often affecting branded glatiramer acetate.</em>
+        </div>
+        <div class="metric-card">
+          <span>Pharmacist-initiated</span>
+          <strong>36%</strong>
+          <em>Specialty pharmacists identified and initiated more than one-third of switches.</em>
+        </div>
+      </section>
+
+      <section class="spotlight" aria-label="Objective and main switch result">
+        <div class="switch-gauge">
+          <div class="gauge-ring" role="img" aria-label="Gauge showing 25 percent of patients switched DMT">
+            <span>25%<small>switched index DMT</small></span>
+          </div>
+        </div>
+        <div class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Evaluate the long-term rate and reasons for DMT switching in a specialty pharmacy cohort.</h2>
+          <p>The review followed patients receiving RMS therapy through Vanderbilt's integrated specialty pharmacy model, then classified switch patterns by original therapy, post-switch therapy, timing, reason, and initiating role.</p>
+          <div class="pathway" aria-label="Index to post-switch therapy pattern">
+            <div class="path-box">
+              <h3>Most common index DMTs among switchers</h3>
+              <div class="rank-bars">
+                <div class="rank-row"><span>Glatiramer acetate brand</span><div class="rank-track"><i style="--w: 100%; --c: linear-gradient(90deg, var(--red), var(--gold));"></i></div><span>44%</span></div>
+                <div class="rank-row"><span>Interferon</span><div class="rank-track"><i style="--w: 64%; --c: var(--teal);"></i></div><span>28%</span></div>
+                <div class="rank-row"><span>Fingolimod</span><div class="rank-track"><i style="--w: 20%; --c: var(--green);"></i></div><span>9%</span></div>
+                <div class="rank-row"><span>Teriflunomide</span><div class="rank-track"><i style="--w: 20%; --c: var(--purple);"></i></div><span>9%</span></div>
+                <div class="rank-row"><span>Dimethyl fumarate brand</span><div class="rank-track"><i style="--w: 20%; --c: var(--gold);"></i></div><span>9%</span></div>
+              </div>
+            </div>
+            <div class="path-arrow" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none">
+                <path d="M8 24h28" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                <path d="m27 13 11 11-11 11" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="path-box">
+              <h3>Most common post-switch DMTs</h3>
+              <div class="rank-bars">
+                <div class="rank-row"><span>Glatiramer acetate</span><div class="rank-track"><i style="--w: 100%; --c: var(--teal);"></i></div><span>35%</span></div>
+                <div class="rank-row"><span>Ocrelizumab</span><div class="rank-track"><i style="--w: 91%; --c: linear-gradient(90deg, var(--red), var(--gold));"></i></div><span>32%</span></div>
+                <div class="rank-row"><span>Fingolimod</span><div class="rank-track"><i style="--w: 17%; --c: var(--green);"></i></div><span>6%</span></div>
+                <div class="rank-row"><span>Teriflunomide</span><div class="rank-track"><i style="--w: 17%; --c: var(--purple);"></i></div><span>6%</span></div>
+                <div class="rank-row"><span>Natalizumab</span><div class="rank-track"><i style="--w: 9%; --c: var(--gold);"></i></div><span>3%</span></div>
+              </div>
+            </div>
+          </div>
+          <p class="source-note">Ranked bars use percentages reported in Figure 1 of the poster.</p>
+        </div>
+      </section>
+
+      <section class="panel" aria-label="Methods">
+        <p class="section-label">Methods</p>
+        <h2>Single-center retrospective review using clinical, pharmacy management, and claims data.</h2>
+        <div class="method-river">
+          <div class="method-node" data-step="01">
+            <h3>Design</h3>
+            <p>Single-center, retrospective review of RMS patients treated through Vanderbilt Specialty Pharmacy.</p>
+          </div>
+          <div class="method-node" data-step="02">
+            <h3>Inclusion</h3>
+            <p>RMS diagnosis, at least three DMT fills during May-Oct 2017, and Vanderbilt MS clinic prescriber.</p>
+          </div>
+          <div class="method-node" data-step="03">
+            <h3>Sources</h3>
+            <p>Electronic health record, specialty pharmacy patient management system, and pharmacy claims.</p>
+          </div>
+          <div class="method-node" data-step="04">
+            <h3>Analysis</h3>
+            <p>Descriptive statistics summarized sample characteristics, switch outcomes, reasons, and roles.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="reason-board" aria-label="Switch reasons and therapy matrix">
+        <div class="panel">
+          <p class="section-label">Why switches happened</p>
+          <h2>Insurance change, clinical decline, and side effects explained most therapy transitions.</h2>
+          <div class="reason-stack">
+            <div class="reason-row">
+              <b>Insurance change</b>
+              <div class="reason-track"><i style="--w: 100%; --c: linear-gradient(90deg, var(--red), var(--gold));"></i></div>
+              <span>36%</span>
+            </div>
+            <div class="reason-row">
+              <b>Clinical decline</b>
+              <div class="reason-track"><i style="--w: 89%; --c: var(--teal);"></i></div>
+              <span>32%</span>
+            </div>
+            <div class="reason-row">
+              <b>Side effects</b>
+              <div class="reason-track"><i style="--w: 61%; --c: var(--purple);"></i></div>
+              <span>22%</span>
+            </div>
+            <div class="reason-row">
+              <b>Not benefiting</b>
+              <div class="reason-track"><i style="--w: 29%; --c: var(--green);"></i></div>
+              <span>10%</span>
+            </div>
+          </div>
+          <ul class="finding-list">
+            <li><strong>Insurance formulary change</strong> clustered around branded glatiramer acetate switches.</li>
+            <li><strong>Clinical decline</strong> commonly corresponded with movement toward higher efficacy monoclonal antibody infusion medications.</li>
+            <li><strong>Interferon</strong> accounted for 28% of switches, commonly from side effects and clinical decline.</li>
+          </ul>
+        </div>
+        <div class="matrix-card">
+          <p class="section-label">Table pattern</p>
+          <h2>Reasons varied sharply by index therapy.</h2>
+          <p>The heat map recasts the poster's Figure 3 counts. Darker cells mark the dominant reason within each row.</p>
+          <div class="heat-grid" aria-label="Switch reason heat map by index DMT">
+            <span></span><span>GA brand</span><span>Interferon</span><span>DMF brand</span><span>Fingolimod</span><span>Teriflunomide</span>
+            <span class="label">Insurance change</span><span class="hot">47</span><span>0</span><span>0</span><span>0</span><span>0</span>
+            <span class="label">Clinical decline</span><span class="warm">9</span><span class="hot">14</span><span class="warm">6</span><span class="warm">5</span><span class="hot">9</span>
+            <span class="label">Side effects</span><span class="cool">2</span><span class="hot">18</span><span class="warm">5</span><span class="warm">4</span><span class="cool">1</span>
+            <span class="label">Not benefiting</span><span class="cool">2</span><span class="warm">6</span><span class="cool">1</span><span class="warm">3</span><span class="cool">1</span>
+          </div>
+          <p class="source-note">GA = glatiramer acetate; DMF = dimethyl fumarate.</p>
+        </div>
+      </section>
+
+      <section class="timeline-grid" aria-label="Timing and initiators">
+        <div class="panel">
+          <p class="section-label">When switches accrued</p>
+          <h2>Insurance-related switches jumped early in calendar years; other reasons accumulated steadily.</h2>
+          <div class="year-bars" aria-label="Cumulative switch counts by year">
+            <div class="year-row">
+              <span>2018</span>
+              <div class="stack-track" style="--non: 0%; --ins: 0%;"><i></i><i></i><i></i></div>
+            </div>
+            <div class="year-row">
+              <span>2019</span>
+              <div class="stack-track" style="--non: 40.4%; --ins: 33.1%;"><i></i><i></i><i></i></div>
+            </div>
+            <div class="year-row">
+              <span>2020</span>
+              <div class="stack-track" style="--non: 62.5%; --ins: 36.8%;"><i></i><i></i><i></i></div>
+            </div>
+          </div>
+          <div class="legend-line">
+            <span><i></i>Non-insurance cumulative switches</span>
+            <span><i></i>Insurance cumulative switches</span>
+          </div>
+          <p class="source-note">Percent widths scale counts to the 136 switchers: non-insurance 55 then 85; insurance 45 then 50.</p>
+        </div>
+        <div class="panel">
+          <p class="section-label">Who initiated switches</p>
+          <h2>Providers initiated most switches, while pharmacists initiated more than one-third.</h2>
+          <div class="initiator-wrap">
+            <div class="donut" role="img" aria-label="Donut chart showing pharmacists initiated 36 percent of switches"></div>
+            <ul class="role-list">
+              <li><i></i><span>Provider</span><strong>61%</strong></li>
+              <li><i></i><span>Pharmacist</span><strong>36%</strong></li>
+              <li><i></i><span>Patient</span><strong>1%</strong></li>
+              <li><i></i><span>Nurse</span><strong>1%</strong></li>
+              <li><i></i><span>Unknown</span><strong>1%</strong></li>
+            </ul>
+          </div>
+          <ul class="finding-list">
+            <li><strong>Pharmacist role:</strong> recommending a new DMT, counseling, coordinating pre-therapy labs and tests, helping with access, and arranging follow-up care.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section-stack" aria-label="Cohort snapshot and conclusions">
+        <div class="panel">
+          <p class="section-label">Cohort snapshot</p>
+          <h2>Patients were mostly female and white; index DMTs were evenly split between injectable and oral therapies.</h2>
+          <div class="number-cloud" aria-label="Patient demographics">
+            <div class="number-pill">49<small>Median age</small></div>
+            <div class="number-pill">74%<small>Female</small></div>
+            <div class="number-pill">84%<small>White</small></div>
+            <div class="number-pill">61%<small>Commercial insurance</small></div>
+            <div class="number-pill">273<small>Injectable index DMT</small></div>
+            <div class="number-pill">267<small>Oral index DMT</small></div>
+          </div>
+        </div>
+        <div class="panel">
+          <p class="section-label">Conclusion</p>
+          <h2>Therapy transitions were frequent and operationally complex.</h2>
+          <ul class="finding-list">
+            <li>DMT switches occurred frequently in RMS patients and were most often attributed to insurance formulary change, clinical decline, or side effects.</li>
+            <li>Patients commonly switched to higher efficacy monoclonal antibody infusion medications when clinical decline was documented.</li>
+            <li>Integrated specialty pharmacists played a key role in identifying the need for change and coordinating care during transitions.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/31-MS-Disease-Modifying-Therapy-Switches_2021.pdf">Open source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/31-MS-Disease-Modifying-Therapy-Switches_2021.md">Open source markdown</a>
+      <a class="button-link" href="../index.html">Back to index</a>
+    </footer>
+  </div>
+</body>
+</html>

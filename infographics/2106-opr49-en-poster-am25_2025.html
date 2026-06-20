@@ -1,0 +1,778 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2025 Infographic | Optimizing Maribavir Management</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -4rem -4rem auto auto;
+      width: 14rem;
+      height: 14rem;
+      border: 1.25rem solid rgba(24, 124, 143, 0.14);
+      border-radius: 50%;
+    }
+
+    .maribavir-visual {
+      position: relative;
+      z-index: 1;
+      min-height: 16rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 18% 22%, rgba(209, 38, 48, 0.13), transparent 7rem),
+        radial-gradient(circle at 86% 80%, rgba(233, 158, 37, 0.22), transparent 8rem),
+        linear-gradient(145deg, #ffffff, var(--surface-blue));
+      overflow: hidden;
+    }
+
+    .maribavir-visual svg {
+      display: block;
+      width: 100%;
+      min-height: 16rem;
+    }
+
+    .metric-card p,
+    .mini-note {
+      margin: 0.42rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 750;
+    }
+
+    .metric-card strong.small {
+      font-size: clamp(1.35rem, 3vw, 2rem);
+    }
+
+    .decision-board {
+      display: grid;
+      grid-template-columns: minmax(15rem, 0.78fr) minmax(0, 1.22fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .headline-result {
+      display: grid;
+      align-content: center;
+      min-height: 21rem;
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 86% 18%, rgba(233, 158, 37, 0.34), transparent 7rem),
+        linear-gradient(145deg, var(--ink), #162657);
+      padding: 1.15rem;
+      color: #fff;
+    }
+
+    .headline-result span {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .headline-result strong {
+      display: block;
+      margin-top: 0.2rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 7vw, 5.8rem);
+      line-height: 0.9;
+    }
+
+    .headline-result p {
+      margin: 0.78rem 0 0;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 0.95rem;
+    }
+
+    .workflow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.8rem;
+    }
+
+    .workflow-step {
+      position: relative;
+      min-height: 11rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+      overflow: hidden;
+    }
+
+    .workflow-step::before {
+      content: attr(data-step);
+      position: absolute;
+      right: 0.55rem;
+      bottom: -0.5rem;
+      color: rgba(36, 55, 112, 0.09);
+      font-family: var(--font-display);
+      font-size: 4.4rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .workflow-step h3,
+    .workflow-step p {
+      position: relative;
+      z-index: 1;
+    }
+
+    .workflow-step p {
+      margin: 0.5rem 0 0;
+      font-size: 0.82rem;
+    }
+
+    .funnel-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 2.8rem minmax(0, 1fr) 2.8rem minmax(0, 1fr);
+      gap: 0.55rem;
+      align-items: center;
+      margin-top: 0.8rem;
+    }
+
+    .funnel-node {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.9rem;
+      text-align: center;
+    }
+
+    .funnel-node strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(2.1rem, 4.4vw, 3.5rem);
+      line-height: 1;
+    }
+
+    .funnel-node span {
+      display: block;
+      margin-top: 0.32rem;
+      color: var(--ink);
+      font-size: 0.76rem;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .funnel-arrow {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .split-decision {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.85rem;
+    }
+
+    .decision-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--surface-blue);
+      padding: 0.85rem;
+    }
+
+    .decision-card.avoid {
+      background: var(--surface-warm);
+    }
+
+    .decision-card strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      line-height: 1.15;
+    }
+
+    .decision-card b {
+      display: block;
+      margin-top: 0.42rem;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2.3rem;
+      line-height: 1;
+    }
+
+    .decision-card span {
+      display: block;
+      margin-top: 0.32rem;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 750;
+    }
+
+    .cost-bars {
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 0.85rem;
+    }
+
+    .cost-row {
+      display: grid;
+      grid-template-columns: 6.5rem minmax(0, 1fr) 7rem;
+      gap: 0.65rem;
+      align-items: center;
+    }
+
+    .cost-row span {
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 900;
+    }
+
+    .cost-track {
+      height: 1rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: #e7edf6;
+      overflow: hidden;
+    }
+
+    .cost-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .cost-row em {
+      color: var(--red);
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .demo-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .mini-rings {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.8rem;
+    }
+
+    .ring-card {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.8rem;
+      text-align: center;
+    }
+
+    .ring-card svg {
+      width: min(7rem, 100%);
+      height: auto;
+    }
+
+    .ring-card strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      line-height: 1.1;
+    }
+
+    .ring-card span {
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 850;
+    }
+
+    .compact-list {
+      display: grid;
+      gap: 0.48rem;
+      margin: 0.72rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .compact-list li {
+      border-left: 4px solid var(--teal);
+      background: var(--surface-blue);
+      padding: 0.55rem 0.65rem;
+      color: var(--body);
+      font-size: 0.84rem;
+    }
+
+    .compact-list li:nth-child(2n) {
+      border-color: var(--gold);
+      background: var(--surface-warm);
+    }
+
+    .takeaway {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(77, 138, 103, 0.15), transparent 45%),
+        #fff;
+    }
+
+    .takeaway p {
+      max-width: 66rem;
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.06rem, 1.7vw, 1.42rem);
+      font-weight: 850;
+      line-height: 1.35;
+    }
+
+    .evidence-map.maribavir-flow {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+
+    .right-align td:nth-child(n+2),
+    .right-align th:nth-child(n+2) {
+      text-align: right;
+    }
+
+    @media (max-width: 900px) {
+      .decision-board,
+      .demo-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .workflow,
+      .evidence-map.maribavir-flow {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .funnel-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .funnel-arrow {
+        transform: rotate(90deg);
+      }
+    }
+
+    @media (max-width: 620px) {
+      .workflow,
+      .evidence-map.maribavir-flow,
+      .split-decision,
+      .mini-rings,
+      .cost-row {
+        grid-template-columns: 1fr;
+      }
+
+      .cost-row em {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#snapshot">Snapshot</a>
+        <a href="#workflow">Workflow</a>
+        <a href="#results">Results</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2025 / OPR49 | Health-system specialty pharmacy</p>
+        <h1 id="poster-title">Optimizing Maribavir Management</h1>
+        <p class="hero-summary">
+          A Vanderbilt Specialty Pharmacy retrospective cohort study shows how pharmacists supported maribavir access,
+          CMV monitoring, refill decisions, and medication-waste reduction for post-transplant patients.
+        </p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Retrospective cohort</li>
+          <li class="tag therapy">Post-transplant CMV</li>
+          <li class="tag therapy">Maribavir</li>
+          <li class="tag">Prior authorization</li>
+          <li class="tag">Waste avoidance</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Study snapshot">
+        <div class="poster-code">AM25<br>OPR49</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Data window</dt>
+            <dd>Apr 2022-Dec 2023</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>Vanderbilt Specialty Pharmacy</dd>
+          </div>
+          <div>
+            <dt>Patients</dt>
+            <dd>27</dd>
+          </div>
+          <div>
+            <dt>Dispenses</dt>
+            <dd>94</dd>
+          </div>
+        </dl>
+        <div class="maribavir-visual" role="img" aria-label="Maribavir management pathway illustration">
+          <svg viewBox="0 0 520 350" aria-hidden="true">
+            <defs>
+              <linearGradient id="pillGrad1014" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#ffffff"/>
+                <stop offset="1" stop-color="#eef4fb"/>
+              </linearGradient>
+              <filter id="shadow1014" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="14" stdDeviation="12" flood-color="#243770" flood-opacity="0.16"/>
+              </filter>
+            </defs>
+            <rect x="64" y="70" width="150" height="210" rx="22" fill="url(#pillGrad1014)" stroke="#243770" stroke-width="6" filter="url(#shadow1014)"/>
+            <path d="M91 122h96M91 154h72M91 202h96M91 234h52" stroke="#187c8f" stroke-width="13" stroke-linecap="round"/>
+            <circle cx="140" cy="300" r="9" fill="#aebbd2"/>
+            <rect x="286" y="54" width="154" height="76" rx="18" fill="#fff7ea" stroke="#e99e25" stroke-width="5" filter="url(#shadow1014)"/>
+            <path d="M316 83h92M316 105h56" stroke="#d12630" stroke-width="9" stroke-linecap="round"/>
+            <circle cx="364" cy="220" r="66" fill="#fff" stroke="#187c8f" stroke-width="8" filter="url(#shadow1014)"/>
+            <path d="M333 223 l22 22 l44 -58" fill="none" stroke="#187c8f" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M224 145 C263 118, 286 108, 319 101" fill="none" stroke="#243770" stroke-width="8" stroke-linecap="round"/>
+            <path d="M319 101 l-25 -9 l13 25" fill="none" stroke="#243770" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M236 216 C280 253, 302 258, 334 246" fill="none" stroke="#243770" stroke-width="8" stroke-linecap="round" stroke-dasharray="1 16"/>
+            <circle cx="253" cy="178" r="27" fill="#d12630"/>
+            <path d="M240 178h26M253 165v26" stroke="#fff" stroke-width="8" stroke-linecap="round"/>
+            <text x="140" y="48" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="17" font-weight="900">chart review</text>
+            <text x="363" y="320" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="17" font-weight="900">CMV-guided refill</text>
+          </svg>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section id="snapshot" class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Median PA approval</span>
+          <strong>1 day</strong>
+          <p>IQR 0.00 to 2.25 days for prior authorization access work.</p>
+        </article>
+        <article class="metric-card">
+          <span>Use instances</span>
+          <strong>34</strong>
+          <p>Among 27 patients; 5 required repeat treatment after CMV reactivation.</p>
+        </article>
+        <article class="metric-card">
+          <span>Quantity reductions</span>
+          <strong>28</strong>
+          <p>Thirty percent of 94 dispenses were reduced by pharmacist intervention.</p>
+        </article>
+        <article class="metric-card">
+          <span>Total avoided cost</span>
+          <strong class="small">$119K-$149K</strong>
+          <p>Range reflects AWP minus 20%, WAC, and AWP pricing assumptions.</p>
+        </article>
+      </section>
+
+      <section id="workflow" class="panel" aria-label="Pharmacist workflow">
+        <p class="section-label">Access and monitoring workflow</p>
+        <h2>Pharmacists connected benefit access, lab surveillance, and right-sized refill quantities.</h2>
+        <div class="workflow">
+          <article class="workflow-step" data-step="1">
+            <h3>Referral and access</h3>
+            <p>After treatment referral, pharmacists completed chart review, benefits investigation, prior authorization, appeals, and financial assistance when needed.</p>
+          </article>
+          <article class="workflow-step" data-step="2">
+            <h3>Initial delivery</h3>
+            <p>Patients received counseling and an initial 28-day supply of 112 tablets once access was secured.</p>
+          </article>
+          <article class="workflow-step" data-step="3">
+            <h3>CMV monitoring</h3>
+            <p>Before refills, pharmacists reviewed labs and clinical context until two undetectable CMV levels at least 5 days apart or transplant-team discontinuation.</p>
+          </article>
+          <article class="workflow-step" data-step="4">
+            <h3>Waste control</h3>
+            <p>When lab timing and viral load supported it, pharmacists arranged the smallest refill quantity needed rather than defaulting to another 28-day supply.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel" aria-label="Cohort attrition">
+        <p class="section-label">Study attrition</p>
+        <h2>The cohort started with 27 prescribed patients and narrowed to Vanderbilt-filled dispenses.</h2>
+        <div class="funnel-panel">
+          <div class="funnel-node">
+            <strong>27</strong>
+            <span>patients prescribed maribavir</span>
+          </div>
+          <div class="funnel-arrow" aria-hidden="true">></div>
+          <div class="funnel-node">
+            <strong>34</strong>
+            <span>maribavir treatment instances</span>
+          </div>
+          <div class="funnel-arrow" aria-hidden="true">></div>
+          <div class="funnel-node">
+            <strong>94</strong>
+            <span>dispenses at Vanderbilt SP</span>
+          </div>
+        </div>
+        <p class="mini-note">Four patients filled through an external specialty pharmacy or patient assistance program and were outside the Vanderbilt dispense count.</p>
+      </section>
+
+      <section id="results" class="decision-board" aria-label="Waste avoidance results">
+        <div class="headline-result">
+          <span>Bottom-line signal</span>
+          <strong>10 fills</strong>
+          <p>Reduced fills became true waste avoidance when CMV was undetectable during the final treatment course.</p>
+        </div>
+
+        <article class="panel">
+          <p class="section-label">Waste-avoidance decision logic</p>
+          <h2>Reduced quantity did not always equal avoided waste.</h2>
+          <p>
+            The poster separates pharmacist quantity reductions into cases where CMV remained detectable and cases where treatment was ending,
+            making the unfilled 14-day supply avoidable waste.
+          </p>
+          <div class="split-decision">
+            <div class="decision-card">
+              <strong>CMV still detectable</strong>
+              <b>18</b>
+              <span>Reduced dispenses where the intervention did not create final-course waste avoidance.</span>
+            </div>
+            <div class="decision-card avoid">
+              <strong>CMV undetectable</strong>
+              <b>10</b>
+              <span>Final-course reduced dispenses counted as medication-waste avoidance.</span>
+            </div>
+          </div>
+          <p class="mini-note">All 28 interventions reduced a default 28-day fill to 14 days based on CMV level and time until the next lab appointment.</p>
+        </article>
+      </section>
+
+      <section class="visual-grid" aria-label="Cost and demographics">
+        <article class="panel">
+          <p class="section-label">Cost avoided</p>
+          <h2>The avoided 14-day supplies translated to six-figure cost avoidance.</h2>
+          <div class="cost-bars">
+            <div class="cost-row">
+              <span>AWP</span>
+              <div class="cost-track"><i style="width: 100%;"></i></div>
+              <em>$149,396.80</em>
+            </div>
+            <div class="cost-row">
+              <span>WAC</span>
+              <div class="cost-track"><i style="width: 83.3%;"></i></div>
+              <em>$124,499.20</em>
+            </div>
+            <div class="cost-row">
+              <span>AWP-20%</span>
+              <div class="cost-track"><i style="width: 80%;"></i></div>
+              <em>$119,517.44</em>
+            </div>
+          </div>
+          <p class="mini-note">Per-fill avoided cost ranged from $11,951.74 to $14,939.68 across the pricing assumptions.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Treatment mix</p>
+          <h2>Kidney and lung transplant recipients were the largest groups.</h2>
+          <div class="lens-chart" aria-label="Transplant type distribution">
+            <div class="lens-row">
+              <span>Kidney</span>
+              <div class="lens-bar"><i style="width: 100%;"></i></div>
+            </div>
+            <div class="lens-row">
+              <span>Lung</span>
+              <div class="lens-bar"><i style="width: 89%;"></i></div>
+            </div>
+            <div class="lens-row">
+              <span>Liver</span>
+              <div class="lens-bar"><i style="width: 40%;"></i></div>
+            </div>
+            <div class="lens-row">
+              <span>Heart</span>
+              <div class="lens-bar"><i style="width: 30%;"></i></div>
+            </div>
+          </div>
+          <p class="mini-note">Counts: kidney 10, lung 9, liver 4, heart 3, with one multi-organ transplant noted separately.</p>
+        </article>
+      </section>
+
+      <section class="demo-grid" aria-label="Patient demographics and objective">
+        <article class="panel">
+          <p class="section-label">Patient demographics</p>
+          <h2>Older, mostly male, mostly White cohort.</h2>
+          <div class="mini-rings">
+            <div class="ring-card">
+              <svg viewBox="0 0 120 120" aria-hidden="true">
+                <circle cx="60" cy="60" r="45" fill="none" stroke="#e7edf6" stroke-width="15"/>
+                <circle cx="60" cy="60" r="45" fill="none" stroke="#d12630" stroke-width="15" stroke-dasharray="190 283" transform="rotate(-90 60 60)"/>
+                <text x="60" y="66" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="25" font-weight="900">67%</text>
+              </svg>
+              <strong>Male</strong>
+              <span>18 of 27 patients</span>
+            </div>
+            <div class="ring-card">
+              <svg viewBox="0 0 120 120" aria-hidden="true">
+                <circle cx="60" cy="60" r="45" fill="none" stroke="#e7edf6" stroke-width="15"/>
+                <circle cx="60" cy="60" r="45" fill="none" stroke="#187c8f" stroke-width="15" stroke-dasharray="241 283" transform="rotate(-90 60 60)"/>
+                <text x="60" y="66" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="25" font-weight="900">85%</text>
+              </svg>
+              <strong>White</strong>
+              <span>23 of 27 patients</span>
+            </div>
+            <div class="ring-card">
+              <svg viewBox="0 0 120 120" aria-hidden="true">
+                <circle cx="60" cy="60" r="45" fill="none" stroke="#e7edf6" stroke-width="15"/>
+                <circle cx="60" cy="60" r="45" fill="none" stroke="#e99e25" stroke-width="15" stroke-dasharray="147 283" transform="rotate(-90 60 60)"/>
+                <text x="60" y="66" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="25" font-weight="900">52%</text>
+              </svg>
+              <strong>Commercial</strong>
+              <span>pharmacy insurance</span>
+            </div>
+            <div class="ring-card">
+              <svg viewBox="0 0 120 120" aria-hidden="true">
+                <circle cx="60" cy="60" r="45" fill="none" stroke="#e7edf6" stroke-width="15"/>
+                <circle cx="60" cy="60" r="45" fill="none" stroke="#4d8a67" stroke-width="15" stroke-dasharray="125 283" transform="rotate(-90 60 60)"/>
+                <text x="60" y="66" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="25" font-weight="900">44%</text>
+              </svg>
+              <strong>Medicare</strong>
+              <span>pharmacy insurance</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Objective, methods, conclusion</p>
+          <h2>The study frames pharmacists as access stewards and waste-reduction partners.</h2>
+          <ul class="compact-list">
+            <li><strong>Objective:</strong> Evaluate the specialty pharmacist role in maribavir access, treatment monitoring, and medication-waste reduction.</li>
+            <li><strong>Methods:</strong> Single-center retrospective cohort using electronic medical record and specialty pharmacy management system data.</li>
+            <li><strong>Population:</strong> Post-transplant CMV infection or disease refractory to prior ganciclovir, valganciclovir, cidofovir, or foscarnet treatment, with or without resistance.</li>
+            <li><strong>Conclusion:</strong> Pharmacists helped secure timely access and used CMV monitoring to tailor refill quantities, avoiding unnecessary high-cost medication fills.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="evidence-map maribavir-flow" aria-label="Evidence flow">
+        <article class="evidence-card">
+          <h3>Care gap</h3>
+          <p>Maribavir is a high-cost, limited-distribution therapy requiring frequent CMV lab monitoring.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Access work</h3>
+          <p>Pharmacists handled benefits investigation, prior authorization, appeals, and financial assistance.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Monitoring trigger</h3>
+          <p>Refill alerts prompted chart review for updated labs and clinical information before continued treatment.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Right-sized fills</h3>
+          <p>Dispense quantities were reduced when CMV level and timing to next lab made smaller fills clinically appropriate.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Value signal</h3>
+          <p>Ten final-course reductions produced $119,517 to $149,397 in estimated avoided cost.</p>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Extracted table patterns">
+        <article class="table-card">
+          <p class="section-label">Table pattern</p>
+          <h2>Avoided cost calculation</h2>
+          <div class="table-wrap">
+            <table class="right-align">
+              <thead>
+                <tr>
+                  <th>Cost basis</th>
+                  <th>Total avoided</th>
+                  <th>Per fill</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>AWP minus 20%</td>
+                  <td>$119,517.44</td>
+                  <td>$11,951.74</td>
+                </tr>
+                <tr>
+                  <td>WAC</td>
+                  <td>$124,499.20</td>
+                  <td>$12,449.92</td>
+                </tr>
+                <tr>
+                  <td>AWP</td>
+                  <td>$149,396.80</td>
+                  <td>$14,939.68</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Table pattern</p>
+          <h2>Selected cohort details</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Measure</th>
+                  <th>Reported value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Median age</td>
+                  <td>62 years; IQR 52, 65</td>
+                </tr>
+                <tr>
+                  <td>Indication</td>
+                  <td>56% refractory to prior treatment; 44% resistant to prior treatment</td>
+                </tr>
+                <tr>
+                  <td>Lab assistance</td>
+                  <td>8 patients (24%) required a lab assessment recommendation</td>
+                </tr>
+                <tr>
+                  <td>CMV donor status</td>
+                  <td>100% documented; recipient CMV status reported for 78%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel takeaway">
+        <p>
+          In this single-center cohort, specialty pharmacists combined rapid access work with CMV-guided refill review, reducing 30% of maribavir dispenses and avoiding six-figure waste when therapy was ending.
+        </p>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/2106-OPR49-EN-Poster-AM25_2025.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/2106-OPR49-EN-Poster-AM25_2025.md">Source markdown</a>
+    </footer>
+  </div>
+</body>
+</html>
+

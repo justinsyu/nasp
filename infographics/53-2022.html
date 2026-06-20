@@ -1,0 +1,779 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Impact of an Embedded Rheumatology Pharmacist | NASP 2022</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-visual {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(36, 55, 112, 0.2);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 26% 24%, rgba(24, 124, 143, 0.2), transparent 6.5rem),
+        radial-gradient(circle at 84% 78%, rgba(233, 158, 37, 0.24), transparent 7rem),
+        linear-gradient(145deg, #ffffff, var(--surface-blue) 58%, var(--surface-warm));
+      padding: 0.75rem;
+    }
+
+    .hero-visual svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .metric-card strong small {
+      color: var(--red);
+      font-size: 0.92rem;
+    }
+
+    .metric-card em {
+      display: block;
+      margin-top: 0.36rem;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-style: normal;
+      font-weight: 780;
+      line-height: 1.35;
+    }
+
+    .comparison-board {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(17rem, 0.7fr);
+      gap: 1rem;
+    }
+
+    .paired-results {
+      display: grid;
+      gap: 0.9rem;
+      margin-top: 0.8rem;
+    }
+
+    .paired-row {
+      display: grid;
+      grid-template-columns: 9.5rem minmax(0, 1fr) 5.2rem;
+      gap: 0.7rem;
+      align-items: center;
+    }
+
+    .paired-row b {
+      color: var(--ink);
+      font-size: 0.84rem;
+      line-height: 1.16;
+    }
+
+    .bar-pair {
+      display: grid;
+      gap: 0.3rem;
+    }
+
+    .bar-line {
+      display: grid;
+      grid-template-columns: 3.2rem minmax(0, 1fr) 3.2rem;
+      gap: 0.42rem;
+      align-items: center;
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 850;
+    }
+
+    .bar-track {
+      height: 0.76rem;
+      overflow: hidden;
+      border: 1px solid rgba(174, 187, 210, 0.84);
+      border-radius: 999px;
+      background: #edf2f8;
+    }
+
+    .bar-fill {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: rgba(36, 55, 112, 0.44);
+    }
+
+    .bar-fill.post {
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .change-pill {
+      border: 1px solid rgba(77, 138, 103, 0.42);
+      border-radius: 999px;
+      background: rgba(77, 138, 103, 0.1);
+      color: var(--green);
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      font-weight: 900;
+      padding: 0.24rem 0.42rem;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .turnaround-card {
+      display: grid;
+      align-content: center;
+      min-height: 100%;
+      background:
+        linear-gradient(160deg, rgba(209, 38, 48, 0.09), rgba(255, 255, 255, 0.94) 48%),
+        #fff;
+    }
+
+    .day-drop {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 0.7rem;
+      align-items: center;
+      margin-top: 0.8rem;
+    }
+
+    .day-tile {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+      text-align: center;
+    }
+
+    .day-tile strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 2.35rem;
+      line-height: 1;
+    }
+
+    .day-tile span {
+      display: block;
+      margin-top: 0.28rem;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .day-arrow {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 900;
+    }
+
+    .workflow-panel {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(238, 244, 251, 0.88), rgba(255, 255, 255, 0.96)),
+        #fff;
+    }
+
+    .workflow-panel svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-top: 0.65rem;
+    }
+
+    .phase-list {
+      display: grid;
+      gap: 0.65rem;
+      margin-top: 0.78rem;
+    }
+
+    .phase-card {
+      border: 1px solid rgba(174, 187, 210, 0.86);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.78rem;
+    }
+
+    .phase-card span {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.02rem;
+      font-weight: 900;
+    }
+
+    .phase-card p {
+      margin: 0.28rem 0 0;
+      font-size: 0.82rem;
+    }
+
+    .satisfaction-board {
+      display: grid;
+      grid-template-columns: minmax(16rem, 0.74fr) minmax(0, 1.26fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .donut-card {
+      display: grid;
+      gap: 0.75rem;
+      align-content: center;
+      text-align: center;
+    }
+
+    .donut {
+      width: min(15rem, 100%);
+      margin: 0 auto;
+    }
+
+    .donut-label {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+
+    .service-bars {
+      display: grid;
+      gap: 0.58rem;
+      margin-top: 0.75rem;
+    }
+
+    .service-row {
+      display: grid;
+      grid-template-columns: 13rem minmax(0, 1fr) 2.5rem;
+      gap: 0.55rem;
+      align-items: center;
+      font-size: 0.8rem;
+    }
+
+    .service-row b {
+      color: var(--ink);
+      line-height: 1.18;
+    }
+
+    .service-row span:last-child {
+      color: var(--muted);
+      font-weight: 850;
+      text-align: right;
+    }
+
+    .survey-note {
+      margin: 0.65rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 760;
+    }
+
+    .access-map .evidence-card strong {
+      display: block;
+      margin-top: 0.5rem;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      line-height: 1;
+    }
+
+    .conclusion-panel {
+      display: grid;
+      grid-template-columns: 0.64fr 1.36fr;
+      gap: 1rem;
+      align-items: stretch;
+      border-color: rgba(24, 124, 143, 0.42);
+      background:
+        linear-gradient(90deg, rgba(24, 124, 143, 0.12), rgba(255, 255, 255, 0.94) 34%),
+        #fff;
+    }
+
+    .conclusion-badge {
+      display: grid;
+      place-items: center;
+      min-height: 10rem;
+      border-radius: 7px;
+      background: var(--ink);
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .conclusion-badge strong {
+      display: block;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 7vw, 5rem);
+      line-height: 0.9;
+    }
+
+    .conclusion-badge span {
+      display: block;
+      margin-top: 0.45rem;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 900px) {
+      .comparison-board,
+      .satisfaction-board,
+      .conclusion-panel {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .paired-row,
+      .service-row,
+      .day-drop {
+        grid-template-columns: 1fr;
+      }
+
+      .change-pill {
+        width: max-content;
+      }
+
+      .day-arrow {
+        transform: rotate(90deg);
+        justify-self: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#outcomes">Outcomes</a>
+        <a href="#workflow">Workflow</a>
+        <a href="#satisfaction">Satisfaction</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2022 / Poster 53-2022 / Rheumatology access</p>
+        <h1 id="poster-title">Impact of an Embedded Rheumatology Pharmacist</h1>
+        <p class="hero-summary">
+          Shields Health Solutions evaluated whether placing an ambulatory clinical pharmacist
+          inside a rheumatology clinic workflow improved coverage determinations, medication
+          access timing, and provider satisfaction.
+        </p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Retrospective pre/post cohort</li>
+          <li class="tag therapy">Rheumatology specialty medications</li>
+          <li class="tag">Prior authorization</li>
+          <li class="tag">Appeal support</li>
+          <li class="tag">Integrated health system specialty pharmacy</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata and visual summary">
+        <div>
+          <div class="poster-code">53-2022</div>
+          <dl class="meta-grid">
+            <div>
+              <dt>Authors</dt>
+              <dd>Kploanyi, Smullen, Stutsky, Donovan</dd>
+            </div>
+            <div>
+              <dt>Clinic</dt>
+              <dd>New York health system rheumatology</dd>
+            </div>
+            <div>
+              <dt>Primary metrics</dt>
+              <dd>PA approval, appeals, turnaround</dd>
+            </div>
+            <div>
+              <dt>Provider survey</dt>
+              <dd>10 of 20 providers</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="hero-visual">
+          <svg viewBox="0 0 440 265" role="img" aria-labelledby="hero-svg-title hero-svg-desc">
+            <title id="hero-svg-title">Embedded pharmacist improves rheumatology access</title>
+            <desc id="hero-svg-desc">A pharmacist hub connects prescription, insurance approval, delivery, and patient medication access.</desc>
+            <defs>
+              <marker id="arrow-teal" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L9,3 z" fill="#187c8f"></path>
+              </marker>
+              <marker id="arrow-red" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L9,3 z" fill="#d12630"></path>
+              </marker>
+            </defs>
+            <rect x="22" y="34" width="95" height="68" rx="10" fill="#fff" stroke="#aebbd2" stroke-width="3"></rect>
+            <path d="M45 56h50M45 76h34" stroke="#243770" stroke-width="7" stroke-linecap="round"></path>
+            <text x="69" y="124" text-anchor="middle" fill="#243770" font-family="Arial, sans-serif" font-size="17" font-weight="800">eScript</text>
+
+            <circle cx="218" cy="126" r="58" fill="#eef4fb" stroke="#187c8f" stroke-width="6"></circle>
+            <path d="M198 122h40M218 102v48" stroke="#187c8f" stroke-width="9" stroke-linecap="round"></path>
+            <circle cx="218" cy="126" r="23" fill="#fff" stroke="#187c8f" stroke-width="5"></circle>
+            <text x="218" y="205" text-anchor="middle" fill="#187c8f" font-family="Arial, sans-serif" font-size="20" font-weight="900">ACP hub</text>
+
+            <path d="M122 70 C156 70, 177 82, 192 101" fill="none" stroke="#187c8f" stroke-width="7" stroke-linecap="round" marker-end="url(#arrow-teal)"></path>
+            <path d="M252 98 C292 58, 338 52, 379 76" fill="none" stroke="#187c8f" stroke-width="7" stroke-linecap="round" marker-end="url(#arrow-teal)"></path>
+            <path d="M263 141 C305 150, 334 170, 358 208" fill="none" stroke="#d12630" stroke-width="7" stroke-linecap="round" marker-end="url(#arrow-red)"></path>
+            <path d="M179 150 C137 170, 105 191, 78 224" fill="none" stroke="#e99e25" stroke-width="7" stroke-linecap="round" marker-end="url(#arrow-red)"></path>
+
+            <circle cx="381" cy="77" r="31" fill="#fff" stroke="#4d8a67" stroke-width="5"></circle>
+            <path d="M366 77l11 11 21-26" fill="none" stroke="#4d8a67" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path>
+            <text x="381" y="128" text-anchor="middle" fill="#4d8a67" font-family="Arial, sans-serif" font-size="16" font-weight="800">approved</text>
+
+            <circle cx="361" cy="212" r="31" fill="#fff7ea" stroke="#d12630" stroke-width="5"></circle>
+            <path d="M347 212h28M361 198v28" stroke="#d12630" stroke-width="7" stroke-linecap="round"></path>
+            <text x="361" y="254" text-anchor="middle" fill="#d12630" font-family="Arial, sans-serif" font-size="16" font-weight="800">appeal</text>
+
+            <circle cx="72" cy="225" r="30" fill="#fff" stroke="#7561a8" stroke-width="5"></circle>
+            <path d="M59 226c10 10 20 10 30 0M58 211h29" stroke="#7561a8" stroke-width="6" stroke-linecap="round"></path>
+            <text x="72" y="260" text-anchor="middle" fill="#7561a8" font-family="Arial, sans-serif" font-size="15" font-weight="800">patient</text>
+          </svg>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key results">
+        <article class="metric-card">
+          <span>PA approval rate</span>
+          <strong>77<small>%</small> to 88<small>%</small></strong>
+          <em>14% relative increase after ACP integration.</em>
+        </article>
+        <article class="metric-card">
+          <span>Appeal approval rate</span>
+          <strong>65<small>%</small> to 75<small>%</small></strong>
+          <em>15% relative increase in successful appeals.</em>
+        </article>
+        <article class="metric-card">
+          <span>PA turnaround</span>
+          <strong>3.4 to 1.5</strong>
+          <em>Days from authorization request to decision.</em>
+        </article>
+        <article class="metric-card">
+          <span>Provider benefit rating</span>
+          <strong>100<small>%</small></strong>
+          <em>Very or mostly beneficial among respondents.</em>
+        </article>
+      </section>
+
+      <section id="outcomes" class="comparison-board">
+        <article class="panel">
+          <p class="section-label">Coverage determinations</p>
+          <h2>Approval outcomes improved after the pharmacist joined the clinic workflow.</h2>
+          <p>
+            The poster compares the six months before embedded ACP support with the six months
+            after implementation for rheumatology specialty and supportive-care prescriptions.
+          </p>
+          <div class="paired-results" aria-label="Pre and post approval rate comparisons">
+            <div class="paired-row">
+              <b>Prior authorization approval</b>
+              <div class="bar-pair">
+                <div class="bar-line">
+                  <span>Pre</span>
+                  <div class="bar-track"><i class="bar-fill" style="width:77%"></i></div>
+                  <span>77%</span>
+                </div>
+                <div class="bar-line">
+                  <span>Post</span>
+                  <div class="bar-track"><i class="bar-fill post" style="width:88%"></i></div>
+                  <span>88%</span>
+                </div>
+              </div>
+              <span class="change-pill">+11 pp</span>
+            </div>
+            <div class="paired-row">
+              <b>Appeal approval</b>
+              <div class="bar-pair">
+                <div class="bar-line">
+                  <span>Pre</span>
+                  <div class="bar-track"><i class="bar-fill" style="width:65%"></i></div>
+                  <span>65%</span>
+                </div>
+                <div class="bar-line">
+                  <span>Post</span>
+                  <div class="bar-track"><i class="bar-fill post" style="width:75%"></i></div>
+                  <span>75%</span>
+                </div>
+              </div>
+              <span class="change-pill">+10 pp</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel turnaround-card">
+          <p class="section-label">Medication access speed</p>
+          <h2>Turnaround time was cut by more than half.</h2>
+          <div class="day-drop" aria-label="Prior authorization turnaround time">
+            <div class="day-tile">
+              <strong>3.4</strong>
+              <span>pre days</span>
+            </div>
+            <div class="day-arrow" aria-hidden="true">&rarr;</div>
+            <div class="day-tile">
+              <strong>1.5</strong>
+              <span>post days</span>
+            </div>
+          </div>
+          <p class="survey-note">
+            This equals a 1.9-day reduction, reported by the poster as a 57% improvement.
+          </p>
+        </article>
+      </section>
+
+      <section id="workflow" class="visual-grid">
+        <article class="panel workflow-panel">
+          <p class="section-label">Embedded workflow</p>
+          <h2>The ACP became the clinical access hub between prescriber, payer, pharmacy, and patient.</h2>
+          <svg viewBox="0 0 650 355" role="img" aria-labelledby="workflow-title workflow-desc">
+            <title id="workflow-title">Integrated rheumatology medication access workflow</title>
+            <desc id="workflow-desc">Prescriber, liaison, pharmacist, benefits, appeal support, financial assistance, refill support, and home delivery form an integrated medication access workflow.</desc>
+            <defs>
+              <marker id="wf-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L9,3 z" fill="#243770"></path>
+              </marker>
+            </defs>
+            <g fill="none" stroke="#aebbd2" stroke-width="4" stroke-linecap="round">
+              <path d="M125 90 C190 60, 235 62, 286 94" marker-end="url(#wf-arrow)"></path>
+              <path d="M365 92 C413 62, 470 62, 526 91" marker-end="url(#wf-arrow)"></path>
+              <path d="M378 172 C430 183, 470 214, 500 270" marker-end="url(#wf-arrow)"></path>
+              <path d="M294 180 C250 213, 210 238, 156 267" marker-end="url(#wf-arrow)"></path>
+              <path d="M323 190L323 260" marker-end="url(#wf-arrow)"></path>
+              <path d="M182 143L465 143" stroke-dasharray="2 14"></path>
+            </g>
+            <g>
+              <circle cx="96" cy="98" r="56" fill="#fff" stroke="#d12630" stroke-width="5"></circle>
+              <text x="96" y="91" text-anchor="middle" fill="#243770" font-family="Arial, sans-serif" font-size="18" font-weight="900">Prescriber</text>
+              <text x="96" y="116" text-anchor="middle" fill="#68758d" font-family="Arial, sans-serif" font-size="14" font-weight="800">eScript</text>
+            </g>
+            <g>
+              <circle cx="326" cy="116" r="66" fill="#eef4fb" stroke="#187c8f" stroke-width="6"></circle>
+              <text x="326" y="105" text-anchor="middle" fill="#187c8f" font-family="Arial, sans-serif" font-size="28" font-weight="900">ACP</text>
+              <text x="326" y="132" text-anchor="middle" fill="#243770" font-family="Arial, sans-serif" font-size="15" font-weight="900">PAs + appeals</text>
+            </g>
+            <g>
+              <circle cx="555" cy="102" r="54" fill="#fff" stroke="#e99e25" stroke-width="5"></circle>
+              <text x="555" y="96" text-anchor="middle" fill="#243770" font-family="Arial, sans-serif" font-size="18" font-weight="900">Liaison</text>
+              <text x="555" y="119" text-anchor="middle" fill="#68758d" font-family="Arial, sans-serif" font-size="13" font-weight="800">alerts clinic</text>
+            </g>
+            <g>
+              <circle cx="130" cy="282" r="52" fill="#fff7ea" stroke="#4d8a67" stroke-width="5"></circle>
+              <text x="130" y="276" text-anchor="middle" fill="#243770" font-family="Arial, sans-serif" font-size="17" font-weight="900">Benefits</text>
+              <text x="130" y="299" text-anchor="middle" fill="#68758d" font-family="Arial, sans-serif" font-size="13" font-weight="800">copay + coverage</text>
+            </g>
+            <g>
+              <circle cx="326" cy="293" r="48" fill="#fff" stroke="#7561a8" stroke-width="5"></circle>
+              <text x="326" y="287" text-anchor="middle" fill="#243770" font-family="Arial, sans-serif" font-size="17" font-weight="900">Patient</text>
+              <text x="326" y="310" text-anchor="middle" fill="#68758d" font-family="Arial, sans-serif" font-size="13" font-weight="800">education</text>
+            </g>
+            <g>
+              <circle cx="515" cy="290" r="50" fill="#fff" stroke="#243770" stroke-width="5"></circle>
+              <text x="515" y="284" text-anchor="middle" fill="#243770" font-family="Arial, sans-serif" font-size="17" font-weight="900">Home</text>
+              <text x="515" y="307" text-anchor="middle" fill="#68758d" font-family="Arial, sans-serif" font-size="13" font-weight="800">delivery + refills</text>
+            </g>
+          </svg>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Methods</p>
+          <h2>Six months before and after ACP integration.</h2>
+          <p>
+            The retrospective cohort included specialty and non-specialty oral or injectable
+            disease-modifying anti-rheumatologic and supportive care agents prescribed by clinic
+            providers.
+          </p>
+          <div class="phase-list" aria-label="Study periods and measured endpoints">
+            <article class="phase-card">
+              <h3>Pre-intervention</h3>
+              <span>October 1, 2021 - March 31, 2022</span>
+              <p>Baseline clinic workflow before the ambulatory clinical pharmacist was embedded.</p>
+            </article>
+            <article class="phase-card">
+              <h3>Post-intervention</h3>
+              <span>April 1, 2022 - September 30, 2022</span>
+              <p>Integrated care workflow with pharmacist support for coverage and access tasks.</p>
+            </article>
+            <article class="phase-card">
+              <h3>Measured endpoints</h3>
+              <span>PA turnaround, PA approval, appeal approval, provider satisfaction</span>
+              <p>The poster connects coverage determination outcomes with operational satisfaction.</p>
+            </article>
+          </div>
+        </article>
+      </section>
+
+      <section class="evidence-map access-map" aria-label="Evidence flow">
+        <article class="evidence-card">
+          <h3>Access problem</h3>
+          <p>Rheumatologists faced insurance restrictions and approval delays for effective therapies.</p>
+          <strong>Payer friction</strong>
+        </article>
+        <article class="evidence-card">
+          <h3>Intervention</h3>
+          <p>An ambulatory clinical pharmacist was embedded in a specialty pharmacy-connected clinic workflow.</p>
+          <strong>ACP</strong>
+        </article>
+        <article class="evidence-card">
+          <h3>Coverage work</h3>
+          <p>The ACP supported benefits investigation, PAs, appeals, peer-to-peer reviews, and financial assistance.</p>
+          <strong>4 channels</strong>
+        </article>
+        <article class="evidence-card">
+          <h3>Operational signal</h3>
+          <p>Approvals increased while PA turnaround time fell from 3.4 to 1.5 days.</p>
+          <strong>-57%</strong>
+        </article>
+        <article class="evidence-card">
+          <h3>Provider signal</h3>
+          <p>All surveyed providers rated the services very or mostly beneficial.</p>
+          <strong>10/10</strong>
+        </article>
+      </section>
+
+      <section id="satisfaction" class="satisfaction-board">
+        <article class="panel donut-card">
+          <p class="section-label">Provider satisfaction</p>
+          <h2>Respondents saw clear value in embedded pharmacy services.</h2>
+          <svg class="donut" viewBox="0 0 220 220" role="img" aria-label="Provider satisfaction donut chart showing 78 percent very beneficial and 22 percent mostly beneficial">
+            <circle cx="110" cy="110" r="78" fill="none" stroke="#eef4fb" stroke-width="34"></circle>
+            <circle cx="110" cy="110" r="78" fill="none" stroke="#d12630" stroke-width="34" stroke-dasharray="382 490" stroke-linecap="round" transform="rotate(-90 110 110)"></circle>
+            <circle cx="110" cy="110" r="78" fill="none" stroke="#187c8f" stroke-width="34" stroke-dasharray="108 490" stroke-dashoffset="-382" stroke-linecap="round" transform="rotate(-90 110 110)"></circle>
+            <text x="110" y="104" text-anchor="middle" fill="#243770" font-family="Arial, sans-serif" font-size="38" font-weight="900">78%</text>
+            <text x="110" y="132" text-anchor="middle" fill="#68758d" font-family="Arial, sans-serif" font-size="15" font-weight="800">very beneficial</text>
+          </svg>
+          <div class="donut-label">Remaining 22% rated services mostly beneficial.</div>
+          <p class="survey-note">Survey response: 10 of 20 clinic providers.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Most impactful services</p>
+          <h2>Appeal assistance was the standout provider-selected service.</h2>
+          <div class="service-bars" aria-label="Provider-selected impactful services">
+            <div class="service-row">
+              <b>Appeal assistance</b>
+              <div class="bar-track"><i class="bar-fill post" style="width:90%"></i></div>
+              <span>9/10</span>
+            </div>
+            <div class="service-row">
+              <b>Prescription clarifications to dispensing pharmacy</b>
+              <div class="bar-track"><i class="bar-fill post" style="width:60%"></i></div>
+              <span>6/10</span>
+            </div>
+            <div class="service-row">
+              <b>Drug information</b>
+              <div class="bar-track"><i class="bar-fill post" style="width:40%"></i></div>
+              <span>4/10</span>
+            </div>
+            <div class="service-row">
+              <b>Patient interventions and counseling</b>
+              <div class="bar-track"><i class="bar-fill post" style="width:30%"></i></div>
+              <span>3/10</span>
+            </div>
+            <div class="service-row">
+              <b>Medication samples</b>
+              <div class="bar-track"><i class="bar-fill post" style="width:10%"></i></div>
+              <span>1/10</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Extracted table patterns">
+        <article class="table-card">
+          <p class="section-label">Figure 2a pattern</p>
+          <h2>Coverage determination outcomes</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Metric</th>
+                  <th>Pre-intervention</th>
+                  <th>Post-intervention</th>
+                  <th>Change</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Prior authorization approval rate</td>
+                  <td>77%</td>
+                  <td>88%</td>
+                  <td>+11 percentage points</td>
+                </tr>
+                <tr>
+                  <td>Appeal approval rate</td>
+                  <td>65%</td>
+                  <td>75%</td>
+                  <td>+10 percentage points</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Figure 2b and 3 pattern</p>
+          <h2>Speed and provider impact</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Measure</th>
+                  <th>Reported value</th>
+                  <th>Interpretation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>PA turnaround</td>
+                  <td>3.4 to 1.5 days</td>
+                  <td>57% improved turnaround time</td>
+                </tr>
+                <tr>
+                  <td>Very beneficial services</td>
+                  <td>78%</td>
+                  <td>Most common provider satisfaction rating</td>
+                </tr>
+                <tr>
+                  <td>Mostly beneficial services</td>
+                  <td>22%</td>
+                  <td>Remaining provider satisfaction rating</td>
+                </tr>
+                <tr>
+                  <td>Top service</td>
+                  <td>Appeal assistance, 9/10</td>
+                  <td>Most frequently selected as impactful</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel conclusion-panel">
+        <div class="conclusion-badge" aria-hidden="true">
+          <div>
+            <strong>1.5</strong>
+            <span>post-ACP PA days</span>
+          </div>
+        </div>
+        <div class="markdown-fragment">
+          <p class="section-label">Conclusion</p>
+          <h2>Embedded pharmacy support improved medication access operations in rheumatology.</h2>
+          <p>
+            The poster concludes that adding an ambulatory clinical pharmacist to the
+            multidisciplinary rheumatology team can improve provider satisfaction and patient-care
+            quality related to timely medication approvals.
+          </p>
+          <p>
+            Future work will assess whether faster access and stronger coverage support translate
+            into shorter time to therapy start and better disease-state outcomes.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/53-2022.pdf">Open original PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/53-2022.md">Read extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

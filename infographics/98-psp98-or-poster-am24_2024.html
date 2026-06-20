@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2024 Infographic | Oral Anticancer Medication Workflow</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .workflow-hero {
+      position: relative;
+      min-height: 17rem;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 84% 16%, rgba(233, 158, 37, 0.25), transparent 8rem),
+        linear-gradient(145deg, rgba(36, 55, 112, 0.96), rgba(24, 124, 143, 0.86));
+      color: #fff;
+      padding: 1rem;
+    }
+
+    .workflow-hero svg {
+      position: absolute;
+      inset: auto -1.2rem -1.4rem auto;
+      width: min(28rem, 78%);
+      opacity: 0.78;
+    }
+
+    .workflow-hero .kicker {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .workflow-hero strong {
+      display: block;
+      max-width: 13rem;
+      margin-top: 0.3rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(2.7rem, 7vw, 5.3rem);
+      line-height: 0.88;
+    }
+
+    .workflow-hero span {
+      display: block;
+      max-width: 15.5rem;
+      margin-top: 0.65rem;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.92rem;
+    }
+
+    .hero-card .button-link {
+      justify-content: center;
+      background: #fff;
+    }
+
+    .split-kpi {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.65rem;
+    }
+
+    .split-kpi div {
+      border: 1px solid rgba(174, 187, 210, 0.82);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.78);
+      padding: 0.58rem;
+    }
+
+    .split-kpi b {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+
+    .split-kpi small {
+      color: var(--muted);
+      font-size: 0.62rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .orchestration {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 1rem;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+
+    .timeline-step {
+      display: grid;
+      grid-template-columns: 4.9rem minmax(0, 1fr);
+      gap: 0.65rem;
+      align-items: stretch;
+    }
+
+    .timeline-date {
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--border-strong);
+      border-radius: 7px;
+      background: var(--surface-blue);
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.86rem;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .timeline-copy {
+      border-left: 4px solid var(--red);
+      background: #fff;
+      padding: 0.5rem 0.65rem;
+    }
+
+    .timeline-copy h3 {
+      font-size: 0.92rem;
+    }
+
+    .timeline-copy p {
+      margin: 0.25rem 0 0;
+      font-size: 0.82rem;
+    }
+
+    .release-flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+
+    .flow-tile {
+      position: relative;
+      min-height: 9.4rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.8rem;
+    }
+
+    .flow-tile::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -0.5rem;
+      width: 0.72rem;
+      height: 0.72rem;
+      border-top: 2px solid var(--border-strong);
+      border-right: 2px solid var(--border-strong);
+      background: #fff;
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    .flow-tile:last-child::after {
+      display: none;
+    }
+
+    .flow-tile b {
+      display: inline-grid;
+      place-items: center;
+      width: 1.65rem;
+      height: 1.65rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+    }
+
+    .flow-tile h3 {
+      margin-top: 0.5rem;
+      font-size: 0.94rem;
+    }
+
+    .flow-tile p {
+      margin: 0.34rem 0 0;
+      font-size: 0.78rem;
+    }
+
+    .lane-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+
+    .lane-card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.9rem;
+    }
+
+    .lane-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 0.34rem;
+      background: var(--lane-color, var(--red));
+    }
+
+    .lane-card:nth-child(2) {
+      --lane-color: var(--gold);
+    }
+
+    .lane-card:nth-child(3) {
+      --lane-color: var(--teal);
+    }
+
+    .lane-card p {
+      margin: 0.46rem 0 0;
+      font-size: 0.84rem;
+    }
+
+    .lane-card ul {
+      margin: 0.55rem 0 0 1rem;
+      padding: 0;
+    }
+
+    .lane-card li {
+      margin-top: 0.28rem;
+      font-size: 0.82rem;
+    }
+
+    .volume-bars .lens-row {
+      grid-template-columns: 10.4rem minmax(0, 1fr) 5rem;
+    }
+
+    .volume-bars .lens-row em {
+      color: var(--ink);
+      font-style: normal;
+      font-size: 0.78rem;
+      font-weight: 850;
+      text-align: right;
+    }
+
+    .branch-board {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.6rem;
+      margin-top: 0.7rem;
+    }
+
+    .branch-card {
+      border: 1px solid rgba(174, 187, 210, 0.82);
+      border-radius: 7px;
+      background: var(--surface-blue);
+      padding: 0.65rem;
+    }
+
+    .branch-card:nth-child(2),
+    .branch-card:nth-child(4) {
+      background: var(--surface-warm);
+    }
+
+    .branch-card span {
+      display: block;
+      color: var(--red);
+      font-size: 0.65rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .branch-card p {
+      margin: 0.28rem 0 0;
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+
+    .source-note {
+      margin: 0.75rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 900px) {
+      .orchestration,
+      .lane-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .release-flow {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .flow-tile::after {
+        display: none;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .split-kpi,
+      .release-flow,
+      .branch-board {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-step,
+      .volume-bars .lens-row {
+        grid-template-columns: 1fr;
+      }
+
+      .volume-bars .lens-row em {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/98-PSP98-OR-Poster-AM24_2024.pdf">Poster PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/98-PSP98-OR-Poster-AM24_2024.md">Markdown Source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">2024 Annual Meeting Poster | PSP98-OR</p>
+        <h1>Comprehensive workflow for oral anticancer medications in an integrated specialty pharmacy</h1>
+        <p class="hero-summary">
+          Yale New Haven Health Outpatient Pharmacy Services customized Epic Compass Rose to manage signed treatment plans, consent review, patient education, and releases for oral anticancer medications across health-system and external dispensing paths.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Integrated health system specialty pharmacy</li>
+          <li class="tag therapy">Oral anticancer medications</li>
+          <li class="tag therapy">Care management workflow</li>
+          <li class="tag">Epic Compass Rose</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster details">
+        <div class="poster-code">AM24<br>PSP98-OR</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Poster year</dt>
+            <dd>2024</dd>
+          </div>
+          <div>
+            <dt>Health system</dt>
+            <dd>Yale New Haven Health</dd>
+          </div>
+          <div>
+            <dt>App transition</dt>
+            <dd>May 2023</dd>
+          </div>
+          <div>
+            <dt>Program scale</dt>
+            <dd>6,000 patients</dd>
+          </div>
+        </dl>
+        <div class="workflow-hero" aria-label="Workflow redesign illustration">
+          <p class="kicker">Central operating change</p>
+          <strong>One workflow for every fill path</strong>
+          <span>Clinical review, consent control, education, and release tasks were standardized even when dispensing moved outside the health system.</span>
+          <svg viewBox="0 0 430 290" role="img" aria-label="Stylized medication workflow network">
+            <defs>
+              <linearGradient id="routeGradient" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ffffff" stop-opacity="0.96"></stop>
+                <stop offset="1" stop-color="#e99e25" stop-opacity="0.8"></stop>
+              </linearGradient>
+            </defs>
+            <path d="M84 42h146c52 0 94 42 94 94s-42 94-94 94H84" fill="none" stroke="rgba(255,255,255,0.34)" stroke-width="24" stroke-linecap="round"></path>
+            <path d="M88 80h137c31 0 56 25 56 56s-25 56-56 56H88" fill="none" stroke="url(#routeGradient)" stroke-width="18" stroke-linecap="round"></path>
+            <circle cx="92" cy="80" r="28" fill="#fff"></circle>
+            <circle cx="282" cy="136" r="34" fill="#fff7ea"></circle>
+            <circle cx="92" cy="192" r="28" fill="#fff"></circle>
+            <path d="M75 80h34M92 63v34M262 136h40M282 116v40M77 192h30" stroke="#243770" stroke-width="9" stroke-linecap="round"></path>
+            <rect x="310" y="62" width="68" height="92" rx="9" fill="#fff" opacity="0.93"></rect>
+            <path d="M326 90h36M326 112h25M326 134h32" stroke="#187c8f" stroke-width="7" stroke-linecap="round"></path>
+            <circle cx="346" cy="202" r="32" fill="#d12630" opacity="0.9"></circle>
+            <path d="M331 202l10 10 22-28" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section id="snapshot" class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Oral anticancer patients</span>
+          <strong>6,000</strong>
+        </article>
+        <article class="metric-card">
+          <span>External release tasks</span>
+          <strong>6,367</strong>
+        </article>
+        <article class="metric-card">
+          <span>Checklist tasks</span>
+          <strong>&gt;6,000</strong>
+        </article>
+        <article class="metric-card">
+          <span>Renewal Review tasks</span>
+          <strong>2,165</strong>
+        </article>
+      </section>
+
+      <section class="orchestration" aria-label="Objective and timeline">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Customize a new care management application for a high-friction oral oncology workflow.</h2>
+          <p>
+            The team needed documentation tools that matched treatment-plan releases, external pharmacy handoffs, signed-order requests, and consent requirements. The aim was not just to document work, but to keep every oral anticancer medication path clinically visible to the specialty pharmacy team.
+          </p>
+          <div class="split-kpi">
+            <div><b>1/3</b><small>of specialty population</small></div>
+            <div><b>4</b><small>workflow issues mapped</small></div>
+            <div><b>3</b><small>custom tool lanes</small></div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Implementation timeline</p>
+          <h2>Compass Rose became the operating layer, then the workflow was tuned.</h2>
+          <div class="timeline">
+            <div class="timeline-step">
+              <div class="timeline-date">May<br>2023</div>
+              <div class="timeline-copy">
+                <h3>Care management transition</h3>
+                <p>OPS moved from an in-house EHR documentation platform to Epic Compass Rose.</p>
+              </div>
+            </div>
+            <div class="timeline-step">
+              <div class="timeline-date">Aug<br>2023</div>
+              <div class="timeline-copy">
+                <h3>Signed-order pursuit scaled</h3>
+                <p>Checklist task data later showed more than 6,000 signature-request tasks through August 2024.</p>
+              </div>
+            </div>
+            <div class="timeline-step">
+              <div class="timeline-date">Apr<br>2024</div>
+              <div class="timeline-copy">
+                <h3>Renewal Review added</h3>
+                <p>A new oral anticancer task was built to manage future medication deliveries.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section id="evidence" class="panel">
+        <p class="section-label">Evidence flow</p>
+        <h2>The redesigned workflow follows the medication from provider signature to dispensing destination.</h2>
+        <div class="release-flow">
+          <article class="flow-tile">
+            <b>1</b>
+            <h3>Provider signs treatment plan</h3>
+            <p>An automated message alerts the integrated health system specialty pharmacy team.</p>
+          </article>
+          <article class="flow-tile">
+            <b>2</b>
+            <h3>SCP triages therapy status</h3>
+            <p>New therapies and ongoing releases move through different review paths before order release.</p>
+          </article>
+          <article class="flow-tile">
+            <b>3</b>
+            <h3>Consent and signature controls</h3>
+            <p>Checklist tasks, Renewal Review, and Consent Required flags manage blocking steps.</p>
+          </article>
+          <article class="flow-tile">
+            <b>4</b>
+            <h3>Education then fulfillment</h3>
+            <p>SCP education precedes either health-system delivery or release to an external pharmacy.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="lane-grid" aria-label="Workflow modification lanes">
+        <article class="lane-card">
+          <p class="section-label">Treatment plans</p>
+          <h3>Automated release visibility</h3>
+          <p>Orders were managed around treatment plans rather than standard refills.</p>
+          <ul>
+            <li>Automated message when an oncology provider signs a specialty oral anticancer medication.</li>
+            <li>External Treatment release date added by SCP for next-release tracking.</li>
+          </ul>
+        </article>
+
+        <article class="lane-card">
+          <p class="section-label">Signed orders</p>
+          <h3>Request work became trackable</h3>
+          <p>The workflow needed a repeatable way to pursue unsigned treatment-plan orders.</p>
+          <ul>
+            <li>Renewal Review task created for oral anticancer medication patients.</li>
+            <li>Manual checklist task developed to document treatment-plan signature attempts.</li>
+          </ul>
+        </article>
+
+        <article class="lane-card">
+          <p class="section-label">Consent review</p>
+          <h3>Dispensing stop built into the path</h3>
+          <p>Oral anticancer therapies required signed patient consent before dispensing.</p>
+          <ul>
+            <li>Consent Required flag added to orders in the dispensing system.</li>
+            <li>SCP contacts clinic for consent before patient education and fulfillment proceed.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="results" class="visual-grid" aria-label="Results charts">
+        <article class="panel">
+          <p class="section-label">Operational volume after launch</p>
+          <h2>Task counts show the workflow was used at production scale.</h2>
+          <div class="lens-chart volume-bars">
+            <div class="lens-row">
+              <span>External release tasks</span>
+              <div class="lens-bar"><i style="width: 100%;"></i></div>
+              <em>6,367</em>
+            </div>
+            <div class="lens-row">
+              <span>Checklist tasks</span>
+              <div class="lens-bar"><i style="width: 94%;"></i></div>
+              <em>&gt;6,000</em>
+            </div>
+            <div class="lens-row">
+              <span>Renewal Review tasks</span>
+              <div class="lens-bar"><i style="width: 34%;"></i></div>
+              <em>2,165</em>
+            </div>
+          </div>
+          <p class="source-note">External release tasks were counted May 2023 to May 2024; checklist tasks August 2023 to August 2024; Renewal Review tasks as of August 2024.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Decision logic</p>
+          <h2>The core workflow branches around therapy status, signatures, consent, and dispensing location.</h2>
+          <div class="branch-board">
+            <div class="branch-card">
+              <span>Therapy status</span>
+              <p>New therapy routes to cancer center pharmacist review and SCP clinical appropriateness review.</p>
+            </div>
+            <div class="branch-card">
+              <span>Ongoing therapy</span>
+              <p>SPL reviews patients due for oral anticancer medication delivery.</p>
+            </div>
+            <div class="branch-card">
+              <span>Missing signature</span>
+              <p>Checklist attempts trigger messages to provider, APP, or clinic nurses.</p>
+            </div>
+            <div class="branch-card">
+              <span>No consent</span>
+              <p>SCP flags the script to prevent dispensing and contacts clinic for anticancer consent.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="evidence-map" aria-label="Extracted poster takeaways">
+        <article class="evidence-card">
+          <h3>Background</h3>
+          <p>Specialty clinical pharmacists support both specialty pharmacy accreditation standards and cancer center accreditation requirements.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Methods</h3>
+          <p>A multidisciplinary group of SCPs, SPLs, IT experts, and pharmacy clinical leadership mapped application gaps and modifications.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Results</h3>
+          <p>External patient management tasks, checklist requests, consent flags, Renewal Review, and reporting were incorporated into routine work.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Conclusion</h3>
+          <p>Oral anticancer medication-specific tasks were successfully adapted in the new care management application.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Next direction</h3>
+          <p>Analyze checklist data for prescribing deviations and target reeducation for IHSSP and cancer center staff.</p>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Condensed table patterns">
+        <article class="table-card">
+          <p class="section-label">Source table pattern</p>
+          <h2>Workflow modifications by step</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Unique workflow step</th>
+                  <th>Modification pattern</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Management of treatment plans</td>
+                  <td>Automated provider-signature message plus external release dating.</td>
+                </tr>
+                <tr>
+                  <td>Requesting signed orders</td>
+                  <td>Renewal Review task and manual checklist task for signature follow-up.</td>
+                </tr>
+                <tr>
+                  <td>Signed consent review</td>
+                  <td>Consent Required flag in the dispensing system to prevent premature fulfillment.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Future operating loop</p>
+          <h2>From documentation to optimization</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Data stream</th>
+                  <th>Planned use</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Checklist task data</td>
+                  <td>Identify deviations in prescribing practices and targets for reeducation.</td>
+                </tr>
+                <tr>
+                  <td>Renewal Review completion</td>
+                  <td>Manage future deliveries for oral anticancer medication patients.</td>
+                </tr>
+                <tr>
+                  <td>Compass Rose adoption</td>
+                  <td>Support broader care-center pharmacy and clinic integration.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/98-PSP98-OR-Poster-AM24_2024.pdf">Open original PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/98-PSP98-OR-Poster-AM24_2024.md">Open extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

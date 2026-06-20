@@ -1,0 +1,648 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Predicting Time to Medication Access for Hematologic Malignancies | NASP 2019</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .access-hero {
+      position: relative;
+      overflow: hidden;
+    }
+    .access-hero::after {
+      content: "";
+      position: absolute;
+      right: -4rem;
+      bottom: -5rem;
+      width: 19rem;
+      aspect-ratio: 1;
+      border: 2.2rem solid rgba(24, 124, 143, 0.1);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-summary strong {
+      color: var(--ink);
+      font-weight: 900;
+    }
+    .access-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .access-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 0.38rem;
+      background: linear-gradient(90deg, var(--red), var(--gold), var(--teal));
+    }
+    .poster-code small {
+      display: block;
+      margin-top: 0.2rem;
+      color: var(--muted);
+      font-family: var(--font-body);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+    .median-board {
+      display: grid;
+      gap: 0.74rem;
+      margin-top: 0.7rem;
+    }
+    .median-row {
+      display: grid;
+      grid-template-columns: 7.8rem minmax(0, 1fr) 4.5rem;
+      gap: 0.65rem;
+      align-items: center;
+    }
+    .median-row span {
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 900;
+    }
+    .median-track {
+      height: 1.05rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .median-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .median-row.ldd .median-track i {
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .median-row strong {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      line-height: 1;
+      text-align: right;
+    }
+    .workflow-lanes {
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 0.8rem;
+    }
+    .lane {
+      display: grid;
+      grid-template-columns: 8.4rem repeat(4, minmax(0, 1fr));
+      gap: 0.45rem;
+      align-items: stretch;
+    }
+    .lane b,
+    .lane span {
+      display: grid;
+      align-items: center;
+      min-height: 3.1rem;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      padding: 0.46rem;
+      font-size: 0.72rem;
+      line-height: 1.25;
+    }
+    .lane b {
+      border-color: rgba(36, 55, 112, 0.28);
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-weight: 900;
+    }
+    .lane span {
+      position: relative;
+      background: #fff;
+      color: var(--body);
+      font-weight: 760;
+    }
+    .lane span::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -0.52rem;
+      z-index: 1;
+      width: 0.58rem;
+      height: 0.12rem;
+      background: var(--border-strong);
+      transform: translateY(-50%);
+    }
+    .lane span:last-child::after {
+      display: none;
+    }
+    .lane .handoff {
+      border-color: rgba(209, 38, 48, 0.34);
+      background: rgba(209, 38, 48, 0.07);
+      color: var(--ink);
+    }
+    .lane .pharmd {
+      border-color: rgba(24, 124, 143, 0.34);
+      background: rgba(24, 124, 143, 0.08);
+      color: var(--ink);
+    }
+    .segment-chart {
+      display: grid;
+      gap: 0.82rem;
+      margin-top: 0.82rem;
+    }
+    .segment-row {
+      display: grid;
+      grid-template-columns: 7rem minmax(0, 1fr) 3.5rem;
+      gap: 0.62rem;
+      align-items: center;
+    }
+    .segment-row .label {
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+    .stack {
+      display: flex;
+      height: 1.55rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 999px;
+      background: #eef3f8;
+      overflow: hidden;
+    }
+    .stack i {
+      display: block;
+      height: 100%;
+    }
+    .stack .tx {
+      background: var(--red);
+    }
+    .stack .approval {
+      background: var(--gold);
+    }
+    .stack .ship {
+      background: var(--teal);
+    }
+    .segment-row .total {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 900;
+      text-align: right;
+    }
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 0.7rem;
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-weight: 800;
+    }
+    .legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .legend i {
+      width: 0.85rem;
+      height: 0.85rem;
+      border-radius: 3px;
+    }
+    .regression-list {
+      display: grid;
+      gap: 0.58rem;
+      margin-top: 0.75rem;
+    }
+    .regression-item {
+      display: grid;
+      grid-template-columns: 9.5rem minmax(0, 1fr) 4rem;
+      gap: 0.55rem;
+      align-items: center;
+      border: 1px solid rgba(36, 55, 112, 0.13);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.48rem;
+    }
+    .regression-item span {
+      color: var(--ink);
+      font-size: 0.76rem;
+      font-weight: 900;
+    }
+    .or-track {
+      position: relative;
+      height: 0.78rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(24, 124, 143, 0.16), #edf2f8 38%, rgba(209, 38, 48, 0.18));
+    }
+    .or-track i {
+      position: absolute;
+      top: 50%;
+      width: 0.9rem;
+      height: 0.9rem;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      background: var(--red);
+      box-shadow: 0 0 0 1px rgba(36, 55, 112, 0.22);
+      transform: translate(-50%, -50%);
+    }
+    .regression-item small {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 900;
+      text-align: right;
+    }
+    .takeaway-panel {
+      border-left: 5px solid var(--teal);
+      background:
+        linear-gradient(90deg, rgba(24, 124, 143, 0.09), rgba(255, 255, 255, 0)),
+        #fff;
+    }
+    .callout-number {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 0.75rem;
+      align-items: center;
+      margin-top: 0.7rem;
+      border: 1px solid rgba(24, 124, 143, 0.24);
+      border-radius: 8px;
+      background: rgba(24, 124, 143, 0.07);
+      padding: 0.72rem;
+    }
+    .callout-number strong {
+      color: var(--teal);
+      font-family: var(--font-display);
+      font-size: 2.6rem;
+      line-height: 1;
+    }
+    .callout-number p {
+      margin: 0;
+      color: var(--ink);
+      font-size: 0.9rem;
+      font-weight: 850;
+    }
+    .source-note {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    @media (max-width: 760px) {
+      .median-row,
+      .segment-row,
+      .regression-item,
+      .callout-number {
+        grid-template-columns: 1fr;
+      }
+      .median-row strong,
+      .segment-row .total,
+      .regression-item small {
+        text-align: left;
+      }
+      .lane {
+        grid-template-columns: 1fr;
+      }
+      .lane span::after {
+        top: auto;
+        right: auto;
+        bottom: -0.45rem;
+        left: 1.2rem;
+        width: 0.12rem;
+        height: 0.45rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar" aria-label="Infographic navigation">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav>
+        <a href="#workflow">Workflow</a>
+        <a href="#results">Results</a>
+        <a href="#model">Model</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/44_2019.pdf">PDF source</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/44_2019.md">Markdown source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero access-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2019 Annual Meeting &amp; Expo</p>
+        <h1>Predicting Time to Medication Access for Hematologic Malignancies</h1>
+        <p class="hero-summary">Vanderbilt compared oral anti-neoplastic access time across limited distribution drugs and integrated specialty pharmacy fills, then tested whether embedding a clinic pharmacist could shorten the LDD path from <strong>treatment decision</strong> to <strong>medication shipment</strong>.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Retrospective access analysis</li>
+          <li class="tag therapy">Hematologic malignancies</li>
+          <li class="tag therapy">Limited distribution drugs</li>
+          <li class="tag">Integrated specialty pharmacy</li>
+        </ul>
+      </div>
+      <aside class="hero-card access-card">
+        <div>
+          <p class="section-label">Poster file</p>
+          <div class="poster-code">44_2019<small>Vanderbilt University Medical Center</small></div>
+        </div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Study window</dt>
+            <dd>Sept 2015-Sept 2017</dd>
+          </div>
+          <div>
+            <dt>Prescriptions</dt>
+            <dd>410 adult patients</dd>
+          </div>
+          <div>
+            <dt>Time 1</dt>
+            <dd>Sept 2015-May 2016</dd>
+          </div>
+          <div>
+            <dt>Time 2</dt>
+            <dd>June 2016-Sept 2017</dd>
+          </div>
+        </dl>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Total prescriptions</span>
+          <strong>410</strong>
+        </article>
+        <article class="metric-card">
+          <span>LDD median access</span>
+          <strong>6d</strong>
+        </article>
+        <article class="metric-card">
+          <span>Non-LDD median access</span>
+          <strong>3d</strong>
+        </article>
+        <article class="metric-card">
+          <span>Appeals approved</span>
+          <strong>100%</strong>
+        </article>
+      </section>
+
+      <section class="visual-grid" id="workflow">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Test whether pharmacist integration compressed the LDD access interval</h2>
+          <div class="markdown-fragment">
+            <p>The poster asked two linked questions: how LDD access time compared with non-LDD access time, and whether a clinical pharmacist embedded in the hematology clinic decreased time to LDD shipment.</p>
+          </div>
+          <div class="median-board" aria-label="Median access time comparison">
+            <div class="median-row ldd">
+              <span>LDD</span>
+              <div class="median-track"><i style="width:100%"></i></div>
+              <strong>6 days</strong>
+            </div>
+            <div class="median-row">
+              <span>Non-LDD</span>
+              <div class="median-track"><i style="width:50%"></i></div>
+              <strong>3 days</strong>
+            </div>
+          </div>
+          <p class="source-note">Median days from treatment decision to shipment; LDD IQR 3-9, non-LDD IQR 1-6.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Methods</p>
+          <h2>Adult hematology oral anti-neoplastic prescriptions were modeled by drug type and time period</h2>
+          <div class="number-cloud" aria-label="Prescription mix">
+            <div class="number-pill">119<small>Time 1 Rx</small></div>
+            <div class="number-pill">291<small>Time 2 Rx</small></div>
+            <div class="number-pill">125<small>LDD Rx</small></div>
+            <div class="number-pill">285<small>Non-LDD Rx</small></div>
+          </div>
+          <div class="markdown-fragment">
+            <p>Proportional odds logistic regression tested drug type, time period, their interaction, off-label use, and insurance type. Uninsured patients and free drug sample recipients were excluded.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Workflow change</p>
+        <h2>The handoff shifted from nursing plus paper REMS to PharmD plus electronic REMS for LDDs</h2>
+        <div class="workflow-lanes" aria-label="Clinic workflow comparison by period and drug type">
+          <div class="lane">
+            <b>Pre-PharmD LDD<br>Time 1</b>
+            <span>MD decides to treat</span>
+            <span class="handoff">Message sent to nurse</span>
+            <span>PA / appeal and paper REMS enrollment</span>
+            <span>Approval to shipment</span>
+          </div>
+          <div class="lane">
+            <b>Post-PharmD LDD<br>Time 2</b>
+            <span>MD decides to treat</span>
+            <span class="pharmd">Message sent to PharmD</span>
+            <span>PA / appeal and electronic REMS enrollment</span>
+            <span>Approval to shipment</span>
+          </div>
+          <div class="lane">
+            <b>Non-LDD<br>Time 1 and 2</b>
+            <span>MD decides to treat</span>
+            <span class="pharmd">Message sent to PharmD</span>
+            <span>PA / appeal</span>
+            <span>Approval to shipment</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="visual-grid" id="results">
+        <article class="panel">
+          <p class="section-label">Results</p>
+          <h2>Where time accumulated across the access pathway</h2>
+          <div class="segment-chart" aria-label="Mean days between access milestones">
+            <div class="segment-row">
+              <div class="label">Non-LDD</div>
+              <div class="stack" title="0.8 days treatment decision to PA, 1.3 approval, 2.7 shipment">
+                <i class="tx" style="width:16.7%"></i>
+                <i class="approval" style="width:27.1%"></i>
+                <i class="ship" style="width:56.2%"></i>
+              </div>
+              <div class="total">4.8d</div>
+            </div>
+            <div class="segment-row">
+              <div class="label">LDD Time 1</div>
+              <div class="stack" title="4.4 days treatment decision to PA, 0.3 approval, 3.0 shipment">
+                <i class="tx" style="width:57.1%"></i>
+                <i class="approval" style="width:3.9%"></i>
+                <i class="ship" style="width:39%"></i>
+              </div>
+              <div class="total">7.7d</div>
+            </div>
+            <div class="segment-row">
+              <div class="label">LDD Time 2</div>
+              <div class="stack" title="0.6 days treatment decision to PA, 0.7 approval, 5.2 shipment">
+                <i class="tx" style="width:9.2%"></i>
+                <i class="approval" style="width:10.8%"></i>
+                <i class="ship" style="width:80%"></i>
+              </div>
+              <div class="total">6.5d</div>
+            </div>
+          </div>
+          <div class="legend" aria-label="Segment legend">
+            <span><i style="background:var(--red)"></i>Tx decision to PA complete</span>
+            <span><i style="background:var(--gold)"></i>PA complete to approval</span>
+            <span><i style="background:var(--teal)"></i>Approval to shipment</span>
+          </div>
+          <p class="source-note">Values are mean days reported in Figure 2. PA = prior authorization.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Prescription profile</p>
+          <h2>Time 2 had more volume and a larger LDD share</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Characteristic</th>
+                  <th>Time 1 n=119</th>
+                  <th>Time 2 n=291</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Commercial insurance</td>
+                  <td>70 (59%)</td>
+                  <td>143 (49%)</td>
+                </tr>
+                <tr>
+                  <td>Government insurance</td>
+                  <td>49 (41%)</td>
+                  <td>148 (51%)</td>
+                </tr>
+                <tr>
+                  <td>Non-LDD prescriptions</td>
+                  <td>89 (75%)</td>
+                  <td>196 (67%)</td>
+                </tr>
+                <tr>
+                  <td>LDD prescriptions</td>
+                  <td>30 (25%)</td>
+                  <td>95 (33%)</td>
+                </tr>
+                <tr>
+                  <td>Off-label use</td>
+                  <td>10 (8%)</td>
+                  <td>36 (12%)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-stack" id="model">
+        <article class="panel">
+          <p class="section-label">Regression signals</p>
+          <h2>Drug type and off-label use predicted longer access time; Time 2 moderated LDD delay</h2>
+          <div class="regression-list" aria-label="Proportional odds model odds ratios">
+            <div class="regression-item">
+              <span>LDD vs non-LDD</span>
+              <div class="or-track"><i style="left:95%"></i></div>
+              <small>OR 6.56</small>
+            </div>
+            <div class="regression-item">
+              <span>Off-label vs on-label</span>
+              <div class="or-track"><i style="left:48%"></i></div>
+              <small>OR 2.59</small>
+            </div>
+            <div class="regression-item">
+              <span>Time 2 vs Time 1</span>
+              <div class="or-track"><i style="left:28%"></i></div>
+              <small>OR 1.34</small>
+            </div>
+            <div class="regression-item">
+              <span>Government vs commercial</span>
+              <div class="or-track"><i style="left:21%"></i></div>
+              <small>OR 1.02</small>
+            </div>
+            <div class="regression-item">
+              <span>Time 2 x LDD</span>
+              <div class="or-track"><i style="left:9%; background:var(--teal)"></i></div>
+              <small>OR 0.41</small>
+            </div>
+          </div>
+          <p class="source-note">Model controlled for off-label use and insurance type. Significant p-values: LDD &lt;0.001, off-label 0.001, Time 2 x LDD 0.040.</p>
+        </article>
+
+        <article class="panel takeaway-panel">
+          <p class="section-label">Conclusion</p>
+          <h2>Integration helped, but LDD network limits remained visible</h2>
+          <div class="markdown-fragment">
+            <p>Embedding a clinical pharmacist in the clinic significantly shortened time from treatment decision to shipment for LDD medications, partially overcoming access barriers.</p>
+            <p>Even after integration, access was slower for LDDs than for non-LDD medications because LDDs could not be fully incorporated into the clinic specialty pharmacy workflow.</p>
+          </div>
+          <div class="callout-number">
+            <strong>28</strong>
+            <p>Insurance appeals were recorded across the two periods, and every appeal was approved.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="tables-grid">
+        <article class="table-card">
+          <p class="section-label">Common medications</p>
+          <h2>Representative drugs in each channel</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Channel</th>
+                  <th>Time 1</th>
+                  <th>Time 2</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>LDD: Revlimid</td>
+                  <td>23 (19%)</td>
+                  <td>60 (21%)</td>
+                </tr>
+                <tr>
+                  <td>LDD: Pomalyst</td>
+                  <td>7 (6%)</td>
+                  <td>35 (12%)</td>
+                </tr>
+                <tr>
+                  <td>Non-LDD: Imbruvica</td>
+                  <td>30 (25%)</td>
+                  <td>41 (14%)</td>
+                </tr>
+                <tr>
+                  <td>Non-LDD: Ninlaro</td>
+                  <td>16 (13%)</td>
+                  <td>39 (13%)</td>
+                </tr>
+                <tr>
+                  <td>Non-LDD: Jakafi</td>
+                  <td>17 (14%)</td>
+                  <td>36 (12%)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Source links</p>
+          <h2>Poster materials</h2>
+          <div class="markdown-fragment">
+            <p><strong>Authors:</strong> Houston Wyatt, Autumn Zuckerman, Megan Peter, Samuel Starks, Matt Maulis, Josh DeClercq, Leena Choi, and Madan Jagasia.</p>
+            <p><strong>Institution:</strong> Vanderbilt University Medical Center and Vanderbilt-Ingram Cancer Center.</p>
+          </div>
+          <div class="footer-actions">
+            <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/44_2019.pdf">Open poster PDF</a>
+            <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/44_2019.md">Open extracted markdown</a>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Disease Therapy Management for Medication Adherence in Rheumatoid Arthritis | NASP 2023</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .ra-hero-art {
+      min-height: 18rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 18% 24%, rgba(209, 38, 48, 0.12), transparent 7.6rem),
+        radial-gradient(circle at 78% 76%, rgba(24, 124, 143, 0.18), transparent 9rem),
+        linear-gradient(135deg, #ffffff 0%, var(--surface-blue) 58%, var(--surface-warm) 100%);
+      overflow: hidden;
+    }
+    .ra-hero-art svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 18rem;
+    }
+    .hero-card .study-note {
+      margin: 0;
+      border-left: 4px solid var(--red);
+      padding-left: 0.7rem;
+      color: var(--ink);
+      font-size: 0.95rem;
+      font-weight: 850;
+    }
+    .metric-card p {
+      margin: 0.44rem 0 0;
+      font-size: 0.78rem;
+    }
+    .metric-card strong.tight {
+      font-size: clamp(1.35rem, 2.6vw, 2rem);
+    }
+    .trial-map {
+      display: grid;
+      grid-template-columns: minmax(17rem, 0.78fr) minmax(0, 1.22fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .enrollment-card {
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background:
+        linear-gradient(145deg, rgba(24, 124, 143, 0.12), transparent 50%),
+        #fff;
+      padding: 1rem;
+    }
+    .enrollment-card strong {
+      display: block;
+      margin: 0.2rem 0 0.42rem;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(4rem, 8vw, 7.2rem);
+      line-height: 0.85;
+    }
+    .enrollment-card span {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-weight: 900;
+      line-height: 1.2;
+    }
+    .arm-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.7rem;
+    }
+    .arm-card {
+      position: relative;
+      min-height: 13rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #ffffff, var(--surface-blue));
+      padding: 0.85rem;
+      overflow: hidden;
+    }
+    .arm-card::before {
+      content: attr(data-arm);
+      position: absolute;
+      right: 0.5rem;
+      bottom: -0.55rem;
+      color: rgba(36, 55, 112, 0.11);
+      font-family: var(--font-display);
+      font-size: 4.8rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .arm-card h3,
+    .arm-card p {
+      position: relative;
+      z-index: 1;
+    }
+    .arm-card p {
+      margin: 0.52rem 0 0;
+      font-size: 0.82rem;
+    }
+    .outcome-board {
+      display: grid;
+      grid-template-columns: minmax(18rem, 0.95fr) minmax(0, 1.05fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .signal-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        linear-gradient(160deg, rgba(209, 38, 48, 0.08), transparent 48%),
+        #fff;
+      padding: 1rem;
+    }
+    .signal-card strong {
+      display: block;
+      margin-top: 0.24rem;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(2.9rem, 6vw, 5.8rem);
+      line-height: 0.9;
+    }
+    .signal-card p {
+      margin: 0.55rem 0 0;
+      font-size: 0.9rem;
+    }
+    .bar-panel {
+      display: grid;
+      gap: 1rem;
+    }
+    .comparison-chart {
+      display: grid;
+      gap: 0.62rem;
+      margin-top: 0.68rem;
+    }
+    .comparison-row {
+      display: grid;
+      grid-template-columns: 4.6rem minmax(0, 1fr) 4.1rem;
+      gap: 0.55rem;
+      align-items: center;
+    }
+    .comparison-row b {
+      color: var(--ink);
+      font-size: 0.8rem;
+      line-height: 1.15;
+    }
+    .comparison-row span {
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 900;
+      text-align: right;
+    }
+    .comparison-track {
+      height: 1rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .comparison-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .comparison-track.teal i {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .satisfaction-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.75rem;
+    }
+    .score-tile {
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 7px;
+      background: var(--surface-blue);
+      padding: 0.62rem;
+      text-align: center;
+    }
+    .score-tile strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.7rem;
+      line-height: 1;
+    }
+    .score-tile span {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--muted);
+      font-size: 0.64rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .finding-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+    .finding-card {
+      position: relative;
+      min-height: 10.6rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.9rem;
+      overflow: hidden;
+    }
+    .finding-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 0.32rem;
+      background: var(--accent, var(--red));
+    }
+    .finding-card:nth-child(2) { --accent: var(--teal); }
+    .finding-card:nth-child(3) { --accent: var(--gold); }
+    .finding-card p {
+      margin: 0.55rem 0 0;
+      font-size: 0.84rem;
+    }
+    .clinical-tracks {
+      display: grid;
+      gap: 0.62rem;
+      margin-top: 0.65rem;
+    }
+    .clinical-row {
+      display: grid;
+      grid-template-columns: 5.8rem repeat(3, minmax(0, 1fr));
+      gap: 0.45rem;
+      align-items: center;
+    }
+    .clinical-row b {
+      color: var(--ink);
+      font-size: 0.76rem;
+    }
+    .clinical-cell {
+      min-height: 2rem;
+      border: 1px solid rgba(36, 55, 112, 0.15);
+      border-radius: 5px;
+      background: var(--surface-blue);
+      padding: 0.35rem 0.45rem;
+      color: var(--ink);
+      font-size: 0.76rem;
+      font-weight: 850;
+      text-align: center;
+    }
+    .clinical-cell.best {
+      border-color: rgba(24, 124, 143, 0.38);
+      background: rgba(24, 124, 143, 0.12);
+    }
+    .conclusion-callout {
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(233, 158, 37, 0.16), transparent 12rem),
+        linear-gradient(135deg, #fff, var(--surface-blue));
+      padding: 1.1rem;
+    }
+    .conclusion-callout p {
+      max-width: 58rem;
+      margin: 0.4rem 0 0;
+      color: var(--ink);
+      font-size: 1rem;
+      font-weight: 750;
+    }
+    .source-note {
+      margin: 0.6rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    @media (max-width: 900px) {
+      .trial-map,
+      .outcome-board {
+        grid-template-columns: 1fr;
+      }
+      .arm-grid,
+      .finding-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 560px) {
+      .comparison-row,
+      .clinical-row {
+        grid-template-columns: 1fr;
+      }
+      .comparison-row span {
+        text-align: left;
+      }
+      .satisfaction-strip {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source documents">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/56_Disease-Therapy-Management-for-Medication-Adherence-in-Rheumatoid-Arthritis_2023.pdf">PDF Source</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/56_Disease-Therapy-Management-for-Medication-Adherence-in-Rheumatoid-Arthritis_2023.md">Markdown Source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2023 poster 56</p>
+        <h1>Disease therapy management for medication adherence in rheumatoid arthritis</h1>
+        <p class="hero-summary">A prospective randomized trial tested whether pharmacist-led specialty pharmacy support improved adherence for adults with rheumatoid arthritis starting self-injectable biologic therapy.</p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Rheumatoid arthritis</li>
+          <li class="tag therapy">Self-injectable biologics</li>
+          <li class="tag">Pharmacist-led intervention</li>
+          <li class="tag">Adherence</li>
+          <li class="tag">Patient satisfaction</li>
+        </ul>
+        <div class="ra-hero-art" aria-label="Illustration of integrated pharmacy support improving biologic therapy adherence">
+          <svg viewBox="0 0 620 360" role="img">
+            <title>Integrated specialty pharmacy support pathway</title>
+            <defs>
+              <linearGradient id="raRedGold" x1="0" x2="1" y1="0" y2="0">
+                <stop offset="0" stop-color="#d12630"/>
+                <stop offset="1" stop-color="#e99e25"/>
+              </linearGradient>
+              <linearGradient id="raTealGreen" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#187c8f"/>
+                <stop offset="1" stop-color="#4d8a67"/>
+              </linearGradient>
+            </defs>
+            <rect x="34" y="46" width="552" height="230" rx="22" fill="#fff" stroke="#aebbd2" stroke-width="2"/>
+            <path d="M86 188 C144 104, 218 104, 270 180 S398 264, 478 156" fill="none" stroke="#d9e1ef" stroke-width="26" stroke-linecap="round"/>
+            <path d="M86 188 C144 104, 218 104, 270 180 S398 264, 478 156" fill="none" stroke="url(#raTealGreen)" stroke-width="14" stroke-linecap="round" stroke-dasharray="42 18"/>
+            <g transform="translate(78 128)">
+              <circle cx="42" cy="42" r="42" fill="#eef4fb" stroke="#243770" stroke-width="3"/>
+              <path d="M29 50 q13 14 27 0" fill="none" stroke="#187c8f" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="30" cy="34" r="5" fill="#243770"/>
+              <circle cx="54" cy="34" r="5" fill="#243770"/>
+              <path d="M14 88 h56" stroke="#243770" stroke-width="8" stroke-linecap="round"/>
+            </g>
+            <g transform="translate(260 70)">
+              <rect x="0" y="0" width="120" height="88" rx="14" fill="#fff7ea" stroke="#e99e25" stroke-width="3"/>
+              <rect x="22" y="22" width="76" height="16" rx="8" fill="url(#raRedGold)"/>
+              <rect x="22" y="50" width="52" height="10" rx="5" fill="#243770" opacity="0.28"/>
+              <path d="M92 43 l21 21" stroke="#243770" stroke-width="5" stroke-linecap="round"/>
+              <circle cx="112" cy="64" r="8" fill="#187c8f"/>
+            </g>
+            <g transform="translate(418 134)">
+              <circle cx="48" cy="48" r="48" fill="#eef4fb" stroke="#187c8f" stroke-width="3"/>
+              <path d="M31 49 l12 13 l25 -33" fill="none" stroke="#4d8a67" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+            <g fill="#243770" font-family="Montserrat, Arial, sans-serif" font-weight="900" text-anchor="middle">
+              <text x="120" y="258" font-size="17">START</text>
+              <text x="320" y="196" font-size="17">COUNSEL</text>
+              <text x="466" y="258" font-size="17">ADHERE</text>
+            </g>
+            <g transform="translate(114 296)">
+              <rect x="0" y="0" width="392" height="34" rx="17" fill="#243770"/>
+              <text x="196" y="23" fill="#fff" font-family="Inter, sans-serif" font-size="14" font-weight="800" text-anchor="middle">Enrollment visit to 3-month follow-up</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <p class="section-label">At a glance</p>
+        <div class="poster-code">56</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Year</dt>
+            <dd>2023</dd>
+          </div>
+          <div>
+            <dt>Design</dt>
+            <dd>Prospective RCT</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>Integrated health system</dd>
+          </div>
+          <div>
+            <dt>Follow-up</dt>
+            <dd>3 months</dd>
+          </div>
+        </dl>
+        <p class="study-note">Objective: describe the value of pharmacist-led interventions on medication adherence.</p>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key study numbers">
+        <article class="metric-card">
+          <span>Patients enrolled</span>
+          <strong>75</strong>
+          <p>Adults with RA starting self-injectable biologic therapy.</p>
+        </article>
+        <article class="metric-card">
+          <span>Study arms</span>
+          <strong>3</strong>
+          <p>External pharmacy, integrated pharmacy standard care, and enhanced pharmacist follow-up.</p>
+        </article>
+        <article class="metric-card">
+          <span>Top adherence</span>
+          <strong>99.7%</strong>
+          <p>Mean pen-syringe count in the enhanced follow-up group.</p>
+        </article>
+        <article class="metric-card">
+          <span>Satisfaction</span>
+          <strong class="tight">10/10</strong>
+          <p>Mean satisfaction in both integrated specialty pharmacy groups.</p>
+        </article>
+      </section>
+
+      <section class="trial-map">
+        <div class="enrollment-card">
+          <p class="section-label">Methods</p>
+          <strong>1:1:1</strong>
+          <span>Patients were assigned across three pharmacy care models after insurance-based routing and randomization.</span>
+          <p class="source-note">Enrollment: October 2019 to September 2022.</p>
+        </div>
+        <div class="panel">
+          <h2>Three levels of pharmacy support</h2>
+          <div class="arm-grid">
+            <article class="arm-card" data-arm="1">
+              <h3>External specialty pharmacy</h3>
+              <p>Standard of care varied by outside pharmacy when insurance required external biologic dispensing.</p>
+            </article>
+            <article class="arm-card" data-arm="2">
+              <h3>Integrated pharmacy standard care</h3>
+              <p>Pharmacist calls before therapy and first refill, followed by technician refill outreach at month 3.</p>
+            </article>
+            <article class="arm-card" data-arm="3">
+              <h3>Face-to-face plus monthly calls</h3>
+              <p>Baseline counseling, medication reconciliation, adherence barrier discussion, injection training, and monthly follow-up calls.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="outcome-board" aria-label="Primary adherence outcomes">
+        <article class="signal-card">
+          <p class="section-label">Primary outcome signal</p>
+          <h2>Integrated specialty pharmacy care approached complete measured adherence.</h2>
+          <strong>99%+</strong>
+          <p>Both integrated pharmacy groups were statistically higher than the external specialty pharmacy group for pen-syringe count and CQR-19 change.</p>
+        </article>
+        <div class="panel bar-panel">
+          <div>
+            <h3>Pen-syringe count at month 3</h3>
+            <div class="comparison-chart">
+              <div class="comparison-row">
+                <b>Group 1</b>
+                <div class="comparison-track"><i style="--w: 89.3%"></i></div>
+                <span>89.3%</span>
+              </div>
+              <div class="comparison-row">
+                <b>Group 2</b>
+                <div class="comparison-track"><i style="--w: 99%"></i></div>
+                <span>99.0%*</span>
+              </div>
+              <div class="comparison-row">
+                <b>Group 3</b>
+                <div class="comparison-track"><i style="--w: 99.7%"></i></div>
+                <span>99.7%*</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3>CQR-19 change from baseline</h3>
+            <div class="comparison-chart">
+              <div class="comparison-row">
+                <b>Group 1</b>
+                <div class="comparison-track teal"><i style="--w: 8%"></i></div>
+                <span>-1.1</span>
+              </div>
+              <div class="comparison-row">
+                <b>Group 2</b>
+                <div class="comparison-track teal"><i style="--w: 100%"></i></div>
+                <span>9.3*</span>
+              </div>
+              <div class="comparison-row">
+                <b>Group 3</b>
+                <div class="comparison-track teal"><i style="--w: 72%"></i></div>
+                <span>6.6*</span>
+              </div>
+            </div>
+          </div>
+          <p class="source-note">* Statistically significant compared with Group 1, p&lt;0.05. Data presented as mean.</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Secondary outcomes: satisfaction separated more clearly than clinical indices</h2>
+        <div class="visual-grid">
+          <article class="panel">
+            <h3>Patient satisfaction at month 3</h3>
+            <div class="satisfaction-strip" aria-label="Patient satisfaction scores">
+              <div class="score-tile">
+                <strong>8.4</strong>
+                <span>Group 1</span>
+              </div>
+              <div class="score-tile">
+                <strong>10*</strong>
+                <span>Group 2</span>
+              </div>
+              <div class="score-tile">
+                <strong>10*</strong>
+                <span>Group 3</span>
+              </div>
+            </div>
+            <p class="source-note">Scale 0-10; mean (standard deviation) reported in source table.</p>
+          </article>
+          <article class="panel">
+            <h3>Clinical index changes were directionally favorable</h3>
+            <div class="clinical-tracks" aria-label="Clinical indices change table">
+              <div class="clinical-row">
+                <b>Measure</b>
+                <div class="clinical-cell">Group 1</div>
+                <div class="clinical-cell">Group 2</div>
+                <div class="clinical-cell">Group 3</div>
+              </div>
+              <div class="clinical-row">
+                <b>RAPID3</b>
+                <div class="clinical-cell">-2.5</div>
+                <div class="clinical-cell best">-4.7</div>
+                <div class="clinical-cell best">-4.7</div>
+              </div>
+              <div class="clinical-row">
+                <b>CDAI</b>
+                <div class="clinical-cell">-9.9</div>
+                <div class="clinical-cell">-7.9</div>
+                <div class="clinical-cell best">-11.8</div>
+              </div>
+              <div class="clinical-row">
+                <b>HAQ-DI</b>
+                <div class="clinical-cell">-0.20</div>
+                <div class="clinical-cell best">-0.61</div>
+                <div class="clinical-cell">-0.47</div>
+              </div>
+            </div>
+            <p class="source-note">No between-group differences were observed for clinical indices; small sample size may have limited detection.</p>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2>Interpretation pattern</h2>
+        <div class="finding-grid">
+          <article class="finding-card">
+            <h3>Adherence improved with integrated dispensing</h3>
+            <p>Patients filling injectable biologics through the integrated health-system specialty pharmacy were more adherent than patients filling externally.</p>
+          </article>
+          <article class="finding-card">
+            <h3>Virtual and face-to-face models performed similarly</h3>
+            <p>Groups 2 and 3 had comparable outcomes across tested endpoints, suggesting value from the integrated model itself.</p>
+          </article>
+          <article class="finding-card">
+            <h3>Clinical improvement may need larger studies</h3>
+            <p>Disease activity markers numerically improved, but clinical index comparisons did not reach observed between-group differences.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="tables-grid" aria-label="Extracted result tables">
+        <article class="table-card">
+          <h3>Primary adherence table</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Group</th>
+                  <th>Pen-syringe count</th>
+                  <th>CQR-19 change</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Group 1</td>
+                  <td>89.3%</td>
+                  <td>-1.1</td>
+                </tr>
+                <tr>
+                  <td>Group 2</td>
+                  <td>99.0%*</td>
+                  <td>9.3*</td>
+                </tr>
+                <tr>
+                  <td>Group 3</td>
+                  <td>99.7%*</td>
+                  <td>6.6*</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+        <article class="table-card">
+          <h3>Secondary outcomes table</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Measure</th>
+                  <th>Group 1</th>
+                  <th>Group 2</th>
+                  <th>Group 3</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>RAPID3 change</td>
+                  <td>-2.5 (4.9)</td>
+                  <td>-4.7 (4.1)</td>
+                  <td>-4.7 (6.9)</td>
+                </tr>
+                <tr>
+                  <td>CDAI change</td>
+                  <td>-9.9 (7.6)</td>
+                  <td>-7.9 (15.5)</td>
+                  <td>-11.8 (14.1)</td>
+                </tr>
+                <tr>
+                  <td>HAQ-DI change</td>
+                  <td>-0.20 (0.57)</td>
+                  <td>-0.61 (0.62)</td>
+                  <td>-0.47 (0.56)</td>
+                </tr>
+                <tr>
+                  <td>Satisfaction</td>
+                  <td>8.4 (2.5)</td>
+                  <td>10* (0)</td>
+                  <td>10* (0)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="conclusion-callout">
+        <p class="section-label">Conclusion</p>
+        <h2>Pharmacy-based disease therapy management strengthened biologic adherence and satisfaction.</h2>
+        <p>Up-front education and closer follow-up through an integrated specialty pharmacy program may help streamline access, address medication barriers, and improve care outcomes for patients with rheumatoid arthritis.</p>
+      </section>
+
+      <footer class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/56_Disease-Therapy-Management-for-Medication-Adherence-in-Rheumatoid-Arthritis_2023.pdf">Open original PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/56_Disease-Therapy-Management-for-Medication-Adherence-in-Rheumatoid-Arthritis_2023.md">Open extracted markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

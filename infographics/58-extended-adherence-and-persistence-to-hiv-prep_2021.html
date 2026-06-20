@@ -1,0 +1,699 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Extended Adherence and Persistence to HIV PrEP | NASP 2021</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .prep-hero-art {
+      min-height: 18rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 18% 24%, rgba(209, 38, 48, 0.14), transparent 8rem),
+        radial-gradient(circle at 82% 80%, rgba(24, 124, 143, 0.18), transparent 10rem),
+        linear-gradient(135deg, #ffffff 0%, var(--surface-blue) 56%, var(--surface-warm) 100%);
+      overflow: hidden;
+    }
+    .prep-hero-art svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 18rem;
+    }
+    .hero-card .key-finding {
+      margin: 0;
+      border-left: 4px solid var(--red);
+      padding-left: 0.7rem;
+      color: var(--ink);
+      font-size: 0.94rem;
+      font-weight: 850;
+    }
+    .metric-card p {
+      margin: 0.44rem 0 0;
+      font-size: 0.78rem;
+    }
+    .metric-card strong.tight {
+      font-size: clamp(1.45rem, 3vw, 2rem);
+    }
+    .storyboard {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+    .story-step {
+      position: relative;
+      min-height: 12rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.85rem;
+      overflow: hidden;
+    }
+    .story-step::after {
+      content: attr(data-step);
+      position: absolute;
+      right: 0.45rem;
+      bottom: -0.62rem;
+      color: rgba(36, 55, 112, 0.10);
+      font-family: var(--font-display);
+      font-size: 4.8rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .story-step h3,
+    .story-step p {
+      position: relative;
+      z-index: 1;
+    }
+    .story-step p {
+      margin: 0.52rem 0 0;
+      font-size: 0.82rem;
+    }
+    .chart-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 1rem;
+    }
+    .chart-card {
+      min-width: 0;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.9rem;
+    }
+    .chart-card h3 {
+      margin-bottom: 0.7rem;
+    }
+    .bar-row {
+      display: grid;
+      grid-template-columns: 7.8rem minmax(0, 1fr) 2.6rem;
+      gap: 0.55rem;
+      align-items: center;
+      margin: 0.5rem 0;
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+    .bar-row span:last-child {
+      color: var(--muted);
+      text-align: right;
+    }
+    .bar-track {
+      height: 1.08rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .bar-fill {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .bar-fill.teal {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .bar-fill.purple {
+      background: linear-gradient(90deg, var(--purple), var(--teal));
+    }
+    .note {
+      margin: 0.7rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    .pdc-signal {
+      display: grid;
+      grid-template-columns: minmax(13rem, 0.64fr) minmax(0, 1.36fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .big-number {
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background:
+        linear-gradient(145deg, rgba(77, 138, 103, 0.14), transparent 52%),
+        #fff;
+      padding: 1rem;
+    }
+    .big-number strong {
+      display: block;
+      margin-top: 0.18rem;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(3.3rem, 8vw, 6.4rem);
+      line-height: 0.88;
+    }
+    .big-number span {
+      display: block;
+      margin-top: 0.55rem;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-weight: 900;
+      line-height: 1.2;
+    }
+    .patient-grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 0.32rem;
+      margin-top: 0.75rem;
+    }
+    .patient-dot {
+      aspect-ratio: 1;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 5px;
+      background: var(--green);
+    }
+    .patient-dot.perfect {
+      background: var(--teal);
+    }
+    .patient-dot.mid {
+      background: var(--gold);
+    }
+    .patient-dot.low {
+      background: var(--red);
+    }
+    .legend-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-top: 0.75rem;
+    }
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.32rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+    .legend-swatch {
+      width: 0.76rem;
+      height: 0.76rem;
+      border-radius: 3px;
+      background: var(--c);
+    }
+    .persistence-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(17rem, 0.58fr);
+      gap: 1rem;
+      align-items: center;
+    }
+    .persistence-svg {
+      width: 100%;
+      min-height: 15rem;
+    }
+    .survival-points {
+      display: grid;
+      gap: 0.5rem;
+    }
+    .survival-point {
+      display: grid;
+      grid-template-columns: 3.1rem minmax(0, 1fr) 3.6rem;
+      gap: 0.5rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .survival-point i {
+      height: 0.75rem;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .baseline-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 0.58rem;
+      margin-top: 0.75rem;
+    }
+    .baseline-chip {
+      border: 1px solid rgba(174, 187, 210, 0.95);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.72rem;
+    }
+    .baseline-chip b {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+    .baseline-chip span {
+      display: block;
+      margin-top: 0.34rem;
+      color: var(--ink);
+      font-size: 0.74rem;
+      font-weight: 850;
+      line-height: 1.18;
+    }
+    .reason-layout {
+      display: grid;
+      grid-template-columns: minmax(15rem, 0.7fr) minmax(0, 1.3fr);
+      gap: 1rem;
+      align-items: center;
+    }
+    .donut-wrap {
+      display: grid;
+      place-items: center;
+      min-height: 16rem;
+    }
+    .donut-wrap svg {
+      width: min(16rem, 100%);
+      height: auto;
+    }
+    .reason-list {
+      display: grid;
+      gap: 0.48rem;
+    }
+    .reason-item {
+      display: grid;
+      grid-template-columns: 1rem minmax(0, 1fr) 3rem;
+      gap: 0.5rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.84rem;
+      font-weight: 850;
+    }
+    .reason-dot {
+      width: 0.78rem;
+      height: 0.78rem;
+      border-radius: 999px;
+      background: var(--c);
+    }
+    .takeaway {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(24, 124, 143, 0.13), transparent 42%),
+        #fff;
+    }
+    .takeaway p {
+      max-width: 66rem;
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.05rem, 1.7vw, 1.42rem);
+      font-weight: 850;
+      line-height: 1.35;
+    }
+    @media (max-width: 900px) {
+      .storyboard,
+      .baseline-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .chart-grid,
+      .pdc-signal,
+      .persistence-panel,
+      .reason-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 560px) {
+      .storyboard,
+      .baseline-grid,
+      .bar-row,
+      .survival-point,
+      .reason-item {
+        grid-template-columns: 1fr;
+      }
+      .bar-row span:last-child {
+        text-align: left;
+      }
+      .patient-grid {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/58-Extended-Adherence-and-Persistence-to-HIV-PrEP_2021.pdf">Source PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/58-Extended-Adherence-and-Persistence-to-HIV-PrEP_2021.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2021 / Poster 58</p>
+        <h1 id="poster-title">Extended adherence and persistence to HIV PrEP in a multidisciplinary PrEP clinic</h1>
+        <p class="hero-summary">
+          Vanderbilt Specialty Pharmacy evaluated adults initiating emtricitabine-tenofovir disoproxil fumarate for HIV PrEP through a multidisciplinary clinic, measuring medication coverage, persistence, side effects, and discontinuation reasons.
+        </p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag therapy">HIV PrEP</li>
+          <li class="tag category">Medication adherence</li>
+          <li class="tag">Persistence</li>
+          <li class="tag">Integrated pharmacist model</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Study snapshot">
+        <div class="poster-code">58<br>2021</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Design</dt>
+            <dd>Retrospective cohort</dd>
+          </div>
+          <div>
+            <dt>Sample</dt>
+            <dd>63 adults</dd>
+          </div>
+          <div>
+            <dt>Period</dt>
+            <dd>Sep 2016 to Mar 2019</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>Vanderbilt multidisciplinary PrEP clinic</dd>
+          </div>
+        </dl>
+        <p class="key-finding">Core finding: patients supported by an integrated clinical pharmacist had high adherence and durable persistence, with few side effects and generally appropriate discontinuations.</p>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <div class="metric-card">
+          <span>Study cohort</span>
+          <strong>63</strong>
+          <p>Adult PrEP initiators with Vanderbilt Specialty Pharmacy fills.</p>
+        </div>
+        <div class="metric-card">
+          <span>PDC at or above 80%</span>
+          <strong>56/60</strong>
+          <p>Among evaluable patients with adherence data.</p>
+        </div>
+        <div class="metric-card">
+          <span>12-month persistence</span>
+          <strong>81%</strong>
+          <p>Kaplan-Meier probability, 95% CI 72% to 91%.</p>
+        </div>
+        <div class="metric-card">
+          <span>Reported side effects</span>
+          <strong>15</strong>
+          <p>Patients reported 24 total side effects across 257 assessments.</p>
+        </div>
+      </section>
+
+      <section class="visual-grid" aria-label="Objective and visual summary">
+        <div class="prep-hero-art" role="img" aria-label="Illustration of multidisciplinary PrEP care connecting assessment, access, counseling, monitoring, and persistence">
+          <svg viewBox="0 0 680 460" aria-hidden="true">
+            <defs>
+              <linearGradient id="prepRing" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#d12630"/>
+                <stop offset="0.45" stop-color="#e99e25"/>
+                <stop offset="1" stop-color="#187c8f"/>
+              </linearGradient>
+              <filter id="prepShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="14" stdDeviation="13" flood-color="#243770" flood-opacity="0.15"/>
+              </filter>
+            </defs>
+            <circle cx="340" cy="230" r="134" fill="none" stroke="url(#prepRing)" stroke-width="14" stroke-linecap="round" opacity="0.7"/>
+            <circle cx="340" cy="230" r="82" fill="#ffffff" stroke="#243770" stroke-width="4" filter="url(#prepShadow)"/>
+            <path d="M340 176 v108 M286 230 h108" stroke="#d12630" stroke-width="17" stroke-linecap="round"/>
+            <circle cx="340" cy="65" r="48" fill="#fff" stroke="#187c8f" stroke-width="4" filter="url(#prepShadow)"/>
+            <path d="M316 65 h48 M316 82 h34 M316 48 h27" stroke="#187c8f" stroke-width="8" stroke-linecap="round"/>
+            <text x="340" y="134" text-anchor="middle" fill="#243770" font-family="Inter, sans-serif" font-size="14" font-weight="850">Assess</text>
+            <circle cx="508" cy="166" r="48" fill="#fff" stroke="#e99e25" stroke-width="4" filter="url(#prepShadow)"/>
+            <path d="M482 166 h52 M508 140 v52" stroke="#e99e25" stroke-width="8" stroke-linecap="round"/>
+            <text x="538" y="230" text-anchor="middle" fill="#243770" font-family="Inter, sans-serif" font-size="14" font-weight="850">Access</text>
+            <circle cx="484" cy="330" r="48" fill="#fff" stroke="#4d8a67" stroke-width="4" filter="url(#prepShadow)"/>
+            <path d="M456 338 c18-42 48-42 66 0" fill="none" stroke="#4d8a67" stroke-width="8" stroke-linecap="round"/>
+            <circle cx="489" cy="312" r="17" fill="none" stroke="#4d8a67" stroke-width="8"/>
+            <text x="438" y="399" fill="#243770" font-family="Inter, sans-serif" font-size="14" font-weight="850">Counsel</text>
+            <circle cx="196" cy="330" r="48" fill="#fff" stroke="#7561a8" stroke-width="4" filter="url(#prepShadow)"/>
+            <path d="M169 347 h54 M181 347 v-46 M207 347 v-70" stroke="#7561a8" stroke-width="8" stroke-linecap="round"/>
+            <text x="148" y="399" fill="#243770" font-family="Inter, sans-serif" font-size="14" font-weight="850">Monitor</text>
+            <circle cx="172" cy="166" r="48" fill="#fff" stroke="#d12630" stroke-width="4" filter="url(#prepShadow)"/>
+            <rect x="144" y="144" width="56" height="45" rx="10" fill="none" stroke="#d12630" stroke-width="8"/>
+            <path d="M156 161 h32 M156 176 h23" stroke="#d12630" stroke-width="6" stroke-linecap="round"/>
+            <text x="106" y="230" fill="#243770" font-family="Inter, sans-serif" font-size="14" font-weight="850">Refill</text>
+            <text x="340" y="426" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="22" font-weight="900">Integrated PrEP support designed for persistence</text>
+          </svg>
+        </div>
+
+        <div class="panel markdown-fragment">
+          <p class="section-label">Objective</p>
+          <h2>Describe PrEP medication adherence and persistence in a multidisciplinary clinic.</h2>
+          <p>The analysis focused on patients initiating PrEP with prescriptions filled by Vanderbilt Specialty Pharmacy. Adherence was measured by proportion of days covered, and persistence was based on patient-reported discontinuation date or last fill plus days' supply.</p>
+          <div class="number-cloud" aria-label="Study design anchors">
+            <div class="number-pill">257<small>assessments</small></div>
+            <div class="number-pill">60<small>PDC evaluable</small></div>
+            <div class="number-pill">18<small>discontinuations</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="model" class="panel">
+        <p class="section-label">Multidisciplinary care model</p>
+        <h2>The pharmacist role spanned the full PrEP journey, not just dispensing.</h2>
+        <div class="storyboard" aria-label="Specialty pharmacist role in outpatient PrEP clinic">
+          <article class="story-step" data-step="1">
+            <h3>PrEP assessment</h3>
+            <p>Provider-led review covered drug interactions, risk factors, comorbidities, baseline labs, and screening.</p>
+          </article>
+          <article class="story-step" data-step="2">
+            <h3>Medication access</h3>
+            <p>Technicians evaluated insurance, preferred pharmacy, prior authorization needs, and expected cost.</p>
+          </article>
+          <article class="story-step" data-step="3">
+            <h3>Access pathways</h3>
+            <p>The team managed prior authorizations, appeals, and manufacturer assistance for uninsured or underinsured patients.</p>
+          </article>
+          <article class="story-step" data-step="4">
+            <h3>Counseling</h3>
+            <p>Pharmacists addressed administration, adherence, side effects, storage, refill management, monitoring, and contact points.</p>
+          </article>
+          <article class="story-step" data-step="5">
+            <h3>Monitoring</h3>
+            <p>Follow-up assessed adherence, efficacy, adverse effects, ongoing risk, need for therapy, and financial assistance.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="adherence" class="pdc-signal" aria-label="Adherence results">
+        <div class="big-number">
+          <p class="section-label">Adherence signal</p>
+          <strong>93%</strong>
+          <span>of evaluable patients had PDC of at least 80%</span>
+          <p class="note">Calculated from 56 of 60 patients in the extracted poster table.</p>
+        </div>
+        <div class="panel">
+          <p class="section-label">Figure 2 pattern</p>
+          <h2>PDC was concentrated in the highest adherence bands.</h2>
+          <div class="chart-card">
+            <div class="bar-row">
+              <span>100%</span>
+              <div class="bar-track"><i class="bar-fill teal" style="--w:100%;"></i></div>
+              <span>29</span>
+            </div>
+            <div class="bar-row">
+              <span>80% to &lt;100%</span>
+              <div class="bar-track"><i class="bar-fill teal" style="--w:93%;"></i></div>
+              <span>27</span>
+            </div>
+            <div class="bar-row">
+              <span>50% to &lt;80%</span>
+              <div class="bar-track"><i class="bar-fill" style="--w:10%;"></i></div>
+              <span>3</span>
+            </div>
+            <div class="bar-row">
+              <span>&lt;50%</span>
+              <div class="bar-track"><i class="bar-fill" style="--w:3%;"></i></div>
+              <span>1</span>
+            </div>
+          </div>
+          <div class="patient-grid" aria-label="Sixty PDC evaluable patients by adherence band">
+            <span class="patient-dot perfect"></span><span class="patient-dot perfect"></span><span class="patient-dot perfect"></span><span class="patient-dot perfect"></span><span class="patient-dot perfect"></span><span class="patient-dot perfect"></span>
+            <span class="patient-dot perfect"></span><span class="patient-dot perfect"></span><span class="patient-dot perfect"></span><span class="patient-dot perfect"></span><span class="patient-dot perfect"></span><span class="patient-dot perfect"></span>
+            <span class="patient-dot perfect"></span><span class="patient-dot perfect"></span><span class="patient-dot perfect"></span><span class="patient-dot perfect"></span><span class="patient-dot perfect"></span><span class="patient-dot perfect"></span>
+            <span class="patient-dot perfect"></span><span class="patient-dot perfect"></span><span class="patient-dot perfect"></span><span class="patient-dot perfect"></span><span class="patient-dot perfect"></span><span class="patient-dot perfect"></span>
+            <span class="patient-dot perfect"></span><span class="patient-dot perfect"></span><span class="patient-dot perfect"></span><span class="patient-dot perfect"></span><span class="patient-dot perfect"></span>
+            <span class="patient-dot"></span><span class="patient-dot"></span><span class="patient-dot"></span><span class="patient-dot"></span><span class="patient-dot"></span><span class="patient-dot"></span>
+            <span class="patient-dot"></span><span class="patient-dot"></span><span class="patient-dot"></span><span class="patient-dot"></span><span class="patient-dot"></span><span class="patient-dot"></span>
+            <span class="patient-dot"></span><span class="patient-dot"></span><span class="patient-dot"></span><span class="patient-dot"></span><span class="patient-dot"></span><span class="patient-dot"></span>
+            <span class="patient-dot"></span><span class="patient-dot"></span><span class="patient-dot"></span><span class="patient-dot"></span><span class="patient-dot"></span><span class="patient-dot"></span>
+            <span class="patient-dot"></span><span class="patient-dot"></span><span class="patient-dot"></span>
+            <span class="patient-dot mid"></span><span class="patient-dot mid"></span><span class="patient-dot mid"></span><span class="patient-dot low"></span>
+          </div>
+          <div class="legend-row" aria-label="PDC legend">
+            <span class="legend-item"><i class="legend-swatch" style="--c: var(--teal);"></i>100%</span>
+            <span class="legend-item"><i class="legend-swatch" style="--c: var(--green);"></i>80% to &lt;100%</span>
+            <span class="legend-item"><i class="legend-swatch" style="--c: var(--gold);"></i>50% to &lt;80%</span>
+            <span class="legend-item"><i class="legend-swatch" style="--c: var(--red);"></i>&lt;50%</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="persistence" class="panel persistence-panel" aria-label="Persistence results">
+        <div>
+          <p class="section-label">Figure 4 pattern</p>
+          <h2>Persistence remained high after the first year and plateaued after 18 months.</h2>
+          <svg class="persistence-svg" viewBox="0 0 720 300" role="img" aria-label="Persistence probability: 100% at month 0, 87% at 6 months, 81% at 12 months, and 74% at 18 through 42 months">
+            <line x1="58" y1="242" x2="668" y2="242" stroke="#aebbd2" stroke-width="2"/>
+            <line x1="58" y1="38" x2="58" y2="242" stroke="#aebbd2" stroke-width="2"/>
+            <g fill="#68758d" font-family="Inter, sans-serif" font-size="13" font-weight="800">
+              <text x="38" y="46">100%</text>
+              <text x="44" y="96">87%</text>
+              <text x="44" y="124">81%</text>
+              <text x="44" y="152">74%</text>
+              <text x="55" y="272">0</text>
+              <text x="142" y="272">6</text>
+              <text x="230" y="272">12</text>
+              <text x="319" y="272">18</text>
+              <text x="407" y="272">24</text>
+              <text x="496" y="272">30</text>
+              <text x="584" y="272">36</text>
+              <text x="651" y="272">42 mo</text>
+            </g>
+            <polyline points="58,38 146,95 234,121 322,150 410,150 498,150 586,150 668,150" fill="none" stroke="#187c8f" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+            <polyline points="58,38 146,95 234,121 322,150 410,150 498,150 586,150 668,150" fill="none" stroke="#4d8a67" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <g fill="#ffffff" stroke="#243770" stroke-width="4">
+              <circle cx="58" cy="38" r="8"/>
+              <circle cx="146" cy="95" r="8"/>
+              <circle cx="234" cy="121" r="8"/>
+              <circle cx="322" cy="150" r="8"/>
+              <circle cx="410" cy="150" r="8"/>
+              <circle cx="498" cy="150" r="8"/>
+              <circle cx="586" cy="150" r="8"/>
+              <circle cx="668" cy="150" r="8"/>
+            </g>
+            <text x="360" y="18" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="18" font-weight="900">Persistence probability over time</text>
+          </svg>
+        </div>
+        <div class="chart-card">
+          <h3>Milestone table</h3>
+          <div class="survival-points">
+            <div class="survival-point"><span>6 mo</span><i style="width:87%;"></i><span>87%</span></div>
+            <div class="survival-point"><span>12 mo</span><i style="width:81%;"></i><span>81%</span></div>
+            <div class="survival-point"><span>18 mo</span><i style="width:74%;"></i><span>74%</span></div>
+          </div>
+          <p class="note">Confidence intervals were 80% to 96% at 6 months, 72% to 91% at 12 months, and 64% to 86% at 18 months.</p>
+        </div>
+      </section>
+
+      <section class="chart-grid" aria-label="Side effects and discontinuation results">
+        <div class="panel">
+          <p class="section-label">Figure 3 pattern</p>
+          <h2>Reported side effects were few; nausea was most common.</h2>
+          <div class="chart-card">
+            <div class="bar-row">
+              <span>Nausea</span>
+              <div class="bar-track"><i class="bar-fill" style="--w:100%;"></i></div>
+              <span>9</span>
+            </div>
+            <div class="bar-row">
+              <span>GI upset</span>
+              <div class="bar-track"><i class="bar-fill" style="--w:44%;"></i></div>
+              <span>4</span>
+            </div>
+            <div class="bar-row">
+              <span>Fatigue</span>
+              <div class="bar-track"><i class="bar-fill" style="--w:33%;"></i></div>
+              <span>3</span>
+            </div>
+            <div class="bar-row">
+              <span>Renal decline</span>
+              <div class="bar-track"><i class="bar-fill" style="--w:33%;"></i></div>
+              <span>3</span>
+            </div>
+            <div class="bar-row">
+              <span>Headache</span>
+              <div class="bar-track"><i class="bar-fill" style="--w:22%;"></i></div>
+              <span>2</span>
+            </div>
+            <div class="bar-row">
+              <span>Other single events</span>
+              <div class="bar-track"><i class="bar-fill" style="--w:33%;"></i></div>
+              <span>3</span>
+            </div>
+          </div>
+          <p class="note">Other single events were worsening depression, lightheadedness, and vomiting.</p>
+        </div>
+
+        <div class="panel reason-layout">
+          <div class="donut-wrap" aria-label="Reasons for discontinuation donut chart">
+            <svg viewBox="0 0 220 220" role="img" aria-label="Moved or transferred care 50%, renal function decline 33%, lack of risk 6%, lost to follow-up 6%, worsening depression 5%">
+              <circle cx="110" cy="110" r="76" fill="none" stroke="#eef4fb" stroke-width="34"/>
+              <circle cx="110" cy="110" r="76" fill="none" stroke="#187c8f" stroke-width="34" stroke-dasharray="239 478" transform="rotate(-90 110 110)"/>
+              <circle cx="110" cy="110" r="76" fill="none" stroke="#d12630" stroke-width="34" stroke-dasharray="158 478" stroke-dashoffset="-239" transform="rotate(-90 110 110)"/>
+              <circle cx="110" cy="110" r="76" fill="none" stroke="#e99e25" stroke-width="34" stroke-dasharray="29 478" stroke-dashoffset="-397" transform="rotate(-90 110 110)"/>
+              <circle cx="110" cy="110" r="76" fill="none" stroke="#4d8a67" stroke-width="34" stroke-dasharray="29 478" stroke-dashoffset="-426" transform="rotate(-90 110 110)"/>
+              <circle cx="110" cy="110" r="76" fill="none" stroke="#7561a8" stroke-width="34" stroke-dasharray="24 478" stroke-dashoffset="-455" transform="rotate(-90 110 110)"/>
+              <text x="110" y="104" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="30" font-weight="900">18</text>
+              <text x="110" y="128" text-anchor="middle" fill="#68758d" font-family="Inter, sans-serif" font-size="13" font-weight="850">stopped</text>
+            </svg>
+          </div>
+          <div>
+            <p class="section-label">Figure 5 pattern</p>
+            <h2>Discontinuation reasons were mostly transfer or clinical fit.</h2>
+            <div class="reason-list">
+              <div class="reason-item"><span class="reason-dot" style="--c: var(--teal);"></span><span>Moved or transferred care</span><b>50%</b></div>
+              <div class="reason-item"><span class="reason-dot" style="--c: var(--red);"></span><span>Declining renal function</span><b>33%</b></div>
+              <div class="reason-item"><span class="reason-dot" style="--c: var(--gold);"></span><span>Lack of risk</span><b>6%</b></div>
+              <div class="reason-item"><span class="reason-dot" style="--c: var(--green);"></span><span>Lost to follow-up</span><b>6%</b></div>
+              <div class="reason-item"><span class="reason-dot" style="--c: var(--purple);"></span><span>Worsening depression</span><b>5%</b></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" aria-label="Baseline patient characteristics">
+        <p class="section-label">Table 1 pattern</p>
+        <h2>The cohort was predominantly commercially insured men who have sex with men, with preserved baseline renal function.</h2>
+        <div class="baseline-grid">
+          <div class="baseline-chip"><b>38</b><span>median age at PrEP start, IQR 29 to 47</span></div>
+          <div class="baseline-chip"><b>96.8%</b><span>male</span></div>
+          <div class="baseline-chip"><b>84.1%</b><span>White</span></div>
+          <div class="baseline-chip"><b>93.7%</b><span>commercial insurance</span></div>
+          <div class="baseline-chip"><b>96.8%</b><span>MSM at high risk indication</span></div>
+          <div class="baseline-chip"><b>100%</b><span>eGFR &ge; 60 mL/min at baseline</span></div>
+        </div>
+      </section>
+
+      <section class="section-stack" aria-label="Methods and interpretation">
+        <div class="panel markdown-fragment">
+          <p class="section-label">Methods in brief</p>
+          <h2>Single-center retrospective cohort.</h2>
+          <ul>
+            <li>Adult patients initiated emtricitabine-tenofovir disoproxil fumarate for PrEP.</li>
+            <li>Primary outcomes were PDC adherence and persistence over variable follow-up.</li>
+            <li>Secondary outcomes were side effects and reasons for discontinuation.</li>
+          </ul>
+        </div>
+        <div class="panel markdown-fragment">
+          <p class="section-label">Low PDC context</p>
+          <h2>Most lower PDC cases had interpretable causes.</h2>
+          <ul>
+            <li>Therapy holds related to IBS exacerbation, insurance reinstatement, or nausea.</li>
+            <li>One patient filled PrEP at two pharmacies, complicating coverage capture.</li>
+            <li>The poster frames discontinuations as appropriate in context.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="panel takeaway">
+        <p>
+          Conclusion: in a multidisciplinary PrEP clinic with integrated specialty pharmacy support, PrEP users showed high adherence, sustained persistence through at least 18 months, few side effects, and discontinuations that largely reflected transfer of care or appropriate clinical reassessment.
+        </p>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/58-Extended-Adherence-and-Persistence-to-HIV-PrEP_2021.pdf">Open original PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/58-Extended-Adherence-and-Persistence-to-HIV-PrEP_2021.md">Read extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

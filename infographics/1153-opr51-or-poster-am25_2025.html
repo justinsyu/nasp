@@ -1,0 +1,611 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2025 Infographic | Specialty Pharmacist-Driven Hepatitis C Program</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hcv-hero-art {
+      position: relative;
+      min-height: 15rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(233, 158, 37, 0.32), transparent 10rem),
+        linear-gradient(140deg, rgba(36, 55, 112, 0.98), rgba(24, 124, 143, 0.92));
+      color: #fff;
+      overflow: hidden;
+      padding: 1rem;
+    }
+    .hcv-hero-art svg {
+      position: absolute;
+      inset: auto -2.1rem -2.5rem auto;
+      width: min(25rem, 70%);
+      opacity: 0.86;
+    }
+    .hcv-hero-art span {
+      display: block;
+      color: rgba(255, 255, 255, 0.74);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+    .hcv-hero-art strong {
+      display: block;
+      max-width: 13rem;
+      margin-top: 0.35rem;
+      font-family: var(--font-display);
+      font-size: clamp(2.25rem, 5vw, 4.4rem);
+      line-height: 0.95;
+    }
+    .hcv-hero-art p {
+      max-width: 19rem;
+      margin: 0.65rem 0 0;
+      color: rgba(255, 255, 255, 0.84);
+      font-size: 0.9rem;
+    }
+    .hero-card .button-link {
+      justify-content: center;
+      background: #fff;
+    }
+    .pathway {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+    .pathway-step {
+      position: relative;
+      min-height: 10.6rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.8rem;
+    }
+    .pathway-step::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -0.5rem;
+      width: 0.72rem;
+      height: 0.72rem;
+      border-top: 2px solid var(--border-strong);
+      border-right: 2px solid var(--border-strong);
+      background: #fff;
+      transform: translateY(-50%) rotate(45deg);
+    }
+    .pathway-step:last-child::after { display: none; }
+    .pathway-step b {
+      display: inline-grid;
+      place-items: center;
+      width: 1.65rem;
+      height: 1.65rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+    }
+    .pathway-step h3 {
+      margin-top: 0.48rem;
+      font-size: 0.92rem;
+    }
+    .pathway-step p {
+      margin: 0.35rem 0 0;
+      font-size: 0.77rem;
+    }
+    .two-up-tight {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 1rem;
+    }
+    .ttt-bars {
+      display: grid;
+      gap: 0.48rem;
+      margin-top: 0.65rem;
+    }
+    .ttt-row {
+      display: grid;
+      grid-template-columns: 4.2rem minmax(0, 1fr) 3.5rem;
+      gap: 0.48rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .ttt-track {
+      height: 0.9rem;
+      border-radius: 999px;
+      background: var(--surface-blue);
+      overflow: hidden;
+    }
+    .ttt-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .therapy-mosaic {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      gap: 0.28rem;
+      margin-top: 0.75rem;
+    }
+    .therapy-tile {
+      aspect-ratio: 1;
+      border-radius: 3px;
+      background: var(--tile-color, var(--red));
+      opacity: 0.92;
+    }
+    .legend {
+      display: grid;
+      gap: 0.42rem;
+      margin: 0.7rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .legend li {
+      display: grid;
+      grid-template-columns: 0.78rem minmax(0, 1fr) auto;
+      gap: 0.43rem;
+      align-items: center;
+      font-size: 0.8rem;
+    }
+    .legend i {
+      width: 0.78rem;
+      height: 0.78rem;
+      border-radius: 3px;
+      background: var(--legend-color, var(--red));
+    }
+    .donut-grid {
+      display: grid;
+      grid-template-columns: 12.5rem minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+      margin-top: 0.55rem;
+    }
+    .donut-grid svg {
+      width: 100%;
+      max-width: 12.5rem;
+      height: auto;
+    }
+    .outcome-ladder {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 0.7rem;
+    }
+    .outcome-rung {
+      display: grid;
+      grid-template-columns: 4.6rem minmax(0, 1fr);
+      gap: 0.55rem;
+      align-items: center;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: var(--surface-blue);
+      padding: 0.55rem;
+    }
+    .outcome-rung strong {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.7rem;
+      line-height: 1;
+    }
+    .outcome-rung span {
+      color: var(--ink);
+      font-size: 0.85rem;
+      font-weight: 850;
+      line-height: 1.22;
+    }
+    .callout-band {
+      display: grid;
+      grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .conclusion-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(255, 247, 234, 0.92), #fff),
+        radial-gradient(circle at 90% 12%, rgba(117, 97, 168, 0.2), transparent 13rem);
+      padding: 1rem;
+    }
+    .conclusion-card p {
+      margin: 0.5rem 0 0;
+      color: var(--body);
+      font-size: 0.92rem;
+    }
+    .micro-list {
+      margin: 0.55rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .micro-list li {
+      display: grid;
+      grid-template-columns: 0.72rem minmax(0, 1fr);
+      gap: 0.42rem;
+      margin-top: 0.42rem;
+      font-size: 0.85rem;
+    }
+    .micro-list li::before {
+      content: "";
+      width: 0.48rem;
+      height: 0.48rem;
+      margin-top: 0.42rem;
+      border-radius: 50%;
+      background: var(--red);
+    }
+    .source-note {
+      margin: 0.78rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+    @media (max-width: 900px) {
+      .pathway {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .pathway-step::after { display: none; }
+      .two-up-tight,
+      .callout-band,
+      .donut-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 560px) {
+      .pathway {
+        grid-template-columns: 1fr;
+      }
+      .ttt-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="https://naspnet.org/" aria-label="NASP website">NASP Posters</a>
+      <nav aria-label="Page sections">
+        <a href="#snapshot">Snapshot</a>
+        <a href="#pathway">Workflow</a>
+        <a href="#results">Results</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">2025 Annual Meeting Poster | 1153-OPR51-OR</p>
+        <h1>Streamlining Hepatitis C Treatment through a specialty pharmacist-driven clinical program</h1>
+        <p class="hero-summary">
+          CHRISTUS Specialty Pharmacy evaluated whether specialty pharmacist enrollment, therapy selection, medication access,
+          and monitoring could shorten treatment start, resolve drug interactions, and preserve strong cure outcomes for patients with chronic HCV.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Retrospective descriptive study</li>
+          <li class="tag therapy">Hepatitis C Clinical Program</li>
+          <li class="tag therapy">Direct-acting antivirals</li>
+          <li class="tag">CHRISTUS Specialty Pharmacy</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Poster details">
+        <div class="poster-code">AM25<br>1153-OPR51-OR</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Study period</dt>
+            <dd>May 6, 2024 to Mar. 6, 2025</dd>
+          </div>
+          <div>
+            <dt>Population</dt>
+            <dd>122 patients</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>Tyler, Texas</dd>
+          </div>
+          <div>
+            <dt>Authors</dt>
+            <dd>Ritenour, Harmon</dd>
+          </div>
+        </dl>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/1153-OPR51-OR-Poster-AM25_2025.pdf">Open poster PDF</a>
+      </aside>
+    </section>
+
+    <main>
+      <section id="snapshot" class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Patients enrolled</span>
+          <strong>122</strong>
+        </article>
+        <article class="metric-card">
+          <span>Time to treatment <=4 days</span>
+          <strong>76%</strong>
+        </article>
+        <article class="metric-card">
+          <span>On-time therapy completion</span>
+          <strong>92%</strong>
+        </article>
+        <article class="metric-card">
+          <span>Achieved SVR12</span>
+          <strong>97%</strong>
+        </article>
+      </section>
+
+      <section class="visual-grid" aria-label="Program story">
+        <article class="hcv-hero-art">
+          <span>Clinical program signal</span>
+          <strong>Fast start, high cure</strong>
+          <p>Specialty pharmacists bridged therapy selection, access, education, DDI resolution, and laboratory monitoring.</p>
+          <svg viewBox="0 0 340 250" role="img" aria-label="Illustration of pharmacy-enabled HCV care pathway">
+            <defs>
+              <linearGradient id="hcvCapsule" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ffffff" stop-opacity="0.96"></stop>
+                <stop offset="1" stop-color="#e99e25" stop-opacity="0.78"></stop>
+              </linearGradient>
+            </defs>
+            <path d="M70 188c-24-24-24-64 0-88l66-66c24-24 64-24 88 0s24 64 0 88l-66 66c-24 24-64 24-88 0z" fill="url(#hcvCapsule)"></path>
+            <path d="M114 55l124 124" fill="none" stroke="#243770" stroke-width="12" stroke-linecap="round" opacity="0.74"></path>
+            <path d="M171 77c33 0 60 27 60 60s-27 60-60 60-60-27-60-60 27-60 60-60z" fill="none" stroke="#fff" stroke-width="10" opacity="0.72"></path>
+            <path d="M148 138h46M171 115v46" fill="none" stroke="#d12630" stroke-width="13" stroke-linecap="round"></path>
+            <circle cx="268" cy="58" r="24" fill="#187c8f" opacity="0.72"></circle>
+            <circle cx="70" cy="48" r="18" fill="#e99e25" opacity="0.78"></circle>
+          </svg>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Quantify enrollments and measure program impact</h2>
+          <div class="markdown-fragment">
+            <p>
+              The poster assessed specialty pharmacist-driven enrollments in a Hepatitis C Clinical Program and summarized
+              safety, operational, and clinical outcomes among patients prescribed or filling all-oral DAA therapy.
+            </p>
+            <ul>
+              <li>Adults had chronic HCV diagnosis code B18.2.</li>
+              <li>Patients were included if prescribed through CHRISTUS Gastroenterology clinics or filled at CHRISTUS Specialty Pharmacy.</li>
+              <li>Patients referred but not initiating therapy were excluded.</li>
+            </ul>
+          </div>
+          <div class="number-cloud">
+            <div class="number-pill">90%<small>Treatment naive</small></div>
+            <div class="number-pill">79%<small>Non-cirrhotic</small></div>
+            <div class="number-pill">66%<small>Medicare</small></div>
+            <div class="number-pill">88%<small>HSSP capture</small></div>
+          </div>
+        </article>
+      </section>
+
+      <section id="pathway" class="panel">
+        <p class="section-label">HCCP workflow</p>
+        <h2>The pharmacist program compressed selection, access, education, and monitoring into one care pathway</h2>
+        <div class="pathway" aria-label="Hepatitis C Clinical Program workflow">
+          <article class="pathway-step">
+            <b>1</b>
+            <h3>Referral</h3>
+            <p>Provider places referral to the HCV Specialty Pharmacist pool.</p>
+          </article>
+          <article class="pathway-step">
+            <b>2</b>
+            <h3>Therapy selection</h3>
+            <p>SP selects patient-specific therapy using clinical factors, DDIs, and insurance fit.</p>
+          </article>
+          <article class="pathway-step">
+            <b>3</b>
+            <h3>Medication access</h3>
+            <p>CSP liaison team supports affordability and formulary navigation before start.</p>
+          </article>
+          <article class="pathway-step">
+            <b>4</b>
+            <h3>Education and follow-up</h3>
+            <p>SP provides patient education and support throughout therapy.</p>
+          </article>
+          <article class="pathway-step">
+            <b>5</b>
+            <h3>Monitoring</h3>
+            <p>SP orders and monitors labs, resolves interventions, and supports completion.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="results" class="two-up-tight" aria-label="Operational outcomes and therapy distribution">
+        <article class="panel">
+          <p class="section-label">Operational outcome</p>
+          <h2>Most patients started quickly after pharmacist referral</h2>
+          <div class="ttt-bars">
+            <div class="ttt-row">
+              <span>1 day</span>
+              <div class="ttt-track"><i style="width: 100%;"></i></div>
+              <span>55</span>
+            </div>
+            <div class="ttt-row">
+              <span>2 days</span>
+              <div class="ttt-track"><i style="width: 32.7%;"></i></div>
+              <span>18</span>
+            </div>
+            <div class="ttt-row">
+              <span>3 days</span>
+              <div class="ttt-track"><i style="width: 23.6%;"></i></div>
+              <span>13</span>
+            </div>
+            <div class="ttt-row">
+              <span>4 days</span>
+              <div class="ttt-track"><i style="width: 10.9%;"></i></div>
+              <span>6</span>
+            </div>
+            <div class="ttt-row">
+              <span>5-15 days</span>
+              <div class="ttt-track"><i style="width: 32.7%;"></i></div>
+              <span>18</span>
+            </div>
+            <div class="ttt-row">
+              <span>16+ days</span>
+              <div class="ttt-track"><i style="width: 21.8%;"></i></div>
+              <span>12</span>
+            </div>
+          </div>
+          <p class="source-note">Time-to-treatment was defined as referral placement to SP therapy order. Counts sum to the 122 enrolled patients.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Therapy pattern</p>
+          <h2>SOF/VEL and G/P represented nine in ten starts</h2>
+          <div class="therapy-mosaic" aria-label="Therapy distribution mosaic">
+            <span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span>
+            <span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span>
+            <span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span>
+            <span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span>
+            <span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span>
+            <span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--red);"></span><span class="therapy-tile" style="--tile-color: var(--gold);"></span><span class="therapy-tile" style="--tile-color: var(--gold);"></span><span class="therapy-tile" style="--tile-color: var(--gold);"></span><span class="therapy-tile" style="--tile-color: var(--gold);"></span><span class="therapy-tile" style="--tile-color: var(--gold);"></span><span class="therapy-tile" style="--tile-color: var(--gold);"></span><span class="therapy-tile" style="--tile-color: var(--gold);"></span>
+            <span class="therapy-tile" style="--tile-color: var(--gold);"></span><span class="therapy-tile" style="--tile-color: var(--gold);"></span><span class="therapy-tile" style="--tile-color: var(--gold);"></span><span class="therapy-tile" style="--tile-color: var(--gold);"></span><span class="therapy-tile" style="--tile-color: var(--gold);"></span><span class="therapy-tile" style="--tile-color: var(--gold);"></span><span class="therapy-tile" style="--tile-color: var(--gold);"></span><span class="therapy-tile" style="--tile-color: var(--gold);"></span><span class="therapy-tile" style="--tile-color: var(--gold);"></span><span class="therapy-tile" style="--tile-color: var(--gold);"></span>
+            <span class="therapy-tile" style="--tile-color: var(--gold);"></span><span class="therapy-tile" style="--tile-color: var(--gold);"></span><span class="therapy-tile" style="--tile-color: var(--gold);"></span><span class="therapy-tile" style="--tile-color: var(--gold);"></span><span class="therapy-tile" style="--tile-color: var(--gold);"></span><span class="therapy-tile" style="--tile-color: var(--gold);"></span><span class="therapy-tile" style="--tile-color: var(--gold);"></span><span class="therapy-tile" style="--tile-color: var(--gold);"></span><span class="therapy-tile" style="--tile-color: var(--gold);"></span><span class="therapy-tile" style="--tile-color: var(--gold);"></span>
+            <span class="therapy-tile" style="--tile-color: var(--gold);"></span><span class="therapy-tile" style="--tile-color: var(--gold);"></span><span class="therapy-tile" style="--tile-color: var(--gold);"></span><span class="therapy-tile" style="--tile-color: var(--gold);"></span><span class="therapy-tile" style="--tile-color: var(--gold);"></span><span class="therapy-tile" style="--tile-color: var(--gold);"></span><span class="therapy-tile" style="--tile-color: var(--gold);"></span><span class="therapy-tile" style="--tile-color: var(--teal);"></span><span class="therapy-tile" style="--tile-color: var(--teal);"></span><span class="therapy-tile" style="--tile-color: var(--teal);"></span>
+            <span class="therapy-tile" style="--tile-color: var(--teal);"></span><span class="therapy-tile" style="--tile-color: var(--teal);"></span><span class="therapy-tile" style="--tile-color: var(--teal);"></span><span class="therapy-tile" style="--tile-color: var(--teal);"></span><span class="therapy-tile" style="--tile-color: var(--purple);"></span><span class="therapy-tile" style="--tile-color: var(--purple);"></span><span class="therapy-tile" style="--tile-color: var(--gold);"></span><span class="therapy-tile" style="--tile-color: var(--gold);"></span><span class="therapy-tile" style="--tile-color: var(--gold);"></span><span class="therapy-tile" style="--tile-color: var(--green);"></span>
+          </div>
+          <ul class="legend">
+            <li style="--legend-color: var(--red);"><i></i><span>SOF/VEL</span><b>65 (53%)</b></li>
+            <li style="--legend-color: var(--gold);"><i></i><span>G/P</span><b>45 (37%)</b></li>
+            <li style="--legend-color: var(--teal);"><i></i><span>SOF/VEL/VOX</span><b>9 (7%)</b></li>
+            <li style="--legend-color: var(--purple);"><i></i><span>SOF/VEL + RBV</span><b>2 (2%)</b></li>
+            <li style="--legend-color: var(--green);"><i></i><span>G/P + RBV</span><b>1 (1%)</b></li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="visual-grid" aria-label="Safety and clinical outcomes">
+        <article class="panel">
+          <p class="section-label">Drug interaction work</p>
+          <h2>DDI resolution was a major safety function</h2>
+          <div class="donut-grid">
+            <svg viewBox="0 0 240 240" role="img" aria-label="Donut chart of DDI distribution">
+              <circle cx="120" cy="120" r="76" fill="none" stroke="#d9e1ef" stroke-width="36"></circle>
+              <circle cx="120" cy="120" r="76" fill="none" stroke="#d12630" stroke-width="36" stroke-dasharray="224.1 253.4" stroke-dashoffset="0" transform="rotate(-90 120 120)"></circle>
+              <circle cx="120" cy="120" r="76" fill="none" stroke="#e99e25" stroke-width="36" stroke-dasharray="160.8 316.7" stroke-dashoffset="-224.1" transform="rotate(-90 120 120)"></circle>
+              <circle cx="120" cy="120" r="76" fill="none" stroke="#187c8f" stroke-width="36" stroke-dasharray="46 431.5" stroke-dashoffset="-384.9" transform="rotate(-90 120 120)"></circle>
+              <circle cx="120" cy="120" r="76" fill="none" stroke="#7561a8" stroke-width="36" stroke-dasharray="34.5 443" stroke-dashoffset="-430.9" transform="rotate(-90 120 120)"></circle>
+              <circle cx="120" cy="120" r="76" fill="none" stroke="#4d8a67" stroke-width="36" stroke-dasharray="11.5 466" stroke-dashoffset="-465.4" transform="rotate(-90 120 120)"></circle>
+              <circle cx="120" cy="120" r="49" fill="#fff"></circle>
+              <text x="120" y="112" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="23" font-weight="900">57%</text>
+              <text x="120" y="137" text-anchor="middle" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="800">needed SP resolution</text>
+            </svg>
+            <ul class="legend">
+              <li style="--legend-color: var(--red);"><i></i><span>Statins</span><b>39</b></li>
+              <li style="--legend-color: var(--gold);"><i></i><span>Proton pump inhibitors</span><b>28</b></li>
+              <li style="--legend-color: var(--teal);"><i></i><span>Other</span><b>8</b></li>
+              <li style="--legend-color: var(--purple);"><i></i><span>Cardiac-related</span><b>6</b></li>
+              <li style="--legend-color: var(--green);"><i></i><span>Antipsychotics</span><b>2</b></li>
+            </ul>
+          </div>
+          <p class="source-note">The poster also reported that 51% of DDIs required external provider involvement for resolution.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">During-therapy support</p>
+          <h2>Interventions clustered around adherence and education</h2>
+          <div class="lens-chart">
+            <div class="lens-row">
+              <span>Adherence counseling</span>
+              <div class="lens-bar"><i style="width: 100%;"></i></div>
+            </div>
+            <div class="lens-row">
+              <span>Side effect education</span>
+              <div class="lens-bar"><i style="width: 63.6%;"></i></div>
+            </div>
+            <div class="lens-row">
+              <span>Lab assistance</span>
+              <div class="lens-bar"><i style="width: 52.3%;"></i></div>
+            </div>
+            <div class="lens-row">
+              <span>New DDIs</span>
+              <div class="lens-bar"><i style="width: 11.4%;"></i></div>
+            </div>
+          </div>
+          <div class="outcome-ladder">
+            <div class="outcome-rung"><strong>31%</strong><span>Required specialty pharmacist interventions during therapy</span></div>
+            <div class="outcome-rung"><strong>92%</strong><span>Completed therapy on time</span></div>
+            <div class="outcome-rung"><strong>97%</strong><span>Achieved sustained virologic response at 12 weeks</span></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="callout-band">
+        <article class="conclusion-card">
+          <p class="section-label">Conclusion</p>
+          <h2>Specialty pharmacists were positioned as both access accelerators and safety managers</h2>
+          <p>
+            Results support further development of SP-driven HCV practice changes and implementation of similar programs in health-system specialty pharmacies.
+          </p>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Condensed table pattern</p>
+          <h2>What the extracted tables showed</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Domain</th>
+                  <th>Most prominent pattern</th>
+                  <th>Operational implication</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Therapy selection</td>
+                  <td>SOF/VEL 53%; G/P 37%</td>
+                  <td>Two DAA regimens covered most starts.</td>
+                </tr>
+                <tr>
+                  <td>Time-to-treatment</td>
+                  <td>55 patients started in 1 day; 76% by day 4</td>
+                  <td>Referral-to-order workflow moved quickly for most patients.</td>
+                </tr>
+                <tr>
+                  <td>DDIs</td>
+                  <td>Statins and PPIs were the largest groups</td>
+                  <td>Medication review remained central to safety.</td>
+                </tr>
+                <tr>
+                  <td>Interventions</td>
+                  <td>Adherence counseling 44%; side effect education 28%</td>
+                  <td>During-therapy contact focused on completion and tolerability.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="evidence-map" aria-label="Extracted poster takeaways">
+        <article class="evidence-card">
+          <h3>Background</h3>
+          <p>HCV affects millions in the United States, and only a minority of diagnosed patients have been prescribed treatment.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Gap</h3>
+          <p>Specialty pharmacists can support therapy selection and access, but operational workflow data remain limited.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Methods</h3>
+          <p>Retrospective descriptive review of HCCP patients treated through gastroenterology clinics or CSP fills.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Safety</h3>
+          <p>More than half of patients required SP-driven DDI resolution before or during treatment.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Outcome</h3>
+          <p>High on-time completion and SVR12 rates accompanied rapid operational throughput.</p>
+        </article>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/1153-OPR51-OR-Poster-AM25_2025.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/1153-OPR51-OR-Poster-AM25_2025.md">Source markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

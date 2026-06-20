@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Patiromer and Maintenance of RAASi Therapy in Hyperkalemic Medicare Patients | NASP 2019</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .therapy-ribbon {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: center;
+      border: 1px solid rgba(36, 55, 112, 0.2);
+      border-radius: 8px;
+      background:
+        linear-gradient(90deg, rgba(209, 38, 48, 0.08), rgba(24, 124, 143, 0.08)),
+        #fff;
+      padding: 0.9rem;
+    }
+    .therapy-ribbon p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+    .k-badge {
+      display: grid;
+      place-items: center;
+      width: 5.6rem;
+      aspect-ratio: 1;
+      border: 2px solid rgba(209, 38, 48, 0.3);
+      border-radius: 50%;
+      background: #fff;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.9rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .k-badge small {
+      display: block;
+      color: var(--muted);
+      font-family: var(--font-body);
+      font-size: 0.62rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    .bar-board {
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 0.85rem;
+    }
+    .bar-row {
+      display: grid;
+      grid-template-columns: 9.4rem minmax(0, 1fr) 3.6rem;
+      gap: 0.6rem;
+      align-items: center;
+    }
+    .bar-row .label {
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+    .bar-track {
+      height: 1.1rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: #eef3f8;
+      overflow: hidden;
+    }
+    .bar-fill {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .bar-fill.sps { background: linear-gradient(90deg, var(--teal), var(--green)); }
+    .bar-fill.none { background: linear-gradient(90deg, var(--purple), var(--teal)); }
+    .bar-row .value {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 900;
+      text-align: right;
+    }
+    .funnel {
+      display: grid;
+      gap: 0.56rem;
+      margin-top: 0.8rem;
+    }
+    .funnel-step {
+      display: grid;
+      grid-template-columns: 1fr 5.2rem 5.2rem 5.2rem;
+      gap: 0.42rem;
+      align-items: stretch;
+    }
+    .funnel-step span,
+    .funnel-step strong {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.42rem;
+      font-size: 0.72rem;
+    }
+    .funnel-step span {
+      background: #fff;
+      color: var(--body);
+      font-weight: 760;
+    }
+    .funnel-step strong {
+      display: grid;
+      place-items: center;
+      background: var(--surface-blue);
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-weight: 900;
+      text-align: center;
+    }
+    .funnel-step.head span,
+    .funnel-step.head strong {
+      border-color: rgba(36, 55, 112, 0.26);
+      background: var(--ink);
+      color: #fff;
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .study-line {
+      width: 100%;
+      height: auto;
+      margin-top: 0.7rem;
+    }
+    .insight-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.7rem;
+    }
+    .insight {
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.72rem;
+    }
+    .insight strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      line-height: 1;
+    }
+    .insight span {
+      display: block;
+      margin-top: 0.22rem;
+      color: var(--body);
+      font-size: 0.76rem;
+      font-weight: 780;
+    }
+    .takeaway {
+      border-left: 5px solid var(--red);
+      background: linear-gradient(90deg, rgba(209, 38, 48, 0.08), rgba(255, 255, 255, 0));
+    }
+    .source-note {
+      margin: 0.5rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    @media (max-width: 760px) {
+      .therapy-ribbon,
+      .funnel-step,
+      .bar-row,
+      .insight-grid {
+        grid-template-columns: 1fr;
+      }
+      .k-badge {
+        width: 4.8rem;
+      }
+      .bar-row .value {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar" aria-label="Infographic navigation">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav>
+        <a href="#evidence">Evidence</a>
+        <a href="#results">Results</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/01_2019.pdf">PDF source</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/01_2019.md">Markdown source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2019 Annual Meeting &amp; Expo</p>
+        <h1>Patiromer and Maintenance of RAASi Therapy in Hyperkalemic Medicare Patients</h1>
+        <p class="hero-summary">A retrospective claims analysis asked whether Medicare Advantage patients with hyperkalemia who received a potassium binder continued renin-angiotensin-aldosterone system inhibitor therapy during the 6 months after index.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Retrospective cohort</li>
+          <li class="tag therapy">Hyperkalemia</li>
+          <li class="tag therapy">RAASi utilization</li>
+          <li class="tag">Medicare Advantage</li>
+        </ul>
+      </div>
+      <aside class="hero-card">
+        <div>
+          <p class="section-label">Poster file</p>
+          <div class="poster-code">01_2019</div>
+        </div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Data window</dt>
+            <dd>Jan 2016-Dec 2017</dd>
+          </div>
+          <div>
+            <dt>Follow-up</dt>
+            <dd>6 months</dd>
+          </div>
+          <div>
+            <dt>Definition</dt>
+            <dd>K+ >=5.0 mEq/L</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>Optum claims</dd>
+          </div>
+        </dl>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Patiromer final cohort</span>
+          <strong>214</strong>
+        </article>
+        <article class="metric-card">
+          <span>SPS final cohort</span>
+          <strong>2,371</strong>
+        </article>
+        <article class="metric-card">
+          <span>No binder final cohort</span>
+          <strong>8,531</strong>
+        </article>
+        <article class="metric-card">
+          <span>Highest RAASi continuation</span>
+          <strong>77.8%</strong>
+        </article>
+      </section>
+
+      <section class="visual-grid" id="evidence">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Measure RAASi persistence after hyperkalemia</h2>
+          <div class="therapy-ribbon">
+            <p>The study evaluated RAASi utilization among Medicare Advantage patients with pre-index continuous RAASi exposure and serum potassium at or above 5.0 mEq/L.</p>
+            <div class="k-badge">K+<small>threshold</small></div>
+          </div>
+          <svg class="study-line" viewBox="0 0 640 170" role="img" aria-label="Study schema with 6 month baseline, index date, and 6 month follow-up">
+            <defs>
+              <linearGradient id="timelineGrad" x1="0" x2="1" y1="0" y2="0">
+                <stop offset="0" stop-color="#d12630"/>
+                <stop offset="0.52" stop-color="#e99e25"/>
+                <stop offset="1" stop-color="#187c8f"/>
+              </linearGradient>
+            </defs>
+            <rect x="12" y="34" width="616" height="100" rx="14" fill="#eef4fb" stroke="#aebbd2"/>
+            <line x1="78" y1="84" x2="562" y2="84" stroke="url(#timelineGrad)" stroke-width="10" stroke-linecap="round"/>
+            <circle cx="320" cy="84" r="22" fill="#fff" stroke="#243770" stroke-width="4"/>
+            <path d="M320 64 L330 84 L320 104 L310 84 Z" fill="#d12630"/>
+            <text x="76" y="58" fill="#243770" font-family="Inter, Arial" font-size="16" font-weight="800">6 months pre-index</text>
+            <text x="445" y="58" fill="#243770" font-family="Inter, Arial" font-size="16" font-weight="800">6 months post-index</text>
+            <text x="282" y="136" fill="#243770" font-family="Inter, Arial" font-size="15" font-weight="900">INDEX</text>
+            <text x="60" y="112" fill="#33415c" font-family="Inter, Arial" font-size="13">continuous RAASi + K+ lab</text>
+            <text x="410" y="112" fill="#33415c" font-family="Inter, Arial" font-size="13">continuation + down-titration</text>
+          </svg>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Inclusion cascade</p>
+          <h2>Three cohorts narrowed to RAASi-exposed patients</h2>
+          <div class="funnel" aria-label="Inclusion and exclusion table pattern">
+            <div class="funnel-step head">
+              <span>Criterion</span><strong>PAT</strong><strong>SPS</strong><strong>No binder</strong>
+            </div>
+            <div class="funnel-step">
+              <span>Dispensing or diagnosis during study period</span><strong>1,723</strong><strong>20,642</strong><strong>169,337</strong>
+            </div>
+            <div class="funnel-step">
+              <span>K+ >=5.0 mEq/L within 3 months pre-index</span><strong>855</strong><strong>7,666</strong><strong>35,782</strong>
+            </div>
+            <div class="funnel-step">
+              <span>Medicare insurance and 6-month enrollment</span><strong>610</strong><strong>5,556</strong><strong>21,282</strong>
+            </div>
+            <div class="funnel-step">
+              <span>6 months of continuous RAASi before index</span><strong>214</strong><strong>2,371</strong><strong>8,531</strong>
+            </div>
+          </div>
+          <p class="source-note">Pattern extracted from Table 1; counts are descriptive cohort sizes.</p>
+        </article>
+      </section>
+
+      <section class="panel" id="results">
+        <p class="section-label">Primary visual result</p>
+        <h2>RAASi continuation was numerically highest in the patiromer continuous-exposure group</h2>
+        <div class="bar-board" aria-label="RAASi continuation by treatment group and exposure classification">
+          <div class="bar-row">
+            <div class="label">Patiromer CE (n=36)</div>
+            <div class="bar-track"><i class="bar-fill" style="width:77.8%"></i></div>
+            <div class="value">77.8%</div>
+          </div>
+          <div class="bar-row">
+            <div class="label">Patiromer ITT (n=102)</div>
+            <div class="bar-track"><i class="bar-fill" style="width:62.7%"></i></div>
+            <div class="value">62.7%</div>
+          </div>
+          <div class="bar-row">
+            <div class="label">SPS CE (n=35)</div>
+            <div class="bar-track"><i class="bar-fill sps" style="width:57.1%"></i></div>
+            <div class="value">57.1%</div>
+          </div>
+          <div class="bar-row">
+            <div class="label">SPS ITT (n=1,627)</div>
+            <div class="bar-track"><i class="bar-fill sps" style="width:52.3%"></i></div>
+            <div class="value">52.3%</div>
+          </div>
+          <div class="bar-row">
+            <div class="label">No binder CE (n=5,127)</div>
+            <div class="bar-track"><i class="bar-fill none" style="width:56.7%"></i></div>
+            <div class="value">56.7%</div>
+          </div>
+          <div class="bar-row">
+            <div class="label">No binder ITT (n=5,543)</div>
+            <div class="bar-track"><i class="bar-fill none" style="width:56.2%"></i></div>
+            <div class="value">56.2%</div>
+          </div>
+        </div>
+        <p class="source-note">CE = continuous exposure; ITT = intent to treat. RAASi included ACE inhibitors, ARBs, MRAs, and direct renin inhibitors.</p>
+      </section>
+
+      <section class="evidence-map" aria-label="Evidence flow">
+        <article class="evidence-card">
+          <h3>Population</h3>
+          <p>Medicare Advantage patients with hyperkalemia and pre-index RAASi use were identified in de-identified national claims.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Exposure arms</h3>
+          <p>Patients were grouped as patiromer, sodium polystyrene sulfonate, or no potassium binder based on dispensing or diagnosis rules.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Baseline pattern</h3>
+          <p>The patiromer cohort had more chronic kidney disease and diabetes, and the lowest mean baseline eGFR.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Outcome window</h3>
+          <p>Continuation and down-titration were assessed during the 6 months after index, with separate ITT and CE views.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Interpretation</h3>
+          <p>The authors framed the results as descriptive only, with no causal or comparative claims.</p>
+        </article>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">Baseline signals</p>
+          <h2>Clinical complexity clustered in the patiromer arm</h2>
+          <div class="insight-grid">
+            <div class="insight">
+              <strong>64%</strong>
+              <span>CKD in patiromer vs 48% SPS and 47% no binder</span>
+            </div>
+            <div class="insight">
+              <strong>50%</strong>
+              <span>Diabetes in patiromer vs 36% SPS and 37% no binder</span>
+            </div>
+            <div class="insight">
+              <strong>34.7</strong>
+              <span>Mean eGFR in patiromer vs 46.6 SPS and 56.2 no binder</span>
+            </div>
+          </div>
+          <p class="source-note">Laboratory and comorbidity pattern summarized from Tables 2 and 4.</p>
+        </article>
+
+        <article class="panel takeaway">
+          <p class="section-label">Conclusion</p>
+          <h2>Continuation remained the central signal</h2>
+          <div class="markdown-fragment">
+            <p>The poster concluded that the patiromer cohort showed the highest percentage of patients continuing RAASi therapy over 6 months.</p>
+            <p>Down-titration of lisinopril, losartan, and valsartan was low across groups, roughly around 10% overall, but interpretation is limited by the descriptive observational design and small CE binder cohorts.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="tables-grid">
+        <article class="table-card">
+          <p class="section-label">Dose stability</p>
+          <h2>Down-titration stayed low</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Cohort</th>
+                  <th>CE</th>
+                  <th>ITT</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Patiromer</td>
+                  <td>13%</td>
+                  <td>9%</td>
+                </tr>
+                <tr>
+                  <td>SPS</td>
+                  <td>6%</td>
+                  <td>7%</td>
+                </tr>
+                <tr>
+                  <td>No potassium binder</td>
+                  <td>7%</td>
+                  <td>8%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Source links</p>
+          <h2>Poster materials</h2>
+          <div class="markdown-fragment">
+            <p><strong>Presented:</strong> National Association of Specialty Pharmacy 2019 Annual Meeting &amp; Expo, September 9-12, 2019, Washington, DC.</p>
+            <p><strong>Support:</strong> Relypsa, Inc., a Vifor Pharma Group Company.</p>
+          </div>
+          <div class="footer-actions">
+            <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/01_2019.pdf">Open poster PDF</a>
+            <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/01_2019.md">Open extracted markdown</a>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,760 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>47-2023 | Oral Oncolytic Waste Avoidance</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .waste-hero-art {
+      position: relative;
+      min-height: 27rem;
+      overflow: hidden;
+      border: 1px solid rgba(174, 187, 210, 0.95);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 82% 14%, rgba(233, 158, 37, 0.22), transparent 8rem),
+        radial-gradient(circle at 16% 86%, rgba(24, 124, 143, 0.16), transparent 9rem),
+        linear-gradient(150deg, #ffffff 0%, var(--surface-blue) 52%, var(--surface-warm) 100%);
+      padding: 1rem;
+    }
+
+    .waste-hero-art svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .hero-finding {
+      position: absolute;
+      right: 1rem;
+      bottom: 1rem;
+      width: min(15rem, calc(100% - 2rem));
+      border: 1px solid rgba(36, 55, 112, 0.2);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.88);
+      padding: 0.85rem;
+      box-shadow: 0 18px 38px rgba(36, 55, 112, 0.12);
+    }
+
+    .hero-finding strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2.25rem;
+      line-height: 0.95;
+    }
+
+    .hero-finding span {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+
+    .big-money {
+      display: grid;
+      align-content: center;
+      min-height: 14rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(209, 38, 48, 0.94), rgba(36, 55, 112, 0.98)),
+        var(--ink);
+      padding: 1.2rem;
+      color: #ffffff;
+    }
+
+    .big-money span {
+      color: rgba(255, 255, 255, 0.74);
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .big-money strong {
+      display: block;
+      margin-top: 0.2rem;
+      color: #ffffff;
+      font-family: var(--font-display);
+      font-size: clamp(3.15rem, 8vw, 6.2rem);
+      line-height: 0.9;
+    }
+
+    .big-money p {
+      max-width: 32rem;
+      margin: 0.75rem 0 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.94rem;
+    }
+
+    .flow-rail {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.7rem;
+    }
+
+    .flow-step {
+      position: relative;
+      min-height: 10.8rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #ffffff;
+      padding: 0.85rem;
+      overflow: hidden;
+    }
+
+    .flow-step::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 0.34rem;
+      background: var(--step-color, var(--red));
+    }
+
+    .flow-step:nth-child(2) { --step-color: var(--gold); }
+    .flow-step:nth-child(3) { --step-color: var(--teal); }
+    .flow-step:nth-child(4) { --step-color: var(--green); }
+    .flow-step:nth-child(5) { --step-color: var(--purple); }
+
+    .flow-step b {
+      display: inline-grid;
+      width: 2rem;
+      height: 2rem;
+      place-items: center;
+      border-radius: 999px;
+      background: var(--surface-blue);
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+    }
+
+    .flow-step h3 {
+      margin-top: 0.65rem;
+    }
+
+    .flow-step p {
+      margin: 0.45rem 0 0;
+      font-size: 0.82rem;
+    }
+
+    .outcome-board {
+      display: grid;
+      grid-template-columns: minmax(16rem, 0.78fr) minmax(0, 1.22fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .donut-wrap {
+      display: grid;
+      place-items: center;
+      min-height: 24rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle, #ffffff 0 34%, transparent 35%),
+        conic-gradient(
+          var(--red) 0 56%,
+          var(--gold) 56% 87%,
+          var(--teal) 87% 93%,
+          var(--green) 93% 98%,
+          var(--purple) 98% 100%
+        );
+      padding: 1rem;
+    }
+
+    .donut-center {
+      width: 10rem;
+      height: 10rem;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.94);
+      text-align: center;
+    }
+
+    .donut-center strong {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 3rem;
+      line-height: 0.9;
+    }
+
+    .donut-center span {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .outcome-list {
+      display: grid;
+      gap: 0.58rem;
+      margin-top: 0.7rem;
+    }
+
+    .outcome-row {
+      display: grid;
+      grid-template-columns: 9.5rem minmax(0, 1fr) 4.5rem;
+      gap: 0.55rem;
+      align-items: center;
+      font-size: 0.8rem;
+    }
+
+    .outcome-row span:first-child {
+      color: var(--ink);
+      font-weight: 850;
+    }
+
+    .outcome-track {
+      height: 0.82rem;
+      overflow: hidden;
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 999px;
+      background: #edf2f8;
+    }
+
+    .outcome-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--row-color, var(--red));
+    }
+
+    .outcome-row:nth-child(2) { --row-color: var(--gold); }
+    .outcome-row:nth-child(3) { --row-color: var(--teal); }
+    .outcome-row:nth-child(4) { --row-color: var(--green); }
+    .outcome-row:nth-child(5) { --row-color: var(--purple); }
+
+    .outcome-row b {
+      color: var(--ink);
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .cost-stack {
+      display: grid;
+      gap: 0.62rem;
+      margin-top: 0.75rem;
+    }
+
+    .cost-row {
+      display: grid;
+      grid-template-columns: 10.2rem minmax(0, 1fr) 6.7rem;
+      gap: 0.65rem;
+      align-items: center;
+      font-size: 0.8rem;
+    }
+
+    .cost-row span:first-child {
+      color: var(--ink);
+      font-weight: 850;
+    }
+
+    .cost-bar {
+      height: 1.05rem;
+      overflow: hidden;
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 999px;
+      background: #edf2f8;
+    }
+
+    .cost-bar i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .cost-row:nth-child(2) .cost-bar i {
+      background: linear-gradient(90deg, var(--gold), #f2c46e);
+    }
+
+    .cost-row:nth-child(3) .cost-bar i {
+      background: linear-gradient(90deg, var(--teal), #55acbb);
+    }
+
+    .cost-row:nth-child(4) .cost-bar i {
+      background: linear-gradient(90deg, var(--green), #85b99b);
+    }
+
+    .cost-row b {
+      color: var(--ink);
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .medicine-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.7rem;
+    }
+
+    .medicine-card {
+      border: 1px solid rgba(174, 187, 210, 0.95);
+      border-radius: 8px;
+      background: #ffffff;
+      padding: 0.75rem;
+    }
+
+    .medicine-card strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      line-height: 1.15;
+    }
+
+    .medicine-card em {
+      display: block;
+      margin-top: 0.18rem;
+      color: var(--muted);
+      font-style: normal;
+      font-size: 0.7rem;
+      font-weight: 800;
+    }
+
+    .medicine-card span {
+      display: block;
+      margin-top: 0.5rem;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.18rem;
+      font-weight: 900;
+    }
+
+    .median-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+
+    .median-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--surface-blue);
+      padding: 0.85rem;
+    }
+
+    .median-card span {
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .median-card strong {
+      display: block;
+      margin-top: 0.2rem;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      line-height: 1;
+    }
+
+    .source-note {
+      margin: 0.65rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    .compact-table td:last-child,
+    .compact-table th:last-child {
+      text-align: right;
+    }
+
+    @media (max-width: 940px) {
+      .flow-rail,
+      .medicine-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .outcome-board {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .median-strip,
+      .flow-rail,
+      .medicine-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .outcome-row,
+      .cost-row {
+        grid-template-columns: 1fr;
+      }
+
+      .outcome-row b,
+      .cost-row b {
+        text-align: left;
+      }
+
+      .waste-hero-art {
+        min-height: 22rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/47_Financial-Impact-of-Integrated-Specialty-Pharmacy-Efforts-to-Avoid-Oral-Oncolytic-Waste_2023.pdf">Poster PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/47_Financial-Impact-of-Integrated-Specialty-Pharmacy-Efforts-to-Avoid-Oral-Oncolytic-Waste_2023.md">Markdown Source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">2023 poster 47 | Vanderbilt Specialty Pharmacy</p>
+        <h1>Financial Impact of Integrated Specialty Pharmacy Efforts to Avoid Oral Oncolytic Waste</h1>
+        <p class="hero-summary">
+          Specialty pharmacists delayed renewal requests when a patient had enough medication and an upcoming follow-up where therapy might change. The review prevented unnecessary fills for patients whose oral oncolytic was later discontinued, held, changed, or dose-adjusted.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag therapy">Oral oncolytics</li>
+          <li class="tag category">Cost avoidance</li>
+          <li class="tag">Integrated specialty pharmacy</li>
+          <li class="tag">Average wholesale price</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card">
+        <div class="poster-code">47-2023</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Setting</dt>
+            <dd>Single-center review</dd>
+          </div>
+          <div>
+            <dt>Site</dt>
+            <dd>Vanderbilt University Medical Center</dd>
+          </div>
+          <div>
+            <dt>Window</dt>
+            <dd>Jan 2020 to Jan 2021</dd>
+          </div>
+          <div>
+            <dt>Follow-ups</dt>
+            <dd>n = 167</dd>
+          </div>
+        </dl>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key results">
+        <article class="metric-card">
+          <span>Total cost avoidance</span>
+          <strong>$967.8K</strong>
+        </article>
+        <article class="metric-card">
+          <span>Postponed renewals</span>
+          <strong>167</strong>
+        </article>
+        <article class="metric-card">
+          <span>Therapy changed, held, or stopped</span>
+          <strong>98%</strong>
+        </article>
+        <article class="metric-card">
+          <span>Median avoided per fill</span>
+          <strong>$2.4K</strong>
+        </article>
+      </section>
+
+      <section class="visual-grid" id="objective">
+        <div class="big-money">
+          <span>Primary financial signal</span>
+          <strong>$967,821.74</strong>
+          <p>Total AWP-based cost avoided when pharmacists postponed refill renewal requests until after clinically meaningful follow-up.</p>
+        </div>
+
+        <div class="waste-hero-art" aria-label="Renewal postponement pathway illustration">
+          <svg viewBox="0 0 600 420" role="img" aria-labelledby="path-title path-desc">
+            <title id="path-title">Pharmacist renewal review to waste avoidance</title>
+            <desc id="path-desc">A prescription renewal is paused before follow-up, then routes to discontinuation, dose change, medication change, or medication hold outcomes.</desc>
+            <defs>
+              <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L9,3 z" fill="#243770"></path>
+              </marker>
+              <linearGradient id="money-grad" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0%" stop-color="#d12630"></stop>
+                <stop offset="100%" stop-color="#e99e25"></stop>
+              </linearGradient>
+            </defs>
+
+            <rect x="36" y="54" width="132" height="150" rx="12" fill="#fff" stroke="#aebbd2" stroke-width="4"></rect>
+            <path d="M64 92h75M64 120h55M64 148h82" stroke="#187c8f" stroke-width="10" stroke-linecap="round"></path>
+            <circle cx="70" cy="184" r="16" fill="#fff7ea" stroke="#e99e25" stroke-width="4"></circle>
+            <path d="M62 184h16M70 176v16" stroke="#d12630" stroke-width="5" stroke-linecap="round"></path>
+            <text x="36" y="38" fill="#243770" font-family="Arial, sans-serif" font-size="20" font-weight="800">renewal trigger</text>
+
+            <path d="M178 130 C230 130, 249 130, 296 130" fill="none" stroke="#243770" stroke-width="7" stroke-linecap="round" marker-end="url(#arrowhead)"></path>
+            <rect x="304" y="70" width="178" height="120" rx="18" fill="#eef4fb" stroke="#187c8f" stroke-width="5"></rect>
+            <path d="M346 132h94" stroke="#187c8f" stroke-width="13" stroke-linecap="round"></path>
+            <path d="M393 88v84" stroke="#187c8f" stroke-width="13" stroke-linecap="round"></path>
+            <text x="324" y="45" fill="#187c8f" font-family="Arial, sans-serif" font-size="20" font-weight="800">pharmacist pause</text>
+
+            <path d="M392 198 C392 232, 392 253, 392 286" fill="none" stroke="#243770" stroke-width="7" stroke-linecap="round" marker-end="url(#arrowhead)"></path>
+            <rect x="260" y="292" width="264" height="78" rx="16" fill="#fff" stroke="#aebbd2" stroke-width="4"></rect>
+            <text x="286" y="337" fill="#243770" font-family="Arial, sans-serif" font-size="22" font-weight="900">follow-up changes therapy</text>
+
+            <circle cx="124" cy="302" r="34" fill="#d12630" opacity="0.95"></circle>
+            <circle cx="190" cy="302" r="26" fill="#e99e25" opacity="0.96"></circle>
+            <circle cx="126" cy="365" r="23" fill="#187c8f" opacity="0.96"></circle>
+            <circle cx="188" cy="365" r="19" fill="#4d8a67" opacity="0.96"></circle>
+            <text x="89" y="254" fill="#243770" font-family="Arial, sans-serif" font-size="18" font-weight="800">98% no routine refill</text>
+
+            <path d="M509 130 C544 135, 557 155, 557 192 C557 245, 528 283, 493 302" fill="none" stroke="url(#money-grad)" stroke-width="9" stroke-linecap="round"></path>
+            <text x="524" y="104" fill="#d12630" font-family="Arial, sans-serif" font-size="26" font-weight="900">$</text>
+            <text x="544" y="143" fill="#d12630" font-family="Arial, sans-serif" font-size="32" font-weight="900">$</text>
+            <text x="532" y="190" fill="#d12630" font-family="Arial, sans-serif" font-size="24" font-weight="900">$</text>
+          </svg>
+          <div class="hero-finding">
+            <strong>3</strong>
+            <span>postponed renewals resulted in no therapy change; all other outcomes avoided an unnecessary fill.</span>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <p class="section-label">Evidence flow</p>
+        <h2>How the waste avoidance screen worked</h2>
+        <div class="flow-rail" id="methods">
+          <article class="flow-step">
+            <b>1</b>
+            <h3>Renewal assessment triggered</h3>
+            <p>A refill renewal came due for a patient filling an oral oncolytic through Vanderbilt Specialty Pharmacy.</p>
+          </article>
+          <article class="flow-step">
+            <b>2</b>
+            <h3>Clinical context checked</h3>
+            <p>Pharmacists looked for upcoming visits, labs, or imaging and confirmed the patient had enough medication.</p>
+          </article>
+          <article class="flow-step">
+            <b>3</b>
+            <h3>Request postponed</h3>
+            <p>When therapy change was plausible, the renewal request waited until after the scheduled follow-up.</p>
+          </article>
+          <article class="flow-step">
+            <b>4</b>
+            <h3>Follow-up outcome reviewed</h3>
+            <p>After the follow-up, pharmacists reassessed whether the prescription should continue, change, hold, or stop.</p>
+          </article>
+          <article class="flow-step">
+            <b>5</b>
+            <h3>Unneeded fills avoided</h3>
+            <p>Cost avoidance was calculated using average wholesale price for fills that no longer matched the care plan.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="outcome-board" id="results">
+        <div class="donut-wrap" aria-label="Outcome of follow-up distribution">
+          <div class="donut-center">
+            <div>
+              <strong>167</strong>
+              <span>follow-up outcomes</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Outcome of follow-up</p>
+          <h2>Almost every postponed renewal ended with a therapy change, hold, or stop.</h2>
+          <div class="outcome-list">
+            <div class="outcome-row">
+              <span>Discontinued</span>
+              <span class="outcome-track"><i style="width:56%"></i></span>
+              <b>56% (94)</b>
+            </div>
+            <div class="outcome-row">
+              <span>Dose change</span>
+              <span class="outcome-track"><i style="width:31%"></i></span>
+              <b>31% (52)</b>
+            </div>
+            <div class="outcome-row">
+              <span>Medication change</span>
+              <span class="outcome-track"><i style="width:6%"></i></span>
+              <b>6% (10)</b>
+            </div>
+            <div class="outcome-row">
+              <span>Medication held</span>
+              <span class="outcome-track"><i style="width:5%"></i></span>
+              <b>5% (8)</b>
+            </div>
+            <div class="outcome-row">
+              <span>No change</span>
+              <span class="outcome-track"><i style="width:2%"></i></span>
+              <b>2% (3)</b>
+            </div>
+          </div>
+          <p class="source-note">Therapy was discontinued, dose changed, medication changed, or held in 164 of 167 postponed refill renewals.</p>
+        </div>
+      </section>
+
+      <section class="visual-grid">
+        <article class="panel">
+          <p class="section-label">Cost avoidance by outcome</p>
+          <h2>Discontinuations accounted for about half of avoided cost.</h2>
+          <div class="cost-stack" aria-label="Cost avoidance by outcome">
+            <div class="cost-row">
+              <span>Discontinued</span>
+              <span class="cost-bar"><i style="width:100%"></i></span>
+              <b>$489,843</b>
+            </div>
+            <div class="cost-row">
+              <span>Dose change</span>
+              <span class="cost-bar"><i style="width:60%"></i></span>
+              <b>$294,073</b>
+            </div>
+            <div class="cost-row">
+              <span>Medication change</span>
+              <span class="cost-bar"><i style="width:23%"></i></span>
+              <b>$113,035</b>
+            </div>
+            <div class="cost-row">
+              <span>Medication held</span>
+              <span class="cost-bar"><i style="width:14%"></i></span>
+              <b>$70,871</b>
+            </div>
+          </div>
+          <div class="median-strip">
+            <div class="median-card">
+              <span>Median, med changed</span>
+              <strong>$10,038</strong>
+            </div>
+            <div class="median-card">
+              <span>Median, dose changed</span>
+              <strong>$2,820</strong>
+            </div>
+            <div class="median-card">
+              <span>Median, discontinued</span>
+              <strong>$1,951</strong>
+            </div>
+          </div>
+          <p class="source-note">Median values are AWP cost avoided per fill by follow-up outcome.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Top total-cost contributors</p>
+          <h2>Five therapies drove most of the named medication-level avoidance.</h2>
+          <div class="medicine-grid">
+            <div class="medicine-card">
+              <strong>Temozolomide</strong>
+              <em>n = 66</em>
+              <span>$249.7K</span>
+            </div>
+            <div class="medicine-card">
+              <strong>Palbociclib</strong>
+              <em>n = 11</em>
+              <span>$173.3K</span>
+            </div>
+            <div class="medicine-card">
+              <strong>Everolimus</strong>
+              <em>n = 5</em>
+              <span>$84.8K</span>
+            </div>
+            <div class="medicine-card">
+              <strong>Trifluridine-tipiracil</strong>
+              <em>n = 5</em>
+              <span>$69.2K</span>
+            </div>
+            <div class="medicine-card">
+              <strong>Olaparib</strong>
+              <em>n = 4</em>
+              <span>$62.5K</span>
+            </div>
+          </div>
+          <p class="source-note">Largest median avoided cost per fill was reported for tucatinib: $25,891.20 for one fill.</p>
+        </article>
+      </section>
+
+      <section class="tables-grid" id="tables">
+        <article class="table-card">
+          <p class="section-label">Extracted table pattern</p>
+          <h3>Outcome cost avoidance</h3>
+          <div class="table-wrap">
+            <table class="compact-table">
+              <thead>
+                <tr>
+                  <th>Outcome</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Medication discontinuation</td><td>$489,843.34</td></tr>
+                <tr><td>Dose change</td><td>$294,072.59</td></tr>
+                <tr><td>Medication change</td><td>$113,035.16</td></tr>
+                <tr><td>Medication held</td><td>$70,870.65</td></tr>
+                <tr><td><strong>Total cost avoidance</strong></td><td><strong>$967,821.74</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Highest median avoidance per fill</p>
+          <h3>Selected medications</h3>
+          <div class="table-wrap">
+            <table class="compact-table">
+              <thead>
+                <tr>
+                  <th>Medication</th>
+                  <th>Median cost avoided</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Tucatinib (n = 1)</td><td>$25,891.20</td></tr>
+                <tr><td>Regorafenib (n = 2)</td><td>$23,598.96</td></tr>
+                <tr><td>Alpelisib (n = 1)</td><td>$22,466.64</td></tr>
+                <tr><td>Ruxolitinib phosphate (n = 1)</td><td>$18,692.40</td></tr>
+                <tr><td>Ribociclib succinate (n = 1)</td><td>$18,195.03</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-stack" id="conclusion">
+        <article class="panel markdown-fragment">
+          <p class="section-label">Objective</p>
+          <h2>Evaluate waste and cost avoidance.</h2>
+          <p>
+            The poster examined whether postponing renewal requests for oral oncolytics could avoid medication waste and unnecessary cost when patients had near-term follow-up and sufficient medication supply.
+          </p>
+        </article>
+
+        <article class="panel markdown-fragment">
+          <p class="section-label">Conclusion</p>
+          <h2>Pharmacist review before renewal was effective.</h2>
+          <p>
+            Specialty pharmacist review prior to renewal request proved effective in avoiding waste: 98% of postponed renewals resulted in a therapy discontinuation, dose change, medication change, or hold, with $967,821.74 in total avoided cost.
+          </p>
+        </article>
+      </section>
+
+      <footer class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/47_Financial-Impact-of-Integrated-Specialty-Pharmacy-Efforts-to-Avoid-Oral-Oncolytic-Waste_2023.pdf">Open original PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/47_Financial-Impact-of-Integrated-Specialty-Pharmacy-Efforts-to-Avoid-Oral-Oncolytic-Waste_2023.md">Open extracted markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

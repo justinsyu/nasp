@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Biosimilar Purchasing Patterns in Home Infusion and Specialty Pharmacy | NASP 2020</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .purchase-hero-art {
+      min-height: 18rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 26% 28%, rgba(209, 38, 48, 0.14), transparent 6.5rem),
+        radial-gradient(circle at 78% 72%, rgba(24, 124, 143, 0.15), transparent 7.8rem),
+        linear-gradient(145deg, #ffffff, var(--surface-blue) 55%, var(--surface-warm));
+      overflow: hidden;
+    }
+    .purchase-hero-art svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .finding-card {
+      border-left: 5px solid var(--red);
+      background: linear-gradient(90deg, rgba(209, 38, 48, 0.08), #fff 70%);
+    }
+    .finding-card p {
+      margin: 0;
+      color: var(--ink);
+      font-size: 1rem;
+      font-weight: 820;
+    }
+    .growth-board {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.65fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .curve-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, rgba(238, 244, 251, 0.72), transparent 45%),
+        #fff;
+      padding: 1rem;
+    }
+    .curve-card svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-top: 0.45rem;
+    }
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 0.4rem;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 850;
+    }
+    .legend i {
+      display: inline-block;
+      width: 0.76rem;
+      height: 0.76rem;
+      border-radius: 99px;
+      margin-right: 0.28rem;
+      vertical-align: -0.1rem;
+    }
+    .legend .bio { background: var(--red); }
+    .legend .innovator { background: var(--teal); }
+    .quarter-bars {
+      display: grid;
+      gap: 0.48rem;
+      margin-top: 0.75rem;
+    }
+    .quarter-row {
+      display: grid;
+      grid-template-columns: 3.4rem minmax(0, 1fr) 4.7rem;
+      gap: 0.5rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.76rem;
+      font-weight: 850;
+    }
+    .quarter-row .value {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 0.92rem;
+      font-weight: 900;
+      text-align: right;
+    }
+    .bar-pair {
+      display: grid;
+      gap: 0.16rem;
+    }
+    .bar-pair i {
+      display: block;
+      height: 0.48rem;
+      min-width: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .bar-pair i:last-child {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.7rem;
+    }
+    .time-node {
+      position: relative;
+      border: 1px solid rgba(174, 187, 210, 0.95);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.8rem;
+      min-height: 8.5rem;
+    }
+    .time-node::before {
+      content: "";
+      position: absolute;
+      top: -0.34rem;
+      left: 0.8rem;
+      width: 0.68rem;
+      height: 0.68rem;
+      border-radius: 50%;
+      background: var(--red);
+      box-shadow: 0 0 0 4px rgba(209, 38, 48, 0.12);
+    }
+    .time-node:nth-child(2)::before { background: var(--gold); box-shadow: 0 0 0 4px rgba(233, 158, 37, 0.15); }
+    .time-node:nth-child(3)::before { background: var(--teal); box-shadow: 0 0 0 4px rgba(24, 124, 143, 0.14); }
+    .time-node:nth-child(4)::before { background: var(--green); box-shadow: 0 0 0 4px rgba(77, 138, 103, 0.14); }
+    .time-node:nth-child(5)::before { background: var(--purple); box-shadow: 0 0 0 4px rgba(117, 97, 168, 0.14); }
+    .time-node b {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.92rem;
+      line-height: 1.15;
+    }
+    .time-node span {
+      display: block;
+      margin-top: 0.38rem;
+      color: var(--body);
+      font-size: 0.78rem;
+    }
+    .method-flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.75rem;
+    }
+    .flow-step {
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.82rem;
+    }
+    .flow-step strong {
+      display: grid;
+      place-items: center;
+      width: 2.1rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 900;
+    }
+    .flow-step b {
+      display: block;
+      margin-top: 0.58rem;
+      color: var(--ink);
+      font-family: var(--font-display);
+      line-height: 1.15;
+    }
+    .flow-step span {
+      display: block;
+      margin-top: 0.36rem;
+      font-size: 0.78rem;
+    }
+    .context-list {
+      display: grid;
+      gap: 0.55rem;
+      margin: 0.7rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .context-list li {
+      border-left: 3px solid var(--teal);
+      padding-left: 0.65rem;
+      font-size: 0.86rem;
+    }
+    .context-list li:nth-child(2) { border-color: var(--gold); }
+    .context-list li:nth-child(3) { border-color: var(--purple); }
+    .takeaway-panel {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(24, 124, 143, 0.1), transparent 36%),
+        #fff;
+    }
+    .takeaway-panel p {
+      margin: 0;
+      color: var(--ink);
+      font-size: 0.96rem;
+      font-weight: 820;
+    }
+    .small-note {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.74rem;
+    }
+    @media (max-width: 900px) {
+      .growth-board,
+      .method-flow,
+      .timeline {
+        grid-template-columns: 1fr;
+      }
+      .time-node {
+        min-height: auto;
+      }
+    }
+    @media (max-width: 560px) {
+      .quarter-row {
+        grid-template-columns: 1fr;
+      }
+      .quarter-row .value {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">NASP Posters</a>
+      <nav aria-label="Poster source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-30_2020.pdf">PDF Source</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-30_2020.md">Markdown Source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2020 · Poster 30 · Biosimilars</p>
+        <h1>Understanding biosimilar purchasing patterns within a home infusion and specialty pharmacy GPO</h1>
+        <p class="hero-summary">A case study tracked quarterly purchase growth for a contracted biosimilar against a non-contracted innovator biologic after competitive pricing, education, communication, and product support were offered to participating pharmacies.</p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Retrospective purchasing analysis</li>
+          <li class="tag therapy">Inflammatory conditions</li>
+          <li class="tag">4Q17 baseline</li>
+          <li class="tag">Home infusion and specialty pharmacy</li>
+        </ul>
+      </div>
+      <aside class="hero-card">
+        <div class="poster-code">30<br><span style="font-size:0.42em;color:var(--ink);">2020</span></div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Organization</dt>
+            <dd>MHA, Florham Park, NJ</dd>
+          </div>
+          <div>
+            <dt>Authors</dt>
+            <dd>Stacey Ness; Burton Taleon</dd>
+          </div>
+          <div>
+            <dt>Venue</dt>
+            <dd>NASP encore, Sept 2020</dd>
+          </div>
+          <div>
+            <dt>Frame</dt>
+            <dd>4Q17 through 4Q19</dd>
+          </div>
+        </dl>
+        <div class="purchase-hero-art" aria-hidden="true">
+          <svg viewBox="0 0 420 260" role="img">
+            <defs>
+              <linearGradient id="rise" x1="0" x2="1" y1="0" y2="0">
+                <stop offset="0" stop-color="#d12630"/>
+                <stop offset="1" stop-color="#e99e25"/>
+              </linearGradient>
+              <linearGradient id="steady" x1="0" x2="1" y1="0" y2="0">
+                <stop offset="0" stop-color="#187c8f"/>
+                <stop offset="1" stop-color="#4d8a67"/>
+              </linearGradient>
+            </defs>
+            <rect x="38" y="38" width="344" height="178" rx="18" fill="#fff" stroke="#aebbd2"/>
+            <path d="M72 184 C120 178 150 171 184 151 S245 109 282 74 S337 54 356 36" fill="none" stroke="url(#rise)" stroke-width="12" stroke-linecap="round"/>
+            <path d="M72 191 C126 192 173 190 217 187 S298 184 356 178" fill="none" stroke="url(#steady)" stroke-width="8" stroke-linecap="round"/>
+            <g fill="#243770" font-family="Arial, sans-serif" font-weight="700">
+              <text x="62" y="232" font-size="16">4Q17 baseline</text>
+              <text x="282" y="232" font-size="16">4Q19</text>
+            </g>
+            <circle cx="356" cy="36" r="13" fill="#d12630"/>
+            <circle cx="356" cy="178" r="10" fill="#187c8f"/>
+          </svg>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <div class="metric-card">
+          <span>Contracted biosimilar</span>
+          <strong>1047%</strong>
+          <p class="small-note">growth from baseline by 4Q19</p>
+        </div>
+        <div class="metric-card">
+          <span>Innovator biologic</span>
+          <strong>31%</strong>
+          <p class="small-note">growth from baseline by 4Q19</p>
+        </div>
+        <div class="metric-card">
+          <span>Study horizon</span>
+          <strong>8</strong>
+          <p class="small-note">post-baseline quarters analyzed</p>
+        </div>
+        <div class="metric-card">
+          <span>FDA context</span>
+          <strong>26</strong>
+          <p class="small-note">US biosimilars approved as of April 2020</p>
+        </div>
+      </section>
+
+      <section class="panel finding-card">
+        <p>The core signal: among pharmacies with at least one contracted biosimilar purchase, the contracted product grew roughly 34 times faster than the non-contracted innovator by the final measured quarter.</p>
+      </section>
+
+      <section class="growth-board" id="results">
+        <div class="curve-card">
+          <p class="section-label">Results</p>
+          <h2>Quarterly growth separated sharply after support and contracting</h2>
+          <svg viewBox="0 0 700 320" role="img" aria-label="Line chart comparing sales percent growth from baseline for contracted biosimilar and non-contracted innovator biologic">
+            <defs>
+              <linearGradient id="bioLine" x1="0" x2="1">
+                <stop offset="0" stop-color="#d12630"/>
+                <stop offset="1" stop-color="#e99e25"/>
+              </linearGradient>
+              <linearGradient id="innovatorLine" x1="0" x2="1">
+                <stop offset="0" stop-color="#187c8f"/>
+                <stop offset="1" stop-color="#4d8a67"/>
+              </linearGradient>
+            </defs>
+            <rect x="48" y="28" width="610" height="228" rx="10" fill="#ffffff" stroke="#d9e1ef"/>
+            <g stroke="#d9e1ef" stroke-width="1">
+              <line x1="58" y1="250" x2="648" y2="250"/>
+              <line x1="58" y1="202" x2="648" y2="202"/>
+              <line x1="58" y1="154" x2="648" y2="154"/>
+              <line x1="58" y1="106" x2="648" y2="106"/>
+              <line x1="58" y1="58" x2="648" y2="58"/>
+            </g>
+            <g fill="#68758d" font-family="Arial, sans-serif" font-size="12" font-weight="700">
+              <text x="13" y="254">0%</text>
+              <text x="9" y="206">250%</text>
+              <text x="9" y="158">500%</text>
+              <text x="9" y="110">750%</text>
+              <text x="3" y="62">1000%</text>
+            </g>
+            <polyline points="70,240 150,230 230,218 310,210 390,209 470,176 550,149 630,50" fill="none" stroke="url(#bioLine)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+            <polyline points="70,250 150,248 230,248 310,247 390,247 470,244 550,245 630,244" fill="none" stroke="url(#innovatorLine)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+            <g fill="#d12630">
+              <circle cx="70" cy="240" r="5"/><circle cx="150" cy="230" r="5"/><circle cx="230" cy="218" r="5"/><circle cx="310" cy="210" r="5"/><circle cx="390" cy="209" r="5"/><circle cx="470" cy="176" r="5"/><circle cx="550" cy="149" r="5"/><circle cx="630" cy="50" r="7"/>
+            </g>
+            <g fill="#187c8f">
+              <circle cx="70" cy="250" r="4"/><circle cx="150" cy="248" r="4"/><circle cx="230" cy="248" r="4"/><circle cx="310" cy="247" r="4"/><circle cx="390" cy="247" r="4"/><circle cx="470" cy="244" r="4"/><circle cx="550" cy="245" r="4"/><circle cx="630" cy="244" r="5"/>
+            </g>
+            <g fill="#243770" font-family="Arial, sans-serif" font-size="12" font-weight="700">
+              <text x="59" y="282">1Q18</text><text x="139" y="282">2Q18</text><text x="219" y="282">3Q18</text><text x="299" y="282">4Q18</text>
+              <text x="379" y="282">1Q19</text><text x="459" y="282">2Q19</text><text x="539" y="282">3Q19</text><text x="619" y="282">4Q19</text>
+              <text x="576" y="36" fill="#d12630">1047%</text>
+              <text x="590" y="232" fill="#187c8f">31%</text>
+            </g>
+          </svg>
+          <div class="legend" aria-hidden="true">
+            <span><i class="bio"></i>Contracted biosimilar</span>
+            <span><i class="innovator"></i>Non-contracted innovator biologic</span>
+          </div>
+        </div>
+
+        <aside class="table-card">
+          <p class="section-label">Table Pattern</p>
+          <h2>Growth from 4Q17 baseline</h2>
+          <div class="quarter-bars" aria-label="Quarter by quarter growth bars">
+            <div class="quarter-row"><span>1Q18</span><div class="bar-pair"><i style="width:5%"></i><i style="width:0.2%"></i></div><span class="value">52% / 2%</span></div>
+            <div class="quarter-row"><span>2Q18</span><div class="bar-pair"><i style="width:10%"></i><i style="width:1.1%"></i></div><span class="value">104% / 12%</span></div>
+            <div class="quarter-row"><span>3Q18</span><div class="bar-pair"><i style="width:16%"></i><i style="width:0.9%"></i></div><span class="value">165% / 9%</span></div>
+            <div class="quarter-row"><span>4Q18</span><div class="bar-pair"><i style="width:20%"></i><i style="width:1.7%"></i></div><span class="value">209% / 18%</span></div>
+            <div class="quarter-row"><span>1Q19</span><div class="bar-pair"><i style="width:20%"></i><i style="width:1.3%"></i></div><span class="value">213% / 14%</span></div>
+            <div class="quarter-row"><span>2Q19</span><div class="bar-pair"><i style="width:37%"></i><i style="width:3.2%"></i></div><span class="value">386% / 34%</span></div>
+            <div class="quarter-row"><span>3Q19</span><div class="bar-pair"><i style="width:51%"></i><i style="width:2.6%"></i></div><span class="value">529% / 27%</span></div>
+            <div class="quarter-row"><span>4Q19</span><div class="bar-pair"><i style="width:100%"></i><i style="width:3%"></i></div><span class="value">1047% / 31%</span></div>
+          </div>
+          <p class="small-note">Each row lists contracted biosimilar growth first and non-contracted innovator growth second.</p>
+        </aside>
+      </section>
+
+      <section class="section-stack" id="objective">
+        <div class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Understand purchase behavior after a biosimilar agreement</h2>
+          <p>The case study compared purchasing growth for a contracted biosimilar with a non-contracted innovator biologic used for inflammatory conditions among participating home infusion and specialty pharmacies.</p>
+        </div>
+        <div class="panel">
+          <p class="section-label">Market Context</p>
+          <h2>Why uptake was difficult</h2>
+          <ul class="context-list">
+            <li>Biologics represented almost 40% of prescription drug spending and 70% of prescription spending growth from 2010 to 2015.</li>
+            <li>From 2014 to 2018, biologic drug spending was recorded at $125 billion.</li>
+            <li>Recent analyses cited by the poster estimated biosimilars had achieved only 9% of the projected $1 billion in savings.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="panel" id="methods">
+        <p class="section-label">Methods</p>
+        <h2>A focused retrospective purchasing-data readout</h2>
+        <div class="method-flow">
+          <div class="flow-step">
+            <strong>1</strong>
+            <b>Define cohort</b>
+            <span>Include pharmacies with at least one contracted biosimilar purchase during the study period.</span>
+          </div>
+          <div class="flow-step">
+            <strong>2</strong>
+            <b>Set baseline</b>
+            <span>Use 4Q17 as the baseline for both product groups.</span>
+          </div>
+          <div class="flow-step">
+            <strong>3</strong>
+            <b>Track quarterly sales</b>
+            <span>Analyze growth each quarter from 1Q18 through 4Q19 versus baseline.</span>
+          </div>
+          <div class="flow-step">
+            <strong>4</strong>
+            <b>Layer support</b>
+            <span>Provide education, communication, sales training, and manufacturer engagement at intervals.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Support Flow</p>
+        <h2>Education and contracting activity preceded the growth curve</h2>
+        <div class="timeline">
+          <div class="time-node">
+            <b>June 2016</b>
+            <span>Approval message included in a Clinical Practice Update.</span>
+          </div>
+          <div class="time-node">
+            <b>October 2017</b>
+            <span>Contract announced; sales team training and clinical spotlight released.</span>
+          </div>
+          <div class="time-node">
+            <b>Nov-Dec 2017</b>
+            <span>Member webinar plus targeted communication on savings, coverage, and support.</span>
+          </div>
+          <div class="time-node">
+            <b>2018</b>
+            <span>Clinical Practice Update feature and live manufacturer education with MHA sales team.</span>
+          </div>
+          <div class="time-node">
+            <b>Ongoing</b>
+            <span>Continued clinical education, communication, and contracted product support.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-stack">
+        <div class="panel">
+          <p class="section-label">Discussion</p>
+          <h2>Growth despite structural barriers</h2>
+          <p>The poster identified patent and legal action, payer rebate dynamics, prescriber inertia, and an evolving regulatory pathway as major obstacles to US biosimilar uptake. The purchasing trend could not control for those confounders, but it showed meaningful gains were possible in this GPO setting.</p>
+        </div>
+        <div class="panel takeaway-panel" id="conclusion">
+          <p class="section-label">Conclusion</p>
+          <h2>Pricing plus support may help drive adoption</h2>
+          <p>Manufacturer agreements that combine competitive biosimilar purchase pricing with clinical education and operational support may help participating home infusion and specialty pharmacies increase biosimilar adoption and move toward expected cost savings.</p>
+        </div>
+      </section>
+
+      <footer class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-30_2020.pdf">Open original PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-30_2020.md">Open extracted markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

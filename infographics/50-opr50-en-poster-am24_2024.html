@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clinical Outcomes of Migraine Patients Receiving CGRP Antagonists | NASP 2024</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .migraine-hero-mark {
+      min-height: 15rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 32% 42%, rgba(209, 38, 48, 0.12), transparent 5rem),
+        radial-gradient(circle at 66% 52%, rgba(24, 124, 143, 0.12), transparent 6rem),
+        linear-gradient(145deg, #fff, var(--surface-blue));
+      overflow: hidden;
+    }
+    .migraine-hero-mark svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .finding-callout {
+      margin: 0;
+      border-left: 4px solid var(--red);
+      padding-left: 0.72rem;
+      color: var(--ink);
+      font-size: 0.95rem;
+      font-weight: 850;
+    }
+    .drop-visual {
+      display: grid;
+      grid-template-columns: minmax(14rem, 0.78fr) minmax(0, 1.22fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .impact-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 1rem;
+    }
+    .impact-card strong {
+      display: block;
+      margin: 0.22rem 0 0.45rem;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(3.1rem, 7vw, 6rem);
+      line-height: 0.9;
+    }
+    .impact-card p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+    .paired-change {
+      display: grid;
+      gap: 0.72rem;
+      margin-top: 0.75rem;
+    }
+    .change-row {
+      display: grid;
+      grid-template-columns: 9.4rem minmax(0, 1fr) 5.2rem;
+      gap: 0.65rem;
+      align-items: center;
+    }
+    .change-row b {
+      color: var(--ink);
+      font-size: 0.82rem;
+      line-height: 1.2;
+    }
+    .change-row span {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 850;
+      text-align: right;
+    }
+    .dual-bar {
+      display: grid;
+      gap: 0.22rem;
+    }
+    .dual-bar i {
+      display: block;
+      height: 0.62rem;
+      border-radius: 999px;
+      background: var(--red);
+    }
+    .dual-bar i.follow {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .bar-labels {
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 850;
+    }
+    .cohort-wheel {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+    .wheel-card {
+      min-height: 12rem;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+    }
+    .wheel-card svg {
+      display: block;
+      width: min(9rem, 100%);
+      height: auto;
+      margin: 0.25rem auto 0.6rem;
+    }
+    .wheel-card h3 {
+      margin-bottom: 0.38rem;
+      text-align: center;
+    }
+    .wheel-card p {
+      margin: 0;
+      font-size: 0.8rem;
+      text-align: center;
+    }
+    .method-track {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.72rem;
+      margin-top: 0.75rem;
+    }
+    .method-step {
+      position: relative;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.82rem;
+      overflow: hidden;
+    }
+    .method-step::before {
+      content: attr(data-step);
+      display: inline-grid;
+      place-items: center;
+      width: 1.7rem;
+      height: 1.7rem;
+      margin-bottom: 0.55rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+    .method-step b {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      line-height: 1.18;
+    }
+    .method-step span {
+      display: block;
+      margin-top: 0.38rem;
+      font-size: 0.78rem;
+    }
+    .predictor-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 0.8rem;
+      margin-top: 0.75rem;
+    }
+    .predictor-card {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+    }
+    .odds-list {
+      display: grid;
+      gap: 0.5rem;
+      margin-top: 0.65rem;
+    }
+    .odds-row {
+      display: grid;
+      grid-template-columns: 8.8rem minmax(0, 1fr) 4rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .odds-track {
+      height: 0.82rem;
+      border-radius: 999px;
+      background: rgba(36, 55, 112, 0.08);
+      overflow: hidden;
+    }
+    .odds-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--purple), var(--teal));
+    }
+    .mini-table table {
+      font-size: 0.74rem;
+    }
+    .takeaway {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(24, 124, 143, 0.12), transparent 44%),
+        #fff;
+    }
+    .takeaway p {
+      max-width: 64rem;
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.05rem, 1.7vw, 1.42rem);
+      font-weight: 850;
+      line-height: 1.35;
+    }
+    .source-note {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    @media (max-width: 900px) {
+      .drop-visual,
+      .predictor-grid {
+        grid-template-columns: 1fr;
+      }
+      .cohort-wheel,
+      .method-track {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 560px) {
+      .cohort-wheel,
+      .method-track,
+      .change-row,
+      .odds-row {
+        grid-template-columns: 1fr;
+      }
+      .change-row span,
+      .odds-row span:last-child {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/50-OPR50-EN-Poster-AM24_2024.pdf">Source PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/50-OPR50-EN-Poster-AM24_2024.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP Annual Meeting 2024 / OPR50-EN</p>
+        <h1 id="poster-title">Clinical outcomes of migraine patients receiving CGRP antagonists from an integrated health system specialty pharmacy</h1>
+        <p class="hero-summary">
+          A retrospective NYU Langone Health Specialty Pharmacy analysis linked patient-reported monthly migraine days with adherence, duration of therapy, diagnosis category, and CGRP treatment status.
+        </p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag therapy">Migraine</li>
+          <li class="tag category">CGRP antagonists</li>
+          <li class="tag">Integrated HSSP</li>
+          <li class="tag">Real-world outcomes</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Study snapshot">
+        <div class="poster-code">OPR50-EN<br>2024</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Cohort</dt>
+            <dd>643 patients</dd>
+          </div>
+          <div>
+            <dt>Study year</dt>
+            <dd>Jan-Dec 2023</dd>
+          </div>
+          <div>
+            <dt>Mean PDC</dt>
+            <dd>94.6%</dd>
+          </div>
+          <div>
+            <dt>Mean duration</dt>
+            <dd>144.2 days</dd>
+          </div>
+        </dl>
+        <p class="finding-callout">Primary outcome: change in patient-reported monthly migraine days from baseline to follow-up.</p>
+        <div class="migraine-hero-mark" role="img" aria-label="Migraine-day reduction from baseline to follow-up">
+          <svg viewBox="0 0 420 250" aria-hidden="true">
+            <defs>
+              <linearGradient id="migraineDrop" x1="0" x2="1">
+                <stop offset="0" stop-color="#d12630"/>
+                <stop offset="1" stop-color="#187c8f"/>
+              </linearGradient>
+            </defs>
+            <path d="M62 164 C120 78 168 70 213 121 S296 172 358 72" fill="none" stroke="rgba(36,55,112,0.14)" stroke-width="30" stroke-linecap="round"/>
+            <path d="M62 164 C120 78 168 70 213 121 S296 172 358 72" fill="none" stroke="url(#migraineDrop)" stroke-width="12" stroke-linecap="round"/>
+            <circle cx="62" cy="164" r="31" fill="#fff" stroke="#d12630" stroke-width="5"/>
+            <text x="62" y="158" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="22" font-weight="900">11.9</text>
+            <text x="62" y="181" text-anchor="middle" fill="#68758d" font-family="Inter, sans-serif" font-size="12" font-weight="800">baseline</text>
+            <circle cx="358" cy="72" r="31" fill="#fff" stroke="#187c8f" stroke-width="5"/>
+            <text x="358" y="66" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="22" font-weight="900">7.6</text>
+            <text x="358" y="89" text-anchor="middle" fill="#68758d" font-family="Inter, sans-serif" font-size="12" font-weight="800">follow-up</text>
+            <text x="210" y="220" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="17" font-weight="900">fewer monthly migraine days</text>
+          </svg>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <div class="metric-card">
+          <span>Patients analyzed</span>
+          <strong>643</strong>
+          <p>Adult episodic or chronic migraine patients managed by the HSSP.</p>
+        </div>
+        <div class="metric-card">
+          <span>Overall reduction</span>
+          <strong>35.7%</strong>
+          <p>Average decrease in patient-reported monthly migraine days.</p>
+        </div>
+        <div class="metric-card">
+          <span>New to CGRP therapy</span>
+          <strong>44.7%</strong>
+          <p>Reduction among patients starting the CGRP medication.</p>
+        </div>
+        <div class="metric-card">
+          <span>Treatment experienced</span>
+          <strong>21.3%</strong>
+          <p>Reduction among patients already using CGRP therapy.</p>
+        </div>
+      </section>
+
+      <section class="drop-visual" aria-label="Migraine day reductions">
+        <div class="impact-card">
+          <p class="section-label">Core result</p>
+          <strong>4.26</strong>
+          <p>Mean monthly migraine days avoided across the full cohort, from 11.86 at baseline to 7.60 at follow-up.</p>
+        </div>
+        <div class="panel">
+          <p class="section-label">Baseline to follow-up pattern</p>
+          <h2>Every high-signal subgroup moved downward, with the largest gains among new users and episodic migraine patients.</h2>
+          <div class="paired-change">
+            <div class="change-row">
+              <b>All patients</b>
+              <div>
+                <div class="bar-labels"><span>11.86</span><span>7.60</span></div>
+                <div class="dual-bar"><i style="width:43%"></i><i class="follow" style="width:28%"></i></div>
+              </div>
+              <span>-35.7%</span>
+            </div>
+            <div class="change-row">
+              <b>New to medication</b>
+              <div>
+                <div class="bar-labels"><span>14.82</span><span>8.20</span></div>
+                <div class="dual-bar"><i style="width:54%"></i><i class="follow" style="width:30%"></i></div>
+              </div>
+              <span>-44.7%</span>
+            </div>
+            <div class="change-row">
+              <b>Treatment experienced</b>
+              <div>
+                <div class="bar-labels"><span>8.92</span><span>7.02</span></div>
+                <div class="dual-bar"><i style="width:33%"></i><i class="follow" style="width:26%"></i></div>
+              </div>
+              <span>-21.3%</span>
+            </div>
+            <div class="change-row">
+              <b>Episodic migraine</b>
+              <div>
+                <div class="bar-labels"><span>8.96</span><span>3.82</span></div>
+                <div class="dual-bar"><i style="width:33%"></i><i class="follow" style="width:14%"></i></div>
+              </div>
+              <span>-57.4%</span>
+            </div>
+            <div class="change-row">
+              <b>Chronic migraine</b>
+              <div>
+                <div class="bar-labels"><span>16.88</span><span>12.90</span></div>
+                <div class="dual-bar"><i style="width:61%"></i><i class="follow" style="width:47%"></i></div>
+              </div>
+              <span>-23.6%</span>
+            </div>
+          </div>
+          <p class="source-note">Bars are scaled to the 26-30 baseline group maximum in the source figure; red is baseline and teal is follow-up.</p>
+        </div>
+      </section>
+
+      <section class="panel" aria-label="Study methods">
+        <p class="section-label">Methods</p>
+        <h2>Retrospective real-world analysis of CGRP antagonist patients enrolled in specialty pharmacy management.</h2>
+        <div class="method-track">
+          <div class="method-step" data-step="1">
+            <b>Identify adults</b>
+            <span>Episodic or chronic migraine patients receiving a CGRP antagonist from NYU Langone Health Specialty Pharmacy in 2023.</span>
+          </div>
+          <div class="method-step" data-step="2">
+            <b>Apply criteria</b>
+            <span>Included patients enrolled for at least 4 months with both baseline and follow-up migraine-day counts.</span>
+          </div>
+          <div class="method-step" data-step="3">
+            <b>Extract data</b>
+            <span>Electronic medical record and specialty pharmacy management system data supplied outcomes and covariates.</span>
+          </div>
+          <div class="method-step" data-step="4">
+            <b>Measure adherence</b>
+            <span>Medication adherence was summarized with proportion of days covered, with a cohort mean of 94.6%.</span>
+          </div>
+          <div class="method-step" data-step="5">
+            <b>Model change</b>
+            <span>Ordinal logistic regression evaluated improved, unchanged, and declined monthly migraine-day categories.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="visual-grid" aria-label="Cohort composition and objective">
+        <div class="panel">
+          <p class="section-label">Cohort shape</p>
+          <h2>The cohort was predominantly female, split almost evenly by new versus experienced CGRP use, and led by episodic migraine diagnoses.</h2>
+          <div class="cohort-wheel">
+            <div class="wheel-card">
+              <svg viewBox="0 0 120 120" role="img" aria-label="83 percent female">
+                <circle cx="60" cy="60" r="48" fill="none" stroke="#eef4fb" stroke-width="18"/>
+                <circle cx="60" cy="60" r="48" fill="none" stroke="#d12630" stroke-width="18" stroke-dasharray="250 302" stroke-linecap="round" transform="rotate(-90 60 60)"/>
+                <text x="60" y="66" text-anchor="middle" fill="#243770" font-size="24" font-weight="900">83%</text>
+              </svg>
+              <h3>Female</h3>
+              <p>531 of 643 patients; male patients were 17%.</p>
+            </div>
+            <div class="wheel-card">
+              <svg viewBox="0 0 120 120" role="img" aria-label="49.9 percent new to medication">
+                <circle cx="60" cy="60" r="48" fill="none" stroke="#eef4fb" stroke-width="18"/>
+                <circle cx="60" cy="60" r="48" fill="none" stroke="#187c8f" stroke-width="18" stroke-dasharray="151 302" stroke-linecap="round" transform="rotate(-90 60 60)"/>
+                <text x="60" y="66" text-anchor="middle" fill="#243770" font-size="24" font-weight="900">50%</text>
+              </svg>
+              <h3>New users</h3>
+              <p>321 new to medication and 322 treatment experienced.</p>
+            </div>
+            <div class="wheel-card">
+              <svg viewBox="0 0 120 120" role="img" aria-label="49 percent episodic migraine">
+                <circle cx="60" cy="60" r="48" fill="none" stroke="#eef4fb" stroke-width="18"/>
+                <circle cx="60" cy="60" r="48" fill="none" stroke="#7561a8" stroke-width="18" stroke-dasharray="148 302" stroke-linecap="round" transform="rotate(-90 60 60)"/>
+                <text x="60" y="66" text-anchor="middle" fill="#243770" font-size="24" font-weight="900">49%</text>
+              </svg>
+              <h3>Episodic</h3>
+              <p>315 episodic, 232 chronic, and 96 other migraine diagnoses.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel markdown-fragment">
+          <p class="section-label">Objective</p>
+          <h2>Evaluate the percent reduction in patient-reported monthly migraine days among CGRP-treated patients managed by an integrated HSSP.</h2>
+          <p>Limited data were available on real-world CGRP outcomes in integrated health system specialty pharmacies. This study tested whether results in pharmacy-managed care aligned with reductions reported in clinical trials.</p>
+          <div class="number-cloud" aria-label="Treatment distribution">
+            <div class="number-pill">49%<small>Emgality</small></div>
+            <div class="number-pill">32%<small>Aimovig</small></div>
+            <div class="number-pill">19%<small>Ajovy</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Regression signals</p>
+        <h2>New user status was the strongest reported predictor of improvement; episodic diagnosis, baseline migraine days, and treatment duration also favored reduction.</h2>
+        <div class="predictor-grid">
+          <div class="predictor-card">
+            <h3>Odds ratios for reduction in monthly migraine days</h3>
+            <div class="odds-list">
+              <div class="odds-row">
+                <span>New to medication</span>
+                <div class="odds-track"><i style="width:100%"></i></div>
+                <span>3.109</span>
+              </div>
+              <div class="odds-row">
+                <span>Other migraine</span>
+                <div class="odds-track"><i style="width:54%"></i></div>
+                <span>1.693</span>
+              </div>
+              <div class="odds-row">
+                <span>Episodic migraine</span>
+                <div class="odds-track"><i style="width:49%"></i></div>
+                <span>1.535</span>
+              </div>
+              <div class="odds-row">
+                <span>Baseline days</span>
+                <div class="odds-track"><i style="width:34%"></i></div>
+                <span>1.060</span>
+              </div>
+              <div class="odds-row">
+                <span>Treatment duration</span>
+                <div class="odds-track"><i style="width:32%"></i></div>
+                <span>1.002</span>
+              </div>
+            </div>
+            <p class="source-note">Displayed rows are the source-table factors highlighted in the results narrative or with p-values at or below 0.05.</p>
+          </div>
+          <div class="predictor-card mini-table">
+            <h3>Table pattern extracted from the poster</h3>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Characteristic</th>
+                    <th>Value</th>
+                    <th>p-value</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Baseline migraine days, mean</td>
+                    <td>11.86</td>
+                    <td>&lt;0.001</td>
+                  </tr>
+                  <tr>
+                    <td>Treatment duration, mean</td>
+                    <td>144.2 days</td>
+                    <td>0.010</td>
+                  </tr>
+                  <tr>
+                    <td>Medication status, new</td>
+                    <td>321 (49.9%)</td>
+                    <td>&lt;0.001</td>
+                  </tr>
+                  <tr>
+                    <td>Episodic migraine</td>
+                    <td>315 (49.0%)</td>
+                    <td>0.020</td>
+                  </tr>
+                  <tr>
+                    <td>PDC, mean</td>
+                    <td>94.6%</td>
+                    <td>0.940</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="evidence-map" aria-label="Evidence flow">
+        <article class="evidence-card">
+          <h3>Clinical gap</h3>
+          <p>Real-world outcomes for CGRP antagonists in integrated HSSPs were limited.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Data capture</h3>
+          <p>Baseline and follow-up monthly migraine-day counts anchored the primary endpoint.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Overall effect</h3>
+          <p>The cohort showed a 35.7% average reduction in monthly migraine days.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Largest responder group</h3>
+          <p>Patients new to CGRP medication had a 44.7% reduction from baseline.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Care-model signal</h3>
+          <p>Findings support CGRP effectiveness when managed through an integrated HSSP model.</p>
+        </article>
+      </section>
+
+      <section class="panel takeaway">
+        <p>
+          Conclusion: CGRP antagonist therapy managed by an integrated health system specialty pharmacy was associated with clinically meaningful real-world reductions in monthly migraine days, especially for patients new to therapy and those with higher baseline migraine frequency.
+        </p>
+      </section>
+    </main>
+
+    <footer class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/50-OPR50-EN-Poster-AM24_2024.pdf">Open original PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/50-OPR50-EN-Poster-AM24_2024.md">Read extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

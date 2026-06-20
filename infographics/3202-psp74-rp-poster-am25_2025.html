@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prescription for Sustainability | NASP 2025</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .sustainability-hero {
+      position: relative;
+      min-height: 21rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 18% 12%, rgba(77, 138, 103, 0.18), transparent 8rem),
+        radial-gradient(circle at 83% 83%, rgba(233, 158, 37, 0.24), transparent 9rem),
+        linear-gradient(135deg, #ffffff 0%, var(--surface-blue) 56%, #fff7ea 100%);
+      overflow: hidden;
+    }
+
+    .sustainability-hero svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 21rem;
+    }
+
+    .hero-card .finding {
+      margin: 0;
+      border-left: 4px solid var(--green);
+      padding-left: 0.72rem;
+      color: var(--ink);
+      font-size: 0.95rem;
+      font-weight: 850;
+    }
+
+    .metric-card p {
+      margin: 0.45rem 0 0;
+      color: var(--body);
+      font-size: 0.78rem;
+    }
+
+    .metric-card strong.green { color: var(--green); }
+    .metric-card strong.teal { color: var(--teal); }
+    .metric-card strong.gold { color: var(--gold); }
+
+    .co2-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .reduction-card {
+      display: grid;
+      align-content: center;
+      min-height: 14rem;
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(77, 138, 103, 0.18), transparent 7rem),
+        #fff;
+      padding: 1rem;
+    }
+
+    .reduction-card span {
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .reduction-card strong {
+      margin-top: 0.2rem;
+      color: var(--green);
+      font-family: var(--font-display);
+      font-size: clamp(3.4rem, 8vw, 5.7rem);
+      line-height: 0.88;
+    }
+
+    .reduction-card p {
+      margin: 0.65rem 0 0;
+      color: var(--body);
+      font-size: 0.9rem;
+    }
+
+    .comparison-bars {
+      display: grid;
+      gap: 0.85rem;
+      margin-top: 0.8rem;
+    }
+
+    .comparison-row {
+      display: grid;
+      grid-template-columns: 8.2rem minmax(0, 1fr) 4.2rem;
+      gap: 0.65rem;
+      align-items: center;
+    }
+
+    .comparison-row b {
+      color: var(--ink);
+      font-size: 0.82rem;
+      line-height: 1.15;
+    }
+
+    .comparison-track {
+      height: 1.15rem;
+      border: 1px solid rgba(174, 187, 210, 0.82);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+
+    .comparison-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: var(--bar, linear-gradient(90deg, var(--red), var(--gold)));
+    }
+
+    .comparison-row em {
+      color: var(--ink);
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .packaging-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-top: 0.8rem;
+    }
+
+    .package-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+    }
+
+    .package-card svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-bottom: 0.65rem;
+    }
+
+    .package-card p {
+      margin: 0.38rem 0 0;
+      font-size: 0.82rem;
+    }
+
+    .method-river {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .river-step {
+      position: relative;
+      min-height: 12rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.85rem;
+      overflow: hidden;
+    }
+
+    .river-step::before {
+      content: attr(data-step);
+      position: absolute;
+      right: 0.55rem;
+      bottom: -0.65rem;
+      color: rgba(36, 55, 112, 0.11);
+      font-family: var(--font-display);
+      font-size: 4.8rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .river-step h3,
+    .river-step p {
+      position: relative;
+      z-index: 1;
+    }
+
+    .river-step p {
+      margin: 0.5rem 0 0;
+      font-size: 0.82rem;
+    }
+
+    .outcome-lens {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+
+    .lens-tile {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+    }
+
+    .lens-tile small {
+      display: inline-flex;
+      margin-bottom: 0.45rem;
+      border-radius: 999px;
+      background: rgba(24, 124, 143, 0.11);
+      padding: 0.18rem 0.48rem;
+      color: var(--teal);
+      font-size: 0.65rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .lens-tile p {
+      margin: 0;
+      font-size: 0.83rem;
+    }
+
+    .takeaway-panel {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(77, 138, 103, 0.12), transparent 42%),
+        #fff;
+    }
+
+    .takeaway-panel p {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.35rem, 2.6vw, 2.15rem);
+      font-weight: 850;
+      line-height: 1.15;
+    }
+
+    .source-note {
+      margin: 0.5rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 900px) {
+      .co2-layout,
+      .method-river,
+      .outcome-lens {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .comparison-row {
+        grid-template-columns: 1fr;
+      }
+
+      .comparison-row em {
+        text-align: left;
+      }
+
+      .packaging-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source files">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/3202-PSP74-RP-Poster-AM25_2025.pdf">Poster PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/3202-PSP74-RP-Poster-AM25_2025.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2025 | 3202-PSP74-RP-Poster-AM25</p>
+        <h1>Prescription for Sustainability</h1>
+        <p class="hero-summary">Environmental, financial, and performance outcomes of eco-friendly cold-chain packaging for temperature-sensitive medication delivery.</p>
+        <ul class="tag-row" aria-label="Poster attributes">
+          <li class="tag category">Cold chain</li>
+          <li class="tag therapy">Sustainability</li>
+          <li class="tag">Prospective controlled trial</li>
+          <li class="tag">Patient survey</li>
+          <li class="tag">Ambulatory care</li>
+        </ul>
+        <div class="sustainability-hero" aria-label="Illustration of conventional and eco-friendly cold-chain packaging">
+          <svg viewBox="0 0 760 420" role="img" aria-labelledby="heroTitle heroDesc">
+            <title id="heroTitle">Cold-chain packaging comparison</title>
+            <desc id="heroDesc">A visual comparison of expanded polystyrene packaging and eco-friendly cardboard-based cold-chain packaging with reduced carbon emissions.</desc>
+            <defs>
+              <linearGradient id="routeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#d12630"/>
+                <stop offset="54%" stop-color="#e99e25"/>
+                <stop offset="100%" stop-color="#4d8a67"/>
+              </linearGradient>
+              <filter id="softShadow" x="-20%" y="-20%" width="140%" height="150%">
+                <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#243770" flood-opacity="0.16"/>
+              </filter>
+            </defs>
+            <path d="M96 282 C188 190, 278 342, 374 239 S568 116, 664 211" fill="none" stroke="url(#routeGrad)" stroke-width="10" stroke-linecap="round" opacity="0.85"/>
+            <g filter="url(#softShadow)">
+              <path d="M103 162 L261 111 L405 158 L246 217 Z" fill="#dfe7f4" stroke="#aebbd2" stroke-width="3"/>
+              <path d="M103 162 L246 217 L246 329 L103 272 Z" fill="#f7f9fc" stroke="#aebbd2" stroke-width="3"/>
+              <path d="M246 217 L405 158 L405 267 L246 329 Z" fill="#cfd9e8" stroke="#aebbd2" stroke-width="3"/>
+              <path d="M148 184 L248 151 L340 182 L241 219 Z" fill="none" stroke="#ffffff" stroke-width="8" opacity="0.72"/>
+              <text x="132" y="261" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="24" font-weight="900">EPS</text>
+              <text x="132" y="288" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800">conventional cooler</text>
+            </g>
+            <g filter="url(#softShadow)">
+              <path d="M435 151 L582 110 L682 154 L534 204 Z" fill="#d7c391" stroke="#9b8550" stroke-width="3"/>
+              <path d="M435 151 L534 204 L534 322 L435 263 Z" fill="#f2dfaa" stroke="#9b8550" stroke-width="3"/>
+              <path d="M534 204 L682 154 L682 270 L534 322 Z" fill="#ccb06e" stroke="#9b8550" stroke-width="3"/>
+              <path d="M493 164 C536 144 588 145 630 166" fill="none" stroke="#4d8a67" stroke-width="8" stroke-linecap="round"/>
+              <path d="M600 147 C624 134 647 137 663 154 C635 156 616 157 600 147Z" fill="#4d8a67"/>
+              <text x="457" y="250" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="22" font-weight="900">ECO</text>
+              <text x="457" y="277" fill="#33415c" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800">cardboard-based cooler</text>
+            </g>
+            <g>
+              <circle cx="382" cy="240" r="54" fill="#ffffff" stroke="#4d8a67" stroke-width="5"/>
+              <text x="382" y="226" fill="#4d8a67" font-family="Montserrat, Arial, sans-serif" font-size="28" font-weight="900" text-anchor="middle">79.5%</text>
+              <text x="382" y="250" fill="#243770" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="900" text-anchor="middle">lower CO2</text>
+              <text x="382" y="267" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="800" text-anchor="middle">per package metric</text>
+            </g>
+            <g fill="#187c8f" opacity="0.82">
+              <circle cx="92" cy="282" r="8"/>
+              <circle cx="664" cy="211" r="8"/>
+              <circle cx="269" cy="312" r="6"/>
+              <circle cx="536" cy="151" r="6"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <div class="poster-code">3202<br>PSP74</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Year</dt>
+            <dd>2025</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>Ambulatory care</dd>
+          </div>
+          <div>
+            <dt>Design</dt>
+            <dd>Prospective, multi-center controlled trial</dd>
+          </div>
+          <div>
+            <dt>Sites</dt>
+            <dd>UC Davis, UCSF, UCLA</dd>
+          </div>
+        </dl>
+        <p class="finding">Objective: characterize advantages and disadvantages of conventional versus eco-friendly cold-chain packaging on performance, waste, cost, and patient experience metrics.</p>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Conventional CO<sub>2</sub></span>
+          <strong>4.205</strong>
+          <p>kg reported for conventional packaging.</p>
+        </article>
+        <article class="metric-card">
+          <span>Eco-friendly CO<sub>2</sub></span>
+          <strong class="green">0.863</strong>
+          <p>kg reported for eco-friendly packaging.</p>
+        </article>
+        <article class="metric-card">
+          <span>Difference</span>
+          <strong class="teal">3.342</strong>
+          <p>kg lower CO<sub>2</sub> for eco-friendly packaging.</p>
+        </article>
+        <article class="metric-card">
+          <span>EPS waste</span>
+          <strong class="gold">0.9</strong>
+          <p>kg reported for conventional packaging.</p>
+        </article>
+      </section>
+
+      <section class="co2-layout">
+        <article class="reduction-card">
+          <span>Environmental signal</span>
+          <strong>79.5%</strong>
+          <p>Eco-friendly packaging shows a 79.5% lower reported CO<sub>2</sub> value than conventional packaging in the poster's footprint table.</p>
+        </article>
+        <article class="panel">
+          <p class="section-label">Footprint comparison</p>
+          <h2>Same cold-chain mission, smaller reported footprint</h2>
+          <div class="comparison-bars" aria-label="Relative packaging footprint bars">
+            <div class="comparison-row">
+              <b>Conventional CO<sub>2</sub></b>
+              <div class="comparison-track"><i style="--w:100%"></i></div>
+              <em>4.205</em>
+            </div>
+            <div class="comparison-row">
+              <b>Eco CO<sub>2</sub></b>
+              <div class="comparison-track"><i style="--w:20.5%; --bar:linear-gradient(90deg, var(--teal), var(--green))"></i></div>
+              <em>0.863</em>
+            </div>
+            <div class="comparison-row">
+              <b>EPS waste</b>
+              <div class="comparison-track"><i style="--w:64%; --bar:linear-gradient(90deg, var(--gold), var(--red))"></i></div>
+              <em>0.9 kg</em>
+            </div>
+          </div>
+          <p class="source-note">Cost values and shipment-scale counts were listed as placeholders in the markdown and are not visualized as completed results.</p>
+        </article>
+      </section>
+
+      <section class="visual-grid">
+        <article class="panel">
+          <p class="section-label">Packaging pattern</p>
+          <h2>Two materials strategies under evaluation</h2>
+          <div class="packaging-grid">
+            <div class="package-card">
+              <svg viewBox="0 0 220 128" aria-hidden="true">
+                <path d="M35 43 L112 19 L185 42 L108 69 Z" fill="#dfe7f4" stroke="#aebbd2" stroke-width="3"/>
+                <path d="M35 43 L108 69 L108 112 L35 86 Z" fill="#f7f9fc" stroke="#aebbd2" stroke-width="3"/>
+                <path d="M108 69 L185 42 L185 85 L108 112 Z" fill="#cfd9e8" stroke="#aebbd2" stroke-width="3"/>
+                <text x="54" y="83" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="18" font-weight="900">EPS</text>
+              </svg>
+              <h3>Conventional packaging</h3>
+              <p>Relies heavily on expanded polystyrene and plastic to protect temperature-sensitive medications.</p>
+            </div>
+            <div class="package-card">
+              <svg viewBox="0 0 220 128" aria-hidden="true">
+                <path d="M38 43 L113 21 L184 45 L108 70 Z" fill="#d7c391" stroke="#9b8550" stroke-width="3"/>
+                <path d="M38 43 L108 70 L108 111 L38 86 Z" fill="#f2dfaa" stroke="#9b8550" stroke-width="3"/>
+                <path d="M108 70 L184 45 L184 88 L108 111 Z" fill="#ccb06e" stroke="#9b8550" stroke-width="3"/>
+                <path d="M79 48 C106 35 141 37 164 50" fill="none" stroke="#4d8a67" stroke-width="6" stroke-linecap="round"/>
+                <path d="M145 36 C162 29 177 32 187 43 C168 45 155 45 145 36Z" fill="#4d8a67"/>
+              </svg>
+              <h3>Eco-friendly packaging</h3>
+              <p>Cardboard-based cold-chain packaging is framed as a greener alternative requiring performance validation.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Study objective</p>
+          <h2>Test sustainability without losing medication protection</h2>
+          <div class="markdown-fragment">
+            <p>The poster positions cold-chain medication delivery as high-stakes, high-cost, and high-volume for patients, pharmacies, and the environment.</p>
+            <p>The central question is whether eco-friendly packaging can preserve temperature performance while reducing non-biodegradable waste, total consumer waste, and downstream landfill burden.</p>
+          </div>
+          <div class="outcome-lens">
+            <div class="lens-tile">
+              <small>Performance</small>
+              <p>Temperature excursion proportion and time to event.</p>
+            </div>
+            <div class="lens-tile">
+              <small>Waste</small>
+              <p>Non-biodegradable, total consumer, and recyclable waste volumes.</p>
+            </div>
+            <div class="lens-tile">
+              <small>Experience</small>
+              <p>Patient satisfaction, terminal destination, and recycling rate.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section>
+        <p class="section-label">Evidence flow</p>
+        <h2>Prospective trial blueprint</h2>
+        <div class="method-river">
+          <article class="river-step" data-step="1">
+            <h3>Population</h3>
+            <p>Patients receiving medications delivered in cold-chain packaging from January 2024 onward.</p>
+          </article>
+          <article class="river-step" data-step="2">
+            <h3>Exclusion</h3>
+            <p>Ambient-temperature medication packaging is excluded from the cold-chain comparison.</p>
+          </article>
+          <article class="river-step" data-step="3">
+            <h3>Primary outcome</h3>
+            <p>Packaging performance measured by temperature excursion rate and time to excursion.</p>
+          </article>
+          <article class="river-step" data-step="4">
+            <h3>Secondary outcomes</h3>
+            <p>Waste, costs, medication waste, satisfaction, landfill destination, and recycling behavior.</p>
+          </article>
+          <article class="river-step" data-step="5">
+            <h3>Analysis</h3>
+            <p>Fisher's exact test, t-test, Mann-Whitney U, and multivariate regression are listed.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="tables-grid">
+        <article class="table-card">
+          <h2>Reported footprint table</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Metric</th>
+                  <th>Conventional</th>
+                  <th>Eco-friendly</th>
+                  <th>Pattern</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>CO<sub>2</sub></td>
+                  <td>4.205 kg</td>
+                  <td>0.863 kg</td>
+                  <td>3.342 kg lower for eco-friendly packaging</td>
+                </tr>
+                <tr>
+                  <td>EPS waste</td>
+                  <td>0.9 kg</td>
+                  <td>Not reported</td>
+                  <td>Conventional packaging carries the explicit EPS burden</td>
+                </tr>
+                <tr>
+                  <td>Cost</td>
+                  <td>Placeholder</td>
+                  <td>Placeholder</td>
+                  <td>Planned financial comparison, not completed in markdown</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <h2>Value proposition pattern</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Lens</th>
+                  <th>Poster signal</th>
+                  <th>Operational implication</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Mission</td>
+                  <td>Sustainability aligns with operational and financial goals</td>
+                  <td>Packaging decisions can be treated as pharmacy strategy</td>
+                </tr>
+                <tr>
+                  <td>Trust</td>
+                  <td>Perceived value with patients and stakeholders</td>
+                  <td>Transparency and accountability remain essential</td>
+                </tr>
+                <tr>
+                  <td>Next steps</td>
+                  <td>Lockers, reuse, multi-capacity coolers, smaller coolers</td>
+                  <td>Logistics and payload matching may compound waste reduction</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel takeaway-panel">
+        <p>Cold-chain medication packaging is being reimagined as greener, smarter, and more sustainable, with performance testing as the guardrail for environmental change.</p>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">Authors</p>
+          <h2>Multi-center UC collaboration</h2>
+          <div class="markdown-fragment">
+            <p>Kristine Chin, Myra Pascua, Mackenzie Clark, Kalpan Patel, David Mitchell, Tiffany Phung, and Jeremiah Duby.</p>
+            <p>Affiliations: University of California Davis Health, University of California San Francisco, and University of California Los Angeles.</p>
+          </div>
+        </article>
+        <article class="panel">
+          <p class="section-label">Sources</p>
+          <h2>Original poster files</h2>
+          <div class="footer-actions">
+            <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/3202-PSP74-RP-Poster-AM25_2025.pdf">Open PDF</a>
+            <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/3202-PSP74-RP-Poster-AM25_2025.md">Open Markdown</a>
+          </div>
+          <p class="source-note">Financial disclosure in source: no relevant financial relationships with ineligible companies were reported.</p>
+        </article>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

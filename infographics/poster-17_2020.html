@@ -1,0 +1,624 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Healthcare Resource Utilization and Cost Burden of Hemophilia B | NASP 2020</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -3.6rem;
+      bottom: -4.2rem;
+      width: 14rem;
+      height: 14rem;
+      border: 1.15rem solid rgba(209, 38, 48, 0.1);
+      border-radius: 50%;
+    }
+    .cost-gauge {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 0.58rem;
+      margin-top: 0.2rem;
+    }
+    .gauge-row {
+      display: grid;
+      grid-template-columns: 5.8rem minmax(0, 1fr) 4.9rem;
+      gap: 0.5rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .gauge-track {
+      height: 0.9rem;
+      border: 1px solid rgba(36, 55, 112, 0.15);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .gauge-fill {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--gold), var(--red));
+    }
+    .gauge-value {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-weight: 900;
+      text-align: right;
+    }
+    .metric-card strong small {
+      color: var(--red);
+      font-size: 0.82rem;
+    }
+    .metric-card em {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-style: normal;
+      font-weight: 750;
+      line-height: 1.35;
+    }
+    .burden-ratio {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 0.7rem;
+      align-items: center;
+      margin-top: 0.85rem;
+    }
+    .ratio-box {
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.72rem;
+      text-align: center;
+    }
+    .ratio-box strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 2rem;
+      line-height: 1;
+    }
+    .ratio-box span {
+      display: block;
+      margin-top: 0.3rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .ratio-arrow {
+      display: grid;
+      place-items: center;
+      width: 3rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-weight: 900;
+    }
+    .cost-skyline {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.7rem;
+      align-items: end;
+      min-height: 18rem;
+      margin-top: 0.9rem;
+      padding: 0.85rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, rgba(238, 244, 251, 0.85), rgba(255, 255, 255, 0.96)),
+        repeating-linear-gradient(0deg, transparent, transparent 3.2rem, rgba(36, 55, 112, 0.08) 3.25rem);
+    }
+    .cost-column {
+      display: grid;
+      gap: 0.42rem;
+      align-content: end;
+      min-height: 15.5rem;
+    }
+    .cost-bar {
+      display: grid;
+      align-items: end;
+      min-height: 2.2rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 6px 6px 2px 2px;
+      background: linear-gradient(180deg, var(--red), var(--gold));
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.36);
+    }
+    .cost-bar.medical {
+      background: linear-gradient(180deg, var(--teal), var(--green));
+    }
+    .cost-column b {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.84rem;
+      line-height: 1.12;
+      text-align: center;
+    }
+    .cost-column strong {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1rem;
+      line-height: 1;
+      text-align: center;
+    }
+    .cost-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 0.55rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 850;
+    }
+    .cost-legend i {
+      display: inline-block;
+      width: 1.4rem;
+      height: 0.45rem;
+      margin-right: 0.28rem;
+      border-radius: 999px;
+      vertical-align: middle;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .cost-legend .medical i {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .algorithm {
+      display: grid;
+      gap: 0.56rem;
+      margin-top: 0.8rem;
+    }
+    .algorithm-step {
+      display: grid;
+      grid-template-columns: 2.2rem minmax(0, 1fr) 7rem;
+      gap: 0.55rem;
+      align-items: stretch;
+    }
+    .algorithm-step span,
+    .algorithm-step p,
+    .algorithm-step strong {
+      margin: 0;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.55rem;
+      font-size: 0.78rem;
+    }
+    .algorithm-step span {
+      display: grid;
+      place-items: center;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-weight: 900;
+    }
+    .algorithm-step strong {
+      display: grid;
+      place-items: center;
+      background: var(--surface-blue);
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-weight: 900;
+      text-align: center;
+    }
+    .flow-rail {
+      display: grid;
+      gap: 0.45rem;
+      margin-top: 0.8rem;
+    }
+    .flow-step {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 5rem;
+      gap: 0.45rem;
+      align-items: center;
+    }
+    .flow-step span,
+    .flow-step strong {
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      padding: 0.48rem 0.55rem;
+      font-size: 0.76rem;
+    }
+    .flow-step span {
+      background: #fff;
+      color: var(--body);
+      font-weight: 760;
+    }
+    .flow-step strong {
+      background: var(--surface-blue);
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-weight: 900;
+      text-align: center;
+    }
+    .hru-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.8rem;
+    }
+    .hru-card {
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.68rem;
+    }
+    .hru-card h3 {
+      margin-bottom: 0.35rem;
+    }
+    .hru-card .delta {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .hru-card p {
+      margin: 0.3rem 0 0;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 780;
+    }
+    .composition {
+      display: grid;
+      grid-template-columns: 10rem minmax(0, 1fr);
+      gap: 0.8rem;
+      align-items: center;
+      margin-top: 0.8rem;
+    }
+    .donut {
+      width: 100%;
+      height: auto;
+    }
+    .composition-copy p {
+      margin: 0 0 0.48rem;
+      font-size: 0.86rem;
+    }
+    .source-note {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    .takeaway {
+      border-left: 5px solid var(--red);
+      background: linear-gradient(90deg, rgba(209, 38, 48, 0.08), rgba(255, 255, 255, 0));
+    }
+    @media (max-width: 900px) {
+      .cost-skyline,
+      .hru-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .cost-skyline {
+        min-height: auto;
+      }
+    }
+    @media (max-width: 650px) {
+      .gauge-row,
+      .burden-ratio,
+      .algorithm-step,
+      .flow-step,
+      .composition {
+        grid-template-columns: 1fr;
+      }
+      .gauge-value {
+        text-align: left;
+      }
+      .ratio-arrow {
+        width: 2.4rem;
+        margin: 0 auto;
+        transform: rotate(90deg);
+      }
+      .cost-skyline,
+      .hru-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar" aria-label="Infographic navigation">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#costs">Costs</a>
+        <a href="#methods">Methods</a>
+        <a href="#resources">HRU</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP Annual Meeting &amp; Expo Virtual Experience | 2020</p>
+        <h1 id="poster-title">Healthcare Resource Utilization and Cost Burden of Hemophilia B in the United States</h1>
+        <p class="hero-summary">
+          A claims-based study used IBM MarketScan data to classify adult male patients with hemophilia B by clinical profile, then compared their one-year healthcare use and costs with demographically matched controls.
+        </p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Retrospective claims analysis</li>
+          <li class="tag therapy">Hemophilia B</li>
+          <li class="tag therapy">Factor IX utilization</li>
+          <li class="tag">US health system perspective</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata and cost gradient">
+        <div>
+          <p class="section-label">Poster file</p>
+          <div class="poster-code">Poster-17_2020</div>
+        </div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Data source</dt>
+            <dd>IBM MarketScan</dd>
+          </div>
+          <div>
+            <dt>Window</dt>
+            <dd>06/2011-02/2019</dd>
+          </div>
+          <div>
+            <dt>Follow-up</dt>
+            <dd>1 year</dd>
+          </div>
+          <div>
+            <dt>Matched design</dt>
+            <dd>1:1 controls</dd>
+          </div>
+        </dl>
+        <div class="cost-gauge" aria-label="Annual total cost by clinical profile">
+          <div class="gauge-row"><span>Mild</span><div class="gauge-track"><i class="gauge-fill" style="width:13%"></i></div><b class="gauge-value">$83k</b></div>
+          <div class="gauge-row"><span>Moderate</span><div class="gauge-track"><i class="gauge-fill" style="width:22%"></i></div><b class="gauge-value">$141k</b></div>
+          <div class="gauge-row"><span>Mod-severe</span><div class="gauge-track"><i class="gauge-fill" style="width:39%"></i></div><b class="gauge-value">$254k</b></div>
+          <div class="gauge-row"><span>Severe</span><div class="gauge-track"><i class="gauge-fill" style="width:100%"></i></div><b class="gauge-value">$644k</b></div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Hemophilia B patients</span>
+          <strong>454</strong>
+          <em>Matched 1:1 to 454 controls without coagulation disorders.</em>
+        </article>
+        <article class="metric-card">
+          <span>Overall annual cost</span>
+          <strong>$205.8k</strong>
+          <em>Compared with $8.1k among matched controls; p &lt; 0.001.</em>
+        </article>
+        <article class="metric-card">
+          <span>Severe-profile cost</span>
+          <strong>$644k</strong>
+          <em>Highest reported annual total healthcare cost by profile.</em>
+        </article>
+        <article class="metric-card">
+          <span>Treatment share</span>
+          <strong>72<small>%</small></strong>
+          <em>Hemophilia-related treatment costs as a share of total costs overall.</em>
+        </article>
+      </section>
+
+      <section class="visual-grid" id="costs">
+        <article class="panel">
+          <p class="section-label">Main economic signal</p>
+          <h2>Costs rose sharply with claims-defined clinical severity</h2>
+          <div class="cost-skyline" aria-label="Annual healthcare costs by profile">
+            <div class="cost-column">
+              <div class="cost-bar medical" style="height:20%"></div>
+              <div class="cost-bar" style="height:29%"></div>
+              <strong>$83,291</strong>
+              <b>Mild<br>N=201</b>
+            </div>
+            <div class="cost-column">
+              <div class="cost-bar medical" style="height:23%"></div>
+              <div class="cost-bar" style="height:49%"></div>
+              <strong>$141,101</strong>
+              <b>Moderate<br>N=118</b>
+            </div>
+            <div class="cost-column">
+              <div class="cost-bar medical" style="height:36%"></div>
+              <div class="cost-bar" style="height:62%"></div>
+              <strong>$254,077</strong>
+              <b>Moderate-severe<br>N=69</b>
+            </div>
+            <div class="cost-column">
+              <div class="cost-bar medical" style="height:21%"></div>
+              <div class="cost-bar" style="height:100%"></div>
+              <strong>$643,979</strong>
+              <b>Severe<br>N=66</b>
+            </div>
+            <div class="cost-column">
+              <div class="cost-bar medical" style="height:35%"></div>
+              <div class="cost-bar" style="height:57%"></div>
+              <strong>$205,783</strong>
+              <b>All patients<br>N=454</b>
+            </div>
+          </div>
+          <div class="cost-legend">
+            <span><i></i>Pharmacy</span>
+            <span class="medical"><i></i>Medical services</span>
+          </div>
+          <p class="source-note">Bar heights are scaled to the maximum profile-specific pharmacy and medical service components from Figure 3.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Matched comparison</p>
+          <h2>The overall cost gap was more than twenty-fivefold</h2>
+          <div class="burden-ratio" aria-label="Cost ratio comparison">
+            <div class="ratio-box">
+              <strong>$205,783</strong>
+              <span>Hemophilia B</span>
+            </div>
+            <div class="ratio-arrow">25.6x</div>
+            <div class="ratio-box">
+              <strong>$8,052</strong>
+              <span>Matched control</span>
+            </div>
+          </div>
+          <div class="composition" aria-label="Treatment cost composition">
+            <svg class="donut" viewBox="0 0 160 160" role="img" aria-label="Hemophilia-related treatment costs accounted for 72 percent overall and 94 percent in severe profile">
+              <circle cx="80" cy="80" r="58" fill="none" stroke="#eef4fb" stroke-width="24"/>
+              <circle cx="80" cy="80" r="58" fill="none" stroke="#d12630" stroke-width="24" stroke-dasharray="262 103" stroke-dashoffset="-90" stroke-linecap="round"/>
+              <circle cx="80" cy="80" r="32" fill="#fff"/>
+              <text x="80" y="76" text-anchor="middle" fill="#d12630" font-family="Montserrat, Arial" font-size="28" font-weight="900">72%</text>
+              <text x="80" y="96" text-anchor="middle" fill="#68758d" font-family="Inter, Arial" font-size="11" font-weight="800">overall</text>
+            </svg>
+            <div class="composition-copy">
+              <p><strong>Cost composition:</strong> hemophilia-related treatment accounted for 72% of total healthcare costs overall.</p>
+              <p>In the severe cohort, the treatment-cost share reached 94%, indicating that factor-related spending dominated the highest-burden group.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="visual-grid" id="methods">
+        <article class="panel">
+          <p class="section-label">Claims algorithm</p>
+          <h2>Clinical profile was inferred from FIX claims and hemorrhage events</h2>
+          <div class="algorithm" aria-label="Clinical profile algorithm">
+            <div class="algorithm-step">
+              <span>1</span>
+              <p>Factor IX claims &ge;6 per year</p>
+              <strong>Severe</strong>
+            </div>
+            <div class="algorithm-step">
+              <span>2</span>
+              <p>Factor IX claims 4-5 per year or hemorrhage events &ge;1 per year</p>
+              <strong>Moderate-severe</strong>
+            </div>
+            <div class="algorithm-step">
+              <span>3</span>
+              <p>Factor IX claims 1-3 per year</p>
+              <strong>Moderate</strong>
+            </div>
+            <div class="algorithm-step">
+              <span>4</span>
+              <p>Factor IX claims 0 per year</p>
+              <strong>Mild</strong>
+            </div>
+          </div>
+          <p class="source-note">The profile algorithm was informed by literature and expert opinion; no laboratory clotting factor validation was available.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Sample selection</p>
+          <h2>From 3,873 potential cases to 454 adults</h2>
+          <div class="flow-rail" aria-label="Sample selection flow">
+            <div class="flow-step"><span>&ge;1 MarketScan claim with hemophilia B diagnosis</span><strong>3,873</strong></div>
+            <div class="flow-step"><span>&ge;2 claims on distinct dates</span><strong>1,836</strong></div>
+            <div class="flow-step"><span>Male patients</span><strong>1,272</strong></div>
+            <div class="flow-step"><span>&ge;1 year continuous enrollment before and after index</span><strong>627</strong></div>
+            <div class="flow-step"><span>Adult patients, then 1:1 matched controls</span><strong>454</strong></div>
+          </div>
+          <p class="source-note">Hemophilia B was identified using ICD-9-CM 286.1 or ICD-10-CM D67.</p>
+        </article>
+      </section>
+
+      <section class="panel" id="resources">
+        <p class="section-label">Healthcare resource utilization</p>
+        <h2>Patients with hemophilia B used more inpatient, emergency, outpatient, specialist, and opioid resources</h2>
+        <div class="hru-grid" aria-label="Annual resource use comparison">
+          <article class="hru-card">
+            <h3>IP admissions</h3>
+            <div class="delta">0.3 vs 0.1</div>
+            <p>Mean admissions; 19.2% had at least one admission vs 5.7% of controls.</p>
+          </article>
+          <article class="hru-card">
+            <h3>ER visits</h3>
+            <div class="delta">0.6 vs 0.2</div>
+            <p>Mean visits; 29.3% had at least one ER visit vs 14.1% of controls.</p>
+          </article>
+          <article class="hru-card">
+            <h3>OP visits</h3>
+            <div class="delta">17.7 vs 8.0</div>
+            <p>Mean visits; all hemophilia B patients had at least one outpatient visit.</p>
+          </article>
+          <article class="hru-card">
+            <h3>Opioid days</h3>
+            <div class="delta">35.2 vs 9.9</div>
+            <p>Mean days of supply; use was significantly higher in hemophilia B.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="evidence-map" aria-label="Evidence flow">
+        <article class="evidence-card">
+          <h3>Objective</h3>
+          <p>Build a claims-based clinical-profile algorithm and quantify hemophilia B HRU and costs overall and by profile.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Population</h3>
+          <p>Adult male patients with repeated hemophilia B diagnosis claims and 1-year baseline plus follow-up enrollment.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Comparator</h3>
+          <p>Demographically matched enrollees without hemophilia B, hemophilia A, or other coagulation disorder diagnoses.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Baseline signal</h3>
+          <p>Charlson Comorbidity Index was higher in hemophilia B: 0.9 vs 0.3, p &lt; 0.001.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Interpretation</h3>
+          <p>The authors concluded substantial economic burden remained, with profile classification enabling richer claims analyses.</p>
+        </article>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">Table pattern</p>
+          <h2>Profile mix leaned mild but burden concentrated in severe disease</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Clinical profile</th>
+                  <th>N</th>
+                  <th>Total annual cost</th>
+                  <th>Control cost</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Mild</td><td>201</td><td>$83,291</td><td>$11,599</td></tr>
+                <tr><td>Moderate</td><td>118</td><td>$141,101</td><td>$3,525</td></tr>
+                <tr><td>Moderate-severe</td><td>69</td><td>$254,077</td><td>$5,679</td></tr>
+                <tr><td>Severe</td><td>66</td><td>$643,979</td><td>$7,823</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="panel takeaway">
+          <p class="section-label">Conclusion</p>
+          <h2>Economic burden and unmet need remained evident</h2>
+          <div class="markdown-fragment">
+            <p>Hemophilia B was associated with substantially greater healthcare resource use and costs in the United States.</p>
+            <p>The claims algorithm may help expand use of administrative data to understand burden by clinical profile, while the lack of laboratory data limits formal validation of severity assignment.</p>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-17_2020.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-17_2020.md">Source Markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

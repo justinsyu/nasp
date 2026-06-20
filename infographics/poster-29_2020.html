@@ -1,0 +1,703 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Poster-29_2020 | Drive Growth by Eliminating Operational Weaknesses</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .snapshot-hero {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr);
+      gap: 1.2rem;
+      align-items: stretch;
+      padding: 1.4rem 0 1.5rem;
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .snapshot-hero::after {
+      content: "";
+      position: absolute;
+      right: 2rem;
+      bottom: -0.55rem;
+      width: 8rem;
+      height: 0.55rem;
+      background: linear-gradient(90deg, var(--red), var(--gold), var(--teal));
+    }
+
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -4rem -4rem auto auto;
+      width: 13rem;
+      height: 13rem;
+      border: 1.1rem solid rgba(24, 124, 143, 0.12);
+      border-radius: 50%;
+    }
+
+    .hero-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .growth-rings {
+      width: 100%;
+      height: auto;
+      margin-top: 0.6rem;
+    }
+
+    .metric-card strong small {
+      color: var(--red);
+      font-size: 0.88rem;
+    }
+
+    .metric-card em {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--muted);
+      font-size: 0.73rem;
+      font-style: normal;
+      font-weight: 750;
+    }
+
+    .central-story {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 1rem;
+    }
+
+    .claim-panel {
+      display: grid;
+      align-content: center;
+      min-height: 21rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 78% 20%, rgba(233, 158, 37, 0.28), transparent 6.8rem),
+        linear-gradient(145deg, var(--ink), #172552);
+      padding: 1.15rem;
+      color: #fff;
+    }
+
+    .claim-panel span {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .claim-panel strong {
+      display: block;
+      margin-top: 0.3rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(3.1rem, 7vw, 6rem);
+      line-height: 0.9;
+    }
+
+    .claim-panel p {
+      margin: 0.75rem 0 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.95rem;
+    }
+
+    .risk-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+
+    .risk-card {
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.72rem;
+    }
+
+    .risk-card b {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      line-height: 1;
+    }
+
+    .risk-card span {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--muted);
+      font-size: 0.73rem;
+      font-weight: 780;
+    }
+
+    .verification-bars,
+    .gap-bars {
+      display: grid;
+      gap: 0.56rem;
+      margin-top: 0.8rem;
+    }
+
+    .verification-row,
+    .gap-row {
+      display: grid;
+      grid-template-columns: 9.5rem minmax(0, 1fr) 3rem;
+      gap: 0.55rem;
+      align-items: center;
+    }
+
+    .verification-row span,
+    .gap-row span {
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+
+    .bar-track {
+      height: 0.86rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: #e9eff7;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .bar-fill.teal {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .verification-row b,
+    .gap-row b {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      text-align: right;
+    }
+
+    .weekly-changes {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.85rem;
+    }
+
+    .change-tile {
+      min-height: 7rem;
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.7rem;
+    }
+
+    .change-tile strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+
+    .change-tile span {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--body);
+      font-size: 0.76rem;
+      font-weight: 800;
+    }
+
+    .change-tile:nth-child(2n) strong {
+      color: var(--teal);
+    }
+
+    .change-tile:nth-child(3n) strong {
+      color: var(--gold);
+    }
+
+    .evidence-map {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .action-ladder {
+      display: grid;
+      gap: 0.62rem;
+      margin-top: 0.75rem;
+    }
+
+    .action-step {
+      display: grid;
+      grid-template-columns: 2.2rem minmax(0, 1fr);
+      gap: 0.62rem;
+      align-items: start;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.66rem;
+    }
+
+    .action-step b {
+      display: grid;
+      place-items: center;
+      width: 2.2rem;
+      height: 2.2rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      line-height: 1;
+    }
+
+    .action-step h3 {
+      margin-bottom: 0.18rem;
+    }
+
+    .action-step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-weight: 750;
+    }
+
+    .mini-table td:last-child,
+    .mini-table th:last-child {
+      text-align: right;
+    }
+
+    .note {
+      margin: 0.65rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 750;
+    }
+
+    .method-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.75rem;
+    }
+
+    .method-strip div {
+      border-left: 4px solid var(--teal);
+      background: var(--surface-blue);
+      padding: 0.65rem 0.75rem;
+    }
+
+    .method-strip div:nth-child(2) {
+      border-color: var(--gold);
+      background: var(--surface-warm);
+    }
+
+    .method-strip div:nth-child(3) {
+      border-color: var(--red);
+      background: #fff;
+    }
+
+    .method-strip strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      line-height: 1.1;
+    }
+
+    .method-strip span {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 760;
+    }
+
+    @media (max-width: 900px) {
+      .snapshot-hero,
+      .central-story,
+      .method-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .weekly-changes,
+      .evidence-map {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 620px) {
+      .risk-grid,
+      .weekly-changes,
+      .verification-row,
+      .gap-row {
+        grid-template-columns: 1fr;
+      }
+
+      .verification-row b,
+      .gap-row b {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar" aria-label="Infographic navigation">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#findings">Findings</a>
+        <a href="#compliance">Compliance</a>
+        <a href="#data-risk">Data risk</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="snapshot-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2020 | Poster-29_2020 | Specialty pharmacy snapshot</p>
+        <h1 id="poster-title">Drive Growth by Eliminating Operational Weaknesses</h1>
+        <p class="hero-summary">
+          LexisNexis Risk Solutions framed specialty pharmacy growth as a data, compliance, and market-development challenge: revenue is rising, but outdated provider verification, duplicate records, and limited analytics create operational drag.
+        </p>
+        <ul class="tag-row" aria-label="Snapshot tags">
+          <li class="tag category">Industry survey</li>
+          <li class="tag therapy">Specialty pharmacy</li>
+          <li class="tag">Provider data integrity</li>
+          <li class="tag">Compliance risk</li>
+          <li class="tag">Market outreach</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div>
+          <p class="section-label">Poster file</p>
+          <div class="poster-code">29_2020</div>
+        </div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Source</dt>
+            <dd>LexisNexis survey</dd>
+          </div>
+          <div>
+            <dt>Confidence</dt>
+            <dd>90%</dd>
+          </div>
+          <div>
+            <dt>Margin</dt>
+            <dd>15%</dd>
+          </div>
+          <div>
+            <dt>Focus</dt>
+            <dd>Operations</dd>
+          </div>
+        </dl>
+        <svg class="growth-rings" viewBox="0 0 420 240" role="img" aria-label="Specialty pharmacy growth from 2015 to 2020">
+          <defs>
+            <linearGradient id="growthGrad" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0" stop-color="#d12630"></stop>
+              <stop offset="0.58" stop-color="#e99e25"></stop>
+              <stop offset="1" stop-color="#187c8f"></stop>
+            </linearGradient>
+          </defs>
+          <rect x="14" y="20" width="392" height="198" rx="16" fill="#fff" stroke="#aebbd2" stroke-width="2"></rect>
+          <circle cx="128" cy="124" r="64" fill="#eef4fb" stroke="#d12630" stroke-width="12"></circle>
+          <circle cx="292" cy="104" r="86" fill="none" stroke="url(#growthGrad)" stroke-width="18"></circle>
+          <path d="M180 142 C215 167, 257 160, 302 132" fill="none" stroke="#243770" stroke-width="7" stroke-linecap="round"></path>
+          <path d="M290 124 L322 118 L305 145" fill="none" stroke="#243770" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path>
+          <text x="82" y="119" fill="#243770" font-family="Inter, Arial" font-size="22" font-weight="900">$162B</text>
+          <text x="88" y="148" fill="#68758d" font-family="Inter, Arial" font-size="16" font-weight="800">2015</text>
+          <text x="238" y="98" fill="#243770" font-family="Inter, Arial" font-size="28" font-weight="900">$248B</text>
+          <text x="254" y="130" fill="#68758d" font-family="Inter, Arial" font-size="16" font-weight="800">2020</text>
+        </svg>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Revenue growth</span>
+          <strong>$248<small>B</small></strong>
+          <em>Specialty pharmacy revenue reported for 2020, up from $162B in 2015.</em>
+        </article>
+        <article class="metric-card">
+          <span>Drug spend share</span>
+          <strong>48<small>%</small></strong>
+          <em>Specialty drugs represented nearly half of total drug spend.</em>
+        </article>
+        <article class="metric-card">
+          <span>Reimbursement or fines</span>
+          <strong>50<small>%</small></strong>
+          <em>Retail specialty pharmacies reported complications tied to compliance exposure.</em>
+        </article>
+        <article class="metric-card">
+          <span>Sanctions-check gap</span>
+          <strong>89<small>%</small></strong>
+          <em>Health-system specialty pharmacies lacked sanctions checks in the survey table.</em>
+        </article>
+      </section>
+
+      <section id="findings" class="central-story">
+        <div class="claim-panel">
+          <span>Primary objective</span>
+          <strong>grow without operational drag</strong>
+          <p>As specialty pharmacy expands, the snapshot argues that compliance workflows, provider data freshness, patient matching, and targeted outreach must mature together.</p>
+        </div>
+
+        <article class="panel">
+          <p class="section-label">Survey basis and pressure points</p>
+          <h2>The business case starts with margin pressure and fragmented verification.</h2>
+          <div class="method-strip">
+            <div>
+              <strong>Method</strong>
+              <span>2020 Specialty Pharmacy Survey through Specialty Pharmacy Times.</span>
+            </div>
+            <div>
+              <strong>Respondents</strong>
+              <span>Retail, health-system, and independent pharmacies, mostly pharmacists.</span>
+            </div>
+            <div>
+              <strong>Interpretation</strong>
+              <span>Snapshot-level findings with 90% confidence and 15% margin of error.</span>
+            </div>
+          </div>
+          <div class="risk-grid" aria-label="Key business concerns">
+            <div class="risk-card">
+              <b>#1</b>
+              <span>Shrinking margins were named as the top driver of profitability concern.</span>
+            </div>
+            <div class="risk-card">
+              <b>#2</b>
+              <span>DIR fees and reimbursement rates followed as the second driver.</span>
+            </div>
+            <div class="risk-card">
+              <b>1 in 3</b>
+              <span>Retail specialty pharmacies showed interest in patient matching and provider verification tools.</span>
+            </div>
+            <div class="risk-card">
+              <b>Half</b>
+              <span>All specialty pharmacies polled expressed interest in better prescription-volume analysis tools.</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section id="compliance" class="visual-grid">
+        <article class="panel">
+          <p class="section-label">Prescriber verification table pattern</p>
+          <h2>Health-system pharmacies reported larger verification gaps across core checks.</h2>
+          <div class="verification-bars" aria-label="Verification challenge percentages">
+            <div class="verification-row">
+              <span>No NPI verification</span>
+              <div class="bar-track"><i class="bar-fill" style="width:40%"></i></div>
+              <b>40%</b>
+            </div>
+            <div class="verification-row">
+              <span>No NPI verification, health system</span>
+              <div class="bar-track"><i class="bar-fill teal" style="width:60%"></i></div>
+              <b>60%</b>
+            </div>
+            <div class="verification-row">
+              <span>No DEA verification</span>
+              <div class="bar-track"><i class="bar-fill" style="width:45%"></i></div>
+              <b>45%</b>
+            </div>
+            <div class="verification-row">
+              <span>No DEA, health system</span>
+              <div class="bar-track"><i class="bar-fill teal" style="width:57%"></i></div>
+              <b>57%</b>
+            </div>
+            <div class="verification-row">
+              <span>No sanctions checks</span>
+              <div class="bar-track"><i class="bar-fill" style="width:80%"></i></div>
+              <b>80%</b>
+            </div>
+            <div class="verification-row">
+              <span>No sanctions, health system</span>
+              <div class="bar-track"><i class="bar-fill teal" style="width:89%"></i></div>
+              <b>89%</b>
+            </div>
+          </div>
+          <p class="note">Retail values are shown in red/gold; health-system values are shown in teal/green.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Data hygiene</p>
+          <h2>Provider data changes weekly, so static verification quickly ages.</h2>
+          <div class="weekly-changes" aria-label="Weekly provider data changes">
+            <div class="change-tile"><strong>86,000</strong><span>state license expirations</span></div>
+            <div class="change-tile"><strong>30,000</strong><span>primary practice address changes</span></div>
+            <div class="change-tile"><strong>17,000</strong><span>state license status changes</span></div>
+            <div class="change-tile"><strong>3,000</strong><span>provider name changes</span></div>
+            <div class="change-tile"><strong>1,750</strong><span>phone number changes</span></div>
+            <div class="change-tile"><strong>1,000</strong><span>DEA number changes</span></div>
+          </div>
+          <p class="note">These weekly-change figures were attributed to LexisNexis Provider Data MasterFile, 2020.</p>
+        </article>
+      </section>
+
+      <section id="data-risk" class="evidence-map" aria-label="Evidence flow">
+        <article class="evidence-card">
+          <h3>Growth signal</h3>
+          <p>Specialty pharmacy revenue rose from $162B in 2015 to $248B in 2020.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Operational weakness</h3>
+          <p>Retail pharmacies reported incomplete real-time provider database updates and manual validation workflows.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Compliance exposure</h3>
+          <p>Verification gaps included missing NPI, DEA, license, and sanctions checks.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Recommended response</h3>
+          <p>The snapshot called for data-integrity, patient-matching, and prescriber-affiliation tools.</p>
+        </article>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">Market outreach gaps</p>
+          <h2>Provider targeting was limited by incomplete analytics.</h2>
+          <div class="gap-bars" aria-label="Market development analysis gaps">
+            <div class="gap-row">
+              <span>No facility-type analysis</span>
+              <div class="bar-track"><i class="bar-fill" style="width:89%"></i></div>
+              <b>89%</b>
+            </div>
+            <div class="gap-row">
+              <span>No disease-state analysis</span>
+              <div class="bar-track"><i class="bar-fill teal" style="width:64%"></i></div>
+              <b>64%</b>
+            </div>
+            <div class="gap-row">
+              <span>No therapeutic-category analysis</span>
+              <div class="bar-track"><i class="bar-fill" style="width:55%"></i></div>
+              <b>55%</b>
+            </div>
+            <div class="gap-row">
+              <span>Cannot identify top physicians</span>
+              <div class="bar-track"><i class="bar-fill teal" style="width:11%"></i></div>
+              <b>1 in 9</b>
+            </div>
+          </div>
+          <p class="note">Values describe retail specialty pharmacies with provider-value assignment capabilities, except the 1-in-9 headline.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Conclusion and action path</p>
+          <h2>Growth depends on cleaner data plus targeted workflows.</h2>
+          <div class="action-ladder" aria-label="Recommended operational actions">
+            <div class="action-step">
+              <b>1</b>
+              <div>
+                <h3>Strengthen compliance</h3>
+                <p>Move prescriber verification into workflow and refresh NPI, DEA, license, sanctions, and credentials data.</p>
+              </div>
+            </div>
+            <div class="action-step">
+              <b>2</b>
+              <div>
+                <h3>Match patient records</h3>
+                <p>Reduce duplicate records and improve patient numbering so reimbursement and service workflows remain stable.</p>
+              </div>
+            </div>
+            <div class="action-step">
+              <b>3</b>
+              <div>
+                <h3>Map high-value providers</h3>
+                <p>Analyze prescribers, affiliations, referral patterns, facility type, disease state, and therapeutic category.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Extracted table patterns">
+        <article class="table-card">
+          <p class="section-label">Provider database update pattern</p>
+          <h2>Retail pharmacies reported stale update processes.</h2>
+          <div class="table-wrap">
+            <table class="mini-table">
+              <thead>
+                <tr>
+                  <th>Provider database condition</th>
+                  <th>Retail specialty pharmacies</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Do not update provider data in real time</td>
+                  <td>50%</td>
+                </tr>
+                <tr>
+                  <td>Have no means to update provider databases</td>
+                  <td>20%</td>
+                </tr>
+                <tr>
+                  <td>Use free online resources, calls, or corporate office verification</td>
+                  <td>41% / 46%</td>
+                </tr>
+                <tr>
+                  <td>Duplicate record issues present</td>
+                  <td>80%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Patient matching pattern</p>
+          <h2>In-workflow patient numbering was not universal.</h2>
+          <div class="table-wrap">
+            <table class="mini-table">
+              <thead>
+                <tr>
+                  <th>Measure</th>
+                  <th>Retail</th>
+                  <th>Health system</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Duplicate records issues present</td>
+                  <td>80%</td>
+                  <td>75%</td>
+                </tr>
+                <tr>
+                  <td>Have in-workflow patient numbering system</td>
+                  <td>50%</td>
+                  <td>40%</td>
+                </tr>
+                <tr>
+                  <td>Patient referrals from own system</td>
+                  <td>Not stated</td>
+                  <td>90%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-29_2020.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-29_2020.md">Source Markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

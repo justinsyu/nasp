@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Droxidopa Persistence in Orthostatic Hypotension | NASP 2020 Poster 24</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .poster-hero {
+      position: relative;
+      overflow: hidden;
+    }
+    .poster-hero::after {
+      content: "";
+      position: absolute;
+      right: 21rem;
+      bottom: -0.15rem;
+      width: 14rem;
+      height: 0.45rem;
+      background: linear-gradient(90deg, var(--red), var(--gold), var(--teal));
+      border-radius: 999px 999px 0 0;
+    }
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -5rem -3.5rem auto auto;
+      width: 14rem;
+      aspect-ratio: 1;
+      border: 1.25rem solid rgba(24, 124, 143, 0.11);
+      border-radius: 50%;
+    }
+    .hero-card > * {
+      position: relative;
+      z-index: 1;
+    }
+    .care-loop {
+      display: grid;
+      gap: 0.46rem;
+      margin-top: 0.4rem;
+    }
+    .care-step {
+      display: grid;
+      grid-template-columns: 2rem minmax(0, 1fr);
+      gap: 0.48rem;
+      align-items: center;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.78);
+      padding: 0.42rem;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 820;
+    }
+    .care-step b {
+      display: grid;
+      place-items: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      font-weight: 900;
+    }
+    .metric-card strong small {
+      color: var(--red);
+      font-size: 0.95rem;
+    }
+    .metric-card em {
+      display: block;
+      margin-top: 0.32rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-style: normal;
+      font-weight: 750;
+      line-height: 1.28;
+    }
+    .curve-board {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(16rem, 0.9fr);
+      gap: 1rem;
+      align-items: center;
+    }
+    .persistence-chart {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .at-risk-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.45rem;
+      margin-top: 0.7rem;
+    }
+    .risk-chip {
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.5rem 0.42rem;
+      text-align: center;
+    }
+    .risk-chip strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      line-height: 1;
+    }
+    .risk-chip span {
+      display: block;
+      margin-top: 0.16rem;
+      color: var(--muted);
+      font-size: 0.63rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .adherence-stack {
+      display: grid;
+      gap: 0.7rem;
+    }
+    .pdc-row {
+      display: grid;
+      grid-template-columns: 8.8rem minmax(0, 1fr) 3rem;
+      gap: 0.55rem;
+      align-items: center;
+    }
+    .pdc-row span {
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+    .pdc-track {
+      height: 1rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: #eef3f8;
+      overflow: hidden;
+    }
+    .pdc-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .pdc-row b {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.92rem;
+      text-align: right;
+    }
+    .dropout-note {
+      border-left: 4px solid var(--red);
+      background: linear-gradient(90deg, rgba(209, 38, 48, 0.08), rgba(255, 255, 255, 0));
+    }
+    .patient-mix {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.6rem;
+      margin-top: 0.75rem;
+    }
+    .mix-tile {
+      min-height: 7.8rem;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.65rem;
+    }
+    .mix-tile strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.85rem;
+      line-height: 1;
+    }
+    .mix-tile span {
+      display: block;
+      margin-top: 0.28rem;
+      color: var(--body);
+      font-size: 0.78rem;
+      font-weight: 780;
+      line-height: 1.28;
+    }
+    .events-dashboard {
+      display: grid;
+      grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .donut-pair {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.7rem;
+    }
+    .donut-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.65rem;
+      text-align: center;
+    }
+    .donut-card svg {
+      width: 7.4rem;
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto 0.35rem;
+    }
+    .donut-card strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+    }
+    .donut-card span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 850;
+      line-height: 1.2;
+    }
+    .fall-bars,
+    .ae-bars {
+      display: grid;
+      gap: 0.42rem;
+      margin-top: 0.7rem;
+    }
+    .fall-row,
+    .ae-row {
+      display: grid;
+      grid-template-columns: 8rem minmax(0, 1fr) 3rem;
+      gap: 0.5rem;
+      align-items: center;
+      color: var(--body);
+      font-size: 0.76rem;
+      font-weight: 800;
+    }
+    .fall-row i,
+    .ae-row i {
+      display: block;
+      height: 0.72rem;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--gold), var(--red));
+    }
+    .ae-row i {
+      background: linear-gradient(90deg, var(--purple), var(--teal));
+    }
+    .flow-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+    .flow-step {
+      position: relative;
+      min-height: 8.6rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.72rem;
+    }
+    .flow-step::before {
+      content: attr(data-step);
+      display: inline-grid;
+      place-items: center;
+      width: 1.8rem;
+      height: 1.8rem;
+      margin-bottom: 0.46rem;
+      border-radius: 50%;
+      background: var(--red);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+    .flow-step h3 {
+      margin-bottom: 0.3rem;
+    }
+    .flow-step p {
+      margin: 0;
+      color: var(--body);
+      font-size: 0.78rem;
+      line-height: 1.35;
+    }
+    .source-note {
+      margin: 0.62rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 750;
+    }
+    @media (max-width: 900px) {
+      .curve-board,
+      .events-dashboard,
+      .flow-strip,
+      .patient-mix {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 680px) {
+      .at-risk-grid,
+      .donut-pair {
+        grid-template-columns: 1fr;
+      }
+      .pdc-row,
+      .fall-row,
+      .ae-row {
+        grid-template-columns: 1fr;
+      }
+      .pdc-row b {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar" aria-label="Infographic navigation">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#persistence">Persistence</a>
+        <a href="#outcomes">Outcomes</a>
+        <a href="#methods">Methods</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2020 / Poster 24</p>
+        <h1 id="poster-title">Persistence on droxidopa remained difficult despite integrated specialty pharmacy monitoring.</h1>
+        <p class="hero-summary">
+          Vanderbilt Specialty Pharmacy evaluated adult patients receiving droxidopa for symptomatic
+          orthostatic hypotension and tracked persistence, adherence, adverse events, falls, and
+          healthcare utilization within an integrated neurology specialty pharmacy model.
+        </p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Retrospective cohort</li>
+          <li class="tag therapy">Orthostatic hypotension</li>
+          <li class="tag therapy">Droxidopa</li>
+          <li class="tag">Integrated care center</li>
+          <li class="tag">Specialty pharmacist support</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata and care model">
+        <div>
+          <p class="section-label">Poster file</p>
+          <div class="poster-code">24<br>2020</div>
+        </div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Site</dt>
+            <dd>Vanderbilt</dd>
+          </div>
+          <div>
+            <dt>Study window</dt>
+            <dd>May 2017-Sep 2019</dd>
+          </div>
+          <div>
+            <dt>Sample</dt>
+            <dd>89 adults</dd>
+          </div>
+          <div>
+            <dt>Persistence rule</dt>
+            <dd>Lapse &gt;60 days</dd>
+          </div>
+        </dl>
+        <div class="care-loop" aria-label="Specialty pharmacist role">
+          <div class="care-step"><b>1</b><span>Prescriber decides to treat with droxidopa</span></div>
+          <div class="care-step"><b>2</b><span>Specialty pharmacist secures insurance approval</span></div>
+          <div class="care-step"><b>3</b><span>Initial counseling starts therapy with support</span></div>
+          <div class="care-step"><b>4</b><span>Ongoing monitoring tracks efficacy and adverse events</span></div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key poster numbers">
+        <article class="metric-card">
+          <span>Study cohort</span>
+          <strong>89</strong>
+          <em>Adults with at least 3 medication fills.</em>
+        </article>
+        <article class="metric-card">
+          <span>Persistent at 12 months</span>
+          <strong>63<small>%</small></strong>
+          <em>Kaplan-Meier probability; 95% CI 0.53-0.75.</em>
+        </article>
+        <article class="metric-card">
+          <span>Median PDC</span>
+          <strong>97<small>%</small></strong>
+          <em>High adherence among patients with fills.</em>
+        </article>
+        <article class="metric-card">
+          <span>Reported AEs</span>
+          <strong>41</strong>
+          <em>Reported by 28 patients; hypertension led the list.</em>
+        </article>
+      </section>
+
+      <section class="panel" id="persistence">
+        <p class="section-label">Primary outcome</p>
+        <h2>Persistence declined steadily across 24 months, while the at-risk cohort became small.</h2>
+        <div class="curve-board">
+          <div>
+            <svg class="persistence-chart" viewBox="0 0 680 360" role="img" aria-label="Medication persistence curve: 100 percent at baseline, 75 percent at 6 months, 63 percent at 12 months, 55 percent at 18 months, 52 percent at 24 months">
+              <rect x="44" y="22" width="594" height="286" rx="12" fill="#ffffff" stroke="#d9e1ef"/>
+              <g stroke="#d9e1ef" stroke-width="1">
+                <line x1="82" y1="68" x2="610" y2="68"/>
+                <line x1="82" y1="124" x2="610" y2="124"/>
+                <line x1="82" y1="180" x2="610" y2="180"/>
+                <line x1="82" y1="236" x2="610" y2="236"/>
+                <line x1="82" y1="292" x2="610" y2="292"/>
+              </g>
+              <g fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800">
+                <text x="48" y="72">100%</text>
+                <text x="55" y="128">75%</text>
+                <text x="55" y="184">50%</text>
+                <text x="55" y="240">25%</text>
+                <text x="64" y="296">0%</text>
+              </g>
+              <g fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" text-anchor="middle">
+                <text x="96" y="334">0</text>
+                <text x="224" y="334">6</text>
+                <text x="352" y="334">12</text>
+                <text x="480" y="334">18</text>
+                <text x="608" y="334">24 mo</text>
+              </g>
+              <polyline points="96,68 224,124 352,151 480,169 608,176" fill="none" stroke="#d12630" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+              <polyline points="96,68 224,124 352,151 480,169 608,176" fill="none" stroke="#e99e25" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <g>
+                <circle cx="96" cy="68" r="8" fill="#243770"/>
+                <circle cx="224" cy="124" r="8" fill="#243770"/>
+                <circle cx="352" cy="151" r="8" fill="#243770"/>
+                <circle cx="480" cy="169" r="8" fill="#243770"/>
+                <circle cx="608" cy="176" r="8" fill="#243770"/>
+              </g>
+              <g fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="15" font-weight="900" text-anchor="middle">
+                <text x="96" y="48">1.00</text>
+                <text x="224" y="105">0.75</text>
+                <text x="352" y="132">0.63</text>
+                <text x="480" y="150">0.55</text>
+                <text x="608" y="157">0.52</text>
+              </g>
+            </svg>
+            <div class="at-risk-grid" aria-label="Number at risk over time">
+              <div class="risk-chip"><strong>89</strong><span>0 months</span></div>
+              <div class="risk-chip"><strong>61</strong><span>6 months</span></div>
+              <div class="risk-chip"><strong>37</strong><span>12 months</span></div>
+              <div class="risk-chip"><strong>15</strong><span>18 months</span></div>
+              <div class="risk-chip"><strong>6</strong><span>24 months</span></div>
+            </div>
+          </div>
+          <article class="panel dropout-note">
+            <p class="section-label">Interpretation</p>
+            <h2>Monitoring did not eliminate non-persistence.</h2>
+            <p>
+              The poster defined non-persistence as the first coverage lapse greater than 60 days.
+              At 6 months, 61 patients were persistent; by 12 months the probability of remaining
+              persistent was 0.63, with 23 patients censored.
+            </p>
+            <p>
+              At the end of the study period, 55 patients, or 61.8%, were persistent. Median follow-up
+              was 10.9 months.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="visual-grid" id="outcomes">
+        <article class="panel">
+          <p class="section-label">Adherence</p>
+          <h2>Patients who stayed on therapy generally filled consistently.</h2>
+          <div class="adherence-stack" aria-label="Median proportion of days covered">
+            <div class="pdc-row">
+              <span>Persistent</span>
+              <div class="pdc-track"><i style="width:99%"></i></div>
+              <b>99%</b>
+            </div>
+            <div class="pdc-row">
+              <span>Nonpersistent</span>
+              <div class="pdc-track"><i style="width:90%"></i></div>
+              <b>90%</b>
+            </div>
+            <div class="pdc-row">
+              <span>Combined</span>
+              <div class="pdc-track"><i style="width:97%"></i></div>
+              <b>97%</b>
+            </div>
+          </div>
+          <div class="number-cloud" aria-label="Additional adherence numbers">
+            <div class="number-pill">13%<small>PDC &lt;80%</small></div>
+            <div class="number-pill">14.8<small>fills persistent</small></div>
+            <div class="number-pill">10.1<small>fills nonpersistent</small></div>
+          </div>
+          <p class="source-note">PDC = proportion of days covered.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Patient profile</p>
+          <h2>The cohort was older and primarily covered by Medicare.</h2>
+          <div class="patient-mix" aria-label="Selected patient characteristics">
+            <div class="mix-tile"><strong>71</strong><span>Mean age in years, with standard deviation of 8.</span></div>
+            <div class="mix-tile"><strong>64%</strong><span>Male patients in the 89-person cohort.</span></div>
+            <div class="mix-tile"><strong>75%</strong><span>Medicare insurance type.</span></div>
+            <div class="mix-tile"><strong>40%</strong><span>Primary diagnosis: Parkinson's disease.</span></div>
+            <div class="mix-tile"><strong>33%</strong><span>Primary diagnosis: pure autonomic failure.</span></div>
+            <div class="mix-tile"><strong>11%</strong><span>Primary diagnosis: multiple system atrophy.</span></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="events-dashboard">
+        <article class="panel">
+          <p class="section-label">Healthcare utilization</p>
+          <h2>Most patients had no related ED visit or hospitalization in the record.</h2>
+          <div class="donut-pair" aria-label="Zero utilization percentages">
+            <div class="donut-card">
+              <svg viewBox="0 0 140 140" role="img" aria-label="87.6 percent had zero emergency department visits">
+                <circle cx="70" cy="70" r="48" fill="none" stroke="#d9e1ef" stroke-width="20"/>
+                <circle cx="70" cy="70" r="48" fill="none" stroke="#187c8f" stroke-width="20" stroke-dasharray="264 38" stroke-dashoffset="-76" transform="rotate(-90 70 70)" stroke-linecap="round"/>
+                <text x="70" y="74" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial" font-size="26" font-weight="900">87.6%</text>
+              </svg>
+              <strong>0 ED visits</strong>
+              <span>78 of 89 patients</span>
+            </div>
+            <div class="donut-card">
+              <svg viewBox="0 0 140 140" role="img" aria-label="89.9 percent had zero hospitalizations">
+                <circle cx="70" cy="70" r="48" fill="none" stroke="#d9e1ef" stroke-width="20"/>
+                <circle cx="70" cy="70" r="48" fill="none" stroke="#4d8a67" stroke-width="20" stroke-dasharray="271 31" stroke-dashoffset="-76" transform="rotate(-90 70 70)" stroke-linecap="round"/>
+                <text x="70" y="74" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial" font-size="26" font-weight="900">89.9%</text>
+              </svg>
+              <strong>0 hospitalizations</strong>
+              <span>80 of 89 patients</span>
+            </div>
+          </div>
+          <p class="source-note">Reasons for related acute care included syncope and falls.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Safety and falls</p>
+          <h2>Falls were common; hypertension was the leading reported adverse event.</h2>
+          <div class="section-stack">
+            <div>
+              <h3>Patient-reported falls (n=77)</h3>
+              <div class="fall-bars" aria-label="Fall distribution by percent">
+                <div class="fall-row"><span>0 falls</span><i style="width:44%"></i><b>44%</b></div>
+                <div class="fall-row"><span>1 fall</span><i style="width:23%"></i><b>23%</b></div>
+                <div class="fall-row"><span>2 falls</span><i style="width:12%"></i><b>12%</b></div>
+                <div class="fall-row"><span>3 falls</span><i style="width:10%"></i><b>10%</b></div>
+                <div class="fall-row"><span>4+ falls</span><i style="width:11%"></i><b>11%</b></div>
+              </div>
+            </div>
+            <div>
+              <h3>Adverse events reported (n=41)</h3>
+              <div class="ae-bars" aria-label="Adverse events by number reported">
+                <div class="ae-row"><span>Hypertension</span><i style="width:100%"></i><b>22</b></div>
+                <div class="ae-row"><span>UTI</span><i style="width:23%"></i><b>5</b></div>
+                <div class="ae-row"><span>Dizziness</span><i style="width:18%"></i><b>4</b></div>
+                <div class="ae-row"><span>CNS</span><i style="width:18%"></i><b>4</b></div>
+                <div class="ae-row"><span>GI</span><i style="width:18%"></i><b>4</b></div>
+                <div class="ae-row"><span>Edema</span><i style="width:9%"></i><b>2</b></div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel" id="methods">
+        <p class="section-label">Methods and evidence flow</p>
+        <h2>A single-center retrospective cohort connected dispensing records with patient-reported and EHR outcomes.</h2>
+        <div class="flow-strip" aria-label="Study design flow">
+          <article class="flow-step" data-step="1">
+            <h3>Identify</h3>
+            <p>Adults prescribed droxidopa and filled at least 3 times through the center's specialty pharmacy.</p>
+          </article>
+          <article class="flow-step" data-step="2">
+            <h3>Track</h3>
+            <p>Measure time to first non-persistent event, defined as a medication coverage lapse greater than 60 days.</p>
+          </article>
+          <article class="flow-step" data-step="3">
+            <h3>Monitor</h3>
+            <p>Capture adherence by PDC, patient-reported adverse events and falls, ED visits, and hospitalizations.</p>
+          </article>
+          <article class="flow-step" data-step="4">
+            <h3>Interpret</h3>
+            <p>Separate persistence challenges from adherence among patients who continued therapy.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel markdown-fragment">
+          <p class="section-label">Objective</p>
+          <h2>Evaluate persistence in an integrated specialty pharmacy model.</h2>
+          <p>
+            The poster asked whether adult patients with symptomatic orthostatic hypotension remained
+            persistent on droxidopa while receiving care supported by a specialty pharmacist embedded
+            in the outpatient neurology clinic workflow.
+          </p>
+        </article>
+        <article class="panel markdown-fragment">
+          <p class="section-label">Conclusion</p>
+          <h2>High adherence did not solve the persistence problem.</h2>
+          <p>
+            The authors concluded that many patients were not persistent through 12 months despite
+            close monitoring for adverse events and efficacy. Among patients who maintained therapy,
+            adherence rates were high.
+          </p>
+          <p>
+            Future analysis was planned to examine reasons for non-persistence and relationships among
+            adverse events, healthcare utilization, and persistence.
+          </p>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Extracted table patterns">
+        <article class="table-card">
+          <p class="section-label">Table pattern</p>
+          <h2>Persistence and risk set</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Month</th>
+                  <th>Persistent probability</th>
+                  <th>Number at risk</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>0</td><td>1.00</td><td>89</td></tr>
+                <tr><td>6</td><td>0.75</td><td>61</td></tr>
+                <tr><td>12</td><td>0.63</td><td>37</td></tr>
+                <tr><td>18</td><td>0.55</td><td>15</td></tr>
+                <tr><td>24</td><td>0.52</td><td>6</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card" id="sources">
+          <p class="section-label">Source links</p>
+          <h2>Poster materials</h2>
+          <div class="markdown-fragment">
+            <p><strong>Authors:</strong> Sabrina N. Livezey, Jessica Daniell, Josh DeClercq, Leena Choi, Autumn Zuckerman, and Nisha B. Shah.</p>
+            <p><strong>Affiliations:</strong> Vanderbilt Specialty Pharmacy and Vanderbilt University Medical Center, with Lipscomb University.</p>
+          </div>
+          <div class="footer-actions">
+            <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-24_2020.pdf">Open original PDF</a>
+            <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-24_2020.md">Read extracted markdown</a>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2024 Infographic | CML TKI Adherence and Molecular Response</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card .button-link {
+      justify-content: center;
+      background: #fff;
+    }
+    .hero-visual {
+      position: relative;
+      min-height: 18rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 76% 22%, rgba(233, 158, 37, 0.38), transparent 9rem),
+        linear-gradient(135deg, rgba(36, 55, 112, 0.97), rgba(24, 124, 143, 0.91));
+      color: #fff;
+      overflow: hidden;
+      padding: 1rem;
+    }
+    .hero-visual svg {
+      position: absolute;
+      right: -1.5rem;
+      bottom: -1.8rem;
+      width: min(27rem, 72%);
+      opacity: 0.9;
+    }
+    .hero-visual .label {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+    .hero-visual strong {
+      display: block;
+      margin-top: 0.24rem;
+      font-family: var(--font-display);
+      font-size: clamp(2.7rem, 7vw, 5.5rem);
+      line-height: 0.92;
+    }
+    .hero-visual span {
+      display: block;
+      max-width: 20rem;
+      margin-top: 0.65rem;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.95rem;
+    }
+    .metric-card strong small {
+      color: var(--ink);
+      font-size: 0.9rem;
+    }
+    .bench-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-top: 0.75rem;
+    }
+    .bench-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface-blue);
+      padding: 0.8rem;
+    }
+    .bench-card h3 {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.6rem;
+    }
+    .bench-card h3 b {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.9rem;
+      line-height: 1;
+    }
+    .bench-track {
+      position: relative;
+      height: 1.3rem;
+      border-radius: 999px;
+      background: #dfe8f4;
+      overflow: hidden;
+    }
+    .bench-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .bench-marker {
+      position: relative;
+      margin-top: 0.55rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 850;
+    }
+    .bench-marker::before {
+      content: "";
+      position: absolute;
+      top: -1.85rem;
+      left: var(--marker);
+      width: 2px;
+      height: 1.65rem;
+      background: var(--ink);
+    }
+    .response-grid {
+      display: grid;
+      grid-template-columns: 13.5rem minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+      margin-top: 0.65rem;
+    }
+    .response-grid svg {
+      width: 100%;
+      max-width: 13.5rem;
+      height: auto;
+    }
+    .legend {
+      display: grid;
+      gap: 0.5rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .legend li {
+      display: grid;
+      grid-template-columns: 0.75rem minmax(0, 1fr) auto;
+      gap: 0.48rem;
+      align-items: center;
+      font-size: 0.82rem;
+    }
+    .legend i {
+      width: 0.75rem;
+      height: 0.75rem;
+      border-radius: 3px;
+      background: var(--legend-color, var(--red));
+    }
+    .age-bars .lens-row {
+      grid-template-columns: 8.5rem minmax(0, 1fr) 3rem;
+    }
+    .age-bars .lens-row em {
+      color: var(--ink);
+      font-style: normal;
+      font-size: 0.78rem;
+      font-weight: 850;
+      text-align: right;
+    }
+    .sex-split {
+      display: grid;
+      grid-template-columns: 42.7fr 57.3fr;
+      min-height: 4.6rem;
+      margin-top: 0.8rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .sex-split div {
+      display: grid;
+      place-items: center;
+      padding: 0.65rem;
+      color: #fff;
+      font-weight: 850;
+      text-align: center;
+    }
+    .sex-split div:first-child { background: var(--purple); }
+    .sex-split div:last-child { background: var(--teal); }
+    .sex-split strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+    .flow-line {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.7rem;
+    }
+    .flow-node {
+      position: relative;
+      min-height: 8.8rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.82rem;
+    }
+    .flow-node::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -0.51rem;
+      width: 0.75rem;
+      height: 0.75rem;
+      border-top: 2px solid var(--border-strong);
+      border-right: 2px solid var(--border-strong);
+      background: #fff;
+      transform: translateY(-50%) rotate(45deg);
+    }
+    .flow-node:last-child::after { display: none; }
+    .flow-node b {
+      display: inline-grid;
+      place-items: center;
+      width: 1.65rem;
+      height: 1.65rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+    }
+    .flow-node h3 {
+      margin-top: 0.48rem;
+      font-size: 0.94rem;
+    }
+    .flow-node p {
+      margin: 0.35rem 0 0;
+      font-size: 0.78rem;
+    }
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+    .comparison-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface-blue);
+      padding: 0.75rem;
+    }
+    .stack-bar {
+      display: flex;
+      height: 1.2rem;
+      margin-top: 0.6rem;
+      border-radius: 999px;
+      overflow: hidden;
+      background: var(--border);
+    }
+    .stack-bar i { display: block; height: 100%; }
+    .callout-list {
+      margin: 0.6rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .callout-list li {
+      display: grid;
+      grid-template-columns: 0.8rem minmax(0, 1fr);
+      gap: 0.42rem;
+      margin-top: 0.42rem;
+      font-size: 0.88rem;
+    }
+    .callout-list li::before {
+      content: "";
+      width: 0.52rem;
+      height: 0.52rem;
+      margin-top: 0.43rem;
+      border-radius: 50%;
+      background: var(--red);
+    }
+    .source-note {
+      margin: 0.75rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+    @media (max-width: 900px) {
+      .bench-grid,
+      .comparison-grid,
+      .flow-line {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .flow-node::after { display: none; }
+      .response-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .bench-grid,
+      .comparison-grid,
+      .flow-line {
+        grid-template-columns: 1fr;
+      }
+      .age-bars .lens-row {
+        grid-template-columns: 1fr;
+      }
+      .age-bars .lens-row em {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="https://naspnet.org/" aria-label="NASP website">NASP Posters</a>
+      <nav aria-label="Page sections">
+        <a href="#snapshot">Snapshot</a>
+        <a href="#methods">Methods</a>
+        <a href="#results">Results</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">2024 Annual Meeting Poster | 13-OPR13-OR</p>
+        <h1>Adherence, persistence, and molecular response patterns in CML treated with TKIs</h1>
+        <p class="hero-summary">
+          Yale New Haven Health evaluated chronic myelogenous leukemia patients enrolled in an integrated health-system specialty pharmacy disease program to connect adherence, persistence, and molecular response patterns.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Retrospective chart review</li>
+          <li class="tag therapy">Chronic myelogenous leukemia</li>
+          <li class="tag therapy">Tyrosine kinase inhibitors</li>
+          <li class="tag">Integrated specialty pharmacy</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Poster details">
+        <div class="poster-code">AM24<br>13-OPR13-OR</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Review window</dt>
+            <dd>May 2023-Apr 2024</dd>
+          </div>
+          <div>
+            <dt>Poster year</dt>
+            <dd>2024</dd>
+          </div>
+          <div>
+            <dt>Charts reviewed</dt>
+            <dd>164</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>YNHH OPS</dd>
+          </div>
+        </dl>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/13-OPR13-OR-Poster-AM24_2024.pdf">Open poster PDF</a>
+      </aside>
+    </section>
+
+    <main>
+      <section id="snapshot" class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Patient charts retrieved</span>
+          <strong>167</strong>
+        </article>
+        <article class="metric-card">
+          <span>Patient charts reviewed</span>
+          <strong>164</strong>
+        </article>
+        <article class="metric-card">
+          <span>Average age</span>
+          <strong>64.6<small> yrs</small></strong>
+        </article>
+        <article class="metric-card">
+          <span>At least MMR</span>
+          <strong>73.78<small>%</small></strong>
+        </article>
+      </section>
+
+      <section class="visual-grid" aria-label="Main finding and adherence benchmarks">
+        <article class="hero-visual">
+          <p class="label">Primary clinical signal</p>
+          <strong>0.92<br>MPR</strong>
+          <span>OPS patients exceeded literature thresholds for both adherence and persistence while nearly three quarters achieved at least major molecular response.</span>
+          <svg viewBox="0 0 340 240" role="img" aria-label="CML therapy monitoring illustration">
+            <defs>
+              <linearGradient id="cellFill" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ffffff" stop-opacity="0.95"></stop>
+                <stop offset="1" stop-color="#e99e25" stop-opacity="0.72"></stop>
+              </linearGradient>
+            </defs>
+            <circle cx="198" cy="122" r="78" fill="none" stroke="#ffffff" stroke-width="16" opacity="0.22"></circle>
+            <circle cx="198" cy="122" r="78" fill="none" stroke="#e99e25" stroke-width="16" stroke-linecap="round" stroke-dasharray="360 490" transform="rotate(-90 198 122)"></circle>
+            <circle cx="198" cy="122" r="45" fill="url(#cellFill)"></circle>
+            <path d="M80 172c44-66 72-116 118-50 28 40 54 22 82-34" fill="none" stroke="#fff" stroke-width="13" stroke-linecap="round" opacity="0.9"></path>
+            <path d="M79 172c44 12 78 10 118-50 27-41 56-31 82-34" fill="none" stroke="#243770" stroke-width="6" stroke-linecap="round" opacity="0.74"></path>
+            <circle cx="82" cy="172" r="10" fill="#d12630"></circle>
+            <circle cx="198" cy="122" r="10" fill="#187c8f"></circle>
+            <circle cx="280" cy="88" r="10" fill="#d12630"></circle>
+          </svg>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Adherence and persistence</p>
+          <h2>OPS performance cleared both benchmark thresholds</h2>
+          <div class="bench-grid">
+            <div class="bench-card">
+              <h3>MPR <b>0.92</b></h3>
+              <div class="bench-track" aria-label="MPR 0.92 compared with 0.85 benchmark">
+                <i style="width: 92%;"></i>
+              </div>
+              <p class="bench-marker" style="--marker: 85%;">Benchmark 0.85</p>
+            </div>
+            <div class="bench-card">
+              <h3>PDC <b>0.89</b></h3>
+              <div class="bench-track" aria-label="PDC 0.89 compared with 0.80 benchmark">
+                <i style="width: 89%;"></i>
+              </div>
+              <p class="bench-marker" style="--marker: 80%;">Benchmark 0.80</p>
+            </div>
+          </div>
+          <p class="source-note">Benchmarks were drawn from literature cited in the poster; OPS values reflect patients filling with Outpatient Pharmacy Services.</p>
+        </article>
+      </section>
+
+      <section id="methods" class="panel">
+        <p class="section-label">Evidence flow</p>
+        <h2>From disease-program enrollment to molecular-response review</h2>
+        <div class="flow-line">
+          <article class="flow-node">
+            <b>1</b>
+            <h3>Platform migration</h3>
+            <p>YNHH HSSP moved to a disease-specific patient management platform in May 2023.</p>
+          </article>
+          <article class="flow-node">
+            <b>2</b>
+            <h3>CML cohort</h3>
+            <p>Patients on imatinib, dasatinib, bosutinib, nilotinib, or asciminib were enrolled in the CML program.</p>
+          </article>
+          <article class="flow-node">
+            <b>3</b>
+            <h3>Eligibility lens</h3>
+            <p>Included patients had at least one year of TKI therapy and completed program tasks.</p>
+          </article>
+          <article class="flow-node">
+            <b>4</b>
+            <h3>Core outcomes</h3>
+            <p>MPR and PDC were evaluated for OPS patients as adherence and persistence measures.</p>
+          </article>
+          <article class="flow-node">
+            <b>5</b>
+            <h3>Response pattern</h3>
+            <p>Most recent charted BCR-ABL transcript levels were used for molecular response classification.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="results" class="visual-grid" aria-label="Response and demographics">
+        <article class="panel">
+          <p class="section-label">Molecular response</p>
+          <h2>MMR and CMR accounted for nearly three quarters of patients</h2>
+          <div class="response-grid">
+            <svg viewBox="0 0 240 240" role="img" aria-label="Donut chart of molecular response categories">
+              <circle cx="120" cy="120" r="76" fill="none" stroke="#d9e1ef" stroke-width="36"></circle>
+              <circle cx="120" cy="120" r="76" fill="none" stroke="#d12630" stroke-width="36" stroke-dasharray="206.6 270.9" stroke-dashoffset="0" transform="rotate(-90 120 120)"></circle>
+              <circle cx="120" cy="120" r="76" fill="none" stroke="#187c8f" stroke-width="36" stroke-dasharray="145.6 331.9" stroke-dashoffset="-206.6" transform="rotate(-90 120 120)"></circle>
+              <circle cx="120" cy="120" r="76" fill="none" stroke="#e99e25" stroke-width="36" stroke-dasharray="113.6 363.9" stroke-dashoffset="-352.2" transform="rotate(-90 120 120)"></circle>
+              <circle cx="120" cy="120" r="76" fill="none" stroke="#4d8a67" stroke-width="36" stroke-dasharray="8.7 468.8" stroke-dashoffset="-465.8" transform="rotate(-90 120 120)"></circle>
+              <circle cx="120" cy="120" r="76" fill="none" stroke="#7561a8" stroke-width="36" stroke-dasharray="2.9 474.6" stroke-dashoffset="-474.5" transform="rotate(-90 120 120)"></circle>
+              <circle cx="120" cy="120" r="49" fill="#fff"></circle>
+              <text x="120" y="112" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="21" font-weight="900">73.78%</text>
+              <text x="120" y="136" text-anchor="middle" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="800">at least MMR</text>
+            </svg>
+            <ul class="legend">
+              <li style="--legend-color: var(--red);"><i></i><span>Major molecular response</span><b>43.29%</b></li>
+              <li style="--legend-color: var(--teal);"><i></i><span>Complete molecular response</span><b>30.49%</b></li>
+              <li style="--legend-color: var(--gold);"><i></i><span>Persistent disease</span><b>23.78%</b></li>
+              <li style="--legend-color: var(--green);"><i></i><span>Treatment free</span><b>1.83%</b></li>
+              <li style="--legend-color: var(--purple);"><i></i><span>Hold</span><b>0.61%</b></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Patient demographics</p>
+          <h2>Older adult-heavy cohort with a modest male majority</h2>
+          <div class="lens-chart age-bars">
+            <div class="lens-row"><span>Less than 40</span><div class="lens-bar"><i style="width: 43.3%;"></i></div><em>13%</em></div>
+            <div class="lens-row"><span>40-60</span><div class="lens-bar"><i style="width: 100%;"></i></div><em>30%</em></div>
+            <div class="lens-row"><span>61-69</span><div class="lens-bar"><i style="width: 70%;"></i></div><em>21%</em></div>
+            <div class="lens-row"><span>70-79</span><div class="lens-bar"><i style="width: 70%;"></i></div><em>21%</em></div>
+            <div class="lens-row"><span>80-89</span><div class="lens-bar"><i style="width: 33.3%;"></i></div><em>10%</em></div>
+            <div class="lens-row"><span>90-99</span><div class="lens-bar"><i style="width: 16.7%;"></i></div><em>5%</em></div>
+          </div>
+          <div class="sex-split" aria-label="Sex at birth split">
+            <div><span><strong>42.7%</strong>Female</span></div>
+            <div><span><strong>57.3%</strong>Male</span></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">Prescribing pattern</p>
+          <h2>Response stayed broadly similar across switch status</h2>
+          <div class="comparison-grid">
+            <div class="comparison-card">
+              <h3>Stayed on 1 TKI</h3>
+              <div class="stack-bar" aria-label="Patients stayed on one TKI response distribution">
+                <i style="width:45.88%; background:var(--red);"></i>
+                <i style="width:31.76%; background:var(--teal);"></i>
+                <i style="width:20%; background:var(--gold);"></i>
+                <i style="width:1.18%; background:var(--green);"></i>
+                <i style="width:1.18%; background:var(--purple);"></i>
+              </div>
+              <p class="source-note">MMR 45.88%, CMR 31.76%, persistent disease 20.00%.</p>
+            </div>
+            <div class="comparison-card">
+              <h3>Switched to 1+ TKIs</h3>
+              <div class="stack-bar" aria-label="Patients switching to one or more TKIs response distribution">
+                <i style="width:40.51%; background:var(--red);"></i>
+                <i style="width:29.11%; background:var(--teal);"></i>
+                <i style="width:27.85%; background:var(--gold);"></i>
+                <i style="width:2.53%; background:var(--green);"></i>
+              </div>
+              <p class="source-note">MMR 40.51%, CMR 29.11%, persistent disease 27.85%.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Interpretation</p>
+          <h2>Specialty pharmacist follow-up is the practical mechanism</h2>
+          <ul class="callout-list">
+            <li>Specialty clinical pharmacists assessed adverse events and missed doses 5 days after medication initiation.</li>
+            <li>Patients were reassessed every 6 months, or sooner when clinically needed.</li>
+            <li>The poster attributes benchmark-exceeding MPR and PDC to close HSSP monitoring.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="evidence-map" aria-label="Extracted poster takeaways">
+        <article class="evidence-card">
+          <h3>Objective</h3>
+          <p>Evaluate adherence, persistence, and molecular response patterns among patients with CML on TKIs.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Methods</h3>
+          <p>Retrospective chart review of completed tasks from May 1, 2023 to April 30, 2024.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Population</h3>
+          <p>Patients on TKI therapy for at least one year in the YNHH CML disease program.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Mutation notes</h3>
+          <p>Observed mutations included T315I, F359I, CALR, ASLX1, and E255V.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Conclusion</h3>
+          <p>Specialty clinical pharmacist interventions result in improved adherence and outcomes for patients with CML.</p>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Condensed source table patterns">
+        <article class="table-card">
+          <p class="section-label">Table pattern</p>
+          <h2>Average adherence and persistence</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Metric</th>
+                  <th>OPS value</th>
+                  <th>Benchmark</th>
+                  <th>Difference</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>MPR</td>
+                  <td>0.92</td>
+                  <td>0.85</td>
+                  <td>+0.07</td>
+                </tr>
+                <tr>
+                  <td>PDC</td>
+                  <td>0.89</td>
+                  <td>0.80</td>
+                  <td>+0.09</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Focused subset</p>
+          <h2>Imatinib without therapy switch</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Molecular response</th>
+                  <th>Percentage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>MMR</td><td>45.00%</td></tr>
+                <tr><td>CMR</td><td>30.00%</td></tr>
+                <tr><td>Persistent disease</td><td>21.67%</td></tr>
+                <tr><td>Treatment free</td><td>1.67%</td></tr>
+                <tr><td>On hold</td><td>1.67%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/13-OPR13-OR-Poster-AM24_2024.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/13-OPR13-OR-Poster-AM24_2024.md">Source markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

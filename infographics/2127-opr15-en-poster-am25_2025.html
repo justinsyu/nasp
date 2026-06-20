@@ -1,0 +1,695 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2025 Infographic | CFTR Saturday Delivery and Adherence</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -3.5rem;
+      bottom: -3rem;
+      width: 13rem;
+      height: 13rem;
+      border: 1.2rem solid rgba(24, 124, 143, 0.12);
+      border-radius: 50%;
+    }
+    .hero-visual {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 18rem;
+      margin: 0.2rem auto 0;
+    }
+    .hero-visual svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .button-link {
+      justify-content: center;
+    }
+    .pdc-stage {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 8rem minmax(0, 1fr);
+      gap: 0.75rem;
+      align-items: center;
+      margin-top: 0.8rem;
+    }
+    .pdc-tile {
+      min-height: 11.5rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.9rem;
+    }
+    .pdc-tile span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+    .pdc-tile strong {
+      display: block;
+      margin-top: 0.3rem;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(2.7rem, 7vw, 5.2rem);
+      line-height: 0.95;
+    }
+    .pdc-tile p {
+      margin: 0.55rem 0 0;
+      color: var(--body);
+      font-size: 0.86rem;
+    }
+    .pdc-arrow {
+      display: grid;
+      place-items: center;
+      min-height: 8rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--surface-blue), #fff);
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-weight: 900;
+      text-align: center;
+    }
+    .pdc-arrow b {
+      color: var(--green);
+      font-size: 2.2rem;
+      line-height: 1;
+    }
+    .pdc-arrow small {
+      display: block;
+      color: var(--muted);
+      font-family: var(--font-body);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .funnel {
+      display: grid;
+      gap: 0.65rem;
+      margin-top: 0.7rem;
+    }
+    .funnel-step {
+      display: grid;
+      grid-template-columns: 5.4rem minmax(0, 1fr);
+      gap: 0.65rem;
+      align-items: center;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.65rem;
+    }
+    .funnel-step strong {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2rem;
+      line-height: 1;
+      text-align: center;
+    }
+    .funnel-step span {
+      color: var(--ink);
+      font-size: 0.84rem;
+      font-weight: 850;
+    }
+    .funnel-step small {
+      display: block;
+      margin-top: 0.15rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+    .paired-bars {
+      display: grid;
+      gap: 0.68rem;
+      margin-top: 0.75rem;
+    }
+    .paired-row {
+      display: grid;
+      grid-template-columns: 8.3rem minmax(0, 1fr) 3.6rem;
+      gap: 0.5rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+    .bar-pair {
+      display: grid;
+      gap: 0.22rem;
+    }
+    .bar-track {
+      height: 0.75rem;
+      border: 1px solid rgba(36, 55, 112, 0.15);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .bar-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+    }
+    .pre i { background: var(--border-strong); }
+    .post i { background: linear-gradient(90deg, var(--teal), var(--green)); }
+    .paired-row em {
+      color: var(--muted);
+      font-style: normal;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-align: right;
+    }
+    .mini-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-top: 0.55rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+    .mini-legend i {
+      display: inline-block;
+      width: 0.72rem;
+      height: 0.72rem;
+      margin-right: 0.25rem;
+      border-radius: 2px;
+      vertical-align: -0.08rem;
+    }
+    .legend-pre { background: var(--border-strong); }
+    .legend-post { background: var(--teal); }
+    .outcome-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.75rem;
+    }
+    .outcome-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface-blue);
+      padding: 0.65rem;
+    }
+    .outcome-card span {
+      display: block;
+      color: var(--ink);
+      font-size: 0.76rem;
+      font-weight: 900;
+    }
+    .outcome-card strong {
+      display: block;
+      margin-top: 0.2rem;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+    .outcome-card small {
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 800;
+    }
+    .adherence-ladder {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 0.75rem;
+    }
+    .ladder-row {
+      display: grid;
+      grid-template-columns: 8rem minmax(0, 1fr) 4rem;
+      gap: 0.5rem;
+      align-items: center;
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+    .ladder-row .lens-bar i {
+      background: linear-gradient(90deg, var(--red), var(--gold), var(--green));
+    }
+    .tight-list {
+      margin: 0.6rem 0 0 1rem;
+      padding: 0;
+    }
+    .tight-list li {
+      margin: 0.28rem 0;
+      font-size: 0.86rem;
+    }
+    .callout-band {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 1rem;
+      align-items: center;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(36, 55, 112, 0.96), rgba(24, 124, 143, 0.92)),
+        radial-gradient(circle at 92% 12%, rgba(233, 158, 37, 0.5), transparent 18rem);
+      padding: 1rem;
+      color: #fff;
+    }
+    .callout-band h2,
+    .callout-band h3 {
+      color: #fff;
+    }
+    .callout-band .section-label {
+      color: rgba(255, 255, 255, 0.78);
+    }
+    .callout-band p {
+      margin: 0.45rem 0 0;
+      color: rgba(255, 255, 255, 0.86);
+    }
+    .callout-number {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 7vw, 6.4rem);
+      font-weight: 900;
+      line-height: 0.92;
+    }
+    .callout-number span {
+      display: block;
+      color: rgba(255, 255, 255, 0.74);
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+    .study-window {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.7rem;
+    }
+    .window-cell {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.65rem;
+    }
+    .window-cell strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      line-height: 1.1;
+    }
+    .window-cell span {
+      display: block;
+      margin-top: 0.2rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+    @media (max-width: 900px) {
+      .pdc-stage,
+      .callout-band {
+        grid-template-columns: 1fr;
+      }
+      .pdc-arrow {
+        min-height: 5rem;
+      }
+      .outcome-grid,
+      .study-window {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 560px) {
+      .paired-row,
+      .ladder-row,
+      .funnel-step {
+        grid-template-columns: 1fr;
+      }
+      .paired-row em {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="https://naspnet.org/" aria-label="NASP website">NASP Posters</a>
+      <nav aria-label="Page sections">
+        <a href="#snapshot">Snapshot</a>
+        <a href="#intervention">Intervention</a>
+        <a href="#results">Results</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">2025 Annual Meeting Poster | 2127-OPR15-EN</p>
+        <h1>Saturday delivery as a specialty pharmacy adherence intervention for CFTR modulators</h1>
+        <p class="hero-summary">
+          Maxor Specialty Pharmacy retrospectively evaluated whether adding Saturday delivery was associated with better proportion of days covered among patients with cystic fibrosis receiving CFTR modulators.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Longitudinal retrospective chart review</li>
+          <li class="tag therapy">Cystic fibrosis</li>
+          <li class="tag therapy">CFTR modulators</li>
+          <li class="tag">Medication adherence</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Poster details">
+        <div class="poster-code">AM25<br>2127-OPR15-EN</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Study window</dt>
+            <dd>Nov 2023-Oct 2024</dd>
+          </div>
+          <div>
+            <dt>Intervention</dt>
+            <dd>Saturday delivery</dd>
+          </div>
+          <div>
+            <dt>Final group</dt>
+            <dd>95 patients</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>Maxor Specialty</dd>
+          </div>
+        </dl>
+        <div class="hero-visual" aria-hidden="true">
+          <svg viewBox="0 0 260 190">
+            <rect x="22" y="34" width="154" height="126" rx="12" fill="#fff" stroke="#aebbd2" stroke-width="3"></rect>
+            <rect x="22" y="34" width="154" height="32" rx="12" fill="#243770"></rect>
+            <path d="M22 56h154" stroke="#243770" stroke-width="20"></path>
+            <g fill="#eef4fb" stroke="#aebbd2" stroke-width="2">
+              <rect x="43" y="82" width="24" height="20" rx="4"></rect>
+              <rect x="82" y="82" width="24" height="20" rx="4"></rect>
+              <rect x="121" y="82" width="24" height="20" rx="4"></rect>
+              <rect x="43" y="116" width="24" height="20" rx="4"></rect>
+              <rect x="82" y="116" width="24" height="20" rx="4"></rect>
+              <rect x="121" y="116" width="24" height="20" rx="4"></rect>
+            </g>
+            <rect x="121" y="116" width="24" height="20" rx="4" fill="#e99e25" stroke="#d12630" stroke-width="2"></rect>
+            <path d="M168 123h26l13 19h28v18h-67z" fill="#187c8f"></path>
+            <circle cx="187" cy="164" r="10" fill="#243770"></circle>
+            <circle cx="226" cy="164" r="10" fill="#243770"></circle>
+            <path d="M149 108c22 2 38 9 50 21" fill="none" stroke="#d12630" stroke-width="5" stroke-linecap="round"></path>
+            <path d="M196 112l5 19-20-2" fill="none" stroke="#d12630" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/2127-OPR15-EN-Poster-AM25_2025.pdf">Open poster PDF</a>
+      </aside>
+    </section>
+
+    <main>
+      <section id="snapshot" class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Saturday delivery patients screened</span>
+          <strong>173</strong>
+        </article>
+        <article class="metric-card">
+          <span>Final evaluable group</span>
+          <strong>95</strong>
+        </article>
+        <article class="metric-card">
+          <span>Nonadherent subgroup</span>
+          <strong>21</strong>
+        </article>
+        <article class="metric-card">
+          <span>Saturday delivery utilization</span>
+          <strong>3%</strong>
+        </article>
+      </section>
+
+      <section id="intervention" class="panel">
+        <p class="section-label">Primary objective</p>
+        <h2>PDC increased after Saturday delivery among previously nonadherent patients</h2>
+        <div class="pdc-stage" aria-label="PDC change from pre to post Saturday delivery">
+          <article class="pdc-tile">
+            <span>Pre Saturday delivery</span>
+            <strong>64.9%</strong>
+            <p>Average PDC among 21 nonadherent patients before the intervention.</p>
+          </article>
+          <div class="pdc-arrow">
+            <div><b>+6.2</b><small>percentage points</small></div>
+          </div>
+          <article class="pdc-tile">
+            <span>Post Saturday delivery</span>
+            <strong>71.1%</strong>
+            <p>Average PDC after Saturday delivery was offered from May to October 2024.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="visual-grid" aria-label="Study design and adherence findings">
+        <article class="panel">
+          <p class="section-label">Eligibility flow</p>
+          <h2>Incomplete PDC data drove most exclusions</h2>
+          <div class="funnel">
+            <div class="funnel-step">
+              <strong>173</strong>
+              <span>CFTR modulator patients using Saturday delivery <small>Assessed from specialty pharmacy reports</small></span>
+            </div>
+            <div class="funnel-step">
+              <strong>75</strong>
+              <span>Excluded for incomplete PDC data <small>Largest source of attrition</small></span>
+            </div>
+            <div class="funnel-step">
+              <strong>3</strong>
+              <span>Excluded for nonstandard dosing <small>Removed to keep PDC interpretation consistent</small></span>
+            </div>
+            <div class="funnel-step">
+              <strong>95</strong>
+              <span>Final patient group <small>Included complete PDC data through Oct. 31, 2024</small></span>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Adherence movement</p>
+          <h2>More than half of nonadherent patients reached adherence</h2>
+          <div class="adherence-ladder">
+            <div class="ladder-row">
+              <span>Identified nonadherent</span>
+              <div class="lens-bar"><i style="width: 22.1%;"></i></div>
+              <span>22.1%</span>
+            </div>
+            <div class="ladder-row">
+              <span>Moved to adherent</span>
+              <div class="lens-bar"><i style="width: 52%;"></i></div>
+              <span>52%</span>
+            </div>
+            <div class="ladder-row">
+              <span>Newly very adherent</span>
+              <div class="lens-bar"><i style="width: 36%;"></i></div>
+              <span>36%</span>
+            </div>
+            <div class="ladder-row">
+              <span>&gt;20% PDC gain</span>
+              <div class="lens-bar"><i style="width: 45%;"></i></div>
+              <span>45%</span>
+            </div>
+          </div>
+          <ul class="tight-list">
+            <li>PDC categories: very adherent &gt;90%, adherent 80-89%, nonadherent &lt;80%.</li>
+            <li>Patients aged 18-25 were 8% more likely to be nonadherent.</li>
+            <li>Rural zip codes represented 43% of nonadherent patients versus 20% overall.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="results" class="visual-grid" aria-label="Secondary objective charts">
+        <article class="panel">
+          <p class="section-label">Refill method</p>
+          <h2>Digital refills rose while outbound call reliance fell</h2>
+          <div class="mini-legend" aria-hidden="true">
+            <span><i class="legend-pre"></i>Pre</span>
+            <span><i class="legend-post"></i>Post</span>
+          </div>
+          <div class="paired-bars">
+            <div class="paired-row">
+              <span>Outbound call</span>
+              <div class="bar-pair">
+                <div class="bar-track pre"><i style="width: 68.9%;"></i></div>
+                <div class="bar-track post"><i style="width: 55.4%;"></i></div>
+              </div>
+              <em>-13.5</em>
+            </div>
+            <div class="paired-row">
+              <span>Inbound call</span>
+              <div class="bar-pair">
+                <div class="bar-track pre"><i style="width: 28.9%;"></i></div>
+                <div class="bar-track post"><i style="width: 33.9%;"></i></div>
+              </div>
+              <em>+5.0</em>
+            </div>
+            <div class="paired-row">
+              <span>Click to refill</span>
+              <div class="bar-pair">
+                <div class="bar-track pre"><i style="width: 2.2%;"></i></div>
+                <div class="bar-track post"><i style="width: 10.7%;"></i></div>
+              </div>
+              <em>+8.5</em>
+            </div>
+          </div>
+          <p class="source-note">Click to refill refers to digital engagement sent by text message.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Patient-reported outcomes</p>
+          <h2>Reported improvement appeared after intervention</h2>
+          <div class="outcome-grid">
+            <div class="outcome-card">
+              <span>Remained stable</span>
+              <strong>91.3%</strong>
+              <small>post, from 95.9% pre</small>
+            </div>
+            <div class="outcome-card">
+              <span>Gotten worse</span>
+              <strong>1.7%</strong>
+              <small>post, from 4.1% pre</small>
+            </div>
+            <div class="outcome-card">
+              <span>Improved</span>
+              <strong>7%</strong>
+              <small>post, from 0% pre</small>
+            </div>
+          </div>
+          <div class="study-window">
+            <div class="window-cell">
+              <strong>May 1, 2024</strong>
+              <span>Saturday delivery utilization start for inclusion</span>
+            </div>
+            <div class="window-cell">
+              <strong>6 months</strong>
+              <span>PDC lookback period used in calculation</span>
+            </div>
+            <div class="window-cell">
+              <strong>Oct. 31, 2024</strong>
+              <span>End of observation period</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="callout-band" aria-label="Conclusion callout">
+        <div>
+          <div class="callout-number">11<span>of 21 patients</span></div>
+        </div>
+        <div>
+          <p class="section-label">Conclusion</p>
+          <h2>Saturday delivery was associated with a measurable adherence gain, but causality remains limited by sample size and concurrent interventions.</h2>
+          <p>
+            The poster concludes that PDC averages increased by 6.2 percentage points, more than half of nonadherent patients achieved adherence, and staff phone efficiency improved as outbound calls decreased and click-to-refill use increased.
+          </p>
+        </div>
+      </section>
+
+      <section class="evidence-map" aria-label="Extracted poster takeaways">
+        <article class="evidence-card">
+          <h3>Objective</h3>
+          <p>Evaluate change in PDC for nonadherent CFTR modulator patients who used Saturday delivery between May and October 2024.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Methods</h3>
+          <p>Longitudinal retrospective chart review using pharmacy operating and clinical platforms across two specialty pharmacy locations.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Population</h3>
+          <p>Patients with cystic fibrosis on standard-dose CFTR modulators, filled before Nov. 1, 2023, with complete PDC data.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Key pattern</h3>
+          <p>Overall Saturday delivery utilization was 3% for CFTR modulator prescriptions, with 12 patients using it more than once.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Limitations</h3>
+          <p>Small sample size, claims-based PDC limits, intentional therapy gaps, and concurrent adherence interventions limit causal interpretation.</p>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Condensed source tables">
+        <article class="table-card">
+          <p class="section-label">Demographics table pattern</p>
+          <h2>Final patient group profile</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Distribution</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Sex</td>
+                  <td>Male 53%; Female 47%</td>
+                </tr>
+                <tr>
+                  <td>Age</td>
+                  <td>0-17: 37%; 18-25: 21%; 26+: 42%</td>
+                </tr>
+                <tr>
+                  <td>Rural zip code</td>
+                  <td>Yes 20%; No 80%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Intervention signal table</p>
+          <h2>Nonadherent subgroup changes</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Measure</th>
+                  <th>Pre</th>
+                  <th>Post</th>
+                  <th>Change</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Average PDC</td>
+                  <td>64.9%</td>
+                  <td>71.1%</td>
+                  <td>+6.2 points</td>
+                </tr>
+                <tr>
+                  <td>Outbound call</td>
+                  <td>68.9%</td>
+                  <td>55.4%</td>
+                  <td>-13.5 points</td>
+                </tr>
+                <tr>
+                  <td>Click to refill</td>
+                  <td>2.2%</td>
+                  <td>10.7%</td>
+                  <td>+8.5 points</td>
+                </tr>
+                <tr>
+                  <td>Improved PRO</td>
+                  <td>0%</td>
+                  <td>7%</td>
+                  <td>+7 points</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/2127-OPR15-EN-Poster-AM25_2025.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/2127-OPR15-EN-Poster-AM25_2025.md">Source markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

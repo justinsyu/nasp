@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Enhancing Specialty Care | NASP 2024 Infographic</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .care-constellation {
+      position: relative;
+      min-height: 21rem;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 22% 24%, rgba(209, 38, 48, 0.16), transparent 9rem),
+        radial-gradient(circle at 82% 78%, rgba(24, 124, 143, 0.18), transparent 10rem),
+        linear-gradient(135deg, #ffffff 0%, var(--surface-blue) 58%, var(--surface-warm) 100%);
+    }
+    .care-constellation svg {
+      display: block;
+      width: 100%;
+      min-height: 21rem;
+    }
+    .hero-card .button-link {
+      justify-content: center;
+      background: #fff;
+    }
+    .hero-card .finding {
+      margin: 0;
+      border-left: 4px solid var(--teal);
+      padding-left: 0.72rem;
+      color: var(--ink);
+      font-size: 0.94rem;
+      font-weight: 850;
+    }
+    .metric-card strong small {
+      color: inherit;
+      font-size: 0.55em;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+    .statement-panel {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(209, 38, 48, 0.10), transparent 45%),
+        #fff;
+    }
+    .statement-panel p {
+      max-width: 68rem;
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.1rem, 1.8vw, 1.48rem);
+      font-weight: 850;
+      line-height: 1.36;
+    }
+    .flow-lane {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+    .flow-step {
+      position: relative;
+      min-height: 10.6rem;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+    }
+    .flow-step::after {
+      content: attr(data-step);
+      position: absolute;
+      right: 0.4rem;
+      bottom: -0.72rem;
+      color: rgba(36, 55, 112, 0.10);
+      font-family: var(--font-display);
+      font-size: 5.1rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .flow-step h3,
+    .flow-step p {
+      position: relative;
+      z-index: 1;
+    }
+    .flow-step p {
+      margin: 0.45rem 0 0;
+      font-size: 0.8rem;
+    }
+    .split-panel {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 1rem;
+      align-items: center;
+    }
+    .savings-dial {
+      display: grid;
+      grid-template-columns: 14rem minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+      margin-top: 0.35rem;
+    }
+    .savings-dial svg {
+      width: 100%;
+      max-width: 14rem;
+      height: auto;
+    }
+    .legend {
+      display: grid;
+      gap: 0.48rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .legend li {
+      display: grid;
+      grid-template-columns: 0.82rem minmax(0, 1fr) auto;
+      gap: 0.45rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+    .legend i {
+      width: 0.82rem;
+      height: 0.82rem;
+      border-radius: 3px;
+      background: var(--legend-color, var(--red));
+    }
+    .bar-stack {
+      display: grid;
+      gap: 0.54rem;
+      margin-top: 0.72rem;
+    }
+    .bar-row {
+      display: grid;
+      grid-template-columns: 9.6rem minmax(0, 1fr) 3.5rem;
+      gap: 0.54rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .bar-track {
+      height: 0.92rem;
+      overflow: hidden;
+      border: 1px solid rgba(36, 55, 112, 0.15);
+      border-radius: 999px;
+      background: #edf2f8;
+    }
+    .bar-track i {
+      display: block;
+      width: var(--value);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--gold));
+    }
+    .intervention-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.62rem;
+      margin-top: 0.75rem;
+    }
+    .intervention-tile {
+      min-height: 7rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.68rem;
+    }
+    .intervention-tile strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+    .intervention-tile span {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--body);
+      font-size: 0.76rem;
+      font-weight: 800;
+      line-height: 1.28;
+    }
+    .patient-mix {
+      display: grid;
+      grid-template-columns: 10rem minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+      margin-top: 0.55rem;
+    }
+    .patient-mix svg {
+      width: 100%;
+      max-width: 10rem;
+      height: auto;
+    }
+    .callout-list {
+      margin: 0.55rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .callout-list li {
+      display: grid;
+      grid-template-columns: 0.8rem minmax(0, 1fr);
+      gap: 0.42rem;
+      margin-top: 0.42rem;
+      font-size: 0.86rem;
+    }
+    .callout-list li::before {
+      content: "";
+      width: 0.52rem;
+      height: 0.52rem;
+      margin-top: 0.43rem;
+      border-radius: 50%;
+      background: var(--red);
+    }
+    .source-note {
+      margin: 0.72rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    @media (max-width: 900px) {
+      .flow-lane,
+      .intervention-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .split-panel,
+      .savings-dial,
+      .patient-mix {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 560px) {
+      .flow-lane,
+      .intervention-grid,
+      .bar-row {
+        grid-template-columns: 1fr;
+      }
+      .bar-row span:last-child {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP infographic home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/36-OPR36-OR-Poster-AM24_2024.pdf">PDF Source</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/36-OPR36-OR-Poster-AM24_2024.md">Markdown Source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2024 Annual Meeting | 36-OPR36-OR</p>
+        <h1 id="poster-title">Enhancing specialty care through clinical pharmacist interventions</h1>
+        <p class="hero-summary">
+          CHRISTUS Specialty Pharmacy piloted an intervention questionnaire across specialty clinical services to quantify
+          intervention type, pharmacist time, enrollment status, and potential cost savings.
+        </p>
+        <ul class="tag-row" aria-label="Poster topics">
+          <li class="tag category">Prospective questionnaire implementation</li>
+          <li class="tag therapy">Health-system specialty pharmacy</li>
+          <li class="tag therapy">Clinical interventions</li>
+          <li class="tag">April 1 to May 15, 2024</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Poster details">
+        <div class="poster-code">AM24<br>36-OPR36-OR</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Poster year</dt>
+            <dd>2024</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>CHRISTUS HSSP</dd>
+          </div>
+          <div>
+            <dt>Location</dt>
+            <dd>Tyler, Texas</dd>
+          </div>
+          <div>
+            <dt>Authors</dt>
+            <dd>Harmon, Ritenour</dd>
+          </div>
+        </dl>
+        <p class="finding">The poster frames intervention capture as a way to make specialty pharmacist impact visible across disease states.</p>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/36-OPR36-OR-Poster-AM24_2024.pdf">Open poster PDF</a>
+      </aside>
+    </section>
+
+    <main>
+      <section class="visual-grid" aria-label="Study visual summary">
+        <div class="care-constellation" aria-hidden="true">
+          <svg viewBox="0 0 680 430" role="img">
+            <defs>
+              <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#243770" flood-opacity="0.16"/>
+              </filter>
+            </defs>
+            <path d="M142 226 C218 126 318 126 394 226 S570 326 616 194" fill="none" stroke="#243770" stroke-width="10" stroke-linecap="round" opacity="0.14"/>
+            <circle cx="150" cy="226" r="60" fill="#ffffff" stroke="#d12630" stroke-width="5" filter="url(#softShadow)"/>
+            <circle cx="340" cy="158" r="74" fill="#ffffff" stroke="#187c8f" stroke-width="5" filter="url(#softShadow)"/>
+            <circle cx="530" cy="246" r="60" fill="#ffffff" stroke="#e99e25" stroke-width="5" filter="url(#softShadow)"/>
+            <path d="M340 112 v92 M294 158 h92" stroke="#187c8f" stroke-width="16" stroke-linecap="round"/>
+            <path d="M119 242 c18-36 44-36 62 0" fill="none" stroke="#d12630" stroke-width="10" stroke-linecap="round"/>
+            <circle cx="150" cy="207" r="18" fill="none" stroke="#d12630" stroke-width="10"/>
+            <path d="M502 228 h56 M502 248 h56 M502 268 h36" stroke="#e99e25" stroke-width="10" stroke-linecap="round"/>
+            <rect x="90" y="332" width="500" height="44" rx="22" fill="#ffffff" stroke="#aebbd2" stroke-width="3"/>
+            <rect x="90" y="332" width="405" height="44" rx="22" fill="#243770" opacity="0.92"/>
+            <text x="340" y="361" text-anchor="middle" fill="#ffffff" font-family="Montserrat, Arial, sans-serif" font-size="21" font-weight="900">81% of interventions involved HSSP-enrolled patients</text>
+            <text x="340" y="64" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="24" font-weight="900">Intervention capture connects care coordination to measurable value</text>
+          </svg>
+        </div>
+
+        <article class="panel markdown-fragment">
+          <p class="section-label">Objective</p>
+          <h2>Measure clinical work that is easy to miss</h2>
+          <p>
+            The study evaluated the quantity and type of clinical interventions provided by specialty pharmacists,
+            pharmacist time spent, and potential cost savings from those interventions.
+          </p>
+          <ul>
+            <li>A prospective intervention questionnaire was integrated into specialty clinical services.</li>
+            <li>Responses were summarized with descriptive statistics by specialty, intervention type, and HSSP enrollment status.</li>
+            <li>Potential savings were extrapolated from standardized values assigned to intervention types.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="snapshot" class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Total interventions</span>
+          <strong>227</strong>
+        </article>
+        <article class="metric-card">
+          <span>Specialties represented</span>
+          <strong>11</strong>
+        </article>
+        <article class="metric-card">
+          <span>Intervention types</span>
+          <strong>22</strong>
+        </article>
+        <article class="metric-card">
+          <span>Estimated savings</span>
+          <strong>$360<small>K</small></strong>
+        </article>
+      </section>
+
+      <section id="evidence" class="panel">
+        <p class="section-label">Evidence flow</p>
+        <h2>From questionnaire responses to specialty pharmacy value story</h2>
+        <div class="flow-lane">
+          <article class="flow-step" data-step="1">
+            <h3>Deploy tool</h3>
+            <p>Intervention questionnaire integrated across specialty clinical services from April 1 to May 15, 2024.</p>
+          </article>
+          <article class="flow-step" data-step="2">
+            <h3>Capture work</h3>
+            <p>Pharmacists recorded type, specialty area, enrollment status, and time spent on each intervention.</p>
+          </article>
+          <article class="flow-step" data-step="3">
+            <h3>Describe patterns</h3>
+            <p>Counts and percentages were stratified by disease state, intervention category, and HSSP versus external patients.</p>
+          </article>
+          <article class="flow-step" data-step="4">
+            <h3>Price impact</h3>
+            <p>Standardized values by intervention type were used to extrapolate potential cost savings.</p>
+          </article>
+          <article class="flow-step" data-step="5">
+            <h3>Prioritize change</h3>
+            <p>High-volume access and therapy selection work pointed to opportunities for proactive pharmacist action.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="results" class="visual-grid" aria-label="Specialty and savings results">
+        <article class="panel">
+          <p class="section-label">Specialty distribution</p>
+          <h2>Rheumatology and hepatitis C generated nearly half of interventions</h2>
+          <div class="bar-stack" aria-label="Interventions by specialty percentage">
+            <div class="bar-row">
+              <span>Rheumatology</span>
+              <div class="bar-track"><i style="--value: 100%;"></i></div>
+              <span>31%</span>
+            </div>
+            <div class="bar-row">
+              <span>Hepatitis C</span>
+              <div class="bar-track"><i style="--value: 58%;"></i></div>
+              <span>18%</span>
+            </div>
+            <div class="bar-row">
+              <span>Hematology/Oncology</span>
+              <div class="bar-track"><i style="--value: 48%;"></i></div>
+              <span>15%</span>
+            </div>
+            <div class="bar-row">
+              <span>Gastroenterology</span>
+              <div class="bar-track"><i style="--value: 39%;"></i></div>
+              <span>12%</span>
+            </div>
+            <div class="bar-row">
+              <span>Cardiology</span>
+              <div class="bar-track"><i style="--value: 23%;"></i></div>
+              <span>7%</span>
+            </div>
+            <div class="bar-row">
+              <span>Other</span>
+              <div class="bar-track"><i style="--value: 23%;"></i></div>
+              <span>7%</span>
+            </div>
+            <div class="bar-row">
+              <span>Pulmonology</span>
+              <div class="bar-track"><i style="--value: 16%;"></i></div>
+              <span>5%</span>
+            </div>
+            <div class="bar-row">
+              <span>Neurology</span>
+              <div class="bar-track"><i style="--value: 16%;"></i></div>
+              <span>5%</span>
+            </div>
+          </div>
+          <p class="source-note">Other includes dermatology, endocrinology, internal medicine, and osteoporosis/osteoarthritis.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Cost savings pattern</p>
+          <h2>Inflammatory conditions accounted for about half of estimated savings</h2>
+          <div class="savings-dial">
+            <svg viewBox="0 0 240 240" role="img" aria-label="Donut chart of estimated savings by category">
+              <circle cx="120" cy="120" r="76" fill="none" stroke="#d9e1ef" stroke-width="36"></circle>
+              <circle cx="120" cy="120" r="76" fill="none" stroke="#d12630" stroke-width="36" stroke-dasharray="238 239.5" stroke-dashoffset="0" transform="rotate(-90 120 120)"></circle>
+              <circle cx="120" cy="120" r="76" fill="none" stroke="#e99e25" stroke-width="36" stroke-dasharray="103.7 373.8" stroke-dashoffset="-238" transform="rotate(-90 120 120)"></circle>
+              <circle cx="120" cy="120" r="76" fill="none" stroke="#187c8f" stroke-width="36" stroke-dasharray="84.1 393.4" stroke-dashoffset="-341.7" transform="rotate(-90 120 120)"></circle>
+              <circle cx="120" cy="120" r="76" fill="none" stroke="#7561a8" stroke-width="36" stroke-dasharray="51.9 425.6" stroke-dashoffset="-425.8" transform="rotate(-90 120 120)"></circle>
+              <circle cx="120" cy="120" r="49" fill="#fff"></circle>
+              <text x="120" y="112" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="20" font-weight="900">$359.8K</text>
+              <text x="120" y="136" text-anchor="middle" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="800">total savings</text>
+            </svg>
+            <ul class="legend">
+              <li style="--legend-color: var(--red);"><i></i><span>Inflammatory</span><b>$179,074</b></li>
+              <li style="--legend-color: var(--gold);"><i></i><span>Other specialties</span><b>$78,180</b></li>
+              <li style="--legend-color: var(--teal);"><i></i><span>Heme/Onc</span><b>$63,369</b></li>
+              <li style="--legend-color: var(--purple);"><i></i><span>Hepatitis C</span><b>$39,157</b></li>
+            </ul>
+          </div>
+          <p class="source-note">Inflammatory includes rheumatology, dermatology, and inflammatory bowel disease.</p>
+        </article>
+      </section>
+
+      <section class="section-stack" aria-label="Intervention and time patterns">
+        <article class="panel">
+          <p class="section-label">Intervention types</p>
+          <h2>Access coordination and therapy selection led the capture log</h2>
+          <div class="intervention-grid">
+            <div class="intervention-tile">
+              <strong>34</strong>
+              <span>Medication access coordination</span>
+            </div>
+            <div class="intervention-tile">
+              <strong>26</strong>
+              <span>Therapy selection</span>
+            </div>
+            <div class="intervention-tile">
+              <strong>22</strong>
+              <span>Side-effect counseling</span>
+            </div>
+            <div class="intervention-tile">
+              <strong>22</strong>
+              <span>Prescription clarification</span>
+            </div>
+            <div class="intervention-tile">
+              <strong>18</strong>
+              <span>Medication administration counseling</span>
+            </div>
+            <div class="intervention-tile">
+              <strong>16</strong>
+              <span>Clinical review</span>
+            </div>
+            <div class="intervention-tile">
+              <strong>15</strong>
+              <span>Treatment protocol development</span>
+            </div>
+            <div class="intervention-tile">
+              <strong>39</strong>
+              <span>Other intervention types</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Time and patient mix</p>
+          <h2>More than fifty pharmacist hours were documented in six weeks</h2>
+          <div class="patient-mix">
+            <svg viewBox="0 0 180 180" role="img" aria-label="Donut chart showing 81 percent HSSP patients and 19 percent external patients">
+              <circle cx="90" cy="90" r="58" fill="none" stroke="#d9e1ef" stroke-width="28"></circle>
+              <circle cx="90" cy="90" r="58" fill="none" stroke="#187c8f" stroke-width="28" stroke-dasharray="295 69.4" stroke-dashoffset="0" transform="rotate(-90 90 90)"></circle>
+              <circle cx="90" cy="90" r="35" fill="#fff"></circle>
+              <text x="90" y="88" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="24" font-weight="900">81%</text>
+              <text x="90" y="108" text-anchor="middle" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="800">HSSP</text>
+            </svg>
+            <div class="number-cloud">
+              <div class="number-pill">3,095<small>total minutes</small></div>
+              <div class="number-pill">51.6<small>pharmacist hours</small></div>
+              <div class="number-pill">13.6<small>minutes per intervention</small></div>
+              <div class="number-pill">19%<small>external patients</small></div>
+            </div>
+          </div>
+          <ul class="callout-list">
+            <li>Most captured interventions involved patients enrolled with the health-system specialty pharmacy.</li>
+            <li>External-patient work still represented nearly one fifth of the intervention volume.</li>
+            <li>The time log helps connect pharmacist effort to operational planning, not just cost savings.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="panel statement-panel">
+        <p>
+          Conclusion: systematic intervention capture showed broad specialty pharmacist activity, meaningful estimated savings,
+          and a clear case for further SP-driven practice changes in medication access and therapy selection.
+        </p>
+      </section>
+
+      <section class="tables-grid" aria-label="Condensed table patterns">
+        <article class="table-card">
+          <p class="section-label">Table pattern</p>
+          <h2>Top intervention categories</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Intervention type</th>
+                  <th>Count</th>
+                  <th>Share of 227</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Medication access coordination</td>
+                  <td>34</td>
+                  <td>15%</td>
+                </tr>
+                <tr>
+                  <td>Therapy selection</td>
+                  <td>26</td>
+                  <td>11%</td>
+                </tr>
+                <tr>
+                  <td>Side-effect counseling</td>
+                  <td>22</td>
+                  <td>10%</td>
+                </tr>
+                <tr>
+                  <td>Prescription clarification</td>
+                  <td>22</td>
+                  <td>10%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Practice signal</p>
+          <h2>Why the data collection mattered</h2>
+          <div class="markdown-fragment">
+            <p>
+              The poster identifies a gap in consistent intervention data collection across health-system specialty pharmacies and specialty clinics.
+            </p>
+            <ul>
+              <li>More complete capture can clarify where specialty pharmacists create the most value.</li>
+              <li>Specialty distribution can reveal areas best suited for HSSP services.</li>
+              <li>Repeated patterns can identify where proactive pharmacist action may prevent later access or therapy problems.</li>
+            </ul>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/36-OPR36-OR-Poster-AM24_2024.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/36-OPR36-OR-Poster-AM24_2024.md">Source markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3209-DTS107-RP-Poster-AM25 2025 | Rapid Foundation Enrollment</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .assistance-hero {
+      position: relative;
+      min-height: 100%;
+      overflow: hidden;
+    }
+
+    .assistance-hero::after {
+      content: "";
+      position: absolute;
+      right: -2.5rem;
+      bottom: -2.5rem;
+      width: 10rem;
+      height: 10rem;
+      border: 1.35rem solid rgba(24, 124, 143, 0.12);
+      border-radius: 50%;
+    }
+
+    .hero-visual {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 0.8rem;
+      margin-top: 0.3rem;
+    }
+
+    .fund-window {
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.78);
+      padding: 0.75rem;
+    }
+
+    .fund-window svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .window-caption {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 750;
+    }
+
+    .thesis-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .problem-card {
+      display: grid;
+      align-content: center;
+      min-height: 15rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        linear-gradient(145deg, rgba(36, 55, 112, 0.98), rgba(24, 124, 143, 0.92)),
+        var(--ink);
+      padding: 1rem;
+      color: #fff;
+    }
+
+    .problem-card strong {
+      display: block;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 5vw, 4.6rem);
+      line-height: 0.92;
+    }
+
+    .problem-card span {
+      display: block;
+      margin-top: 0.65rem;
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 0.82rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .objective-card {
+      display: grid;
+      align-content: center;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--surface);
+      padding: 1.05rem;
+    }
+
+    .objective-card p {
+      margin: 0;
+      color: var(--body);
+      font-size: 1rem;
+    }
+
+    .workflow-ribbon {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.8rem;
+    }
+
+    .workflow-step {
+      position: relative;
+      min-height: 9.5rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.75rem;
+    }
+
+    .workflow-step::before {
+      content: attr(data-step);
+      display: inline-grid;
+      place-items: center;
+      width: 1.85rem;
+      height: 1.85rem;
+      margin-bottom: 0.55rem;
+      border-radius: 50%;
+      background: var(--red);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      font-weight: 900;
+    }
+
+    .workflow-step h3 {
+      min-height: 2.45rem;
+      font-size: 0.95rem;
+    }
+
+    .workflow-step p {
+      margin: 0.45rem 0 0;
+      font-size: 0.8rem;
+    }
+
+    .workflow-step:nth-child(2)::before { background: var(--gold); }
+    .workflow-step:nth-child(3)::before { background: var(--teal); }
+    .workflow-step:nth-child(4)::before { background: var(--green); }
+    .workflow-step:nth-child(5)::before { background: var(--purple); }
+
+    .measure-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .measure-card {
+      min-height: 12rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--surface);
+      padding: 0.9rem;
+    }
+
+    .measure-card .icon {
+      display: inline-grid;
+      place-items: center;
+      width: 2.35rem;
+      height: 2.35rem;
+      margin-bottom: 0.65rem;
+      border-radius: 7px;
+      background: var(--surface-blue);
+      color: var(--red);
+      font-family: var(--font-display);
+      font-weight: 900;
+    }
+
+    .measure-card p {
+      margin: 0.5rem 0 0;
+      font-size: 0.84rem;
+    }
+
+    .intake-strip {
+      display: grid;
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .paper-form {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.95rem;
+      box-shadow: 0 12px 32px rgba(36, 55, 112, 0.08);
+    }
+
+    .form-line {
+      display: grid;
+      grid-template-columns: 1.15rem minmax(0, 1fr);
+      gap: 0.55rem;
+      align-items: start;
+      margin: 0.55rem 0;
+      color: var(--body);
+      font-size: 0.82rem;
+    }
+
+    .box {
+      width: 1.05rem;
+      height: 1.05rem;
+      border: 2px solid var(--teal);
+      border-radius: 3px;
+      background: linear-gradient(135deg, transparent 58%, rgba(24, 124, 143, 0.24) 59%);
+    }
+
+    .impact-list {
+      display: grid;
+      gap: 0.6rem;
+      margin: 0.65rem 0 0;
+    }
+
+    .impact-item {
+      display: grid;
+      grid-template-columns: 0.45rem minmax(0, 1fr);
+      gap: 0.6rem;
+      align-items: start;
+    }
+
+    .impact-item i {
+      display: block;
+      width: 0.45rem;
+      height: 100%;
+      min-height: 2.2rem;
+      border-radius: 999px;
+      background: var(--gold);
+    }
+
+    .impact-item:nth-child(2) i { background: var(--teal); }
+    .impact-item:nth-child(3) i { background: var(--green); }
+
+    .impact-item p {
+      margin: 0;
+      font-size: 0.86rem;
+    }
+
+    .source-note {
+      margin: 0.3rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+
+    @media (max-width: 900px) {
+      .thesis-panel,
+      .intake-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .workflow-ribbon,
+      .measure-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .workflow-ribbon,
+      .measure-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .workflow-step h3 {
+        min-height: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">NASP Posters</a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/3209-DTS107-RP-Poster-AM25_2025.pdf">PDF Source</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/3209-DTS107-RP-Poster-AM25_2025.md">Markdown Source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">AM25 poster 3209-DTS107-RP | 2025</p>
+        <h1>Streamlining copay assistance for CIDP and myasthenia gravis</h1>
+        <p class="hero-summary">A neurology-clinic quality-improvement pilot evaluates whether a standalone AI search, match, and enroll module can move foundation grant work into the narrow window when disease-based funds open.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Foundation assistance</li>
+          <li class="tag therapy">CIDP</li>
+          <li class="tag therapy">Myasthenia gravis</li>
+          <li class="tag">Neurology infusion clinic</li>
+          <li class="tag">Prospective QI</li>
+        </ul>
+      </div>
+      <aside class="hero-card assistance-hero" aria-label="Poster metadata">
+        <div class="poster-code">3209<br>DTS107<br>RP</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Year</dt>
+            <dd>2025</dd>
+          </div>
+          <div>
+            <dt>Author</dt>
+            <dd>Mayukh Choudhury, MBA</dd>
+          </div>
+          <div>
+            <dt>Site</dt>
+            <dd>Single neurology clinic</dd>
+          </div>
+          <div>
+            <dt>Model</dt>
+            <dd>GetCopayHelp concierge</dd>
+          </div>
+        </dl>
+        <div class="hero-visual">
+          <div class="fund-window">
+            <svg viewBox="0 0 360 150" role="img" aria-label="Fund window opens and same-day enrollment compresses the workflow">
+              <defs>
+                <linearGradient id="windowGradient" x1="0" x2="1" y1="0" y2="0">
+                  <stop offset="0" stop-color="#d12630"/>
+                  <stop offset="0.55" stop-color="#e99e25"/>
+                  <stop offset="1" stop-color="#187c8f"/>
+                </linearGradient>
+              </defs>
+              <rect x="18" y="24" width="324" height="44" rx="22" fill="#eef4fb" stroke="#aebbd2"/>
+              <rect x="32" y="31" width="126" height="30" rx="15" fill="url(#windowGradient)"/>
+              <circle cx="160" cy="46" r="7" fill="#243770"/>
+              <path d="M160 78 L160 104" stroke="#243770" stroke-width="3" stroke-linecap="round"/>
+              <path d="M148 92 L160 105 L173 92" fill="none" stroke="#243770" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="82" y="108" width="196" height="28" rx="14" fill="#ffffff" stroke="#187c8f" stroke-width="2"/>
+              <text x="180" y="126" text-anchor="middle" fill="#243770" font-family="Arial, sans-serif" font-size="13" font-weight="700">AI match + enroll</text>
+              <text x="95" y="51" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="12" font-weight="700">fund open</text>
+              <text x="253" y="51" text-anchor="middle" fill="#68758d" font-family="Arial, sans-serif" font-size="12" font-weight="700">fund may close</text>
+            </svg>
+            <p class="window-caption">The intervention is designed for fast-moving foundation openings that can fill within a day.</p>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Out-of-pocket burden</span>
+          <strong>&gt;$8K</strong>
+          <p class="source-note">IVIG and complement therapy context</p>
+        </article>
+        <article class="metric-card">
+          <span>Fund window</span>
+          <strong>1 day</strong>
+          <p class="source-note">Portals may close quickly after opening</p>
+        </article>
+        <article class="metric-card">
+          <span>Clinic capacity</span>
+          <strong>7</strong>
+          <p class="source-note">Infusion chairs at the study site</p>
+        </article>
+        <article class="metric-card">
+          <span>Evaluation period</span>
+          <strong>18 mo</strong>
+          <p class="source-note">February 2025 to July 2026</p>
+        </article>
+      </section>
+
+      <section class="thesis-panel" id="objective">
+        <div class="problem-card">
+          <strong>Manual cycles lose time</strong>
+          <span>Refresh portals, collect income documents, then fax or upload</span>
+        </div>
+        <article class="objective-card">
+          <p class="section-label">Objective</p>
+          <h2>Test a drop-in foundation enrollment module</h2>
+          <p>Evaluate whether a standalone AI-enabled search, match, and enroll workflow can coordinate with patients, complete foundation applications the same day a fund opens, and reduce therapy drop-offs without bundling manufacturer copay cards or patient assistance tools.</p>
+        </article>
+      </section>
+
+      <section class="panel" id="workflow">
+        <p class="section-label">Methods as a service pattern</p>
+        <h2>Three-part concierge workflow</h2>
+        <div class="workflow-ribbon" aria-label="Assistance workflow">
+          <article class="workflow-step" data-step="1">
+            <h3>Offload foundation tasks</h3>
+            <p>The practice routes foundation assistance work to GetCopayHelp for patient interaction and enrollment completion.</p>
+          </article>
+          <article class="workflow-step" data-step="2">
+            <h3>Poll open funds</h3>
+            <p>The platform monitors availability across disease-based foundations and fund-specific rules.</p>
+          </article>
+          <article class="workflow-step" data-step="3">
+            <h3>Match eligible patients</h3>
+            <p>Simple intake feeds patient and therapy details into automated fund matching.</p>
+          </article>
+          <article class="workflow-step" data-step="4">
+            <h3>Gather documents</h3>
+            <p>Patient coordination focuses on missing income or enrollment information before the window closes.</p>
+          </article>
+          <article class="workflow-step" data-step="5">
+            <h3>Submit same day</h3>
+            <p>AI-enabled automations prepare and file applications with the goal of keeping treatment on schedule.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="measure-grid" id="evaluation" aria-label="Evaluation plan">
+        <article class="measure-card">
+          <span class="icon">24h</span>
+          <h3>Speed and workload</h3>
+          <p>Track the share of eligible patients funded within 24 hours of fund opening, median hours to grant, and staff minutes per enrollment compared with manual work.</p>
+        </article>
+        <article class="measure-card">
+          <span class="icon">Rx</span>
+          <h3>Brand flexibility</h3>
+          <p>Assess whether real-time visibility into assistance-supported alternative brands helps maintain therapy persistence.</p>
+        </article>
+        <article class="measure-card">
+          <span class="icon">1p</span>
+          <h3>Low-friction intake</h3>
+          <p>Gauge whether a one-page checkbox form reduces staff digital overload by avoiding another portal.</p>
+        </article>
+      </section>
+
+      <section class="intake-strip">
+        <article class="paper-form" aria-label="One-page intake concept">
+          <p class="section-label">Paper to cut clicks</p>
+          <h2>Snap, send, parse, packet</h2>
+          <div class="form-line"><span class="box"></span><span>Patient and therapy identifiers from EHR export, email, or MMS form</span></div>
+          <div class="form-line"><span class="box"></span><span>OCR extracts checklist data from a simple referral sheet</span></div>
+          <div class="form-line"><span class="box"></span><span>Fund rules are matched against diagnosis and therapy details</span></div>
+          <div class="form-line"><span class="box"></span><span>Pre-filled packet returns by email or EHR drop for rapid filing</span></div>
+        </article>
+        <article class="panel">
+          <p class="section-label">Anticipated impact</p>
+          <h2>What success would change</h2>
+          <div class="impact-list">
+            <div class="impact-item">
+              <i aria-hidden="true"></i>
+              <p><strong>Earlier grants:</strong> same-day submissions are expected to capture openings before funds fill.</p>
+            </div>
+            <div class="impact-item">
+              <i aria-hidden="true"></i>
+              <p><strong>Fewer therapy interruptions:</strong> assistance-supported brand options may help patients stay on treatment.</p>
+            </div>
+            <div class="impact-item">
+              <i aria-hidden="true"></i>
+              <p><strong>Lower staff load:</strong> a lightweight intake path avoids new portals while coexisting with manufacturer cards and PAP tools.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="tables-grid" id="patterns">
+        <article class="table-card">
+          <p class="section-label">Extracted table pattern</p>
+          <h2>Operational components</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Component</th>
+                  <th>Concise role</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Foundation assistance concierge</td>
+                  <td>Transfers foundation enrollment work and patient coordination from clinic staff to the service.</td>
+                </tr>
+                <tr>
+                  <td>Program search and intake</td>
+                  <td>Polls funds, auto-matches patients, and accepts EHR exports, email, or the MMS checklist.</td>
+                </tr>
+                <tr>
+                  <td>Same-day engagement</td>
+                  <td>Collects documents and files applications when a foundation fund opens.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+        <article class="table-card">
+          <p class="section-label">Interpretive takeaway</p>
+          <h2>Poster status</h2>
+          <div class="markdown-fragment">
+            <p>This poster describes a prospective quality-improvement evaluation rather than final outcome results. The evidence emphasis is on operational feasibility, measurement endpoints, and anticipated impact for CIDP and MG specialty care.</p>
+            <ul>
+              <li>Study site: single neurology clinic with seven infusion chairs.</li>
+              <li>Study interval: February 2025 through July 2026.</li>
+              <li>Primary operational target: funding within 24 hours after fund opening.</li>
+            </ul>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/3209-DTS107-RP-Poster-AM25_2025.pdf">Open original PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/3209-DTS107-RP-Poster-AM25_2025.md">Open extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Creating a Digital Refill Program Using Readily Available Software | NASP 2023</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .refill-hero-art {
+      position: relative;
+      min-height: 19rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(24, 124, 143, 0.18), transparent 8rem),
+        radial-gradient(circle at 82% 80%, rgba(233, 158, 37, 0.24), transparent 9rem),
+        linear-gradient(135deg, #ffffff 0%, var(--surface-blue) 54%, #fff7ea 100%);
+      overflow: hidden;
+    }
+    .refill-hero-art svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 19rem;
+    }
+    .hero-card .author-line {
+      margin: 0;
+      color: var(--body);
+      font-size: 0.82rem;
+    }
+    .hero-card .finding {
+      margin: 0;
+      border-left: 4px solid var(--red);
+      padding-left: 0.68rem;
+      color: var(--ink);
+      font-size: 0.94rem;
+      font-weight: 850;
+    }
+    .metric-card p,
+    .panel p,
+    .table-card p {
+      margin: 0.48rem 0 0;
+      font-size: 0.86rem;
+    }
+    .metric-card strong small {
+      display: inline;
+      color: inherit;
+      font-size: 0.56em;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+    .workflow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.72rem;
+      margin-top: 0.78rem;
+    }
+    .workflow-step {
+      position: relative;
+      min-height: 10.8rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.88rem;
+      overflow: hidden;
+    }
+    .workflow-step::after {
+      content: attr(data-step);
+      position: absolute;
+      right: 0.55rem;
+      bottom: -0.58rem;
+      color: rgba(36, 55, 112, 0.10);
+      font-family: var(--font-display);
+      font-size: 4.9rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .workflow-step .icon {
+      display: grid;
+      width: 2.35rem;
+      height: 2.35rem;
+      place-items: center;
+      margin-bottom: 0.58rem;
+      border-radius: 7px;
+      background: var(--accent, var(--red));
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 900;
+    }
+    .workflow-step:nth-child(2) { --accent: var(--gold); }
+    .workflow-step:nth-child(3) { --accent: var(--teal); }
+    .workflow-step:nth-child(4) { --accent: var(--green); }
+    .workflow-step p,
+    .workflow-step h3 {
+      position: relative;
+      z-index: 1;
+    }
+    .workflow-step p {
+      margin: 0.45rem 0 0;
+      font-size: 0.82rem;
+    }
+    .trend-board {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.85fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .chart-frame {
+      border: 1px solid rgba(174, 187, 210, 0.88);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.8rem;
+    }
+    .chart-frame svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-top: 0.6rem;
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-weight: 800;
+    }
+    .legend i {
+      display: inline-block;
+      width: 0.8rem;
+      height: 0.8rem;
+      margin-right: 0.26rem;
+      border-radius: 999px;
+      vertical-align: -0.12rem;
+      background: var(--key, var(--red));
+    }
+    .legend span:nth-child(2) i { --key: var(--teal); }
+    .legend span:nth-child(3) i { --key: var(--gold); }
+    .insight-stack {
+      display: grid;
+      gap: 0.7rem;
+    }
+    .insight-card {
+      border-left: 5px solid var(--accent, var(--red));
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem 0.9rem;
+      box-shadow: inset 0 0 0 1px rgba(174, 187, 210, 0.82);
+    }
+    .insight-card:nth-child(2) { --accent: var(--teal); }
+    .insight-card:nth-child(3) { --accent: var(--gold); }
+    .insight-card b {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.96rem;
+      line-height: 1.2;
+    }
+    .insight-card span {
+      display: block;
+      margin-top: 0.35rem;
+      font-size: 0.82rem;
+    }
+    .split-findings {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+    .finding-tile {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.9rem;
+    }
+    .finding-tile h3 {
+      padding-bottom: 0.45rem;
+      border-bottom: 3px solid var(--accent, var(--red));
+    }
+    .finding-tile:nth-child(2) { --accent: var(--teal); }
+    .finding-tile:nth-child(3) { --accent: var(--purple); }
+    .finding-tile ul {
+      margin: 0.55rem 0 0 1.05rem;
+      padding: 0;
+    }
+    .finding-tile li {
+      margin: 0.32rem 0;
+      font-size: 0.84rem;
+    }
+    .mini-bars {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 0.7rem;
+    }
+    .mini-row {
+      display: grid;
+      grid-template-columns: 3.2rem minmax(0, 1fr) 3.2rem;
+      gap: 0.5rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .mini-track {
+      height: 0.9rem;
+      border-radius: 999px;
+      background: rgba(36, 55, 112, 0.10);
+      overflow: hidden;
+    }
+    .mini-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .table-card.compact-table table {
+      font-size: 0.74rem;
+    }
+    .source-note {
+      margin: 0.45rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    @media (max-width: 900px) {
+      .workflow,
+      .split-findings,
+      .trend-board {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 640px) {
+      .chart-frame {
+        overflow-x: auto;
+      }
+      .chart-frame svg {
+        min-width: 38rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP infographic home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/79_Creating-a-Digital-Refill-Program-Using-Readily-Available-Software_2023.pdf">PDF Source</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/79_Creating-a-Digital-Refill-Program-Using-Readily-Available-Software_2023.md">Markdown Source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2023 | Poster 79 | Specialty pharmacy operations</p>
+        <h1 id="poster-title">Creating a Digital Refill Program Using Readily Available Software</h1>
+        <p class="hero-summary">Intermountain Specialty Pharmacy built a refill intake channel from existing health-system tools, then tracked whether patients would repeatedly use it and whether the pharmacy could grow dispenses without adding phone time.</p>
+        <ul class="tag-row" aria-label="Poster topics">
+          <li class="tag category">Digital refill intake</li>
+          <li class="tag therapy">Specialty pharmacy</li>
+          <li class="tag">Microsoft Forms</li>
+          <li class="tag">SMS workflow</li>
+          <li class="tag">Operational efficiency</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div class="poster-code">2023<br>Digital Refills</div>
+        <p class="author-line">Katie Moore, PharmD, CSP; Clint Ivie, PharmD, MBA, CSP</p>
+        <dl class="meta-grid">
+          <div>
+            <dt>Site</dt>
+            <dd>Intermountain Specialty Pharmacy</dd>
+          </div>
+          <div>
+            <dt>Study window</dt>
+            <dd>3Q21 to 2Q23</dd>
+          </div>
+          <div>
+            <dt>Core build</dt>
+            <dd>Forms + SMS + List</dd>
+          </div>
+          <div>
+            <dt>Goal</dt>
+            <dd>Patient engagement</dd>
+          </div>
+        </dl>
+        <p class="finding">A pharmacy-created digital route grew to 40% of refill requests while specialty dispenses increased.</p>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Patients using program</span>
+          <strong>5,722</strong>
+          <p>patients requested at least one refill through the digital program.</p>
+        </article>
+        <article class="metric-card">
+          <span>Repeat engagement</span>
+          <strong>50<small>%</small></strong>
+          <p>of digital users requested refills through the program 5 or more times.</p>
+        </article>
+        <article class="metric-card">
+          <span>Current refill mix</span>
+          <strong>40<small>%</small></strong>
+          <p>of refills are currently requested using the digital refill program.</p>
+        </article>
+        <article class="metric-card">
+          <span>Quarterly growth</span>
+          <strong>18<small>x</small></strong>
+          <p>text refill requests rose from 500 in 3Q21 to 9,000 in 2Q23.</p>
+        </article>
+      </section>
+
+      <section class="visual-grid" aria-label="Program objective and hero visual">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Make digital refill setup possible with tools already on hand.</h2>
+          <p>The project replaced a phone-only refill setup model with a patient-facing digital questionnaire and a back-office work queue. The evaluation focused on adoption, repeat use, call burden, and whether the program supported a higher dispense volume.</p>
+        </article>
+        <article class="refill-hero-art" aria-label="Illustration of digital refill workflow">
+          <svg viewBox="0 0 720 360" role="img" aria-labelledby="hero-art-title hero-art-desc">
+            <title id="hero-art-title">Digital refill workflow illustration</title>
+            <desc id="hero-art-desc">A phone sends a refill form through automation into an organized pharmacy work queue.</desc>
+            <defs>
+              <linearGradient id="phoneFill" x1="0" x2="1">
+                <stop offset="0" stop-color="#243770"/>
+                <stop offset="1" stop-color="#187c8f"/>
+              </linearGradient>
+              <linearGradient id="queueFill" x1="0" x2="1">
+                <stop offset="0" stop-color="#d12630"/>
+                <stop offset="1" stop-color="#e99e25"/>
+              </linearGradient>
+              <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#243770" flood-opacity="0.16"/>
+              </filter>
+            </defs>
+            <rect x="55" y="42" width="168" height="276" rx="28" fill="url(#phoneFill)" filter="url(#softShadow)"/>
+            <rect x="74" y="79" width="130" height="197" rx="14" fill="#fff"/>
+            <rect x="104" y="58" width="70" height="8" rx="4" fill="#d9e1ef"/>
+            <circle cx="139" cy="298" r="9" fill="#eef4fb"/>
+            <rect x="94" y="103" width="88" height="12" rx="6" fill="#d12630"/>
+            <rect x="94" y="135" width="92" height="10" rx="5" fill="#aebbd2"/>
+            <rect x="94" y="162" width="72" height="10" rx="5" fill="#aebbd2"/>
+            <rect x="94" y="189" width="94" height="10" rx="5" fill="#aebbd2"/>
+            <rect x="94" y="224" width="74" height="24" rx="12" fill="#187c8f"/>
+            <text x="131" y="241" text-anchor="middle" fill="#fff" font-family="Inter, Arial" font-size="12" font-weight="800">Submit</text>
+            <path d="M245 178 C300 115, 354 115, 410 178" fill="none" stroke="#187c8f" stroke-width="10" stroke-linecap="round"/>
+            <path d="M410 178 l-27 -10 l7 28 z" fill="#187c8f"/>
+            <circle cx="329" cy="116" r="28" fill="#fff" stroke="#e99e25" stroke-width="5"/>
+            <path d="M319 115 l8 8 l15 -18" fill="none" stroke="#4d8a67" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="420" y="70" width="235" height="220" rx="18" fill="#fff" stroke="#aebbd2" filter="url(#softShadow)"/>
+            <rect x="420" y="70" width="235" height="46" rx="18" fill="url(#queueFill)"/>
+            <text x="538" y="100" text-anchor="middle" fill="#fff" font-family="Montserrat, Arial" font-size="18" font-weight="900">Refill Queue</text>
+            <g font-family="Inter, Arial" font-size="13" font-weight="800">
+              <rect x="445" y="142" width="185" height="25" rx="6" fill="#eef4fb"/>
+              <text x="461" y="160" fill="#243770">Medication ready?</text>
+              <circle cx="611" cy="154" r="7" fill="#4d8a67"/>
+              <rect x="445" y="183" width="185" height="25" rx="6" fill="#fff7ea"/>
+              <text x="461" y="201" fill="#243770">Delivery date</text>
+              <circle cx="611" cy="195" r="7" fill="#e99e25"/>
+              <rect x="445" y="224" width="185" height="25" rx="6" fill="#eef4fb"/>
+              <text x="461" y="242" fill="#243770">Patient notes</text>
+              <circle cx="611" cy="236" r="7" fill="#187c8f"/>
+            </g>
+          </svg>
+        </article>
+      </section>
+
+      <section class="panel" aria-labelledby="workflow-title">
+        <p class="section-label">Methods</p>
+        <h2 id="workflow-title">A low-code refill pathway turned texts and QR magnets into a work queue.</h2>
+        <div class="workflow">
+          <article class="workflow-step" data-step="1">
+            <div class="icon">F</div>
+            <h3>Create the refill form</h3>
+            <p>A Microsoft Forms questionnaire captured refill request details from patients.</p>
+          </article>
+          <article class="workflow-step" data-step="2">
+            <div class="icon">S</div>
+            <h3>Send the link</h3>
+            <p>Staff manually sent the form link by SMS through SureScripts Patient Communications Solution in EnterpriseRx.</p>
+          </article>
+          <article class="workflow-step" data-step="3">
+            <div class="icon">Q</div>
+            <h3>Add passive access</h3>
+            <p>QR code magnets with the same link gave patients another way to reach the refill questionnaire.</p>
+          </article>
+          <article class="workflow-step" data-step="4">
+            <div class="icon">L</div>
+            <h3>Queue submissions</h3>
+            <p>Microsoft Power Automate added each submitted refill request to a Microsoft List for order setup.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="trend-board" aria-label="Quarterly trend evidence">
+        <article class="panel">
+          <p class="section-label">Results over time</p>
+          <h2>Digital requests climbed while phone work per dispense moved down.</h2>
+          <div class="chart-frame" aria-label="Line chart for digital refill requests and phone burden">
+            <svg viewBox="0 0 660 310" role="img" aria-labelledby="trend-title trend-desc">
+              <title id="trend-title">Quarterly operational trends from 3Q21 through 2Q23</title>
+              <desc id="trend-desc">Text refill requests increased from 500 to 9000, phone calls per specialty dispense decreased from 2.5 to 1.7, and average phone minutes per dispense decreased from 7.0 to 4.9.</desc>
+              <rect x="0" y="0" width="660" height="310" fill="#fff"/>
+              <g stroke="#d9e1ef" stroke-width="1">
+                <line x1="55" y1="45" x2="610" y2="45"/>
+                <line x1="55" y1="95" x2="610" y2="95"/>
+                <line x1="55" y1="145" x2="610" y2="145"/>
+                <line x1="55" y1="195" x2="610" y2="195"/>
+                <line x1="55" y1="245" x2="610" y2="245"/>
+              </g>
+              <g fill="#68758d" font-family="Inter, Arial" font-size="11" font-weight="800">
+                <text x="55" y="274" text-anchor="middle">3Q21</text>
+                <text x="134" y="274" text-anchor="middle">4Q21</text>
+                <text x="213" y="274" text-anchor="middle">1Q22</text>
+                <text x="292" y="274" text-anchor="middle">2Q22</text>
+                <text x="371" y="274" text-anchor="middle">3Q22</text>
+                <text x="450" y="274" text-anchor="middle">4Q22</text>
+                <text x="529" y="274" text-anchor="middle">1Q23</text>
+                <text x="608" y="274" text-anchor="middle">2Q23</text>
+              </g>
+              <polyline points="55,236 134,226 213,207 292,179 371,151 450,113 529,85 608,75" fill="none" stroke="#d12630" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+              <polyline points="55,58 134,90 213,90 292,107 371,90 450,156 529,156 608,189" fill="none" stroke="#187c8f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+              <polyline points="55,60 134,100 213,89 292,106 371,94 450,157 529,151 608,180" fill="none" stroke="#e99e25" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="9 8"/>
+              <g fill="#fff" stroke-width="4">
+                <circle cx="55" cy="236" r="6" stroke="#d12630"/>
+                <circle cx="608" cy="75" r="6" stroke="#d12630"/>
+                <circle cx="55" cy="58" r="5" stroke="#187c8f"/>
+                <circle cx="608" cy="189" r="5" stroke="#187c8f"/>
+                <circle cx="55" cy="60" r="5" stroke="#e99e25"/>
+                <circle cx="608" cy="180" r="5" stroke="#e99e25"/>
+              </g>
+              <g font-family="Inter, Arial" font-size="12" font-weight="900">
+                <text x="68" y="228" fill="#d12630">500</text>
+                <text x="536" y="64" fill="#d12630">9,000 texts</text>
+                <text x="66" y="50" fill="#187c8f">2.5 calls</text>
+                <text x="533" y="205" fill="#187c8f">1.7 calls</text>
+                <text x="67" y="76" fill="#e99e25">7.0 min</text>
+                <text x="536" y="171" fill="#e99e25">4.9 min</text>
+              </g>
+            </svg>
+            <div class="legend" aria-label="Chart legend">
+              <span><i></i>Text refill requests</span>
+              <span><i></i>Phone calls per dispense</span>
+              <span><i></i>Average phone minutes per dispense</span>
+            </div>
+          </div>
+        </article>
+        <aside class="insight-stack" aria-label="Trend interpretation">
+          <article class="insight-card">
+            <b>Demand shifted quickly.</b>
+            <span>Quarterly text refill requests increased from 500 in 3Q21 to 9,000 in 2Q23, exceeding the poster's more-than-10-fold growth statement.</span>
+          </article>
+          <article class="insight-card">
+            <b>Dispense volume rose.</b>
+            <span>Specialty dispenses increased from 17,500 to 22,000 across the same period.</span>
+          </article>
+          <article class="insight-card">
+            <b>Phone intensity decreased.</b>
+            <span>Calls per specialty dispense fell from 2.5 to 1.7, and average phone minutes per dispense fell from 7.0 to 4.9.</span>
+          </article>
+        </aside>
+      </section>
+
+      <section class="split-findings" aria-label="Objective methods results conclusion">
+        <article class="finding-tile">
+          <h3>Why it mattered</h3>
+          <ul>
+            <li>Phone-only refill setup can create long hold times and lower patient satisfaction.</li>
+            <li>Patients of all ages prefer digital communication with healthcare providers.</li>
+            <li>Not every specialty pharmacy has access to bidirectional patient messaging.</li>
+          </ul>
+        </article>
+        <article class="finding-tile">
+          <h3>What worked</h3>
+          <ul>
+            <li>5,722 patients used the digital refill program.</li>
+            <li>Half of those patients used the program 5 or more times.</li>
+            <li>The pharmacy reached a current state where 40% of refills use the digital route.</li>
+          </ul>
+        </article>
+        <article class="finding-tile">
+          <h3>What still needed calls</h3>
+          <ul>
+            <li>Some submitted information was inaccurate.</li>
+            <li>Some patients requested delivery dates that were not possible.</li>
+            <li>Those exceptions still required telephonic follow-up.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Evidence tables">
+        <article class="table-card compact-table">
+          <p class="section-label">Quarterly pattern</p>
+          <h2>Digital uptake and call burden</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Quarter</th>
+                  <th>Text refills</th>
+                  <th>Calls / dispense</th>
+                  <th>Phone min / dispense</th>
+                  <th>Dispenses</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>3Q21</td><td>500</td><td>2.5</td><td>7.0</td><td>17,500</td></tr>
+                <tr><td>4Q21</td><td>1,000</td><td>2.3</td><td>6.3</td><td>18,500</td></tr>
+                <tr><td>1Q22</td><td>2,000</td><td>2.3</td><td>6.5</td><td>19,000</td></tr>
+                <tr><td>2Q22</td><td>3,500</td><td>2.2</td><td>6.2</td><td>18,500</td></tr>
+                <tr><td>3Q22</td><td>5,000</td><td>2.3</td><td>6.4</td><td>20,000</td></tr>
+                <tr><td>4Q22</td><td>7,000</td><td>1.9</td><td>5.3</td><td>20,500</td></tr>
+                <tr><td>1Q23</td><td>8,500</td><td>1.9</td><td>5.4</td><td>21,000</td></tr>
+                <tr><td>2Q23</td><td>9,000</td><td>1.7</td><td>4.9</td><td>22,000</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="source-note">Phone time is shown per specialty dispense; poster footnote reports an average of 2.8 minutes on phone per call.</p>
+        </article>
+        <article class="table-card">
+          <p class="section-label">Conclusion</p>
+          <h2>More refill volume, without matching growth in active phone time.</h2>
+          <p>The digital refill program let the pharmacy absorb more specialty dispenses while inbound and outbound call volumes stayed broadly similar across the observed quarters.</p>
+          <div class="mini-bars" aria-label="Selected endpoint comparison">
+            <div class="mini-row">
+              <span>3Q21</span>
+              <span class="mini-track"><i style="--w: 79.5%"></i></span>
+              <span>17.5k</span>
+            </div>
+            <div class="mini-row">
+              <span>2Q23</span>
+              <span class="mini-track"><i style="--w: 100%"></i></span>
+              <span>22.0k</span>
+            </div>
+          </div>
+          <p class="source-note">Specialty dispenses increased by about 26% from the first to last quarter in the table.</p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer-actions" aria-label="Source documents">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/79_Creating-a-Digital-Refill-Program-Using-Readily-Available-Software_2023.pdf">Open PDF source</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/79_Creating-a-Digital-Refill-Program-Using-Readily-Available-Software_2023.md">Open markdown source</a>
+    </footer>
+  </div>
+</body>
+</html>

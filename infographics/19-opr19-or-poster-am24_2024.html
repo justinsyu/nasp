@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>19-OPR19-OR-Poster-AM24 2024 | T2DM Medication Optimization</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .diabetes-hero {
+      position: relative;
+      min-height: 100%;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 82% 12%, rgba(233, 158, 37, 0.3), transparent 5.6rem),
+        radial-gradient(circle at 18% 88%, rgba(24, 124, 143, 0.18), transparent 7rem),
+        linear-gradient(145deg, var(--surface-blue), #fff 54%, var(--surface-warm));
+      padding: 1rem;
+    }
+
+    .diabetes-hero svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-top: 0.3rem;
+    }
+
+    .hero-stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.75rem;
+    }
+
+    .hero-stat {
+      border: 1px solid rgba(174, 187, 210, 0.82);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.78);
+      padding: 0.65rem;
+    }
+
+    .hero-stat strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      line-height: 1;
+    }
+
+    .hero-stat span {
+      display: block;
+      margin-top: 0.22rem;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .funnel-board {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .funnel-stage {
+      display: grid;
+      grid-template-columns: 5.5rem minmax(0, 1fr);
+      gap: 0.8rem;
+      align-items: center;
+      min-height: 4.65rem;
+      margin-top: 0.72rem;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.72rem;
+    }
+
+    .funnel-stage b {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2rem;
+      line-height: 1;
+      text-align: center;
+    }
+
+    .funnel-stage span {
+      display: block;
+      color: var(--ink);
+      font-weight: 850;
+    }
+
+    .funnel-stage small {
+      display: block;
+      margin-top: 0.15rem;
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-weight: 750;
+    }
+
+    .exclusion-list {
+      display: grid;
+      gap: 0.5rem;
+      margin-top: 0.7rem;
+    }
+
+    .exclusion-row {
+      display: grid;
+      grid-template-columns: 2.5rem minmax(0, 1fr);
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--body);
+      font-size: 0.78rem;
+    }
+
+    .exclusion-row b {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1rem;
+      text-align: right;
+    }
+
+    .outcome-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 1rem;
+    }
+
+    .donut-row {
+      display: grid;
+      grid-template-columns: 11rem minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+      margin-top: 0.65rem;
+    }
+
+    .donut {
+      width: 10.8rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: conic-gradient(var(--teal) 0 71%, rgba(209, 38, 48, 0.72) 71% 100%);
+    }
+
+    .donut::after {
+      content: "71%";
+      display: grid;
+      place-items: center;
+      width: 6.5rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: #fff;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 900;
+    }
+
+    .legend-list {
+      display: grid;
+      gap: 0.45rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .legend-list li {
+      display: grid;
+      grid-template-columns: 0.8rem minmax(0, 1fr) 2.8rem;
+      gap: 0.45rem;
+      align-items: center;
+      color: var(--body);
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .legend-list i {
+      width: 0.78rem;
+      height: 0.78rem;
+      border-radius: 3px;
+      background: var(--teal);
+    }
+
+    .legend-list li:nth-child(2) i { background: rgba(209, 38, 48, 0.72); }
+
+    .therapy-bars {
+      display: grid;
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+
+    .therapy-row {
+      display: grid;
+      grid-template-columns: 8.2rem minmax(0, 1fr) 2.8rem;
+      gap: 0.55rem;
+      align-items: center;
+      font-size: 0.8rem;
+    }
+
+    .therapy-row b {
+      color: var(--ink);
+      font-size: 0.78rem;
+    }
+
+    .therapy-track {
+      height: 1rem;
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+
+    .therapy-fill {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .therapy-row:nth-child(2) .therapy-fill {
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .therapy-row:nth-child(3) .therapy-fill {
+      background: linear-gradient(90deg, var(--purple), var(--teal));
+    }
+
+    .therapy-row em {
+      color: var(--ink);
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .care-path {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.7rem;
+      counter-reset: step;
+    }
+
+    .path-step {
+      position: relative;
+      min-height: 10.2rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.82rem;
+      overflow: hidden;
+    }
+
+    .path-step::before {
+      counter-increment: step;
+      content: counter(step);
+      display: grid;
+      place-items: center;
+      width: 2rem;
+      height: 2rem;
+      margin-bottom: 0.7rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-weight: 900;
+    }
+
+    .path-step h3 {
+      color: var(--ink);
+      font-size: 0.92rem;
+    }
+
+    .path-step p {
+      margin: 0.45rem 0 0;
+      font-size: 0.8rem;
+    }
+
+    .table-patterns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+    }
+
+    .callout {
+      border-left: 4px solid var(--red);
+      background: linear-gradient(90deg, rgba(209, 38, 48, 0.08), rgba(255, 255, 255, 0));
+      padding: 0.75rem 0.85rem;
+    }
+
+    .callout p {
+      margin: 0;
+      color: var(--ink);
+      font-size: 0.96rem;
+      font-weight: 850;
+    }
+
+    @media (max-width: 900px) {
+      .funnel-board,
+      .outcome-grid,
+      .donut-row,
+      .table-patterns {
+        grid-template-columns: 1fr;
+      }
+
+      .care-path {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero-stat-grid,
+      .care-path {
+        grid-template-columns: 1fr;
+      }
+
+      .funnel-stage,
+      .therapy-row {
+        grid-template-columns: 1fr;
+      }
+
+      .funnel-stage b,
+      .therapy-row em {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="NASP infographic home">NASP Posters</a>
+      <nav aria-label="Page sections">
+        <a href="#results">Results</a>
+        <a href="#workflow">Workflow</a>
+        <a href="#evidence">Evidence</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow">2024 poster | 19-OPR19-OR-Poster-AM24</p>
+        <h1>A Health-System Specialty Pharmacy Approach to Optimize Medication Regimens Among Patients Diagnosed with Type 2 Diabetes Mellitus</h1>
+        <p class="hero-summary">Seven health-system specialty pharmacies used data analytics, pharmacist review, shared decision-making, and electronic health record recommendations to identify insulin-treated adults with T2DM who might benefit from SGLT2 inhibitor, GLP-1 RA, or GIP/GLP-1 RA add-on therapy.</p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Quality improvement</li>
+          <li class="tag therapy">T2DM</li>
+          <li class="tag therapy">HSSP pharmacists</li>
+          <li class="tag">December 2023 to February 2024</li>
+        </ul>
+      </div>
+
+      <aside class="diabetes-hero" aria-label="Study snapshot">
+        <p class="section-label">Guideline-directed therapy gap</p>
+        <svg viewBox="0 0 520 260" role="img" aria-labelledby="heroSvgTitle heroSvgDesc">
+          <title id="heroSvgTitle">Pharmacist intervention pathway</title>
+          <desc id="heroSvgDesc">Patients flow from data pull to pharmacist recommendation and therapy initiation.</desc>
+          <defs>
+            <linearGradient id="pulse" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0" stop-color="#187c8f"/>
+              <stop offset="1" stop-color="#4d8a67"/>
+            </linearGradient>
+          </defs>
+          <rect x="18" y="25" width="484" height="190" rx="26" fill="#fff" stroke="#aebbd2" stroke-width="2"/>
+          <path d="M72 142 C118 74 167 74 207 140 S291 206 335 136 S418 67 462 134" fill="none" stroke="#d12630" stroke-width="12" stroke-linecap="round"/>
+          <path d="M72 162 C118 96 166 98 207 158 S291 220 335 154 S417 93 462 154" fill="none" stroke="url(#pulse)" stroke-width="8" stroke-linecap="round" opacity="0.92"/>
+          <g fill="#243770" font-family="Montserrat, Arial, sans-serif" font-weight="900" text-anchor="middle">
+            <text x="78" y="67" font-size="29">329</text>
+            <text x="260" y="67" font-size="29">108</text>
+            <text x="442" y="67" font-size="29">24</text>
+          </g>
+          <g fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="800" text-anchor="middle">
+            <text x="78" y="90">identified</text>
+            <text x="260" y="90">eligible</text>
+            <text x="442" y="90">accepted</text>
+          </g>
+          <circle cx="78" cy="142" r="16" fill="#fff" stroke="#d12630" stroke-width="5"/>
+          <circle cx="260" cy="185" r="16" fill="#fff" stroke="#e99e25" stroke-width="5"/>
+          <circle cx="442" cy="154" r="16" fill="#fff" stroke="#187c8f" stroke-width="5"/>
+        </svg>
+        <div class="hero-stat-grid">
+          <div class="hero-stat">
+            <strong>71%</strong>
+            <span>accepted by prescribers</span>
+          </div>
+          <div class="hero-stat">
+            <strong>9.5%</strong>
+            <span>median baseline A1C</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key metrics">
+        <div class="metric-card">
+          <span>Data analytics pull</span>
+          <strong>329</strong>
+        </div>
+        <div class="metric-card">
+          <span>Eligible for outreach</span>
+          <strong>108</strong>
+        </div>
+        <div class="metric-card">
+          <span>Add-on interventions</span>
+          <strong>34</strong>
+        </div>
+        <div class="metric-card">
+          <span>New therapies added</span>
+          <strong>24</strong>
+        </div>
+      </section>
+
+      <section class="funnel-board" id="results">
+        <div class="panel">
+          <p class="section-label">Patient identification cascade</p>
+          <h2>From analytics list to targeted pharmacist intervention</h2>
+          <div class="funnel-stage">
+            <b>329</b>
+            <div><span>Patients identified through data analytics</span><small>Baseline population before duplicate removal and clinical review.</small></div>
+          </div>
+          <div class="funnel-stage">
+            <b>275</b>
+            <div><span>Patients screened after duplicate removal</span><small>Screening applied inclusion, exclusion, and appropriateness checks.</small></div>
+          </div>
+          <div class="funnel-stage">
+            <b>108</b>
+            <div><span>Patients eligible for outreach</span><small>Insulin-treated adults with T2DM and no baseline SGLT2, GLP-1 RA, or GIP/GLP-1 RA.</small></div>
+          </div>
+          <div class="funnel-stage">
+            <b>34</b>
+            <div><span>Patients receiving add-on therapy intervention</span><small>Pharmacist recommendation sent to prescriber via the electronic health record.</small></div>
+          </div>
+        </div>
+
+        <aside class="panel">
+          <p class="section-label">Why patients exited the funnel</p>
+          <h2>Review capacity and clinical fit shaped the opportunity</h2>
+          <div class="exclusion-list" aria-label="Selected exclusion and no-intervention reasons">
+            <div class="exclusion-row"><b>61</b><span>Pharmacist unable to review profile within the study window</span></div>
+            <div class="exclusion-row"><b>34</b><span>Not clinically serviced by the HSSP</span></div>
+            <div class="exclusion-row"><b>30</b><span>Incorrect ICD-10 documented</span></div>
+            <div class="exclusion-row"><b>27</b><span>Target therapy initiated before pharmacist review</span></div>
+            <div class="exclusion-row"><b>17</b><span>Hemoglobin A1C already at goal</span></div>
+            <div class="exclusion-row"><b>14</b><span>Pharmacist concern about patient history</span></div>
+            <div class="exclusion-row"><b>10</b><span>Patient choice led to no intervention</span></div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="outcome-grid">
+        <div class="panel">
+          <p class="section-label">Intervention outcomes</p>
+          <h2>Prescribers accepted most HSSP recommendations</h2>
+          <div class="donut-row">
+            <div class="donut" aria-label="71 percent accepted"></div>
+            <ul class="legend-list">
+              <li><i></i><span>Accepted</span><b>71%</b></li>
+              <li><i></i><span>Denied</span><b>29%</b></li>
+            </ul>
+          </div>
+          <div class="callout">
+            <p>The acceptance signal suggests embedded pharmacists were trusted partners for guideline-aligned T2DM regimen optimization.</p>
+          </div>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">New therapies added, n=24</p>
+          <h2>Therapy choices concentrated in GLP-1 RA and SGLT2 inhibitor classes</h2>
+          <div class="therapy-bars">
+            <div class="therapy-row">
+              <b>GLP-1 RA</b>
+              <div class="therapy-track"><span class="therapy-fill" style="width:46%"></span></div>
+              <em>46%</em>
+            </div>
+            <div class="therapy-row">
+              <b>SGLT2 inhibitor</b>
+              <div class="therapy-track"><span class="therapy-fill" style="width:46%"></span></div>
+              <em>46%</em>
+            </div>
+            <div class="therapy-row">
+              <b>GIP/GLP-1 RA</b>
+              <div class="therapy-track"><span class="therapy-fill" style="width:8%"></span></div>
+              <em>8%</em>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="workflow">
+        <p class="section-label">Initiative framework</p>
+        <h2>How the HSSP model turned data into therapy access</h2>
+        <div class="care-path">
+          <article class="path-step">
+            <h3>Identify</h3>
+            <p>Use data analytics tools to find patients with T2DM who may have a treatment gap.</p>
+          </article>
+          <article class="path-step">
+            <h3>Review and reach out</h3>
+            <p>Pharmacists review profiles, contact patients, and determine clinical appropriateness.</p>
+          </article>
+          <article class="path-step">
+            <h3>Recommend</h3>
+            <p>If appropriate, the pharmacist sends an add-on therapy recommendation through the EHR.</p>
+          </article>
+          <article class="path-step">
+            <h3>Facilitate access</h3>
+            <p>For accepted interventions, the HSSP supports medication access and initiation.</p>
+          </article>
+          <article class="path-step">
+            <h3>Extend follow-up</h3>
+            <p>Future evaluation may assess 6- to 12-month clinical outcomes such as A1C change.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="table-patterns" id="evidence">
+        <div class="table-card">
+          <p class="section-label">Population snapshot</p>
+          <h2>Eligible outreach group</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Characteristic</th>
+                  <th>Patients, n=108</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Median age, years</td>
+                  <td>67 (IQR 48-86)</td>
+                </tr>
+                <tr>
+                  <td>Female sex</td>
+                  <td>64 (59%)</td>
+                </tr>
+                <tr>
+                  <td>Baseline hemoglobin A1C</td>
+                  <td>Median 9.5% (IQR 5.8-13.2)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="table-card">
+          <p class="section-label">Eligibility pattern</p>
+          <h2>Who pharmacists targeted</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Inclusion</th>
+                  <th>Exclusion</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>T2DM diagnosis by applicable ICD-10-CM code</td>
+                  <td>Younger than 18 years</td>
+                </tr>
+                <tr>
+                  <td>Prescribed any insulin therapy</td>
+                  <td>Unable to contact</td>
+                </tr>
+                <tr>
+                  <td>No baseline SGLT2 inhibitor, GLP-1 RA, or GIP/GLP-1 RA</td>
+                  <td>Not clinically serviced by HSSP</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-stack">
+        <div class="panel markdown-fragment">
+          <p class="section-label">Conclusion</p>
+          <h2>Embedded pharmacists can close therapy gaps</h2>
+          <p>Gaps in guideline-directed prescribing remained for patients with T2DM, and the HSSP model positioned pharmacists to recommend patient-specific add-on therapy within multidisciplinary care.</p>
+          <p>The 71% prescriber acceptance rate was the central outcome signal supporting pharmacist integration into outpatient clinical teams.</p>
+        </div>
+
+        <div class="panel markdown-fragment">
+          <p class="section-label">Limitations and next question</p>
+          <h2>What the poster could not yet answer</h2>
+          <ul>
+            <li>Medication-selection rationale and patient out-of-pocket costs were not analyzed.</li>
+            <li>The review window was short, limiting pharmacist review for 61 identified patients.</li>
+            <li>Future work is planned for broader T2DM populations and 6- to 12-month outcome follow-up.</li>
+          </ul>
+        </div>
+      </section>
+
+      <footer class="footer-actions" id="sources">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/19-OPR19-OR-Poster-AM24_2024.pdf">View source PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/19-OPR19-OR-Poster-AM24_2024.md">View extracted markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

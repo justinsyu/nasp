@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Impact of Addition of Community Healthcare Worker | NASP 2021</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .chw-hero-art {
+      position: relative;
+      min-height: 18rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 18% 20%, rgba(24, 124, 143, 0.17), transparent 8.5rem),
+        radial-gradient(circle at 78% 74%, rgba(233, 158, 37, 0.22), transparent 10rem),
+        linear-gradient(135deg, #ffffff 0%, var(--surface-blue) 57%, var(--surface-warm) 100%);
+      overflow: hidden;
+    }
+    .chw-hero-art svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 18rem;
+    }
+    .hero-card .core-finding {
+      margin: 0;
+      border-left: 4px solid var(--red);
+      padding-left: 0.72rem;
+      color: var(--ink);
+      font-size: 0.95rem;
+      font-weight: 850;
+    }
+    .metric-card p {
+      margin: 0.44rem 0 0;
+      font-size: 0.78rem;
+    }
+    .metric-card strong.compact {
+      font-size: clamp(1.35rem, 3vw, 2rem);
+    }
+    .bridge-panel {
+      display: grid;
+      grid-template-columns: minmax(15rem, 0.8fr) minmax(0, 1.2fr);
+      gap: 1rem;
+      align-items: center;
+    }
+    .reach-card {
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background:
+        linear-gradient(145deg, rgba(209, 38, 48, 0.10), transparent 48%),
+        #fff;
+      padding: 1rem;
+    }
+    .reach-card strong {
+      display: block;
+      margin: 0.2rem 0 0.44rem;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(3.6rem, 8vw, 6rem);
+      line-height: 0.9;
+    }
+    .reach-card span {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-weight: 900;
+      line-height: 1.18;
+    }
+    .patient-grid {
+      display: grid;
+      grid-template-columns: repeat(10, minmax(0, 1fr));
+      gap: 0.35rem;
+      margin-top: 0.8rem;
+    }
+    .patient-dot {
+      aspect-ratio: 1;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 6px;
+      background: var(--teal);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 0.68rem;
+      font-weight: 900;
+    }
+    .patient-dot.unreached {
+      background: var(--surface-blue);
+      color: var(--muted);
+    }
+    .reach-note {
+      margin: 0;
+      font-size: 0.92rem;
+    }
+    .domain-board {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(15rem, 0.95fr);
+      gap: 1rem;
+      align-items: center;
+    }
+    .domain-bars {
+      display: grid;
+      gap: 0.64rem;
+    }
+    .domain-row {
+      display: grid;
+      grid-template-columns: 10.5rem minmax(0, 1fr) 2.7rem;
+      gap: 0.55rem;
+      align-items: center;
+    }
+    .domain-row b {
+      color: var(--ink);
+      font-size: 0.8rem;
+      line-height: 1.15;
+    }
+    .domain-row span {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 900;
+      text-align: right;
+    }
+    .domain-track {
+      height: 1.05rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .domain-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: var(--c, linear-gradient(90deg, var(--red), var(--gold)));
+    }
+    .domain-pair {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 1rem;
+    }
+    .domain-pair strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 5vw, 4.6rem);
+      line-height: 0.9;
+    }
+    .domain-pair p {
+      margin: 0.56rem 0 0;
+      font-size: 0.88rem;
+    }
+    .pathway {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+    .pathway-card {
+      position: relative;
+      min-height: 12rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.86rem;
+      overflow: hidden;
+    }
+    .pathway-card::before {
+      content: attr(data-step);
+      position: absolute;
+      right: 0.5rem;
+      bottom: -0.58rem;
+      color: rgba(36, 55, 112, 0.11);
+      font-family: var(--font-display);
+      font-size: 4.7rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .pathway-card::after {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 0.32rem;
+      background: var(--accent, var(--red));
+    }
+    .pathway-card:nth-child(2) { --accent: var(--gold); }
+    .pathway-card:nth-child(3) { --accent: var(--teal); }
+    .pathway-card:nth-child(4) { --accent: var(--green); }
+    .pathway-card:nth-child(5) { --accent: var(--purple); }
+    .pathway-card h3,
+    .pathway-card p {
+      position: relative;
+      z-index: 1;
+    }
+    .pathway-card p {
+      margin: 0.5rem 0 0;
+      font-size: 0.82rem;
+    }
+    .sdoh-wheel {
+      width: min(100%, 25rem);
+      margin: 0 auto;
+    }
+    .takeaway {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(24, 124, 143, 0.10), transparent 42%),
+        #fff;
+    }
+    .takeaway p {
+      margin: 0;
+      color: var(--ink);
+      font-size: 1rem;
+      font-weight: 850;
+    }
+    .source-list {
+      margin: 0.65rem 0 0 1.1rem;
+      padding: 0;
+      font-size: 0.84rem;
+    }
+    .source-list li {
+      margin: 0.28rem 0;
+    }
+    @media (max-width: 900px) {
+      .bridge-panel,
+      .domain-board {
+        grid-template-columns: 1fr;
+      }
+      .pathway {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 640px) {
+      .pathway {
+        grid-template-columns: 1fr;
+      }
+      .domain-row {
+        grid-template-columns: 1fr;
+        gap: 0.28rem;
+      }
+      .domain-row span {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">NASP Posters</a>
+      <nav aria-label="Source files">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/54-Impact-of-addition-of-Community-Healthcare-Worker_2021.pdf">PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/54-Impact-of-addition-of-Community-Healthcare-Worker_2021.md">Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2021 poster 54</p>
+        <h1 id="poster-title">Impact of adding a Community Healthcare Worker to specialty pharmacy care</h1>
+        <p class="hero-summary">Walmart Specialty Pharmacy evaluated whether a CHW embedded in an interdisciplinary team could identify social barriers, connect patients to resources, and document intervention patterns across social determinants of health.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Community Healthcare Worker</li>
+          <li class="tag therapy">Specialty pharmacy</li>
+          <li class="tag">SDOH</li>
+          <li class="tag">Retrospective analysis</li>
+        </ul>
+        <div class="chw-hero-art" aria-hidden="true">
+          <svg viewBox="0 0 760 360" role="img">
+            <defs>
+              <linearGradient id="bridgeGradient" x1="0" x2="1" y1="0" y2="0">
+                <stop offset="0" stop-color="#d12630"/>
+                <stop offset="0.52" stop-color="#e99e25"/>
+                <stop offset="1" stop-color="#187c8f"/>
+              </linearGradient>
+              <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#243770" flood-opacity="0.16"/>
+              </filter>
+            </defs>
+            <path d="M95 246 C190 112, 315 110, 382 211 S560 300, 667 120" fill="none" stroke="url(#bridgeGradient)" stroke-width="22" stroke-linecap="round"/>
+            <path d="M107 246 C198 130, 312 128, 375 223 S553 284, 655 131" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" opacity="0.8"/>
+            <g filter="url(#softShadow)">
+              <circle cx="104" cy="246" r="44" fill="#ffffff" stroke="#243770" stroke-width="3"/>
+              <circle cx="104" cy="224" r="13" fill="#187c8f"/>
+              <path d="M78 265c6-22 45-22 52 0" fill="#187c8f" opacity="0.88"/>
+              <text x="104" y="311" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial" font-size="18" font-weight="900">Patient</text>
+            </g>
+            <g filter="url(#softShadow)">
+              <circle cx="382" cy="211" r="54" fill="#ffffff" stroke="#d12630" stroke-width="4"/>
+              <circle cx="382" cy="183" r="15" fill="#d12630"/>
+              <path d="M352 230c8-25 52-25 60 0" fill="#d12630" opacity="0.9"/>
+              <path d="M348 157h68v19h-68z" rx="6" fill="#243770"/>
+              <text x="382" y="265" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial" font-size="20" font-weight="900">CHW</text>
+            </g>
+            <g filter="url(#softShadow)">
+              <circle cx="657" cy="120" r="44" fill="#ffffff" stroke="#243770" stroke-width="3"/>
+              <rect x="629" y="100" width="56" height="44" rx="8" fill="#7561a8"/>
+              <path d="M657 109v26M644 122h26" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+              <text x="657" y="184" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial" font-size="18" font-weight="900">Resources</text>
+            </g>
+            <g fill="#ffffff" stroke="#243770" stroke-width="2" opacity="0.95">
+              <rect x="187" y="76" width="126" height="48" rx="9"/>
+              <rect x="479" y="248" width="132" height="48" rx="9"/>
+            </g>
+            <text x="250" y="106" text-anchor="middle" fill="#243770" font-family="Inter, Arial" font-size="15" font-weight="800">barriers surfaced</text>
+            <text x="545" y="278" text-anchor="middle" fill="#243770" font-family="Inter, Arial" font-size="15" font-weight="800">outreach logged</text>
+          </svg>
+        </div>
+      </div>
+
+      <aside class="hero-card" aria-label="Study summary">
+        <div>
+          <span class="poster-code">54</span>
+          <p class="section-label">Walmart Specialty Pharmacy</p>
+        </div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Study window</dt>
+            <dd>Nov 2020 to Apr 2021</dd>
+          </div>
+          <div>
+            <dt>Design</dt>
+            <dd>Single-center retrospective analysis</dd>
+          </div>
+          <div>
+            <dt>Eligible</dt>
+            <dd>102 patients</dd>
+          </div>
+          <div>
+            <dt>Assisted</dt>
+            <dd>75 patients</dd>
+          </div>
+        </dl>
+        <p class="core-finding">Nearly three in four eligible patients received CHW resources or assistance after pharmacist or nurse screening.</p>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key metrics">
+        <article class="metric-card">
+          <span>Eligible for CHW intervention</span>
+          <strong>102</strong>
+          <p>Specialty patients identified through pharmacist counseling and nurse therapeutic assessments.</p>
+        </article>
+        <article class="metric-card">
+          <span>Received assistance</span>
+          <strong>75</strong>
+          <p>Patients connected to resources or support by the CHW.</p>
+        </article>
+        <article class="metric-card">
+          <span>Program reach</span>
+          <strong>74%</strong>
+          <p>Assisted share among patients eligible for CHW intervention.</p>
+        </article>
+        <article class="metric-card">
+          <span>SDOH domains</span>
+          <strong>6</strong>
+          <p>Interventions categorized across economic, access, neighborhood, education, social, and miscellaneous domains.</p>
+        </article>
+      </section>
+
+      <section class="panel bridge-panel" aria-labelledby="reach-title">
+        <div class="reach-card">
+          <p class="section-label">Patient reach</p>
+          <strong>74%</strong>
+          <span>of eligible patients received resources or assistance</span>
+          <div class="patient-grid" aria-label="10-icon representation of assisted patients">
+            <span class="patient-dot">1</span>
+            <span class="patient-dot">2</span>
+            <span class="patient-dot">3</span>
+            <span class="patient-dot">4</span>
+            <span class="patient-dot">5</span>
+            <span class="patient-dot">6</span>
+            <span class="patient-dot">7</span>
+            <span class="patient-dot unreached">8</span>
+            <span class="patient-dot unreached">9</span>
+            <span class="patient-dot unreached">10</span>
+          </div>
+        </div>
+        <div>
+          <p class="section-label">Objective</p>
+          <h2 id="reach-title">Test whether a CHW expands the specialty team’s ability to act on social barriers</h2>
+          <p class="reach-note">The program used routine clinical touchpoints to surface adherence barriers, depression-screening concerns, and social needs. The CHW then conducted telephonic outreach and recorded the resulting assistance, creating a structured view of where patients most often needed support.</p>
+        </div>
+      </section>
+
+      <section aria-labelledby="pathway-title">
+        <p class="section-label">Evidence flow</p>
+        <h2 id="pathway-title">How patients moved from screening to documented SDOH intervention</h2>
+        <div class="pathway">
+          <article class="pathway-card" data-step="01">
+            <h3>Screen</h3>
+            <p>Pharmacists and registered nurses screened patients during medication counseling and therapeutic assessments.</p>
+          </article>
+          <article class="pathway-card" data-step="02">
+            <h3>Probe barriers</h3>
+            <p>Clinicians asked about social conditions, including barriers that could affect adherence.</p>
+          </article>
+          <article class="pathway-card" data-step="03">
+            <h3>Assess mood risk</h3>
+            <p>Patients also completed PHQ-2 depression screening as part of the intake signal.</p>
+          </article>
+          <article class="pathway-card" data-step="04">
+            <h3>Alert CHW</h3>
+            <p>Interview findings, questionnaire responses, and clinician judgment triggered CHW outreach.</p>
+          </article>
+          <article class="pathway-card" data-step="05">
+            <h3>Document support</h3>
+            <p>After the call, notes and outcomes were recorded and categorized into six intervention domains.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel domain-board" aria-labelledby="domain-title">
+        <div>
+          <p class="section-label">Intervention domains</p>
+          <h2 id="domain-title">Support needs clustered around stability, access, and community context</h2>
+          <div class="domain-bars" aria-label="Number of patients by SDOH intervention domain">
+            <div class="domain-row">
+              <b>Economic stability</b>
+              <div class="domain-track"><i style="--w:100%; --c:var(--red);"></i></div>
+              <span>29</span>
+            </div>
+            <div class="domain-row">
+              <b>Social and community context</b>
+              <div class="domain-track"><i style="--w:100%; --c:var(--gold);"></i></div>
+              <span>29</span>
+            </div>
+            <div class="domain-row">
+              <b>Healthcare access and quality</b>
+              <div class="domain-track"><i style="--w:97%; --c:var(--teal);"></i></div>
+              <span>28</span>
+            </div>
+            <div class="domain-row">
+              <b>Neighborhood and built environment</b>
+              <div class="domain-track"><i style="--w:28%; --c:var(--green);"></i></div>
+              <span>8</span>
+            </div>
+            <div class="domain-row">
+              <b>Miscellaneous</b>
+              <div class="domain-track"><i style="--w:10%; --c:var(--purple);"></i></div>
+              <span>3</span>
+            </div>
+            <div class="domain-row">
+              <b>Education access and quality</b>
+              <div class="domain-track"><i style="--w:7%; --c:var(--border-strong);"></i></div>
+              <span>2</span>
+            </div>
+          </div>
+        </div>
+        <div class="domain-pair">
+          <svg class="sdoh-wheel" viewBox="0 0 420 420" role="img" aria-label="Six SDOH categories arranged around CHW support">
+            <circle cx="210" cy="210" r="142" fill="#eef4fb" stroke="#aebbd2" stroke-width="2"/>
+            <path d="M210 68 A142 142 0 0 1 333 139 L210 210Z" fill="#d12630" opacity="0.88"/>
+            <path d="M333 139 A142 142 0 0 1 333 281 L210 210Z" fill="#e99e25" opacity="0.88"/>
+            <path d="M333 281 A142 142 0 0 1 210 352 L210 210Z" fill="#187c8f" opacity="0.88"/>
+            <path d="M210 352 A142 142 0 0 1 87 281 L210 210Z" fill="#4d8a67" opacity="0.88"/>
+            <path d="M87 281 A142 142 0 0 1 87 139 L210 210Z" fill="#7561a8" opacity="0.88"/>
+            <path d="M87 139 A142 142 0 0 1 210 68 L210 210Z" fill="#aebbd2" opacity="0.9"/>
+            <circle cx="210" cy="210" r="74" fill="#fff" stroke="#243770" stroke-width="3"/>
+            <text x="210" y="201" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial" font-size="27" font-weight="900">CHW</text>
+            <text x="210" y="228" text-anchor="middle" fill="#68758d" font-family="Inter, Arial" font-size="15" font-weight="800">support hub</text>
+            <text x="263" y="112" fill="#243770" font-family="Inter, Arial" font-size="13" font-weight="900">Economic</text>
+            <text x="318" y="215" fill="#243770" font-family="Inter, Arial" font-size="13" font-weight="900">Social</text>
+            <text x="252" y="325" fill="#243770" font-family="Inter, Arial" font-size="13" font-weight="900">Access</text>
+            <text x="84" y="325" fill="#243770" font-family="Inter, Arial" font-size="13" font-weight="900">Neighborhood</text>
+            <text x="34" y="215" fill="#243770" font-family="Inter, Arial" font-size="13" font-weight="900">Misc.</text>
+            <text x="93" y="112" fill="#243770" font-family="Inter, Arial" font-size="13" font-weight="900">Education</text>
+          </svg>
+          <strong>86</strong>
+          <p>Economic stability, social/community context, and healthcare access accounted for the dominant documented support categories.</p>
+        </div>
+      </section>
+
+      <section class="section-stack" aria-label="Study details and conclusion">
+        <article class="panel markdown-fragment">
+          <p class="section-label">Methods snapshot</p>
+          <h2>Retrospective, single-center program review</h2>
+          <p>Eligible participants were patients actively filling any prescription with Walmart Specialty Pharmacy who opted into CHW service. No exclusion criteria were reported.</p>
+          <ul>
+            <li>Pharmacist counseling and nurse assessments were the screening entry points.</li>
+            <li>CHW outreach was telephonic after referral from the clinical team.</li>
+            <li>Outcomes were classified into six SDOH domains and tracked monthly.</li>
+          </ul>
+        </article>
+        <article class="panel takeaway">
+          <p class="section-label">Conclusion</p>
+          <h2>CHW support helped connect patients to resources</h2>
+          <p>The authors concluded that adding a CHW was beneficial for identifying barriers, connecting patients with assistance, and serving as a liaison between patients and the healthcare system. They recommended future work measuring adherence or clinical parameters before and after CHW intervention.</p>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Source tables">
+        <article class="table-card">
+          <h2>Assistance outcome</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Percentage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Received resources or assistance</td>
+                  <td>74%</td>
+                </tr>
+                <tr>
+                  <td>No resources or assistance recorded</td>
+                  <td>26%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+        <article class="table-card">
+          <h2>Outcome classification</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Domain</th>
+                  <th>Patients</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Economic stability</td><td>29</td></tr>
+                <tr><td>Social and community context</td><td>29</td></tr>
+                <tr><td>Healthcare access and quality</td><td>28</td></tr>
+                <tr><td>Neighborhood and built environment</td><td>8</td></tr>
+                <tr><td>Miscellaneous</td><td>3</td></tr>
+                <tr><td>Education access and quality</td><td>2</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel" aria-labelledby="sources-title">
+        <p class="section-label">Poster source</p>
+        <h2 id="sources-title">Original files</h2>
+        <ul class="source-list">
+          <li><a href="../nasp_abstracts_posters_pdfs_2019_2025/54-Impact-of-addition-of-Community-Healthcare-Worker_2021.pdf">Poster PDF</a></li>
+          <li><a href="../nasp_abstracts_posters_pdfs_2019_2025/54-Impact-of-addition-of-Community-Healthcare-Worker_2021.md">Extracted markdown</a></li>
+        </ul>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

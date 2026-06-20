@@ -1,0 +1,692 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1222-DTS108-OR-Poster-AM25 2025 | Human-in-the-Loop AI for SLR</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .ai-console {
+      position: relative;
+      min-height: 22rem;
+      overflow: hidden;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 86% 12%, rgba(233, 158, 37, 0.22), transparent 8rem),
+        radial-gradient(circle at 10% 92%, rgba(24, 124, 143, 0.2), transparent 9rem),
+        linear-gradient(145deg, #ffffff 0%, var(--surface-blue) 62%, var(--surface-warm) 100%);
+      padding: 1rem;
+    }
+
+    .ai-console svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .console-caption {
+      position: absolute;
+      right: 1rem;
+      bottom: 1rem;
+      max-width: 14rem;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.86);
+      padding: 0.7rem;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+
+    .human-loop {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.85rem;
+    }
+
+    .loop-chip {
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.78);
+      padding: 0.62rem;
+    }
+
+    .loop-chip strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      line-height: 1.05;
+    }
+
+    .loop-chip span {
+      display: block;
+      margin-top: 0.24rem;
+      color: var(--muted);
+      font-size: 0.67rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .thesis-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .oversight-card {
+      display: grid;
+      align-content: center;
+      min-height: 14rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--ink);
+      padding: 1.1rem;
+      color: #fff;
+    }
+
+    .oversight-card span {
+      color: rgba(255, 255, 255, 0.74);
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .oversight-card strong {
+      margin-top: 0.24rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 7vw, 4.8rem);
+      line-height: 0.94;
+    }
+
+    .oversight-card p {
+      margin: 0.72rem 0 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.92rem;
+    }
+
+    .validation-bars {
+      display: grid;
+      gap: 0.72rem;
+      margin-top: 0.75rem;
+    }
+
+    .validation-row {
+      display: grid;
+      grid-template-columns: 9.5rem minmax(0, 1fr) 4.5rem;
+      gap: 0.7rem;
+      align-items: center;
+    }
+
+    .validation-row b {
+      color: var(--ink);
+      font-size: 0.82rem;
+    }
+
+    .track {
+      height: 1.05rem;
+      overflow: hidden;
+      border: 1px solid rgba(174, 187, 210, 0.82);
+      border-radius: 999px;
+      background: #edf2f8;
+    }
+
+    .track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .track.teal i { background: linear-gradient(90deg, var(--teal), var(--green)); }
+    .track.purple i { background: linear-gradient(90deg, var(--purple), var(--teal)); }
+
+    .validation-row em {
+      color: var(--ink);
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .workflow-rail {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 0.65rem;
+    }
+
+    .rail-step {
+      position: relative;
+      min-height: 9.6rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+    }
+
+    .rail-step::after {
+      content: "";
+      position: absolute;
+      top: 1.1rem;
+      right: -0.66rem;
+      width: 0.66rem;
+      height: 2px;
+      background: var(--border-strong);
+    }
+
+    .rail-step:last-child::after { display: none; }
+
+    .rail-step span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.65rem;
+      height: 1.65rem;
+      border-radius: 50%;
+      background: var(--surface-blue);
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+
+    .rail-step h3 {
+      margin-top: 0.55rem;
+      font-size: 0.95rem;
+    }
+
+    .rail-step p {
+      margin: 0.45rem 0 0;
+      font-size: 0.8rem;
+    }
+
+    .snapshot-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 1rem;
+    }
+
+    .range-card {
+      display: grid;
+      gap: 0.65rem;
+      margin-top: 0.7rem;
+    }
+
+    .range-row {
+      display: grid;
+      grid-template-columns: 7rem minmax(0, 1fr) 6rem;
+      gap: 0.65rem;
+      align-items: center;
+    }
+
+    .range-row span {
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+
+    .range-line {
+      position: relative;
+      height: 0.72rem;
+      border-radius: 999px;
+      background: #edf2f8;
+      border: 1px solid rgba(174, 187, 210, 0.78);
+    }
+
+    .range-line i {
+      position: absolute;
+      top: -1px;
+      bottom: -1px;
+      left: var(--start);
+      right: var(--end);
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--gold));
+    }
+
+    .range-row em {
+      color: var(--ink);
+      font-style: normal;
+      font-size: 0.78rem;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .source-note {
+      margin: 0.6rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+
+    .conclusion-band {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0.8rem;
+    }
+
+    .takeaway {
+      min-height: 10rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.95rem;
+    }
+
+    .takeaway strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      line-height: 1.16;
+    }
+
+    .takeaway p {
+      margin: 0.5rem 0 0;
+      font-size: 0.84rem;
+    }
+
+    @media (max-width: 980px) {
+      .thesis-panel,
+      .snapshot-grid,
+      .conclusion-band {
+        grid-template-columns: 1fr;
+      }
+
+      .workflow-rail {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .rail-step::after { display: none; }
+    }
+
+    @media (max-width: 680px) {
+      .human-loop,
+      .workflow-rail {
+        grid-template-columns: 1fr;
+      }
+
+      .validation-row,
+      .range-row {
+        grid-template-columns: 1fr;
+      }
+
+      .validation-row em,
+      .range-row em {
+        text-align: left;
+      }
+
+      .console-caption {
+        position: static;
+        margin-top: 0.75rem;
+        max-width: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/1222-DTS108-OR-Poster-AM25_2025.pdf">PDF source</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/1222-DTS108-OR-Poster-AM25_2025.md">Markdown source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2025 poster 1222 | DTS108-OR-Poster-AM25</p>
+        <h1>Human-in-the-Loop Artificial Intelligence System for Systematic Literature Review</h1>
+        <p class="hero-summary">AutoLit is presented as a complete AI-assisted SLR workflow: search strategy generation, dual screening, evidence extraction, critical appraisal, insight drafting, and automated network meta-analysis, with expert curation positioned as the quality control layer.</p>
+        <ul class="tag-row" aria-label="Poster themes">
+          <li class="tag category">AI-enabled SLR</li>
+          <li class="tag therapy">Human oversight</li>
+          <li class="tag">Validation metrics</li>
+          <li class="tag">Rapid review workflow</li>
+        </ul>
+      </div>
+      <aside class="hero-card">
+        <div class="poster-code">1222</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Year</dt>
+            <dd>2025</dd>
+          </div>
+          <div>
+            <dt>System</dt>
+            <dd>AutoLit</dd>
+          </div>
+          <div>
+            <dt>Organization</dt>
+            <dd>Nested Knowledge</dd>
+          </div>
+          <div>
+            <dt>Focus</dt>
+            <dd>Systematic review automation</dd>
+          </div>
+        </dl>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key poster numbers">
+        <div class="metric-card">
+          <span>Smart Search recall</span>
+          <strong>76.8-79.6%</strong>
+        </div>
+        <div class="metric-card">
+          <span>Screening recall</span>
+          <strong>82-97%</strong>
+        </div>
+        <div class="metric-card">
+          <span>PICO extraction F1</span>
+          <strong>0.74</strong>
+        </div>
+        <div class="metric-card">
+          <span>Qualitative extraction savings</span>
+          <strong>70-80%</strong>
+        </div>
+      </section>
+
+      <section class="visual-grid" id="objective">
+        <div class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Validate AI support across the full SLR path, not just one task</h2>
+          <div class="markdown-fragment">
+            <p>The poster describes a methodology for using AI SLR tools with human-in-the-loop curation, then reports validations, time savings, and compliance-oriented safeguards for review best practices.</p>
+            <p>The central claim is that AI can accelerate major review steps while transparency, replicability, and expert oversight remain required for high-quality SLR findings.</p>
+          </div>
+          <div class="human-loop" aria-label="Human in the loop controls">
+            <div class="loop-chip">
+              <strong>Expert review</strong>
+              <span>screening checks</span>
+            </div>
+            <div class="loop-chip">
+              <strong>Traceability</strong>
+              <span>highlighted evidence</span>
+            </div>
+            <div class="loop-chip">
+              <strong>Validation</strong>
+              <span>cross-validation stats</span>
+            </div>
+            <div class="loop-chip">
+              <strong>Curation</strong>
+              <span>custom extraction</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="ai-console" aria-label="Illustration of AutoLit review pipeline">
+          <svg viewBox="0 0 760 470" role="img" aria-labelledby="svg-title svg-desc">
+            <title id="svg-title">Human-in-the-loop AI literature review workflow</title>
+            <desc id="svg-desc">A stylized interface showing search, screening, extraction, appraisal, and synthesis connected by an expert oversight loop.</desc>
+            <defs>
+              <linearGradient id="flowGrad" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#d12630"/>
+                <stop offset="0.55" stop-color="#e99e25"/>
+                <stop offset="1" stop-color="#187c8f"/>
+              </linearGradient>
+              <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#243770" flood-opacity="0.16"/>
+              </filter>
+            </defs>
+            <rect x="28" y="34" width="704" height="380" rx="18" fill="#fff" stroke="#aebbd2" filter="url(#softShadow)"/>
+            <rect x="28" y="34" width="704" height="54" rx="18" fill="#243770"/>
+            <circle cx="62" cy="61" r="7" fill="#d12630"/>
+            <circle cx="86" cy="61" r="7" fill="#e99e25"/>
+            <circle cx="110" cy="61" r="7" fill="#4d8a67"/>
+            <text x="142" y="67" fill="#fff" font-family="Montserrat, Arial, sans-serif" font-size="19" font-weight="800">AutoLit AI review workspace</text>
+            <path d="M112 232 C185 150, 270 150, 342 232 S500 314, 628 198" fill="none" stroke="url(#flowGrad)" stroke-width="14" stroke-linecap="round"/>
+            <g font-family="Inter, Arial, sans-serif" font-weight="800" font-size="16" fill="#243770">
+              <g>
+                <rect x="70" y="162" width="126" height="86" rx="12" fill="#eef4fb" stroke="#aebbd2"/>
+                <text x="92" y="198">Search</text>
+                <text x="92" y="222" fill="#68758d" font-size="12">Boolean strings</text>
+              </g>
+              <g>
+                <rect x="228" y="116" width="126" height="86" rx="12" fill="#fff7ea" stroke="#aebbd2"/>
+                <text x="250" y="152">Screen</text>
+                <text x="250" y="176" fill="#68758d" font-size="12">dual review</text>
+              </g>
+              <g>
+                <rect x="386" y="204" width="126" height="86" rx="12" fill="#eef4fb" stroke="#aebbd2"/>
+                <text x="408" y="240">Extract</text>
+                <text x="408" y="264" fill="#68758d" font-size="12">PICOs + data</text>
+              </g>
+              <g>
+                <rect x="544" y="126" width="126" height="86" rx="12" fill="#fff" stroke="#aebbd2"/>
+                <text x="566" y="162">Synthesize</text>
+                <text x="566" y="186" fill="#68758d" font-size="12">NMA outputs</text>
+              </g>
+            </g>
+            <circle cx="380" cy="338" r="48" fill="#243770"/>
+            <text x="380" y="332" text-anchor="middle" fill="#fff" font-family="Montserrat, Arial, sans-serif" font-size="18" font-weight="900">HUMAN</text>
+            <text x="380" y="356" text-anchor="middle" fill="#fff" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800">oversight loop</text>
+            <path d="M340 336 C226 344, 150 306, 118 248" fill="none" stroke="#243770" stroke-width="3" stroke-dasharray="7 8"/>
+            <path d="M420 336 C514 326, 590 280, 622 212" fill="none" stroke="#243770" stroke-width="3" stroke-dasharray="7 8"/>
+            <g fill="#d12630">
+              <circle cx="118" cy="248" r="5"/>
+              <circle cx="622" cy="212" r="5"/>
+            </g>
+          </svg>
+          <div class="console-caption">AI accelerates tasks; the poster frames expert oversight as the control point for SLR quality.</div>
+        </div>
+      </section>
+
+      <section class="thesis-panel">
+        <div class="oversight-card">
+          <span>Core finding</span>
+          <strong>AI plus curation</strong>
+          <p>Best positioned as a transparent, supervised workflow rather than a fully autonomous replacement for expert review.</p>
+        </div>
+        <div class="panel">
+          <p class="section-label">Results dashboard</p>
+          <h2>Validation signals span recall, extraction accuracy, and time saved</h2>
+          <div class="validation-bars" aria-label="Reported performance metrics">
+            <div class="validation-row">
+              <b>Study size accuracy</b>
+              <div class="track teal"><i style="width:91%"></i></div>
+              <em>91%</em>
+            </div>
+            <div class="validation-row">
+              <b>Study location accuracy</b>
+              <div class="track teal"><i style="width:78%"></i></div>
+              <em>78%</em>
+            </div>
+            <div class="validation-row">
+              <b>Study type accuracy</b>
+              <div class="track teal"><i style="width:74%"></i></div>
+              <em>74%</em>
+            </div>
+            <div class="validation-row">
+              <b>Abstract screening savings</b>
+              <div class="track"><i style="width:50%"></i></div>
+              <em>50%</em>
+            </div>
+            <div class="validation-row">
+              <b>Qualitative extraction savings</b>
+              <div class="track purple"><i style="width:80%"></i></div>
+              <em>70-80%</em>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="methods">
+        <p class="section-label">Methods</p>
+        <h2>Six SLR stages are mapped to AI or curated workflow components</h2>
+        <div class="workflow-rail" aria-label="Evidence workflow">
+          <article class="rail-step">
+            <span>1</span>
+            <h3>Search strategy</h3>
+            <p>Smart Search converts a research question into Boolean PubMed strings and maps PICO concepts.</p>
+          </article>
+          <article class="rail-step">
+            <span>2</span>
+            <h3>Dual screening</h3>
+            <p>Project-specific machine learning supports title, abstract, and full-text review.</p>
+          </article>
+          <article class="rail-step">
+            <span>3</span>
+            <h3>Evidence extraction</h3>
+            <p>Adaptive Smart Tags extract text, numbers, options, and tabular content with traceable highlights.</p>
+          </article>
+          <article class="rail-step">
+            <span>4</span>
+            <h3>Critical appraisal</h3>
+            <p>Manual appraisal remains part of the workflow for interpreting study quality.</p>
+          </article>
+          <article class="rail-step">
+            <span>5</span>
+            <h3>Insight drafting</h3>
+            <p>Curated findings can be shaped into transparent review insights.</p>
+          </article>
+          <article class="rail-step">
+            <span>6</span>
+            <h3>Quant synthesis</h3>
+            <p>Forest plots, funnel plots, I-squared, SUCRA rankings, odds ratios, and network diagrams are generated.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="snapshot-grid" id="results">
+        <div class="table-card">
+          <p class="section-label">Cross-validation table pattern</p>
+          <h2>Inclusion prediction improved with recurring expert feedback snapshots</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Validation view</th>
+                  <th>Records</th>
+                  <th>Recall</th>
+                  <th>Precision</th>
+                  <th>F1</th>
+                  <th>Accuracy</th>
+                  <th>AUC</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Earliest snapshot, Mar 19</td>
+                  <td>52 (16 adv)</td>
+                  <td>1.00</td>
+                  <td>0.56</td>
+                  <td>0.72</td>
+                  <td>0.77</td>
+                  <td>0.89</td>
+                </tr>
+                <tr>
+                  <td>Largest snapshot, Apr 7</td>
+                  <td>243 (60 adv)</td>
+                  <td>0.94</td>
+                  <td>0.61</td>
+                  <td>0.74</td>
+                  <td>0.83</td>
+                  <td>0.97</td>
+                </tr>
+                <tr>
+                  <td>Best F1 snapshot, Mar 20</td>
+                  <td>146 (39 adv)</td>
+                  <td>1.00</td>
+                  <td>0.62</td>
+                  <td>0.76</td>
+                  <td>0.84</td>
+                  <td>0.95</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="source-note">Pattern extracted from eight dated model snapshots spanning Mar 19 to Apr 7, 2025.</p>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Model ranges</p>
+          <h2>Screening model snapshots show high recall with moderate precision</h2>
+          <div class="range-card" aria-label="Cross-validation metric ranges">
+            <div class="range-row">
+              <span>Recall</span>
+              <div class="range-line"><i style="--start:0%; --end:0%"></i></div>
+              <em>0.92-1.00</em>
+            </div>
+            <div class="range-row">
+              <span>Precision</span>
+              <div class="range-line"><i style="--start:53%; --end:38%"></i></div>
+              <em>0.53-0.62</em>
+            </div>
+            <div class="range-row">
+              <span>F1</span>
+              <div class="range-line"><i style="--start:67%; --end:24%"></i></div>
+              <em>0.67-0.76</em>
+            </div>
+            <div class="range-row">
+              <span>Accuracy</span>
+              <div class="range-line"><i style="--start:77%; --end:15%"></i></div>
+              <em>0.77-0.85</em>
+            </div>
+            <div class="range-row">
+              <span>AUC</span>
+              <div class="range-line"><i style="--start:89%; --end:3%"></i></div>
+              <em>0.89-0.97</em>
+            </div>
+          </div>
+          <div class="number-cloud" aria-label="Additional extracted numbers">
+            <div class="number-pill">8<small>snapshots</small></div>
+            <div class="number-pill">52-243<small>records</small></div>
+            <div class="number-pill">16-60<small>advanced records</small></div>
+            <div class="number-pill">5-fold<small>cross-validation</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-stack">
+        <div class="panel">
+          <p class="section-label">What is mature</p>
+          <h2>Validated support for repeatable review tasks</h2>
+          <div class="markdown-fragment">
+            <ul>
+              <li>Search strategy generation reports 76.8-79.6% recall from research-question-to-Boolean-string workflows.</li>
+              <li>Reviewer-level screening reports 82-97% recall with supervised machine learning.</li>
+              <li>PICO extraction reports F1 of 0.74, with study size accuracy at 91%.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="panel">
+          <p class="section-label">What remains curated</p>
+          <h2>Custom extraction is exploratory and needs human review</h2>
+          <div class="markdown-fragment">
+            <p>The poster distinguishes validated workflow acceleration from open-ended extraction of user-specified qualitative and quantitative tags. Those custom outputs remain exploratory and require human curation for SLR use.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="conclusion-band" id="conclusion">
+        <div class="takeaway">
+          <strong>AI can cover the full SLR workflow.</strong>
+          <p>AutoLit is described across search, screening, extraction, appraisal, insight drafting, and quantitative synthesis.</p>
+        </div>
+        <div class="takeaway">
+          <strong>Validation is stage-specific.</strong>
+          <p>Performance varies by task, with recall emphasized for search and screening and F1 or accuracy used for extraction.</p>
+        </div>
+        <div class="takeaway">
+          <strong>Oversight is the conclusion, not a footnote.</strong>
+          <p>Transparency, replicability, and expert oversight are presented as central requirements for AI-enabled SLRs.</p>
+        </div>
+      </section>
+
+      <footer class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/1222-DTS108-OR-Poster-AM25_2025.pdf">Open original PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/1222-DTS108-OR-Poster-AM25_2025.md">Open extracted markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

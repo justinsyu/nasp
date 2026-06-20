@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HIV PEP Alerts in Emergency Departments | NASP 2021</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .pep-hero-card {
+      position: relative;
+      min-height: 23rem;
+      padding: 1rem;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 18% 20%, rgba(209, 38, 48, 0.18), transparent 8rem),
+        radial-gradient(circle at 78% 75%, rgba(24, 124, 143, 0.18), transparent 9rem),
+        linear-gradient(145deg, #fff, var(--surface-blue) 54%, var(--surface-warm));
+    }
+    .pep-hero-card svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .hero-signal {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 0.7rem;
+      align-content: end;
+      min-height: 20.5rem;
+    }
+    .hero-signal strong {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(3.8rem, 8vw, 6.7rem);
+      font-weight: 900;
+      line-height: 0.82;
+    }
+    .hero-signal span {
+      max-width: 16rem;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.02rem;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+    .authors {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.86rem;
+      font-weight: 750;
+    }
+    .metric-card p,
+    .panel p,
+    .table-card p {
+      margin: 0.42rem 0 0;
+      font-size: 0.86rem;
+    }
+    .metric-card strong.teal { color: var(--teal); }
+    .metric-card strong.gold { color: var(--gold); }
+    .metric-card strong.green { color: var(--green); }
+    .flow-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.85rem;
+    }
+    .flow-step {
+      position: relative;
+      min-height: 11.2rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.85rem;
+      overflow: hidden;
+    }
+    .flow-step::before {
+      content: attr(data-step);
+      display: inline-grid;
+      place-items: center;
+      width: 2rem;
+      height: 2rem;
+      margin-bottom: 0.7rem;
+      border-radius: 50%;
+      background: var(--step-color, var(--red));
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+    .flow-step::after {
+      content: "";
+      position: absolute;
+      right: -1.05rem;
+      top: 4.2rem;
+      width: 2rem;
+      height: 2rem;
+      border-top: 2px solid var(--border-strong);
+      border-right: 2px solid var(--border-strong);
+      background: #fff;
+      transform: rotate(45deg);
+    }
+    .flow-step:last-child::after { display: none; }
+    .flow-step:nth-child(2) { --step-color: var(--gold); }
+    .flow-step:nth-child(3) { --step-color: var(--teal); }
+    .flow-step:nth-child(4) { --step-color: var(--green); }
+    .flow-step:nth-child(5) { --step-color: var(--purple); }
+    .flow-step h3 {
+      margin-bottom: 0.4rem;
+    }
+    .flow-step p {
+      position: relative;
+      z-index: 1;
+      color: var(--body);
+    }
+    .split-visual {
+      display: grid;
+      grid-template-columns: 0.88fr 1.12fr;
+      gap: 1rem;
+    }
+    .capture-card {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(209, 38, 48, 0.11), transparent 48%),
+        #fff;
+    }
+    .capture-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.9rem;
+    }
+    .capture-tile {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: var(--surface);
+      padding: 0.85rem;
+    }
+    .capture-tile b {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      line-height: 1;
+    }
+    .capture-tile span {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+    .donut-wrap {
+      display: grid;
+      grid-template-columns: minmax(13rem, 0.7fr) 1fr;
+      gap: 0.9rem;
+      align-items: center;
+      margin-top: 0.6rem;
+    }
+    .donut {
+      width: 100%;
+      max-width: 15.5rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: conic-gradient(var(--red) 0 55.1%, var(--teal) 55.1% 80.9%, var(--gold) 80.9% 89.9%, var(--green) 89.9% 96.6%, var(--purple) 96.6% 98.8%, var(--border-strong) 98.8% 100%);
+      position: relative;
+      margin: 0 auto;
+      box-shadow: inset 0 0 0 1px rgba(36, 55, 112, 0.12);
+    }
+    .donut::after {
+      content: "89";
+      position: absolute;
+      inset: 24%;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #fff;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 3.2rem;
+      font-weight: 900;
+      box-shadow: 0 0 0 1px rgba(174, 187, 210, 0.9);
+    }
+    .legend-list {
+      display: grid;
+      gap: 0.42rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .legend-list li {
+      display: grid;
+      grid-template-columns: 0.75rem minmax(0, 1fr) auto;
+      gap: 0.45rem;
+      align-items: baseline;
+      color: var(--body);
+      font-size: 0.8rem;
+    }
+    .legend-list i {
+      display: block;
+      width: 0.75rem;
+      height: 0.75rem;
+      border-radius: 50%;
+      background: var(--dot);
+    }
+    .legend-list b {
+      color: var(--ink);
+      font-weight: 900;
+    }
+    .bar-board {
+      display: grid;
+      gap: 0.52rem;
+      margin-top: 0.7rem;
+    }
+    .bar-row {
+      display: grid;
+      grid-template-columns: minmax(8.4rem, 0.82fr) minmax(0, 1fr) 2.5rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .bar-track {
+      height: 0.95rem;
+      border-radius: 999px;
+      background: rgba(36, 55, 112, 0.10);
+      overflow: hidden;
+    }
+    .bar-fill {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .bar-fill.teal {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .intervention-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.9fr);
+      gap: 1rem;
+    }
+    .privacy-callout {
+      display: grid;
+      gap: 0.75rem;
+      align-content: start;
+      border-left: 5px solid var(--purple);
+      background:
+        radial-gradient(circle at 92% 8%, rgba(117, 97, 168, 0.18), transparent 6rem),
+        #fff;
+    }
+    .privacy-callout h2 {
+      margin-bottom: 0;
+    }
+    .callout-list {
+      display: grid;
+      gap: 0.55rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .callout-list li {
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 8px;
+      background: var(--surface-blue);
+      padding: 0.65rem;
+      color: var(--ink);
+      font-size: 0.84rem;
+      font-weight: 800;
+    }
+    .table-card.compact table {
+      font-size: 0.74rem;
+    }
+    .takeaway {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(24, 124, 143, 0.12), transparent 42%),
+        #fff;
+    }
+    .takeaway p {
+      max-width: 64rem;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.03rem, 1.7vw, 1.36rem);
+      font-weight: 850;
+      line-height: 1.36;
+    }
+    @media (max-width: 980px) {
+      .flow-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .flow-step::after { display: none; }
+      .split-visual,
+      .intervention-grid,
+      .donut-wrap {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 560px) {
+      .flow-grid,
+      .capture-grid {
+        grid-template-columns: 1fr;
+      }
+      .bar-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="https://naspnet.org/" aria-label="National Association of Specialty Pharmacy">
+        NASP 2021
+      </a>
+      <nav aria-label="Poster sections">
+        <a href="#workflow">Alert workflow</a>
+        <a href="#results">Results</a>
+        <a href="#interventions">Interventions</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Emergency department PEP access | Specialty pharmacy linkage to care</p>
+        <h1 id="poster-title">HIV Post-Exposure Prophylaxis Alerts in Emergency Departments</h1>
+        <p class="hero-summary">
+          A health-system specialty pharmacy built an urgent EHR alert so pharmacists could reach patients starting HIV PEP in two Twin Cities emergency departments, solve access barriers, and coordinate follow-up.
+        </p>
+        <p class="authors">Daniel Jude, PharmD, AAHIVP, CSP; Jessica Mourani, PharmD</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag therapy">HIV PEP</li>
+          <li class="tag category">Emergency department</li>
+          <li class="tag">Specialty pharmacy</li>
+          <li class="tag">Medication access</li>
+          <li class="tag">Patient privacy</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card pep-hero-card" aria-label="Poster metadata and visual summary">
+        <svg viewBox="0 0 520 420" aria-hidden="true">
+          <defs>
+            <linearGradient id="pulse" x1="0%" x2="100%" y1="0%" y2="100%">
+              <stop offset="0%" stop-color="#d12630"/>
+              <stop offset="100%" stop-color="#e99e25"/>
+            </linearGradient>
+          </defs>
+          <circle cx="390" cy="84" r="52" fill="rgba(209,38,48,0.10)" stroke="#d12630" stroke-width="3"/>
+          <path d="M367 84 h46 M390 61 v46" stroke="#d12630" stroke-width="10" stroke-linecap="round"/>
+          <rect x="54" y="74" width="210" height="138" rx="18" fill="#fff" stroke="#243770" stroke-width="3"/>
+          <path d="M86 116 h128 M86 148 h96 M86 180 h146" stroke="#187c8f" stroke-width="10" stroke-linecap="round"/>
+          <path d="M264 140 C328 140 341 84 390 84" fill="none" stroke="url(#pulse)" stroke-width="8" stroke-linecap="round" stroke-dasharray="16 14"/>
+          <rect x="280" y="224" width="154" height="96" rx="18" fill="#fff" stroke="#187c8f" stroke-width="3"/>
+          <circle cx="324" cy="272" r="26" fill="none" stroke="#187c8f" stroke-width="8"/>
+          <path d="M360 252 h42 M360 272 h36 M360 292 h28" stroke="#187c8f" stroke-width="8" stroke-linecap="round"/>
+          <path d="M159 212 C168 278 219 303 280 286" fill="none" stroke="#4d8a67" stroke-width="8" stroke-linecap="round"/>
+          <path d="M143 292 h112" stroke="#7561a8" stroke-width="10" stroke-linecap="round"/>
+          <path d="M176 260 h46 v64 h-46z" fill="#fff" stroke="#7561a8" stroke-width="7" stroke-linejoin="round"/>
+          <path d="M187 278 h24 M187 294 h18" stroke="#7561a8" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+        <div class="hero-signal">
+          <strong>26</strong>
+          <span>2021 poster: urgent EHR alerts moved PEP starts into pharmacist-supported care.</span>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <div class="metric-card">
+          <span>PEP orders</span>
+          <strong>89</strong>
+          <p>Individuals received dolutegravir plus emtricitabine/tenofovir DF orders.</p>
+        </div>
+        <div class="metric-card">
+          <span>Health-system capture</span>
+          <strong class="teal">88.8%</strong>
+          <p>79 of 89 prescriptions were filled with the health-system pharmacy.</p>
+        </div>
+        <div class="metric-card">
+          <span>Interventions</span>
+          <strong class="gold">78</strong>
+          <p>Completed across 60 individual patients during the first 15 months.</p>
+        </div>
+        <div class="metric-card">
+          <span>Email or text</span>
+          <strong class="green">72</strong>
+          <p>Most patients preferred digital communication instead of phone only.</p>
+        </div>
+      </section>
+
+      <section id="workflow" class="panel">
+        <p class="section-label">Evidence flow</p>
+        <h2>An EHR signal converted urgent ED prescribing into specialty pharmacy action</h2>
+        <div class="flow-grid" aria-label="PEP alert workflow">
+          <article class="flow-step" data-step="1">
+            <h3>ED order placed</h3>
+            <p>An ED provider ordered antiretroviral therapy for PEP or urgent HIV-related need.</p>
+          </article>
+          <article class="flow-step" data-step="2">
+            <h3>Priority alert fires</h3>
+            <p>A novel urgent alert in the EHR notified the onsite specialty pharmacist by mobile app.</p>
+          </article>
+          <article class="flow-step" data-step="3">
+            <h3>Pharmacist connects</h3>
+            <p>The pharmacist visited or called the ED to provide counseling and assess barriers.</p>
+          </article>
+          <article class="flow-step" data-step="4">
+            <h3>Access support starts</h3>
+            <p>The pharmacist coordinated with the specialty pharmacy liaison, ID clinic, and SANE team.</p>
+          </article>
+          <article class="flow-step" data-step="5">
+            <h3>Follow-up pathway</h3>
+            <p>Patients were routed to dispensing and planned follow-up at 5 days, 6 weeks, and 3 months.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="results" class="split-visual" aria-label="Program results">
+        <div class="panel">
+          <p class="section-label">Risk event mix</p>
+          <h2>Sexual assault and occupational exposures drove most PEP starts</h2>
+          <div class="donut-wrap">
+            <div class="donut" aria-label="Donut chart showing 89 total PEP orders"></div>
+            <ul class="legend-list">
+              <li style="--dot: var(--red)"><i></i><span>Sexual assault</span><b>49</b></li>
+              <li style="--dot: var(--teal)"><i></i><span>Needle stick</span><b>23</b></li>
+              <li style="--dot: var(--gold)"><i></i><span>Fluid exposure</span><b>8</b></li>
+              <li style="--dot: var(--green)"><i></i><span>STI-check</span><b>6</b></li>
+              <li style="--dot: var(--purple)"><i></i><span>Altercation</span><b>2</b></li>
+              <li style="--dot: var(--border-strong)"><i></i><span>Good-Samaritan</span><b>1</b></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="panel capture-card">
+          <p class="section-label">Prescription capture and follow-up</p>
+          <h2>Filling within the health system was tied to lower loss to follow-up</h2>
+          <div class="capture-grid">
+            <div class="capture-tile">
+              <b>40.5%</b>
+              <span>Lost to follow-up among captured fills</span>
+              <p>32 of 79 health-system pharmacy fills were lost to follow-up at some point.</p>
+            </div>
+            <div class="capture-tile">
+              <b>80%</b>
+              <span>Lost to follow-up when not captured</span>
+              <p>8 of 10 non-captured prescriptions were lost to follow-up.</p>
+            </div>
+            <div class="capture-tile">
+              <b>44</b>
+              <span>Captured fills not lost</span>
+              <p>55.7% of the captured-fill cohort remained in follow-up.</p>
+            </div>
+            <div class="capture-tile">
+              <b>3</b>
+              <span>No-go discontinued</span>
+              <p>Orders were discontinued when patients were lost before outpatient filling.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="interventions" class="intervention-grid" aria-label="Interventions and service findings">
+        <div class="panel">
+          <p class="section-label">Intervention pattern</p>
+          <h2>Clinical and access interventions clustered around medication safety and care coordination</h2>
+          <div class="bar-board" aria-label="Top intervention categories">
+            <div class="bar-row"><span>Drug-drug interaction</span><div class="bar-track"><i class="bar-fill" style="width:100%"></i></div><b>15</b></div>
+            <div class="bar-row"><span>Adverse event - side effect</span><div class="bar-track"><i class="bar-fill" style="width:100%"></i></div><b>15</b></div>
+            <div class="bar-row"><span>PCP care coordination</span><div class="bar-track"><i class="bar-fill teal" style="width:60%"></i></div><b>9</b></div>
+            <div class="bar-row"><span>Pharmacy care coordination</span><div class="bar-track"><i class="bar-fill teal" style="width:47%"></i></div><b>7</b></div>
+            <div class="bar-row"><span>Discontinue orders</span><div class="bar-track"><i class="bar-fill" style="width:47%"></i></div><b>7</b></div>
+            <div class="bar-row"><span>Adherence</span><div class="bar-track"><i class="bar-fill teal" style="width:40%"></i></div><b>6</b></div>
+            <div class="bar-row"><span>Benefits counselor referral</span><div class="bar-track"><i class="bar-fill teal" style="width:33%"></i></div><b>5</b></div>
+            <div class="bar-row"><span>Lab or mental health coordination</span><div class="bar-track"><i class="bar-fill teal" style="width:20%"></i></div><b>3</b></div>
+          </div>
+        </div>
+
+        <div class="panel privacy-callout">
+          <p class="section-label">Practice insights</p>
+          <h2>Small workflow details mattered for vulnerable patients</h2>
+          <ul class="callout-list">
+            <li>4 of 5 benefits-counselor referrals resulted in active state-sponsored insurance.</li>
+            <li>Drug interactions were commonly cation chelation issues or regular NSAID use.</li>
+            <li>Nausea was common and often self-limiting after therapy initiation.</li>
+            <li>Privacy risk from automated ED mailings prompted proactive disclosure-prevention support.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="tables-grid" aria-label="Poster table patterns">
+        <div class="table-card compact">
+          <p class="section-label">Payer pattern</p>
+          <h2>Insurance type for the 89 PEP starts</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Insurance type</th>
+                  <th># (%) patients</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Workman's Compensation</td><td>31 (34.8%)</td></tr>
+                <tr><td>Medical Assistance / Medicaid</td><td>30 (33.7%)</td></tr>
+                <tr><td>Commercial</td><td>11 (12.4%)</td></tr>
+                <tr><td>Unknown</td><td>8 (9.0%)</td></tr>
+                <tr><td>Free drug manufacturer program</td><td>7 (7.9%)</td></tr>
+                <tr><td>Medicare Part D</td><td>2 (2.2%)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="table-card compact">
+          <p class="section-label">Communication preference</p>
+          <h2>Most patients could be reached digitally</h2>
+          <div class="bar-board" aria-label="Communication preference bars">
+            <div class="bar-row"><span>Email or text</span><div class="bar-track"><i class="bar-fill teal" style="width:100%"></i></div><b>72</b></div>
+            <div class="bar-row"><span>Phone only</span><div class="bar-track"><i class="bar-fill" style="width:24%"></i></div><b>17</b></div>
+          </div>
+          <p>Communication mode was a practical linkage-to-care variable because the service needed rapid contact after ED discharge.</p>
+        </div>
+      </section>
+
+      <section class="panel takeaway">
+        <p>
+          Conclusion: specialty pharmacy capture and a priority EHR alert helped identify ED patients starting PEP, connect them to medication access and adherence support, and reduce loss to follow-up compared with prescriptions filled outside the health system.
+        </p>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/26-HIV-Post-Exposure-Pharmacist-Linkage-to-Care_2021.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/26-HIV-Post-Exposure-Pharmacist-Linkage-to-Care_2021.md">Source markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

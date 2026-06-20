@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2024 Infographic | Benchmarking in Specialty Channels and Patient Services</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .benchmark-hero {
+      position: relative;
+      min-height: 20rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 82% 18%, rgba(233, 158, 37, 0.34), transparent 13rem),
+        linear-gradient(140deg, rgba(36, 55, 112, 0.98), rgba(24, 124, 143, 0.92));
+      color: #fff;
+      overflow: hidden;
+      padding: 1.1rem;
+    }
+    .benchmark-hero svg {
+      position: absolute;
+      right: -1.4rem;
+      bottom: -2.7rem;
+      width: min(26rem, 76%);
+      opacity: 0.42;
+    }
+    .benchmark-hero .kicker {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+    .benchmark-hero strong {
+      display: block;
+      margin-top: 0.18rem;
+      font-family: var(--font-display);
+      font-size: clamp(2.75rem, 6vw, 5.6rem);
+      line-height: 0.9;
+    }
+    .benchmark-hero span {
+      display: block;
+      max-width: 19rem;
+      margin-top: 0.7rem;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.95rem;
+    }
+    .hero-card .button-link {
+      justify-content: center;
+      background: #fff;
+    }
+    .source-note {
+      margin: 0.7rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    .insight-list {
+      display: grid;
+      gap: 0.5rem;
+      margin: 0.7rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .insight-list li {
+      display: grid;
+      grid-template-columns: 0.85rem minmax(0, 1fr);
+      gap: 0.45rem;
+      font-size: 0.88rem;
+    }
+    .insight-list li::before {
+      content: "";
+      width: 0.58rem;
+      height: 0.58rem;
+      margin-top: 0.44rem;
+      border-radius: 50%;
+      background: var(--red);
+    }
+    .fill-ladder {
+      display: grid;
+      gap: 0.48rem;
+      margin-top: 0.8rem;
+    }
+    .fill-row {
+      display: grid;
+      grid-template-columns: 6.4rem minmax(0, 1fr) 3rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .fill-row strong {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 0.92rem;
+      text-align: right;
+    }
+    .fill-track {
+      height: 0.82rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .fill-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .fill-row.focus {
+      grid-template-columns: 6.4rem minmax(0, 1fr) 3rem;
+      border: 1px solid rgba(209, 38, 48, 0.28);
+      border-radius: 7px;
+      background: rgba(209, 38, 48, 0.055);
+      padding: 0.32rem 0.42rem;
+    }
+    .fill-row.focus .fill-track i {
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .gap-figure {
+      display: grid;
+      grid-template-columns: 8.5rem minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+      margin-top: 0.7rem;
+    }
+    .gap-figure svg {
+      width: 100%;
+      max-width: 8.5rem;
+      height: auto;
+    }
+    .gap-figure p {
+      margin: 0;
+      font-size: 0.88rem;
+    }
+    .journey-flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.8rem;
+    }
+    .journey-step {
+      position: relative;
+      min-height: 7.5rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.75rem;
+    }
+    .journey-step::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -0.42rem;
+      width: 0.62rem;
+      height: 0.62rem;
+      border-top: 2px solid var(--border-strong);
+      border-right: 2px solid var(--border-strong);
+      background: #fff;
+      transform: translateY(-50%) rotate(45deg);
+    }
+    .journey-step:last-child::after { display: none; }
+    .journey-step b {
+      display: inline-grid;
+      place-items: center;
+      width: 1.55rem;
+      height: 1.55rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+    }
+    .journey-step h3 {
+      margin-top: 0.46rem;
+      font-size: 0.9rem;
+    }
+    .journey-step p {
+      margin: 0.34rem 0 0;
+      font-size: 0.77rem;
+    }
+    .hub-comparison {
+      display: grid;
+      gap: 0.6rem;
+      margin-top: 0.75rem;
+    }
+    .hub-row {
+      display: grid;
+      grid-template-columns: 8.2rem repeat(3, minmax(0, 1fr));
+      gap: 0.45rem;
+      align-items: stretch;
+    }
+    .hub-row > strong {
+      display: grid;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.8rem;
+    }
+    .hub-cell {
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: var(--surface-blue);
+      padding: 0.48rem;
+    }
+    .hub-cell span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.58rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .hub-cell b {
+      display: block;
+      margin-top: 0.1rem;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+    .hub-row:nth-child(2) .hub-cell { background: var(--surface-warm); }
+    .hub-row:nth-child(3) .hub-cell { background: #f2f8f3; }
+    .callout-band {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: 1rem;
+      align-items: center;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        linear-gradient(90deg, rgba(238, 244, 251, 0.92), rgba(255, 255, 255, 0.98)),
+        radial-gradient(circle at 94% 50%, rgba(117, 97, 168, 0.18), transparent 13rem);
+      padding: 1rem;
+    }
+    .callout-band h2 {
+      margin-bottom: 0.35rem;
+    }
+    .strategy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.6rem;
+    }
+    .strategy-chip {
+      min-height: 6rem;
+      border-left: 3px solid var(--red);
+      background: #fff;
+      padding: 0.7rem;
+    }
+    .strategy-chip:nth-child(2) { border-left-color: var(--teal); }
+    .strategy-chip:nth-child(3) { border-left-color: var(--gold); }
+    .strategy-chip h3 {
+      font-size: 0.9rem;
+    }
+    .strategy-chip p {
+      margin: 0.35rem 0 0;
+      font-size: 0.78rem;
+    }
+    @media (max-width: 900px) {
+      .journey-flow,
+      .callout-band,
+      .strategy-grid {
+        grid-template-columns: 1fr;
+      }
+      .journey-step::after { display: none; }
+      .hub-row {
+        grid-template-columns: 1fr;
+      }
+      .gap-figure {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 560px) {
+      .fill-row,
+      .fill-row.focus {
+        grid-template-columns: 1fr 1fr;
+      }
+      .fill-track {
+        grid-column: 1 / -1;
+        order: 3;
+      }
+      .fill-row strong {
+        text-align: right;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">NASP Posters</a>
+      <nav aria-label="Source files">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/83-DTS83-OR-Poster-AM24_2024.pdf">Source PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/83-DTS83-OR-Poster-AM24_2024.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2024 | DTS83-OR Poster AM24</p>
+        <h1>Harnessing Insights: Benchmarking in Specialty Channels and Patient Services</h1>
+        <p class="hero-summary">ClaritasRx frames benchmarking as a practical way to compare brand performance, fill rates, and HUB operations against similar therapies when competitive specialty-channel data are otherwise hard to obtain.</p>
+        <ul class="tag-row" aria-label="Poster themes">
+          <li class="tag category">Benchmarking</li>
+          <li class="tag therapy">Specialty channels</li>
+          <li class="tag therapy">Patient services</li>
+          <li class="tag">Fill rate</li>
+          <li class="tag">HUB time-to-fill</li>
+        </ul>
+      </div>
+      <aside class="hero-card">
+        <div class="benchmark-hero" aria-label="Poster identifier and core evidence base">
+          <p class="kicker">Benchmarking engine</p>
+          <strong>DTS83</strong>
+          <span>Real-time market comparisons turn isolated brand metrics into an access-improvement roadmap.</span>
+          <svg viewBox="0 0 420 300" role="img" aria-label="Abstract benchmark dashboard">
+            <defs>
+              <linearGradient id="heroLine" x1="0" x2="1">
+                <stop offset="0" stop-color="#ffffff"/>
+                <stop offset="1" stop-color="#e99e25"/>
+              </linearGradient>
+            </defs>
+            <path d="M28 230 C88 186 126 201 176 146 C226 90 270 115 316 63 C342 34 373 28 404 24" fill="none" stroke="url(#heroLine)" stroke-width="13" stroke-linecap="round"/>
+            <g fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="2">
+              <path d="M40 250h340M40 200h340M40 150h340M40 100h340M40 50h340"/>
+              <path d="M75 35v230M155 35v230M235 35v230M315 35v230"/>
+            </g>
+            <g fill="#fff">
+              <circle cx="84" cy="192" r="10"/>
+              <circle cx="176" cy="146" r="10"/>
+              <circle cx="260" cy="104" r="10"/>
+              <circle cx="342" cy="39" r="10"/>
+            </g>
+          </svg>
+        </div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Year</dt>
+            <dd>2024</dd>
+          </div>
+          <div>
+            <dt>Code</dt>
+            <dd>DTS83</dd>
+          </div>
+          <div>
+            <dt>Presenter</dt>
+            <dd>ClaritasRx</dd>
+          </div>
+          <div>
+            <dt>Primary KPIs</dt>
+            <dd>Fill rate, TAT</dd>
+          </div>
+        </dl>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key reported numbers">
+        <article class="metric-card">
+          <span>Treatment courses</span>
+          <strong>&gt;91.5k</strong>
+          <p class="source-note">Data as of 9/7/2021.</p>
+        </article>
+        <article class="metric-card">
+          <span>Top fill-rate benchmark</span>
+          <strong>65%</strong>
+          <p class="source-note">Highest brand in chronic skin disease basket.</p>
+        </article>
+        <article class="metric-card">
+          <span>Your Brand fill rate</span>
+          <strong>42%</strong>
+          <p class="source-note">Middle of the observed brand ladder.</p>
+        </article>
+        <article class="metric-card">
+          <span>Opportunity gap</span>
+          <strong>23 pp</strong>
+          <p class="source-note">Top benchmark minus Your Brand.</p>
+        </article>
+      </section>
+
+      <section class="visual-grid" id="objective">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Turn fragmented access data into comparable benchmarks</h2>
+          <p>The poster evaluates whether real-time benchmarking combined with specialty channel and patient-service data can guide brands toward stronger fill rates, better care coordination, and more efficient HUB operations.</p>
+          <ul class="insight-list">
+            <li>Compare a brand against similar therapies instead of interpreting performance in isolation.</li>
+            <li>Use fill-rate and time-to-fill signals to find patient-access barriers.</li>
+            <li>Translate comparative performance into payer, HCP, and patient-service actions.</li>
+          </ul>
+        </article>
+        <article class="panel">
+          <p class="section-label">Study Lens</p>
+          <h2>Two benchmark views, one access question</h2>
+          <div class="gap-figure">
+            <svg viewBox="0 0 140 140" role="img" aria-label="Your Brand fill rate gap against the top benchmark">
+              <circle cx="70" cy="70" r="55" fill="none" stroke="#eef4fb" stroke-width="18"/>
+              <circle cx="70" cy="70" r="55" fill="none" stroke="#187c8f" stroke-width="18" stroke-dasharray="257 345" stroke-linecap="round" transform="rotate(-90 70 70)"/>
+              <circle cx="70" cy="70" r="34" fill="none" stroke="#d12630" stroke-width="18" stroke-dasharray="145 214" stroke-linecap="round" transform="rotate(-90 70 70)"/>
+              <text x="70" y="66" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-weight="900" font-size="23">42%</text>
+              <text x="70" y="87" text-anchor="middle" fill="#68758d" font-family="Inter, sans-serif" font-size="10">Your Brand</text>
+            </svg>
+            <p><strong style="color: var(--ink);">The chronic skin disease basket shows meaningful spread:</strong> fill rates range from 34% to 65%, with Your Brand at 42%. That spread is the practical target for benchmarking: identify which channel steps separate the leader from the median performer.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="tables-grid" id="results">
+        <article class="table-card">
+          <p class="section-label">Case Study 1</p>
+          <h2>Fill-rate benchmark ladder</h2>
+          <p>Specialty-therapy fill rates vary widely across the market basket, revealing pull-through and access differences that are otherwise difficult to see.</p>
+          <div class="fill-ladder" aria-label="Fill rate comparison by anonymized brand">
+            <div class="fill-row"><span>Brand 10</span><div class="fill-track"><i style="width: 100%;"></i></div><strong>65%</strong></div>
+            <div class="fill-row"><span>Brand 1437</span><div class="fill-track"><i style="width: 92.3%;"></i></div><strong>60%</strong></div>
+            <div class="fill-row"><span>Brand 1449</span><div class="fill-track"><i style="width: 80%;"></i></div><strong>52%</strong></div>
+            <div class="fill-row"><span>Brand 832</span><div class="fill-track"><i style="width: 76.9%;"></i></div><strong>50%</strong></div>
+            <div class="fill-row"><span>Brand 1380</span><div class="fill-track"><i style="width: 73.8%;"></i></div><strong>48%</strong></div>
+            <div class="fill-row focus"><span>Your Brand</span><div class="fill-track"><i style="width: 64.6%;"></i></div><strong>42%</strong></div>
+            <div class="fill-row"><span>Brand 1433</span><div class="fill-track"><i style="width: 61.5%;"></i></div><strong>40%</strong></div>
+            <div class="fill-row"><span>Brand 1379</span><div class="fill-track"><i style="width: 58.5%;"></i></div><strong>38%</strong></div>
+            <div class="fill-row"><span>Brand 1383</span><div class="fill-track"><i style="width: 56.9%;"></i></div><strong>37%</strong></div>
+            <div class="fill-row"><span>Brand 1445</span><div class="fill-track"><i style="width: 55.4%;"></i></div><strong>36%</strong></div>
+            <div class="fill-row"><span>Brand 11</span><div class="fill-track"><i style="width: 53.8%;"></i></div><strong>35%</strong></div>
+            <div class="fill-row"><span>Brand 1439</span><div class="fill-track"><i style="width: 52.3%;"></i></div><strong>34%</strong></div>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Case Study 2</p>
+          <h2>Rare-disease HUB turnaround</h2>
+          <p>Benchmarking across three rare-disease therapeutic areas shows that speed is not uniform across the referral, prior-authorization, and shipment steps.</p>
+          <div class="hub-comparison" aria-label="Mean turnaround days by therapeutic area">
+            <div class="hub-row">
+              <strong>Therapeutic Area C</strong>
+              <div class="hub-cell"><span>Referral to PA</span><b>15</b></div>
+              <div class="hub-cell"><span>PA turnaround</span><b>35</b></div>
+              <div class="hub-cell"><span>Outcome to shipment</span><b>0</b></div>
+            </div>
+            <div class="hub-row">
+              <strong>Therapeutic Area B</strong>
+              <div class="hub-cell"><span>Referral to PA</span><b>12</b></div>
+              <div class="hub-cell"><span>PA turnaround</span><b>18</b></div>
+              <div class="hub-cell"><span>Outcome to shipment</span><b>80</b></div>
+            </div>
+            <div class="hub-row">
+              <strong>Therapeutic Area A</strong>
+              <div class="hub-cell"><span>Referral to PA</span><b>10</b></div>
+              <div class="hub-cell"><span>PA turnaround</span><b>45</b></div>
+              <div class="hub-cell"><span>Outcome to shipment</span><b>55</b></div>
+            </div>
+          </div>
+          <p class="source-note">Values are reported as mean turnaround days in the markdown table.</p>
+        </article>
+      </section>
+
+      <section class="panel" id="methods">
+        <p class="section-label">Methods and Evidence Flow</p>
+        <h2>From referral data to benchmarkable action</h2>
+        <div class="journey-flow" aria-label="HUB patient journey benchmark flow">
+          <article class="journey-step">
+            <b>1</b>
+            <h3>Hub referral</h3>
+            <p>Patient-service data capture the starting point for access support.</p>
+          </article>
+          <article class="journey-step">
+            <b>2</b>
+            <h3>PA started</h3>
+            <p>Prior authorization initiation becomes a measurable operational step.</p>
+          </article>
+          <article class="journey-step">
+            <b>3</b>
+            <h3>PA outcome</h3>
+            <p>Decision timing helps separate payer friction from downstream delay.</p>
+          </article>
+          <article class="journey-step">
+            <b>4</b>
+            <h3>Triage to SP</h3>
+            <p>Specialty pharmacy routing determines whether approval becomes access.</p>
+          </article>
+          <article class="journey-step">
+            <b>5</b>
+            <h3>First paid fill</h3>
+            <p>Paid shipment closes the loop on fill-rate and time-to-fill performance.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="callout-band" id="conclusion">
+        <div>
+          <p class="section-label">Conclusion</p>
+          <h2>Benchmarking reframes performance as a set of fixable gaps</h2>
+          <p>Across the poster examples, benchmarks help brands see where fill rate, prior authorization, and shipment timing diverge from stronger performers. The intended result is not just reporting, but targeted alignment with high-performing HUB and channel patterns.</p>
+        </div>
+        <div class="strategy-grid" aria-label="Action areas suggested by the poster">
+          <article class="strategy-chip">
+            <h3>Rank the brand</h3>
+            <p>Place current fill rate beside competitive brands to quantify the access gap.</p>
+          </article>
+          <article class="strategy-chip">
+            <h3>Find the delay</h3>
+            <p>Separate referral, authorization, triage, and shipment timing to locate bottlenecks.</p>
+          </article>
+          <article class="strategy-chip">
+            <h3>Activate changes</h3>
+            <p>Use top-performer patterns to refine HUB, HCP, payer, and patient-service strategy.</p>
+          </article>
+        </div>
+      </section>
+
+      <footer class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/83-DTS83-OR-Poster-AM24_2024.pdf">Open original poster PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/83-DTS83-OR-Poster-AM24_2024.md">Open extracted markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

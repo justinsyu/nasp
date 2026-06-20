@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cancer Caregiver Absence Cost and Lost Time | NASP 2021</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .caregiver-hero-art {
+      position: relative;
+      min-height: 19rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 16% 24%, rgba(209, 38, 48, 0.15), transparent 8rem),
+        radial-gradient(circle at 86% 84%, rgba(24, 124, 143, 0.18), transparent 9rem),
+        linear-gradient(135deg, #ffffff 0%, var(--surface-blue) 60%, var(--surface-warm) 100%);
+      overflow: hidden;
+    }
+    .caregiver-hero-art svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 19rem;
+    }
+    .hero-card .finding {
+      margin: 0;
+      border-left: 4px solid var(--red);
+      padding-left: 0.72rem;
+      color: var(--ink);
+      font-size: 0.94rem;
+      font-weight: 850;
+    }
+    .metric-card strong small {
+      display: inline;
+      color: inherit;
+      font-size: 0.58em;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+    .benefit-board {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+    .benefit-card {
+      position: relative;
+      min-height: 14rem;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.85rem;
+    }
+    .benefit-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 0.34rem;
+      background: var(--accent, var(--red));
+    }
+    .benefit-card:nth-child(2) { --accent: var(--gold); }
+    .benefit-card:nth-child(3) { --accent: var(--teal); }
+    .benefit-card:nth-child(4) { --accent: var(--purple); }
+    .benefit-card h3 {
+      margin-bottom: 0.5rem;
+    }
+    .benefit-stat {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.45rem;
+      align-items: baseline;
+      border-top: 1px solid rgba(174, 187, 210, 0.62);
+      padding-top: 0.5rem;
+      margin-top: 0.5rem;
+    }
+    .benefit-stat span {
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .benefit-stat b {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.28rem;
+      line-height: 1;
+    }
+    .index-panel {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 1rem;
+      align-items: center;
+    }
+    .index-chart {
+      display: grid;
+      gap: 0.58rem;
+    }
+    .index-row {
+      display: grid;
+      grid-template-columns: 8.5rem minmax(0, 1fr) 3.5rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .index-track {
+      position: relative;
+      height: 1rem;
+      overflow: hidden;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: #edf2f8;
+    }
+    .index-track::before {
+      content: "";
+      position: absolute;
+      top: -0.18rem;
+      bottom: -0.18rem;
+      left: 16.667%;
+      border-left: 2px dashed rgba(36, 55, 112, 0.35);
+    }
+    .index-track i {
+      display: block;
+      width: calc(var(--value) / 600 * 100%);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--red));
+    }
+    .index-row.leave .index-track i {
+      background: linear-gradient(90deg, var(--gold), var(--red));
+    }
+    .index-note {
+      margin: 0.72rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+    .mini-timeline {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.8rem;
+    }
+    .time-chip {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.6rem;
+    }
+    .time-chip b {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      line-height: 1;
+    }
+    .time-chip span {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--body);
+      font-size: 0.74rem;
+      line-height: 1.3;
+    }
+    .evidence-ladder {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+    .ladder-step {
+      position: relative;
+      min-height: 11.2rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.88rem;
+      overflow: hidden;
+    }
+    .ladder-step::after {
+      content: attr(data-step);
+      position: absolute;
+      right: 0.45rem;
+      bottom: -0.65rem;
+      color: rgba(36, 55, 112, 0.10);
+      font-family: var(--font-display);
+      font-size: 4.8rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .ladder-step p {
+      position: relative;
+      z-index: 1;
+      margin: 0.45rem 0 0;
+      font-size: 0.83rem;
+    }
+    .heat-grid {
+      display: grid;
+      grid-template-columns: 1.1fr repeat(3, minmax(0, 0.8fr));
+      margin-top: 0.72rem;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      font-size: 0.78rem;
+    }
+    .heat-grid div {
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 0.55rem;
+    }
+    .heat-grid div:nth-child(4n) {
+      border-right: 0;
+    }
+    .heat-grid .head {
+      background: var(--surface-blue);
+      color: var(--ink);
+      font-weight: 900;
+    }
+    .heat-grid .hot {
+      background: rgba(209, 38, 48, 0.10);
+      color: var(--ink);
+      font-weight: 850;
+    }
+    .callout {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(209, 38, 48, 0.10), transparent 42%),
+        #fff;
+    }
+    .callout p {
+      max-width: 62rem;
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.08rem, 1.8vw, 1.48rem);
+      font-weight: 850;
+      line-height: 1.35;
+    }
+    .source-note {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    @media (max-width: 900px) {
+      .benefit-board,
+      .evidence-ladder {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .index-panel {
+        grid-template-columns: 1fr;
+      }
+      .mini-timeline {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 640px) {
+      .topbar {
+        margin-inline: 0;
+      }
+      .metric-strip,
+      .meta-grid,
+      .benefit-board,
+      .evidence-ladder,
+      .mini-timeline,
+      .index-row {
+        grid-template-columns: 1fr;
+      }
+      .heat-grid {
+        grid-template-columns: 1fr;
+      }
+      .heat-grid div,
+      .heat-grid div:nth-child(4n) {
+        border-right: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP infographic home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/05-Cancer-Caregiver-Absence-Cost-and-Lost-Time_2021.pdf">PDF Source</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/05-Cancer-Caregiver-Absence-Cost-and-Lost-Time_2021.md">Markdown Source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2021 | Cancer caregiver workforce burden</p>
+        <h1 id="poster-title">Cancer Caregiver Absence Cost and Lost Time</h1>
+        <p class="hero-summary">A Workpartners Research Reference Database analysis followed employees whose spouses had cancer claims, comparing sick leave, disability, and workers' compensation use against a 2001 baseline.</p>
+        <ul class="tag-row" aria-label="Poster topics">
+          <li class="tag category">Employee caregivers</li>
+          <li class="tag therapy">Cancer</li>
+          <li class="tag">Absence benefits</li>
+          <li class="tag">2001-2019 claims analysis</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Study snapshot">
+        <div class="poster-code">05<br>2021</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Data source</dt>
+            <dd>Workpartners RRDb</dd>
+          </div>
+          <div>
+            <dt>Period</dt>
+            <dd>2001-2019</dd>
+          </div>
+          <div>
+            <dt>Caregiver definition</dt>
+            <dd>Employee with spouse cancer claims</dd>
+          </div>
+          <div>
+            <dt>Benefits</dt>
+            <dd>SL, STD, LTD, WC</dd>
+          </div>
+        </dl>
+        <p class="finding">The poster's central warning: constant salary-replacement assumptions can distort absence cost estimates across benefits and years.</p>
+      </aside>
+    </section>
+
+    <main>
+      <section class="visual-grid" aria-label="Study premise and visual summary">
+        <div class="caregiver-hero-art" aria-hidden="true">
+          <svg viewBox="0 0 680 430" role="img">
+            <defs>
+              <linearGradient id="careGradient" x1="0%" x2="100%" y1="0%" y2="100%">
+                <stop offset="0%" stop-color="#ffffff"/>
+                <stop offset="100%" stop-color="#eef4fb"/>
+              </linearGradient>
+              <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#243770" flood-opacity="0.14"/>
+              </filter>
+            </defs>
+            <path d="M85 286 C155 168 259 119 340 164 C421 119 525 168 595 286" fill="none" stroke="#243770" stroke-width="16" stroke-linecap="round" opacity="0.12"/>
+            <circle cx="255" cy="168" r="72" fill="url(#careGradient)" stroke="#187c8f" stroke-width="4" filter="url(#softShadow)"/>
+            <circle cx="425" cy="168" r="72" fill="url(#careGradient)" stroke="#d12630" stroke-width="4" filter="url(#softShadow)"/>
+            <path d="M226 187 c18-42 50-42 68 0" fill="none" stroke="#187c8f" stroke-width="10" stroke-linecap="round"/>
+            <circle cx="260" cy="141" r="22" fill="none" stroke="#187c8f" stroke-width="10"/>
+            <path d="M425 126 v84 M383 168 h84" stroke="#d12630" stroke-width="16" stroke-linecap="round"/>
+            <rect x="111" y="278" width="112" height="72" rx="12" fill="#ffffff" stroke="#d12630" stroke-width="4"/>
+            <rect x="248" y="278" width="112" height="72" rx="12" fill="#ffffff" stroke="#e99e25" stroke-width="4"/>
+            <rect x="385" y="278" width="112" height="72" rx="12" fill="#ffffff" stroke="#187c8f" stroke-width="4"/>
+            <rect x="522" y="278" width="112" height="72" rx="12" fill="#ffffff" stroke="#7561a8" stroke-width="4"/>
+            <text x="167" y="313" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="22" font-weight="900">SL</text>
+            <text x="304" y="313" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="22" font-weight="900">STD</text>
+            <text x="441" y="313" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="22" font-weight="900">LTD</text>
+            <text x="578" y="313" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="22" font-weight="900">WC</text>
+            <path d="M167 337 h411" stroke="#243770" stroke-width="4" stroke-linecap="round" opacity="0.18"/>
+            <path d="M167 337 h137" stroke="#d12630" stroke-width="8" stroke-linecap="round"/>
+            <path d="M304 337 h137" stroke="#e99e25" stroke-width="8" stroke-linecap="round"/>
+            <path d="M441 337 h137" stroke="#187c8f" stroke-width="8" stroke-linecap="round"/>
+            <text x="340" y="394" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="22" font-weight="900">Caregiver leave and payment signals diverge by benefit</text>
+          </svg>
+        </div>
+
+        <div class="panel markdown-fragment">
+          <p class="section-label">Objective</p>
+          <h2>Replace broad absence assumptions with benefit-specific evidence</h2>
+          <p>The study compared all-cause sick leave, short-term disability, long-term disability, and workers' compensation utilization for employees whose spouses had cancer.</p>
+          <ul>
+            <li>Employees were identified annually through spouse medical claims in AHRQ oncology categories.</li>
+            <li>Each benefit was tracked for claim filing, mean days of leave, and median payments as a percent of salary.</li>
+            <li>Results were indexed against the 2001 baseline to show how time, benefit type, and payments diverged.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="metric-strip" aria-label="Key numbers">
+        <div class="metric-card">
+          <span>Employees and dependents</span>
+          <strong>3M+</strong>
+        </div>
+        <div class="metric-card">
+          <span>Study years</span>
+          <strong>19</strong>
+        </div>
+        <div class="metric-card">
+          <span>Prevalence range</span>
+          <strong>2.4<small>-</small>3.0<small>%</small></strong>
+        </div>
+        <div class="metric-card">
+          <span>CCI change</span>
+          <strong>0.28<small> to </small>0.45</strong>
+        </div>
+      </section>
+
+      <section id="benefits" class="panel">
+        <p class="section-label">Benefit baseline and 2019 index</p>
+        <h2>Caregiver absence looked different depending on the benefit lens</h2>
+        <div class="benefit-board">
+          <article class="benefit-card">
+            <h3>Sick leave</h3>
+            <div class="benefit-stat">
+              <span>2001 filing</span>
+              <b>47.3%</b>
+            </div>
+            <div class="benefit-stat">
+              <span>Baseline days</span>
+              <b>5.0</b>
+            </div>
+            <div class="benefit-stat">
+              <span>2019 filing index</span>
+              <b>145</b>
+            </div>
+            <p class="source-note">Payments were excluded from median payment analysis because sick leave equals salary.</p>
+          </article>
+          <article class="benefit-card">
+            <h3>Short-term disability</h3>
+            <div class="benefit-stat">
+              <span>2001 filing</span>
+              <b>5.1%</b>
+            </div>
+            <div class="benefit-stat">
+              <span>Baseline days</span>
+              <b>34.1</b>
+            </div>
+            <div class="benefit-stat">
+              <span>2019 payment index</span>
+              <b>190</b>
+            </div>
+            <p class="source-note">Baseline median payment was 70.0% of salary.</p>
+          </article>
+          <article class="benefit-card">
+            <h3>Long-term disability</h3>
+            <div class="benefit-stat">
+              <span>2001 filing</span>
+              <b>0.2%</b>
+            </div>
+            <div class="benefit-stat">
+              <span>Baseline days</span>
+              <b>147.5</b>
+            </div>
+            <div class="benefit-stat">
+              <span>2019 leave index</span>
+              <b>550</b>
+            </div>
+            <p class="source-note">The highest median payment year was listed as 2018.</p>
+          </article>
+          <article class="benefit-card">
+            <h3>Workers' compensation</h3>
+            <div class="benefit-stat">
+              <span>2001 filing</span>
+              <b>1.2%</b>
+            </div>
+            <div class="benefit-stat">
+              <span>Baseline days</span>
+              <b>45.1</b>
+            </div>
+            <div class="benefit-stat">
+              <span>2019 filing index</span>
+              <b>50</b>
+            </div>
+            <p class="source-note">Workplace accidents were paid under this benefit; medical-only WC claims were excluded.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="results" class="panel index-panel">
+        <div>
+          <p class="section-label">Indexed results</p>
+          <h2>By 2019, disability burden rose faster than disease prevalence</h2>
+          <p>Prevalence stayed near 3%, but the indexed absence and payment measures moved sharply. Long-term disability showed the largest growth in mean days of leave, while workers' compensation filing fell below baseline.</p>
+          <p class="index-note">Dashed guide marks the 2001 baseline index of 100. Bars show selected 2019 index values from the poster tables.</p>
+        </div>
+        <div class="index-chart" aria-label="2019 index values compared with 2001 baseline">
+          <div class="index-row">
+            <span>SL filing claims</span>
+            <div class="index-track"><i style="--value:145"></i></div>
+            <span>145</span>
+          </div>
+          <div class="index-row">
+            <span>STD filing claims</span>
+            <div class="index-track"><i style="--value:150"></i></div>
+            <span>150</span>
+          </div>
+          <div class="index-row">
+            <span>LTD filing claims</span>
+            <div class="index-track"><i style="--value:200"></i></div>
+            <span>200</span>
+          </div>
+          <div class="index-row">
+            <span>WC filing claims</span>
+            <div class="index-track"><i style="--value:50"></i></div>
+            <span>50</span>
+          </div>
+          <div class="index-row leave">
+            <span>STD leave days</span>
+            <div class="index-track"><i style="--value:280"></i></div>
+            <span>280</span>
+          </div>
+          <div class="index-row leave">
+            <span>LTD leave days</span>
+            <div class="index-track"><i style="--value:550"></i></div>
+            <span>550</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-stack" aria-label="Methods and time patterns">
+        <div class="panel">
+          <p class="section-label">Methods flow</p>
+          <h2>How the analysis converted claims into absence evidence</h2>
+          <div class="evidence-ladder">
+            <div class="ladder-step" data-step="1">
+              <h3>Identify spouses</h3>
+              <p>Find annual spouse claims in AHRQ oncology cancer categories.</p>
+            </div>
+            <div class="ladder-step" data-step="2">
+              <h3>Link caregivers</h3>
+              <p>Assign the employee as caregiver and apply eligibility by benefit.</p>
+            </div>
+            <div class="ladder-step" data-step="3">
+              <h3>Measure leave</h3>
+              <p>Aggregate absence by initiation year, including extended STD, LTD, and WC payments.</p>
+            </div>
+            <div class="ladder-step" data-step="4">
+              <h3>Compare baseline</h3>
+              <p>Index claim filing, days, and payments against the 2001 reference year.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Most impacted years</p>
+          <h2>Peak years varied by outcome and benefit</h2>
+          <div class="heat-grid" role="table" aria-label="Most impacted years by benefit">
+            <div class="head" role="columnheader">Measure</div>
+            <div class="head" role="columnheader">STD</div>
+            <div class="head" role="columnheader">LTD</div>
+            <div class="head" role="columnheader">WC</div>
+            <div role="rowheader">Highest median payments</div>
+            <div class="hot">2006</div>
+            <div class="hot">2018</div>
+            <div class="hot">2006</div>
+            <div role="rowheader">Most days of leave</div>
+            <div class="hot">2017</div>
+            <div class="hot">2006</div>
+            <div class="hot">2005</div>
+          </div>
+          <div class="mini-timeline" aria-label="Selected table patterns">
+            <div class="time-chip">
+              <b>2005</b>
+              <span>Workers' compensation leave-day index spiked in the poster table.</span>
+            </div>
+            <div class="time-chip">
+              <b>2006</b>
+              <span>Listed as the highest median payment year for STD and WC.</span>
+            </div>
+            <div class="time-chip">
+              <b>2017</b>
+              <span>Listed as the most days taken under sick leave and STD.</span>
+            </div>
+            <div class="time-chip">
+              <b>2018</b>
+              <span>Listed as the highest median payment year for LTD.</span>
+            </div>
+            <div class="time-chip">
+              <b>2019</b>
+              <span>Charlson score reached 0.45 while prevalence was 2.6%.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel callout">
+        <p>Conclusion: absence costs for cancer caregivers changed unevenly across sick leave, disability, and workers' compensation; policy and practice should use person-level, year-specific benefit data instead of one fixed cost or salary-replacement factor.</p>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/05-Cancer-Caregiver-Absence-Cost-and-Lost-Time_2021.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/05-Cancer-Caregiver-Absence-Cost-and-Lost-Time_2021.md">Source markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

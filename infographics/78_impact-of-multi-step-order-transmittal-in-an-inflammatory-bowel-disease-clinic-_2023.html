@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Impact of Multi-Step Order Transmittal in an IBD Clinic | NASP 2023</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -4rem;
+      bottom: -4.2rem;
+      width: 14rem;
+      height: 14rem;
+      border: 1.1rem solid rgba(24, 124, 143, 0.12);
+      border-radius: 50%;
+    }
+
+    .queue-visual {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 0.15rem;
+    }
+
+    .queue-visual svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .hero-note {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.55rem;
+    }
+
+    .hero-note div {
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.84);
+      padding: 0.65rem;
+    }
+
+    .hero-note strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      line-height: 1;
+    }
+
+    .hero-note span {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .metric-card strong small {
+      color: var(--red);
+      font-size: 0.88rem;
+    }
+
+    .metric-card em {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-style: normal;
+      font-weight: 750;
+    }
+
+    .access-scoreboard {
+      display: grid;
+      grid-template-columns: 0.78fr 1.22fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .big-delta {
+      display: grid;
+      align-content: center;
+      min-height: 14rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 92% 18%, rgba(233, 158, 37, 0.28), transparent 7rem),
+        var(--ink);
+      padding: 1.15rem;
+      color: #fff;
+    }
+
+    .big-delta span {
+      color: rgba(255, 255, 255, 0.74);
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .big-delta strong {
+      margin-top: 0.3rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(3.1rem, 8vw, 5.6rem);
+      line-height: 0.9;
+    }
+
+    .big-delta p {
+      margin: 0.7rem 0 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.92rem;
+    }
+
+    .paired-bars {
+      display: grid;
+      gap: 0.82rem;
+      margin-top: 0.85rem;
+    }
+
+    .paired-row {
+      display: grid;
+      grid-template-columns: 8.9rem minmax(0, 1fr) 4rem;
+      gap: 0.7rem;
+      align-items: center;
+    }
+
+    .paired-row b {
+      color: var(--ink);
+      font-size: 0.82rem;
+    }
+
+    .bar-pair {
+      display: grid;
+      gap: 0.2rem;
+    }
+
+    .bar-line {
+      display: grid;
+      grid-template-columns: 2.3rem minmax(0, 1fr) 2.6rem;
+      gap: 0.35rem;
+      align-items: center;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 850;
+    }
+
+    .bar-track {
+      height: 0.62rem;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #e7edf6;
+    }
+
+    .bar-fill {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .bar-fill.post {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .paired-row em {
+      color: var(--teal);
+      font-size: 0.76rem;
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .workflow-ribbon {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.85rem;
+    }
+
+    .workflow-step {
+      position: relative;
+      min-height: 8.4rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.75rem;
+    }
+
+    .workflow-step::before {
+      content: attr(data-step);
+      display: inline-grid;
+      place-items: center;
+      width: 1.75rem;
+      height: 1.75rem;
+      margin-bottom: 0.5rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+
+    .workflow-step::after {
+      content: "";
+      position: absolute;
+      top: 1.6rem;
+      right: -0.55rem;
+      width: 0.9rem;
+      height: 0.9rem;
+      border-top: 3px solid var(--border-strong);
+      border-right: 3px solid var(--border-strong);
+      transform: rotate(45deg);
+      background: #fff;
+    }
+
+    .workflow-step:last-child::after {
+      content: none;
+    }
+
+    .workflow-step p {
+      margin: 0.3rem 0 0;
+      color: var(--body);
+      font-size: 0.8rem;
+    }
+
+    .dispense-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.85rem;
+    }
+
+    .dispense-card {
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.75rem;
+    }
+
+    .dispense-card h3 {
+      min-height: 2.45rem;
+    }
+
+    .dispense-card .days {
+      display: flex;
+      align-items: baseline;
+      gap: 0.35rem;
+      margin-top: 0.55rem;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-weight: 900;
+    }
+
+    .days .pre {
+      color: var(--red);
+      font-size: 1.45rem;
+    }
+
+    .days .post {
+      color: var(--teal);
+      font-size: 1.45rem;
+    }
+
+    .dispense-card p {
+      margin: 0.42rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 750;
+    }
+
+    .capture-meter {
+      display: grid;
+      gap: 0.62rem;
+      margin-top: 0.8rem;
+    }
+
+    .capture-row {
+      display: grid;
+      grid-template-columns: 5.4rem minmax(0, 1fr) 3rem;
+      gap: 0.6rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 850;
+    }
+
+    .capture-row i {
+      display: block;
+      height: 0.85rem;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .note-list {
+      display: grid;
+      gap: 0.55rem;
+      margin: 0.75rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .note-list li {
+      border-left: 4px solid var(--teal);
+      background: var(--surface-blue);
+      padding: 0.56rem 0.7rem;
+      color: var(--body);
+      font-size: 0.86rem;
+    }
+
+    .note-list li:nth-child(2) {
+      border-color: var(--gold);
+      background: var(--surface-warm);
+    }
+
+    .note-list li:nth-child(3) {
+      border-color: var(--purple);
+    }
+
+    .compact-table td:nth-child(n+2),
+    .compact-table th:nth-child(n+2) {
+      text-align: right;
+    }
+
+    .source-note {
+      margin: 0.7rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 900px) {
+      .access-scoreboard,
+      .workflow-ribbon,
+      .dispense-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .workflow-step::after {
+        content: none;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .hero-note,
+      .paired-row,
+      .capture-row {
+        grid-template-columns: 1fr;
+      }
+
+      .paired-row em {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#outcomes">Outcomes</a>
+        <a href="#workflow">Workflow</a>
+        <a href="#tables">Tables</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2023 poster 78 | Inflammatory bowel disease medication access</p>
+        <h1 id="poster-title">Impact of Multi-Step Order Transmittal in an Inflammatory Bowel Disease Clinic</h1>
+        <p class="hero-summary">
+          Atrium Health Wake Forest Baptist evaluated whether routing targeted IBD specialty prescriptions
+          into an EHR work queue could shift medication access from a reactive handoff to a prospective,
+          pharmacy-led process.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Retrospective cohort</li>
+          <li class="tag therapy">IBD clinic</li>
+          <li class="tag">Prior authorization</li>
+          <li class="tag">EHR work queue</li>
+          <li class="tag">May to November cohorts</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata and MSOT visual">
+        <div>
+          <div class="poster-code">78-2023</div>
+          <dl class="meta-grid">
+            <div>
+              <dt>Setting</dt>
+              <dd>Academic GI clinic</dd>
+            </div>
+            <div>
+              <dt>Population</dt>
+              <dd>New PA prescriptions</dd>
+            </div>
+            <div>
+              <dt>Pre-MSOT</dt>
+              <dd>n = 68</dd>
+            </div>
+            <div>
+              <dt>Post-MSOT</dt>
+              <dd>n = 76</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="queue-visual">
+          <svg viewBox="0 0 420 245" role="img" aria-labelledby="queue-title queue-desc">
+            <title id="queue-title">MSOT prescription routing illustration</title>
+            <desc id="queue-desc">A stylized prescription routes from a GI provider into an MSOT work queue and then to PA completion and specialty pharmacy release.</desc>
+            <defs>
+              <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L9,3 z" fill="#243770"></path>
+              </marker>
+            </defs>
+            <rect x="18" y="28" width="78" height="96" rx="8" fill="#fff" stroke="#aebbd2" stroke-width="3"></rect>
+            <path d="M36 56h40M36 77h32M36 98h44" stroke="#187c8f" stroke-width="7" stroke-linecap="round"></path>
+            <path d="M105 76 C145 36, 205 34, 250 72" fill="none" stroke="#243770" stroke-width="6" stroke-linecap="round" marker-end="url(#arrow)"></path>
+            <rect x="249" y="35" width="134" height="82" rx="11" fill="#eef4fb" stroke="#187c8f" stroke-width="4"></rect>
+            <path d="M270 62h92M270 84h62" stroke="#187c8f" stroke-width="7" stroke-linecap="round"></path>
+            <circle cx="333" cy="151" r="34" fill="#fff7ea" stroke="#e99e25" stroke-width="5"></circle>
+            <path d="M318 151l10 10 23-27" fill="none" stroke="#4d8a67" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M314 119 C311 130, 312 139, 321 147" fill="none" stroke="#243770" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)"></path>
+            <circle cx="95" cy="169" r="32" fill="#fff" stroke="#d12630" stroke-width="5"></circle>
+            <path d="M80 169h30M95 154v30" stroke="#d12630" stroke-width="6" stroke-linecap="round"></path>
+            <path d="M128 169 C182 203, 248 201, 302 168" fill="none" stroke="#d12630" stroke-width="6" stroke-linecap="round" stroke-dasharray="1 14" marker-end="url(#arrow)"></path>
+            <text x="114" y="33" fill="#243770" font-family="Arial, sans-serif" font-size="18" font-weight="800">Targeted Rx auto-routed</text>
+            <text x="137" y="224" fill="#d12630" font-family="Arial, sans-serif" font-size="18" font-weight="800">Reactive manual path avoided</text>
+          </svg>
+          <div class="hero-note">
+            <div>
+              <strong>144</strong>
+              <span>PA prescriptions studied</span>
+            </div>
+            <div>
+              <strong>No new staff</strong>
+              <span>Workflow enhancement</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>PA submission</span>
+          <strong>6.2 <small>to</small> 1.3d</strong>
+          <em>4.9 fewer days from prescribing to PA submission.</em>
+        </article>
+        <article class="metric-card">
+          <span>PA determination</span>
+          <strong>8.9 <small>to</small> 3.8d</strong>
+          <em>5.1 fewer days to payer decision.</em>
+        </article>
+        <article class="metric-card">
+          <span>Internal dispense</span>
+          <strong>40.7 <small>to</small> 26.4d</strong>
+          <em>Overall specialty pharmacy dispense time decreased.</em>
+        </article>
+        <article class="metric-card">
+          <span>Capture rate</span>
+          <strong>43 <small>to</small> 48%</strong>
+          <em>Not significantly higher, but directionally improved.</em>
+        </article>
+      </section>
+
+      <section id="outcomes" class="access-scoreboard">
+        <div class="big-delta">
+          <span>Primary endpoint</span>
+          <strong>79%</strong>
+          <p>Relative reduction in average time from prescribing to PA submission after MSOT implementation.</p>
+        </div>
+
+        <article class="panel">
+          <p class="section-label">Access speed before and after MSOT</p>
+          <h2>The largest shift was the front-end handoff into prior authorization.</h2>
+          <p>
+            MSOT moved targeted prescriptions into a monitored EHR queue, reducing both PA submission time
+            and PA determination time while preserving the embedded pharmacist and medication access specialist model.
+          </p>
+          <div class="paired-bars" aria-label="Pre-MSOT and post-MSOT time comparisons">
+            <div class="paired-row">
+              <b>PA submission</b>
+              <div class="bar-pair">
+                <div class="bar-line"><span>Pre</span><div class="bar-track"><i class="bar-fill" style="width:100%"></i></div><span>6.2d</span></div>
+                <div class="bar-line"><span>Post</span><div class="bar-track"><i class="bar-fill post" style="width:21%"></i></div><span>1.3d</span></div>
+              </div>
+              <em>-4.9d</em>
+            </div>
+            <div class="paired-row">
+              <b>PA determination</b>
+              <div class="bar-pair">
+                <div class="bar-line"><span>Pre</span><div class="bar-track"><i class="bar-fill" style="width:100%"></i></div><span>8.9d</span></div>
+                <div class="bar-line"><span>Post</span><div class="bar-track"><i class="bar-fill post" style="width:43%"></i></div><span>3.8d</span></div>
+              </div>
+              <em>-5.1d</em>
+            </div>
+            <div class="paired-row">
+              <b>Internal dispense</b>
+              <div class="bar-pair">
+                <div class="bar-line"><span>Pre</span><div class="bar-track"><i class="bar-fill" style="width:100%"></i></div><span>40.7d</span></div>
+                <div class="bar-line"><span>Post</span><div class="bar-track"><i class="bar-fill post" style="width:65%"></i></div><span>26.4d</span></div>
+              </div>
+              <em>-14.3d</em>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section id="workflow" class="panel">
+        <p class="section-label">MSOT workflow</p>
+        <h2>One EHR rule created a prospective pharmacy work queue.</h2>
+        <div class="workflow-ribbon" aria-label="MSOT workflow steps">
+          <article class="workflow-step" data-step="1">
+            <h3>Provider sends Rx</h3>
+            <p>GI provider enters a targeted medication prescription in the EHR.</p>
+          </article>
+          <article class="workflow-step" data-step="2">
+            <h3>Algorithm routes</h3>
+            <p>Generic name and prescribing department logic sends the Rx to the MSOT queue.</p>
+          </article>
+          <article class="workflow-step" data-step="3">
+            <h3>Access team acts</h3>
+            <p>Embedded pharmacist and technician complete benefits investigation and PA work.</p>
+          </article>
+          <article class="workflow-step" data-step="4">
+            <h3>Rx released</h3>
+            <p>Pharmacist or MAS releases the prescription to the preferred specialty pharmacy.</p>
+          </article>
+          <article class="workflow-step" data-step="5">
+            <h3>Clinic notified</h3>
+            <p>The clinic receives determination details through an EHR note.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="visual-grid">
+        <article class="panel">
+          <p class="section-label">Internal specialty pharmacy dispense</p>
+          <h2>Dispense time improved, including in the delayed induction subgroup.</h2>
+          <p>
+            Ustekinumab and risankizumab require IV induction before subcutaneous maintenance therapy.
+            That ordering pattern created a known lag, but dispense time still decreased after MSOT.
+          </p>
+          <div class="dispense-grid" aria-label="Internal specialty pharmacy dispense time">
+            <div class="dispense-card">
+              <h3>Total internal dispense</h3>
+              <div class="days"><span class="pre">40.7</span><span>to</span><span class="post">26.4</span></div>
+              <p>n = 27 pre-MSOT; n = 34 post-MSOT.</p>
+            </div>
+            <div class="dispense-card">
+              <h3>Ustekinumab and risankizumab</h3>
+              <div class="days"><span class="pre">72.5</span><span>to</span><span class="post">51.4</span></div>
+              <p>n = 13 pre-MSOT; n = 14 post-MSOT.</p>
+            </div>
+            <div class="dispense-card">
+              <h3>All other included medications</h3>
+              <div class="days"><span class="pre">11.6</span><span>to</span><span class="post">9.0</span></div>
+              <p>n = 14 pre-MSOT; n = 20 post-MSOT.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel markdown-fragment">
+          <p class="section-label">Objective, method, conclusion</p>
+          <h2>What the poster tested.</h2>
+          <p><strong>Objective:</strong> Evaluate the impact of MSOT implementation on medication access in an IBD clinic.</p>
+          <p><strong>Methods:</strong> IRB-approved retrospective cohort study comparing new PA prescriptions from May 1 to November 1, 2021 with May 1 to November 1, 2022.</p>
+          <ul class="note-list">
+            <li>Included prescriptions for targeted medications requiring a new prior authorization.</li>
+            <li>Excluded uninsured patients and prescriptions requiring renewal prior authorizations.</li>
+            <li>Conclusion: MSOT improved PA turnaround time and supported workflow enhancements that can improve care quality.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">Prescription capture</p>
+          <h2>Internal capture moved from 43% to 48%.</h2>
+          <p>
+            The poster notes this increase was not significant, but frames internal capture as relevant
+            to both patient care and specialty pharmacy revenue.
+          </p>
+          <div class="capture-meter" aria-label="Internal prescription capture rate">
+            <div class="capture-row"><span>Pre-MSOT</span><i style="width:43%"></i><b>43%</b></div>
+            <div class="capture-row"><span>Post-MSOT</span><i style="width:48%"></i><b>48%</b></div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Operational interpretation</p>
+          <h2>MSOT changed the access posture.</h2>
+          <p>
+            The discussion describes a communication-intensive reactive process becoming a real-time,
+            prospective process without added pharmacy staff. Anecdotally, the workflow also improved
+            pharmacists' ability to make proactive clinical interventions, though the poster calls for
+            more information to quantify that effect.
+          </p>
+        </article>
+      </section>
+
+      <section id="tables" class="tables-grid" aria-label="Extracted table patterns">
+        <article class="table-card">
+          <p class="section-label">PA timing</p>
+          <h2>Submission and determination</h2>
+          <div class="table-wrap">
+            <table class="compact-table">
+              <thead>
+                <tr>
+                  <th>Endpoint</th>
+                  <th>Pre-MSOT</th>
+                  <th>Post-MSOT</th>
+                  <th>Change</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Time to PA submission</td><td>6.2 days</td><td>1.3 days</td><td>-4.9 days</td></tr>
+                <tr><td>Time to PA determination</td><td>8.9 days</td><td>3.8 days</td><td>-5.1 days</td></tr>
+                <tr><td>Cohort size</td><td>n = 68</td><td>n = 76</td><td>+8 Rx</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Internal dispense timing</p>
+          <h2>Subgroup pattern</h2>
+          <div class="table-wrap">
+            <table class="compact-table">
+              <thead>
+                <tr>
+                  <th>Group</th>
+                  <th>Pre-MSOT</th>
+                  <th>Post-MSOT</th>
+                  <th>Change</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Total</td><td>40.7 days</td><td>26.4 days</td><td>-14.3 days</td></tr>
+                <tr><td>Only ustekinumab and risankizumab</td><td>72.5 days</td><td>51.4 days</td><td>-21.1 days</td></tr>
+                <tr><td>Excluding ustekinumab and risankizumab</td><td>11.6 days</td><td>9.0 days</td><td>-2.6 days</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/78_Impact-of-Multi-Step-Order-Transmittal-in-an-Inflammatory-Bowel-Disease-Clinic-_2023.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/78_Impact-of-Multi-Step-Order-Transmittal-in-an-Inflammatory-Bowel-Disease-Clinic-_2023.md">Source Markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

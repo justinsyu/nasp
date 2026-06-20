@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Specialty Pharmacy Technician and Epidiolex Access | NASP 2021</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .access-hero-card {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 14% 10%, rgba(24, 124, 143, 0.22), transparent 9rem),
+        radial-gradient(circle at 82% 20%, rgba(233, 158, 37, 0.2), transparent 8rem),
+        linear-gradient(145deg, #ffffff 0%, var(--surface-blue) 56%, var(--surface-warm) 100%);
+    }
+    .access-hero-card svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-top: 0.3rem;
+    }
+    .hero-note {
+      margin: 0;
+      border-left: 4px solid var(--teal);
+      padding-left: 0.75rem;
+      color: var(--ink);
+      font-weight: 850;
+    }
+    .metric-card.access-primary {
+      background: linear-gradient(180deg, #fff, rgba(24, 124, 143, 0.08));
+    }
+    .metric-card.access-primary strong {
+      color: var(--teal);
+    }
+    .metric-card.access-gold strong {
+      color: var(--gold);
+    }
+    .metric-card.access-green strong {
+      color: var(--green);
+    }
+    .metric-card.access-purple strong {
+      color: var(--purple);
+    }
+    .swimlane {
+      display: grid;
+      gap: 0.64rem;
+      margin-top: 0.75rem;
+    }
+    .lane-row {
+      display: grid;
+      grid-template-columns: 8.5rem minmax(0, 1fr);
+      gap: 0.6rem;
+      align-items: center;
+    }
+    .lane-row b {
+      color: var(--ink);
+      font-size: 0.78rem;
+      line-height: 1.15;
+    }
+    .lane-track {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      min-height: 2.9rem;
+      border: 1px solid rgba(174, 187, 210, 0.86);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+    }
+    .lane-track span {
+      display: grid;
+      place-items: center;
+      min-width: 0;
+      border-left: 1px solid rgba(174, 187, 210, 0.55);
+      padding: 0.35rem;
+      color: var(--ink);
+      font-size: 0.68rem;
+      font-weight: 850;
+      line-height: 1.12;
+      text-align: center;
+    }
+    .lane-track span:first-child {
+      border-left: 0;
+    }
+    .lane-track .active {
+      background: rgba(209, 38, 48, 0.12);
+      color: var(--red);
+    }
+    .lane-track .support {
+      background: rgba(24, 124, 143, 0.12);
+      color: var(--teal);
+    }
+    .interval-stack {
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 0.75rem;
+    }
+    .interval-row {
+      display: grid;
+      grid-template-columns: 8.6rem minmax(0, 1fr) 5.6rem;
+      gap: 0.58rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .interval-row span:last-child {
+      color: var(--muted);
+      text-align: right;
+    }
+    .interval-track {
+      height: 1.2rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .interval-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .ooppanel {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 0.75rem;
+    }
+    .oop-row {
+      display: grid;
+      grid-template-columns: 6.8rem minmax(0, 1fr) 3.4rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .oop-bars {
+      display: grid;
+      gap: 0.18rem;
+    }
+    .oop-bars i {
+      display: block;
+      height: 0.58rem;
+      width: var(--initial);
+      border-radius: 999px;
+      background: rgba(209, 38, 48, 0.82);
+    }
+    .oop-bars i.final {
+      width: var(--final);
+      background: rgba(77, 138, 103, 0.86);
+    }
+    .legend-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.6rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 850;
+    }
+    .legend-line i {
+      display: inline-block;
+      width: 0.72rem;
+      height: 0.72rem;
+      border-radius: 999px;
+      margin-right: 0.28rem;
+      vertical-align: -0.1rem;
+    }
+    .dot-initial { background: rgba(209, 38, 48, 0.82); }
+    .dot-final { background: rgba(77, 138, 103, 0.86); }
+    .cohort-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+    .cohort-card {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+    }
+    .cohort-card strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+    .cohort-card span {
+      display: block;
+      margin-top: 0.28rem;
+      color: var(--muted);
+      font-size: 0.77rem;
+      font-weight: 800;
+    }
+    .role-band {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.75rem;
+    }
+    .role-card {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.85rem;
+    }
+    .role-card h3 {
+      margin-bottom: 0.4rem;
+    }
+    .role-card p {
+      margin: 0;
+      font-size: 0.84rem;
+    }
+    .finding-ribbon {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(24, 124, 143, 0.12), transparent 45%),
+        #fff;
+    }
+    .finding-ribbon p {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.2rem, 2vw, 1.75rem);
+      font-weight: 850;
+      line-height: 1.22;
+    }
+    .mini-source {
+      margin: 0.5rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    @media (max-width: 900px) {
+      .role-band {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 560px) {
+      .lane-row,
+      .interval-row,
+      .oop-row {
+        grid-template-columns: 1fr;
+      }
+      .lane-track {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .cohort-grid {
+        grid-template-columns: 1fr;
+      }
+      .interval-row span:last-child,
+      .oop-row span:last-child {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">NASP Posters</a>
+      <nav aria-label="Poster sources">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/43-Specialty-Pharmacy-Technician-and-Epidiolex-Access_2021.pdf">PDF source</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/43-Specialty-Pharmacy-Technician-and-Epidiolex-Access_2021.md">Markdown source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2021 Poster 43</p>
+        <h1>Impact of Specialty Pharmacy Integration on Time to Medication Access for Prescription Cannabidiol</h1>
+        <p class="hero-summary">A single-center Vanderbilt cohort tracked how an embedded specialty pharmacy team, with certified pharmacy technician ownership of access steps, moved patients from treatment decision to first cannabidiol shipment.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag therapy">Prescription CBD</li>
+          <li class="tag category">Integrated specialty pharmacy</li>
+          <li class="tag">Prior authorization</li>
+          <li class="tag">Financial assistance</li>
+        </ul>
+      </div>
+      <aside class="hero-card access-hero-card" aria-label="Poster metadata and access pathway illustration">
+        <div class="poster-code">43<br>2021</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Cohort</dt>
+            <dd>136 patients</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>Vanderbilt outpatient neurology</dd>
+          </div>
+          <div>
+            <dt>Period</dt>
+            <dd>Jan 2019-Apr 2020</dd>
+          </div>
+          <div>
+            <dt>Design</dt>
+            <dd>Retrospective cohort</dd>
+          </div>
+        </dl>
+        <svg viewBox="0 0 460 210" role="img" aria-labelledby="heroSvgTitle heroSvgDesc">
+          <title id="heroSvgTitle">Integrated specialty pharmacy access pathway</title>
+          <desc id="heroSvgDesc">A visual pathway from decision to treat through benefit investigation, authorization, assistance, counseling, and shipment.</desc>
+          <defs>
+            <marker id="arrow" markerWidth="9" markerHeight="9" refX="7.5" refY="4.5" orient="auto">
+              <path d="M0,0 L9,4.5 L0,9 Z" fill="#243770"></path>
+            </marker>
+          </defs>
+          <rect x="18" y="34" width="92" height="54" rx="8" fill="#fff" stroke="#aebbd2"></rect>
+          <text x="64" y="57" text-anchor="middle" fill="#243770" font-size="12" font-weight="800">Decision</text>
+          <text x="64" y="74" text-anchor="middle" fill="#68758d" font-size="10">to treat</text>
+          <path d="M110 61 H151" stroke="#243770" stroke-width="3" marker-end="url(#arrow)"></path>
+          <rect x="154" y="34" width="92" height="54" rx="8" fill="#eef4fb" stroke="#187c8f"></rect>
+          <text x="200" y="56" text-anchor="middle" fill="#187c8f" font-size="12" font-weight="800">CPhT</text>
+          <text x="200" y="73" text-anchor="middle" fill="#243770" font-size="10">BI + PA</text>
+          <path d="M246 61 H287" stroke="#243770" stroke-width="3" marker-end="url(#arrow)"></path>
+          <rect x="290" y="34" width="92" height="54" rx="8" fill="#fff7ea" stroke="#e99e25"></rect>
+          <text x="336" y="56" text-anchor="middle" fill="#243770" font-size="12" font-weight="800">Approval</text>
+          <text x="336" y="73" text-anchor="middle" fill="#68758d" font-size="10">+ OOP check</text>
+          <path d="M336 88 V118" stroke="#243770" stroke-width="3" marker-end="url(#arrow)"></path>
+          <rect x="290" y="121" width="92" height="54" rx="8" fill="#ffffff" stroke="#4d8a67"></rect>
+          <text x="336" y="143" text-anchor="middle" fill="#4d8a67" font-size="12" font-weight="800">Counsel</text>
+          <text x="336" y="160" text-anchor="middle" fill="#243770" font-size="10">+ shipment</text>
+          <path d="M290 148 H247" stroke="#243770" stroke-width="3" marker-end="url(#arrow)"></path>
+          <rect x="154" y="121" width="92" height="54" rx="8" fill="#ffffff" stroke="#7561a8"></rect>
+          <text x="200" y="143" text-anchor="middle" fill="#7561a8" font-size="12" font-weight="800">Refill</text>
+          <text x="200" y="160" text-anchor="middle" fill="#243770" font-size="10">coordination</text>
+          <path d="M200 121 V93" stroke="#d12630" stroke-width="2.5" stroke-dasharray="5 5"></path>
+          <circle cx="70" cy="150" r="22" fill="#d12630" opacity="0.12"></circle>
+          <text x="70" y="146" text-anchor="middle" fill="#d12630" font-size="18" font-weight="900">7</text>
+          <text x="70" y="162" text-anchor="middle" fill="#243770" font-size="9" font-weight="800">median days</text>
+          <circle cx="415" cy="61" r="24" fill="#187c8f" opacity="0.13"></circle>
+          <text x="415" y="57" text-anchor="middle" fill="#187c8f" font-size="16" font-weight="900">96%</text>
+          <text x="415" y="73" text-anchor="middle" fill="#243770" font-size="9" font-weight="800">OOP &lt;$20</text>
+        </svg>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key results">
+        <div class="metric-card access-primary">
+          <span>Median DTT to shipment</span>
+          <strong>7</strong>
+          <p class="mini-source">days, IQR 4-13</p>
+        </div>
+        <div class="metric-card access-gold">
+          <span>Started within 7 days</span>
+          <strong>59%</strong>
+          <p class="mini-source">80 of 136 patients</p>
+        </div>
+        <div class="metric-card access-green">
+          <span>Final OOP under $20</span>
+          <strong>96%</strong>
+          <p class="mini-source">130 of 136 patients</p>
+        </div>
+        <div class="metric-card access-purple">
+          <span>Required assistance</span>
+          <strong>10%</strong>
+          <p class="mini-source">14 patients</p>
+        </div>
+      </section>
+
+      <section class="visual-grid">
+        <div class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Measure the access interval after the pharmacy team is notified</h2>
+          <p>The study measured days from initial specialty pharmacy patient assessment to first prescription cannabidiol shipment, with secondary intervals for benefit investigation, insurance approval, delivery, and financial-assistance effect on out-of-pocket cost.</p>
+          <div class="cohort-grid" aria-label="Cohort composition">
+            <div class="cohort-card">
+              <strong>92</strong>
+              <span>pediatric patients; median age 10 years</span>
+            </div>
+            <div class="cohort-card">
+              <strong>44</strong>
+              <span>adult patients; median age 28 years</span>
+            </div>
+            <div class="cohort-card">
+              <strong>89% / 80%</strong>
+              <span>Lennox-Gastaut syndrome in pediatric / adult groups</span>
+            </div>
+            <div class="cohort-card">
+              <strong>73% / 46%</strong>
+              <span>pediatric Medicaid / adult Medicare coverage</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Access Clock</p>
+          <h2>Most median delay occurred after approval, before shipment</h2>
+          <div class="interval-stack" aria-label="Median interval days">
+            <div class="interval-row">
+              <span>Assessment to BI</span>
+              <div class="interval-track"><i style="--w: 4%;"></i></div>
+              <span>0 (0-0)</span>
+            </div>
+            <div class="interval-row">
+              <span>BI to approval</span>
+              <div class="interval-track"><i style="--w: 8%;"></i></div>
+              <span>0 (0-2)</span>
+            </div>
+            <div class="interval-row">
+              <span>Approval to shipment</span>
+              <div class="interval-track"><i style="--w: 72%;"></i></div>
+              <span>5 (3-9)</span>
+            </div>
+          </div>
+          <p class="hero-note">Median time from decision to treat to initial medication shipment was 7 days.</p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Integrated Workflow</p>
+        <h2>Technician-led access work runs in parallel with pharmacist and prescriber oversight</h2>
+        <div class="swimlane" aria-label="Workflow by role">
+          <div class="lane-row">
+            <b>MD / clinic</b>
+            <div class="lane-track">
+              <span class="active">Decision to treat</span>
+              <span>Clinical indication</span>
+              <span></span>
+              <span>Appeal review</span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <div class="lane-row">
+            <b>PharmD</b>
+            <div class="lane-track">
+              <span></span>
+              <span class="support">Contraindications</span>
+              <span>Drug interactions</span>
+              <span class="support">PA / FA oversight</span>
+              <span>Counseling</span>
+              <span>Clinical care</span>
+            </div>
+          </div>
+          <div class="lane-row">
+            <b>CPhT</b>
+            <div class="lane-track">
+              <span>Access intake</span>
+              <span class="active">Benefits investigation</span>
+              <span class="active">Prior authorization</span>
+              <span class="active">Appeals + assistance</span>
+              <span class="active">Delivery scheduling</span>
+              <span class="active">Refill coordination</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="visual-grid">
+        <div class="panel">
+          <p class="section-label">CPhT Role Pattern</p>
+          <h2>Ownership spans pre-launch, initiation, and ongoing access</h2>
+          <div class="role-band">
+            <article class="role-card">
+              <h3>Pre-launch</h3>
+              <p>Coordinate with clinical staff and market access representatives to standardize the pathway and identify likely obstacles.</p>
+            </article>
+            <article class="role-card">
+              <h3>Initiation</h3>
+              <p>Complete benefit investigations, prior authorizations, appeals, out-of-pocket evaluation, and assistance applications.</p>
+            </article>
+            <article class="role-card">
+              <h3>Maintenance</h3>
+              <p>Renew authorizations and assistance, schedule refills, and check monthly for medication changes and seizure control.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Financial Assistance</p>
+          <h2>Assistance compressed initial out-of-pocket exposure</h2>
+          <div class="ooppanel" aria-label="Initial and final out-of-pocket cost distribution">
+            <div class="oop-row">
+              <span>No cost</span>
+              <div class="oop-bars" style="--initial: 84%; --final: 100%;"><i></i><i class="final"></i></div>
+              <span>105 -> 125</span>
+            </div>
+            <div class="oop-row">
+              <span>$0.01-$20</span>
+              <div class="oop-bars" style="--initial: 8%; --final: 8%;"><i></i><i class="final"></i></div>
+              <span>10 -> 10</span>
+            </div>
+            <div class="oop-row">
+              <span>$20.01-$100</span>
+              <div class="oop-bars" style="--initial: 10%; --final: 1%;"><i></i><i class="final"></i></div>
+              <span>12 -> 1</span>
+            </div>
+            <div class="oop-row">
+              <span>$100+</span>
+              <div class="oop-bars" style="--initial: 7%; --final: 0%;"><i></i><i class="final"></i></div>
+              <span>9 -> 0</span>
+            </div>
+          </div>
+          <div class="legend-line" aria-hidden="true">
+            <span><i class="dot-initial"></i>Initial OOP frequency</span>
+            <span><i class="dot-final"></i>Final OOP frequency</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-stack">
+        <div class="panel markdown-fragment">
+          <p class="section-label">Methods</p>
+          <h2>Retrospective access-pathway measurement</h2>
+          <ul>
+            <li>Included all patients prescribed cannabidiol by outpatient neurology clinics from January 2019 through April 2020.</li>
+            <li>Excluded clinical-trial participants and cases where access and fulfillment were not handled by the integrated specialty pharmacy.</li>
+            <li>Data came from the electronic health record and specialty pharmacy management system.</li>
+          </ul>
+        </div>
+        <div class="panel finding-ribbon">
+          <p>Conclusion: integrated specialty pharmacy management ensured timely access, while CPhT ownership of key access steps let pharmacists focus on clinical patient care.</p>
+        </div>
+      </section>
+
+      <section class="tables-grid">
+        <div class="table-card">
+          <p class="section-label">Demographic Snapshot</p>
+          <h2>Cohort markers</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Measure</th>
+                  <th>Pediatric</th>
+                  <th>Adult</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>N</td>
+                  <td>92</td>
+                  <td>44</td>
+                </tr>
+                <tr>
+                  <td>Median age, years</td>
+                  <td>10 (5-14)</td>
+                  <td>28 (21-44)</td>
+                </tr>
+                <tr>
+                  <td>Female</td>
+                  <td>47% (43)</td>
+                  <td>57% (25)</td>
+                </tr>
+                <tr>
+                  <td>White</td>
+                  <td>84% (77)</td>
+                  <td>86% (38)</td>
+                </tr>
+                <tr>
+                  <td>Lennox-Gastaut syndrome</td>
+                  <td>89% (82)</td>
+                  <td>80% (35)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="table-card">
+          <p class="section-label">Primary Signal</p>
+          <h2>Time and cost endpoints</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Endpoint</th>
+                  <th>Result</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Decision to treat to shipment</td>
+                  <td>Median 7 days (IQR 4-13)</td>
+                </tr>
+                <tr>
+                  <td>Patients starting within 7 days</td>
+                  <td>80 of 136 (59%)</td>
+                </tr>
+                <tr>
+                  <td>Financial assistance required</td>
+                  <td>14 of 136 (10%)</td>
+                </tr>
+                <tr>
+                  <td>Final OOP under $20</td>
+                  <td>130 of 136 (96%)</td>
+                </tr>
+                <tr>
+                  <td>Process exception</td>
+                  <td>One patient paid cash while approval was obtained</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/43-Specialty-Pharmacy-Technician-and-Epidiolex-Access_2021.pdf">Open original PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/43-Specialty-Pharmacy-Technician-and-Epidiolex-Access_2021.md">Open extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2025 Infographic | OPR45 ALYGLO Pooling Stability</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .study-hero {
+      position: relative;
+      overflow: hidden;
+    }
+    .study-hero::after {
+      content: "";
+      position: absolute;
+      right: -6rem;
+      bottom: -7rem;
+      width: 18rem;
+      height: 18rem;
+      border: 2.4rem solid rgba(24, 124, 143, 0.11);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-card svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .container-stack {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 0.3rem;
+    }
+    .container-item {
+      display: grid;
+      grid-template-columns: 2.2rem minmax(0, 1fr);
+      gap: 0.55rem;
+      align-items: center;
+      border: 1px solid rgba(174, 187, 210, 0.75);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.76);
+      padding: 0.52rem;
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 820;
+    }
+    .bag-icon {
+      display: grid;
+      place-items: center;
+      width: 2.2rem;
+      height: 2.2rem;
+      border-radius: 7px;
+      background: var(--surface-blue);
+      color: var(--teal);
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 900;
+    }
+    .signal-card {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 0.7rem;
+      align-items: start;
+      border: 1px solid rgba(174, 187, 210, 0.8);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #ffffff, rgba(238, 244, 251, 0.55));
+      padding: 0.85rem;
+    }
+    .signal-dot {
+      width: 0.78rem;
+      height: 0.78rem;
+      margin-top: 0.25rem;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 0.28rem rgba(77, 138, 103, 0.16);
+    }
+    .signal-card p {
+      margin: 0.12rem 0 0;
+      font-size: 0.86rem;
+    }
+    .flow-panel {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(238, 244, 251, 0.72), #ffffff 48%, rgba(255, 247, 234, 0.72));
+    }
+    .flow-svg {
+      width: 100%;
+      min-height: 19rem;
+    }
+    .flow-label {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+    .checks-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.65rem;
+    }
+    .check-tile {
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 7px;
+      background: #ffffff;
+      padding: 0.58rem;
+      min-height: 4.5rem;
+    }
+    .check-tile strong {
+      display: block;
+      color: var(--ink);
+      font-size: 0.78rem;
+      line-height: 1.22;
+    }
+    .check-tile span {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+    .result-band {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+    }
+    .result-band .panel {
+      border-top: 0.36rem solid var(--green);
+    }
+    .result-band .panel:nth-child(2) {
+      border-top-color: var(--gold);
+    }
+    .stability-table th:nth-child(n+3),
+    .stability-table td:nth-child(n+3) {
+      text-align: center;
+    }
+    .status-ok {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 4rem;
+      border-radius: 999px;
+      background: rgba(77, 138, 103, 0.13);
+      color: var(--green);
+      padding: 0.12rem 0.38rem;
+      font-weight: 900;
+    }
+    .status-limit {
+      color: var(--ink);
+      font-weight: 850;
+    }
+    .callout {
+      border-left: 0.35rem solid var(--red);
+      background: var(--surface-warm);
+      padding: 0.9rem 1rem;
+    }
+    .callout p {
+      margin: 0;
+      color: var(--ink);
+      font-weight: 820;
+    }
+    .mini-note {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    @media (max-width: 900px) {
+      .checks-grid,
+      .result-band {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 560px) {
+      .checks-grid,
+      .result-band {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Back to top">NASP 2025</a>
+      <nav aria-label="Source navigation">
+        <a href="#study-design">Study Design</a>
+        <a href="#results">Results</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/2128-OPR45-EN-Poster-AM25_2025.pdf">Poster PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/2128-OPR45-EN-Poster-AM25_2025.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section id="top" class="poster-hero study-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">OPR45 | AM25 | 2025</p>
+        <h1 id="poster-title">Stability of pooled immune globulin intravenous, human-stwk, 10% liquid</h1>
+        <p class="hero-summary">Aseptic pooling of ALYGLO into flexible containers was evaluated over 14 refrigerated days to determine whether quality attributes stayed within FDA-approved release specifications.</p>
+        <ul class="tag-row" aria-label="Poster themes">
+          <li class="tag category">Stability</li>
+          <li class="tag therapy">Immune globulin</li>
+          <li class="tag">Pooling</li>
+          <li class="tag">Flexible containers</li>
+          <li class="tag">Refrigerated storage</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div class="poster-code">2128<br>OPR45</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Product</dt>
+            <dd>ALYGLO 10% IVIG</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>In vitro pooling</dd>
+          </div>
+          <div>
+            <dt>Storage</dt>
+            <dd>2&deg;-8&deg;C</dd>
+          </div>
+          <div>
+            <dt>Readout</dt>
+            <dd>Release specs</dd>
+          </div>
+        </dl>
+        <svg viewBox="0 0 420 180" role="img" aria-label="Flexible container stability illustration">
+          <defs>
+            <linearGradient id="bagFill" x1="0" x2="1">
+              <stop offset="0" stop-color="#eef4fb"/>
+              <stop offset="1" stop-color="#fff7ea"/>
+            </linearGradient>
+          </defs>
+          <rect x="22" y="22" width="132" height="132" rx="18" fill="url(#bagFill)" stroke="#aebbd2" stroke-width="4"/>
+          <path d="M58 22h60v24H58z" fill="#fff" stroke="#aebbd2" stroke-width="4"/>
+          <path d="M53 120c26-14 49 17 77 2" fill="none" stroke="#187c8f" stroke-width="8" stroke-linecap="round"/>
+          <circle cx="88" cy="88" r="22" fill="#d12630" opacity="0.13"/>
+          <text x="88" y="96" text-anchor="middle" fill="#243770" font-size="24" font-weight="900">IVIG</text>
+          <path d="M171 89h78" stroke="#243770" stroke-width="5" stroke-linecap="round"/>
+          <path d="M235 72l18 17-18 17" fill="none" stroke="#243770" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="268" y="31" width="124" height="116" rx="16" fill="#fff" stroke="#aebbd2" stroke-width="4"/>
+          <path d="M292 61h76M292 88h76M292 115h48" stroke="#4d8a67" stroke-width="8" stroke-linecap="round"/>
+          <circle cx="369" cy="115" r="12" fill="#4d8a67"/>
+          <path d="M363 114l5 5 10-13" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key study numbers">
+        <article class="metric-card">
+          <span>Refrigerated follow-up</span>
+          <strong>14</strong>
+          <p class="mini-note">Days evaluated after pooling.</p>
+        </article>
+        <article class="metric-card">
+          <span>Container types</span>
+          <strong>3</strong>
+          <p class="mini-note">Baxter IntraVia, Metrix EVA 2-port, B. Braun 3-in-1 EVA.</p>
+        </article>
+        <article class="metric-card">
+          <span>Sampling days</span>
+          <strong>4</strong>
+          <p class="mini-note">Days 0, 1, 7, and 14.</p>
+        </article>
+        <article class="metric-card">
+          <span>Spec outcome</span>
+          <strong>All</strong>
+          <p class="mini-note">Parameters remained within release specifications.</p>
+        </article>
+      </section>
+
+      <section id="study-design" class="visual-grid" aria-labelledby="design-heading">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2 id="design-heading">Can pooled IVIG hold quality in flexible bags?</h2>
+          <p>The study tested whether immune globulin intravenous, human-stwk, 10% liquid retained stability and quality after aseptic transfer from manufacturer vials into commonly used flexible containers.</p>
+          <div class="container-stack" aria-label="Containers tested">
+            <div class="container-item"><span class="bag-icon">1</span><span>Empty IntraVia Container, Baxter</span></div>
+            <div class="container-item"><span class="bag-icon">2</span><span>EVA 2-Port Container, The Metrix Company</span></div>
+            <div class="container-item"><span class="bag-icon">3</span><span>3-in-1 EVA Mixing Container, B. Braun</span></div>
+          </div>
+        </article>
+
+        <article class="panel flow-panel">
+          <p class="section-label">Evidence flow</p>
+          <h2>From vial pooling to release-spec confirmation</h2>
+          <svg class="flow-svg" viewBox="0 0 780 330" role="img" aria-label="Study evidence flow">
+            <defs>
+              <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,6 L9,3 z" fill="#243770"/>
+              </marker>
+            </defs>
+            <rect x="20" y="70" width="150" height="105" rx="12" fill="#ffffff" stroke="#aebbd2" stroke-width="3"/>
+            <text x="95" y="108" text-anchor="middle" class="flow-label" font-size="20">Vials</text>
+            <text x="95" y="135" text-anchor="middle" fill="#68758d" font-size="16">200 mL and</text>
+            <text x="95" y="158" text-anchor="middle" fill="#68758d" font-size="16">100 mL pools</text>
+
+            <path d="M180 122H282" stroke="#243770" stroke-width="5" marker-end="url(#arrow)"/>
+            <rect x="292" y="38" width="196" height="170" rx="16" fill="#eef4fb" stroke="#187c8f" stroke-width="4"/>
+            <text x="390" y="76" text-anchor="middle" class="flow-label" font-size="20">3 containers</text>
+            <text x="390" y="108" text-anchor="middle" fill="#33415c" font-size="15">Aseptic pooling</text>
+            <text x="390" y="132" text-anchor="middle" fill="#33415c" font-size="15">under laminar</text>
+            <text x="390" y="156" text-anchor="middle" fill="#33415c" font-size="15">flow hood</text>
+
+            <path d="M498 122H604" stroke="#243770" stroke-width="5" marker-end="url(#arrow)"/>
+            <rect x="614" y="70" width="146" height="105" rx="12" fill="#ffffff" stroke="#aebbd2" stroke-width="3"/>
+            <text x="687" y="104" text-anchor="middle" class="flow-label" font-size="19">2&deg;-8&deg;C</text>
+            <text x="687" y="134" text-anchor="middle" fill="#68758d" font-size="16">Days 0, 1,</text>
+            <text x="687" y="157" text-anchor="middle" fill="#68758d" font-size="16">7, and 14</text>
+
+            <path d="M390 217V262" stroke="#d12630" stroke-width="5" marker-end="url(#arrow)"/>
+            <rect x="186" y="270" width="408" height="42" rx="21" fill="#fff7ea" stroke="#e99e25" stroke-width="3"/>
+            <text x="390" y="297" text-anchor="middle" fill="#243770" font-size="18" font-weight="900">Compared with original container product and release criteria</text>
+          </svg>
+        </article>
+      </section>
+
+      <section class="panel" aria-labelledby="quality-heading">
+        <p class="section-label">Quality lenses</p>
+        <h2 id="quality-heading">Ten stability and quality checks framed the answer</h2>
+        <div class="checks-grid">
+          <div class="check-tile"><strong>pH</strong><span>Acidity</span></div>
+          <div class="check-tile"><strong>IgG composition</strong><span>Protein identity</span></div>
+          <div class="check-tile"><strong>Osmolality</strong><span>Solution balance</span></div>
+          <div class="check-tile"><strong>Molecular size</strong><span>Monomer, dimer, polymer, fragments</span></div>
+          <div class="check-tile"><strong>Anti-complement activity</strong><span>Functional safety</span></div>
+          <div class="check-tile"><strong>Anti-HBs titer</strong><span>Potency marker</span></div>
+          <div class="check-tile"><strong>Appearance</strong><span>Visual quality</span></div>
+          <div class="check-tile"><strong>Particulate matter</strong><span>Visible particles</span></div>
+          <div class="check-tile"><strong>TGA</strong><span>Thrombin generation</span></div>
+          <div class="check-tile"><strong>Sterility</strong><span>Aseptic integrity</span></div>
+        </div>
+      </section>
+
+      <section id="results" class="result-band" aria-label="Results and context">
+        <article class="panel">
+          <p class="section-label">Primary result</p>
+          <h2>Within specifications across the full refrigerated window</h2>
+          <div class="signal-card">
+            <span class="signal-dot" aria-hidden="true"></span>
+            <div>
+              <h3>All evaluated parameters stayed within FDA-approved release specifications through Day 14.</h3>
+              <p>No pooled sample from any of the three containers differed from product release specifications at any measured time point.</p>
+            </div>
+          </div>
+          <div class="number-cloud" aria-label="Representative stable values">
+            <div class="number-pill">5.02-5.04<small>pH</small></div>
+            <div class="number-pill">100%<small>IgG composition</small></div>
+            <div class="number-pill">289-291<small>mOsmol/kg</small></div>
+            <div class="number-pill">98.83-99.00%<small>Monomer + dimer</small></div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Practice context</p>
+          <h2>Study window exceeded standard refrigerated BUD context</h2>
+          <div class="lens-chart" aria-label="Study duration compared with USP context">
+            <div class="lens-row"><span>Room temperature BUD</span><div class="lens-bar"><i style="width:28.6%"></i></div></div>
+            <div class="lens-row"><span>Refrigerated BUD</span><div class="lens-bar"><i style="width:71.4%"></i></div></div>
+            <div class="lens-row"><span>Study follow-up</span><div class="lens-bar"><i style="width:100%"></i></div></div>
+          </div>
+          <p class="mini-note">USP &lt;797&gt; Category 2 context cited in the poster: 4 days at controlled room temperature and 10 days refrigerated. This study assessed product characteristics through 14 refrigerated days.</p>
+          <div class="callout" style="margin-top:0.8rem">
+            <p>Conclusion: pooled immune globulin intravenous, human-stwk, 10% liquid remained within release specifications for all assessed parameters for 14 days at 2&deg;-8&deg;C.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="table-card" aria-labelledby="table-heading">
+        <p class="section-label">Representative table pattern</p>
+        <h2 id="table-heading">Baxter IntraVia 200 mL pooled sample: no drift outside criteria</h2>
+        <div class="table-wrap">
+          <table class="stability-table">
+            <thead>
+              <tr>
+                <th>Assessment</th>
+                <th>Release criterion</th>
+                <th>Day 0</th>
+                <th>Day 1</th>
+                <th>Day 7</th>
+                <th>Day 14</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Appearance</td>
+                <td>Colorless or pale yellow, clear or slightly opalescent</td>
+                <td colspan="4"><span class="status-ok">Pale yellow, slightly opalescent</span></td>
+              </tr>
+              <tr>
+                <td>pH</td>
+                <td>4.5-5.5</td>
+                <td>5.03</td>
+                <td>5.04</td>
+                <td>5.03</td>
+                <td>5.02</td>
+              </tr>
+              <tr>
+                <td>IgG composition</td>
+                <td>&ge;96% of total protein</td>
+                <td>100</td>
+                <td>100</td>
+                <td>100</td>
+                <td>100</td>
+              </tr>
+              <tr>
+                <td>Osmolality</td>
+                <td>240-360 mOsmol/kg</td>
+                <td>289</td>
+                <td>291</td>
+                <td>290</td>
+                <td>289</td>
+              </tr>
+              <tr>
+                <td>Monomer + dimer</td>
+                <td>&ge;92%</td>
+                <td>99.0</td>
+                <td>98.93</td>
+                <td>98.86</td>
+                <td>98.83</td>
+              </tr>
+              <tr>
+                <td>Polymers</td>
+                <td>&le;3%</td>
+                <td class="status-limit">&lt;0.3</td>
+                <td class="status-limit">&lt;0.3</td>
+                <td class="status-limit">&lt;0.3</td>
+                <td class="status-limit">&lt;0.3</td>
+              </tr>
+              <tr>
+                <td>Anti-complement activity</td>
+                <td>Complement consumption &le;50%</td>
+                <td>26.96</td>
+                <td>25.75</td>
+                <td>28.12</td>
+                <td>23.88</td>
+              </tr>
+              <tr>
+                <td>Anti-HBs</td>
+                <td>&ge;1.0 IU/g IgG</td>
+                <td>61.51</td>
+                <td>60.50</td>
+                <td>62.54</td>
+                <td>62.59</td>
+              </tr>
+              <tr>
+                <td>Particulate matter / TGA</td>
+                <td>No visible particles; TGA &le;3.12 mU/mL</td>
+                <td colspan="4"><span class="status-ok">None visible; TGA &lt;1.56</span></td>
+              </tr>
+              <tr>
+                <td>Sterility</td>
+                <td>Sterile</td>
+                <td>Sterile</td>
+                <td>N/T</td>
+                <td>Sterile</td>
+                <td>Sterile</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="mini-note">N/T = not tested. TGA value reflects assay detection limit as reported in the source poster.</p>
+      </section>
+
+      <section class="section-stack" aria-label="Interpretation and references">
+        <article class="panel">
+          <p class="section-label">Why it matters</p>
+          <h2>Pooling can simplify administration, but product-specific stability still matters</h2>
+          <p>Pooling IVIG into one flexible container can streamline nurse workflow, support patient mobility during infusion, and reduce breakage risk. The poster emphasizes that these workflow advantages need product-level stability evidence under aseptic pooling conditions.</p>
+        </article>
+        <article class="panel">
+          <p class="section-label">Source trail</p>
+          <h2>Primary poster files</h2>
+          <p>Content was extracted from the confirmed markdown conversion of the NASP poster and condensed into a static infographic.</p>
+          <div class="footer-actions">
+            <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/2128-OPR45-EN-Poster-AM25_2025.pdf">Open poster PDF</a>
+            <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/2128-OPR45-EN-Poster-AM25_2025.md">Open source markdown</a>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

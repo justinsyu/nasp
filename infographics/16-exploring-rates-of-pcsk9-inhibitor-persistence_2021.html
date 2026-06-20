@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exploring Rates of PCSK9 Inhibitor Persistence | NASP 2021</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .pcsk9-hero-art {
+      min-height: 15rem;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 22% 18%, rgba(24, 124, 143, 0.17), transparent 6.5rem),
+        radial-gradient(circle at 80% 80%, rgba(233, 158, 37, 0.18), transparent 7.5rem),
+        linear-gradient(135deg, #ffffff 0%, var(--surface-blue) 58%, var(--surface-warm) 100%);
+      overflow: hidden;
+    }
+    .pcsk9-hero-art svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 15rem;
+    }
+    .hero-card .source-spark {
+      margin: 0;
+      border-left: 4px solid var(--teal);
+      padding-left: 0.7rem;
+      color: var(--ink);
+      font-size: 0.9rem;
+      font-weight: 850;
+    }
+    .metric-card p {
+      margin: 0.35rem 0 0;
+      font-size: 0.8rem;
+    }
+    .persistence-board {
+      display: grid;
+      grid-template-columns: minmax(18rem, 0.86fr) minmax(0, 1.14fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .funnel-card {
+      display: grid;
+      align-content: start;
+      gap: 0.8rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 1rem;
+    }
+    .funnel-stage {
+      display: grid;
+      grid-template-columns: 5.8rem minmax(0, 1fr) 3.9rem;
+      gap: 0.55rem;
+      align-items: center;
+    }
+    .funnel-stage b {
+      color: var(--ink);
+      font-size: 0.82rem;
+    }
+    .funnel-stage span {
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 850;
+      text-align: right;
+    }
+    .funnel-track {
+      height: 1.3rem;
+      border: 1px solid rgba(36, 55, 112, 0.15);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .funnel-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .ldl-chart {
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 0.75rem;
+    }
+    .ldl-row {
+      display: grid;
+      grid-template-columns: 9.4rem minmax(0, 1fr) 4.4rem;
+      gap: 0.6rem;
+      align-items: center;
+    }
+    .ldl-row b {
+      color: var(--ink);
+      font-size: 0.82rem;
+    }
+    .ldl-row span {
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 850;
+      text-align: right;
+    }
+    .ldl-track {
+      height: 0.95rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: rgba(36, 55, 112, 0.08);
+      overflow: hidden;
+    }
+    .ldl-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .clinic-flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+    .flow-card {
+      position: relative;
+      min-height: 11.5rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.86rem;
+      overflow: hidden;
+    }
+    .flow-card::before {
+      content: attr(data-step);
+      position: absolute;
+      right: 0.7rem;
+      top: 0.55rem;
+      color: rgba(36, 55, 112, 0.13);
+      font-family: var(--font-display);
+      font-size: 3.1rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .flow-card h3 {
+      position: relative;
+      max-width: 9rem;
+      margin-top: 0.25rem;
+    }
+    .flow-card p {
+      position: relative;
+      margin: 0.55rem 0 0;
+      font-size: 0.82rem;
+    }
+    .reasons-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(16rem, 0.9fr);
+      gap: 1rem;
+    }
+    .reason-bars {
+      display: grid;
+      gap: 0.58rem;
+      margin-top: 0.75rem;
+    }
+    .reason-row {
+      display: grid;
+      grid-template-columns: 9.4rem minmax(0, 1fr) 4.6rem;
+      gap: 0.6rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .reason-row span:last-child {
+      color: var(--muted);
+      text-align: right;
+    }
+    .reason-track {
+      height: 0.9rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: #eef3f8;
+      overflow: hidden;
+    }
+    .reason-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--purple));
+    }
+    .cohort-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.62rem;
+      margin-top: 0.75rem;
+    }
+    .cohort-tile {
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 8px;
+      background: var(--surface-blue);
+      padding: 0.72rem;
+    }
+    .cohort-tile b {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      line-height: 1;
+    }
+    .cohort-tile span {
+      display: block;
+      margin-top: 0.2rem;
+      color: var(--ink);
+      font-size: 0.76rem;
+      font-weight: 850;
+    }
+    .split-callout {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(24, 124, 143, 0.13), transparent 42%),
+        #fff;
+    }
+    .split-callout p {
+      max-width: 64rem;
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.05rem, 1.7vw, 1.42rem);
+      font-weight: 850;
+      line-height: 1.35;
+    }
+    .source-note {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    @media (max-width: 900px) {
+      .persistence-board,
+      .reasons-layout {
+        grid-template-columns: 1fr;
+      }
+      .clinic-flow {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 560px) {
+      .clinic-flow,
+      .funnel-stage,
+      .ldl-row,
+      .reason-row,
+      .cohort-grid {
+        grid-template-columns: 1fr;
+      }
+      .funnel-stage span,
+      .ldl-row span,
+      .reason-row span:last-child {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/16-Exploring-Rates-of-PCSK9-Inhibitor-Persistence_2021.pdf">Source PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/16-Exploring-Rates-of-PCSK9-Inhibitor-Persistence_2021.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP Annual Meeting &amp; Expo 2021 / Poster 16</p>
+        <h1 id="poster-title">Exploring Rates of PCSK9 Inhibitor Persistence</h1>
+        <p class="hero-summary">
+          Vanderbilt Specialty Pharmacy evaluated PCSK9 inhibitor persistence in an integrated specialty pharmacy model, tracking patients from therapy start through 24 months and pairing persistence with LDL response and discontinuation reasons.
+        </p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag therapy">PCSK9 inhibitors</li>
+          <li class="tag category">Persistence</li>
+          <li class="tag">Integrated specialty pharmacy</li>
+          <li class="tag">LDL-C outcomes</li>
+        </ul>
+        <div class="pcsk9-hero-art" role="img" aria-label="Illustration of LDL lowering with continuing PCSK9 inhibitor therapy">
+          <svg viewBox="0 0 760 300" aria-hidden="true">
+            <defs>
+              <linearGradient id="ldlDropLine" x1="0" x2="1">
+                <stop offset="0" stop-color="#d12630"/>
+                <stop offset="0.55" stop-color="#e99e25"/>
+                <stop offset="1" stop-color="#187c8f"/>
+              </linearGradient>
+              <filter id="softShadowPcsk9" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="#243770" flood-opacity="0.13"/>
+              </filter>
+            </defs>
+            <path d="M72 226 C155 220 198 102 286 104 S400 107 484 112 S606 118 690 116" fill="none" stroke="url(#ldlDropLine)" stroke-width="16" stroke-linecap="round"/>
+            <path d="M72 242 h620" stroke="#aebbd2" stroke-width="2"/>
+            <circle cx="92" cy="226" r="46" fill="#fff" stroke="#d12630" stroke-width="5" filter="url(#softShadowPcsk9)"/>
+            <text x="92" y="219" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="20" font-weight="900">157</text>
+            <text x="92" y="241" text-anchor="middle" fill="#68758d" font-family="Inter, sans-serif" font-size="13" font-weight="800">mg/dL</text>
+            <circle cx="286" cy="104" r="38" fill="#fff" stroke="#e99e25" stroke-width="5"/>
+            <text x="286" y="100" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="17" font-weight="900">62</text>
+            <text x="286" y="120" text-anchor="middle" fill="#68758d" font-family="Inter, sans-serif" font-size="12" font-weight="800">3 mo</text>
+            <circle cx="484" cy="112" r="38" fill="#fff" stroke="#4d8a67" stroke-width="5"/>
+            <text x="484" y="108" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="17" font-weight="900">64</text>
+            <text x="484" y="128" text-anchor="middle" fill="#68758d" font-family="Inter, sans-serif" font-size="12" font-weight="800">12 mo</text>
+            <circle cx="690" cy="116" r="42" fill="#fff" stroke="#187c8f" stroke-width="5" filter="url(#softShadowPcsk9)"/>
+            <text x="690" y="111" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="18" font-weight="900">65</text>
+            <text x="690" y="132" text-anchor="middle" fill="#68758d" font-family="Inter, sans-serif" font-size="12" font-weight="800">24 mo</text>
+            <text x="380" y="52" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="21" font-weight="900">Median LDL fell early and remained low</text>
+          </svg>
+        </div>
+      </div>
+
+      <aside class="hero-card" aria-label="Study snapshot">
+        <div class="poster-code">16<br>2021</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Setting</dt>
+            <dd>Vanderbilt Specialty Pharmacy</dd>
+          </div>
+          <div>
+            <dt>Design</dt>
+            <dd>Retrospective cohort</dd>
+          </div>
+          <div>
+            <dt>Initiation window</dt>
+            <dd>Sep 2015-Aug 2018</dd>
+          </div>
+          <div>
+            <dt>Sample</dt>
+            <dd>477 patients</dd>
+          </div>
+        </dl>
+        <p class="source-spark">Core finding: 68% of patients remained persistent at 24 months, with a 59% median LDL reduction among persistent patients with available LDL values.</p>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <div class="metric-card">
+          <span>24-month persistence</span>
+          <strong>68%</strong>
+          <p>326 of 477 patients remained on therapy.</p>
+        </div>
+        <div class="metric-card">
+          <span>Median LDL change</span>
+          <strong>-59%</strong>
+          <p>From baseline to 24 months among patients with LDL data.</p>
+        </div>
+        <div class="metric-card">
+          <span>Early persistence</span>
+          <strong>94%</strong>
+          <p>447 of 477 patients persistent at 3 months.</p>
+        </div>
+        <div class="metric-card">
+          <span>Top stop reason</span>
+          <strong>54%</strong>
+          <p>Combined non-persistence reasons attributed to side effects.</p>
+        </div>
+      </section>
+
+      <section class="persistence-board" aria-label="Persistence and LDL results">
+        <div class="funnel-card">
+          <p class="section-label">Persistence from baseline</p>
+          <h2>Attrition accumulated over two years, but most patients remained persistent.</h2>
+          <div class="funnel-stage">
+            <b>Baseline</b>
+            <div class="funnel-track"><i style="width:100%"></i></div>
+            <span>477</span>
+          </div>
+          <div class="funnel-stage">
+            <b>3 months</b>
+            <div class="funnel-track"><i style="width:93.7%"></i></div>
+            <span>447</span>
+          </div>
+          <div class="funnel-stage">
+            <b>12 months</b>
+            <div class="funnel-track"><i style="width:80.3%"></i></div>
+            <span>383</span>
+          </div>
+          <div class="funnel-stage">
+            <b>24 months</b>
+            <div class="funnel-track"><i style="width:68.3%"></i></div>
+            <span>326</span>
+          </div>
+          <p class="source-note">Non-persistence counts at each interval were 30, 64, and 57 patients.</p>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">LDL-C response</p>
+          <h2>Median LDL dropped from 156.5 mg/dL at baseline to 65 mg/dL at 24 months.</h2>
+          <div class="ldl-chart" aria-label="Median LDL by time point">
+            <div class="ldl-row">
+              <b>Baseline (N=474)</b>
+              <div class="ldl-track"><i style="width:100%"></i></div>
+              <span>156.5</span>
+            </div>
+            <div class="ldl-row">
+              <b>3 months (N=340)</b>
+              <div class="ldl-track"><i style="width:39.6%"></i></div>
+              <span>62</span>
+            </div>
+            <div class="ldl-row">
+              <b>12 months (N=285)</b>
+              <div class="ldl-track"><i style="width:40.9%"></i></div>
+              <span>64</span>
+            </div>
+            <div class="ldl-row">
+              <b>24 months (N=262)</b>
+              <div class="ldl-track"><i style="width:41.5%"></i></div>
+              <span>65</span>
+            </div>
+          </div>
+          <p class="source-note">Values reflect available LDL measurements at each time point.</p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Integrated pharmacy model</p>
+        <h2>The poster frames persistence as a care-process outcome, not only a medication outcome.</h2>
+        <div class="clinic-flow" aria-label="Pharmacist role within the lipid clinic">
+          <article class="flow-card" data-step="1">
+            <h3>Prescription and referral</h3>
+            <p>A patient is prescribed a PCSK9 inhibitor and referred to Vanderbilt Specialty Pharmacy.</p>
+          </article>
+          <article class="flow-card" data-step="2">
+            <h3>Approval and assistance</h3>
+            <p>The pharmacist manages insurance approval and financial assistance as needed.</p>
+          </article>
+          <article class="flow-card" data-step="3">
+            <h3>Therapy start education</h3>
+            <p>Patients receive counseling on administration and potential side effects.</p>
+          </article>
+          <article class="flow-card" data-step="4">
+            <h3>Monthly refill monitoring</h3>
+            <p>Refill calls are reviewed to monitor side effects and continued adherence.</p>
+          </article>
+          <article class="flow-card" data-step="5">
+            <h3>Annual reassessment</h3>
+            <p>Pharmacists reassess beneficial response and ongoing appropriateness of therapy.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="reasons-layout" aria-label="Discontinuation reasons and cohort profile">
+        <div class="panel">
+          <p class="section-label">Reasons for non-persistence</p>
+          <h2>Side effects dominated early discontinuation and remained the leading combined reason.</h2>
+          <div class="reason-bars">
+            <div class="reason-row">
+              <span>Side effects</span>
+              <div class="reason-track"><i style="width:100%"></i></div>
+              <span>54% (82)</span>
+            </div>
+            <div class="reason-row">
+              <span>Lost to follow-up</span>
+              <div class="reason-track"><i style="width:31.5%"></i></div>
+              <span>17% (26)</span>
+            </div>
+            <div class="reason-row">
+              <span>Insurance mandate</span>
+              <div class="reason-track"><i style="width:14.8%"></i></div>
+              <span>8% (12)</span>
+            </div>
+            <div class="reason-row">
+              <span>Deceased</span>
+              <div class="reason-track"><i style="width:13%"></i></div>
+              <span>7% (11)</span>
+            </div>
+            <div class="reason-row">
+              <span>Cost</span>
+              <div class="reason-track"><i style="width:9.3%"></i></div>
+              <span>5% (7)</span>
+            </div>
+            <div class="reason-row">
+              <span>Patient decision</span>
+              <div class="reason-track"><i style="width:7.4%"></i></div>
+              <span>4% (6)</span>
+            </div>
+            <div class="reason-row">
+              <span>Other</span>
+              <div class="reason-track"><i style="width:5.6%"></i></div>
+              <span>3% (4)</span>
+            </div>
+            <div class="reason-row">
+              <span>No/suboptimal response</span>
+              <div class="reason-track"><i style="width:3.7%"></i></div>
+              <span>2% (3)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Sample pattern</p>
+          <h2>The cohort was older, largely ASCVD-indicated, and mostly previously treated with statins.</h2>
+          <div class="cohort-grid" aria-label="Cohort characteristics">
+            <div class="cohort-tile"><b>63</b><span>Median age, years [56-70]</span></div>
+            <div class="cohort-tile"><b>86%</b><span>ASCVD indication</span></div>
+            <div class="cohort-tile"><b>98%</b><span>Historical statin use</span></div>
+            <div class="cohort-tile"><b>49%</b><span>Historical ezetimibe use</span></div>
+            <div class="cohort-tile"><b>55%</b><span>Initial evolocumab</span></div>
+            <div class="cohort-tile"><b>45%</b><span>Initial alirocumab</span></div>
+          </div>
+          <p class="source-note">Other table patterns: 54% commercial insurance, 46% government-funded insurance, 41% familial hypercholesterolemia, and baseline LDL 157 mg/dL [131-190].</p>
+        </div>
+      </section>
+
+      <section class="evidence-map" aria-label="Evidence flow">
+        <article class="evidence-card">
+          <h3>Objective</h3>
+          <p>Quantify PCSK9 inhibitor persistence, reasons for non-persistence, and LDL values in an integrated specialty pharmacy model.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Methods</h3>
+          <p>Retrospective cohort of patients initiating therapy through a VUMC provider from September 2015 through August 2018.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Persistence</h3>
+          <p>Patients persistent at 3, 12, and 24 months: 447, 383, and 326, respectively.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>LDL response</h3>
+          <p>Median LDL reached the low-60 mg/dL range by 3 months and remained similar through 24 months.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Conclusion</h3>
+          <p>Persistence exceeded previously cited PCSK9 inhibitor reports, highlighting potential benefits of integrated pharmacist support.</p>
+        </article>
+      </section>
+
+      <section class="panel split-callout">
+        <p>
+          Conclusion: sixty-eight percent of patients persisted with PCSK9 inhibitor therapy at 24 months, and persistent patients with available LDL data had a 59% median LDL reduction from baseline.
+        </p>
+      </section>
+    </main>
+
+    <footer class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/16-Exploring-Rates-of-PCSK9-Inhibitor-Persistence_2021.pdf">Open original PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/16-Exploring-Rates-of-PCSK9-Inhibitor-Persistence_2021.md">Read extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

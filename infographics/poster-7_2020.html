@@ -1,0 +1,731 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Network Adherence Dashboard Quality Initiative | NASP 2020</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 29rem;
+    }
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -5rem -4rem auto auto;
+      width: 15rem;
+      height: 15rem;
+      border: 1.2rem solid rgba(209, 38, 48, 0.09);
+      border-radius: 50%;
+    }
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: auto auto -5rem -4rem;
+      width: 14rem;
+      height: 14rem;
+      border: 1.1rem solid rgba(24, 124, 143, 0.1);
+      border-radius: 50%;
+    }
+    .hero-card > * {
+      position: relative;
+      z-index: 1;
+    }
+    .dashboard-art {
+      display: grid;
+      gap: 0.85rem;
+    }
+    .dashboard-art svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      filter: drop-shadow(0 18px 24px rgba(36, 55, 112, 0.14));
+    }
+    .dashboard-note {
+      margin: 0;
+      border-left: 4px solid var(--teal);
+      padding-left: 0.7rem;
+      color: var(--ink);
+      font-size: 0.86rem;
+      font-weight: 820;
+    }
+    .metric-card strong small {
+      color: var(--red);
+      font-size: 0.9rem;
+    }
+    .metric-card em {
+      display: block;
+      margin-top: 0.36rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-style: normal;
+      font-weight: 760;
+      line-height: 1.35;
+    }
+    .pdc-board {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .pdc-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 1rem;
+    }
+    .pdc-card h3 {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 0.65rem;
+    }
+    .pdc-card h3 span {
+      color: var(--muted);
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .pdc-card svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, rgba(238, 244, 251, 0.75), #fff 64%),
+        #fff;
+    }
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 0.58rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 850;
+    }
+    .legend i {
+      display: inline-block;
+      width: 1rem;
+      height: 0.25rem;
+      margin-right: 0.28rem;
+      border-radius: 999px;
+      vertical-align: middle;
+      background: var(--red);
+    }
+    .legend .network i { background: var(--teal); }
+    .legend .goal i { background: var(--gold); }
+    .pdc-summary {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+    .pdc-summary div {
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 7px;
+      background: var(--surface-blue);
+      padding: 0.55rem;
+    }
+    .pdc-summary strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      line-height: 1;
+    }
+    .pdc-summary span {
+      display: block;
+      margin-top: 0.22rem;
+      color: var(--muted);
+      font-size: 0.64rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .initiative-lane {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.8rem;
+    }
+    .initiative-lane::before {
+      content: "";
+      position: absolute;
+      left: 6%;
+      right: 6%;
+      top: 2.15rem;
+      height: 3px;
+      background: linear-gradient(90deg, var(--red), var(--gold), var(--teal), var(--green));
+    }
+    .initiative-step {
+      position: relative;
+      min-height: 10.8rem;
+      border: 1px solid rgba(36, 55, 112, 0.17);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.78rem;
+    }
+    .initiative-step::before {
+      content: attr(data-step);
+      display: grid;
+      place-items: center;
+      width: 2.55rem;
+      height: 2.55rem;
+      margin-bottom: 0.66rem;
+      border: 3px solid #fff;
+      border-radius: 50%;
+      background: var(--step-color, var(--red));
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 900;
+      box-shadow: 0 0 0 1px rgba(36, 55, 112, 0.18);
+    }
+    .initiative-step:nth-child(2) { --step-color: var(--gold); }
+    .initiative-step:nth-child(3) { --step-color: var(--teal); }
+    .initiative-step:nth-child(4) { --step-color: var(--green); }
+    .initiative-step:nth-child(5) { --step-color: var(--purple); }
+    .initiative-step p {
+      margin: 0.45rem 0 0;
+      font-size: 0.78rem;
+      line-height: 1.35;
+    }
+    .outcome-grid {
+      display: grid;
+      grid-template-columns: minmax(16rem, 0.75fr) minmax(0, 1.25fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .pdc-impact {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 84% 16%, rgba(233, 158, 37, 0.2), transparent 7rem),
+        linear-gradient(145deg, rgba(209, 38, 48, 0.08), #fff 58%);
+      padding: 1rem;
+    }
+    .impact-pair {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+    .impact-pair div {
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.78);
+      padding: 0.75rem;
+    }
+    .impact-pair strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      line-height: 0.9;
+    }
+    .impact-pair span {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+    .outcome-bars {
+      display: grid;
+      gap: 0.58rem;
+      margin-top: 0.8rem;
+    }
+    .outcome-row {
+      display: grid;
+      grid-template-columns: 14rem minmax(0, 1fr) 3.6rem;
+      gap: 0.58rem;
+      align-items: center;
+    }
+    .outcome-row b {
+      color: var(--ink);
+      font-size: 0.78rem;
+      line-height: 1.12;
+    }
+    .outcome-track {
+      height: 0.9rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: #e8eef7;
+      overflow: hidden;
+    }
+    .outcome-track i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .outcome-row:nth-child(n+4) .outcome-track i {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .outcome-row span {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.98rem;
+      font-weight: 900;
+      text-align: right;
+    }
+    .growth-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.72fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .stacked-bars {
+      display: grid;
+      gap: 0.64rem;
+      margin-top: 0.82rem;
+    }
+    .stacked-row {
+      display: grid;
+      grid-template-columns: 3.2rem minmax(0, 1fr) 4.4rem;
+      gap: 0.58rem;
+      align-items: center;
+    }
+    .stacked-row b {
+      color: var(--ink);
+      font-size: 0.8rem;
+    }
+    .stacked-track {
+      display: grid;
+      grid-template-columns: var(--patient) var(--prescriber);
+      height: 1.2rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: var(--surface-blue);
+      overflow: hidden;
+    }
+    .stacked-track i:first-child { background: var(--red); }
+    .stacked-track i:last-child { background: var(--teal); }
+    .stacked-row span {
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 900;
+      text-align: right;
+    }
+    .source-note {
+      margin: 0.68rem 0 0;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 740;
+      line-height: 1.35;
+    }
+    .takeaway {
+      border-left: 5px solid var(--red);
+      background: linear-gradient(90deg, rgba(209, 38, 48, 0.08), #fff 48%);
+    }
+    @media (max-width: 980px) {
+      .pdc-board,
+      .outcome-grid,
+      .growth-panel {
+        grid-template-columns: 1fr;
+      }
+      .initiative-lane {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .initiative-lane::before {
+        display: none;
+      }
+    }
+    @media (max-width: 620px) {
+      .initiative-lane,
+      .impact-pair,
+      .pdc-summary {
+        grid-template-columns: 1fr;
+      }
+      .outcome-row {
+        grid-template-columns: 1fr;
+        gap: 0.28rem;
+      }
+      .outcome-row span {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">NASP Infographics</a>
+      <nav aria-label="Source links">
+        <a href="#pdc">PDC trends</a>
+        <a href="#initiative">Initiative</a>
+        <a href="#results">Results</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-7_2020.pdf">PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-7_2020.md">Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2020 poster 7</p>
+        <h1>Utilization of a Network Adherence Dashboard and Subsequent Quality Initiative to Enhance Adherence</h1>
+        <p class="hero-summary">Banner Health and Excelera used a scheduled PDC reporting dashboard to examine transplant and oncology adherence, then launched a 2019 quality initiative focused on workflow standardization, documentation consistency, side effect management, and pharmacist education.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Quality improvement</li>
+          <li class="tag therapy">Oncology</li>
+          <li class="tag therapy">Transplant</li>
+          <li class="tag">PDC dashboard</li>
+          <li class="tag">Specialty pharmacy</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata and dashboard illustration">
+        <div>
+          <div class="poster-code">Poster 7<br>2020</div>
+          <dl class="meta-grid">
+            <div>
+              <dt>Lead site</dt>
+              <dd>Banner Health</dd>
+            </div>
+            <div>
+              <dt>Network</dt>
+              <dd>ExceleraRx</dd>
+            </div>
+            <div>
+              <dt>Measure</dt>
+              <dd>PDC adherence</dd>
+            </div>
+            <div>
+              <dt>Initiative year</dt>
+              <dd>2019</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="dashboard-art" aria-hidden="true">
+          <svg viewBox="0 0 420 285" role="img">
+            <title>Adherence dashboard illustration</title>
+            <rect x="34" y="24" width="352" height="218" rx="18" fill="#fff" stroke="#aebbd2" stroke-width="3"/>
+            <rect x="34" y="24" width="352" height="42" rx="18" fill="#243770"/>
+            <circle cx="65" cy="45" r="7" fill="#d12630"/>
+            <circle cx="88" cy="45" r="7" fill="#e99e25"/>
+            <circle cx="111" cy="45" r="7" fill="#187c8f"/>
+            <text x="140" y="50" fill="#fff" font-family="Arial, sans-serif" font-size="15" font-weight="700">Network adherence dashboard</text>
+            <line x1="74" y1="196" x2="345" y2="196" stroke="#d9e1ef" stroke-width="2"/>
+            <line x1="74" y1="155" x2="345" y2="155" stroke="#d9e1ef" stroke-width="2"/>
+            <line x1="74" y1="114" x2="345" y2="114" stroke="#d9e1ef" stroke-width="2"/>
+            <line x1="74" y1="84" x2="345" y2="84" stroke="#e99e25" stroke-width="2" stroke-dasharray="8 8"/>
+            <path d="M78 114 L107 120 L136 118 L165 112 L194 159 L223 166 L252 145 L281 133 L310 132 L339 120" fill="none" stroke="#d12630" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M78 120 L107 120 L136 120 L165 130 L194 120 L223 120 L252 112 L281 120 L310 112 L339 112" fill="none" stroke="#187c8f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            <g fill="#fff" stroke="#d12630" stroke-width="4">
+              <circle cx="78" cy="114" r="6"/><circle cx="194" cy="159" r="6"/><circle cx="339" cy="120" r="6"/>
+            </g>
+            <g fill="#fff" stroke="#187c8f" stroke-width="3">
+              <circle cx="78" cy="120" r="5"/><circle cx="252" cy="112" r="5"/><circle cx="339" cy="112" r="5"/>
+            </g>
+            <rect x="75" y="214" width="76" height="42" rx="8" fill="#eef4fb" stroke="#d9e1ef"/>
+            <rect x="172" y="214" width="76" height="42" rx="8" fill="#fff7ea" stroke="#d9e1ef"/>
+            <rect x="269" y="214" width="76" height="42" rx="8" fill="#eef4fb" stroke="#d9e1ef"/>
+            <text x="113" y="237" text-anchor="middle" fill="#243770" font-family="Arial, sans-serif" font-size="18" font-weight="700">PDC</text>
+            <text x="210" y="237" text-anchor="middle" fill="#243770" font-family="Arial, sans-serif" font-size="18" font-weight="700">QI</text>
+            <text x="307" y="237" text-anchor="middle" fill="#243770" font-family="Arial, sans-serif" font-size="18" font-weight="700">Care</text>
+          </svg>
+          <p class="dashboard-note">The poster frames adherence reporting as a continuous feedback loop: dashboard review, workflow diagnosis, standardized intervention capture, and patient-facing adherence support.</p>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Transplant interventions</span>
+          <strong>92</strong>
+          <em>Clinical interventions completed during the 12-month review period.</em>
+        </article>
+        <article class="metric-card">
+          <span>Oncology interventions</span>
+          <strong>613</strong>
+          <em>Clinical interventions completed during the same period.</em>
+        </article>
+        <article class="metric-card">
+          <span>Transplant tied to PDC</span>
+          <strong>39<small>%</small></strong>
+          <em>Associated with improving adherence, mainly adherence support and side effect resolution.</em>
+        </article>
+        <article class="metric-card">
+          <span>Oncology tied to PDC</span>
+          <strong>35<small>%</small></strong>
+          <em>Associated with improving adherence through the same outcome categories.</em>
+        </article>
+      </section>
+
+      <section class="pdc-board" id="pdc">
+        <article class="pdc-card">
+          <p class="section-label">Average PDC: Transplant</p>
+          <h2>Banner dipped below the 90% network goal during initiative launch, then returned above goal by 2020 Q2.</h2>
+          <h3>Quarterly PDC trend <span>2018 Q1 to 2020 Q2</span></h3>
+          <svg viewBox="0 0 620 260" role="img" aria-label="Transplant PDC line chart">
+            <line x1="52" y1="40" x2="586" y2="40" stroke="#d9e1ef"/>
+            <line x1="52" y1="94" x2="586" y2="94" stroke="#d9e1ef"/>
+            <line x1="52" y1="148" x2="586" y2="148" stroke="#d9e1ef"/>
+            <line x1="52" y1="202" x2="586" y2="202" stroke="#d9e1ef"/>
+            <text x="20" y="45" fill="#68758d" font-size="13" font-family="Arial">94</text>
+            <text x="20" y="99" fill="#68758d" font-size="13" font-family="Arial">92</text>
+            <text x="20" y="153" fill="#68758d" font-size="13" font-family="Arial">90</text>
+            <text x="20" y="207" fill="#68758d" font-size="13" font-family="Arial">88</text>
+            <line x1="52" y1="148" x2="586" y2="148" stroke="#e99e25" stroke-width="3" stroke-dasharray="10 9"/>
+            <path d="M52 67 L111 94 L171 94 L230 67 L290 202 L349 229 L408 148 L468 121 L527 121 L586 94" fill="none" stroke="#d12630" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M52 94 L111 94 L171 94 L230 121 L290 94 L349 94 L408 67 L468 94 L527 67 L586 67" fill="none" stroke="#187c8f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            <g fill="#fff" stroke="#d12630" stroke-width="3">
+              <circle cx="52" cy="67" r="5"/><circle cx="290" cy="202" r="5"/><circle cx="349" cy="229" r="5"/><circle cx="586" cy="94" r="5"/>
+            </g>
+            <g fill="#fff" stroke="#187c8f" stroke-width="3">
+              <circle cx="52" cy="94" r="5"/><circle cx="408" cy="67" r="5"/><circle cx="586" cy="67" r="5"/>
+            </g>
+            <text x="52" y="238" fill="#68758d" font-size="12" font-family="Arial">2018 Q1</text>
+            <text x="278" y="238" fill="#68758d" font-size="12" font-family="Arial">2019 Q1</text>
+            <text x="526" y="238" fill="#68758d" font-size="12" font-family="Arial">2020 Q2</text>
+          </svg>
+          <div class="legend" aria-label="Chart legend">
+            <span><i></i>Banner</span>
+            <span class="network"><i></i>Excelera Network</span>
+            <span class="goal"><i></i>90% goal</span>
+          </div>
+          <div class="pdc-summary">
+            <div><strong>92.5%</strong><span>Banner 2018 avg</span></div>
+            <div><strong>89.0%</strong><span>Banner 2019 avg</span></div>
+            <div><strong>91.5%</strong><span>Banner 2020 H1 avg</span></div>
+          </div>
+        </article>
+
+        <article class="pdc-card">
+          <p class="section-label">Average PDC: Oncology</p>
+          <h2>Oncology stayed above the 85% goal throughout the reported quarters and aligned with the network by 2020.</h2>
+          <h3>Quarterly PDC trend <span>2018 Q1 to 2020 Q2</span></h3>
+          <svg viewBox="0 0 620 260" role="img" aria-label="Oncology PDC line chart">
+            <line x1="52" y1="40" x2="586" y2="40" stroke="#d9e1ef"/>
+            <line x1="52" y1="94" x2="586" y2="94" stroke="#d9e1ef"/>
+            <line x1="52" y1="148" x2="586" y2="148" stroke="#d9e1ef"/>
+            <line x1="52" y1="202" x2="586" y2="202" stroke="#d9e1ef"/>
+            <text x="20" y="45" fill="#68758d" font-size="13" font-family="Arial">92</text>
+            <text x="20" y="99" fill="#68758d" font-size="13" font-family="Arial">90</text>
+            <text x="20" y="153" fill="#68758d" font-size="13" font-family="Arial">88</text>
+            <text x="20" y="207" fill="#68758d" font-size="13" font-family="Arial">86</text>
+            <line x1="52" y1="229" x2="586" y2="229" stroke="#e99e25" stroke-width="3" stroke-dasharray="10 9"/>
+            <path d="M52 148 L111 121 L171 67 L230 94 L290 94 L349 40 L408 94 L468 67 L527 67 L586 67" fill="none" stroke="#d12630" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M52 121 L111 121 L171 94 L230 67 L290 67 L349 94 L408 94 L468 94 L527 67 L586 67" fill="none" stroke="#187c8f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            <g fill="#fff" stroke="#d12630" stroke-width="3">
+              <circle cx="52" cy="148" r="5"/><circle cx="349" cy="40" r="5"/><circle cx="586" cy="67" r="5"/>
+            </g>
+            <g fill="#fff" stroke="#187c8f" stroke-width="3">
+              <circle cx="52" cy="121" r="5"/><circle cx="230" cy="67" r="5"/><circle cx="586" cy="67" r="5"/>
+            </g>
+            <text x="52" y="238" fill="#68758d" font-size="12" font-family="Arial">2018 Q1</text>
+            <text x="278" y="238" fill="#68758d" font-size="12" font-family="Arial">2019 Q1</text>
+            <text x="526" y="238" fill="#68758d" font-size="12" font-family="Arial">2020 Q2</text>
+          </svg>
+          <div class="legend" aria-label="Chart legend">
+            <span><i></i>Banner</span>
+            <span class="network"><i></i>Excelera Network</span>
+            <span class="goal"><i></i>85% goal</span>
+          </div>
+          <div class="pdc-summary">
+            <div><strong>89.5%</strong><span>Banner 2018 avg</span></div>
+            <div><strong>90.8%</strong><span>Banner 2019 avg</span></div>
+            <div><strong>91.0%</strong><span>Banner 2020 H1 avg</span></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel" id="initiative">
+        <p class="section-label">Evidence flow</p>
+        <h2>The dashboard turned quarterly adherence reporting into an operational quality initiative.</h2>
+        <div class="initiative-lane" aria-label="Quality initiative flow">
+          <article class="initiative-step" data-step="1">
+            <h3>Scheduled PDC reporting</h3>
+            <p>Network members submitted data used to calculate adherence through proportion of days covered.</p>
+          </article>
+          <article class="initiative-step" data-step="2">
+            <h3>Therapy-area review</h3>
+            <p>Banner reviewed transplant and oncology PDC performance against network benchmarks and goals.</p>
+          </article>
+          <article class="initiative-step" data-step="3">
+            <h3>Workflow investigation</h3>
+            <p>Clinical pharmacist workflow and documentation around interventions were assessed for 2018.</p>
+          </article>
+          <article class="initiative-step" data-step="4">
+            <h3>Quality initiative</h3>
+            <p>Standard workflows, consistent intervention documentation, and ongoing adherence education were implemented in 2019.</p>
+          </article>
+          <article class="initiative-step" data-step="5">
+            <h3>Adherence support</h3>
+            <p>Interventions emphasized therapy adherence, side effect resolution, inappropriate therapy removal, and interaction prevention.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="outcome-grid" id="results">
+        <article class="pdc-impact">
+          <p class="section-label">PDC-linked interventions</p>
+          <h2>One-third or more of documented interventions were associated with improving PDC.</h2>
+          <div class="impact-pair">
+            <div>
+              <strong>39%</strong>
+              <span>of transplant interventions were linked to improving adherence.</span>
+            </div>
+            <div>
+              <strong>35%</strong>
+              <span>of oncology interventions were linked to improving adherence.</span>
+            </div>
+          </div>
+          <p class="source-note">Approximate counts implied by the poster: 36 of 92 transplant interventions and 215 of 613 oncology interventions.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Intervention outcomes</p>
+          <h2>The top two outcome categories directly map to adherence support and tolerability management.</h2>
+          <div class="outcome-bars" aria-label="Intervention outcome percentages">
+            <div class="outcome-row">
+              <b>Potentially improved therapy adherence</b>
+              <span class="outcome-track"><i style="--w:100%"></i></span>
+              <span>23%</span>
+            </div>
+            <div class="outcome-row">
+              <b>Resolved side effect challenges</b>
+              <span class="outcome-track"><i style="--w:96%"></i></span>
+              <span>22%</span>
+            </div>
+            <div class="outcome-row">
+              <b>Elimination of therapy inappropriateness</b>
+              <span class="outcome-track"><i style="--w:70%"></i></span>
+              <span>16%</span>
+            </div>
+            <div class="outcome-row">
+              <b>Other</b>
+              <span class="outcome-track"><i style="--w:57%"></i></span>
+              <span>13%</span>
+            </div>
+            <div class="outcome-row">
+              <b>Elimination of drug interaction</b>
+              <span class="outcome-track"><i style="--w:43%"></i></span>
+              <span>10%</span>
+            </div>
+            <div class="outcome-row">
+              <b>Prevented therapy complications</b>
+              <span class="outcome-track"><i style="--w:39%"></i></span>
+              <span>9%</span>
+            </div>
+            <div class="outcome-row">
+              <b>Prevented a serious adverse drug reaction</b>
+              <span class="outcome-track"><i style="--w:30%"></i></span>
+              <span>7%</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="growth-panel">
+        <article class="panel">
+          <p class="section-label">All-program documentation trend</p>
+          <h2>Intervention capture expanded from 500 total entries in 2015 to 1,850 in 2019.</h2>
+          <div class="stacked-bars" aria-label="Total interventions by year and audience">
+            <div class="stacked-row">
+              <b>2015</b>
+              <span class="stacked-track" style="--patient:8.1%; --prescriber:18.9%"><i></i><i></i></span>
+              <span>500</span>
+            </div>
+            <div class="stacked-row">
+              <b>2016</b>
+              <span class="stacked-track" style="--patient:16.2%; --prescriber:27.0%"><i></i><i></i></span>
+              <span>800</span>
+            </div>
+            <div class="stacked-row">
+              <b>2017</b>
+              <span class="stacked-track" style="--patient:35.1%; --prescriber:45.9%"><i></i><i></i></span>
+              <span>1,500</span>
+            </div>
+            <div class="stacked-row">
+              <b>2018</b>
+              <span class="stacked-track" style="--patient:29.7%; --prescriber:62.2%"><i></i><i></i></span>
+              <span>1,700</span>
+            </div>
+            <div class="stacked-row">
+              <b>2019</b>
+              <span class="stacked-track" style="--patient:51.4%; --prescriber:48.6%"><i></i><i></i></span>
+              <span>1,850</span>
+            </div>
+          </div>
+          <div class="legend" aria-label="Stacked bar legend">
+            <span><i></i>Patient interventions</span>
+            <span class="network"><i></i>Prescriber interventions</span>
+          </div>
+          <p class="source-note">Percent widths are scaled to 2019 total interventions, the largest reported year.</p>
+        </article>
+
+        <article class="table-card takeaway" id="takeaways">
+          <p class="section-label">Conclusion</p>
+          <h2>Regular adherence reporting exposed documentation gaps and created a structured improvement path.</h2>
+          <div class="markdown-fragment">
+            <p>The poster concludes that systematic PDC reporting improved understanding of prescribing practices and clinical pharmacist intervention documentation.</p>
+            <p>The quality initiative also supported strategic side effect management, adherence education, and improved PDC reporting across the reviewed transplant and oncology programs.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Source data patterns">
+        <article class="table-card">
+          <p class="section-label">Table pattern</p>
+          <h2>Reported PDC goals differed by therapeutic area.</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Therapy area</th>
+                  <th>Network goal</th>
+                  <th>Banner 2018 avg</th>
+                  <th>Banner 2019 avg</th>
+                  <th>Banner 2020 H1 avg</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Transplant</td>
+                  <td>90%</td>
+                  <td>92.5%</td>
+                  <td>89.0%</td>
+                  <td>91.5%</td>
+                </tr>
+                <tr>
+                  <td>Oncology</td>
+                  <td>85%</td>
+                  <td>89.5%</td>
+                  <td>90.8%</td>
+                  <td>91.0%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Authors and context</p>
+          <h2>Banner Family Pharmacy and ExceleraRx partnered on the adherence review.</h2>
+          <div class="markdown-fragment">
+            <p><strong>Authors:</strong> Jennifer Craig, PharmD, CSP; Lana Gerzenshtein, PharmD, BCPS, CSP; Matt Maruska; Zach Russell, PharmD, CSP.</p>
+            <p><strong>Affiliations:</strong> Banner Health, Phoenix, AZ, and ExceleraRx Corporation, Minneapolis, MN.</p>
+          </div>
+        </article>
+      </section>
+
+      <footer class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-7_2020.pdf">Open original PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/Poster-7_2020.md">Open extracted markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

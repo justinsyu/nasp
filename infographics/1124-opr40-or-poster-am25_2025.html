@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OPR40-OR 2025 | UC Assessment in Specialty Pharmacy</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .uc-hero-art {
+      position: relative;
+      min-height: 18rem;
+      overflow: hidden;
+      border: 1px solid rgba(174, 187, 210, 0.95);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(209, 38, 48, 0.14), transparent 7rem),
+        radial-gradient(circle at 88% 20%, rgba(24, 124, 143, 0.18), transparent 8rem),
+        linear-gradient(145deg, #fff, var(--surface-blue) 58%, var(--surface-warm));
+      padding: 1rem;
+    }
+
+    .uc-hero-art svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .hero-callout {
+      display: grid;
+      gap: 0.4rem;
+      margin-top: 0.8rem;
+      border-left: 4px solid var(--red);
+      padding-left: 0.72rem;
+    }
+
+    .hero-callout strong {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      line-height: 1.2;
+    }
+
+    .hero-callout span {
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .question-card {
+      display: grid;
+      grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .question-statement {
+      display: grid;
+      align-content: center;
+      min-height: 12rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--ink);
+      padding: 1.1rem;
+      color: #fff;
+    }
+
+    .question-statement span {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .question-statement strong {
+      display: block;
+      margin-top: 0.42rem;
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3.2vw, 2.55rem);
+      line-height: 1.03;
+    }
+
+    .phase-track {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.72rem;
+    }
+
+    .phase-card {
+      position: relative;
+      min-height: 12rem;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.9rem;
+    }
+
+    .phase-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 0.35rem;
+      background: var(--phase-color, var(--red));
+    }
+
+    .phase-card:nth-child(2) { --phase-color: var(--gold); }
+    .phase-card:nth-child(3) { --phase-color: var(--teal); }
+
+    .phase-number {
+      display: inline-grid;
+      place-items: center;
+      width: 2.2rem;
+      height: 2.2rem;
+      margin-bottom: 0.75rem;
+      border-radius: 50%;
+      background: var(--surface-blue);
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-weight: 900;
+    }
+
+    .phase-card p {
+      margin: 0.48rem 0 0;
+      font-size: 0.84rem;
+    }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .parameter-cluster {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.62rem;
+      margin-top: 0.7rem;
+    }
+
+    .parameter-tile {
+      min-height: 6.6rem;
+      border: 1px solid rgba(174, 187, 210, 0.92);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, rgba(238, 244, 251, 0.72));
+      padding: 0.7rem;
+    }
+
+    .parameter-tile b {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      line-height: 1.18;
+    }
+
+    .parameter-tile span {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+
+    .availability-bars {
+      display: grid;
+      gap: 0.52rem;
+      margin-top: 0.65rem;
+    }
+
+    .availability-row {
+      display: grid;
+      grid-template-columns: 9.2rem minmax(0, 1fr) 2.7rem;
+      gap: 0.55rem;
+      align-items: center;
+      font-size: 0.78rem;
+    }
+
+    .availability-row span:first-child {
+      color: var(--ink);
+      font-weight: 850;
+      line-height: 1.18;
+    }
+
+    .availability-row span:last-child {
+      color: var(--ink);
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .bar-rail {
+      height: 0.74rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+
+    .bar-rail i {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .gap-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 0.84fr) minmax(0, 1.16fr);
+      gap: 1rem;
+    }
+
+    .gap-meter {
+      display: grid;
+      align-content: center;
+      min-height: 14rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        linear-gradient(90deg, rgba(209, 38, 48, 0.92) 0 1%, rgba(233, 158, 37, 0.82) 1% 73%, rgba(24, 124, 143, 0.82) 73% 100%),
+        #fff;
+      padding: 1rem;
+      color: #fff;
+    }
+
+    .gap-meter small,
+    .gap-meter span {
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .gap-meter strong {
+      display: block;
+      margin: 0.5rem 0;
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 6vw, 4.8rem);
+      line-height: 0.9;
+    }
+
+    .gap-meter p {
+      max-width: 22rem;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 750;
+    }
+
+    .range-list {
+      display: grid;
+      gap: 0.58rem;
+      margin-top: 0.65rem;
+    }
+
+    .range-row {
+      display: grid;
+      grid-template-columns: 9rem minmax(0, 1fr) 5.4rem;
+      gap: 0.55rem;
+      align-items: center;
+      font-size: 0.78rem;
+    }
+
+    .range-track {
+      position: relative;
+      height: 0.76rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: #edf2f8;
+    }
+
+    .range-track i {
+      position: absolute;
+      top: -1px;
+      left: var(--start);
+      width: var(--span);
+      height: calc(100% + 2px);
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .consensus-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.78rem;
+    }
+
+    .consensus-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.9rem;
+    }
+
+    .consensus-card strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.65rem;
+      line-height: 1;
+    }
+
+    .consensus-card b {
+      display: block;
+      margin-top: 0.38rem;
+      color: var(--ink);
+    }
+
+    .consensus-card p {
+      margin: 0.35rem 0 0;
+      font-size: 0.82rem;
+    }
+
+    .conclusion-band {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .conclusion-core {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--ink), #31498b);
+      padding: 1.1rem;
+      color: #fff;
+    }
+
+    .conclusion-core h2 {
+      color: #fff;
+    }
+
+    .conclusion-core p {
+      margin: 0.65rem 0 0;
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .takeaway-list {
+      display: grid;
+      gap: 0.6rem;
+      margin-top: 0.75rem;
+    }
+
+    .takeaway {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.82);
+      padding: 0.72rem;
+    }
+
+    .takeaway b {
+      color: var(--ink);
+    }
+
+    .fineprint {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.74rem;
+    }
+
+    @media (max-width: 900px) {
+      .question-card,
+      .dashboard-grid,
+      .gap-panel,
+      .conclusion-band {
+        grid-template-columns: 1fr;
+      }
+
+      .phase-track,
+      .consensus-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .parameter-cluster {
+        grid-template-columns: 1fr;
+      }
+
+      .availability-row,
+      .range-row {
+        grid-template-columns: 1fr;
+      }
+
+      .availability-row span:last-child {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster infographic</span>
+      </a>
+      <nav aria-label="Source files">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/1124-OPR40-OR-Poster-AM25_2025.pdf">PDF source</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/1124-OPR40-OR-Poster-AM25_2025.md">Markdown source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2025 Annual Meeting | OPR40-OR</p>
+        <h1>Evidence-based ulcerative colitis assessment can fit specialty pharmacy workflows</h1>
+        <p class="hero-summary">A targeted review, expert council, and 16-system database analysis identified a practical dashboard set for UC monitoring, then showed a large gap between available evidence and real-world structured assessment capture.</p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag therapy">Ulcerative colitis</li>
+          <li class="tag category">Disease assessment</li>
+          <li class="tag">Specialty pharmacy</li>
+          <li class="tag">Treat-to-target</li>
+          <li class="tag">Real-world data</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card">
+        <div class="poster-code">OPR40-OR</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Year</dt>
+            <dd>2025</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>NASP, Denver</dd>
+          </div>
+          <div>
+            <dt>Database</dt>
+            <dd>Loopback TSOC</dd>
+          </div>
+          <div>
+            <dt>Sponsor</dt>
+            <dd>Pfizer</dd>
+          </div>
+        </dl>
+        <div class="uc-hero-art" aria-label="Dashboard concept illustration">
+          <svg viewBox="0 0 360 220" role="img" aria-labelledby="heroSvgTitle">
+            <title id="heroSvgTitle">Specialty pharmacy UC assessment dashboard concept</title>
+            <rect x="22" y="26" width="316" height="168" rx="12" fill="#fff" stroke="#aebbd2" stroke-width="2"/>
+            <rect x="42" y="48" width="92" height="28" rx="5" fill="#eef4fb" stroke="#d9e1ef"/>
+            <rect x="42" y="88" width="92" height="28" rx="5" fill="#fff7ea" stroke="#d9e1ef"/>
+            <rect x="42" y="128" width="92" height="28" rx="5" fill="#eef4fb" stroke="#d9e1ef"/>
+            <circle cx="240" cy="108" r="58" fill="none" stroke="#d9e1ef" stroke-width="18"/>
+            <path d="M240 50a58 58 0 0 1 55 76" fill="none" stroke="#187c8f" stroke-width="18" stroke-linecap="round"/>
+            <path d="M295 126a58 58 0 0 1-78 35" fill="none" stroke="#e99e25" stroke-width="18" stroke-linecap="round"/>
+            <path d="M217 161a58 58 0 0 1-35-52" fill="none" stroke="#d12630" stroke-width="18" stroke-linecap="round"/>
+            <text x="240" y="100" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-weight="900" font-size="30">UC</text>
+            <text x="240" y="125" text-anchor="middle" fill="#68758d" font-family="Inter, Arial, sans-serif" font-weight="800" font-size="11">assessment</text>
+            <g fill="#243770" font-family="Inter, Arial, sans-serif" font-size="9" font-weight="800">
+              <text x="54" y="66">PROs</text>
+              <text x="54" y="106">Biomarkers</text>
+              <text x="54" y="146">Utilization</text>
+            </g>
+            <path d="M137 62h44M137 102h44M137 142h44" stroke="#aebbd2" stroke-width="2" stroke-dasharray="5 5"/>
+          </svg>
+          <div class="hero-callout">
+            <strong>Dashboard-ready parameters emerged from the evidence council.</strong>
+            <span>Modified Mayo, PRO2, rectal bleeding, stool frequency, fecal calprotectin, C-reactive protein, utilization, and steroid use.</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key study numbers">
+        <article class="metric-card">
+          <span>Articles identified</span>
+          <strong>296</strong>
+        </article>
+        <article class="metric-card">
+          <span>Articles included</span>
+          <strong>39</strong>
+        </article>
+        <article class="metric-card">
+          <span>Health systems</span>
+          <strong>16</strong>
+        </article>
+        <article class="metric-card">
+          <span>Patients with UC</span>
+          <strong>62,097</strong>
+        </article>
+      </section>
+
+      <section class="question-card" id="objective">
+        <div class="question-statement">
+          <span>Objective</span>
+          <strong>Align on feasible, evidence-based UC disease assessment parameters for specialty pharmacies.</strong>
+        </div>
+        <div class="panel">
+          <p class="section-label">Three-step evidence flow</p>
+          <div class="phase-track">
+            <article class="phase-card">
+              <span class="phase-number">1</span>
+              <h3>Targeted literature review</h3>
+              <p>PubMed evidence from the prior 5 years on UC assessment, monitoring, and treatment outcomes.</p>
+            </article>
+            <article class="phase-card">
+              <span class="phase-number">2</span>
+              <h3>Evidence Council</h3>
+              <p>Five specialty pharmacy and IBD subject matter experts reviewed findings in a 2-hour virtual session.</p>
+            </article>
+            <article class="phase-card">
+              <span class="phase-number">3</span>
+              <h3>Database prevalence analysis</h3>
+              <p>Recommended parameters were checked in de-identified TSOC data from 16 health systems.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="consensus-grid" aria-label="Literature signals">
+        <article class="consensus-card">
+          <strong>33</strong>
+          <b>Mayo score reports</b>
+          <p>Mayo score or variations were the most frequently reported disease activity tools.</p>
+        </article>
+        <article class="consensus-card">
+          <strong>28</strong>
+          <b>Endoscopic subscore reports</b>
+          <p>Mayo endoscopic subscore was the common marker for endoscopic improvement or healing.</p>
+        </article>
+        <article class="consensus-card">
+          <strong>13 + 13</strong>
+          <b>Biomarker reports</b>
+          <p>Fecal calprotectin and C-reactive protein were each reported in 13 publications.</p>
+        </article>
+      </section>
+
+      <section class="dashboard-grid" id="results">
+        <div class="panel">
+          <p class="section-label">Recommended dashboard domains</p>
+          <h2>From symptom capture to objective monitoring</h2>
+          <p>The Evidence Council described high variability in UC assessment and recommended simple, standardized dashboard inputs that specialty pharmacies could use to support treat-to-target care.</p>
+          <div class="parameter-cluster">
+            <div class="parameter-tile">
+              <b>Clinical activity</b>
+              <span>Modified Mayo score, PRO2, rectal bleeding, and stool frequency.</span>
+            </div>
+            <div class="parameter-tile">
+              <b>Objective markers</b>
+              <span>Fecal calprotectin and C-reactive protein.</span>
+            </div>
+            <div class="parameter-tile">
+              <b>Resource use</b>
+              <span>Inpatient and emergency department visits.</span>
+            </div>
+            <div class="parameter-tile">
+              <b>Treatment burden</b>
+              <span>Inpatient and outpatient steroid use.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">TSOC database prevalence among UC patients</p>
+          <h2>Availability was highest for symptom text, lowest for composite scores</h2>
+          <div class="availability-bars" aria-label="Prevalence of recommended disease assessment parameters">
+            <div class="availability-row"><span>Rectal bleeding</span><div class="bar-rail"><i style="--w: 73%"></i></div><span>73%</span></div>
+            <div class="availability-row"><span>C-reactive protein</span><div class="bar-rail"><i style="--w: 46%"></i></div><span>46%</span></div>
+            <div class="availability-row"><span>ED visits</span><div class="bar-rail"><i style="--w: 36%"></i></div><span>36%</span></div>
+            <div class="availability-row"><span>Outpatient steroid use</span><div class="bar-rail"><i style="--w: 33%"></i></div><span>33%</span></div>
+            <div class="availability-row"><span>Inpatient visits</span><div class="bar-rail"><i style="--w: 30%"></i></div><span>30%</span></div>
+            <div class="availability-row"><span>Fecal calprotectin</span><div class="bar-rail"><i style="--w: 21%"></i></div><span>21%</span></div>
+            <div class="availability-row"><span>Stool frequency</span><div class="bar-rail"><i style="--w: 20%"></i></div><span>20%</span></div>
+            <div class="availability-row"><span>Inpatient steroid use</span><div class="bar-rail"><i style="--w: 17%"></i></div><span>17%</span></div>
+            <div class="availability-row"><span>PRO2 score</span><div class="bar-rail"><i style="--w: 12%"></i></div><span>12%</span></div>
+            <div class="availability-row"><span>Modified Mayo score</span><div class="bar-rail"><i style="--w: 1%"></i></div><span>1%</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="gap-panel" aria-label="Real-world reporting gap">
+        <div class="gap-meter">
+          <small>Core gap</small>
+          <strong>1%</strong>
+          <p>Modified Mayo score appeared for only 1% of UC patients in the prevalence analysis, despite being a central disease activity tool in the literature.</p>
+        </div>
+        <div class="panel">
+          <p class="section-label">Variation across 16 health systems</p>
+          <h2>Reporting was inconsistent even when averages looked usable</h2>
+          <div class="range-list" aria-label="Average and min-max range across health systems">
+            <div class="range-row"><span>Rectal bleeding</span><div class="range-track"><i style="--start: 6%; --span: 84%"></i></div><span>Avg 84%</span></div>
+            <div class="range-row"><span>C-reactive protein</span><div class="range-track"><i style="--start: 5%; --span: 63%"></i></div><span>Avg 64%</span></div>
+            <div class="range-row"><span>Stool frequency</span><div class="range-track"><i style="--start: 2%; --span: 53%"></i></div><span>Avg 52%</span></div>
+            <div class="range-row"><span>ED visits</span><div class="range-track"><i style="--start: 13%; --span: 51%"></i></div><span>Avg 51%</span></div>
+            <div class="range-row"><span>Fecal calprotectin</span><div class="range-track"><i style="--start: 8%; --span: 43%"></i></div><span>Avg 43%</span></div>
+            <div class="range-row"><span>PRO2 score</span><div class="range-track"><i style="--start: 2%; --span: 35%"></i></div><span>Avg 35%</span></div>
+            <div class="range-row"><span>Modified Mayo</span><div class="range-track"><i style="--start: 0%; --span: 4%"></i></div><span>Avg 4%</span></div>
+          </div>
+          <p class="fineprint">Ranges show minimum to maximum patient availability across health systems; one client was excluded from fecal calprotectin and emergency department visit calculations due to absent data availability.</p>
+        </div>
+      </section>
+
+      <section class="conclusion-band" id="conclusion">
+        <div class="conclusion-core">
+          <p class="section-label">Conclusion</p>
+          <h2>Specialty pharmacies can help close the UC monitoring gap.</h2>
+          <p>Evidence-based approaches for UC disease assessment and treat-to-target care are available, but inconsistent adoption limits outcome analyses. A disease-specific assessment dashboard could standardize PRO, quality-of-life, biomarker, utilization, and steroid-use capture.</p>
+        </div>
+        <div class="panel">
+          <p class="section-label">Implementation signal</p>
+          <div class="takeaway-list">
+            <div class="takeaway"><b>Standardize first.</b> Council members prioritized consistency across clinical practice sites.</div>
+            <div class="takeaway"><b>Keep tools simple.</b> Ease of implementation into electronic health records was identified as a real-world barrier.</div>
+            <div class="takeaway"><b>Make pharmacy data actionable.</b> Specialty pharmacies are positioned to collect PRO and quality-of-life data needed for treatment decisions.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tables-grid" aria-label="Source table summaries">
+        <article class="table-card">
+          <h3>Highest and lowest patient-level availability</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Parameter</th><th>Patients</th><th>Signal</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Rectal bleeding</td><td>73%</td><td>Highest recommended parameter</td></tr>
+                <tr><td>C-reactive protein</td><td>46%</td><td>Most available biomarker</td></tr>
+                <tr><td>PRO2 score</td><td>12%</td><td>Low composite PRO capture</td></tr>
+                <tr><td>Modified Mayo score</td><td>1%</td><td>Lowest composite disease activity capture</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+        <article class="table-card">
+          <h3>Method details used for extraction</h3>
+          <div class="markdown-fragment">
+            <p>TSOC data were drawn from electronic health records and pharmacy dispensing software as of January 3, 2025.</p>
+            <p>Patients with UC had an inpatient or outpatient encounter with primary diagnosis code K51.</p>
+            <p>Disease assessments from clinical notes were extracted using regular expressions for specific text patterns.</p>
+          </div>
+        </article>
+      </section>
+
+      <footer class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/1124-OPR40-OR-Poster-AM25_2025.pdf">Open original PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/1124-OPR40-OR-Poster-AM25_2025.md">Open extracted markdown</a>
+        <a class="button-link" href="https://scientificpubs.congressposter.com/p/hfy1q7dsh9vlbr4m">Electronic poster</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

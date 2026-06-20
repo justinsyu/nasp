@@ -1,0 +1,677 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2024 Infographic | Real-World Adalimumab Biosimilar Outcomes</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-top: 0.35rem;
+    }
+    .study-status {
+      margin: 0;
+      border-left: 4px solid var(--teal);
+      padding-left: 0.72rem;
+      color: var(--ink);
+      font-size: 0.94rem;
+      font-weight: 850;
+    }
+    .cohort-board {
+      display: grid;
+      grid-template-columns: minmax(17rem, 0.82fr) minmax(0, 1.18fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .funnel-panel {
+      position: relative;
+      min-height: 22rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 86% 16%, rgba(233, 158, 37, 0.22), transparent 8rem),
+        linear-gradient(160deg, rgba(36, 55, 112, 0.98), rgba(24, 124, 143, 0.92));
+      color: #fff;
+      overflow: hidden;
+      padding: 1rem;
+    }
+    .funnel-panel h2,
+    .funnel-panel .section-label {
+      color: #fff;
+    }
+    .funnel-panel .section-label {
+      opacity: 0.78;
+    }
+    .funnel-svg {
+      position: absolute;
+      right: -2rem;
+      bottom: -2.4rem;
+      width: min(27rem, 88%);
+      opacity: 0.92;
+    }
+    .funnel-stat {
+      position: relative;
+      z-index: 1;
+      max-width: 17rem;
+      margin-top: 0.85rem;
+    }
+    .funnel-stat strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: clamp(4rem, 8vw, 6.7rem);
+      line-height: 0.88;
+    }
+    .funnel-stat span {
+      display: block;
+      margin-top: 0.45rem;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.94rem;
+    }
+    .split-bars {
+      display: grid;
+      gap: 0.74rem;
+      margin-top: 0.72rem;
+    }
+    .split-row {
+      display: grid;
+      grid-template-columns: 8.8rem minmax(0, 1fr) 5.6rem;
+      gap: 0.58rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 850;
+    }
+    .split-row span:last-child {
+      color: var(--muted);
+      text-align: right;
+    }
+    .split-track {
+      height: 1.08rem;
+      border: 1px solid rgba(36, 55, 112, 0.15);
+      border-radius: 999px;
+      background: rgba(36, 55, 112, 0.08);
+      overflow: hidden;
+    }
+    .split-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .split-row.alt .split-track i {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+    .endpoint-road {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.8rem;
+    }
+    .endpoint-node {
+      position: relative;
+      min-height: 10rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.82rem;
+    }
+    .endpoint-node::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -0.52rem;
+      width: 0.75rem;
+      height: 0.75rem;
+      border-top: 2px solid var(--border-strong);
+      border-right: 2px solid var(--border-strong);
+      background: #fff;
+      transform: translateY(-50%) rotate(45deg);
+    }
+    .endpoint-node:last-child::after {
+      display: none;
+    }
+    .endpoint-node b {
+      display: inline-grid;
+      place-items: center;
+      width: 1.8rem;
+      height: 1.8rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+    }
+    .endpoint-node h3 {
+      margin-top: 0.55rem;
+    }
+    .endpoint-node p {
+      margin: 0.36rem 0 0;
+      font-size: 0.79rem;
+    }
+    .outcome-matrix {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+    .outcome-tile {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.82rem;
+    }
+    .outcome-tile b {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      line-height: 1.1;
+    }
+    .outcome-tile span {
+      display: block;
+      margin-top: 0.3rem;
+      color: var(--body);
+      font-size: 0.8rem;
+    }
+    .product-race {
+      display: grid;
+      gap: 0.58rem;
+      margin-top: 0.7rem;
+    }
+    .product-row {
+      display: grid;
+      grid-template-columns: 8.9rem minmax(0, 1fr) 4.4rem;
+      gap: 0.52rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .product-row em {
+      color: var(--muted);
+      font-style: normal;
+      text-align: right;
+    }
+    .product-track {
+      height: 0.9rem;
+      border-radius: 999px;
+      background: var(--surface-blue);
+      overflow: hidden;
+    }
+    .product-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--red);
+    }
+    .product-row:nth-child(2) .product-track i { background: var(--teal); }
+    .product-row:nth-child(3) .product-track i { background: var(--gold); }
+    .product-row:nth-child(4) .product-track i { background: var(--green); }
+    .product-row:nth-child(5) .product-track i { background: var(--purple); }
+    .product-row:nth-child(6) .product-track i { background: var(--border-strong); }
+    .diagnosis-cloud {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.75rem;
+    }
+    .diagnosis-chip {
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.58rem;
+      min-height: 5.6rem;
+    }
+    .diagnosis-chip strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+    .diagnosis-chip span {
+      display: block;
+      margin-top: 0.24rem;
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 850;
+      line-height: 1.22;
+    }
+    .takeaway-panel {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(209, 38, 48, 0.11), transparent 38%),
+        #fff;
+    }
+    .takeaway-panel p {
+      max-width: 66rem;
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.04rem, 1.65vw, 1.42rem);
+      font-weight: 850;
+      line-height: 1.36;
+    }
+    .source-note {
+      margin: 0.65rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+    @media (max-width: 900px) {
+      .cohort-board,
+      .endpoint-road {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .endpoint-node::after {
+        display: none;
+      }
+      .diagnosis-cloud {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 560px) {
+      .cohort-board,
+      .endpoint-road,
+      .outcome-matrix,
+      .split-row,
+      .product-row,
+      .diagnosis-cloud {
+        grid-template-columns: 1fr;
+      }
+      .split-row span:last-child,
+      .product-row em {
+        text-align: left;
+      }
+      .funnel-svg {
+        opacity: 0.35;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/55-OPR55-RP-Poster-AM24_2024.pdf">Source PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/55-OPR55-RP-Poster-AM24_2024.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP Annual Meeting 2024 | 55-OPR55-RP</p>
+        <h1 id="poster-title">Analysis of real-world adalimumab biosimilar clinical outcomes in the specialty pharmacy setting</h1>
+        <p class="hero-summary">
+          Lumicera Health Services is following new-to-therapy adalimumab patients to compare reference-product and biosimilar experience across satisfaction, symptom change, side effects, and adherence.
+        </p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag category">Retrospective cohort</li>
+          <li class="tag therapy">Adalimumab biosimilars</li>
+          <li class="tag therapy">Specialty pharmacy</li>
+          <li class="tag">Research in progress</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster details">
+        <div class="poster-code">AM24<br>55-OPR55-RP</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Study period</dt>
+            <dd>Oct 2023-Dec 2024</dd>
+          </div>
+          <div>
+            <dt>Poster year</dt>
+            <dd>2024</dd>
+          </div>
+          <div>
+            <dt>Subjects screened</dt>
+            <dd>353</dd>
+          </div>
+          <div>
+            <dt>Eligible cohort</dt>
+            <dd>241</dd>
+          </div>
+        </dl>
+        <p class="study-status">Primary outcomes are planned at 3 and 6 months after therapy initiation; the extracted poster reports baseline cohort composition.</p>
+        <svg viewBox="0 0 360 170" role="img" aria-label="Adalimumab cohort pathway from reference product to biosimilar comparison">
+          <defs>
+            <linearGradient id="adalimumabLine" x1="0" x2="1">
+              <stop offset="0" stop-color="#d12630"/>
+              <stop offset="0.5" stop-color="#e99e25"/>
+              <stop offset="1" stop-color="#187c8f"/>
+            </linearGradient>
+          </defs>
+          <path d="M42 122 C94 62 143 64 180 86 S257 130 318 50" fill="none" stroke="url(#adalimumabLine)" stroke-width="9" stroke-linecap="round"/>
+          <circle cx="48" cy="121" r="20" fill="#fff" stroke="#d12630" stroke-width="5"/>
+          <circle cx="180" cy="86" r="24" fill="#fff" stroke="#e99e25" stroke-width="5"/>
+          <circle cx="318" cy="50" r="20" fill="#fff" stroke="#187c8f" stroke-width="5"/>
+          <text x="48" y="155" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="13" font-weight="900">screen</text>
+          <text x="180" y="126" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="13" font-weight="900">enroll</text>
+          <text x="318" y="84" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="13" font-weight="900">compare</text>
+        </svg>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key poster numbers">
+        <article class="metric-card">
+          <span>Total subjects screened</span>
+          <strong>353</strong>
+        </article>
+        <article class="metric-card">
+          <span>Eligible for study</span>
+          <strong>68.3%</strong>
+        </article>
+        <article class="metric-card">
+          <span>Reference product group</span>
+          <strong>191</strong>
+        </article>
+        <article class="metric-card">
+          <span>Biosimilar group</span>
+          <strong>50</strong>
+        </article>
+      </section>
+
+      <section class="cohort-board" aria-label="Cohort eligibility and exposure mix">
+        <article class="funnel-panel">
+          <p class="section-label">Cohort funnel</p>
+          <h2>About two thirds of screened subjects met study eligibility.</h2>
+          <div class="funnel-stat">
+            <strong>241</strong>
+            <span>eligible new-to-therapy adalimumab patients out of 353 total screened subjects.</span>
+          </div>
+          <svg class="funnel-svg" viewBox="0 0 430 310" aria-hidden="true">
+            <defs>
+              <linearGradient id="funnelFill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#ffffff" stop-opacity="0.95"/>
+                <stop offset="1" stop-color="#e99e25" stop-opacity="0.76"/>
+              </linearGradient>
+            </defs>
+            <path d="M58 52h314L258 170v76l-86 34v-110L58 52z" fill="url(#funnelFill)"/>
+            <path d="M92 86h246M126 122h178M160 158h110" stroke="#243770" stroke-width="10" stroke-linecap="round" opacity="0.48"/>
+            <circle cx="332" cy="76" r="28" fill="#d12630" opacity="0.86"/>
+            <circle cx="95" cy="218" r="35" fill="#187c8f" opacity="0.65"/>
+          </svg>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Eligibility and treatment arms</p>
+          <h2>The analyzed cohort is reference-product heavy.</h2>
+          <div class="split-bars">
+            <div class="split-row">
+              <span>Eligible</span>
+              <div class="split-track" aria-label="Eligible 68.3 percent"><i style="width:68.3%;"></i></div>
+              <span>68.3%</span>
+            </div>
+            <div class="split-row alt">
+              <span>Ineligible</span>
+              <div class="split-track" aria-label="Ineligible 31.7 percent"><i style="width:31.7%;"></i></div>
+              <span>31.7%</span>
+            </div>
+            <div class="split-row">
+              <span>Reference product</span>
+              <div class="split-track" aria-label="Reference product 79.3 percent"><i style="width:79.3%;"></i></div>
+              <span>191 / 79.3%</span>
+            </div>
+            <div class="split-row alt">
+              <span>Biosimilar</span>
+              <div class="split-track" aria-label="Biosimilar 20.7 percent"><i style="width:20.7%;"></i></div>
+              <span>50 / 20.7%</span>
+            </div>
+          </div>
+          <p class="source-note">Eligible count is derived from the poster percentages applied to 353 screened subjects; treatment-arm counts sum to 241.</p>
+        </article>
+      </section>
+
+      <section class="panel" aria-label="Study design and endpoint timeline">
+        <p class="section-label">Evidence flow</p>
+        <h2>Telephonic assessments become comparative outcome snapshots at months 3 and 6.</h2>
+        <div class="endpoint-road">
+          <article class="endpoint-node">
+            <b>1</b>
+            <h3>Define new starts</h3>
+            <p>Adults with an FDA-approved indication, new to any adalimumab product, and enrolled in Lumicera's patient management workflow.</p>
+          </article>
+          <article class="endpoint-node">
+            <b>2</b>
+            <h3>Exclude switchers</h3>
+            <p>Patients restarting, continuing, pregnant or breastfeeding, under 18, or switching between products are excluded.</p>
+          </article>
+          <article class="endpoint-node">
+            <b>3</b>
+            <h3>Compare groups</h3>
+            <p>Reference-product patients are compared with patients prescribed one of ten FDA-approved adalimumab biosimilars.</p>
+          </article>
+          <article class="endpoint-node">
+            <b>4</b>
+            <h3>Measure outcomes</h3>
+            <p>Satisfaction, symptom trajectory, reported side effects, and proportion of days covered are assessed at 3 and 6 months.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="visual-grid" aria-label="Endpoints and product mix">
+        <article class="panel">
+          <p class="section-label">Outcome architecture</p>
+          <h2>Primary and secondary endpoints separate patient experience from refill behavior.</h2>
+          <div class="outcome-matrix">
+            <div class="outcome-tile">
+              <b>1-10</b>
+              <span>Patient satisfaction scale, grouped as not satisfied, neutral, or highly satisfied.</span>
+            </div>
+            <div class="outcome-tile">
+              <b>Better / same / worse</b>
+              <span>Self-assessed symptom change compared with symptoms 3 months prior.</span>
+            </div>
+            <div class="outcome-tile">
+              <b>Yes / no</b>
+              <span>Side effect reporting, with common categories including injection site reaction, infection, headache, fatigue, GI, and other.</span>
+            </div>
+            <div class="outcome-tile">
+              <b>PDC</b>
+              <span>Adherence measured through first 3 months, first 6 months, and months 4 through 6.</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Product pattern</p>
+          <h2>One biosimilar accounted for most biosimilar starts.</h2>
+          <div class="product-race">
+            <div class="product-row">
+              <span>Reference product</span>
+              <div class="product-track"><i style="width:79.3%;"></i></div>
+              <em>191</em>
+            </div>
+            <div class="product-row">
+              <span>Adalimumab-adaz</span>
+              <div class="product-track"><i style="width:14.9%;"></i></div>
+              <em>36</em>
+            </div>
+            <div class="product-row">
+              <span>Adalimumab-fkjp</span>
+              <div class="product-track"><i style="width:2.5%;"></i></div>
+              <em>6</em>
+            </div>
+            <div class="product-row">
+              <span>Adalimumab-bwwd</span>
+              <div class="product-track"><i style="width:2.1%;"></i></div>
+              <em>5</em>
+            </div>
+            <div class="product-row">
+              <span>Adalimumab-adbm</span>
+              <div class="product-track"><i style="width:0.8%; min-width:0.32rem;"></i></div>
+              <em>2</em>
+            </div>
+            <div class="product-row">
+              <span>Adalimumab-atto</span>
+              <div class="product-track"><i style="width:0.4%; min-width:0.28rem;"></i></div>
+              <em>1</em>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-stack" aria-label="Insurance and demographics">
+        <article class="panel">
+          <p class="section-label">Coverage mix</p>
+          <h2>Commercial and Medicaid coverage were nearly balanced.</h2>
+          <div class="lens-chart">
+            <div class="lens-row">
+              <span>Commercial</span>
+              <div class="lens-bar"><i style="width:46.5%;"></i></div>
+            </div>
+            <div class="lens-row">
+              <span>Medicaid</span>
+              <div class="lens-bar"><i style="width:44%;"></i></div>
+            </div>
+            <div class="lens-row">
+              <span>Medicare</span>
+              <div class="lens-bar"><i style="width:9.5%;"></i></div>
+            </div>
+          </div>
+          <div class="number-cloud" aria-label="Insurance counts">
+            <div class="number-pill">112<small>commercial</small></div>
+            <div class="number-pill">106<small>Medicaid</small></div>
+            <div class="number-pill">23<small>Medicare</small></div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Demographic note</p>
+          <h2>The extracted gender table appears internally inconsistent.</h2>
+          <div class="number-cloud" aria-label="Gender table counts">
+            <div class="number-pill">163<small>female row count</small></div>
+            <div class="number-pill">78<small>male row count</small></div>
+            <div class="number-pill">241<small>row total</small></div>
+          </div>
+          <div class="markdown-fragment">
+            <p>The markdown lists Female N=163 with 32.4% and Male N=78 with 67.6%; the counts imply the percentages may be transposed or extraction-imperfect.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel" aria-label="Diagnosis table pattern">
+        <p class="section-label">Diagnosis mix</p>
+        <h2>Rheumatoid arthritis represented the largest diagnosis subgroup.</h2>
+        <div class="diagnosis-cloud">
+          <div class="diagnosis-chip"><strong>95</strong><span>Rheumatoid arthritis / 39.4%</span></div>
+          <div class="diagnosis-chip"><strong>33</strong><span>Hidradenitis suppurativa / 13.7%</span></div>
+          <div class="diagnosis-chip"><strong>27</strong><span>Psoriatic arthritis / 11.2%</span></div>
+          <div class="diagnosis-chip"><strong>27</strong><span>Plaque psoriasis / 11.2%</span></div>
+          <div class="diagnosis-chip"><strong>22</strong><span>Ankylosing spondylitis / 9.1%</span></div>
+          <div class="diagnosis-chip"><strong>18</strong><span>Crohn's disease / 7.5%</span></div>
+          <div class="diagnosis-chip"><strong>13</strong><span>Ulcerative colitis / 5.4%</span></div>
+          <div class="diagnosis-chip"><strong>2</strong><span>Juvenile idiopathic arthritis / 0.8%</span></div>
+          <div class="diagnosis-chip"><strong>2</strong><span>PsA and plaque psoriasis / 0.8%</span></div>
+          <div class="diagnosis-chip"><strong>2</strong><span>Uveitis / 0.8%</span></div>
+        </div>
+      </section>
+
+      <section class="evidence-map" aria-label="Extracted poster takeaways">
+        <article class="evidence-card">
+          <h3>Objective</h3>
+          <p>Increase patient and provider confidence by comparing real-world outcomes for reference adalimumab and biosimilars.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Setting</h3>
+          <p>Lumicera is a mail-order specialty pharmacy serving more than 30,000 patients across the United States.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Design</h3>
+          <p>Retrospective cohort study using telephonically completed assessments embedded in standard pharmacy workflow.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Baseline signal</h3>
+          <p>Reference adalimumab patients outnumber biosimilar patients nearly four to one in the reported eligible cohort.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Conclusion frame</h3>
+          <p>The poster is still in progress, so the current evidence package is primarily cohort readiness and endpoint definition.</p>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Condensed tables">
+        <article class="table-card">
+          <p class="section-label">Condensed treatment table</p>
+          <h2>Study arms</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Group</th>
+                  <th>N</th>
+                  <th>Share</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Reference product</td>
+                  <td>191</td>
+                  <td>79.3%</td>
+                </tr>
+                <tr>
+                  <td>Any biosimilar</td>
+                  <td>50</td>
+                  <td>20.7%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Primary endpoints</p>
+          <h2>Planned comparisons</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Endpoint</th>
+                  <th>Assessment pattern</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Satisfaction</td>
+                  <td>10-point patient score, compared between groups.</td>
+                </tr>
+                <tr>
+                  <td>Symptoms</td>
+                  <td>Better, stayed the same, or worse versus 3 months prior.</td>
+                </tr>
+                <tr>
+                  <td>Side effects</td>
+                  <td>Yes/no reporting and common side-effect categories.</td>
+                </tr>
+                <tr>
+                  <td>Adherence</td>
+                  <td>PDC windows through months 3 and 6.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel takeaway-panel">
+        <p>
+          Working conclusion: this poster establishes a real-world specialty pharmacy cohort and follow-up framework for comparing adalimumab reference-product and biosimilar experience, with final clinical outcome interpretation pending study completion.
+        </p>
+      </section>
+    </main>
+
+    <footer class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/55-OPR55-RP-Poster-AM24_2024.pdf">Open original PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/55-OPR55-RP-Poster-AM24_2024.md">Read extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

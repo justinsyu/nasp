@@ -1,0 +1,661 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2024 Infographic | Denosumab versus Bisphosphonates</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-visual {
+      position: relative;
+      min-height: 21rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 76% 14%, rgba(233, 158, 37, 0.55), transparent 8.5rem),
+        linear-gradient(145deg, rgba(36, 55, 112, 0.97), rgba(24, 124, 143, 0.9));
+      color: #fff;
+      overflow: hidden;
+      padding: 1rem;
+    }
+    .hero-visual svg {
+      position: absolute;
+      right: -2.2rem;
+      bottom: -1.3rem;
+      width: min(24rem, 78%);
+      opacity: 0.52;
+    }
+    .hero-visual .kicker {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+    .hero-visual strong {
+      display: block;
+      max-width: 15rem;
+      margin-top: 0.2rem;
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      line-height: 0.92;
+    }
+    .hero-visual span {
+      display: block;
+      max-width: 18rem;
+      margin-top: 0.55rem;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.94rem;
+    }
+    .hero-card .button-link {
+      justify-content: center;
+      background: #fff;
+    }
+    .cohort-rail {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.58rem;
+      margin-top: 0.75rem;
+    }
+    .cohort-block {
+      min-height: 8.4rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.75rem;
+    }
+    .cohort-block b {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(1.45rem, 2.6vw, 2.3rem);
+      line-height: 1;
+    }
+    .cohort-block span {
+      display: block;
+      margin-top: 0.2rem;
+      color: var(--ink);
+      font-weight: 900;
+    }
+    .cohort-block small {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .method-flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+    .method-step {
+      position: relative;
+      min-height: 9rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.78rem;
+    }
+    .method-step::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -0.48rem;
+      width: 0.68rem;
+      height: 0.68rem;
+      border-top: 2px solid var(--border-strong);
+      border-right: 2px solid var(--border-strong);
+      background: #fff;
+      transform: translateY(-50%) rotate(45deg);
+    }
+    .method-step:last-child::after { display: none; }
+    .method-step b {
+      display: inline-grid;
+      place-items: center;
+      width: 1.65rem;
+      height: 1.65rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+    }
+    .method-step h3 {
+      margin-top: 0.46rem;
+      font-size: 0.92rem;
+    }
+    .method-step p {
+      margin: 0.35rem 0 0;
+      font-size: 0.78rem;
+    }
+    .risk-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 14rem;
+      gap: 1rem;
+      align-items: center;
+    }
+    .risk-grid {
+      display: grid;
+      gap: 0.48rem;
+      margin-top: 0.7rem;
+    }
+    .risk-row {
+      display: grid;
+      grid-template-columns: 8.6rem repeat(3, minmax(0, 1fr));
+      gap: 0.42rem;
+      align-items: stretch;
+    }
+    .risk-row.header {
+      color: var(--muted);
+      font-size: 0.67rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .risk-label {
+      display: flex;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 900;
+    }
+    .risk-cell {
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.43rem 0.5rem;
+    }
+    .risk-cell strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.08rem;
+      line-height: 1;
+    }
+    .risk-cell span {
+      display: block;
+      margin-top: 0.12rem;
+      color: var(--muted);
+      font-size: 0.66rem;
+      font-weight: 800;
+    }
+    .rr-compass {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--surface-blue);
+      padding: 0.8rem;
+      text-align: center;
+    }
+    .rr-compass svg {
+      width: 100%;
+      height: auto;
+    }
+    .rr-compass p {
+      margin: 0.45rem 0 0;
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-weight: 800;
+    }
+    .incidence-card svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-top: 0.55rem;
+    }
+    .legend-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.55rem;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 850;
+    }
+    .legend-row span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.32rem;
+    }
+    .legend-row i {
+      width: 0.85rem;
+      height: 0.35rem;
+      border-radius: 999px;
+      background: var(--legend-color, var(--red));
+    }
+    .delta-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.65rem;
+    }
+    .delta-card {
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: var(--surface-blue);
+      padding: 0.58rem;
+    }
+    .delta-card b {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+    .delta-card span {
+      color: var(--ink);
+      font-size: 0.75rem;
+      font-weight: 850;
+    }
+    .compact-list {
+      margin: 0.55rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .compact-list li {
+      display: grid;
+      grid-template-columns: 0.78rem minmax(0, 1fr);
+      gap: 0.42rem;
+      margin-top: 0.42rem;
+      font-size: 0.88rem;
+    }
+    .compact-list li::before {
+      content: "";
+      width: 0.52rem;
+      height: 0.52rem;
+      margin-top: 0.43rem;
+      border-radius: 50%;
+      background: var(--red);
+    }
+    .source-note {
+      margin: 0.75rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+    @media (max-width: 900px) {
+      .cohort-rail,
+      .method-flow {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .method-step::after { display: none; }
+      .risk-panel {
+        grid-template-columns: 1fr;
+      }
+      .risk-row {
+        grid-template-columns: 1fr;
+      }
+      .risk-row.header {
+        display: none;
+      }
+    }
+    @media (max-width: 560px) {
+      .cohort-rail,
+      .method-flow,
+      .delta-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="#top">NASP Poster Infographic</a>
+      <nav aria-label="Page sections">
+        <a href="#cohort">Cohort</a>
+        <a href="#results">Results</a>
+        <a href="#evidence">Evidence</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow">AM24 2024 | 58-OPR58-EN</p>
+        <h1>Denosumab showed lower fracture risk than second-line bisphosphonate therapy</h1>
+        <p class="hero-summary">
+          A U.S. Medicare comparative effectiveness study followed treatment-experienced postmenopausal women with osteoporosis after they switched to denosumab, another oral bisphosphonate, alendronate, or zoledronic acid.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag therapy">Osteoporosis</li>
+          <li class="tag category">Comparative effectiveness</li>
+          <li class="tag">Medicare fee-for-service</li>
+          <li class="tag">IPTW / IPTCW weighted</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div class="poster-code">OPR58</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Setting</dt>
+            <dd>U.S. Medicare</dd>
+          </div>
+          <div>
+            <dt>Index window</dt>
+            <dd>2012-2018</dd>
+          </div>
+          <div>
+            <dt>Follow-up</dt>
+            <dd>Up to 5 years</dd>
+          </div>
+          <div>
+            <dt>Therapy line</dt>
+            <dd>Second-line OP</dd>
+          </div>
+        </dl>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/58-OPR58-EN-Poster-AM24_2024.pdf">Open source PDF</a>
+      </aside>
+    </section>
+
+    <main>
+      <section class="visual-grid" aria-label="Core study signal">
+        <article class="hero-visual">
+          <p class="kicker">Largest signal at year 5</p>
+          <strong>31% lower MOP risk</strong>
+          <span>Denosumab versus oral bisphosphonates had a 5-year major osteoporotic fracture RR of 0.69 (95% CI, 0.61-0.76).</span>
+          <svg viewBox="0 0 420 300" role="img" aria-label="Abstract bone and shield motif">
+            <path d="M223 78c23-38 82-30 87 19 41-14 74 27 49 61 34 21 23 80-22 83-2 45-58 67-88 33-33 29-86 8-88-36-45-9-54-67-16-88-21-37 21-78 61-57 4-5 10-11 17-15z" fill="none" stroke="#ffffff" stroke-width="8"/>
+            <path d="M246 108v118M188 166h118" stroke="#ffffff" stroke-width="18" stroke-linecap="round"/>
+            <circle cx="86" cy="72" r="34" fill="#e99e25"/>
+            <circle cx="337" cy="69" r="16" fill="#ffffff"/>
+            <circle cx="70" cy="238" r="18" fill="#ffffff"/>
+          </svg>
+        </article>
+
+        <article class="panel" id="cohort">
+          <p class="section-label">Study population before weighting</p>
+          <h2>Four large treatment-experienced cohorts were compared</h2>
+          <div class="cohort-rail">
+            <div class="cohort-block">
+              <b>109,061</b>
+              <span>Denosumab</span>
+              <small>New Dmab users</small>
+            </div>
+            <div class="cohort-block">
+              <b>53,864</b>
+              <span>Alendronate</span>
+              <small>Aln comparator</small>
+            </div>
+            <div class="cohort-block">
+              <b>101,684</b>
+              <span>Oral BP</span>
+              <small>Aln, ibandronate, risedronate</small>
+            </div>
+            <div class="cohort-block">
+              <b>35,563</b>
+              <span>Zoledronic acid</span>
+              <small>ZA comparator</small>
+            </div>
+          </div>
+          <ul class="compact-list">
+            <li>Patients were Medicare fee-for-service beneficiaries at least 66 years old with prior oral bisphosphonate exposure.</li>
+            <li>Denosumab users started with higher observed fracture risk, more comorbidity, more medication use, and longer prior oral BP exposure than most comparators.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="metric-strip" aria-label="Key study metrics">
+        <article class="metric-card">
+          <span>Baseline variables</span>
+          <strong>118</strong>
+          <p class="source-note">Balanced after IPTW.</p>
+        </article>
+        <article class="metric-card">
+          <span>Pre-index window</span>
+          <strong>455</strong>
+          <p class="source-note">Days for most covariates.</p>
+        </article>
+        <article class="metric-card">
+          <span>Mean Dmab follow-up</span>
+          <strong>1.7</strong>
+          <p class="source-note">Years on average.</p>
+        </article>
+        <article class="metric-card">
+          <span>Max follow-up</span>
+          <strong>5</strong>
+          <p class="source-note">Years post index date.</p>
+        </article>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Evidence flow</p>
+        <h2>Claims-based design converted treatment switching into fracture-outcome comparisons</h2>
+        <div class="method-flow">
+          <div class="method-step">
+            <b>1</b>
+            <h3>Identify switchers</h3>
+            <p>Prior oral BP users newly initiated denosumab, a different oral BP, alendronate, or ZA.</p>
+          </div>
+          <div class="method-step">
+            <b>2</b>
+            <h3>Define outcomes</h3>
+            <p>MOP, hip, nonvertebral, non-hip nonvertebral, and hospitalized vertebral fractures.</p>
+          </div>
+          <div class="method-step">
+            <b>3</b>
+            <h3>Weight cohorts</h3>
+            <p>IPTW balanced demographics, comorbidities, medication use, utilization, and fracture history.</p>
+          </div>
+          <div class="method-step">
+            <b>4</b>
+            <h3>Handle censoring</h3>
+            <p>Doubly robust IPTCW estimated relative risk at 1, 2, 3, and 5 years.</p>
+          </div>
+          <div class="method-step">
+            <b>5</b>
+            <h3>Interpret duration</h3>
+            <p>Risk reductions generally grew larger with longer denosumab exposure.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="visual-grid" id="results">
+        <article class="panel risk-panel">
+          <div>
+            <p class="section-label">Five-year fracture relative risks</p>
+            <h2>Denosumab favored across fracture outcomes at longer follow-up</h2>
+            <div class="risk-grid" aria-label="Five-year relative risks comparing denosumab with comparators">
+              <div class="risk-row header">
+                <span>Outcome</span>
+                <span>vs Aln</span>
+                <span>vs Oral BP</span>
+                <span>vs ZA</span>
+              </div>
+              <div class="risk-row">
+                <div class="risk-label">MOP</div>
+                <div class="risk-cell"><strong>0.75</strong><span>95% CI 0.67-0.82</span></div>
+                <div class="risk-cell"><strong>0.69</strong><span>95% CI 0.61-0.76</span></div>
+                <div class="risk-cell"><strong>0.69</strong><span>95% CI 0.57-0.82</span></div>
+              </div>
+              <div class="risk-row">
+                <div class="risk-label">Hip</div>
+                <div class="risk-cell"><strong>0.63</strong><span>95% CI 0.51-0.75</span></div>
+                <div class="risk-cell"><strong>0.55</strong><span>95% CI 0.42-0.68</span></div>
+                <div class="risk-cell"><strong>0.62</strong><span>95% CI 0.32-0.91</span></div>
+              </div>
+              <div class="risk-row">
+                <div class="risk-label">Nonvertebral</div>
+                <div class="risk-cell"><strong>0.72</strong><span>95% CI 0.64-0.81</span></div>
+                <div class="risk-cell"><strong>0.67</strong><span>95% CI 0.58-0.76</span></div>
+                <div class="risk-cell"><strong>0.69</strong><span>95% CI 0.53-0.85</span></div>
+              </div>
+              <div class="risk-row">
+                <div class="risk-label">NHNV</div>
+                <div class="risk-cell"><strong>0.74</strong><span>95% CI 0.64-0.85</span></div>
+                <div class="risk-cell"><strong>0.74</strong><span>95% CI 0.66-0.83</span></div>
+                <div class="risk-cell"><strong>0.62</strong><span>95% CI 0.44-0.81</span></div>
+              </div>
+              <div class="risk-row">
+                <div class="risk-label">Hosp. vertebral</div>
+                <div class="risk-cell"><strong>0.77</strong><span>95% CI 0.59-0.95</span></div>
+                <div class="risk-cell"><strong>0.63</strong><span>95% CI 0.49-0.77</span></div>
+                <div class="risk-cell"><strong>0.67</strong><span>95% CI 0.50-0.84</span></div>
+              </div>
+            </div>
+          </div>
+          <aside class="rr-compass">
+            <svg viewBox="0 0 220 190" role="img" aria-label="Relative risk scale showing values below 1 favor denosumab">
+              <line x1="28" y1="104" x2="192" y2="104" stroke="#aebbd2" stroke-width="3"/>
+              <line x1="110" y1="42" x2="110" y2="154" stroke="#d12630" stroke-width="3"/>
+              <text x="110" y="31" text-anchor="middle" fill="#d12630" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="900">RR = 1.00</text>
+              <text x="48" y="131" text-anchor="middle" fill="#243770" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="900">Favors</text>
+              <text x="48" y="146" text-anchor="middle" fill="#243770" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="900">Dmab</text>
+              <text x="174" y="131" text-anchor="middle" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="900">Favors</text>
+              <text x="174" y="146" text-anchor="middle" fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="900">BP / ZA</text>
+              <circle cx="48" cy="104" r="11" fill="#187c8f"/>
+              <circle cx="57" cy="104" r="9" fill="#4d8a67"/>
+              <circle cx="68" cy="104" r="8" fill="#e99e25"/>
+              <circle cx="75" cy="104" r="7" fill="#7561a8"/>
+            </svg>
+            <p>All displayed 5-year estimates are below 1.00 after IPTW weighting and 1% trim.</p>
+          </aside>
+        </article>
+
+        <article class="panel incidence-card">
+          <p class="section-label">Cumulative incidence pattern</p>
+          <h2>Major osteoporotic fracture curves separated over time</h2>
+          <svg viewBox="0 0 620 330" role="img" aria-label="Cumulative incidence of major osteoporotic fracture by follow-up year">
+            <rect x="0" y="0" width="620" height="330" rx="8" fill="#ffffff"/>
+            <line x1="58" y1="252" x2="560" y2="252" stroke="#aebbd2" stroke-width="1.5"/>
+            <line x1="58" y1="62" x2="58" y2="252" stroke="#aebbd2" stroke-width="1.5"/>
+            <g fill="#68758d" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800">
+              <text x="47" y="256" text-anchor="end">0</text>
+              <text x="47" y="188" text-anchor="end">5%</text>
+              <text x="47" y="120" text-anchor="end">10%</text>
+              <text x="47" y="52" text-anchor="end">14%</text>
+              <text x="58" y="278" text-anchor="middle">0</text>
+              <text x="158" y="278" text-anchor="middle">1</text>
+              <text x="258" y="278" text-anchor="middle">2</text>
+              <text x="358" y="278" text-anchor="middle">3</text>
+              <text x="458" y="278" text-anchor="middle">4</text>
+              <text x="558" y="278" text-anchor="middle">5 years</text>
+            </g>
+            <g stroke="#d9e1ef" stroke-width="1">
+              <line x1="58" y1="184" x2="560" y2="184"/>
+              <line x1="58" y1="116" x2="560" y2="116"/>
+              <line x1="58" y1="48" x2="560" y2="48"/>
+            </g>
+            <polyline points="58,252 158,208.6 258,178.8 358,147.7 458,120.4 558,86.4" fill="none" stroke="#d12630" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <polyline points="58,252 158,209.9 258,169.3 358,130.0 458,100.3 558,74.1" fill="none" stroke="#e99e25" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <polyline points="58,252 158,204.5 258,163.8 358,130.0 458,111.1 558,87.7" fill="none" stroke="#7561a8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <polyline points="58,252 158,208.6 258,178.8 358,155.8 458,138.1 558,123.2" fill="none" stroke="#187c8f" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <g fill="#187c8f">
+              <circle cx="158" cy="208.6" r="4"/><circle cx="258" cy="178.8" r="4"/><circle cx="358" cy="155.8" r="4"/><circle cx="458" cy="138.1" r="4"/><circle cx="558" cy="123.2" r="4"/>
+            </g>
+            <g fill="#d12630">
+              <circle cx="158" cy="208.6" r="3.5"/><circle cx="258" cy="178.8" r="3.5"/><circle cx="358" cy="147.7" r="3.5"/><circle cx="458" cy="120.4" r="3.5"/><circle cx="558" cy="86.4" r="3.5"/>
+            </g>
+          </svg>
+          <div class="legend-row" aria-label="Incidence chart legend">
+            <span><i style="--legend-color: var(--teal);"></i>Denosumab</span>
+            <span><i style="--legend-color: var(--red);"></i>Oral BP</span>
+            <span><i style="--legend-color: var(--gold);"></i>Alendronate</span>
+            <span><i style="--legend-color: var(--purple);"></i>ZA</span>
+          </div>
+          <div class="delta-grid">
+            <div class="delta-card"><b>2.7 pts</b><span>Lower 5-year MOP incidence vs Aln</span></div>
+            <div class="delta-card"><b>3.6 pts</b><span>Lower 5-year MOP incidence vs oral BP</span></div>
+            <div class="delta-card"><b>2.3 pts</b><span>Lower 5-year MOP incidence vs ZA</span></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="evidence-map" id="evidence" aria-label="Extracted poster takeaways">
+        <article class="evidence-card">
+          <h3>Objective</h3>
+          <p>Assess comparative effectiveness of denosumab versus bisphosphonates on fracture outcomes among treatment-experienced postmenopausal women.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Methods</h3>
+          <p>Follow-up began at second-line initiation and ended at fracture, discontinuation, switch, disenrollment, death, data end, or 5 years.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Balance</h3>
+          <p>Most characteristics were initially balanced, but denosumab patients were higher risk; all variables balanced after IPTW.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Results</h3>
+          <p>Risk reductions were observed for hip, nonvertebral, non-hip nonvertebral, hospitalized vertebral, and MOP fractures.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Conclusion</h3>
+          <p>Longer denosumab exposure was associated with greater fracture risk reduction in this second-line osteoporosis setting.</p>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Condensed source table patterns">
+        <article class="table-card">
+          <p class="section-label">Baseline table pattern</p>
+          <h2>Denosumab users looked clinically more vulnerable before weighting</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Characteristic</th>
+                  <th>Dmab</th>
+                  <th>Aln</th>
+                  <th>Oral BP</th>
+                  <th>ZA</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Mean age</td>
+                  <td>77.3</td>
+                  <td>77.2</td>
+                  <td>76.6</td>
+                  <td>76.1</td>
+                </tr>
+                <tr>
+                  <td>History of OP fracture</td>
+                  <td>26.7%</td>
+                  <td>20.1%</td>
+                  <td>19.0%</td>
+                  <td>24.7%</td>
+                </tr>
+                <tr>
+                  <td>Vitamin D deficiency</td>
+                  <td>23.4%</td>
+                  <td>16.8%</td>
+                  <td>17.1%</td>
+                  <td>22.3%</td>
+                </tr>
+                <tr>
+                  <td>Mean prior oral BP days</td>
+                  <td>901</td>
+                  <td>824</td>
+                  <td>761</td>
+                  <td>685</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Interpretation guardrails</p>
+          <h2>Strengths and limitations shaped the inference</h2>
+          <div class="markdown-fragment">
+            <ul>
+              <li>Strengths included large scale, negative-control gating to reduce unmeasured confounding, and a validated claims-based incident fracture algorithm.</li>
+              <li>Residual confounding could not be ruled out because some risk factors, including BMD for the entire cohort, were missing.</li>
+              <li>Hospitalized vertebral fracture findings may not generalize to all vertebral fractures because many are asymptomatic and difficult to capture in claims.</li>
+            </ul>
+            <p class="source-note">Study funded by Amgen; several authors were Amgen employees or equity holders, as disclosed on the poster.</p>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/58-OPR58-EN-Poster-AM24_2024.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/58-OPR58-EN-Poster-AM24_2024.md">Source markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

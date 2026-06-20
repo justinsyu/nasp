@@ -1,0 +1,662 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OPR39-OR Poster AM25 2025 | Adalimumab Biosimilar Conversion</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .biosimilar-hero {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .biosimilar-hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -5rem -6rem auto;
+      width: 21rem;
+      height: 21rem;
+      border: 2.5rem solid rgba(24, 124, 143, 0.1);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .conversion-card {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 84% 12%, rgba(233, 158, 37, 0.18), transparent 7rem),
+        linear-gradient(145deg, var(--surface-blue), #fff 54%, var(--surface-warm));
+    }
+
+    .conversion-card svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .conversion-ring-label {
+      display: grid;
+      place-items: center;
+      min-height: 6.8rem;
+      border: 1px solid rgba(174, 187, 210, 0.75);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.78);
+      text-align: center;
+    }
+
+    .conversion-ring-label strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(2.7rem, 6vw, 4.8rem);
+      line-height: 0.9;
+    }
+
+    .conversion-ring-label span {
+      display: block;
+      max-width: 15rem;
+      margin: 0.4rem auto 0;
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 850;
+      line-height: 1.28;
+    }
+
+    .metric-card b {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--body);
+      font-size: 0.78rem;
+      font-weight: 750;
+      line-height: 1.35;
+    }
+
+    .patient-flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.8rem;
+    }
+
+    .flow-step {
+      position: relative;
+      min-height: 9.2rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.75rem;
+    }
+
+    .flow-step::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -0.5rem;
+      width: 0.72rem;
+      height: 0.72rem;
+      border-top: 2px solid var(--border-strong);
+      border-right: 2px solid var(--border-strong);
+      background: #fff;
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    .flow-step:last-child::after {
+      display: none;
+    }
+
+    .flow-step span {
+      display: inline-grid;
+      place-items: center;
+      width: 1.55rem;
+      height: 1.55rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.76rem;
+      font-weight: 900;
+    }
+
+    .flow-step strong {
+      display: block;
+      margin-top: 0.55rem;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(1.7rem, 4vw, 2.75rem);
+      line-height: 0.95;
+    }
+
+    .flow-step p {
+      margin: 0.42rem 0 0;
+      font-size: 0.78rem;
+      line-height: 1.35;
+    }
+
+    .stage-board {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 0.65rem;
+    }
+
+    .stage-row {
+      display: grid;
+      grid-template-columns: 9.8rem minmax(0, 1fr);
+      gap: 0.7rem;
+      align-items: center;
+    }
+
+    .stage-row h3 {
+      font-size: 0.93rem;
+    }
+
+    .stage-row small {
+      display: block;
+      margin-top: 0.12rem;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 850;
+    }
+
+    .stacked-bar {
+      display: flex;
+      height: 2.15rem;
+      overflow: hidden;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 999px;
+      background: #edf2f8;
+    }
+
+    .stacked-bar i {
+      display: grid;
+      place-items: center;
+      min-width: 1.8rem;
+      height: 100%;
+      color: #fff;
+      font-style: normal;
+      font-size: 0.72rem;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .seg-noswitch { background: var(--border-strong); color: var(--ink) !important; }
+    .seg-originator { background: var(--purple); }
+    .seg-biosimilar { background: var(--teal); }
+    .seg-alt { background: var(--gold); color: var(--ink) !important; }
+
+    .legend-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 0.7rem;
+      padding: 0;
+      list-style: none;
+    }
+
+    .legend-strip li {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 800;
+    }
+
+    .legend-strip i {
+      width: 0.72rem;
+      height: 0.72rem;
+      border-radius: 3px;
+      background: var(--legend-color, var(--teal));
+    }
+
+    .bar-panel {
+      display: grid;
+      gap: 0.52rem;
+      margin-top: 0.72rem;
+    }
+
+    .rank-row {
+      display: grid;
+      grid-template-columns: 7.6rem minmax(0, 1fr) 3.2rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+
+    .rank-row em {
+      color: var(--muted);
+      font-style: normal;
+      text-align: right;
+    }
+
+    .rank-track {
+      height: 0.82rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+
+    .rank-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .rank-track.drug i {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .takeaway-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 0.8rem;
+    }
+
+    .takeaway-primary {
+      display: grid;
+      align-content: center;
+      min-height: 13rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(36, 55, 112, 0.97), rgba(24, 124, 143, 0.9)),
+        radial-gradient(circle at 88% 16%, rgba(233, 158, 37, 0.36), transparent 14rem);
+      color: #fff;
+      padding: 1.1rem;
+    }
+
+    .takeaway-primary span {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .takeaway-primary strong {
+      display: block;
+      margin-top: 0.42rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3vw, 2.45rem);
+      line-height: 1.08;
+    }
+
+    .takeaway-primary p {
+      max-width: 44rem;
+      margin: 0.72rem 0 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.92rem;
+    }
+
+    .takeaway-list {
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .source-note {
+      margin: 0.75rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 900px) {
+      .patient-flow,
+      .takeaway-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .flow-step::after {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .stage-row,
+      .rank-row {
+        grid-template-columns: 1fr;
+      }
+
+      .rank-row em {
+        text-align: left;
+      }
+
+      .stacked-bar {
+        height: auto;
+        min-height: 2.15rem;
+        border-radius: 8px;
+      }
+
+      .stacked-bar i {
+        min-height: 2.15rem;
+        font-size: 0.66rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#overview">Overview</a>
+        <a href="#results">Results</a>
+        <a href="#patterns">Patterns</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero biosimilar-hero" id="overview">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2025 | OPR39-OR | Poster 1188</p>
+        <h1>Real-world insights on biosimilar conversion following adalimumab originator formulary exclusion</h1>
+        <p class="hero-summary">A single-center retrospective cohort at Optum Specialty Pharmacy tracked treatment-experienced patients affected by adalimumab originator product formulary exclusion across April 2024 to February 2025.</p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Formulary management</li>
+          <li class="tag therapy">Adalimumab</li>
+          <li class="tag therapy">Biosimilars</li>
+          <li class="tag">Retrospective cohort</li>
+          <li class="tag">Specialty pharmacy</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card conversion-card" aria-label="Headline conversion result">
+        <div class="poster-code">1188<br>OPR39-OR</div>
+        <div class="conversion-ring-label">
+          <div>
+            <strong>85%</strong>
+            <span>Primary conversion from originator adalimumab to a biosimilar</span>
+          </div>
+        </div>
+        <svg viewBox="0 0 360 180" role="img" aria-label="Stylized conversion ring showing most patients moved to biosimilar therapy">
+          <defs>
+            <linearGradient id="switchGradient" x1="0" x2="1" y1="0" y2="0">
+              <stop offset="0" stop-color="#187c8f"></stop>
+              <stop offset="1" stop-color="#4d8a67"></stop>
+            </linearGradient>
+          </defs>
+          <path d="M50 116 C94 32 193 15 264 66" fill="none" stroke="#d9e1ef" stroke-width="22" stroke-linecap="round"></path>
+          <path d="M50 116 C94 32 193 15 264 66" fill="none" stroke="url(#switchGradient)" stroke-width="22" stroke-linecap="round" stroke-dasharray="236 42"></path>
+          <path d="M264 66 L307 72 L280 106 Z" fill="#187c8f"></path>
+          <circle cx="50" cy="116" r="24" fill="#243770"></circle>
+          <circle cx="264" cy="66" r="24" fill="#d12630"></circle>
+          <text x="50" y="121" text-anchor="middle" fill="#fff" font-size="16" font-weight="800">600</text>
+          <text x="264" y="71" text-anchor="middle" fill="#fff" font-size="16" font-weight="800">510</text>
+          <text x="36" y="165" fill="#68758d" font-size="13" font-weight="700">evaluable patients</text>
+          <text x="210" y="33" fill="#68758d" font-size="13" font-weight="700">primary biosimilar switch</text>
+        </svg>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key metrics">
+        <article class="metric-card">
+          <span>Evaluable cohort</span>
+          <strong>600</strong>
+          <b>Patients with dispense data available during the April 2024 to February 2025 analysis window.</b>
+        </article>
+        <article class="metric-card">
+          <span>Switched therapy</span>
+          <strong>564</strong>
+          <b>Patients converted to a biosimilar or non-biosimilar alternative after formulary exclusion.</b>
+        </article>
+        <article class="metric-card">
+          <span>Stayed on originator</span>
+          <strong>6%</strong>
+          <b>Primary conversion table reported 36 of 600 patients as did not switch.</b>
+        </article>
+        <article class="metric-card">
+          <span>Reversion signal</span>
+          <strong>3.4%</strong>
+          <b>Combined primary and secondary conversions reverting to adalimumab originator product.</b>
+        </article>
+      </section>
+
+      <section class="visual-grid" aria-label="Objective and method">
+        <article class="panel markdown-fragment">
+          <p class="section-label">Objective</p>
+          <h2>Measure conversion after removing originator adalimumab from formulary access.</h2>
+          <p>The primary endpoint evaluated the rate of biosimilar conversion associated with formulary exclusion of the adalimumab originator product.</p>
+          <p>The secondary endpoint stratified non-biosimilar conversions by diagnosis and drug class to identify actionable trends.</p>
+        </article>
+
+        <article class="panel markdown-fragment">
+          <p class="section-label">Methods lens</p>
+          <h2>Patients were followed for up to 9 months after their first therapy conversion.</h2>
+          <p>Patients previously receiving originator adalimumab were included if active insurance was maintained throughout follow-up. Dispensing records from a national specialty pharmacy prescription database supplied the analysis data.</p>
+          <div class="number-cloud" aria-label="Study design details">
+            <div class="number-pill">1<small>center</small></div>
+            <div class="number-pill">9 mo<small>follow-up</small></div>
+            <div class="number-pill">Apr 2024<small>start</small></div>
+            <div class="number-pill">Feb 2025<small>end</small></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel" aria-label="Patient waterfall">
+        <p class="section-label">Patient waterfall</p>
+        <h2>From program eligibility to observed switch outcome</h2>
+        <div class="patient-flow">
+          <article class="flow-step">
+            <span>1</span>
+            <strong>687</strong>
+            <p>Patients identified as program eligible.</p>
+          </article>
+          <article class="flow-step">
+            <span>2</span>
+            <strong>634</strong>
+            <p>Patients with active insurance during the study period.</p>
+          </article>
+          <article class="flow-step">
+            <span>3</span>
+            <strong>600</strong>
+            <p>Patients with dispense data available for analysis.</p>
+          </article>
+          <article class="flow-step">
+            <span>4</span>
+            <strong>564</strong>
+            <p>Patients who switched to another therapy pathway.</p>
+          </article>
+          <article class="flow-step">
+            <span>5</span>
+            <strong>36</strong>
+            <p>Patients who did not switch from originator therapy.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="visual-grid" id="results" aria-label="Conversion rates">
+        <article class="panel">
+          <p class="section-label">Conversion stages</p>
+          <h2>Biosimilar uptake remained dominant across conversion waves.</h2>
+          <div class="stage-board">
+            <div class="stage-row">
+              <div>
+                <h3>Primary conversion</h3>
+                <small>N=600</small>
+              </div>
+              <div class="stacked-bar" aria-label="Primary conversion: 6 percent did not switch, 85 percent biosimilar, 9 percent non-biosimilar alternative">
+                <i class="seg-noswitch" style="width: 6%;">6%</i>
+                <i class="seg-biosimilar" style="width: 85%;">85%</i>
+                <i class="seg-alt" style="width: 9%;">9%</i>
+              </div>
+            </div>
+            <div class="stage-row">
+              <div>
+                <h3>Secondary conversion</h3>
+                <small>N=564</small>
+              </div>
+              <div class="stacked-bar" aria-label="Secondary conversion: 3 percent originator, 86 percent biosimilar, 10 percent non-biosimilar alternative">
+                <i class="seg-originator" style="width: 3%;">3%</i>
+                <i class="seg-biosimilar" style="width: 86%;">86%</i>
+                <i class="seg-alt" style="width: 10%;">10%</i>
+              </div>
+            </div>
+            <div class="stage-row">
+              <div>
+                <h3>Tertiary conversion</h3>
+                <small>N=80</small>
+              </div>
+              <div class="stacked-bar" aria-label="Tertiary conversion: 3 percent originator, 94 percent biosimilar, 3 percent non-biosimilar alternative">
+                <i class="seg-originator" style="width: 3%;">3%</i>
+                <i class="seg-biosimilar" style="width: 94%;">94%</i>
+                <i class="seg-alt" style="width: 3%;">3%</i>
+              </div>
+            </div>
+          </div>
+          <ul class="legend-strip" aria-label="Conversion legend">
+            <li><i style="--legend-color: var(--border-strong);"></i>Did not switch</li>
+            <li><i style="--legend-color: var(--purple);"></i>Originator product</li>
+            <li><i style="--legend-color: var(--teal);"></i>Biosimilar</li>
+            <li><i style="--legend-color: var(--gold);"></i>Non-biosimilar alternative</li>
+          </ul>
+        </article>
+
+        <article class="panel markdown-fragment">
+          <p class="section-label">Result signal</p>
+          <h2>Formulary exclusion produced high biosimilar conversion with low observed reversion.</h2>
+          <p>In the primary conversion stage, 85% of patients converted from originator adalimumab to a biosimilar, while 9% moved to a non-biosimilar alternative and 6% did not switch.</p>
+          <p>Across later conversion stages, biosimilars continued to account for the large majority of observed therapy pathways: 86% in secondary conversion and 94% in tertiary conversion.</p>
+          <div class="number-cloud">
+            <div class="number-pill">3.4%<small>reversion</small></div>
+            <div class="number-pill">94%<small>tertiary biosimilar</small></div>
+            <div class="number-pill">55<small>primary alternatives</small></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="evidence-map" aria-label="Evidence flow">
+        <article class="evidence-card">
+          <h3>1. Formulary trigger</h3>
+          <p>Originator adalimumab was excluded from formulary access for affected patients.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>2. Eligible cohort</h3>
+          <p>Patients were required to maintain active insurance through the follow-up period.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>3. Dispense evidence</h3>
+          <p>Prescription database records identified conversion status from April 2024 to February 2025.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>4. Conversion tracking</h3>
+          <p>Patients were categorized as biosimilar, originator, non-biosimilar alternative, or no switch.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>5. Policy implication</h3>
+          <p>Results support formulary strategies aimed at increasing biosimilar uptake and reducing specialty drug costs.</p>
+        </article>
+      </section>
+
+      <section class="visual-grid" id="patterns" aria-label="Non-biosimilar alternative trends">
+        <article class="panel">
+          <p class="section-label">Primary conversion alternatives | N=55</p>
+          <h2>Non-biosimilar alternatives clustered in inflammatory disease indications.</h2>
+          <div class="bar-panel">
+            <div class="rank-row"><span>PsA</span><div class="rank-track"><i style="width: 100%;"></i></div><em>24%</em></div>
+            <div class="rank-row"><span>HS</span><div class="rank-track"><i style="width: 83%;"></i></div><em>20%</em></div>
+            <div class="rank-row"><span>Psoriasis</span><div class="rank-track"><i style="width: 75%;"></i></div><em>18%</em></div>
+            <div class="rank-row"><span>RA</span><div class="rank-track"><i style="width: 67%;"></i></div><em>16%</em></div>
+            <div class="rank-row"><span>CD</span><div class="rank-track"><i style="width: 54%;"></i></div><em>13%</em></div>
+            <div class="rank-row"><span>AS</span><div class="rank-track"><i style="width: 21%;"></i></div><em>5%</em></div>
+            <div class="rank-row"><span>UC</span><div class="rank-track"><i style="width: 8%;"></i></div><em>2%</em></div>
+            <div class="rank-row"><span>Unknown</span><div class="rank-track"><i style="width: 8%;"></i></div><em>2%</em></div>
+          </div>
+          <p class="source-note">PsA=psoriatic arthritis; HS=hidradenitis suppurativa; RA=rheumatoid arthritis; CD=Crohn's disease; AS=ankylosing spondylitis; UC=ulcerative colitis.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Alternative drug classes</p>
+          <h2>TNF-alpha and IL-17 alternatives were the most common non-biosimilar classes.</h2>
+          <div class="bar-panel">
+            <div class="rank-row"><span>TNF-alpha</span><div class="rank-track drug"><i style="width: 100%;"></i></div><em>25%</em></div>
+            <div class="rank-row"><span>IL-17</span><div class="rank-track drug"><i style="width: 100%;"></i></div><em>25%</em></div>
+            <div class="rank-row"><span>IL-23</span><div class="rank-track drug"><i style="width: 88%;"></i></div><em>22%</em></div>
+            <div class="rank-row"><span>JAK</span><div class="rank-track drug"><i style="width: 64%;"></i></div><em>16%</em></div>
+            <div class="rank-row"><span>PDE4</span><div class="rank-track drug"><i style="width: 16%;"></i></div><em>4%</em></div>
+            <div class="rank-row"><span>IL-12/23</span><div class="rank-track drug"><i style="width: 16%;"></i></div><em>4%</em></div>
+            <div class="rank-row"><span>T cell</span><div class="rank-track drug"><i style="width: 8%;"></i></div><em>2%</em></div>
+            <div class="rank-row"><span>TYK2</span><div class="rank-track drug"><i style="width: 8%;"></i></div><em>2%</em></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="takeaway-grid" aria-label="Discussion and conclusion">
+        <article class="takeaway-primary">
+          <span>Conclusion</span>
+          <strong>Formulary management can drive broad adalimumab biosimilar uptake while preserving a pathway for clinically appropriate alternatives.</strong>
+          <p>The poster authors conclude that the findings support continued use of formulary management strategies to optimize biosimilar adoption and inform broader managed care and policy decisions.</p>
+        </article>
+        <div class="takeaway-list">
+          <article class="panel markdown-fragment">
+            <h3>Limitations</h3>
+            <p>Results came from a single large national specialty pharmacy, relied on dispensing records, and did not assess disease activity, adverse events, or longer-term discontinuation.</p>
+          </article>
+          <article class="panel markdown-fragment">
+            <h3>Future consideration</h3>
+            <p>Further research is planned to assess longer-term clinical outcomes and sustained cost savings.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="tables-grid" aria-label="Extracted result tables">
+        <article class="table-card">
+          <p class="section-label">Patient waterfall</p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Step</th>
+                  <th>Count</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Patients identified as program eligible</td><td>687</td></tr>
+                <tr><td>Active insurance during study period</td><td>634</td></tr>
+                <tr><td>Dispense data available between April 2024 and February 2025</td><td>600</td></tr>
+                <tr><td>Switched</td><td>564</td></tr>
+                <tr><td>Did not switch</td><td>36</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Conversion rates</p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Stage</th>
+                  <th>N</th>
+                  <th>Biosimilar</th>
+                  <th>Alternative</th>
+                  <th>Originator / no switch</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Primary conversion</td><td>600</td><td>85%</td><td>9%</td><td>6% did not switch</td></tr>
+                <tr><td>Secondary conversion</td><td>564</td><td>86%</td><td>10%</td><td>3% originator</td></tr>
+                <tr><td>Tertiary conversion</td><td>80</td><td>94%</td><td>3%</td><td>3% originator</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <footer id="sources" class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/1188-OPR39-OR-Poster-AM25_2025.pdf">View source PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/1188-OPR39-OR-Poster-AM25_2025.md">View extracted markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

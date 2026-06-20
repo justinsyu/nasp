@@ -1,0 +1,738 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Multiple Switching Between Biosimilar and Reference Adalimumab | NASP 2023</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .switch-hero-art {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 18% 22%, rgba(24, 124, 143, 0.2), transparent 7rem),
+        radial-gradient(circle at 82% 82%, rgba(209, 38, 48, 0.13), transparent 8rem),
+        linear-gradient(140deg, #fff, var(--surface-blue) 58%, var(--surface-warm));
+      padding: 0.7rem;
+    }
+
+    .switch-hero-art svg,
+    .equivalence-plot svg,
+    .profile-card svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .hero-copy,
+    .hero-summary,
+    #poster-title {
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+
+    #poster-title {
+      hyphens: auto;
+    }
+
+    .verdict {
+      margin: 0;
+      border-left: 4px solid var(--teal);
+      padding-left: 0.72rem;
+      color: var(--ink);
+      font-size: 0.94rem;
+      font-weight: 850;
+    }
+
+    .hero-card .button-link {
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    .timeline-band {
+      display: grid;
+      grid-template-columns: minmax(16rem, 0.8fr) minmax(0, 1.2fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .big-result {
+      display: grid;
+      align-content: center;
+      min-height: 15rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(36, 55, 112, 0.96), rgba(24, 124, 143, 0.92)),
+        var(--ink);
+      padding: 1.1rem;
+      color: #fff;
+    }
+
+    .big-result span {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .big-result strong {
+      margin-top: 0.3rem;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(3.3rem, 8vw, 6rem);
+      line-height: 0.88;
+    }
+
+    .big-result p {
+      margin: 0.7rem 0 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.95rem;
+    }
+
+    .switch-timeline {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 0.85rem;
+    }
+
+    .timeline-row {
+      display: grid;
+      grid-template-columns: 5rem repeat(4, minmax(0, 1fr));
+      gap: 0.45rem;
+      align-items: stretch;
+    }
+
+    .timeline-label {
+      display: grid;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+
+    .period {
+      min-height: 4.2rem;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 7px;
+      background: #fff;
+      padding: 0.55rem;
+    }
+
+    .period b,
+    .period span {
+      display: block;
+    }
+
+    .period b {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      line-height: 1.15;
+    }
+
+    .period span {
+      margin-top: 0.26rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    .period.ref { border-top: 5px solid var(--teal); }
+    .period.bio { border-top: 5px solid var(--red); }
+    .period.mix { border-top: 5px solid var(--gold); }
+
+    .flow-note {
+      margin: 0.7rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    .equivalence-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(16rem, 0.85fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .equivalence-plot {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.75rem;
+    }
+
+    .gmr-list {
+      display: grid;
+      gap: 0.65rem;
+      margin-top: 0.7rem;
+    }
+
+    .gmr-row {
+      display: grid;
+      grid-template-columns: 5.2rem minmax(0, 1fr) 5rem;
+      gap: 0.55rem;
+      align-items: center;
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+
+    .gmr-row b {
+      color: var(--ink);
+    }
+
+    .ci-track {
+      position: relative;
+      height: 1.2rem;
+      border: 1px solid rgba(36, 55, 112, 0.13);
+      border-radius: 999px;
+      background:
+        linear-gradient(90deg, rgba(209, 38, 48, 0.13) 0 18%, rgba(24, 124, 143, 0.18) 18% 82%, rgba(209, 38, 48, 0.13) 82% 100%);
+      overflow: hidden;
+    }
+
+    .ci-track i {
+      position: absolute;
+      top: 0.26rem;
+      height: 0.58rem;
+      border-radius: 999px;
+      background: var(--ink);
+    }
+
+    .ci-track em {
+      position: absolute;
+      top: 0.05rem;
+      width: 0.95rem;
+      height: 0.95rem;
+      border: 3px solid var(--red);
+      border-radius: 99px;
+      background: #fff;
+      transform: translateX(-50%);
+    }
+
+    .gmr-row span:last-child {
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .parameter-pair {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.75rem;
+    }
+
+    .parameter-card {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.75rem;
+    }
+
+    .parameter-card h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .paired-value {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+    }
+
+    .paired-value div {
+      border-left: 3px solid var(--teal);
+      padding-left: 0.48rem;
+    }
+
+    .paired-value div:last-child {
+      border-color: var(--red);
+    }
+
+    .paired-value strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+
+    .paired-value span {
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 850;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+
+    .profile-card {
+      min-height: 18rem;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.8rem;
+    }
+
+    .two-up {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+
+    .safety-bars {
+      display: grid;
+      gap: 0.58rem;
+      margin-top: 0.75rem;
+    }
+
+    .safety-row {
+      display: grid;
+      grid-template-columns: 8.5rem minmax(0, 1fr) 4.4rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+
+    .safety-track {
+      height: 0.85rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+
+    .safety-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .safety-track i.switch {
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .takeaway {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(24, 124, 143, 0.12), transparent 45%),
+        #fff;
+    }
+
+    .takeaway p {
+      max-width: 66rem;
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.05rem, 1.7vw, 1.42rem);
+      font-weight: 850;
+      line-height: 1.35;
+    }
+
+    .source-note {
+      margin: 0.65rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+
+    .compact-table td:not(:first-child),
+    .compact-table th:not(:first-child) {
+      text-align: right;
+    }
+
+    @media (max-width: 900px) {
+      .timeline-band,
+      .equivalence-grid,
+      .two-up {
+        grid-template-columns: 1fr;
+      }
+      .timeline-row {
+        grid-template-columns: 1fr 1fr;
+      }
+      .timeline-label {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 620px) {
+      html,
+      body {
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+
+      .infographic-shell,
+      .poster-hero,
+      .hero-copy,
+      .hero-card,
+      .panel,
+      .profile-card,
+      .equivalence-plot,
+      .table-card {
+        max-width: 100%;
+        min-width: 0;
+      }
+
+      #poster-title {
+        font-size: 1.72rem;
+        line-height: 1.08;
+        max-width: 22.5rem;
+      }
+
+      .hero-summary {
+        font-size: 0.95rem;
+        max-width: 22.5rem;
+      }
+
+      .eyebrow {
+        max-width: 22.5rem;
+      }
+
+      .poster-hero {
+        display: block;
+        overflow: hidden;
+      }
+
+      .timeline-row,
+      .parameter-pair,
+      .gmr-row,
+      .safety-row {
+        grid-template-columns: 1fr;
+      }
+      .gmr-row span:last-child {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/41_Multiple-switching-between-the-biosimilar-adalimumab_2023.pdf">Source PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/41_Multiple-switching-between-the-biosimilar-adalimumab_2023.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP Annual Meeting &amp; Expo 2023 / Poster 41</p>
+        <h1 id="poster-title">Multiple Switching Between Biosimilar Adalimumab and High-Concentration Reference Adalimumab</h1>
+        <p class="hero-summary">
+          A randomized phase 3 study tested whether three switches between ADL-afzb and reference adalimumab changed pharmacokinetics, immunogenicity, or safety in adults with moderately to severely active rheumatoid arthritis receiving methotrexate.
+        </p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag therapy">Rheumatoid arthritis</li>
+          <li class="tag category">Biosimilar interchangeability</li>
+          <li class="tag">PF-06410293 / ADL-afzb</li>
+          <li class="tag">Pharmacokinetics</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Study snapshot">
+        <div class="poster-code">41<br>2023</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Design</dt>
+            <dd>Phase 3, open-label</dd>
+          </div>
+          <div>
+            <dt>Sites</dt>
+            <dd>61 in 10 countries</dd>
+          </div>
+          <div>
+            <dt>Enrolled</dt>
+            <dd>445 adults</dd>
+          </div>
+          <div>
+            <dt>Switches</dt>
+            <dd>3 after lead-in</dd>
+          </div>
+        </dl>
+        <p class="verdict">Core finding: 90% CIs for C<sub>max</sub> and AUC<sub>tau</sub> geometric mean ratios stayed within the 80%-125% equivalence margin.</p>
+        <div class="switch-hero-art" aria-label="Switching study illustration">
+          <svg viewBox="0 0 420 230" role="img">
+            <title>Multiple adalimumab switching pathway</title>
+            <desc>Two treatment paths show one patient route alternating between reference and biosimilar adalimumab while the control route remains on reference adalimumab.</desc>
+            <defs>
+              <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L9,3 z" fill="#243770"></path>
+              </marker>
+            </defs>
+            <path d="M46 66 H354" fill="none" stroke="#aebbd2" stroke-width="4" stroke-linecap="round"></path>
+            <path d="M78 66 C128 10 191 116 244 66 S328 116 354 66" fill="none" stroke="#d12630" stroke-width="8" stroke-linecap="round" marker-end="url(#arrowhead)"></path>
+            <path d="M46 156 H354" fill="none" stroke="#187c8f" stroke-width="8" stroke-linecap="round" marker-end="url(#arrowhead)"></path>
+            <circle cx="66" cy="66" r="24" fill="#fff" stroke="#243770" stroke-width="4"></circle>
+            <text x="66" y="72" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="18" font-weight="900">0</text>
+            <circle cx="154" cy="66" r="22" fill="#fff" stroke="#d12630" stroke-width="4"></circle>
+            <circle cx="244" cy="66" r="22" fill="#fff" stroke="#187c8f" stroke-width="4"></circle>
+            <circle cx="334" cy="66" r="22" fill="#fff" stroke="#d12630" stroke-width="4"></circle>
+            <text x="66" y="198" text-anchor="middle" fill="#68758d" font-family="Inter, sans-serif" font-size="13" font-weight="850">Week 0</text>
+            <text x="154" y="198" text-anchor="middle" fill="#68758d" font-family="Inter, sans-serif" font-size="13" font-weight="850">Week 10</text>
+            <text x="244" y="198" text-anchor="middle" fill="#68758d" font-family="Inter, sans-serif" font-size="13" font-weight="850">Week 16</text>
+            <text x="334" y="198" text-anchor="middle" fill="#68758d" font-family="Inter, sans-serif" font-size="13" font-weight="850">Week 22</text>
+            <text x="210" y="28" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="16" font-weight="900">switching arm</text>
+            <text x="210" y="145" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="16" font-weight="900">continuous ADL-REF</text>
+          </svg>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Enrolled patients</span>
+          <strong>445</strong>
+          <p>Adults with clinically active RA on background MTX.</p>
+        </article>
+        <article class="metric-card">
+          <span>Randomized after TP1</span>
+          <strong>427</strong>
+          <p>Completed the 10-week ADL-REF lead-in period.</p>
+        </article>
+        <article class="metric-card">
+          <span>Switching completion</span>
+          <strong>94%</strong>
+          <p>Completed the study in the switching arm.</p>
+        </article>
+        <article class="metric-card">
+          <span>Control completion</span>
+          <strong>91%</strong>
+          <p>Completed the study in the non-switching arm.</p>
+        </article>
+      </section>
+
+      <section class="timeline-band" aria-label="Study design and treatment sequence">
+        <div class="big-result">
+          <span>Central interpretation</span>
+          <strong>No PK penalty</strong>
+          <p>Multiple switching did not produce clinically meaningful differences in steady-state PK compared with continuous reference adalimumab.</p>
+        </div>
+        <div class="panel">
+          <p class="section-label">Evidence flow</p>
+          <h2>Lead-in, randomize, switch three times, then sample PK intensively.</h2>
+          <div class="switch-timeline">
+            <div class="timeline-row">
+              <div class="timeline-label">Switching arm</div>
+              <div class="period ref"><b>TP1: 10 weeks</b><span>ADL-REF lead-in, n=445</span></div>
+              <div class="period bio"><b>TP2: 6 weeks</b><span>ADL-afzb, n=213</span></div>
+              <div class="period ref"><b>TP3: 6 weeks</b><span>ADL-REF</span></div>
+              <div class="period bio"><b>TP4: 10 weeks</b><span>ADL-afzb, PK n=194</span></div>
+            </div>
+            <div class="timeline-row">
+              <div class="timeline-label">Control arm</div>
+              <div class="period ref"><b>TP1: 10 weeks</b><span>ADL-REF lead-in, n=445</span></div>
+              <div class="period ref"><b>TP2: 6 weeks</b><span>ADL-REF, n=214</span></div>
+              <div class="period ref"><b>TP3: 6 weeks</b><span>ADL-REF</span></div>
+              <div class="period ref"><b>TP4: 10 weeks</b><span>ADL-REF, PK n=186</span></div>
+            </div>
+          </div>
+          <p class="flow-note">Primary PK sampling ran from Week 30 predose to Week 32 predose, followed by safety follow-up through Week 36.</p>
+        </div>
+      </section>
+
+      <section class="equivalence-grid" aria-label="Pharmacokinetic equivalence">
+        <div class="panel">
+          <p class="section-label">Primary endpoint</p>
+          <h2>Both PK ratios sit comfortably inside the FDA-style 80%-125% equivalence window.</h2>
+          <div class="gmr-list" aria-label="Geometric mean ratio confidence intervals">
+            <div class="gmr-row">
+              <b>C<sub>max</sub></b>
+              <div class="ci-track" aria-label="Cmax GMR 102.6 with confidence interval 97.1 to 108.4">
+                <i style="left:34.2%; width:22.6%"></i>
+                <em style="left:45.2%"></em>
+              </div>
+              <span>102.6%</span>
+            </div>
+            <div class="gmr-row">
+              <b>AUC<sub>tau</sub></b>
+              <div class="ci-track" aria-label="AUCtau GMR 105.2 with confidence interval 98.2 to 112.8">
+                <i style="left:36.4%; width:29.2%"></i>
+                <em style="left:50.4%"></em>
+              </div>
+              <span>105.2%</span>
+            </div>
+          </div>
+          <p class="source-note">Track scale runs from 80% to 130%; the teal center band marks the pre-specified 80%-125% margin.</p>
+          <div class="parameter-pair">
+            <div class="parameter-card">
+              <h3>C<sub>max</sub> adjusted means</h3>
+              <div class="paired-value">
+                <div><strong>8.21</strong><span>Switching &micro;g/mL</span></div>
+                <div><strong>8.00</strong><span>Control &micro;g/mL</span></div>
+              </div>
+            </div>
+            <div class="parameter-card">
+              <h3>AUC<sub>tau</sub> adjusted means</h3>
+              <div class="paired-value">
+                <div><strong>2237</strong><span>Switching &micro;g*hr/mL</span></div>
+                <div><strong>2125</strong><span>Control &micro;g*hr/mL</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="equivalence-plot" aria-label="Equivalence margin plot">
+          <svg viewBox="0 0 460 310" role="img">
+            <title>Equivalence plot for Cmax and AUCtau</title>
+            <desc>The Cmax and AUCtau ratios with 90 percent confidence intervals are centered near 100 percent and remain within the 80 to 125 percent equivalence boundaries.</desc>
+            <rect x="74" y="48" width="280" height="196" fill="#eef4fb" stroke="#aebbd2"></rect>
+            <rect x="74" y="48" width="210" height="196" fill="#187c8f" opacity="0.12"></rect>
+            <line x1="74" y1="42" x2="74" y2="254" stroke="#d12630" stroke-width="3"></line>
+            <line x1="284" y1="42" x2="284" y2="254" stroke="#d12630" stroke-width="3"></line>
+            <line x1="158" y1="42" x2="158" y2="254" stroke="#243770" stroke-width="2" stroke-dasharray="6 6"></line>
+            <line x1="160" y1="110" x2="205" y2="110" stroke="#243770" stroke-width="8" stroke-linecap="round"></line>
+            <circle cx="180" cy="110" r="12" fill="#fff" stroke="#d12630" stroke-width="5"></circle>
+            <line x1="165" y1="182" x2="223" y2="182" stroke="#243770" stroke-width="8" stroke-linecap="round"></line>
+            <circle cx="191" cy="182" r="12" fill="#fff" stroke="#d12630" stroke-width="5"></circle>
+            <text x="36" y="116" fill="#243770" font-family="Inter, sans-serif" font-size="15" font-weight="900">Cmax</text>
+            <text x="26" y="188" fill="#243770" font-family="Inter, sans-serif" font-size="15" font-weight="900">AUCtau</text>
+            <text x="74" y="282" text-anchor="middle" fill="#68758d" font-family="Inter, sans-serif" font-size="13" font-weight="850">80</text>
+            <text x="158" y="282" text-anchor="middle" fill="#68758d" font-family="Inter, sans-serif" font-size="13" font-weight="850">100</text>
+            <text x="284" y="282" text-anchor="middle" fill="#68758d" font-family="Inter, sans-serif" font-size="13" font-weight="850">125</text>
+            <text x="354" y="282" text-anchor="middle" fill="#68758d" font-family="Inter, sans-serif" font-size="13" font-weight="850">130</text>
+            <text x="180" y="91" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="14" font-weight="900">102.6</text>
+            <text x="191" y="163" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="14" font-weight="900">105.2</text>
+            <text x="214" y="28" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="16" font-weight="900">GMR with 90% CI</text>
+          </svg>
+        </div>
+      </section>
+
+      <section class="two-up" aria-label="PK concentration profile and immunogenicity">
+        <div class="profile-card">
+          <p class="section-label">PK concentration-time pattern</p>
+          <h2>Mean concentration curves ran nearly in parallel.</h2>
+          <svg viewBox="0 0 560 260" role="img">
+            <title>Mean adalimumab concentrations over time</title>
+            <desc>Switching and non-switching concentration profiles rise to a similar peak around 72 hours and decline in parallel through 336 hours.</desc>
+            <polyline points="58,194 90,162 122,134 154,126 186,130 218,142 250,156 282,170 314,184 346,196 378,208 410,220 442,232 474,244 506,256" fill="none" stroke="#d12630" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></polyline>
+            <polyline points="58,198 90,168 122,142 154,136 186,142 218,154 250,168 282,184 314,196 346,204 378,216 410,224 442,238 474,246 506,258" fill="none" stroke="#187c8f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></polyline>
+            <line x1="50" y1="32" x2="50" y2="222" stroke="#aebbd2" stroke-width="2"></line>
+            <line x1="50" y1="222" x2="522" y2="222" stroke="#aebbd2" stroke-width="2"></line>
+            <text x="52" y="238" fill="#68758d" font-family="Inter, sans-serif" font-size="12" font-weight="850">0h</text>
+            <text x="494" y="238" fill="#68758d" font-family="Inter, sans-serif" font-size="12" font-weight="850">336h</text>
+            <text x="72" y="34" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="14" font-weight="900">TP4 PK population</text>
+            <circle cx="356" cy="54" r="7" fill="#d12630"></circle>
+            <text x="370" y="59" fill="#243770" font-family="Inter, sans-serif" font-size="13" font-weight="850">Switching</text>
+            <circle cx="356" cy="78" r="7" fill="#187c8f"></circle>
+            <text x="370" y="83" fill="#243770" font-family="Inter, sans-serif" font-size="13" font-weight="850">Non-switching</text>
+          </svg>
+          <p class="source-note">Extracted values: both arms peaked at 72 hours, then gradually declined through 336 hours.</p>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Immunogenicity</p>
+          <h2>ADA-positive rates rose over time in both arms, with similar end-of-TP4 incidence.</h2>
+          <div class="safety-bars" aria-label="ADA and persistent response comparison">
+            <div class="safety-row">
+              <span>Week 10 ADA, switch</span>
+              <div class="safety-track"><i class="switch" style="width:25.8%"></i></div>
+              <b>25.8%</b>
+            </div>
+            <div class="safety-row">
+              <span>Week 10 ADA, control</span>
+              <div class="safety-track"><i style="width:27.6%"></i></div>
+              <b>27.6%</b>
+            </div>
+            <div class="safety-row">
+              <span>Week 32 ADA, switch</span>
+              <div class="safety-track"><i class="switch" style="width:46.9%"></i></div>
+              <b>46.9%</b>
+            </div>
+            <div class="safety-row">
+              <span>Week 32 ADA, control</span>
+              <div class="safety-track"><i style="width:48.6%"></i></div>
+              <b>48.6%</b>
+            </div>
+          </div>
+          <p class="source-note">Among ADA/NAb-positive patients, persistent ADA and NAb responses were also similar between arms.</p>
+        </div>
+      </section>
+
+      <section class="evidence-map" aria-label="Evidence flow">
+        <article class="evidence-card">
+          <h3>Regulatory question</h3>
+          <p>Would switching between biosimilar and reference product increase safety risk or reduce effectiveness?</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Controlled comparison</h3>
+          <p>Patients were randomized 1:1 after a shared reference-adalimumab lead-in.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>PK surrogate</h3>
+          <p>C<sub>max</sub> and AUC<sub>tau</sub> were measured during intensive Week 30-32 sampling.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Similar biology</h3>
+          <p>PK profiles, ADA incidence, NAb titers, and persistence patterns were comparable.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Safety context</h3>
+          <p>Serious AEs and discontinuations due to AE were balanced; no deaths were reported.</p>
+        </article>
+      </section>
+
+      <section class="tables-grid" aria-label="Extracted table patterns">
+        <article class="table-card">
+          <p class="section-label">Safety table pattern</p>
+          <h3>All-causality AEs</h3>
+          <div class="table-wrap">
+            <table class="compact-table">
+              <thead>
+                <tr>
+                  <th>Number (%) of patients</th>
+                  <th>TP1 n=445</th>
+                  <th>Switch n=213</th>
+                  <th>Control n=214</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Patients with all-causality AEs</td><td>107 (24.0)</td><td>82 (38.5)</td><td>62 (29.0)</td></tr>
+                <tr><td>Patients with serious TEAEs</td><td>13 (2.9)</td><td>3 (1.4)</td><td>8 (3.7)</td></tr>
+                <tr><td>Permanent discontinuation due to AE, TP2+</td><td>--</td><td>3.8%</td><td>4.2%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">PK equivalence table pattern</p>
+          <h3>Switching vs non-switching</h3>
+          <div class="table-wrap">
+            <table class="compact-table">
+              <thead>
+                <tr>
+                  <th>Parameter</th>
+                  <th>GMR</th>
+                  <th>90% CI</th>
+                  <th>Within 80%-125%?</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>C<sub>max</sub></td><td>102.6%</td><td>97.1, 108.4</td><td>Yes</td></tr>
+                <tr><td>AUC<sub>tau</sub></td><td>105.2%</td><td>98.2, 112.8</td><td>Yes</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel takeaway" aria-label="Conclusion">
+        <p>
+          Conclusion: in this first controlled multi-switch RA study, the risk of switching between citrate-free ADL-afzb and high-concentration ADL-REF was no greater than continuous reference use for immunogenicity, safety, or possible diminished efficacy assessed by PK.
+        </p>
+      </section>
+    </main>
+
+    <footer class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/41_Multiple-switching-between-the-biosimilar-adalimumab_2023.pdf">Open original PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/41_Multiple-switching-between-the-biosimilar-adalimumab_2023.md">Read extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

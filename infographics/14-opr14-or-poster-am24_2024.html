@@ -1,0 +1,624 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASP 2024 Infographic | Oral Oncology Waste in an Integrated Health System Specialty Pharmacy</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card .button-link {
+      justify-content: center;
+      background: #fff;
+    }
+    .waste-hero {
+      position: relative;
+      min-height: 20rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(233, 158, 37, 0.34), transparent 11rem),
+        radial-gradient(circle at 80% 72%, rgba(117, 97, 168, 0.34), transparent 12rem),
+        linear-gradient(145deg, rgba(36, 55, 112, 0.98), rgba(24, 124, 143, 0.94));
+      color: #fff;
+      overflow: hidden;
+      padding: 1.05rem;
+    }
+    .waste-hero svg {
+      position: absolute;
+      right: -1.3rem;
+      bottom: -1.6rem;
+      width: min(29rem, 78%);
+      height: auto;
+      opacity: 0.9;
+    }
+    .waste-hero .label {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+    .waste-hero strong {
+      display: block;
+      max-width: 15rem;
+      margin-top: 0.35rem;
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 6.5vw, 5.4rem);
+      line-height: 0.9;
+    }
+    .waste-hero span {
+      display: block;
+      max-width: 18rem;
+      margin-top: 0.7rem;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 0.94rem;
+      font-weight: 760;
+    }
+    .hero-summary b {
+      color: var(--ink);
+      font-weight: 880;
+    }
+    .metric-card strong small {
+      color: var(--ink);
+      font-size: 0.86rem;
+    }
+    .metric-card.teal strong { color: var(--teal); }
+    .metric-card.gold strong { color: var(--gold); }
+    .metric-card.purple strong { color: var(--purple); }
+    .funnel-stack {
+      display: grid;
+      gap: 0.62rem;
+      margin-top: 0.75rem;
+    }
+    .funnel-step {
+      display: grid;
+      grid-template-columns: 6.4rem minmax(0, 1fr) 4rem;
+      align-items: center;
+      gap: 0.65rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: linear-gradient(90deg, var(--surface-blue), #fff);
+      padding: 0.68rem;
+    }
+    .funnel-step strong {
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2.1rem;
+      line-height: 1;
+      text-align: center;
+    }
+    .funnel-step span {
+      color: var(--ink);
+      font-size: 0.86rem;
+      font-weight: 850;
+    }
+    .funnel-step em {
+      color: var(--muted);
+      font-style: normal;
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-align: right;
+      text-transform: uppercase;
+    }
+    .pathway {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+    .path-node {
+      position: relative;
+      min-height: 9.4rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.82rem;
+    }
+    .path-node::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -0.52rem;
+      width: 0.75rem;
+      height: 0.75rem;
+      border-top: 2px solid var(--border-strong);
+      border-right: 2px solid var(--border-strong);
+      background: #fff;
+      transform: translateY(-50%) rotate(45deg);
+    }
+    .path-node:last-child::after { display: none; }
+    .path-node b {
+      display: inline-grid;
+      place-items: center;
+      width: 1.7rem;
+      height: 1.7rem;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+    }
+    .path-node h3 {
+      margin-top: 0.5rem;
+      font-size: 0.94rem;
+    }
+    .path-node p {
+      margin: 0.42rem 0 0;
+      color: var(--body);
+      font-size: 0.79rem;
+    }
+    .split-wrap {
+      display: grid;
+      grid-template-columns: 13rem minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+      margin-top: 0.75rem;
+    }
+    .split-wrap svg {
+      width: 100%;
+      max-width: 13rem;
+      height: auto;
+    }
+    .legend {
+      display: grid;
+      gap: 0.5rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .legend li {
+      display: grid;
+      grid-template-columns: 0.75rem minmax(0, 1fr) auto;
+      gap: 0.48rem;
+      align-items: center;
+      color: var(--body);
+      font-size: 0.82rem;
+      font-weight: 780;
+    }
+    .legend i {
+      width: 0.75rem;
+      height: 0.75rem;
+      border-radius: 3px;
+      background: var(--legend-color, var(--red));
+    }
+    .insurance-bars,
+    .med-bars {
+      display: grid;
+      gap: 0.52rem;
+      margin-top: 0.75rem;
+    }
+    .bar-row {
+      display: grid;
+      grid-template-columns: 8.4rem minmax(0, 1fr) 3.1rem;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .bar-row em {
+      color: var(--muted);
+      font-style: normal;
+      font-size: 0.76rem;
+      font-weight: 850;
+      text-align: right;
+    }
+    .track {
+      height: 0.78rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+    .track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .med-bars .bar-row {
+      grid-template-columns: 7.6rem minmax(0, 1fr) 3.1rem;
+    }
+    .med-bars .track i {
+      background: linear-gradient(90deg, var(--teal), var(--purple));
+    }
+    .assistance-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+    .assist-tile {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface-blue);
+      padding: 0.75rem;
+    }
+    .assist-tile strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 2.1rem;
+      line-height: 1;
+    }
+    .assist-tile span {
+      display: block;
+      margin-top: 0.28rem;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .conclusion-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
+      gap: 1rem;
+      align-items: center;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(255, 247, 234, 0.92), rgba(238, 244, 251, 0.92)),
+        #fff;
+      padding: 1rem;
+    }
+    .conclusion-panel svg {
+      width: 100%;
+      height: auto;
+    }
+    .callout {
+      margin: 0.6rem 0 0;
+      border-left: 4px solid var(--red);
+      padding-left: 0.75rem;
+      color: var(--ink);
+      font-size: 1rem;
+      font-weight: 850;
+    }
+    @media (max-width: 900px) {
+      .pathway,
+      .assistance-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .split-wrap,
+      .conclusion-panel {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 660px) {
+      .pathway,
+      .assistance-grid {
+        grid-template-columns: 1fr;
+      }
+      .funnel-step,
+      .bar-row,
+      .med-bars .bar-row {
+        grid-template-columns: 1fr;
+      }
+      .funnel-step strong,
+      .funnel-step em,
+      .bar-row em {
+        text-align: left;
+      }
+      .waste-hero svg {
+        opacity: 0.46;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">NASP Posters</a>
+      <nav aria-label="Infographic sections">
+        <a href="#objective">Objective</a>
+        <a href="#methods">Methods</a>
+        <a href="#results">Results</a>
+        <a href="#conclusion">Conclusion</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP Annual Meeting &amp; Expo 2024 | OPR14-OR</p>
+        <h1>Oral oncology waste in an integrated health system specialty pharmacy</h1>
+        <p class="hero-summary">
+          Yale New Haven Health quantified unused oral anticancer medication after clinically required dose or therapy changes, estimating <b>$673,826</b> in potential wasted average wholesale price across <b>112</b> eligible patient cases.
+        </p>
+        <ul class="tag-row" aria-label="Poster tags">
+          <li class="tag therapy">Oral oncology</li>
+          <li class="tag category">Medication waste</li>
+          <li class="tag">Repository opportunity</li>
+          <li class="tag">Financial toxicity</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div class="poster-code">OPR14-OR</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Year</dt>
+            <dd>2024</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>Integrated HSSP</dd>
+          </div>
+          <div>
+            <dt>Study window</dt>
+            <dd>Sept 2022-Sept 2023</dd>
+          </div>
+          <div>
+            <dt>Authors</dt>
+            <dd>Narayanan, Tong, Rubino, Sawant</dd>
+          </div>
+        </dl>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/14-OPR14-OR-Poster-AM24_2024.pdf">Open source PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/14-OPR14-OR-Poster-AM24_2024.md">Open extracted markdown</a>
+      </aside>
+    </section>
+
+    <main>
+      <section class="visual-grid" id="objective">
+        <div class="waste-hero" aria-label="Waste opportunity visual summary">
+          <p class="label">Potential wasted AWP</p>
+          <strong>$673K</strong>
+          <span>Unused oral anticancer medication identified after dose or therapy changes could become a redistributable resource.</span>
+          <svg viewBox="0 0 520 420" role="img" aria-label="Medication bottles flowing into a repository hub">
+            <defs>
+              <linearGradient id="bottleFill" x1="0" x2="1">
+                <stop offset="0" stop-color="#e99e25"/>
+                <stop offset="1" stop-color="#d12630"/>
+              </linearGradient>
+              <linearGradient id="hubFill" x1="0" x2="1">
+                <stop offset="0" stop-color="#187c8f"/>
+                <stop offset="1" stop-color="#7561a8"/>
+              </linearGradient>
+            </defs>
+            <path d="M118 214c70-80 188-98 280-44" fill="none" stroke="rgba(255,255,255,.34)" stroke-width="18" stroke-linecap="round"/>
+            <path d="M126 260c78 52 172 60 258 8" fill="none" stroke="rgba(255,255,255,.22)" stroke-width="14" stroke-linecap="round"/>
+            <g transform="translate(64 64)">
+              <rect x="28" y="24" width="72" height="118" rx="16" fill="#fff" opacity=".92"/>
+              <rect x="44" y="0" width="40" height="34" rx="8" fill="#fff" opacity=".82"/>
+              <rect x="42" y="76" width="44" height="18" rx="9" fill="url(#bottleFill)"/>
+            </g>
+            <g transform="translate(214 30)">
+              <rect x="28" y="24" width="72" height="118" rx="16" fill="#fff" opacity=".86"/>
+              <rect x="44" y="0" width="40" height="34" rx="8" fill="#fff" opacity=".76"/>
+              <rect x="42" y="76" width="44" height="18" rx="9" fill="#187c8f"/>
+            </g>
+            <g transform="translate(342 112)">
+              <circle cx="78" cy="78" r="76" fill="url(#hubFill)" opacity=".96"/>
+              <path d="M78 36v84M36 78h84" stroke="#fff" stroke-width="18" stroke-linecap="round"/>
+              <circle cx="78" cy="78" r="47" fill="none" stroke="#fff" stroke-width="8" opacity=".3"/>
+            </g>
+            <g fill="#fff" opacity=".82">
+              <circle cx="120" cy="300" r="10"/>
+              <circle cx="164" cy="320" r="8"/>
+              <circle cx="212" cy="330" r="11"/>
+              <circle cx="264" cy="328" r="8"/>
+              <circle cx="314" cy="312" r="10"/>
+            </g>
+          </svg>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Make the case for a Connecticut oral oncology drug repository program</h2>
+          <div class="markdown-fragment">
+            <p>The poster quantified oral oncology waste and opportunity within an integrated health system specialty pharmacy to support advocacy for a state oral oncology drug repository.</p>
+            <p>Connecticut residents can donate unused oral anticancer medications to national repositories, but the state did not have an active oral oncology repository program from which residents could receive donated therapies.</p>
+          </div>
+          <div class="number-cloud" aria-label="Context numbers">
+            <div class="number-pill">44<small>states with repository laws</small></div>
+            <div class="number-pill">14<small>OAM-focused programs</small></div>
+            <div class="number-pill">6%<small>not eligible for aid</small></div>
+            <div class="number-pill">88%<small>top-drug affordability aid</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="metric-strip" aria-label="Key study metrics">
+        <article class="metric-card">
+          <span>OAM patients reviewed</span>
+          <strong>878</strong>
+        </article>
+        <article class="metric-card teal">
+          <span>Clinically driven changes</span>
+          <strong>112</strong>
+        </article>
+        <article class="metric-card gold">
+          <span>Potential wasted AWP</span>
+          <strong>$673,826</strong>
+        </article>
+        <article class="metric-card purple">
+          <span>Average per eligible patient</span>
+          <strong>$6,016</strong>
+        </article>
+      </section>
+
+      <section class="panel" id="methods">
+        <p class="section-label">Methods</p>
+        <h2>How waste was identified and valued</h2>
+        <div class="pathway">
+          <article class="path-node">
+            <b>1</b>
+            <h3>Retrieve fills</h3>
+            <p>Oral oncology medications filled by the HSSP from Sept 2022 through Sept 2023 were pulled.</p>
+          </article>
+          <article class="path-node">
+            <b>2</b>
+            <h3>Review charts</h3>
+            <p>Patient charts were screened for dose changes and clinically required therapy switches.</p>
+          </article>
+          <article class="path-node">
+            <b>3</b>
+            <h3>Exclude manufacturer switches</h3>
+            <p>Manufacturer-driven formulation changes were removed from the opportunity estimate.</p>
+          </article>
+          <article class="path-node">
+            <b>4</b>
+            <h3>Calculate waste</h3>
+            <p>Waste equaled last dispensed quantity minus quantity used at first fill of the new prescription.</p>
+          </article>
+          <article class="path-node">
+            <b>5</b>
+            <h3>Price and track assistance</h3>
+            <p>Wasted dollars used average wholesale price while grant and free-drug support were tracked in parallel.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="visual-grid" id="results">
+        <div class="panel">
+          <p class="section-label">Patient flow</p>
+          <h2>Most fills were stable, but change cases carried measurable waste</h2>
+          <div class="funnel-stack">
+            <div class="funnel-step">
+              <strong>878</strong>
+              <span>Patients with oral anticancer medication dispenses</span>
+              <em>100%</em>
+            </div>
+            <div class="funnel-step">
+              <strong>137</strong>
+              <span>Patients with dose, therapy, or formulation changes</span>
+              <em>15.6%</em>
+            </div>
+            <div class="funnel-step">
+              <strong>25</strong>
+              <span>Manufacturer formulation changes excluded from clinical waste estimate</span>
+              <em>excluded</em>
+            </div>
+            <div class="funnel-step">
+              <strong>112</strong>
+              <span>Dose or therapy change cases used for waste opportunity</span>
+              <em>eligible</em>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Why medications were wasted</p>
+          <h2>Dose changes slightly outnumbered therapy changes</h2>
+          <div class="split-wrap">
+            <svg viewBox="0 0 220 220" role="img" aria-label="Dose changes 55.12 percent and therapy changes 44.88 percent">
+              <circle cx="110" cy="110" r="78" fill="none" stroke="#edf2f8" stroke-width="34"/>
+              <circle cx="110" cy="110" r="78" fill="none" stroke="#187c8f" stroke-width="34" stroke-dasharray="270 490" stroke-dashoffset="-10" stroke-linecap="round"/>
+              <circle cx="110" cy="110" r="78" fill="none" stroke="#e99e25" stroke-width="34" stroke-dasharray="220 490" stroke-dashoffset="-280" stroke-linecap="round"/>
+              <text x="110" y="102" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="30" font-weight="900">55%</text>
+              <text x="110" y="130" text-anchor="middle" fill="#68758d" font-family="Inter, sans-serif" font-size="13" font-weight="800">dose changes</text>
+            </svg>
+            <ul class="legend">
+              <li style="--legend-color: var(--teal)"><i></i><span>Dose changes</span><b>55.12%</b></li>
+              <li style="--legend-color: var(--gold)"><i></i><span>Therapy changes</span><b>44.88%</b></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="tables-grid">
+        <article class="table-card">
+          <p class="section-label">Insurance pattern</p>
+          <h2>Waste clustered in Medicare and Medicaid rows</h2>
+          <div class="insurance-bars" aria-label="Patients with wasted medications by insurance type">
+            <div class="bar-row"><span>Medicare alone</span><div class="track"><i style="width: 38%"></i></div><em>38%</em></div>
+            <div class="bar-row"><span>MAP + Medicare</span><div class="track"><i style="width: 25%"></i></div><em>25%</em></div>
+            <div class="bar-row"><span>Medicaid</span><div class="track"><i style="width: 18%"></i></div><em>18%</em></div>
+            <div class="bar-row"><span>Commercial</span><div class="track"><i style="width: 15%"></i></div><em>15%</em></div>
+            <div class="bar-row"><span>340B cash</span><div class="track"><i style="width: 3%"></i></div><em>3%</em></div>
+            <div class="bar-row"><span>Copay card alone</span><div class="track"><i style="width: 1%"></i></div><em>1%</em></div>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Top wasted medications</p>
+          <h2>Two therapies accounted for nearly 28% of the top-drug waste mix</h2>
+          <div class="med-bars" aria-label="Top 10 wasted medications">
+            <div class="bar-row"><span>Ibrutinib</span><div class="track"><i style="width: 100%"></i></div><em>14.76%</em></div>
+            <div class="bar-row"><span>Ruxolitinib</span><div class="track"><i style="width: 90%"></i></div><em>13.29%</em></div>
+            <div class="bar-row"><span>Lenvatinib</span><div class="track"><i style="width: 56%"></i></div><em>8.28%</em></div>
+            <div class="bar-row"><span>Abemaciclib</span><div class="track"><i style="width: 38%"></i></div><em>5.60%</em></div>
+            <div class="bar-row"><span>Dasatinib</span><div class="track"><i style="width: 32%"></i></div><em>4.78%</em></div>
+            <div class="bar-row"><span>Enzalutamide</span><div class="track"><i style="width: 30%"></i></div><em>4.40%</em></div>
+            <div class="bar-row"><span>Cabozantinib</span><div class="track"><i style="width: 28%"></i></div><em>4.18%</em></div>
+            <div class="bar-row"><span>Venetoclax</span><div class="track"><i style="width: 26%"></i></div><em>3.86%</em></div>
+            <div class="bar-row"><span>Pacritinib</span><div class="track"><i style="width: 26%"></i></div><em>3.84%</em></div>
+            <div class="bar-row"><span>Alpelisib</span><div class="track"><i style="width: 21%"></i></div><em>3.04%</em></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="visual-grid">
+        <div class="panel">
+          <p class="section-label">Medication assistance</p>
+          <h2>Assistance tracking showed a parallel affordability burden</h2>
+          <div class="assistance-grid">
+            <div class="assist-tile">
+              <strong>24K+</strong>
+              <span>Patients</span>
+            </div>
+            <div class="assist-tile">
+              <strong>28K+</strong>
+              <span>Scripts</span>
+            </div>
+            <div class="assist-tile">
+              <strong>$3.4M</strong>
+              <span>Total assistance</span>
+            </div>
+          </div>
+          <p class="callout">Approximately 6% of patients were not eligible for assistance, most often because programs were unavailable or income limits were exceeded.</p>
+        </div>
+
+        <div class="panel">
+          <p class="section-label">Interpretation</p>
+          <h2>Waste is also a patient access signal</h2>
+          <div class="markdown-fragment">
+            <p>Frequent dose or therapy changes created unused oral anticancer medication while patients continued to face affordability challenges.</p>
+            <p>The poster frames the HSSP as a practical hub: it already sees dispensing, clinical documentation, therapy changes, and assistance outcomes in one workflow.</p>
+          </div>
+          <div class="number-cloud" aria-label="Discussion highlights">
+            <div class="number-pill">$6K<small>average waste per patient</small></div>
+            <div class="number-pill">71%<small>public program waste share noted</small></div>
+            <div class="number-pill">18%<small>Medicare patients with assistance</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="conclusion-panel" id="conclusion">
+        <svg viewBox="0 0 480 260" role="img" aria-label="Health system specialty pharmacy hub connecting unused medication to patients">
+          <defs>
+            <linearGradient id="arrowGrad" x1="0" x2="1">
+              <stop offset="0" stop-color="#d12630"/>
+              <stop offset="1" stop-color="#187c8f"/>
+            </linearGradient>
+          </defs>
+          <rect x="28" y="34" width="132" height="78" rx="14" fill="#ffffff" stroke="#aebbd2" stroke-width="3"/>
+          <rect x="48" y="54" width="34" height="42" rx="8" fill="#e99e25"/>
+          <rect x="88" y="54" width="34" height="42" rx="8" fill="#d12630"/>
+          <text x="94" y="138" text-anchor="middle" fill="#243770" font-family="Inter, sans-serif" font-size="18" font-weight="850">unused OAMs</text>
+          <circle cx="240" cy="104" r="62" fill="#243770"/>
+          <path d="M240 68v72M204 104h72" stroke="#ffffff" stroke-width="15" stroke-linecap="round"/>
+          <text x="240" y="196" text-anchor="middle" fill="#243770" font-family="Inter, sans-serif" font-size="18" font-weight="850">HSSP hub</text>
+          <rect x="322" y="34" width="132" height="78" rx="14" fill="#ffffff" stroke="#aebbd2" stroke-width="3"/>
+          <circle cx="366" cy="74" r="18" fill="#187c8f"/>
+          <circle cx="410" cy="74" r="18" fill="#7561a8"/>
+          <text x="388" y="138" text-anchor="middle" fill="#243770" font-family="Inter, sans-serif" font-size="18" font-weight="850">patients in need</text>
+          <path d="M160 76C184 64 202 64 220 76" fill="none" stroke="url(#arrowGrad)" stroke-width="8" stroke-linecap="round"/>
+          <path d="M260 76C284 64 302 64 322 76" fill="none" stroke="url(#arrowGrad)" stroke-width="8" stroke-linecap="round"/>
+          <path d="M314 65l12 12-17 5" fill="none" stroke="#187c8f" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <p class="section-label">Conclusion</p>
+          <h2>Turn oral oncology waste into a redistribution pathway</h2>
+          <p class="hero-summary">Health system specialty pharmacies can collect unused oral anticancer medications for redistribution to Connecticut patients experiencing financial toxicity through an oral oncology drug repository program.</p>
+          <div class="footer-actions">
+            <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/14-OPR14-OR-Poster-AM24_2024.pdf">Source poster PDF</a>
+            <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/14-OPR14-OR-Poster-AM24_2024.md">Extracted markdown</a>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

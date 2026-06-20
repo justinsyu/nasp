@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Implementation of a New Patient Case Management System | NASP 2023</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 100%;
+    }
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -5.2rem;
+      bottom: -5rem;
+      width: 17rem;
+      height: 17rem;
+      border: 1.35rem solid rgba(24, 124, 143, 0.12);
+      border-radius: 50%;
+    }
+    .hero-card > * {
+      position: relative;
+      z-index: 1;
+    }
+    .author-line {
+      margin: 0;
+      color: var(--body);
+      font-size: 0.82rem;
+      font-weight: 720;
+    }
+    .system-visual {
+      display: grid;
+      gap: 0.72rem;
+      margin-top: 0.25rem;
+    }
+    .system-visual svg {
+      width: 100%;
+      height: auto;
+      filter: drop-shadow(0 16px 22px rgba(36, 55, 112, 0.12));
+    }
+    .metric-card strong small {
+      display: inline;
+      color: inherit;
+      font-size: 0.52em;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+    .metric-card p {
+      margin: 0.42rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 730;
+      line-height: 1.38;
+    }
+    .cockpit-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 1rem;
+    }
+    .timeline {
+      display: grid;
+      gap: 0.48rem;
+      margin-top: 0.8rem;
+    }
+    .timeline-row {
+      display: grid;
+      grid-template-columns: 6.2rem minmax(0, 1fr) 5.4rem;
+      gap: 0.55rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.76rem;
+      font-weight: 850;
+    }
+    .timeline-row .track {
+      height: 0.62rem;
+      overflow: hidden;
+      border: 1px solid rgba(36, 55, 112, 0.15);
+      border-radius: 999px;
+      background: #e8eef7;
+    }
+    .timeline-row i {
+      display: block;
+      width: var(--width);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--teal), var(--gold));
+    }
+    .timeline-row.delay i {
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .timeline-row .status {
+      color: var(--muted);
+      font-size: 0.68rem;
+      text-align: right;
+    }
+    .phase-flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.68rem;
+      margin-top: 0.82rem;
+    }
+    .phase {
+      position: relative;
+      min-height: 10.4rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.78rem;
+      overflow: hidden;
+    }
+    .phase::before {
+      content: attr(data-step);
+      display: inline-grid;
+      place-items: center;
+      width: 2rem;
+      height: 2rem;
+      margin-bottom: 0.58rem;
+      border-radius: 50%;
+      background: var(--accent, var(--ink));
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+    .phase:nth-child(2) { --accent: var(--gold); }
+    .phase:nth-child(3) { --accent: var(--teal); }
+    .phase:nth-child(4) { --accent: var(--green); }
+    .phase p {
+      margin: 0.38rem 0 0;
+      color: var(--body);
+      font-size: 0.8rem;
+      line-height: 1.38;
+    }
+    .chart-stack {
+      display: grid;
+      gap: 0.85rem;
+      margin-top: 0.8rem;
+    }
+    .dispense-chart {
+      display: grid;
+      gap: 0.42rem;
+    }
+    .month-row {
+      display: grid;
+      grid-template-columns: 4.2rem minmax(0, 1fr) 4.6rem;
+      gap: 0.52rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.74rem;
+      font-weight: 850;
+    }
+    .paired-track {
+      display: grid;
+      gap: 0.18rem;
+    }
+    .mini-bar {
+      height: 0.42rem;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #e8eef7;
+    }
+    .mini-bar i {
+      display: block;
+      width: var(--width);
+      height: 100%;
+      border-radius: inherit;
+    }
+    .mini-bar.baseline i {
+      background: var(--border-strong);
+    }
+    .mini-bar.current i {
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .month-row .gain {
+      color: var(--teal);
+      font-size: 0.7rem;
+      text-align: right;
+    }
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-top: 0.45rem;
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 800;
+    }
+    .legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.28rem;
+    }
+    .legend i {
+      display: inline-block;
+      width: 1.1rem;
+      height: 0.42rem;
+      border-radius: 999px;
+      background: var(--swatch);
+    }
+    .qa-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.62rem;
+      margin-top: 0.82rem;
+    }
+    .qa-tile {
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.7rem;
+    }
+    .qa-tile .label {
+      min-height: 2.2rem;
+      color: var(--ink);
+      font-size: 0.76rem;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+    .qa-tile .before-after {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.45rem;
+      margin-top: 0.45rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 850;
+    }
+    .qa-tile strong {
+      display: block;
+      margin-top: 0.28rem;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .call-center-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.62rem;
+      margin-top: 0.75rem;
+    }
+    .quarter-tile {
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.68rem;
+    }
+    .quarter-tile h3 {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+    .quarter-tile h3 span {
+      color: var(--red);
+      font-size: 0.78rem;
+    }
+    .quarter-tile p {
+      margin: 0.42rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 760;
+    }
+    .stakeholder-map {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+    .stakeholder {
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent, var(--teal));
+      border-radius: 8px;
+      background: rgba(238, 244, 251, 0.72);
+      padding: 0.68rem;
+    }
+    .stakeholder:nth-child(2) { --accent: var(--red); }
+    .stakeholder:nth-child(3) { --accent: var(--gold); }
+    .stakeholder:nth-child(4) { --accent: var(--green); }
+    .stakeholder p {
+      margin: 0.35rem 0 0;
+      color: var(--body);
+      font-size: 0.78rem;
+    }
+    .insight-panel {
+      border: 1px solid rgba(209, 38, 48, 0.3);
+      border-left: 5px solid var(--red);
+      border-radius: 8px;
+      background: #fff;
+      padding: 1rem;
+    }
+    .insight-panel p {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.08rem;
+      font-weight: 850;
+      line-height: 1.35;
+    }
+    .note {
+      margin: 0.65rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 720;
+    }
+    @media (max-width: 960px) {
+      .cockpit-grid,
+      .phase-flow,
+      .qa-grid,
+      .stakeholder-map {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 680px) {
+      .cockpit-grid,
+      .phase-flow,
+      .qa-grid,
+      .stakeholder-map,
+      .call-center-grid {
+        grid-template-columns: 1fr;
+      }
+      .timeline-row,
+      .month-row {
+        grid-template-columns: 1fr;
+      }
+      .timeline-row .status,
+      .month-row .gain {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP infographic home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source links">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/75_Implementation-of-a-new-patient-case-management-system-at-a-large-health-system-specialty-pharmacy_2023.pdf">PDF Source</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/75_Implementation-of-a-new-patient-case-management-system-at-a-large-health-system-specialty-pharmacy_2023.md">Markdown Source</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2023 | Poster 75 | Health system specialty pharmacy</p>
+        <h1 id="poster-title">Implementation of a New Patient Case Management System at a Large Health System Specialty Pharmacy</h1>
+        <p class="hero-summary">Yale New Haven Health Outpatient Pharmacy Services moved specialty pharmacy care management from an in-house EHR documentation platform to Epic Compass Rose, using cross-functional workgroups to preserve patient care while expanding documentation, reporting, and quality oversight.</p>
+        <ul class="tag-row" aria-label="Poster topics">
+          <li class="tag category">Compass Rose implementation</li>
+          <li class="tag therapy">Specialty pharmacy operations</li>
+          <li class="tag">Clinical documentation</li>
+          <li class="tag">Quality assurance</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Poster metadata and system visual">
+        <div class="poster-code">2023<br>Case Management</div>
+        <p class="author-line">Kimhouy Tong; Terri Sue Rubino; Andrew Cadorette; Michele Riccardi; Sarah E. Wright; Vincent Do; Vinay Sawant</p>
+        <div class="system-visual" aria-hidden="true">
+          <svg viewBox="0 0 460 285" role="img">
+            <title>Compass Rose implementation cockpit</title>
+            <defs>
+              <linearGradient id="screenGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#eef4fb"/>
+                <stop offset="1" stop-color="#ffffff"/>
+              </linearGradient>
+              <linearGradient id="needleGrad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#d12630"/>
+                <stop offset="1" stop-color="#e99e25"/>
+              </linearGradient>
+            </defs>
+            <rect x="28" y="28" width="404" height="228" rx="22" fill="url(#screenGrad)" stroke="#243770" stroke-width="5"/>
+            <rect x="56" y="58" width="158" height="74" rx="12" fill="#fff" stroke="#aebbd2" stroke-width="3"/>
+            <rect x="74" y="78" width="88" height="10" rx="5" fill="#187c8f"/>
+            <rect x="74" y="100" width="118" height="9" rx="4.5" fill="#d9e1ef"/>
+            <rect x="74" y="116" width="95" height="9" rx="4.5" fill="#d9e1ef"/>
+            <circle cx="296" cy="136" r="66" fill="#fff" stroke="#aebbd2" stroke-width="3"/>
+            <path d="M296 78 L316 136 L296 194 L276 136 Z" fill="#eef4fb" stroke="#243770" stroke-width="3"/>
+            <path d="M238 136 L296 116 L354 136 L296 156 Z" fill="#fff7ea" stroke="#243770" stroke-width="3"/>
+            <path d="M296 136 L337 112" stroke="url(#needleGrad)" stroke-width="9" stroke-linecap="round"/>
+            <circle cx="296" cy="136" r="10" fill="#d12630"/>
+            <rect x="56" y="158" width="156" height="62" rx="12" fill="#fff" stroke="#aebbd2" stroke-width="3"/>
+            <rect x="75" y="178" width="42" height="12" rx="6" fill="#d12630"/>
+            <rect x="125" y="178" width="62" height="12" rx="6" fill="#e99e25"/>
+            <rect x="75" y="199" width="92" height="9" rx="4.5" fill="#d9e1ef"/>
+            <path d="M209 95 C242 88 253 104 267 119" fill="none" stroke="#187c8f" stroke-width="5" stroke-linecap="round"/>
+            <path d="M209 188 C244 189 254 170 270 151" fill="none" stroke="#4d8a67" stroke-width="5" stroke-linecap="round"/>
+            <rect x="355" y="70" width="44" height="132" rx="10" fill="#243770"/>
+            <circle cx="377" cy="95" r="8" fill="#4d8a67"/>
+            <circle cx="377" cy="136" r="8" fill="#e99e25"/>
+            <circle cx="377" cy="177" r="8" fill="#d12630"/>
+            <text x="230" y="240" text-anchor="middle" fill="#243770" font-family="Montserrat, Arial, sans-serif" font-size="20" font-weight="900">Build -> Validate -> Train -> Go-Live</text>
+          </svg>
+        </div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Organization</dt>
+            <dd>Yale New Haven Health OPS</dd>
+          </div>
+          <div>
+            <dt>System</dt>
+            <dd>Epic Compass Rose</dd>
+          </div>
+          <div>
+            <dt>Kickoff</dt>
+            <dd>Aug 2022</dd>
+          </div>
+          <div>
+            <dt>Go-live</dt>
+            <dd>May 2023</dd>
+          </div>
+        </dl>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Launch horizon</span>
+          <strong>9<small> mo</small></strong>
+          <p>August 2022 kickoff to May 2023 go-live after added training time.</p>
+        </article>
+        <article class="metric-card">
+          <span>Milestones delayed</span>
+          <strong>6/12</strong>
+          <p>Training, clinic education, conversion, and go-live shifted later than target.</p>
+        </article>
+        <article class="metric-card">
+          <span>Dispense efficiency</span>
+          <strong>+61<small>%</small></strong>
+          <p>Average Jan-Jun 2023 specialty dispenses per 100 refill outreach calls versus 2022.</p>
+        </article>
+        <article class="metric-card">
+          <span>QA audit capacity</span>
+          <strong>4x</strong>
+          <p>Total clinical plus regulatory audits increased from 10 to 40 per month.</p>
+        </article>
+      </section>
+
+      <section class="visual-grid" aria-label="Objective and methods">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Change the care-management engine with minimal disruption</h2>
+          <p>The project aimed to implement a patient management application that could support specialty conditions, medications, and services across a broad clinical scope while preserving continuity of patient care.</p>
+          <div class="number-cloud" aria-label="Implementation scope">
+            <div class="number-pill">4<small>workgroup lanes</small></div>
+            <div class="number-pill">12<small>milestones</small></div>
+            <div class="number-pill">5<small>tracked outcomes</small></div>
+            <div class="number-pill">2<small>source systems</small></div>
+          </div>
+        </article>
+        <article class="panel">
+          <p class="section-label">Methods</p>
+          <h2>A champion-led operating model</h2>
+          <div class="stakeholder-map" aria-label="Stakeholder groups">
+            <div class="stakeholder">
+              <h3>Pharmacy</h3>
+              <p>Specialty and ambulatory leadership, clinical specialists, pharmacists, and technicians.</p>
+            </div>
+            <div class="stakeholder">
+              <h3>DTS</h3>
+              <p>Digital and Technology Solutions leadership, analysts, and data architecture support.</p>
+            </div>
+            <div class="stakeholder">
+              <h3>Business Development</h3>
+              <p>Clinical pharmacy specialist plus clinic outreach pharmacist and nurse.</p>
+            </div>
+            <div class="stakeholder">
+              <h3>Clinics</h3>
+              <p>Clinicians and clinic-based staff connected to specialty pharmacy workflows.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel" aria-labelledby="flow-heading">
+        <p class="section-label">Implementation flow</p>
+        <h2 id="flow-heading">From build to go-live, with training as the pressure point</h2>
+        <div class="phase-flow">
+          <article class="phase" data-step="01">
+            <h3>Build the foundation</h3>
+            <p>Core Compass Rose build and workflows were completed on target by December 2022.</p>
+          </article>
+          <article class="phase" data-step="02">
+            <h3>Validate at scale</h3>
+            <p>Initial and large-scale validation closed on target from December 2022 through February 2023.</p>
+          </article>
+          <article class="phase" data-step="03">
+            <h3>Train and educate</h3>
+            <p>Training curriculum, superuser training, end-user training, and clinic education moved later after staff feedback.</p>
+          </article>
+          <article class="phase" data-step="04">
+            <h3>Convert and launch</h3>
+            <p>Conversion run-through and go-live shifted from March-April targets to April-May completion.</p>
+          </article>
+        </div>
+        <div class="timeline" aria-label="Selected milestone timing">
+          <div class="timeline-row">
+            <span>Kickoff</span>
+            <div class="track"><i style="--width: 10%;"></i></div>
+            <span class="status">Aug 2022 target met</span>
+          </div>
+          <div class="timeline-row">
+            <span>Core build</span>
+            <div class="track"><i style="--width: 45%;"></i></div>
+            <span class="status">Dec 2022 target met</span>
+          </div>
+          <div class="timeline-row">
+            <span>Validation</span>
+            <div class="track"><i style="--width: 62%;"></i></div>
+            <span class="status">Feb 2023 target met</span>
+          </div>
+          <div class="timeline-row delay">
+            <span>Training</span>
+            <div class="track"><i style="--width: 78%;"></i></div>
+            <span class="status">Mar-May 2023 delayed</span>
+          </div>
+          <div class="timeline-row delay">
+            <span>Go-live</span>
+            <div class="track"><i style="--width: 100%;"></i></div>
+            <span class="status">May 2023 delayed</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="cockpit-grid" aria-label="Results dashboard">
+        <article class="panel">
+          <p class="section-label">Result pattern 1</p>
+          <h2>Dispensing efficiency rose after implementation</h2>
+          <p>Specialty medication dispenses per 100 refill outreach calls were higher in each month reported for 2023 than in the matching 2022 month, with the largest lift in May and June.</p>
+          <div class="chart-stack">
+            <div class="dispense-chart" aria-label="Monthly specialty dispenses per 100 refill outreach calls">
+              <div class="month-row">
+                <span>January</span>
+                <div class="paired-track">
+                  <div class="mini-bar baseline"><i style="--width: 38%;"></i></div>
+                  <div class="mini-bar current"><i style="--width: 52%;"></i></div>
+                </div>
+                <span class="gain">+35%</span>
+              </div>
+              <div class="month-row">
+                <span>February</span>
+                <div class="paired-track">
+                  <div class="mini-bar baseline"><i style="--width: 38%;"></i></div>
+                  <div class="mini-bar current"><i style="--width: 44%;"></i></div>
+                </div>
+                <span class="gain">+18%</span>
+              </div>
+              <div class="month-row">
+                <span>March</span>
+                <div class="paired-track">
+                  <div class="mini-bar baseline"><i style="--width: 35%;"></i></div>
+                  <div class="mini-bar current"><i style="--width: 45%;"></i></div>
+                </div>
+                <span class="gain">+28%</span>
+              </div>
+              <div class="month-row">
+                <span>April</span>
+                <div class="paired-track">
+                  <div class="mini-bar baseline"><i style="--width: 45%;"></i></div>
+                  <div class="mini-bar current"><i style="--width: 66%;"></i></div>
+                </div>
+                <span class="gain">+47%</span>
+              </div>
+              <div class="month-row">
+                <span>May</span>
+                <div class="paired-track">
+                  <div class="mini-bar baseline"><i style="--width: 48%;"></i></div>
+                  <div class="mini-bar current"><i style="--width: 97%;"></i></div>
+                </div>
+                <span class="gain">+103%</span>
+              </div>
+              <div class="month-row">
+                <span>June</span>
+                <div class="paired-track">
+                  <div class="mini-bar baseline"><i style="--width: 48%;"></i></div>
+                  <div class="mini-bar current"><i style="--width: 100%;"></i></div>
+                </div>
+                <span class="gain">+108%</span>
+              </div>
+            </div>
+            <div class="legend" aria-hidden="true">
+              <span><i style="--swatch: #aebbd2;"></i>2022</span>
+              <span><i style="--swatch: linear-gradient(90deg, var(--red), var(--gold));"></i>2023</span>
+            </div>
+          </div>
+        </article>
+        <article class="panel">
+          <p class="section-label">Result pattern 2</p>
+          <h2>Call center measures improved in later quarters</h2>
+          <p>Quarterly comparisons showed unfavorable Q1 speed of answer and abandonment-rate measures, followed by substantial relative improvement in Q2 and Q3.</p>
+          <div class="call-center-grid" aria-label="Quarterly call center comparison">
+            <div class="quarter-tile">
+              <h3>Q1 <span>mixed start</span></h3>
+              <p>Speed of answer: +27.96%; abandonment rate: +20.75%.</p>
+            </div>
+            <div class="quarter-tile">
+              <h3>Q2 <span>improved</span></h3>
+              <p>Speed of answer: -102.31%; abandonment rate: -62.35%.</p>
+            </div>
+            <div class="quarter-tile">
+              <h3>Q3 <span>improved</span></h3>
+              <p>Speed of answer: -130.24%; abandonment rate: -56.15%.</p>
+            </div>
+          </div>
+          <p class="note">Negative percentages are presented as reported in the poster's quarterly comparison tables.</p>
+        </article>
+      </section>
+
+      <section class="panel" aria-labelledby="qa-heading">
+        <p class="section-label">Quality and documentation effects</p>
+        <h2 id="qa-heading">Compass Rose expanded oversight and clinical documentation</h2>
+        <div class="qa-grid">
+          <article class="qa-tile">
+            <div class="label">Clinical audits per month</div>
+            <div class="before-after"><span>Pre 10</span><span>Post 10</span></div>
+            <strong>steady</strong>
+          </article>
+          <article class="qa-tile">
+            <div class="label">Regulatory audits per month</div>
+            <div class="before-after"><span>Pre not listed</span><span>Post 30</span></div>
+            <strong>30</strong>
+          </article>
+          <article class="qa-tile">
+            <div class="label">Clinical interventions per 100 patients</div>
+            <div class="before-after"><span>Pre 19.25</span><span>Post 28.87</span></div>
+            <strong>+50%</strong>
+          </article>
+          <article class="qa-tile">
+            <div class="label">Customer complaints per 1,000 dispenses</div>
+            <div class="before-after"><span>Pre 1.49</span><span>Post 2.32</span></div>
+            <strong>+56%</strong>
+          </article>
+        </div>
+        <p class="note">The poster notes complaints may be confounded by newly hired staff and a mail-delivery initiative, while the audit increase reflected new tools for more efficient and specific oversight.</p>
+      </section>
+
+      <section class="section-stack" aria-label="Interpretation">
+        <article class="insight-panel">
+          <p>Conclusion: the new case management application contributed to increased operational efficiency, reduced barriers to clinical documentation, and improved clinical and regulatory oversight.</p>
+        </article>
+        <article class="panel">
+          <p class="section-label">Future work</p>
+          <h2>Next optimization targets</h2>
+          <div class="markdown-fragment">
+            <ul>
+              <li>Reduce duplicate documentation between Compass Rose and the dispensing system.</li>
+              <li>Evaluate patient and provider complaints before and after implementation.</li>
+              <li>Create quality assurance tools to guide clinical, regulatory, and operational adherence.</li>
+            </ul>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer-actions" aria-label="Source documents">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/75_Implementation-of-a-new-patient-case-management-system-at-a-large-health-system-specialty-pharmacy_2023.pdf">Open PDF Source</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/75_Implementation-of-a-new-patient-case-management-system-at-a-large-health-system-specialty-pharmacy_2023.md">Open Markdown Source</a>
+    </footer>
+  </div>
+</body>
+</html>

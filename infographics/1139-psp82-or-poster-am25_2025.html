@@ -1,0 +1,719 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Impact of a Health System Specialty Pharmacy Cascade of Care Referral Service for People Living with Hepatitis C | NASP 2025</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hcv-hero-art {
+      position: relative;
+      min-height: 22rem;
+      border: 1px solid rgba(36, 55, 112, 0.20);
+      border-radius: 8px;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(238, 244, 251, 0.98), #fff 48%, rgba(255, 247, 234, 0.92));
+    }
+
+    .hcv-hero-art svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 22rem;
+    }
+
+    .hero-card .core-finding {
+      margin: 0;
+      border-left: 4px solid var(--red);
+      padding-left: 0.75rem;
+      color: var(--ink);
+      font-size: 0.94rem;
+      font-weight: 850;
+    }
+
+    .mini-matrix {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.55rem;
+    }
+
+    .mini-matrix div {
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.78);
+      padding: 0.62rem;
+    }
+
+    .mini-matrix b {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.18rem;
+      line-height: 1;
+    }
+
+    .mini-matrix span {
+      display: block;
+      margin-top: 0.28rem;
+      color: var(--muted);
+      font-size: 0.64rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .story-band {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .objective-panel {
+      display: grid;
+      gap: 0.7rem;
+      align-content: start;
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background:
+        linear-gradient(90deg, rgba(24, 124, 143, 0.11), transparent 42%),
+        #fff;
+      padding: 1rem;
+    }
+
+    .objective-panel p {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.05rem, 1.8vw, 1.42rem);
+      font-weight: 850;
+      line-height: 1.32;
+    }
+
+    .objective-list {
+      display: grid;
+      gap: 0.5rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .objective-list li {
+      display: grid;
+      grid-template-columns: 2rem minmax(0, 1fr);
+      gap: 0.55rem;
+      align-items: start;
+      color: var(--body);
+      font-size: 0.86rem;
+    }
+
+    .objective-list b {
+      display: grid;
+      place-items: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 999px;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.86rem;
+    }
+
+    .flow-lane {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.7rem;
+    }
+
+    .flow-step {
+      position: relative;
+      min-height: 9.5rem;
+      border: 1px solid rgba(174, 187, 210, 0.92);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+      overflow: hidden;
+    }
+
+    .flow-step::after {
+      content: attr(data-step);
+      position: absolute;
+      right: 0.45rem;
+      bottom: -0.55rem;
+      color: rgba(36, 55, 112, 0.10);
+      font-family: var(--font-display);
+      font-size: 4.5rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .flow-step h3 {
+      margin-bottom: 0.45rem;
+    }
+
+    .flow-step p {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      font-size: 0.82rem;
+    }
+
+    .chart-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .bar-chart {
+      display: grid;
+      gap: 0.58rem;
+      margin-top: 0.75rem;
+    }
+
+    .bar-row-wide {
+      display: grid;
+      grid-template-columns: 9rem minmax(0, 1fr) 4.5rem;
+      gap: 0.6rem;
+      align-items: center;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+
+    .bar-row-wide small {
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 800;
+    }
+
+    .bar-track-lg {
+      height: 1.05rem;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+
+    .bar-track-lg i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .bar-track-lg.teal i {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .enrollment-spark {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 0.45rem;
+      align-items: end;
+      height: 13.6rem;
+      margin-top: 0.8rem;
+      border-bottom: 2px solid rgba(36, 55, 112, 0.26);
+      padding: 0 0.3rem 0.35rem;
+    }
+
+    .month-bar {
+      display: grid;
+      align-content: end;
+      gap: 0.35rem;
+      height: 100%;
+      color: var(--ink);
+      text-align: center;
+      font-size: 0.7rem;
+      font-weight: 850;
+    }
+
+    .month-bar i {
+      display: block;
+      min-height: 2rem;
+      border-radius: 6px 6px 2px 2px;
+      background: linear-gradient(180deg, var(--teal), var(--green));
+    }
+
+    .month-bar b {
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+    }
+
+    .rx-lift-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-top: 0.75rem;
+    }
+
+    .lift-card {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 0.85rem;
+    }
+
+    .lift-card h3 {
+      margin-bottom: 0.6rem;
+    }
+
+    .comparison-bars {
+      display: grid;
+      gap: 0.52rem;
+    }
+
+    .comparison-row {
+      display: grid;
+      grid-template-columns: 7.7rem minmax(0, 1fr) 3.1rem;
+      gap: 0.55rem;
+      align-items: center;
+      font-size: 0.76rem;
+      font-weight: 850;
+      color: var(--ink);
+    }
+
+    .comparison-track {
+      height: 1rem;
+      border-radius: 999px;
+      background: rgba(36, 55, 112, 0.10);
+      overflow: hidden;
+    }
+
+    .comparison-track i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: rgba(36, 55, 112, 0.40);
+    }
+
+    .comparison-track .current {
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .lift-note {
+      display: inline-flex;
+      margin-top: 0.65rem;
+      border-radius: 999px;
+      background: rgba(209, 38, 48, 0.10);
+      padding: 0.24rem 0.55rem;
+      color: var(--red);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .barrier-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.75rem;
+    }
+
+    .barrier-cloud span {
+      border: 1px solid rgba(174, 187, 210, 0.95);
+      border-radius: 999px;
+      background: var(--surface-blue);
+      padding: 0.35rem 0.58rem;
+      color: var(--ink);
+      font-size: 0.74rem;
+      font-weight: 850;
+    }
+
+    .takeaway-panel {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(209, 38, 48, 0.10), transparent 38%),
+        #fff;
+    }
+
+    .takeaway-panel p {
+      max-width: 62rem;
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.05rem, 1.8vw, 1.45rem);
+      font-weight: 850;
+      line-height: 1.36;
+    }
+
+    .source-note {
+      margin: 0.7rem 0 0;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 900px) {
+      .story-band,
+      .chart-grid,
+      .rx-lift-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .flow-lane {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 620px) {
+      .flow-lane,
+      .mini-matrix {
+        grid-template-columns: 1fr;
+      }
+
+      .bar-row-wide,
+      .comparison-row {
+        grid-template-columns: 1fr;
+      }
+
+      .enrollment-spark {
+        height: 11rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Source documents">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/1139-PSP82-OR-Poster-AM25_2025.pdf">Poster PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/1139-PSP82-OR-Poster-AM25_2025.md">Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2025 | 1139-PSP82-OR-Poster-AM25</p>
+        <h1>Impact of a Health System Specialty Pharmacy Cascade of Care Referral Service for People Living with Hepatitis C</h1>
+        <p class="hero-summary">Cleveland Clinic specialty pharmacists used a collaborative practice agreement, patient tracking, and barrier removal workflows to move patients with positive HCV tests from referral to treatment and final cure documentation.</p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag therapy">Hepatitis C</li>
+          <li class="tag category">Quality improvement</li>
+          <li class="tag">Specialty pharmacy</li>
+          <li class="tag">Cascade of care</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster summary">
+        <div class="poster-code">HCV<br>Cascade</div>
+        <p class="core-finding">Patients reviewed through the cascade referral model had high treatment completion, while HCV prescription volume rose after service implementation.</p>
+        <dl class="meta-grid">
+          <div>
+            <dt>Setting</dt>
+            <dd>Cleveland Clinic</dd>
+          </div>
+          <div>
+            <dt>Window</dt>
+            <dd>Oct 2024-Mar 2025</dd>
+          </div>
+          <div>
+            <dt>Design</dt>
+            <dd>Observational QI</dd>
+          </div>
+          <div>
+            <dt>Authors</dt>
+            <dd>Harrington, Mullen, Geyer</dd>
+          </div>
+        </dl>
+        <div class="mini-matrix" aria-label="Headline findings">
+          <div><b>97%</b><span>completed model</span></div>
+          <div><b>31%</b><span>Rx received lift</span></div>
+          <div><b>61%</b><span>Rx filled lift</span></div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="hcv-hero-art" aria-label="Cascade of care visual">
+        <svg viewBox="0 0 1120 360" role="img" aria-labelledby="cascadeTitle cascadeDesc">
+          <title id="cascadeTitle">HCV referral service cascade of care</title>
+          <desc id="cascadeDesc">A pathway moving from positive laboratory result through barrier assessment, pharmacist CPA management, patient advocacy, treatment, and cure documentation.</desc>
+          <defs>
+            <linearGradient id="cascadeLine" x1="90" x2="1030" y1="176" y2="176" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#d12630"/>
+              <stop offset="0.45" stop-color="#e99e25"/>
+              <stop offset="1" stop-color="#187c8f"/>
+            </linearGradient>
+            <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#243770" flood-opacity="0.14"/>
+            </filter>
+          </defs>
+          <rect x="28" y="30" width="1064" height="300" rx="16" fill="#fff" opacity="0.72"/>
+          <path d="M104 184 C242 86 351 88 470 176 S689 267 808 174 S957 81 1030 143" fill="none" stroke="url(#cascadeLine)" stroke-width="16" stroke-linecap="round"/>
+          <g filter="url(#softShadow)">
+            <g transform="translate(76 124)">
+              <rect width="168" height="112" rx="12" fill="#fff" stroke="#aebbd2"/>
+              <circle cx="34" cy="34" r="16" fill="#d12630"/>
+              <path d="M27 34h14M34 27v14" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+              <text x="62" y="32" fill="#243770" font-family="Montserrat, Arial" font-size="16" font-weight="850">Positive HCV</text>
+              <text x="62" y="53" fill="#68758d" font-family="Inter, Arial" font-size="12" font-weight="700">lab review</text>
+              <text x="18" y="88" fill="#33415c" font-family="Inter, Arial" font-size="13">Eligible patients enter</text>
+              <text x="18" y="105" fill="#33415c" font-family="Inter, Arial" font-size="13">the tracking workflow.</text>
+            </g>
+            <g transform="translate(302 74)">
+              <rect width="178" height="122" rx="12" fill="#fff" stroke="#aebbd2"/>
+              <circle cx="34" cy="34" r="16" fill="#e99e25"/>
+              <path d="M25 37c13-18 20-18 31 0" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+              <text x="62" y="32" fill="#243770" font-family="Montserrat, Arial" font-size="16" font-weight="850">Barriers</text>
+              <text x="62" y="53" fill="#68758d" font-family="Inter, Arial" font-size="12" font-weight="700">identified</text>
+              <text x="18" y="86" fill="#33415c" font-family="Inter, Arial" font-size="13">Access, cost, literacy,</text>
+              <text x="18" y="103" fill="#33415c" font-family="Inter, Arial" font-size="13">follow-up, transport.</text>
+            </g>
+            <g transform="translate(542 154)">
+              <rect width="178" height="124" rx="12" fill="#fff" stroke="#aebbd2"/>
+              <circle cx="34" cy="34" r="16" fill="#187c8f"/>
+              <path d="M24 35l8 8 15-20" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="62" y="32" fill="#243770" font-family="Montserrat, Arial" font-size="16" font-weight="850">CPA path</text>
+              <text x="62" y="53" fill="#68758d" font-family="Inter, Arial" font-size="12" font-weight="700">streamlined care</text>
+              <text x="18" y="86" fill="#33415c" font-family="Inter, Arial" font-size="13">Specialty pharmacists</text>
+              <text x="18" y="103" fill="#33415c" font-family="Inter, Arial" font-size="13">manage treatment plans.</text>
+            </g>
+            <g transform="translate(796 92)">
+              <rect width="186" height="124" rx="12" fill="#fff" stroke="#aebbd2"/>
+              <circle cx="34" cy="34" r="16" fill="#4d8a67"/>
+              <path d="M25 36h18M34 27v24" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+              <text x="62" y="32" fill="#243770" font-family="Montserrat, Arial" font-size="16" font-weight="850">Advocate</text>
+              <text x="62" y="53" fill="#68758d" font-family="Inter, Arial" font-size="12" font-weight="700">through treatment</text>
+              <text x="18" y="86" fill="#33415c" font-family="Inter, Arial" font-size="13">Counseling, refills,</text>
+              <text x="18" y="103" fill="#33415c" font-family="Inter, Arial" font-size="13">final lab documentation.</text>
+            </g>
+          </g>
+          <g transform="translate(904 246)">
+            <rect x="0" y="0" width="152" height="56" rx="28" fill="#243770"/>
+            <text x="76" y="25" text-anchor="middle" fill="#fff" font-family="Montserrat, Arial" font-size="18" font-weight="900">97%</text>
+            <text x="76" y="42" text-anchor="middle" fill="#d9e1ef" font-family="Inter, Arial" font-size="11" font-weight="800">completed cascade</text>
+          </g>
+        </svg>
+      </section>
+
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>HCV service referrals</span>
+          <strong>1,860</strong>
+        </article>
+        <article class="metric-card">
+          <span>New enrollments</span>
+          <strong>1,283</strong>
+        </article>
+        <article class="metric-card">
+          <span>CPA referrals received</span>
+          <strong>289</strong>
+        </article>
+        <article class="metric-card">
+          <span>Completed model</span>
+          <strong>125/128</strong>
+        </article>
+      </section>
+
+      <section class="story-band">
+        <article class="objective-panel">
+          <p>The project asked whether a specialty pharmacy referral service could reduce HCV treatment barriers at health-system scale.</p>
+          <ol class="objective-list">
+            <li><b>1</b><span>Describe pharmacist interventions made under a collaborative practice agreement.</span></li>
+            <li><b>2</b><span>Quantify the referral service impact on HCV treatment rates.</span></li>
+            <li><b>3</b><span>Engage stakeholders across a large health system to reduce HCV treatment barriers.</span></li>
+          </ol>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Evidence flow</p>
+          <h2>From positive test to documented cure</h2>
+          <div class="flow-lane">
+            <div class="flow-step" data-step="01">
+              <h3>Find</h3>
+              <p>Positive HCV blood tests triggered specialty pharmacist review and chart documentation.</p>
+            </div>
+            <div class="flow-step" data-step="02">
+              <h3>Route</h3>
+              <p>Patients were triaged through CPA management, specialist prescribing, or pharmacist barrier intervention.</p>
+            </div>
+            <div class="flow-step" data-step="03">
+              <h3>Remove</h3>
+              <p>The team tracked access, financial, psychosocial, transport, and follow-up barriers in the patient management system.</p>
+            </div>
+            <div class="flow-step" data-step="04">
+              <h3>Complete</h3>
+              <p>Pharmacists followed treatment, refills, counseling, and final laboratory documentation of cure.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="chart-grid">
+        <article class="panel">
+          <p class="section-label">Referral disposition</p>
+          <h2>1,860 referrals sorted into four support pathways</h2>
+          <div class="bar-chart" aria-label="HCV ambulatory service referrals">
+            <div class="bar-row-wide">
+              <span>Ineligible <small>613</small></span>
+              <div class="bar-track-lg"><i style="width: 33%"></i></div>
+              <b>33%</b>
+            </div>
+            <div class="bar-row-wide">
+              <span>CPA managed <small>472</small></span>
+              <div class="bar-track-lg teal"><i style="width: 25%"></i></div>
+              <b>25%</b>
+            </div>
+            <div class="bar-row-wide">
+              <span>Specialist Rx <small>402</small></span>
+              <div class="bar-track-lg"><i style="width: 22%"></i></div>
+              <b>22%</b>
+            </div>
+            <div class="bar-row-wide">
+              <span>Barrier support <small>373</small></span>
+              <div class="bar-track-lg teal"><i style="width: 20%"></i></div>
+              <b>20%</b>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Enrollment rhythm</p>
+          <h2>New enrollments peaked in January 2025</h2>
+          <div class="enrollment-spark" aria-label="Monthly enrollments between October 2024 and March 2025">
+            <div class="month-bar"><b>205</b><i style="height: 71%"></i><span>Oct</span></div>
+            <div class="month-bar"><b>177</b><i style="height: 61%"></i><span>Nov</span></div>
+            <div class="month-bar"><b>236</b><i style="height: 82%"></i><span>Dec</span></div>
+            <div class="month-bar"><b>288</b><i style="height: 100%"></i><span>Jan</span></div>
+            <div class="month-bar"><b>156</b><i style="height: 54%"></i><span>Feb</span></div>
+            <div class="month-bar"><b>221</b><i style="height: 77%"></i><span>Mar</span></div>
+          </div>
+          <p class="source-note">Total new enrollments: 1,283, deduplicated across support-program switches.</p>
+        </article>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Prescription volume signal</p>
+        <h2>After implementation, HCV prescription activity increased versus the prior Q4-Q1 period</h2>
+        <div class="rx-lift-grid">
+          <article class="lift-card">
+            <h3>Prescriptions received</h3>
+            <div class="comparison-bars">
+              <div class="comparison-row">
+                <span>Q4 2023-Q1 2024</span>
+                <div class="comparison-track"><i style="width: 76%"></i></div>
+                <b>305</b>
+              </div>
+              <div class="comparison-row">
+                <span>Q4 2024-Q1 2025</span>
+                <div class="comparison-track"><i class="current" style="width: 100%"></i></div>
+                <b>399</b>
+              </div>
+            </div>
+            <span class="lift-note">31% increase</span>
+          </article>
+
+          <article class="lift-card">
+            <h3>Prescriptions filled</h3>
+            <div class="comparison-bars">
+              <div class="comparison-row">
+                <span>Q4 2023-Q1 2024</span>
+                <div class="comparison-track"><i style="width: 62%"></i></div>
+                <b>374</b>
+              </div>
+              <div class="comparison-row">
+                <span>Q4 2024-Q1 2025</span>
+                <div class="comparison-track"><i class="current" style="width: 100%"></i></div>
+                <b>602</b>
+              </div>
+            </div>
+            <span class="lift-note">61% increase</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel">
+          <p class="section-label">Barrier pattern</p>
+          <h2>Common barriers were operational, financial, clinical, and behavioral</h2>
+          <div class="barrier-cloud" aria-label="Barriers to HCV treatment">
+            <span>No primary care connection</span>
+            <span>Specialist access</span>
+            <span>Transportation</span>
+            <span>Psychosocial needs</span>
+            <span>SUD or AUD</span>
+            <span>Cost or insurance</span>
+            <span>Copay assistance</span>
+            <span>Patient assistance</span>
+            <span>Low health literacy</span>
+            <span>Testing or visit follow-up</span>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Observed implementation lessons</p>
+          <h2>Scale depended on sustainability and cross-specialty champions</h2>
+          <div class="number-cloud">
+            <div class="number-pill">CPA<small>trained pharmacists</small></div>
+            <div class="number-pill">HCV<small>champions</small></div>
+            <div class="number-pill">SUD<small>treatment planning</small></div>
+            <div class="number-pill">Care<small>model reuse</small></div>
+          </div>
+          <div class="markdown-fragment">
+            <p>Specialist use of the referral service accounted for many referrals, and the workflow created a foundation for additional specialty pharmacy care models.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel takeaway-panel">
+        <p>Conclusion: specialty pharmacy services can remove treatment barriers, improve access to HCV care, and support high completion within a health-system cascade referral model.</p>
+      </section>
+
+      <section class="tables-grid" aria-label="Source tables">
+        <article class="table-card">
+          <h3>HCV ambulatory service referrals</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Support program</th>
+                  <th>n=1,860</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Unable to facilitate treatment (ineligible)</td><td>613 (33%)</td></tr>
+                <tr><td>Pharmacist managed treatment via CPA</td><td>472 (25%)</td></tr>
+                <tr><td>Specialist prescribed and sent prescription to pharmacy</td><td>402 (22%)</td></tr>
+                <tr><td>Specialist managed / pharmacist intervention</td><td>373 (20%)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <h3>New enrollments by month</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Month</th>
+                  <th>Enrollments</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Oct 2024</td><td>205</td></tr>
+                <tr><td>Nov 2024</td><td>177</td></tr>
+                <tr><td>Dec 2024</td><td>236</td></tr>
+                <tr><td>Jan 2025</td><td>288</td></tr>
+                <tr><td>Feb 2025</td><td>156</td></tr>
+                <tr><td>Mar 2025</td><td>221</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/1139-PSP82-OR-Poster-AM25_2025.pdf">Open source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/1139-PSP82-OR-Poster-AM25_2025.md">Open source markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

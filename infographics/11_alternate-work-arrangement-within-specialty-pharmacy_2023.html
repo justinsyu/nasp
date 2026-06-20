@@ -1,0 +1,719 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>11 | Alternate Work Arrangement within Specialty Pharmacy</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -3rem -3.5rem auto auto;
+      width: 13rem;
+      height: 13rem;
+      border: 1.15rem solid rgba(24, 124, 143, 0.12);
+      border-radius: 50%;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: 1.4rem;
+      bottom: 1.2rem;
+      width: 7.2rem;
+      height: 7.2rem;
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at center, #fff 0 36%, transparent 37%),
+        conic-gradient(var(--teal) 0 70%, rgba(174, 187, 210, 0.55) 70% 100%);
+      opacity: 0.9;
+    }
+
+    .hero-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .metric-card strong small {
+      color: var(--red);
+      font-size: 0.9rem;
+    }
+
+    .metric-card em {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-style: normal;
+      font-weight: 760;
+      line-height: 1.3;
+    }
+
+    .operations-map {
+      min-height: 22rem;
+      background:
+        radial-gradient(circle at 8% 10%, rgba(209, 38, 48, 0.1), transparent 8rem),
+        linear-gradient(145deg, #fff 0%, var(--surface-blue) 100%);
+    }
+
+    .remote-svg {
+      width: 100%;
+      height: auto;
+      margin-top: 0.75rem;
+    }
+
+    .deployment-lanes {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 0.85rem;
+    }
+
+    .lane {
+      display: grid;
+      grid-template-columns: 5.3rem minmax(0, 1fr) 4rem;
+      gap: 0.65rem;
+      align-items: center;
+    }
+
+    .lane b {
+      color: var(--ink);
+      font-size: 0.82rem;
+    }
+
+    .lane-track {
+      display: grid;
+      grid-template-columns: var(--onsite) var(--remote);
+      min-height: 1.9rem;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 999px;
+      background: #e9eff7;
+      overflow: hidden;
+    }
+
+    .lane-track span {
+      display: grid;
+      place-items: center;
+      min-width: 0;
+      color: #fff;
+      font-size: 0.68rem;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .lane-track span:first-child {
+      background: var(--ink);
+    }
+
+    .lane-track span:last-child {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .lane em {
+      color: var(--teal);
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.85rem;
+    }
+
+    .service-tile {
+      border: 1px solid rgba(174, 187, 210, 0.88);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.75rem;
+    }
+
+    .service-tile strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.9rem;
+      line-height: 1;
+    }
+
+    .service-tile:nth-child(2) strong {
+      color: var(--teal);
+    }
+
+    .service-tile:nth-child(3) strong {
+      color: var(--green);
+    }
+
+    .service-tile span {
+      display: block;
+      margin-top: 0.28rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+
+    .target-board {
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 0.8rem;
+    }
+
+    .target-row {
+      display: grid;
+      grid-template-columns: 5.4rem minmax(0, 1fr) 4.4rem;
+      gap: 0.55rem;
+      align-items: center;
+    }
+
+    .target-row b,
+    .target-row em {
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-style: normal;
+      font-weight: 900;
+    }
+
+    .target-row em {
+      text-align: right;
+    }
+
+    .target-track {
+      position: relative;
+      height: 1rem;
+      border: 1px solid rgba(174, 187, 210, 0.88);
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(77, 138, 103, 0.2) 0 66.7%, rgba(209, 38, 48, 0.16) 66.7% 100%);
+    }
+
+    .target-track::after {
+      content: "";
+      position: absolute;
+      left: 66.7%;
+      top: -0.28rem;
+      bottom: -0.28rem;
+      width: 2px;
+      background: rgba(36, 55, 112, 0.62);
+    }
+
+    .target-dot {
+      position: absolute;
+      left: var(--x);
+      top: 50%;
+      width: 0.9rem;
+      height: 0.9rem;
+      transform: translate(-50%, -50%);
+      border: 2px solid #fff;
+      border-radius: 50%;
+      background: var(--accent, var(--teal));
+      box-shadow: 0 0 0 1px rgba(36, 55, 112, 0.25);
+    }
+
+    .target-dot.warning {
+      --accent: var(--gold);
+    }
+
+    .target-note {
+      margin: 0.75rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 750;
+    }
+
+    .phase-flow {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.72rem;
+      margin-top: 0.85rem;
+    }
+
+    .phase-card {
+      position: relative;
+      min-height: 11.5rem;
+      border: 1px solid rgba(174, 187, 210, 0.88);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.78rem;
+      overflow: hidden;
+    }
+
+    .phase-card::before {
+      content: attr(data-phase);
+      display: inline-grid;
+      place-items: center;
+      min-width: 2.1rem;
+      height: 2.1rem;
+      margin-bottom: 0.5rem;
+      border-radius: 50%;
+      background: var(--phase-color, var(--red));
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.86rem;
+      font-weight: 900;
+    }
+
+    .phase-card:nth-child(2) {
+      --phase-color: var(--teal);
+    }
+
+    .phase-card:nth-child(3) {
+      --phase-color: var(--green);
+    }
+
+    .phase-card h3 {
+      margin-bottom: 0.35rem;
+    }
+
+    .phase-card p {
+      margin: 0.35rem 0 0;
+      font-size: 0.82rem;
+    }
+
+    .phase-stat {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.42rem;
+      margin-top: 0.72rem;
+    }
+
+    .phase-stat span {
+      border: 1px solid rgba(36, 55, 112, 0.16);
+      border-radius: 999px;
+      background: var(--surface-blue);
+      padding: 0.22rem 0.48rem;
+      color: var(--ink);
+      font-size: 0.7rem;
+      font-weight: 900;
+    }
+
+    .callout-list {
+      display: grid;
+      gap: 0.55rem;
+      margin: 0.72rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .callout-list li {
+      border-left: 4px solid var(--teal);
+      background: var(--surface-blue);
+      padding: 0.55rem 0.68rem;
+      color: var(--body);
+      font-size: 0.84rem;
+    }
+
+    .callout-list li:nth-child(2) {
+      border-color: var(--gold);
+      background: var(--surface-warm);
+    }
+
+    .callout-list li:nth-child(3) {
+      border-color: var(--green);
+      background: rgba(77, 138, 103, 0.1);
+    }
+
+    .mini-table th:nth-child(n+2),
+    .mini-table td:nth-child(n+2) {
+      text-align: right;
+    }
+
+    .mini-table td:first-child,
+    .mini-table th:first-child {
+      text-align: left;
+    }
+
+    .conclusion-band {
+      background:
+        linear-gradient(90deg, rgba(36, 55, 112, 0.96), rgba(36, 55, 112, 0.86)),
+        var(--ink);
+      color: #fff;
+    }
+
+    .conclusion-band h2,
+    .conclusion-band .section-label {
+      color: #fff;
+    }
+
+    .conclusion-band p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    @media (max-width: 900px) {
+      .phase-flow,
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .topbar {
+        margin-inline: 0;
+      }
+
+      .hero-card::before,
+      .hero-card::after {
+        display: none;
+      }
+
+      .lane,
+      .target-row {
+        grid-template-columns: 1fr;
+      }
+
+      .lane em,
+      .target-row em {
+        text-align: left;
+      }
+
+      .lane-track span {
+        font-size: 0.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        Poster Infographic
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#deployment">Deployment</a>
+        <a href="#metrics">Metrics</a>
+        <a href="#tables">Tables</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP Annual Meeting &amp; Expo 2023 | Yale New Haven Health</p>
+        <h1 id="poster-title">Alternate Work Arrangement within Specialty Pharmacy</h1>
+        <p class="hero-summary">
+          Yale New Haven Health tested whether specialty pharmacy call center staff could move to a remote
+          work model while preserving accreditation service levels: speed of answer below 20 seconds and
+          abandonment rate below 2%.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag category">Operational implementation</li>
+          <li class="tag therapy">Specialty pharmacy</li>
+          <li class="tag">Call center metrics</li>
+          <li class="tag">Remote order entry</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div>
+          <div class="poster-code">11</div>
+          <dl class="meta-grid">
+            <div>
+              <dt>Year</dt>
+              <dd>2023</dd>
+            </div>
+            <div>
+              <dt>Setting</dt>
+              <dd>YNHHS OPS</dd>
+            </div>
+            <div>
+              <dt>Trigger</dt>
+              <dd>Shared Service Bill</dd>
+            </div>
+            <div>
+              <dt>Approach</dt>
+              <dd>Phased deployment</dd>
+            </div>
+          </dl>
+        </div>
+        <p>
+          Connecticut's shared pharmacy service regulation enabled remote order entry and verification
+          starting February 18, 2022, creating the operational opening for a remote specialty pharmacy
+          call center model.
+        </p>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Speed target</span>
+          <strong>&lt;20<small> sec</small></strong>
+          <em>Accreditation threshold for average speed of answer.</em>
+        </article>
+        <article class="metric-card">
+          <span>Abandonment target</span>
+          <strong>&lt;2<small>%</small></strong>
+          <em>Accreditation threshold for abandoned calls.</em>
+        </article>
+        <article class="metric-card">
+          <span>Phase III remote</span>
+          <strong>70<small>%</small></strong>
+          <em>Observed offsite work arrangement at the final phase.</em>
+        </article>
+        <article class="metric-card">
+          <span>Claimed improvement</span>
+          <strong>43<small>%</small></strong>
+          <em>Poster-reported speed-of-answer improvement from Phase I to Phase III.</em>
+        </article>
+      </section>
+
+      <section id="deployment" class="visual-grid">
+        <article class="panel operations-map">
+          <p class="section-label">Operating model</p>
+          <h2>Remote verification became a service-level experiment.</h2>
+          <p>
+            Eligible staff with more than six months in role received equipment and completed a remote test
+            shift before entering a phased deployment. The work design kept new technicians and periodic
+            pharmacist rotations onsite to protect the pharmacist-to-technician ratio.
+          </p>
+          <svg class="remote-svg" viewBox="0 0 720 310" role="img" aria-label="Specialty pharmacy onsite and remote call center network">
+            <defs>
+              <linearGradient id="deskGrad" x1="0" x2="1">
+                <stop offset="0" stop-color="#243770"/>
+                <stop offset="1" stop-color="#187c8f"/>
+              </linearGradient>
+              <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#243770" flood-opacity="0.15"/>
+              </filter>
+            </defs>
+            <rect x="20" y="42" width="250" height="188" rx="12" fill="#fff" stroke="#aebbd2" filter="url(#softShadow)"/>
+            <rect x="48" y="76" width="194" height="78" rx="8" fill="#eef4fb" stroke="#aebbd2"/>
+            <path d="M82 176h126l20 38H62z" fill="url(#deskGrad)"/>
+            <circle cx="104" cy="116" r="18" fill="#d12630"/>
+            <path d="M92 142c8-10 28-10 36 0" fill="none" stroke="#243770" stroke-width="8" stroke-linecap="round"/>
+            <path d="M155 116h48M155 136h34" stroke="#187c8f" stroke-width="8" stroke-linecap="round"/>
+            <text x="145" y="258" text-anchor="middle" fill="#243770" font-size="22" font-family="Montserrat, Arial, sans-serif" font-weight="900">ONSITE OPS</text>
+            <circle cx="360" cy="136" r="48" fill="#fff" stroke="#243770" stroke-width="3"/>
+            <path d="M336 136h48M360 112v48" stroke="#e99e25" stroke-width="10" stroke-linecap="round"/>
+            <text x="360" y="212" text-anchor="middle" fill="#243770" font-size="20" font-family="Montserrat, Arial, sans-serif" font-weight="900">REMOTE ENTRY</text>
+            <path d="M270 136h42M408 136h42" stroke="#aebbd2" stroke-width="6" stroke-linecap="round" stroke-dasharray="8 10"/>
+            <rect x="450" y="36" width="218" height="82" rx="12" fill="#fff" stroke="#aebbd2" filter="url(#softShadow)"/>
+            <rect x="450" y="146" width="218" height="82" rx="12" fill="#fff" stroke="#aebbd2" filter="url(#softShadow)"/>
+            <circle cx="486" cy="77" r="17" fill="#187c8f"/>
+            <circle cx="486" cy="187" r="17" fill="#4d8a67"/>
+            <path d="M520 66h94M520 88h62M520 176h106M520 198h70" stroke="#243770" stroke-width="8" stroke-linecap="round"/>
+            <path d="M556 118v28" stroke="#aebbd2" stroke-width="6" stroke-linecap="round" stroke-dasharray="7 9"/>
+            <text x="559" y="268" text-anchor="middle" fill="#243770" font-size="22" font-family="Montserrat, Arial, sans-serif" font-weight="900">HOME WORKSTATIONS</text>
+          </svg>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Work arrangement mix</p>
+          <h2>The actual remote share grew from 12% to 70%.</h2>
+          <p>
+            The deployment plan described progressive remote work for eligible staff. The reported work
+            arrangement tables show a practical ramp: each phase shifted more call center coverage offsite
+            while retaining an onsite base.
+          </p>
+          <div class="deployment-lanes" aria-label="Onsite and remote share by phase">
+            <div class="lane">
+              <b>Phase I</b>
+              <span class="lane-track" style="--onsite:88fr;--remote:12fr">
+                <span>88% onsite</span><span>12%</span>
+              </span>
+              <em>12%</em>
+            </div>
+            <div class="lane">
+              <b>Phase II</b>
+              <span class="lane-track" style="--onsite:72fr;--remote:28fr">
+                <span>72% onsite</span><span>28%</span>
+              </span>
+              <em>28%</em>
+            </div>
+            <div class="lane">
+              <b>Phase III</b>
+              <span class="lane-track" style="--onsite:30fr;--remote:70fr">
+                <span>30%</span><span>70% remote</span>
+              </span>
+              <em>70%</em>
+            </div>
+          </div>
+          <div class="service-grid" aria-label="Phase summary metrics">
+            <div class="service-tile">
+              <strong>20s</strong>
+              <span>Phase I average speed of answer, at the target boundary.</span>
+            </div>
+            <div class="service-tile">
+              <strong>14s</strong>
+              <span>Phase II average speed of answer, comfortably inside target.</span>
+            </div>
+            <div class="service-tile">
+              <strong>15s</strong>
+              <span>Phase III average speed of answer with 70% remote share.</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel" id="methods">
+        <p class="section-label">Evidence flow</p>
+        <h2>Phased deployment protected the metric thresholds.</h2>
+        <div class="phase-flow" aria-label="Deployment evidence flow">
+          <article class="phase-card" data-phase="I">
+            <h3>Test and observe</h3>
+            <p>Eligible staff received equipment and one remote test shift before phase launch.</p>
+            <div class="phase-stat">
+              <span>12% remote</span>
+              <span>20 sec ASA</span>
+              <span>1.5% abandoned</span>
+            </div>
+          </article>
+          <article class="phase-card" data-phase="II">
+            <h3>Expand coverage</h3>
+            <p>Remote share increased while weekly call metrics stayed below accreditation limits.</p>
+            <div class="phase-stat">
+              <span>28% remote</span>
+              <span>14 sec ASA</span>
+              <span>1.2% abandoned</span>
+            </div>
+          </article>
+          <article class="phase-card" data-phase="III">
+            <h3>Stabilize model</h3>
+            <p>Most reported staff coverage moved offsite with continued onsite staffing balance.</p>
+            <div class="phase-stat">
+              <span>70% remote</span>
+              <span>15 sec ASA</span>
+              <span>1.1% abandoned</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="metrics" class="visual-grid">
+        <article class="panel">
+          <p class="section-label">Accreditation targets</p>
+          <h2>Phase II and III beat both call center targets.</h2>
+          <p>
+            The speed-of-answer gauge uses 30 seconds as the visible scale; the vertical mark is the
+            20-second goal. Abandonment remained under the 2% threshold in all three phase averages.
+          </p>
+          <div class="target-board" aria-label="Average speed of answer by phase against 20 second target">
+            <div class="target-row">
+              <b>Phase I</b>
+              <span class="target-track"><i class="target-dot warning" style="--x:66.7%"></i></span>
+              <em>20 sec</em>
+            </div>
+            <div class="target-row">
+              <b>Phase II</b>
+              <span class="target-track"><i class="target-dot" style="--x:46.7%"></i></span>
+              <em>14 sec</em>
+            </div>
+            <div class="target-row">
+              <b>Phase III</b>
+              <span class="target-track"><i class="target-dot" style="--x:50%"></i></span>
+              <em>15 sec</em>
+            </div>
+          </div>
+          <p class="target-note">Average abandonment: Phase I 1.5%, Phase II 1.2%, Phase III 1.1%.</p>
+        </article>
+
+        <article class="panel markdown-fragment">
+          <p class="section-label">Interpretation</p>
+          <h2>The operating lesson was gradualism, not remote work alone.</h2>
+          <ul class="callout-list">
+            <li>Phase I showed stress, with several weekly speed-of-answer values over 20 seconds and one abandonment spike to 2.5%.</li>
+            <li>The team extended Phase I by four weeks to separate remote-work effects from holiday call volume.</li>
+            <li>By Phase III, reported averages were 15 seconds and 1.1% abandonment, supporting the conclusion that a phased approach can preserve service levels.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="tables" class="tables-grid" aria-label="Extracted table patterns">
+        <article class="table-card">
+          <p class="section-label">Phase averages</p>
+          <h2>Service levels during deployment</h2>
+          <div class="table-wrap">
+            <table class="mini-table">
+              <thead>
+                <tr>
+                  <th>Phase</th>
+                  <th>Remote share</th>
+                  <th>Speed of answer</th>
+                  <th>Goal</th>
+                  <th>Abandoned</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Phase I</td><td>12%</td><td>20 sec</td><td>&lt;20 sec</td><td>1.5%</td></tr>
+                <tr><td>Phase II</td><td>28%</td><td>14 sec</td><td>&lt;20 sec</td><td>1.2%</td></tr>
+                <tr><td>Phase III</td><td>70%</td><td>15 sec</td><td>&lt;20 sec</td><td>1.1%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Pre-deployment context</p>
+          <h2>Baseline months already varied by season.</h2>
+          <div class="table-wrap">
+            <table class="mini-table">
+              <thead>
+                <tr>
+                  <th>Month</th>
+                  <th>Speed of answer</th>
+                  <th>Goal</th>
+                  <th>Abandoned</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>June</td><td>15 sec</td><td>&lt;20 sec</td><td>1.0%</td></tr>
+                <tr><td>July</td><td>14 sec</td><td>&lt;20 sec</td><td>1.1%</td></tr>
+                <tr><td>August</td><td>16 sec</td><td>&lt;20 sec</td><td>1.2%</td></tr>
+                <tr><td>September</td><td>23 sec</td><td>&lt;20 sec</td><td>1.8%</td></tr>
+                <tr><td>October</td><td>21 sec</td><td>&lt;20 sec</td><td>1.6%</td></tr>
+                <tr><td>November</td><td>22 sec</td><td>&lt;20 sec</td><td>1.7%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel markdown-fragment">
+          <p class="section-label">Barriers</p>
+          <h2>Constraints the poster surfaced</h2>
+          <ul>
+            <li>Staff movement into other health-system roles required requisitions and backfilling.</li>
+            <li>Holiday closures created bursts of incoming calls.</li>
+            <li>Equipment budget limited deployment pace.</li>
+          </ul>
+        </article>
+        <article class="panel markdown-fragment">
+          <p class="section-label">Next direction</p>
+          <h2>Scale the model carefully.</h2>
+          <p>
+            The poster's future direction was to adapt the remote work model for all retail pharmacy
+            locations within the health system, using the specialty pharmacy deployment as the template.
+          </p>
+        </article>
+      </section>
+
+      <section class="panel conclusion-band" id="conclusion">
+        <p class="section-label">Bottom line</p>
+        <h2>A remote specialty pharmacy call center can keep accreditation metrics intact when rollout is staged.</h2>
+        <p>
+          The Yale New Haven Health team moved from a small remote pilot to a 70% offsite work arrangement
+          and reported Phase III averages of 15 seconds speed of answer and 1.1% abandonment, both within
+          the poster's stated accreditation thresholds.
+        </p>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/11_Alternate-Work-Arrangement-within-Specialty-Pharmacy_2023.pdf">Source PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/11_Alternate-Work-Arrangement-within-Specialty-Pharmacy_2023.md">Source Markdown</a>
+    </footer>
+  </div>
+</body>
+</html>

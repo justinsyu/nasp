@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Optimizing HIV PrEP Services in Primary Care | NASP 2024 PSP85</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .prep-hero-art {
+      position: relative;
+      min-height: 21rem;
+      border: 1px solid rgba(36, 55, 112, 0.18);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 16% 20%, rgba(209, 38, 48, 0.16), transparent 7.5rem),
+        radial-gradient(circle at 78% 70%, rgba(24, 124, 143, 0.17), transparent 8rem),
+        linear-gradient(145deg, #ffffff 0%, var(--surface-blue) 56%, var(--surface-warm) 100%);
+      overflow: hidden;
+    }
+    .prep-hero-art svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 21rem;
+    }
+    .hero-kicker {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.55rem;
+    }
+    .hero-kicker div {
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.78);
+      padding: 0.58rem;
+    }
+    .hero-kicker b {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+    .hero-kicker span {
+      display: block;
+      margin-top: 0.22rem;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 850;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+    .metric-card.highlight {
+      background:
+        linear-gradient(135deg, rgba(209, 38, 48, 0.1), transparent 44%),
+        #ffffff;
+      border-color: rgba(209, 38, 48, 0.42);
+    }
+    .metric-card strong small {
+      color: inherit;
+      display: inline;
+      font-size: 0.52em;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+    .metric-card p {
+      margin: 0.45rem 0 0;
+      font-size: 0.82rem;
+    }
+    .care-gap {
+      display: grid;
+      grid-template-columns: minmax(17rem, 0.72fr) minmax(0, 1.28fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .gap-gauge {
+      min-height: 19rem;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, #fff, var(--surface-blue));
+      padding: 1rem;
+    }
+    .gauge-ring {
+      width: min(15.5rem, 100%);
+      aspect-ratio: 1;
+      margin: 0.35rem auto 0.7rem;
+      border-radius: 50%;
+      background:
+        conic-gradient(var(--red) 0 3%, rgba(209, 38, 48, 0.14) 3% 100%);
+      display: grid;
+      place-items: center;
+    }
+    .gauge-ring div {
+      width: 74%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: #fff;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 1rem;
+      box-shadow: inset 0 0 0 1px rgba(36, 55, 112, 0.12);
+    }
+    .gauge-ring strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: clamp(2.7rem, 6vw, 4.5rem);
+      line-height: 0.9;
+    }
+    .gauge-ring span {
+      display: block;
+      margin-top: 0.45rem;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 900;
+      line-height: 1.15;
+      text-transform: uppercase;
+    }
+    .gauge-caption {
+      margin: 0;
+      color: var(--body);
+      font-size: 0.88rem;
+      text-align: center;
+    }
+    .step-flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+    .step {
+      position: relative;
+      min-height: 9.4rem;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.8rem;
+      overflow: hidden;
+    }
+    .step::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 0.28rem;
+      background: var(--step-accent, var(--teal));
+    }
+    .step:nth-child(2) { --step-accent: var(--gold); }
+    .step:nth-child(3) { --step-accent: var(--red); }
+    .step:nth-child(4) { --step-accent: var(--green); }
+    .step b {
+      display: inline-grid;
+      width: 2rem;
+      height: 2rem;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--surface-blue);
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 900;
+    }
+    .step h3 {
+      margin-top: 0.58rem;
+      font-size: 0.98rem;
+    }
+    .step p {
+      margin: 0.38rem 0 0;
+      font-size: 0.8rem;
+    }
+    .workflow-board {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, rgba(238, 244, 251, 0.85), #fff);
+      padding: 1rem;
+      overflow: hidden;
+    }
+    .workflow-svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-top: 0.4rem;
+    }
+    .risk-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.7rem;
+    }
+    .risk-tile {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.72rem;
+      min-height: 6.5rem;
+    }
+    .risk-tile i {
+      display: block;
+      width: 1.05rem;
+      height: 1.05rem;
+      margin-bottom: 0.5rem;
+      border-radius: 99px;
+      background: var(--tile-color, var(--teal));
+    }
+    .risk-tile:nth-child(2) { --tile-color: var(--red); }
+    .risk-tile:nth-child(3) { --tile-color: var(--gold); }
+    .risk-tile:nth-child(4) { --tile-color: var(--green); }
+    .risk-tile:nth-child(5) { --tile-color: var(--purple); }
+    .risk-tile b {
+      color: var(--ink);
+      font-size: 0.82rem;
+      line-height: 1.18;
+    }
+    .insight-panel {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(24, 124, 143, 0.12), transparent 44%),
+        #fff;
+    }
+    .insight-panel p {
+      margin: 0;
+      color: var(--ink);
+      font-size: 1rem;
+      font-weight: 850;
+    }
+    .status-note {
+      margin: 0.65rem 0 0;
+      border-left: 3px solid var(--gold);
+      padding-left: 0.65rem;
+      color: var(--body);
+      font-size: 0.86rem;
+    }
+    @media (max-width: 900px) {
+      .care-gap,
+      .step-flow {
+        grid-template-columns: 1fr;
+      }
+      .risk-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 560px) {
+      .hero-kicker,
+      .risk-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">NASP Posters</a>
+      <nav aria-label="Source files">
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/85-PSP85-RP-Poster-AM24_2024.pdf">Source PDF</a>
+        <a href="../nasp_abstracts_posters_pdfs_2019_2025/85-PSP85-RP-Poster-AM24_2024.md">Source Markdown</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP 2024 research poster | PSP85</p>
+        <h1>Optimizing HIV Pre-Exposure Prophylaxis Services in Primary Care Settings</h1>
+        <p class="hero-summary">A pharmacist-led performance improvement program uses a weekly STI laboratory feed, a monitored dashboard, and structured follow-up to identify PrEP candidates and support ongoing HIV testing, refill, and monitoring needs in primary care.</p>
+        <ul class="tag-row" aria-label="Poster themes">
+          <li class="tag therapy">HIV prevention</li>
+          <li class="tag category">Primary care</li>
+          <li class="tag">Pharmacist-led dashboard</li>
+          <li class="tag">STI screening</li>
+        </ul>
+      </div>
+      <aside class="hero-card">
+        <div class="poster-code">PSP85</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Year</dt>
+            <dd>2024</dd>
+          </div>
+          <div>
+            <dt>Organization</dt>
+            <dd>Clearway Health</dd>
+          </div>
+          <div>
+            <dt>Author</dt>
+            <dd>Amanuel Kehasse, PharmD, PhD</dd>
+          </div>
+          <div>
+            <dt>Study type</dt>
+            <dd>Prospective observational descriptive study</dd>
+          </div>
+        </dl>
+        <div class="prep-hero-art" aria-label="Dashboard-supported PrEP care illustration">
+          <svg viewBox="0 0 520 360" role="img">
+            <title>Weekly STI results flowing through pharmacist review into PrEP follow-up</title>
+            <defs>
+              <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="9" stdDeviation="8" flood-color="#243770" flood-opacity="0.14"/>
+              </filter>
+            </defs>
+            <rect x="58" y="62" width="404" height="222" rx="20" fill="#fff" stroke="#aebbd2" filter="url(#softShadow)"/>
+            <rect x="82" y="91" width="152" height="24" rx="6" fill="#eef4fb"/>
+            <rect x="82" y="133" width="352" height="12" rx="6" fill="#d9e1ef"/>
+            <rect x="82" y="160" width="285" height="12" rx="6" fill="#d9e1ef"/>
+            <rect x="82" y="187" width="318" height="12" rx="6" fill="#d9e1ef"/>
+            <rect x="82" y="221" width="118" height="36" rx="9" fill="#187c8f"/>
+            <rect x="216" y="221" width="118" height="36" rx="9" fill="#e99e25"/>
+            <rect x="350" y="221" width="84" height="36" rx="9" fill="#d12630"/>
+            <circle cx="398" cy="96" r="34" fill="#fff7ea" stroke="#e99e25" stroke-width="3"/>
+            <path d="M383 97l11 11 21-27" fill="none" stroke="#4d8a67" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M50 304 C128 264, 166 296, 240 255 S388 234, 474 278" fill="none" stroke="#243770" stroke-width="5" stroke-linecap="round"/>
+            <circle cx="92" cy="286" r="16" fill="#d12630"/>
+            <circle cx="246" cy="254" r="16" fill="#187c8f"/>
+            <circle cx="407" cy="257" r="16" fill="#4d8a67"/>
+          </svg>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key numbers">
+        <article class="metric-card">
+          <span>Eligible PrEP access</span>
+          <strong>30<small>%</small></strong>
+          <p>Poster cites limited access when prescribing is concentrated in infectious disease specialty care.</p>
+        </article>
+        <article class="metric-card highlight">
+          <span>HIV follow-up gap</span>
+          <strong>&gt;50<small>%</small></strong>
+          <p>More than half of STI-positive patients lacked follow-up HIV screening in the 2023 baseline review.</p>
+        </article>
+        <article class="metric-card highlight">
+          <span>PrEP linkage gap</span>
+          <strong>&lt;3<small>%</small></strong>
+          <p>Among STI-positive, HIV-negative patients, fewer than 3% were linked to PrEP therapy.</p>
+        </article>
+        <article class="metric-card">
+          <span>Monitoring cadence</span>
+          <strong>2-3<small> mo</small></strong>
+          <p>Patients on PrEP are targeted for routine HIV testing and refill review every 2-3 months.</p>
+        </article>
+      </section>
+
+      <section class="care-gap">
+        <article class="gap-gauge">
+          <p class="section-label">Baseline result</p>
+          <div class="gauge-ring">
+            <div>
+              <strong>&lt;3%</strong>
+              <span>linked to PrEP after STI-positive, HIV-negative result</span>
+            </div>
+          </div>
+          <p class="gauge-caption">The poster's core finding is a missed prevention opportunity after STI screening, creating the rationale for pharmacist dashboard surveillance.</p>
+        </article>
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Evaluate a pharmacist-led STI screening and PrEP linkage model in primary care.</h2>
+          <p>The intervention is designed to surface high-risk patients from system-wide STI results, close HIV screening loops, connect eligible patients to PrEP, and reduce drop-off during ongoing prevention care.</p>
+          <div class="step-flow" aria-label="Method overview">
+            <div class="step">
+              <b>1</b>
+              <h3>Weekly lab feed</h3>
+              <p>STI screening results populate a pharmacist-monitored dashboard.</p>
+            </div>
+            <div class="step">
+              <b>2</b>
+              <h3>Target list</h3>
+              <p>Positive STI results trigger review for HIV status and PrEP eligibility.</p>
+            </div>
+            <div class="step">
+              <b>3</b>
+              <h3>Care linkage</h3>
+              <p>Pharmacists coordinate follow-up, patient communication, and access support.</p>
+            </div>
+            <div class="step">
+              <b>4</b>
+              <h3>Persistence checks</h3>
+              <p>PrEP continuation depends on routine labs and documented HIV-negative testing.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="workflow-board">
+        <p class="section-label">Evidence flow</p>
+        <h2>From provider-ordered STI labs to prevention or HIV care coordination</h2>
+        <svg class="workflow-svg" viewBox="0 0 1100 410" role="img" aria-label="STI screening and linkage workflow">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#243770"/>
+            </marker>
+            <style>
+              .node{fill:#fff;stroke:#aebbd2;stroke-width:2}
+              .decision{fill:#fff7ea;stroke:#e99e25;stroke-width:2}
+              .action{fill:#eef4fb;stroke:#187c8f;stroke-width:2}
+              .care{fill:#fef2f2;stroke:#d12630;stroke-width:2}
+              .txt{font:700 24px Inter,Arial,sans-serif;fill:#243770}
+              .small{font:650 18px Inter,Arial,sans-serif;fill:#33415c}
+              .line{fill:none;stroke:#243770;stroke-width:3;marker-end:url(#arrow)}
+            </style>
+          </defs>
+          <rect class="node" x="20" y="42" width="190" height="78" rx="16"/>
+          <text class="txt" x="115" y="76" text-anchor="middle">Provider</text>
+          <text class="small" x="115" y="101" text-anchor="middle">orders STI labs</text>
+
+          <rect class="action" x="268" y="42" width="210" height="78" rx="16"/>
+          <text class="txt" x="373" y="76" text-anchor="middle">Weekly feed</text>
+          <text class="small" x="373" y="101" text-anchor="middle">to dashboard</text>
+
+          <polygon class="decision" points="586,28 686,81 586,134 486,81"/>
+          <text class="txt" x="586" y="75" text-anchor="middle">STI</text>
+          <text class="small" x="586" y="101" text-anchor="middle">positive?</text>
+
+          <polygon class="decision" points="792,28 892,81 792,134 692,81"/>
+          <text class="txt" x="792" y="75" text-anchor="middle">HIV</text>
+          <text class="small" x="792" y="101" text-anchor="middle">positive?</text>
+
+          <polygon class="decision" points="792,180 910,242 792,304 674,242"/>
+          <text class="txt" x="792" y="235" text-anchor="middle">High risk</text>
+          <text class="small" x="792" y="262" text-anchor="middle">and interested?</text>
+
+          <rect class="care" x="928" y="42" width="150" height="78" rx="16"/>
+          <text class="txt" x="1003" y="76" text-anchor="middle">HIV care</text>
+          <text class="small" x="1003" y="101" text-anchor="middle">coordination</text>
+
+          <rect class="action" x="928" y="204" width="150" height="78" rx="16"/>
+          <text class="txt" x="1003" y="237" text-anchor="middle">PrEP care</text>
+          <text class="small" x="1003" y="263" text-anchor="middle">and refills</text>
+
+          <rect class="node" x="512" y="292" width="190" height="78" rx="16"/>
+          <text class="txt" x="607" y="326" text-anchor="middle">No action</text>
+          <text class="small" x="607" y="351" text-anchor="middle">if no risk signal</text>
+
+          <path class="line" d="M210 81 H265"/>
+          <path class="line" d="M478 81 H487"/>
+          <path class="line" d="M686 81 H692"/>
+          <path class="line" d="M892 81 H928"/>
+          <path class="line" d="M792 134 V178"/>
+          <path class="line" d="M910 242 H928"/>
+          <path class="line" d="M674 242 C620 246, 596 264, 607 292"/>
+          <path class="line" d="M586 134 C584 226, 558 270, 520 303"/>
+          <text class="small" x="710" y="54">yes</text>
+          <text class="small" x="808" y="162">no</text>
+          <text class="small" x="916" y="60">yes</text>
+          <text class="small" x="917" y="225">yes</text>
+          <text class="small" x="621" y="258">no</text>
+          <text class="small" x="530" y="174">no</text>
+        </svg>
+      </section>
+
+      <section class="visual-grid">
+        <article class="panel">
+          <p class="section-label">High-risk pattern</p>
+          <h2>Target patients most likely to benefit from PrEP access support</h2>
+          <div class="risk-grid" aria-label="High risk patient population">
+            <div class="risk-tile"><i></i><b>HIV-positive partner</b></div>
+            <div class="risk-tile"><i></i><b>Men having sex with men</b></div>
+            <div class="risk-tile"><i></i><b>IV drug use</b></div>
+            <div class="risk-tile"><i></i><b>Multiple sexual partners</b></div>
+            <div class="risk-tile"><i></i><b>STI in the past 6 months</b></div>
+          </div>
+        </article>
+        <article class="panel">
+          <p class="section-label">Analysis plan</p>
+          <h2>Compare screening, linkage, and persistence before and after implementation.</h2>
+          <div class="lens-chart" aria-label="Study endpoints">
+            <div class="lens-row">
+              <span>Screening rate</span>
+              <div class="lens-bar"><i style="width: 72%"></i></div>
+            </div>
+            <div class="lens-row">
+              <span>Linkage to PrEP</span>
+              <div class="lens-bar"><i style="width: 88%"></i></div>
+            </div>
+            <div class="lens-row">
+              <span>Attrition reduction</span>
+              <div class="lens-bar"><i style="width: 64%"></i></div>
+            </div>
+            <div class="lens-row">
+              <span>PrEP persistence</span>
+              <div class="lens-bar"><i style="width: 78%"></i></div>
+            </div>
+          </div>
+          <p class="status-note">The markdown does not report post-implementation outcome values; these bars represent the planned evaluation domains, not measured effect sizes.</p>
+        </article>
+      </section>
+
+      <section class="section-stack">
+        <article class="panel insight-panel">
+          <p class="section-label">Conclusion signal</p>
+          <p>A dashboard-supported pharmacist model is expected to improve STI-to-HIV screening follow-up, increase linkage to PrEP care, and maintain safer PrEP continuation through recurring HIV-negative lab verification.</p>
+        </article>
+        <article class="panel">
+          <p class="section-label">Why primary care matters</p>
+          <h2>Moving PrEP support closer to routine screening can reduce missed prevention opportunities.</h2>
+          <p>Because many PrEP-eligible patients may not be connected to infectious disease specialists, engaging primary care physicians with pharmacist support can expand identification, medication access assistance, monitoring, and refill continuity.</p>
+        </article>
+      </section>
+
+      <footer class="footer-actions">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/85-PSP85-RP-Poster-AM24_2024.pdf">Open original poster PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/85-PSP85-RP-Poster-AM24_2024.md">Open extracted markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

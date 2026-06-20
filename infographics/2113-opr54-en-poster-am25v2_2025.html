@@ -1,0 +1,656 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OPR54-EN | Lebrikizumab After Dupilumab | NASP 2025</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .adapt-hero-art {
+      position: relative;
+      min-height: 25rem;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 15% 14%, rgba(209, 38, 48, 0.15), transparent 8rem),
+        radial-gradient(circle at 82% 72%, rgba(24, 124, 143, 0.2), transparent 10rem),
+        linear-gradient(145deg, #ffffff 0%, var(--surface-blue) 54%, var(--surface-warm) 100%);
+    }
+
+    .adapt-hero-art svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      min-height: 25rem;
+    }
+
+    .hero-card .trial-note {
+      margin: 0;
+      border-left: 4px solid var(--red);
+      padding-left: 0.75rem;
+      color: var(--ink);
+      font-size: 0.96rem;
+      font-weight: 850;
+    }
+
+    .metric-card p {
+      margin: 0.42rem 0 0;
+      font-size: 0.78rem;
+    }
+
+    .metric-card.teal strong { color: var(--teal); }
+    .metric-card.gold strong { color: var(--gold); }
+    .metric-card.green strong { color: var(--green); }
+
+    .metric-card strong small {
+      color: var(--muted);
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      font-weight: 850;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: minmax(18rem, 0.9fr) minmax(0, 1.1fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .dose-track {
+      display: grid;
+      gap: 0.72rem;
+      margin-top: 0.75rem;
+    }
+
+    .track-step {
+      display: grid;
+      grid-template-columns: 4.2rem minmax(0, 1fr);
+      gap: 0.72rem;
+      align-items: center;
+      border: 1px solid rgba(174, 187, 210, 0.72);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.7rem;
+    }
+
+    .track-step strong {
+      display: grid;
+      place-items: center;
+      min-height: 3.4rem;
+      border-radius: 7px;
+      background: var(--surface-blue);
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1rem;
+      line-height: 1.05;
+      text-align: center;
+    }
+
+    .track-step p {
+      margin: 0;
+      font-size: 0.84rem;
+    }
+
+    .response-board {
+      display: grid;
+      gap: 0.82rem;
+      margin-top: 0.75rem;
+    }
+
+    .response-row {
+      display: grid;
+      grid-template-columns: 6.3rem minmax(0, 1fr) 3.2rem;
+      gap: 0.58rem;
+      align-items: center;
+    }
+
+    .response-row span {
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+
+    .response-row b {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.92rem;
+      text-align: right;
+    }
+
+    .response-bar {
+      height: 0.9rem;
+      border: 1px solid rgba(36, 55, 112, 0.14);
+      border-radius: 999px;
+      background: #edf2f8;
+      overflow: hidden;
+    }
+
+    .response-bar i {
+      display: block;
+      width: var(--pct);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .response-row.face .response-bar i {
+      background: linear-gradient(90deg, var(--teal), var(--green));
+    }
+
+    .mini-caption {
+      margin: 0.62rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+
+    .subgroup-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+
+    .subgroup-card {
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.8rem;
+    }
+
+    .subgroup-card strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .subgroup-card:nth-child(2) strong { color: var(--teal); }
+    .subgroup-card:nth-child(3) strong { color: var(--gold); }
+
+    .subgroup-card span {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+
+    .subgroup-card small {
+      display: block;
+      margin-top: 0.22rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+    }
+
+    .endpoint-matrix {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+
+    .endpoint-card {
+      border: 1px solid rgba(174, 187, 210, 0.82);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff 0%, var(--surface-blue) 100%);
+      padding: 0.8rem;
+    }
+
+    .endpoint-card strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+
+    .endpoint-card span {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--body);
+      font-size: 0.78rem;
+    }
+
+    .safety-tiles {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+
+    .safety-tile {
+      border: 1px solid rgba(174, 187, 210, 0.82);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.72rem;
+    }
+
+    .safety-tile strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+
+    .safety-tile span {
+      display: block;
+      margin-top: 0.32rem;
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 850;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .conclusion-band {
+      display: grid;
+      grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+      gap: 1rem;
+      align-items: center;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 92% 16%, rgba(233, 158, 37, 0.18), transparent 8rem),
+        linear-gradient(135deg, var(--ink), #324a87);
+      padding: 1rem;
+      color: #fff;
+    }
+
+    .conclusion-band h2,
+    .conclusion-band .section-label {
+      color: #fff;
+    }
+
+    .conclusion-band p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .source-note {
+      margin: 0.45rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+
+    @media (max-width: 900px) {
+      .story-grid,
+      .conclusion-band {
+        grid-template-columns: 1fr;
+      }
+
+      .endpoint-matrix,
+      .safety-tiles {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .subgroup-grid,
+      .endpoint-matrix,
+      .safety-tiles {
+        grid-template-columns: 1fr;
+      }
+
+      .response-row {
+        grid-template-columns: 1fr 2.6rem;
+      }
+
+      .response-row span {
+        grid-column: 1 / -1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="NASP poster infographic">
+        <span>NASP 2025</span>
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#design">Design</a>
+        <a href="#results">Results</a>
+        <a href="#safety">Safety</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow">OPR54-EN | ADapt Trial | 2025</p>
+        <h1>Lebrikizumab after dupilumab exposure in moderate-to-severe atopic dermatitis</h1>
+        <p class="hero-summary">Open-label Phase 3b evidence showed clinically meaningful skin, face, hand, itch, and quality-of-life gains over 24 weeks in patients previously treated with dupilumab.</p>
+        <ul class="tag-row" aria-label="Infographic tags">
+          <li class="tag therapy">Atopic dermatitis</li>
+          <li class="tag category">Phase 3b</li>
+          <li class="tag">Prior dupilumab</li>
+          <li class="tag">Lebrikizumab 250 mg</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card">
+        <div class="poster-code">OPR54-EN</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Meeting</dt>
+            <dd>NASP 2025 Annual Meeting &amp; Expo</dd>
+          </div>
+          <div>
+            <dt>Location</dt>
+            <dd>Denver, CO</dd>
+          </div>
+          <div>
+            <dt>Trial</dt>
+            <dd>ADapt, NCT05369403</dd>
+          </div>
+          <div>
+            <dt>Sponsor</dt>
+            <dd>Eli Lilly and Company</dd>
+          </div>
+        </dl>
+        <p class="trial-note">Question: after dupilumab discontinuation for inadequate response, adverse events, or other reasons, what happens with lebrikizumab?</p>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key study metrics">
+        <article class="metric-card">
+          <span>All LEBRI</span>
+          <strong>86</strong>
+          <p>Patients age &ge;12 years with chronic moderate-to-severe AD and prior dupilumab experience.</p>
+        </article>
+        <article class="metric-card teal">
+          <span>EASI 75, Week 24</span>
+          <strong>60<small>%</small></strong>
+          <p>Maintenance pooled Q2W/Q4W response after Week 16 assignment.</p>
+        </article>
+        <article class="metric-card gold">
+          <span>DLQI &ge;4-point gain</span>
+          <strong>83<small>%</small></strong>
+          <p>As observed at Weeks 16 and 24 among patients with baseline DLQI &ge;4.</p>
+        </article>
+        <article class="metric-card green">
+          <span>Hand dermatitis</span>
+          <strong>75<small>%</small></strong>
+          <p>Mean mTLSS decrease at Week 24 as observed among baseline mTLSS &ge;12.</p>
+        </article>
+      </section>
+
+      <section class="visual-grid" id="design">
+        <div class="adapt-hero-art" aria-label="Study pathway visual">
+          <svg viewBox="0 0 520 410" role="img" aria-labelledby="svg-title svg-desc">
+            <title id="svg-title">ADapt study pathway</title>
+            <desc id="svg-desc">A 24-week pathway from screening to induction, Week 16 response assignment, Week 24 endpoint, and safety follow-up.</desc>
+            <defs>
+              <linearGradient id="flowGrad" x1="0" x2="1">
+                <stop offset="0" stop-color="#d12630"/>
+                <stop offset="1" stop-color="#187c8f"/>
+              </linearGradient>
+              <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#243770" flood-opacity="0.13"/>
+              </filter>
+            </defs>
+            <rect x="34" y="36" width="452" height="318" rx="28" fill="#ffffff" opacity="0.78" filter="url(#softShadow)"/>
+            <path d="M84 205 C145 95, 230 93, 270 166 C310 239, 390 246, 438 152" fill="none" stroke="url(#flowGrad)" stroke-width="18" stroke-linecap="round"/>
+            <path d="M84 236 C145 346, 229 343, 270 272 C310 201, 390 195, 438 289" fill="none" stroke="#e99e25" stroke-width="18" stroke-linecap="round" opacity="0.88"/>
+
+            <g font-family="Montserrat, Arial, sans-serif" font-weight="900" text-anchor="middle">
+              <circle cx="84" cy="205" r="42" fill="#243770"/>
+              <text x="84" y="198" font-size="15" fill="#fff">Week</text>
+              <text x="84" y="220" font-size="24" fill="#fff">0</text>
+              <circle cx="260" cy="205" r="52" fill="#d12630"/>
+              <text x="260" y="195" font-size="15" fill="#fff">Week</text>
+              <text x="260" y="222" font-size="30" fill="#fff">16</text>
+              <circle cx="438" cy="205" r="42" fill="#187c8f"/>
+              <text x="438" y="198" font-size="15" fill="#fff">Week</text>
+              <text x="438" y="220" font-size="24" fill="#fff">24</text>
+            </g>
+
+            <g font-family="Inter, Segoe UI, sans-serif" font-size="13" fill="#33415c">
+              <text x="84" y="286" text-anchor="middle">LEBRI 250 mg Q2W</text>
+              <text x="260" y="92" text-anchor="middle">Responders: Q4W</text>
+              <text x="260" y="332" text-anchor="middle">Non-responders: Q2W</text>
+              <text x="438" y="286" text-anchor="middle">Primary endpoint</text>
+            </g>
+
+            <g font-family="Montserrat, Arial, sans-serif" font-weight="900">
+              <rect x="96" y="116" width="92" height="38" rx="7" fill="#eef4fb" stroke="#aebbd2"/>
+              <text x="142" y="140" text-anchor="middle" font-size="15" fill="#243770">N=86</text>
+              <rect x="330" y="78" width="92" height="38" rx="7" fill="#fff7ea" stroke="#e99e25"/>
+              <text x="376" y="102" text-anchor="middle" font-size="15" fill="#243770">N=48</text>
+            </g>
+          </svg>
+        </div>
+
+        <article class="panel">
+          <p class="section-label">Study Architecture</p>
+          <h2>One open-label route, then response-guided maintenance</h2>
+          <div class="dose-track">
+            <div class="track-step">
+              <strong>Screen</strong>
+              <p>Eligible patients had chronic AD, age &ge;12 years, adolescent weight &ge;40 kg, and prior dupilumab exposure.</p>
+            </div>
+            <div class="track-step">
+              <strong>W0-W16</strong>
+              <p>Lebrikizumab 250 mg Q2W after 500 mg loading doses at Weeks 0 and 2.</p>
+            </div>
+            <div class="track-step">
+              <strong>W16</strong>
+              <p>IGA 0/1 or EASI 75 responders moved to Q4W; non-responders continued Q2W.</p>
+            </div>
+            <div class="track-step">
+              <strong>W24</strong>
+              <p>Primary endpoint readout, followed by safety follow-up approximately 12 weeks after last dose.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="story-grid" id="results">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Assess efficacy and safety after dupilumab</h2>
+          <div class="markdown-fragment">
+            <p>The analysis reports 24-week efficacy and safety of lebrikizumab in dupilumab-experienced patients with moderate-to-severe atopic dermatitis.</p>
+            <p>It specifically asks whether patients with inadequate response to dupilumab respond to lebrikizumab, and whether patients who stopped dupilumab because of adverse events experience similar events again.</p>
+          </div>
+          <div class="number-cloud" aria-label="Prior dupilumab discontinuation groups">
+            <div class="number-pill">48<small>Inadequate response</small></div>
+            <div class="number-pill">14<small>Intolerance or AE</small></div>
+            <div class="number-pill">24<small>Other reason</small></div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Response Curve</p>
+          <h2>Skin and facial clearance rose through induction and persisted to Week 24</h2>
+          <div class="response-board" aria-label="EASI 75 and F-IGA response rates">
+            <div class="response-row">
+              <span>EASI 75 W2</span>
+              <div class="response-bar"><i style="--pct: 11%;"></i></div>
+              <b>11%</b>
+            </div>
+            <div class="response-row">
+              <span>EASI 75 W8</span>
+              <div class="response-bar"><i style="--pct: 37%;"></i></div>
+              <b>37%</b>
+            </div>
+            <div class="response-row">
+              <span>EASI 75 W16</span>
+              <div class="response-bar"><i style="--pct: 57%;"></i></div>
+              <b>57%</b>
+            </div>
+            <div class="response-row">
+              <span>EASI 75 W24</span>
+              <div class="response-bar"><i style="--pct: 60%;"></i></div>
+              <b>60%</b>
+            </div>
+            <div class="response-row face">
+              <span>F-IGA W24</span>
+              <div class="response-bar"><i style="--pct: 52%;"></i></div>
+              <b>52%</b>
+            </div>
+          </div>
+          <p class="mini-caption">Week 16 and 24 values shown for maintenance are pooled Q2W/Q4W arms; earlier values are induction.</p>
+        </article>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Subgroup Signal</p>
+        <h2>EASI 75 at Week 16 varied by why dupilumab was stopped</h2>
+        <div class="subgroup-grid" aria-label="EASI 75 subgroup results">
+          <div class="subgroup-card">
+            <strong>45.7%</strong>
+            <span>Inadequate response</span>
+            <small>16/35 with observed Week 16 data</small>
+          </div>
+          <div class="subgroup-card">
+            <strong>80.0%</strong>
+            <span>Intolerance or AE</span>
+            <small>8/10 with observed Week 16 data</small>
+          </div>
+          <div class="subgroup-card">
+            <strong>68.8%</strong>
+            <span>Other reason</span>
+            <small>11/16 with observed Week 16 data</small>
+          </div>
+        </div>
+        <p class="source-note">Subgroup analyses were small and patient-reported reasons for dupilumab discontinuation were used; the poster notes that no conclusions can be drawn from subgroup size alone.</p>
+      </section>
+
+      <section class="panel">
+        <p class="section-label">Symptom and Function Pattern</p>
+        <h2>Benefits extended beyond overall skin clearance</h2>
+        <div class="endpoint-matrix" aria-label="Additional efficacy endpoints">
+          <div class="endpoint-card">
+            <strong>83%</strong>
+            <span>Achieved &ge;4-point DLQI improvement from baseline at Weeks 16 and 24 as observed.</span>
+          </div>
+          <div class="endpoint-card">
+            <strong>62%</strong>
+            <span>Achieved &ge;4-point Pruritus NRS improvement at Week 24 as observed.</span>
+          </div>
+          <div class="endpoint-card">
+            <strong>75%</strong>
+            <span>Mean mTLSS reduction at Week 24 in baseline moderate-to-severe hand dermatitis.</span>
+          </div>
+          <div class="endpoint-card">
+            <strong>0/10</strong>
+            <span>Patients with selected prior dupilumab AE reasons reporting similar events on lebrikizumab.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="safety">
+        <p class="section-label">Safety Snapshot Through Week 24</p>
+        <h2>Safety profile was described as consistent with other Phase 3 lebrikizumab trials</h2>
+        <div class="safety-tiles" aria-label="Safety results">
+          <div class="safety-tile">
+            <strong>53.5%</strong>
+            <span>TEAE</span>
+          </div>
+          <div class="safety-tile">
+            <strong>2.3%</strong>
+            <span>SAE</span>
+          </div>
+          <div class="safety-tile">
+            <strong>5.8%</strong>
+            <span>AE discontinuation</span>
+          </div>
+          <div class="safety-tile">
+            <strong>3.5%</strong>
+            <span>Conjunctivitis cluster</span>
+          </div>
+          <div class="safety-tile">
+            <strong>0</strong>
+            <span>Deaths</span>
+          </div>
+        </div>
+        <p class="source-note">Three participants reported conjunctivitis TEAEs; events were mild or moderate and did not lead to discontinuation.</p>
+      </section>
+
+      <section class="conclusion-band">
+        <div>
+          <p class="section-label">Conclusion</p>
+          <h2>Meaningful multi-domain improvement after prior dupilumab</h2>
+        </div>
+        <p>Lebrikizumab improved skin clearance, facial disease, hand dermatitis, itch, and quality of life over 24 weeks in dupilumab-experienced patients with moderate-to-severe AD, with safety findings aligned with prior lebrikizumab Phase 3 experience.</p>
+      </section>
+
+      <section class="tables-grid" aria-label="Condensed table patterns">
+        <article class="table-card">
+          <h3>Baseline pattern</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Characteristic</th>
+                  <th>All LEBRI (N=86)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Mean age</td>
+                  <td>46.4 years</td>
+                </tr>
+                <tr>
+                  <td>Adults</td>
+                  <td>77 (89.5%)</td>
+                </tr>
+                <tr>
+                  <td>IGA moderate / severe</td>
+                  <td>75.6% / 24.4%</td>
+                </tr>
+                <tr>
+                  <td>Mean EASI</td>
+                  <td>24.1</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <h3>Prior dupilumab AE reasons (N=14)</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Reason category</th>
+                  <th>Count</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Eye-related events</td>
+                  <td>6</td>
+                </tr>
+                <tr>
+                  <td>Facial dermatitis</td>
+                  <td>2</td>
+                </tr>
+                <tr>
+                  <td>Inflammatory arthritis</td>
+                  <td>2</td>
+                </tr>
+                <tr>
+                  <td>Other or not reported</td>
+                  <td>4</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <footer class="footer-actions" id="sources">
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/2113-OPR54-EN-Poster-AM25v2_2025.pdf">Source PDF</a>
+        <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/2113-OPR54-EN-Poster-AM25v2_2025.md">Source Markdown</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

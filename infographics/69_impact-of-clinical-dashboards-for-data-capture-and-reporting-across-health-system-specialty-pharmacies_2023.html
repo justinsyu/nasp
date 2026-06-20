@@ -1,0 +1,700 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Impact of Clinical Dashboards for HSSP Data Capture | NASP 2023</title>
+  <link rel="stylesheet" href="../assets/css/infographic.css">
+  <style>
+    .dashboard-hero-art {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 16% 12%, rgba(24, 124, 143, 0.2), transparent 7rem),
+        radial-gradient(circle at 88% 88%, rgba(233, 158, 37, 0.22), transparent 8rem),
+        linear-gradient(145deg, #fff, var(--surface-blue) 58%, var(--surface-warm));
+      padding: 0.85rem;
+    }
+
+    .dashboard-hero-art svg,
+    .comparison-svg,
+    .timeline-svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .hero-note {
+      margin: 0;
+      border-left: 4px solid var(--teal);
+      padding-left: 0.72rem;
+      color: var(--ink);
+      font-size: 0.9rem;
+      font-weight: 850;
+    }
+
+    .metric-card p,
+    .panel p,
+    .table-card p {
+      margin: 0.45rem 0 0;
+    }
+
+    .metric-card strong small {
+      color: inherit;
+      font-size: 0.95rem;
+    }
+
+    .metric-card.prom strong {
+      color: var(--teal);
+    }
+
+    .metric-card.lab strong {
+      color: var(--gold);
+    }
+
+    .metric-card.intervention strong {
+      color: var(--green);
+    }
+
+    .dashboard-layout {
+      display: grid;
+      grid-template-columns: minmax(19rem, 0.95fr) minmax(0, 1.05fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .dark-panel {
+      border: 1px solid rgba(36, 55, 112, 0.85);
+      background:
+        radial-gradient(circle at 92% 16%, rgba(233, 158, 37, 0.24), transparent 8rem),
+        linear-gradient(150deg, rgba(36, 55, 112, 0.99), rgba(36, 55, 112, 0.91));
+      color: #fff;
+    }
+
+    .dark-panel h2,
+    .dark-panel h3 {
+      color: #fff;
+    }
+
+    .dark-panel .section-label {
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .dark-panel p {
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .comparison-stack {
+      display: grid;
+      gap: 0.85rem;
+      margin-top: 0.9rem;
+    }
+
+    .comparison-row {
+      display: grid;
+      grid-template-columns: 9.7rem minmax(0, 1fr) 5.2rem;
+      gap: 0.7rem;
+      align-items: center;
+    }
+
+    .comparison-row b {
+      color: var(--ink);
+      font-size: 0.82rem;
+      line-height: 1.2;
+    }
+
+    .comparison-track {
+      position: relative;
+      height: 1.25rem;
+      overflow: hidden;
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 999px;
+      background: #edf2f8;
+    }
+
+    .comparison-track span {
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: var(--value);
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .comparison-track i {
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: var(--base);
+      border-right: 2px solid #fff;
+      background: rgba(36, 55, 112, 0.34);
+    }
+
+    .comparison-row em {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-style: normal;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .method-flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .flow-card {
+      position: relative;
+      min-height: 12.8rem;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.85rem;
+    }
+
+    .flow-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 0.34rem;
+      background: var(--flow-accent, var(--red));
+    }
+
+    .flow-card:nth-child(2) {
+      --flow-accent: var(--gold);
+    }
+
+    .flow-card:nth-child(3) {
+      --flow-accent: var(--teal);
+    }
+
+    .flow-card:nth-child(4) {
+      --flow-accent: var(--green);
+    }
+
+    .flow-card strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 900;
+      line-height: 1.18;
+    }
+
+    .flow-card span {
+      display: inline-grid;
+      place-items: center;
+      width: 2.15rem;
+      height: 2.15rem;
+      margin-bottom: 0.7rem;
+      border-radius: 999px;
+      background: var(--surface-blue);
+      color: var(--red);
+      font-family: var(--font-display);
+      font-weight: 900;
+    }
+
+    .flow-card p {
+      margin: 0.55rem 0 0;
+      font-size: 0.84rem;
+    }
+
+    .stability-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.62rem;
+      margin-top: 0.8rem;
+    }
+
+    .stability-tile {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0.72rem;
+    }
+
+    .stability-tile strong {
+      display: block;
+      color: var(--red);
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+
+    .stability-tile span {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--body);
+      font-size: 0.75rem;
+      font-weight: 800;
+      line-height: 1.3;
+    }
+
+    .taxonomy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.8rem;
+    }
+
+    .taxonomy-card {
+      border: 1px solid rgba(174, 187, 210, 0.9);
+      border-radius: 8px;
+      background: var(--surface-blue);
+      padding: 0.78rem;
+    }
+
+    .taxonomy-card:nth-child(2) {
+      background: var(--surface-warm);
+    }
+
+    .taxonomy-card:nth-child(3) {
+      background: #eef8f2;
+    }
+
+    .taxonomy-card h3 {
+      margin-bottom: 0.48rem;
+    }
+
+    .taxonomy-card ul {
+      margin: 0;
+      padding-left: 1.05rem;
+    }
+
+    .taxonomy-card li {
+      margin: 0.2rem 0;
+      font-size: 0.82rem;
+    }
+
+    .takeaway-list {
+      display: grid;
+      gap: 0.56rem;
+      margin: 0.78rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .takeaway-list li {
+      border: 1px solid rgba(174, 187, 210, 0.85);
+      border-radius: 8px;
+      background: var(--surface-blue);
+      padding: 0.65rem 0.75rem;
+      color: var(--body);
+      font-size: 0.86rem;
+    }
+
+    .takeaway-list li:nth-child(2) {
+      background: var(--surface-warm);
+    }
+
+    .takeaway-list li:nth-child(3) {
+      background: #eef8f2;
+    }
+
+    .compact-table th:last-child,
+    .compact-table td:last-child {
+      text-align: right;
+    }
+
+    .source-note {
+      margin: 0.68rem 0 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 760;
+    }
+
+    @media (max-width: 900px) {
+      .dashboard-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .method-flow,
+      .stability-grid,
+      .taxonomy-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 620px) {
+      .method-flow,
+      .stability-grid,
+      .taxonomy-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .comparison-row {
+        grid-template-columns: 1fr;
+      }
+
+      .comparison-row em {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="NASP posters home">
+        <img src="../assets/img/nasp-logo.svg" alt="NASP">
+        <span>Poster Infographic</span>
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#methods">Methods</a>
+        <a href="#results">Results</a>
+        <a href="#measures">Measures</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section class="poster-hero" aria-labelledby="poster-title">
+      <div class="hero-copy">
+        <p class="eyebrow">NASP Annual Meeting 2023 / Poster 69</p>
+        <h1 id="poster-title">Impact of clinical dashboards for data capture and reporting across health system specialty pharmacies</h1>
+        <p class="hero-summary">
+          Trellis Rx, now part of CPS, evaluated whether clinical dashboards improved clinical outcome measure capture and protocol-driven pharmacist intervention completion across multiple health system specialty pharmacy partner sites.
+        </p>
+        <ul class="tag-row" aria-label="Study tags">
+          <li class="tag therapy">Health system specialty pharmacy</li>
+          <li class="tag category">Clinical dashboards</li>
+          <li class="tag">Quality improvement</li>
+          <li class="tag">COM capture</li>
+          <li class="tag">Q2 2020-Q4 2022</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card" aria-label="Poster metadata">
+        <div class="poster-code">69<br>2023</div>
+        <dl class="meta-grid">
+          <div>
+            <dt>Design</dt>
+            <dd>Retrospective QI study</dd>
+          </div>
+          <div>
+            <dt>Dashboard launch</dt>
+            <dd>Q3 2020</dd>
+          </div>
+          <div>
+            <dt>Comparator</dt>
+            <dd>Q2 2020</dd>
+          </div>
+          <div>
+            <dt>Post period</dt>
+            <dd>Q2 and Q4 2022</dd>
+          </div>
+        </dl>
+        <p class="hero-note">Objective: determine the impact of clinical dashboards on COM capture rates and completion of protocol-driven pharmacist interventions.</p>
+        <div class="dashboard-hero-art" aria-label="Dashboard data capture illustration">
+          <svg viewBox="0 0 430 285" role="img" aria-labelledby="dash-title dash-desc">
+            <title id="dash-title">Clinical dashboard replacing manual spreadsheets</title>
+            <desc id="dash-desc">A spreadsheet stream feeds a dashboard monitor with outcome bars for PROMs, labs, interventions, and operational measures.</desc>
+            <defs>
+              <marker id="dashArrow69" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L9,3 z" fill="#243770"></path>
+              </marker>
+            </defs>
+            <rect x="24" y="62" width="116" height="150" rx="10" fill="#fff" stroke="#aebbd2" stroke-width="4"></rect>
+            <path d="M46 91h72M46 119h72M46 147h72M46 175h72" stroke="#d9e1ef" stroke-width="5" stroke-linecap="round"></path>
+            <path d="M46 91h30M46 119h47M46 147h20M46 175h58" stroke="#d12630" stroke-width="5" stroke-linecap="round"></path>
+            <text x="82" y="238" text-anchor="middle" fill="#243770" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800">manual review</text>
+            <path d="M150 138h55" stroke="#243770" stroke-width="7" stroke-linecap="round" marker-end="url(#dashArrow69)"></path>
+            <rect x="214" y="38" width="188" height="144" rx="12" fill="#243770"></rect>
+            <rect x="230" y="55" width="156" height="103" rx="7" fill="#fff"></rect>
+            <path d="M256 135V95" stroke="#187c8f" stroke-width="15" stroke-linecap="round"></path>
+            <path d="M300 135V80" stroke="#e99e25" stroke-width="15" stroke-linecap="round"></path>
+            <path d="M344 135V67" stroke="#4d8a67" stroke-width="15" stroke-linecap="round"></path>
+            <path d="M248 136h114" stroke="#aebbd2" stroke-width="4" stroke-linecap="round"></path>
+            <circle cx="256" cy="82" r="10" fill="#187c8f"></circle>
+            <circle cx="300" cy="67" r="10" fill="#e99e25"></circle>
+            <circle cx="344" cy="54" r="10" fill="#4d8a67"></circle>
+            <path d="M283 182h50l14 40h-78z" fill="#aebbd2"></path>
+            <rect x="248" y="222" width="112" height="14" rx="7" fill="#243770"></rect>
+            <text x="308" y="262" text-anchor="middle" fill="#243770" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800">standardized dashboard</text>
+            <circle cx="192" cy="62" r="19" fill="#fff7ea" stroke="#e99e25" stroke-width="5"></circle>
+            <path d="M184 62l6 6 13-16" fill="none" stroke="#4d8a67" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <section class="metric-strip" aria-label="Key poster numbers">
+        <article class="metric-card prom">
+          <span>PROM capture</span>
+          <strong>87<small>%</small> to 99<small>%</small></strong>
+          <p>Q2 2020 versus Q4 2022, p &lt; 0.001.</p>
+        </article>
+        <article class="metric-card lab">
+          <span>Labs and tests</span>
+          <strong>88<small>%</small> to 95<small>%</small></strong>
+          <p>Collected lab or test capture improved significantly, p &lt; 0.001.</p>
+        </article>
+        <article class="metric-card intervention">
+          <span>Interventions</span>
+          <strong>58<small>%</small> to 100<small>%</small></strong>
+          <p>Protocol-driven pharmacist intervention completion increased, p &lt; 0.001.</p>
+        </article>
+        <article class="metric-card">
+          <span>Tracked measures</span>
+          <strong>11</strong>
+          <p>Metrics spanned PROMs, labs/tests, operational outcomes, and pharmacist interventions.</p>
+        </article>
+      </section>
+
+      <section id="results" class="dashboard-layout">
+        <article class="panel dark-panel">
+          <p class="section-label">Core finding</p>
+          <h2>Dashboard implementation coincided with sharper capture and near-complete intervention follow-through.</h2>
+          <svg class="comparison-svg" viewBox="0 0 430 315" role="img" aria-label="Pre versus post dashboard gains">
+            <text x="38" y="42" fill="#fff" font-family="Montserrat, Arial, sans-serif" font-size="18" font-weight="900">Q2 2020</text>
+            <text x="300" y="42" fill="#fff" font-family="Montserrat, Arial, sans-serif" font-size="18" font-weight="900">Q4 2022</text>
+            <path d="M104 86 C170 46 246 46 312 86" fill="none" stroke="#e99e25" stroke-width="7" stroke-linecap="round"></path>
+            <path d="M104 164 C170 124 246 124 312 164" fill="none" stroke="#187c8f" stroke-width="7" stroke-linecap="round"></path>
+            <path d="M104 242 C170 202 246 202 312 242" fill="none" stroke="#4d8a67" stroke-width="7" stroke-linecap="round"></path>
+            <circle cx="88" cy="88" r="44" fill="rgba(255,255,255,0.12)" stroke="#fff" stroke-width="4"></circle>
+            <text x="88" y="82" text-anchor="middle" fill="#fff" font-family="Montserrat, Arial, sans-serif" font-size="28" font-weight="900">87%</text>
+            <text x="88" y="106" text-anchor="middle" fill="rgba(255,255,255,0.78)" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800">PROMs</text>
+            <circle cx="328" cy="88" r="44" fill="rgba(255,255,255,0.18)" stroke="#e99e25" stroke-width="5"></circle>
+            <text x="328" y="82" text-anchor="middle" fill="#fff" font-family="Montserrat, Arial, sans-serif" font-size="28" font-weight="900">99%</text>
+            <text x="328" y="106" text-anchor="middle" fill="rgba(255,255,255,0.78)" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800">PROMs</text>
+            <circle cx="88" cy="166" r="44" fill="rgba(255,255,255,0.12)" stroke="#fff" stroke-width="4"></circle>
+            <text x="88" y="160" text-anchor="middle" fill="#fff" font-family="Montserrat, Arial, sans-serif" font-size="28" font-weight="900">88%</text>
+            <text x="88" y="184" text-anchor="middle" fill="rgba(255,255,255,0.78)" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800">labs/tests</text>
+            <circle cx="328" cy="166" r="44" fill="rgba(255,255,255,0.18)" stroke="#187c8f" stroke-width="5"></circle>
+            <text x="328" y="160" text-anchor="middle" fill="#fff" font-family="Montserrat, Arial, sans-serif" font-size="28" font-weight="900">95%</text>
+            <text x="328" y="184" text-anchor="middle" fill="rgba(255,255,255,0.78)" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800">labs/tests</text>
+            <circle cx="88" cy="244" r="44" fill="rgba(255,255,255,0.12)" stroke="#fff" stroke-width="4"></circle>
+            <text x="88" y="238" text-anchor="middle" fill="#fff" font-family="Montserrat, Arial, sans-serif" font-size="28" font-weight="900">58%</text>
+            <text x="88" y="262" text-anchor="middle" fill="rgba(255,255,255,0.78)" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800">interventions</text>
+            <circle cx="328" cy="244" r="44" fill="rgba(255,255,255,0.18)" stroke="#4d8a67" stroke-width="5"></circle>
+            <text x="328" y="238" text-anchor="middle" fill="#fff" font-family="Montserrat, Arial, sans-serif" font-size="28" font-weight="900">100%</text>
+            <text x="328" y="262" text-anchor="middle" fill="rgba(255,255,255,0.78)" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800">interventions</text>
+          </svg>
+          <p>All three pre/post comparisons reported p values &lt; 0.001 by Fisher's exact test.</p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Pre versus post analysis</p>
+          <h2>Q4 2022 performance rose across every combined metric group tested against Q2 2020.</h2>
+          <div class="comparison-stack" aria-label="Pre versus post dashboard comparison bars">
+            <div class="comparison-row">
+              <b>Total PROMs</b>
+              <div class="comparison-track"><span style="--value:99%"></span><i style="--base:87%"></i></div>
+              <em>99%</em>
+            </div>
+            <div class="comparison-row">
+              <b>Total collected labs or tests</b>
+              <div class="comparison-track"><span style="--value:95%"></span><i style="--base:88%"></i></div>
+              <em>95%</em>
+            </div>
+            <div class="comparison-row">
+              <b>Protocol-driven pharmacist interventions</b>
+              <div class="comparison-track"><span style="--value:100%"></span><i style="--base:58%"></i></div>
+              <em>100%</em>
+            </div>
+          </div>
+          <p class="source-note">Dark markers show Q2 2020 baseline percentages; colored bars show Q4 2022 post-dashboard percentages.</p>
+        </article>
+      </section>
+
+      <section id="methods" class="method-flow" aria-label="Methods flow">
+        <article class="flow-card">
+          <span>1</span>
+          <strong>Manual baseline</strong>
+          <p>Before dashboards, central support pharmacists compiled data through manual chart reviews and spreadsheet tracking.</p>
+        </article>
+        <article class="flow-card">
+          <span>2</span>
+          <strong>Dashboard launch</strong>
+          <p>Clinical dashboards were introduced in Q3 2020 to standardize collection and reporting of selected COMs and interventions.</p>
+        </article>
+        <article class="flow-card">
+          <span>3</span>
+          <strong>Defined metrics</strong>
+          <p>Metrics were identified through literature review, specialty pharmacy recommendations, and internal expert discussion.</p>
+        </article>
+        <article class="flow-card">
+          <span>4</span>
+          <strong>Statistical test</strong>
+          <p>Fisher's exact tests compared capture rates and completion percentages; p &lt; 0.05 was considered significant.</p>
+        </article>
+      </section>
+
+      <section class="dashboard-layout">
+        <article class="panel">
+          <p class="section-label">Post-dashboard consistency</p>
+          <h2>By 2022, the dashboard process produced stable high capture across repeated quarters.</h2>
+          <p>
+            The poster compared Q2 2022 and Q4 2022 for eleven corresponding metrics to test whether capture stayed consistent after implementation.
+          </p>
+          <div class="stability-grid" aria-label="Post dashboard stability values">
+            <div class="stability-tile">
+              <strong>99%</strong>
+              <span>PROM capture in Q2 and Q4 2022, p = 1.000</span>
+            </div>
+            <div class="stability-tile">
+              <strong>95%</strong>
+              <span>Labs/tests capture in Q2 and Q4 2022, p = 1.000</span>
+            </div>
+            <div class="stability-tile">
+              <strong>99-100%</strong>
+              <span>Protocol-driven interventions, p = 0.304</span>
+            </div>
+            <div class="stability-tile">
+              <strong>95-94%</strong>
+              <span>Operational outcome measures, p = 0.239</span>
+            </div>
+          </div>
+        </article>
+
+        <article id="measures" class="panel">
+          <p class="section-label">Measure taxonomy</p>
+          <h2>The dashboard grouped heterogeneous disease-state metrics into reportable categories.</h2>
+          <div class="taxonomy-grid">
+            <div class="taxonomy-card">
+              <h3>PROMs</h3>
+              <ul>
+                <li>CGRP efficacy</li>
+                <li>Baseline RAPID3</li>
+                <li>Baseline DLQI or POEM</li>
+                <li>Baseline GI QOL</li>
+              </ul>
+            </div>
+            <div class="taxonomy-card">
+              <h3>Labs or tests</h3>
+              <ul>
+                <li>CML BCR-ABL genetic test</li>
+                <li>HIV viral suppression</li>
+                <li>SVR12 assessment</li>
+              </ul>
+            </div>
+            <div class="taxonomy-card">
+              <h3>Action and operations</h3>
+              <ul>
+                <li>LDL intervention</li>
+                <li>RAPID3 intervention</li>
+                <li>New therapy check-in</li>
+                <li>HCV completion rate</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-stack" aria-label="Objective and conclusion">
+        <article class="panel">
+          <p class="section-label">Objective</p>
+          <h2>Can clinical dashboards improve real-time patient outcome tracking across HSSP partner sites?</h2>
+          <p>
+            Health system specialty pharmacies rely on clinical outcome measures to evaluate disease status, track progress, and identify opportunities for proactive pharmacist intervention.
+          </p>
+          <p>
+            The quality improvement question was whether a standardized dashboard could move this work from manual review to more reliable, reportable capture across multiple sites.
+          </p>
+        </article>
+
+        <article class="panel">
+          <p class="section-label">Discussion and conclusion</p>
+          <h2>Dashboards were presented as an efficient data collection system for HSSP quality reporting.</h2>
+          <ul class="takeaway-list">
+            <li>Clinical dashboards supported statistically significant improvements in PROM capture, collected labs/tests, and completed protocol-driven pharmacist interventions.</li>
+            <li>Post-dashboard quarters showed consistently high performance, suggesting the reporting process was maintained after implementation.</li>
+            <li>The authors concluded that dashboards can help pharmacists monitor patient progress in real time and ensure clinical goals are achieved.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="tables" class="tables-grid" aria-label="Extracted table patterns">
+        <article class="table-card">
+          <p class="section-label">Table 2 pattern</p>
+          <h2>Pre versus post dashboard analysis</h2>
+          <div class="table-wrap">
+            <table class="compact-table">
+              <thead>
+                <tr>
+                  <th>Combined metric</th>
+                  <th>Q2 2020</th>
+                  <th>Q4 2022</th>
+                  <th>P value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Total PROMs</td>
+                  <td>720 / 87%</td>
+                  <td>3653 / 99%</td>
+                  <td>&lt;0.001</td>
+                </tr>
+                <tr>
+                  <td>Total collected labs or tests</td>
+                  <td>517 / 88%</td>
+                  <td>1432 / 95%</td>
+                  <td>&lt;0.001</td>
+                </tr>
+                <tr>
+                  <td>Protocol-driven pharmacist interventions</td>
+                  <td>48 / 58%</td>
+                  <td>596 / 100%</td>
+                  <td>&lt;0.001</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="table-card">
+          <p class="section-label">Table 3 pattern</p>
+          <h2>Post-dashboard consistency analysis</h2>
+          <div class="table-wrap">
+            <table class="compact-table">
+              <thead>
+                <tr>
+                  <th>Combined metric</th>
+                  <th>Q2 2022</th>
+                  <th>Q4 2022</th>
+                  <th>P value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Total PROMs</td>
+                  <td>3637 / 99%</td>
+                  <td>3822 / 99%</td>
+                  <td>1.000</td>
+                </tr>
+                <tr>
+                  <td>Total collected labs or tests</td>
+                  <td>1333 / 95%</td>
+                  <td>1432 / 95%</td>
+                  <td>1.000</td>
+                </tr>
+                <tr>
+                  <td>Protocol-driven pharmacist interventions</td>
+                  <td>457 / 99%</td>
+                  <td>596 / 100%</td>
+                  <td>0.304</td>
+                </tr>
+                <tr>
+                  <td>Operational outcome measures</td>
+                  <td>1402 / 95%</td>
+                  <td>1724 / 94%</td>
+                  <td>0.239</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="source-note">Counts and percentages are reproduced from the extracted poster markdown.</p>
+        </article>
+      </section>
+    </main>
+
+    <footer id="sources" class="footer-actions">
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/69_Impact-of-clinical-dashboards-for-data-capture-and-reporting-across-health-system-specialty-pharmacies_2023.pdf">Open original PDF</a>
+      <a class="button-link" href="../nasp_abstracts_posters_pdfs_2019_2025/69_Impact-of-clinical-dashboards-for-data-capture-and-reporting-across-health-system-specialty-pharmacies_2023.md">Read extracted markdown</a>
+    </footer>
+  </div>
+</body>
+</html>
