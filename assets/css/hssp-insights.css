@@ -6,7 +6,7 @@
 
 .hssp-shell {
   display: grid;
-  gap: 1.6rem;
+  gap: var(--metric-band-offset);
   padding: 2.5rem max(1rem, calc((100vw - 78rem) / 2)) 3.25rem;
 }
 
@@ -46,7 +46,8 @@
 
 .hssp-summary {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 0;
   border-top: 1px solid var(--border-strong);
   border-bottom: 1px solid var(--border-strong);
 }

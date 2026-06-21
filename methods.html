@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+    <title>Methods | NASP Poster Archive</title>
+    <meta name="description" content="Traceable review of statistical analysis methods, outcome variables, sample sizes, study designs, and sponsoring organizations across NASP annual meeting posters from 2019 through 2025.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/site.css?v=nasp-5">
+    <link rel="stylesheet" href="assets/css/methods.css?v=nasp-4">
+    <script src="assets/js/methods.js?v=nasp-5" defer></script>
+  </head>
+  <body class="methods-page is-loading">
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="NASP abstract archive home">
+        <img src="assets/img/nasp-logo.svg" alt="NASP">
+        <span>2019-2025 Poster Archive</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="./">Browse</a>
+        <a href="./#categories">Categories</a>
+        <a href="./#therapies">Therapy Areas</a>
+        <a href="intelligence.html">Intelligence</a>
+        <a href="methods.html" aria-current="page">Methods</a>
+        <a href="hssp-insights.html">HSSP Insights</a>
+      </nav>
+    </header>
+
+    <main class="methods-shell">
+      <section class="methods-hero">
+        <p class="eyebrow">NASP annual meeting posters / 2019-2025</p>
+        <h1>Methods</h1>
+        <p>Identify the statistical analysis methods and specific outcome variables reported across the poster archive, then filter by sample-size band, sponsoring or submitting organization, study design, data source, year, category, and therapy area. Every row retains poster-level evidence, local PDF links, and parsed markdown links.</p>
+      </section>
+
+      <section class="dashboard-loading" id="methods-loading" aria-live="polite" aria-busy="true">
+        <span class="loading-mark" aria-hidden="true"></span>
+        <span>Loading methods data</span>
+      </section>
+
+      <section class="methods-summary" id="methods-summary" aria-label="Methods summary"></section>
+
+      <section class="section-block trace-note">
+        <h2><span class="dot red"></span>How This Page Was Built</h2>
+        <div class="method-note-grid">
+          <article>
+            <h3>Extraction rule</h3>
+            <p>Methods are counted only when rule-based text evidence appears in the parsed poster markdown. Records without explicit method language are classified as no explicit statistical method reported.</p>
+          </article>
+          <article>
+            <h3>Traceability rule</h3>
+            <p>Each result links to the saved PDF and markdown. Evidence snippets are stored on the individual poster record so counts can be inspected rather than treated as untraceable summaries.</p>
+          </article>
+          <article>
+            <h3>Sample-size rule</h3>
+            <p>The sample-size bucket uses the largest detected analytic denominator in the parsed text. The original snippet is retained because posters often report multiple denominators.</p>
+          </article>
+          <article>
+            <h3>Outcome-variable rule</h3>
+            <p>Outcome variables are extracted only from explicit outcome, endpoint, measure, evaluation, methods, or results language. Background claims and future/not-assessed outcomes are excluded.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-block methods-landscape">
+        <h2><span class="dot blue"></span>Methods Landscape</h2>
+        <div class="methods-grid">
+          <article class="panel">
+            <div class="panel-heading methods-heading-nowrap">
+              <h3>ANALYSIS METHODS</h3>
+              <span class="hint">Click a bar to filter records</span>
+            </div>
+            <div class="bar-list" id="method-bars"></div>
+          </article>
+          <article class="panel">
+            <div class="panel-heading">
+              <h3>Sample-size bands</h3>
+              <span class="hint">Detected denominator buckets</span>
+            </div>
+            <div class="bar-list compact" id="sample-bars"></div>
+          </article>
+          <article class="panel">
+            <div class="panel-heading">
+              <h3>Study design signals</h3>
+              <span class="hint">Conservative text classification</span>
+            </div>
+            <div class="bar-list compact" id="design-bars"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-block outcomes-landscape">
+        <h2><span class="dot teal"></span>Specific Outcome Variables Evaluated</h2>
+        <div class="outcomes-grid">
+          <article class="panel">
+            <div class="panel-heading">
+              <h3>Outcome variables</h3>
+              <span class="hint">Click an outcome to filter source posters</span>
+            </div>
+            <div class="bar-list" id="outcome-bars"></div>
+          </article>
+          <article class="panel">
+            <div class="panel-heading">
+              <h3>Outcome categories</h3>
+              <span class="hint">Grouped from specific variable signals</span>
+            </div>
+            <div class="bar-list compact" id="outcome-category-bars"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <h2><span class="dot gold"></span>Sponsor / Organization View</h2>
+        <article class="panel">
+          <div class="panel-heading">
+            <h3>Most frequent parsed organizations</h3>
+            <span class="hint">Derived from logo, affiliation, sponsor, and contact text where available</span>
+          </div>
+          <div class="sponsor-grid" id="sponsor-grid"></div>
+        </article>
+      </section>
+
+      <section class="section-block records-section" id="records">
+        <div class="section-heading-row">
+          <div>
+            <h2><span class="dot teal"></span>Poster-Level Records</h2>
+            <p class="lead">Filter the extracted methods table and open any poster for source evidence, PDF, and markdown links.</p>
+          </div>
+        </div>
+
+        <form class="filter-panel methods-filters" id="methods-filters">
+          <label>
+            <span>Search</span>
+            <input id="method-search" type="search" placeholder="Try propensity, regression, PDC, cost, Vanderbilt, oncology">
+          </label>
+          <label>
+            <span>Method</span>
+            <select id="method-filter"><option value="">All methods</option></select>
+          </label>
+          <label>
+            <span>Outcome</span>
+            <select id="outcome-filter"><option value="">All outcomes</option></select>
+          </label>
+          <label>
+            <span>Outcome category</span>
+            <select id="outcome-category-filter"><option value="">All outcome categories</option></select>
+          </label>
+          <label>
+            <span>Sample size</span>
+            <select id="sample-filter"><option value="">All sample sizes</option></select>
+          </label>
+          <label>
+            <span>Organization</span>
+            <select id="sponsor-filter"><option value="">All organizations</option></select>
+          </label>
+          <label>
+            <span>Study design</span>
+            <select id="design-filter"><option value="">All designs</option></select>
+          </label>
+          <label>
+            <span>Year</span>
+            <select id="year-filter"><option value="">All years</option></select>
+          </label>
+          <label>
+            <span>Category</span>
+            <select id="category-filter"><option value="">All categories</option></select>
+          </label>
+          <label>
+            <span>Therapy area</span>
+            <select id="therapy-filter"><option value="">All therapy areas</option></select>
+          </label>
+          <label>
+            <span>Sort</span>
+            <select id="sort-filter">
+              <option value="year-desc">Newest first</option>
+              <option value="year-asc">Oldest first</option>
+              <option value="sample-desc">Largest sample first</option>
+              <option value="method-count">Most methods detected</option>
+              <option value="title">Title</option>
+            </select>
+          </label>
+        </form>
+
+        <div class="results-toolbar" aria-live="polite">
+          <span id="method-result-count">Loading poster methods...</span>
+          <button class="button button-secondary" id="clear-method-filters" type="button">Clear filters</button>
+        </div>
+
+        <ul class="method-record-list" id="method-records"></ul>
+        <button class="button button-primary load-more" id="load-more-methods" type="button" hidden>Load more results</button>
+      </section>
+    </main>
+
+    <dialog class="records-dialog method-dialog" id="method-dialog">
+      <article class="records-panel">
+        <button class="dialog-close" type="button" aria-label="Close method record">Close</button>
+        <div id="method-dialog-content"></div>
+      </article>
+    </dialog>
+
+    <footer class="site-footer">
+      <p>Methods data is generated from local parsed NASP poster markdown and retained PDF metadata. Source data: <a href="https://naspnet.org/annual-meeting/abstracts-posters" rel="noopener">NASP Abstracts & Posters</a>.</p>
+    </footer>
+  </body>
+</html>

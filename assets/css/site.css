@@ -17,6 +17,7 @@
   --purple: #7561a8;
   --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-display: "Montserrat", "Arial", sans-serif;
+  --metric-band-offset: 1.5rem;
 }
 
 * { box-sizing: border-box; }
@@ -93,7 +94,7 @@ main {
 .hero {
   display: grid;
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: var(--metric-band-offset);
   padding: 0 0 1.8rem;
   border-bottom: 1px solid var(--border-strong);
 }

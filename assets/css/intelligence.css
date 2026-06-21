@@ -5,7 +5,7 @@
 }
 .dashboard-shell {
   display: grid;
-  gap: 1.45rem;
+  gap: var(--metric-band-offset);
   padding: 2.5rem max(1rem, calc((100vw - 76rem) / 2)) 3.25rem;
 }
 .masthead {
