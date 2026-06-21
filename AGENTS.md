@@ -4,3 +4,4 @@
 - Test all newly-implemented features using a live browser via Playwright MCP.
 - Subagents must always be the same model and thinking level as the orchestrator agent.
 - On intelligence pages, popups must not show a "Parsed markdown" or similar button; any PDF button must be labeled "View PDF" and link to the NASP website URL, not a local or parsed artifact.
+- GitHub Pages publishes this site from the `main` branch, so push all finalized deployable updates to `main`.
