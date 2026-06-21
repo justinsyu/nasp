@@ -43,10 +43,10 @@
         <p>Browse the parsed NASP annual meeting poster archive across 2019-2025 by year, operating theme, therapy area, title, author, and poster text.</p>
       </section>
 
-      <section class="summary-grid" aria-label="Archive summary">
-        <div><strong>Poster records</strong><span data-stat="records">0</span></div>
-        <div><strong>Meeting years</strong><span data-stat="years">0</span></div>
-        <div><strong>Topic categories</strong><span data-stat="categories">0</span></div>
+      <section class="summary-grid" aria-label="Archive summary" aria-busy="true">
+        <div><strong>Poster records</strong><span class="stat-loading" data-stat="records" aria-label="Loading poster records"></span></div>
+        <div><strong>Meeting years</strong><span class="stat-loading" data-stat="years" aria-label="Loading meeting years"></span></div>
+        <div><strong>Topic categories</strong><span class="stat-loading" data-stat="categories" aria-label="Loading topic categories"></span></div>
       </section>
 
       <section id="browse" class="archive-browser" aria-labelledby="browse-title">
@@ -130,6 +130,6 @@
       </button>
     </div>
 
-    <script src="assets/js/app.js?v=nasp-19" defer></script>
+    <script src="assets/js/app.js?v=nasp-20" defer></script>
   </body>
 </html>

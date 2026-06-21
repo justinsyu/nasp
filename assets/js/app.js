@@ -110,9 +110,28 @@ function populateSelect(select, items, formatter = (item) => item.name) {
 }
 
 function populateStats(data) {
-  document.querySelector('[data-stat="records"]').textContent = numberFormat(data.record_count);
-  document.querySelector('[data-stat="years"]').textContent = numberFormat(data.year_counts.length);
-  document.querySelector('[data-stat="categories"]').textContent = numberFormat(data.categories.length);
+  const summaryGrid = document.querySelector(".summary-grid");
+  const stats = {
+    records: data.record_count,
+    years: data.year_counts.length,
+    categories: data.categories.length,
+  };
+  Object.entries(stats).forEach(([key, value]) => {
+    const element = document.querySelector(`[data-stat="${key}"]`);
+    element.textContent = numberFormat(value);
+    element.classList.remove("stat-loading");
+    element.removeAttribute("aria-label");
+  });
+  summaryGrid?.setAttribute("aria-busy", "false");
+}
+
+function markStatsUnavailable() {
+  document.querySelectorAll("[data-stat]").forEach((element) => {
+    element.textContent = "N/A";
+    element.classList.remove("stat-loading");
+    element.removeAttribute("aria-label");
+  });
+  document.querySelector(".summary-grid")?.setAttribute("aria-busy", "false");
 }
 
 function renderAnalytics(list, items, type, maxItems = 16) {
@@ -453,6 +472,7 @@ async function start() {
     renderAnalytics(elements.therapyList, state.data.therapies, "therapy", 18);
     renderResults();
   } catch (error) {
+    markStatsUnavailable();
     elements.resultCount.textContent = "Unable to load NASP records.";
     elements.results.innerHTML = `<li><p>${escapeHtml(error.message)}</p></li>`;
   }
