@@ -110,7 +110,7 @@ function sourceLabel(record) {
 }
 
 function recordUrl(record) {
-  return record.pdf?.local_path || record.pdf?.source_url || "";
+  return record.pdf?.source_url || "";
 }
 
 function openRecords(kind, label, records) {
@@ -118,7 +118,7 @@ function openRecords(kind, label, records) {
   app.rendered = 0;
   document.querySelector("#dialog-kind").textContent = kind;
   document.querySelector("#dialog-title").textContent = label;
-  document.querySelector("#dialog-summary").textContent = `${numberFormat(app.selectedRecords.length)} matching NASP posters. Rows link to the saved PDF and parsed markdown when available.`;
+  document.querySelector("#dialog-summary").textContent = `${numberFormat(app.selectedRecords.length)} matching NASP posters. Rows link to the NASP source PDF when available.`;
   document.querySelector("#dialog-search").value = "";
   renderRecords(true);
   document.querySelector("#records-dialog").showModal();
@@ -140,8 +140,7 @@ function renderRecords(reset = false) {
     <li>
       <a class="record-title" href="${escapeHtml(recordUrl(record))}" target="_blank" rel="noopener">${escapeHtml(record.title || "Untitled NASP poster")}</a>
       <div class="record-meta">${escapeHtml(sourceLabel(record))}</div>
-      <a class="record-url" href="${escapeHtml(record.pdf.local_path)}" target="_blank" rel="noopener">PDF: ${escapeHtml(record.pdf.filename)}</a>
-      <a class="record-url" href="${escapeHtml(record.markdown_path)}" target="_blank" rel="noopener">Parsed markdown</a>
+      <a class="record-url" href="${escapeHtml(recordUrl(record))}" target="_blank" rel="noopener">View PDF</a>
     </li>
   `).join("");
   const loadMore = document.querySelector("#load-more-records");
