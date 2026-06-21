@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>VytlOne / Maxor: HEOR Opportunity Brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Instrument+Sans:wght@400;500;600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --ink:#0d261a; --body:#252525; --muted:rgba(13,38,26,.62); --faint:rgba(13,38,26,.32);
+  --bg:#ffffff; --warm:#fbfaf9; --warm2:#f4f2f1; --accent:#2cc396; --accent-ink:#0c7a5c;
+  --black:#0b0b0b; --line:rgba(13,38,26,.12); --line-strong:rgba(13,38,26,.2);
+  --font-display:"Lora",Georgia,"Times New Roman",serif;
+  --font-body:"Instrument Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --font-ui:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--body);font-family:var(--font-body);
+  font-size:17px;line-height:1.6;letter-spacing:-.01em;-webkit-font-smoothing:antialiased;}
+.page{max-width:880px;margin:0 auto;padding:4rem 1.75rem 5rem;}
+.pill{display:inline-flex;align-items:center;gap:.5rem;padding:.4rem .85rem;
+  border:1px solid var(--line-strong);border-radius:999px;background:var(--warm);color:var(--ink);
+  font-family:var(--font-ui);font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;}
+.pill .dot{width:.5rem;height:.5rem;border-radius:50%;background:var(--accent);}
+h1{margin:1.4rem 0 0;font-family:var(--font-display);font-weight:500;
+  font-size:clamp(2.8rem,6vw,4rem);line-height:1.14;letter-spacing:-.04em;color:var(--ink);}
+h1 .soft{color:var(--faint);display:block;margin-top:.2rem;}
+.lead{margin:1.25rem 0 0;max-width:46rem;color:var(--muted);font-size:1.02rem;line-height:1.55;letter-spacing:-.012em;}
+.meta{margin:0;padding-top:1.25rem;border-top:1px solid var(--line);
+  font-family:var(--font-ui);font-size:.82rem;color:var(--muted);letter-spacing:0;}
+.meta b{color:var(--ink);font-weight:600;}
+.cover{display:flex;flex-direction:column;}
+.cover .pill{align-self:flex-start;}
+.cover-main{margin:2.5rem 0 0;}
+.result-label{font-family:var(--font-ui);font-size:.66rem;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted);margin:1.6rem 0 .55rem;}
+.metric-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.65rem;margin-top:1.5rem;}
+.metric-card{background:var(--warm);border:1px solid var(--line);border-radius:12px;padding:.85rem .9rem;font-family:var(--font-ui);}
+.metric-card span{display:block;color:var(--muted);font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;}
+.metric-card strong{display:block;margin-top:.2rem;color:var(--ink);font-size:1.45rem;line-height:1.05;font-weight:700;font-variant-numeric:tabular-nums;}
+.metric-card em{display:block;margin-top:.25rem;color:var(--muted);font-size:.72rem;font-style:normal;line-height:1.3;}
+.toc{margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:.4rem;}
+.toc a{font-family:var(--font-ui);font-size:.74rem;font-weight:500;color:var(--accent-ink);
+  background:var(--warm2);border:1px solid var(--line);padding:.28rem .65rem;border-radius:999px;text-decoration:none;}
+.toc a:hover{background:var(--accent);color:#fff;border-color:var(--accent);}
+.chart-block{margin-top:1.1rem;padding:1rem;background:var(--warm);border:1px solid var(--line);border-radius:12px;}
+.chart-head{display:flex;justify-content:space-between;gap:1rem;align-items:baseline;margin-bottom:.75rem;font-family:var(--font-ui);}
+.chart-head span{color:var(--muted);font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;}
+.chart-head strong{color:var(--ink);font-size:.84rem;font-weight:700;font-variant-numeric:tabular-nums;}
+.bar-chart{display:grid;gap:.5rem;}
+.bar-row{display:grid;grid-template-columns:minmax(8rem,1fr) minmax(0,2.2fr) 2.4rem;align-items:center;gap:.65rem;}
+.bar-label{color:var(--ink);font-family:var(--font-ui);font-size:.8rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.bar-track{height:.6rem;border-radius:999px;background:rgba(13,38,26,.08);overflow:hidden;}
+.bar-fill{display:block;height:100%;min-width:2px;border-radius:999px;background:var(--accent);}
+.bar-value{color:var(--accent-ink);font-family:var(--font-mono);font-size:.74rem;text-align:right;font-variant-numeric:tabular-nums;}
+.step{margin-top:3.25rem;}
+.step-head{display:grid;grid-template-columns:2.1rem minmax(0,1fr);column-gap:.9rem;row-gap:.7rem;align-items:center;}
+.step-head.no-badge{grid-template-columns:1fr;}
+.badge{width:2.1rem;height:2.1rem;border-radius:50%;background:var(--black);color:#fff;display:grid;place-items:center;
+  font-family:var(--font-ui);font-size:.95rem;font-weight:600;}
+.step-head>div{display:contents;}
+.step-eyebrow{font-family:var(--font-ui);font-size:.7rem;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--accent-ink);margin:0;grid-column:2;grid-row:1;align-self:center;}
+.step-head.no-badge .step-eyebrow{grid-column:1;}
+.step h2{grid-column:1/-1;grid-row:2;margin:0;font-family:var(--font-display);font-weight:500;
+  font-size:clamp(1.5rem,3.2vw,2rem);line-height:1.12;letter-spacing:-.02em;color:var(--ink);}
+.explain{margin:1rem 0 0;color:var(--body);font-size:1.02rem;}
+.field{margin:1.05rem 0 0;color:var(--body);font-size:1rem;}
+.field.match{color:var(--muted);font-size:.92rem;}
+.flabel{display:inline-block;font-family:var(--font-ui);font-size:.6rem;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--accent-ink);background:var(--warm2);border:1px solid var(--line);
+  padding:.12rem .45rem;border-radius:5px;margin-right:.5rem;vertical-align:middle;}
+.sources{margin:.9rem 0 0;color:var(--muted);font-size:.82rem;line-height:1.5;}
+.signals{list-style:none;margin:.4rem 0 0;padding:0;display:grid;gap:.55rem;}
+.signals .signal{background:var(--warm);border:1px solid var(--line);border-radius:12px;padding:.7rem .85rem;}
+.signal-head{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;margin-bottom:.3rem;}
+.signal-head a{font-family:var(--font-mono);font-size:.8rem;font-weight:500;color:var(--accent-ink);
+  text-decoration:none;border-bottom:1px solid rgba(12,122,92,.3);}
+.signal-body{display:block;color:var(--body);font-size:.94rem;line-height:1.5;}
+.tag{font-family:var(--font-ui);font-size:.62rem;font-weight:600;letter-spacing:.04em;
+  padding:.16rem .5rem;border-radius:999px;border:1px solid var(--line);text-transform:lowercase;}
+.tier-direct{background:var(--accent);color:#073a2c;border-color:var(--accent);}
+.tier-portfolio{background:rgba(44,195,150,.18);color:var(--accent-ink);}
+.tier-session{background:rgba(13,38,26,.08);color:var(--ink);}
+.tier-landscape{background:var(--warm2);color:var(--muted);}
+.insights{margin:.4rem 0 0;padding-left:1.1rem;display:grid;gap:.5rem;}
+.insights li{color:var(--body);font-size:.96rem;line-height:1.5;}
+ul.plain{margin:1rem 0 0;padding-left:1.1rem;display:grid;gap:.5rem;}
+ul.plain li{color:var(--body);font-size:1rem;line-height:1.5;}
+.resnote{margin:1.1rem 0 0;color:var(--muted);font-size:.9rem;line-height:1.5;
+  border-left:2px solid var(--line-strong);padding-left:.9rem;}
+.resnote b{color:var(--ink);font-weight:600;}
+code.mono{font-family:var(--font-mono);font-size:.86em;background:var(--warm2);padding:.05rem .32rem;border-radius:4px;color:var(--accent-ink);}
+a{color:var(--accent-ink);}
+.field a,.explain a,.sources a,.insights a,.cross-list a{text-decoration:none;border-bottom:1px solid rgba(12,122,92,.3);}
+hr.sep{border:0;border-top:1px solid var(--line);margin:3.25rem 0 0;}
+.closing{margin-top:3.5rem;padding:1.9rem;background:var(--ink);border-radius:16px;color:rgba(255,255,255,.86);}
+.closing h2{margin:.2rem 0 0;font-family:var(--font-display);font-weight:500;font-size:1.6rem;letter-spacing:-.02em;color:#fff;}
+.closing p{margin:.8rem 0 0;font-size:1rem;line-height:1.55;}
+.closing .step-eyebrow.light{color:#9bf3d3;position:static;}
+.closing a{color:#9bf3d3;}
+.cross-list{margin:.6rem 0 0;padding-left:1.1rem;display:grid;gap:.6rem;}
+.cross-list li{line-height:1.5;}
+footer.doc{margin-top:2.5rem;color:var(--muted);font-family:var(--font-ui);font-size:.8rem;line-height:1.5;}
+@media (max-width:680px){.metric-grid{grid-template-columns:repeat(2,1fr);}.bar-row{grid-template-columns:minmax(6rem,1fr) minmax(0,1.6fr) 2.2rem;}}
+
+/* ---------- prior-art gap structure ---------- */
+a.ref-abs{font-family:var(--font-mono);font-size:.92em;color:var(--accent-ink);
+  text-decoration:none;border-bottom:1px solid rgba(12,122,92,.35);}
+a.ref-src{color:var(--accent-ink);text-decoration:none;border-bottom:1px dotted rgba(12,122,92,.5);}
+.sub-head{margin:.9rem 0 .1rem;font-family:var(--font-ui);font-size:.72rem;font-weight:700;
+  letter-spacing:.01em;color:var(--ink);}
+.activity{list-style:none;margin:.4rem 0 .2rem;padding:0;display:grid;gap:.45rem;}
+.activity li{position:relative;padding-left:1rem;color:var(--muted);font-size:.86rem;line-height:1.5;}
+.activity li::before{content:"";position:absolute;left:.05rem;top:.6em;width:.32rem;height:.32rem;
+  border-radius:50%;background:var(--faint);}
+.activity li a{color:var(--accent-ink);}
+.gaps{list-style:none;margin:.4rem 0 0;padding:0;display:grid;gap:.7rem;}
+.gap{background:var(--warm);border:1px solid var(--line);border-radius:12px;
+  padding:.8rem .9rem;display:grid;gap:.45rem;}
+.gap-plain{color:var(--body);font-size:.92rem;line-height:1.5;}
+.gap-row{display:grid;grid-template-columns:7.5rem minmax(0,1fr);gap:.7rem;align-items:start;}
+.gap-key{font-family:var(--font-ui);font-size:.62rem;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--accent-ink);padding-top:.12rem;line-height:1.3;}
+.gap-val{color:var(--body);font-size:.9rem;line-height:1.5;}
+.gap-delta{border-top:1px dashed var(--line);padding-top:.5rem;}
+.gap-rec{border-top:1px dashed var(--line);padding-top:.5rem;}
+.gap-rec .gap-val{color:var(--ink);}
+.gap-type{display:inline-block;margin-top:.25rem;font-family:var(--font-ui);font-size:.56rem;
+  font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:.08rem .4rem;border-radius:999px;}
+.gap-evidence{background:rgba(44,195,150,.18);color:var(--accent-ink);}
+.gap-comm{background:rgba(13,38,26,.08);color:var(--ink);}
+.uc-tag{display:inline-block;font-family:var(--font-ui);font-size:.6rem;font-weight:700;
+  letter-spacing:.04em;text-transform:uppercase;color:#ffffff;background:var(--accent-ink);
+  padding:.1rem .45rem;border-radius:999px;margin-right:.35rem;}
+@media (max-width:680px){.gap-row{grid-template-columns:1fr;gap:.15rem;}}
+
+/* ---------- abbreviations glossary panel ---------- */
+.gloss-toggle{position:fixed;top:1rem;right:1rem;z-index:60;display:inline-flex;align-items:center;
+  gap:.45rem;padding:.5rem .85rem;border:1px solid var(--line-strong);border-radius:999px;
+  background:var(--ink);color:#fff;font-family:var(--font-ui);font-size:.72rem;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;cursor:pointer;box-shadow:0 2px 10px rgba(13,38,26,.18);}
+.gloss-toggle:hover{background:var(--accent-ink);}
+.gloss-toggle .gicon{width:.55rem;height:.55rem;border-radius:50%;background:var(--accent);}
+.gloss-toggle .gt-hide{display:none;}
+.gloss-toggle[aria-expanded="true"] .gt-show{display:none;}
+.gloss-toggle[aria-expanded="true"] .gt-hide{display:inline;}
+.glossary{position:fixed;top:0;right:0;z-index:55;width:min(360px,86vw);height:100vh;
+  background:var(--warm);border-left:1px solid var(--line-strong);
+  box-shadow:-8px 0 28px rgba(13,38,26,.10);overflow-y:auto;overscroll-behavior:contain;
+  transform:translateX(100%);transition:transform .28s ease;will-change:transform;}
+.glossary.is-open{transform:translateX(0);}
+.gloss-inner{padding:4.25rem 1.4rem 2.5rem;}
+.gloss-head{margin-bottom:1.2rem;}
+.gloss-eyebrow{font-family:var(--font-ui);font-size:.66rem;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--accent-ink);}
+.gloss-title{margin:.25rem 0 0;font-family:var(--font-display);font-weight:500;font-size:1.5rem;
+  letter-spacing:-.02em;color:var(--ink);}
+.gloss-intro{margin:.6rem 0 0;color:var(--muted);font-size:.82rem;line-height:1.5;}
+.gloss-count{display:inline-block;margin-top:.35rem;font-family:var(--font-mono);font-size:.72rem;
+  color:var(--accent-ink);background:var(--warm2);border:1px solid var(--line);
+  padding:.1rem .45rem;border-radius:999px;}
+.gloss-list{margin:0;}
+.gloss-row{display:grid;grid-template-columns:1fr;gap:.05rem;padding:.4rem 0;border-bottom:1px solid var(--line);}
+.gloss-row:last-child{border-bottom:0;}
+.gloss-term{margin:0;font-family:var(--font-mono);font-size:.82rem;font-weight:500;color:var(--accent-ink);}
+.gloss-def{margin:.1rem 0 0;color:var(--body);font-size:.84rem;line-height:1.45;}
+/* Reserve room for the panel on wide screens so it never overlaps text. */
+@media (min-width:1180px){
+  body.gloss-open .page{margin-left:auto;margin-right:calc(min(360px,86vw) + 2.5rem);transition:margin-right .28s ease;}
+}
+@media (max-width:1179px){
+  /* On narrower screens the panel overlays; page stays readable when hidden. */
+  .glossary{box-shadow:-10px 0 34px rgba(13,38,26,.22);}
+}
+@media (prefers-reduced-motion:reduce){
+  .glossary,.gloss-toggle,body.gloss-open .page{transition:none;}
+}
+</style>
+</head>
+<body class="gloss-open">
+
+<!-- ============================================================ -->
+<!-- GLOSSARY TOGGLE BUTTON (fixed, top-right). Pairs with the     -->
+<!-- glossary <aside> below and the <script> at the end.           -->
+<!-- ============================================================ -->
+<button id="gloss-toggle" class="gloss-toggle" type="button"
+        aria-expanded="true" aria-controls="glossary">
+  <span class="gicon"></span><span class="gt-show">Glossary</span><span class="gt-hide">Hide glossary</span>
+</button>
+
+<!-- ============================================================ -->
+<!-- GLOSSARY PANEL (definition-list / glossary component).        -->
+<!-- ============================================================ -->
+<aside id="glossary" class="glossary is-open" aria-label="Glossary" aria-hidden="false">
+  <div class="gloss-inner">
+    <div class="gloss-head">
+      <span class="gloss-eyebrow">Glossary</span>
+      <h2 class="gloss-title">Terms</h2>
+      <p class="gloss-intro">Clinical, operational, and research-method terms used across this brief. <span class="gloss-count">33 terms</span></p>
+    </div>
+    <dl class="gloss-list">
+      <div class="gloss-row"><dt class="gloss-term">Health-system specialty pharmacy (HSSP)</dt><dd class="gloss-def">A specialty pharmacy owned and operated by a health system to serve its own patients.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Electronic health record (EHR)</dt><dd class="gloss-def">The digital record of a patient's clinical information across a health system.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Protected health information (PHI)</dt><dd class="gloss-def">Individually identifiable health data subject to privacy and security rules.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Prescription capture (capture rate)</dt><dd class="gloss-def">The share of specialty prescriptions written by a health system's providers that are filled by that system's own specialty pharmacy rather than an external pharmacy.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Leakage</dt><dd class="gloss-def">Specialty prescriptions written within a health system but filled at an outside pharmacy, so the system loses the associated dispensing revenue and visibility into the patient's care.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Prescription retention</dt><dd class="gloss-def">Keeping eligible specialty prescriptions within the system's own specialty pharmacy, that is, reducing leakage.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">340B</dt><dd class="gloss-def">A federal program that lets eligible safety-net health systems purchase outpatient drugs at reduced prices.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Limited distribution drug (LDD)</dt><dd class="gloss-def">A specialty drug a manufacturer makes available through only a small number of approved pharmacies.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Wholesale acquisition cost (WAC)</dt><dd class="gloss-def">A drug's manufacturer-set list price to wholesalers, before discounts.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Route of administration codes (SC, IV, IN, PO)</dt><dd class="gloss-def">Subcutaneous (under the skin), intravenous (into a vein), intranasal (into the nose), and oral (by mouth).</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Prior authorization (PA)</dt><dd class="gloss-def">An insurer requirement that a prescription be approved before it is covered, a common cause of delay in starting therapy.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Prescription access liaison (PAL)</dt><dd class="gloss-def">A staff role that helps patients clear access barriers such as prior authorization and copay assistance.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Time to therapy (time to first fill)</dt><dd class="gloss-def">The elapsed time from when a prescription is written to when the patient receives the medication.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Persistence</dt><dd class="gloss-def">Continuing to refill and remain on a therapy over time.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Abandonment</dt><dd class="gloss-def">A prescription that is approved or ready but never picked up or filled.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Proportion of days covered (PDC)</dt><dd class="gloss-def">A standard adherence measure equal to the share of days in a period for which a patient had the medication on hand.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Total cost of care</dt><dd class="gloss-def">Total spending on a patient's care across all settings over a defined period.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Pharmacy desert</dt><dd class="gloss-def">An area with limited or no convenient access to a pharmacy.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">REMS (Risk Evaluation and Mitigation Strategy)</dt><dd class="gloss-def">An FDA-required safety program for certain drugs that adds dispensing, monitoring, or enrollment requirements.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Cold chain</dt><dd class="gloss-def">Temperature-controlled handling and storage required for certain specialty medications.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Specialty pharmacy accreditation (URAC, ACHC)</dt><dd class="gloss-def">Quality certifications from independent bodies that many payers and manufacturers require for network and drug access.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Per member per month (PMPM)</dt><dd class="gloss-def">A standardized cost or utilization figure expressed as the average amount per enrolled health-plan member per month (a payer-side measure, out of scope for this brief).</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Comparison group (comparator)</dt><dd class="gloss-def">A group that did not receive the intervention, used as a baseline to judge the intervention's effect.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Retrospective cohort study</dt><dd class="gloss-def">A study that follows a defined group of patients using existing records to assess outcomes after an intervention or exposure.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Quasi-experimental design</dt><dd class="gloss-def">A study that estimates cause and effect without randomly assigning participants, by constructing comparison groups or using repeated measurements over time.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Difference-in-differences</dt><dd class="gloss-def">A method that compares the before-and-after change in a group that received an intervention with the change over the same period in a group that did not, to isolate the intervention's effect.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Interrupted time series</dt><dd class="gloss-def">A method that measures an outcome at many points before and after an intervention to separate the intervention's effect from pre-existing trends.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Segmented regression</dt><dd class="gloss-def">The statistical technique used in an interrupted time series to estimate the change in level and trend at the point of intervention.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Stepped-wedge rollout</dt><dd class="gloss-def">A study design in which an intervention is introduced to sites in a staggered sequence, so each site serves as its own control before it receives the intervention.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Precision and recall</dt><dd class="gloss-def">Measures of how accurate an automated flag is; precision is the share of flags that are correct, recall is the share of true cases the system catches.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Counterfactual</dt><dd class="gloss-def">An estimate of what would have happened without the intervention.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Confidence interval</dt><dd class="gloss-def">A range around an estimate that expresses how much uncertainty it carries.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Sensitivity analysis</dt><dd class="gloss-def">Re-running an analysis under different assumptions to test whether the conclusions hold.</dd></div>
+    </dl>
+  </div>
+</aside>
+
+<div class="page">
+
+  <!-- ============================================================ -->
+  <!-- HERO / COVER                                                  -->
+  <!-- ============================================================ -->
+  <header class="cover">
+    <span class="pill"><span class="dot"></span>HSSP outcomes research</span>
+    <div class="cover-main">
+      <h1>VytlOne / Maxor: HEOR Opportunity Brief<span class="soft">Health-system specialty pharmacy outcomes research</span></h1>
+      <p class="lead">Prepared for internal use by a health economics and outcomes research (HEOR) consulting firm serving health-system specialty pharmacy (HSSP) organizations. Customer of record for every proposal below is the <b>health system</b>, not payers, pharmacy benefit managers (PBMs), plan sponsors, or pharmaceutical manufacturers. VytlOne/Maxor operates several lines that are payer-facing or plan-sponsor-facing (PMPM (per member per month) trend, lowest-net-cost, that is, the lowest total cost after rebates and discounts, benefit design, plan drug spend, biosimilar plan adoption). PMPM and lowest-net-cost are payer-side measures, and those deliverables are out of scope for this brief. Where a VytlOne/Maxor asset is built for a plan-spend audience (for example the insights reports and the quarterly pipeline reports), it is referenced only to propose a reframing toward a health-system specialty pharmacy decision.</p>
+
+      <p class="result-label">Analysis base</p>
+      <div class="metric-grid">
+        <div class="metric-card"><span>PDFs reviewed</span><strong>11</strong><em>From the VytlOne_Maxor corpus</em></div>
+        <div class="metric-card"><span>HTML pages reviewed</span><strong>75</strong><em>From the VytlOne_Maxor corpus</em></div>
+        <div class="metric-card"><span>Evidence formats</span><strong>4</strong><em>Case studies, survey, intelligence, AI platform</em></div>
+        <div class="metric-card"><span>Priority engagements</span><strong>5</strong><em>Ranked by value and feasibility</em></div>
+      </div>
+
+      <p class="result-label">Sections</p>
+      <nav class="toc">
+        <a href="#c1">1. Research approach snapshot</a>
+        <a href="#c2">2. Quality-enhancement opportunities</a>
+        <a href="#c3">3. Relevance-enhancement opportunities</a>
+        <a href="#c4">4. Top priority engagements</a>
+        <a href="#c5">5. Differentiation note</a>
+      </nav>
+    </div>
+    <p class="meta"><b>Prepared for internal use</b> by a health economics and outcomes research (HEOR) consulting firm serving health-system specialty pharmacy (HSSP) organizations. &nbsp;|&nbsp; <b>Grounding corpus:</b> 11 PDFs and 75 HTML pages in <code class="mono">C:\Users\Justin\Desktop\nasp\hssp_research_downloads\VytlOne_Maxor</code>.</p>
+  </header>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 1                                                     -->
+  <!-- ============================================================ -->
+  <section class="step" id="c1">
+    <div class="step-head"><span class="badge">1</span><div>
+      <p class="step-eyebrow">Research approach</p>
+      <h2>Research approach snapshot</h2>
+    </div></div>
+
+    <p class="explain">VytlOne/Maxor publishes for HSSP audiences through four formats: operational case studies (county health-system financial turnaround; prescription access liaison access metrics; rare-disease adherence), a recurring health-system leader survey conducted with Sage Growth Partners (second annual, N=100, with trend comparison to the 2024 N=80 wave), strategic intelligence (annual insights reports and quarterly pipeline reports), and an AI analytics platform (VytlAIQ) marketed specifically for health-system pharmacy 340B compliance, revenue capture, and liaison optimization. Genuine strengths that should not be re-proposed as if absent: concrete operational proof points stated as discrete before/after deltas (turnaround 180 to 51 minutes; prior authorization 30 days to 5.6 days; specialty capture 31% in 2021 to 64% in 2024; refill interval 38 to 29 days), a longitudinal county case spanning a 13-year partnership, a repeatable annual survey instrument with year-over-year trend data, and a structurally distinctive analytics asset (VytlAIQ) built on consolidated 340B, claims, electronic health record (EHR), and pharmacy-management data. The principal limitations are consistent across the four formats:</p>
+
+    <ul class="plain">
+      <li>The case studies are single-site before/after narratives without denominators, baseline periods, eligibility, comparators, or statistical testing.</li>
+      <li>The financial claims mix gross revenue, net margin, avoided cost, and corrected billing without a consistent value framework.</li>
+      <li>The survey is reported without sampling frame, response rate, weighting, or stratification.</li>
+      <li>The VytlAIQ outcome claims are asserted without validation methods, model governance, false-positive/review burden, or pre/post measurement.</li>
+    </ul>
+
+    <p class="explain">The opportunity is not more content. It is raising the causal and accounting rigor of the existing operational assets and linking operational metrics to the clinical, utilization, and capacity outcomes a health system uses to decide whether to build, expand, retain, or optimize an HSSP. Throughout, prescription capture and leakage are treated as the central economic metrics.</p>
+  </section>
+
+  <hr class="sep" />
+
+  <!-- ============================================================ -->
+  <!-- SECTION 2 - QUALITY ENHANCEMENT (gap cards, .gap-evidence)    -->
+  <!-- ============================================================ -->
+  <section class="step" id="c2">
+    <div class="step-head"><span class="badge">2</span><div>
+      <p class="step-eyebrow">Quality enhancement</p>
+      <h2>Quality-enhancement opportunities</h2>
+    </div></div>
+
+    <ul class="gaps">
+      <li class="gap">
+        <div class="gap-row"><span class="gap-key">Asset (file)</span><span class="gap-val"><code class="mono">Maxor-Case-Study-County-Health-System.pdf</code> (margin turnaround; $20M annual loss to nearly $40M annual margin; ~$200M over 13 years) <span class="gap-type gap-evidence">Quality</span></span></div>
+        <div class="gap-row"><span class="gap-key">Observed methodological weakness</span><span class="gap-val">Single-site before/after with no time series, no baseline period definition, no denominators, and no attribution method. Headline figures combine distinct economic objects (corrected billing $6M in 90 days, health-plan drug-spend savings ~$1M year one, mail-order growth 5% to 30%, turnaround 180 to 51 minutes, capture, 340B savings, satisfaction 92%) into a single value narrative without separating gross revenue, net margin, avoided cost, working capital, and staffing/technology cost. No counterfactual for secular drug-price, volume, or payer-mix change over 13 years.</span></div>
+        <div class="gap-row"><span class="gap-key">Specific HEOR upgrade</span><span class="gap-val">Reconstruct as a documented net-economic-impact model with an explicit value framework that separates gross revenue, net margin, avoided cost, corrected-billing one-time recoveries, and operating cost. Estimate attribution with an interrupted time series on the monthly margin and turnaround series rather than endpoint-to-endpoint deltas. Report a base case with sensitivity ranges (best/worst) and stated assumptions rather than point estimates.</span></div>
+        <div class="gap-row"><span class="gap-key">Why it strengthens the health-system case</span><span class="gap-val">A chief financial officer (CFO), board, or system finance committee evaluating a multi-year pharmacy partnership applies the same separation of one-time vs recurring, gross vs net, and avoided vs realized that they use for any capital decision. A transparent value framework with attribution and ranges survives finance reconciliation. A single blended 13-year figure invites discounting.</span></div>
+      </li>
+      <li class="gap">
+        <div class="gap-row"><span class="gap-key">Asset (file)</span><span class="gap-val"><code class="mono">Maxor-Case-Study-County-Health-System.pdf</code> and <code class="mono">VytlOne_Prescription_Access_Liaison_Case_Study.pdf</code> (capture-rate claims: VytlOne average 67% vs &lt;50% industry; site capture 31% in 2021 to 64% in 2024) <span class="gap-type gap-evidence">Quality</span></span></div>
+        <div class="gap-row"><span class="gap-key">Observed methodological weakness</span><span class="gap-val">Capture-rate improvement is reported as two endpoints with no monthly trend, no denominator (eligible system-originated specialty prescriptions), no eligibility definition, and no adjustment for concurrent changes (new payer-network access, new limited distribution drug (LDD) access, accreditation, staffing). The "67% vs &lt;50%" comparison cites an internal market report, not a matched external benchmark.</span></div>
+        <div class="gap-row"><span class="gap-key">Specific HEOR upgrade</span><span class="gap-val">Re-estimate capture as an interrupted time series on the monthly capture series with a defined denominator (system-originated eligible specialty scripts). Apply segmented regression to separate the step change from underlying trend, and stratify by the operational levers introduced (payer-network adds, LDD access, accreditation date). Replace the unmatched 67%-vs-50% comparison with either a sourced external reference or an internal network benchmark with consistent inclusion rules.</span></div>
+        <div class="gap-row"><span class="gap-key">Why it strengthens the health-system case</span><span class="gap-val">Prescription capture and retention is the most direct economic argument for a health-system build/expand decision. A time-series estimate that controls for trend and identifies which lever moved capture lets pharmacy leadership and finance attribute the gain to the partnership rather than to coincident payer-network or accreditation changes.</span></div>
+      </li>
+      <li class="gap">
+        <div class="gap-row"><span class="gap-key">Asset (file)</span><span class="gap-val"><code class="mono">VytlOne_Prescription_Access_Liaison_Case_Study.pdf</code> (prior authorization (PA) turnaround 30 days to 5.6 days over one year; copay assistance +185% over four years; capture 31% to 64%; satisfaction 92.5%) <span class="gap-type gap-evidence">Quality</span></span></div>
+        <div class="gap-row"><span class="gap-key">Observed methodological weakness</span><span class="gap-val">Single-site, single-role intervention with no denominators (number of PAs, number of patients), asymmetric observation windows across the three headline metrics (turnaround over one year; copay over four years; capture 2021 to 2024), no statistical test, and no comparator clinic. Satisfaction (92.5% in 2024) has no response rate or nonresponse assessment.</span></div>
+        <div class="gap-row"><span class="gap-key">Specific HEOR upgrade</span><span class="gap-val">Specify a mixed-methods study: denominators and cohort entry for each metric, monthly PA-turnaround time series with segmented regression, a survival (time-to-event) treatment of time to therapy rather than a mean, and a staffing return-on-investment (ROI) model (prescription access liaison (PAL) cost vs incremental captured/retained net revenue and copay dollars secured). Add nonresponse weighting to the satisfaction measure.</span></div>
+        <div class="gap-row"><span class="gap-key">Why it strengthens the health-system case</span><span class="gap-val">Access and time-to-therapy are the metrics ambulatory operations and service-line leaders use to justify embedding a liaison. A denominator-anchored, trend-controlled estimate with a staffing ROI converts a testimonial into a defensible business case for funding the role across additional clinics.</span></div>
+      </li>
+      <li class="gap">
+        <div class="gap-row"><span class="gap-key">Asset (file)</span><span class="gap-val"><code class="mono">VytlOne_Improving_Adherence_Through_High_Touch_Interventions.pdf</code> (rare-disease post-initiation follow-up; 76% received an intervention, 68% additional education, 24% improved time to fill; mean refill interval 38 to 29 days) <span class="gap-type gap-evidence">Quality</span></span></div>
+        <div class="gap-row"><span class="gap-key">Observed methodological weakness</span><span class="gap-val">"Small but meaningful patient population" with no stated N, no eligibility or index-date definition, no follow-up window, no comparison group (pre-intervention cohort or non-called participants), and no statistical test or confidence interval on the refill-interval change. Outcome is a process proxy (refill interval) not linked to persistence, discontinuation, or downstream utilization. The case is explicitly framed for manufacturer-sponsored therapy programs, so the HSSP relevance must be made explicit.</span></div>
+        <div class="gap-row"><span class="gap-key">Specific HEOR upgrade</span><span class="gap-val">Convert into a quasi-experimental adherence study: define the cohort, index date (first fill), and follow-up window; construct a comparison group (pre-intervention historical cohort or contemporaneous non-intervened participants) and report the refill-interval and proportion-of-days-covered difference with confidence intervals; add persistence and discontinuation as primary endpoints rather than refill interval alone.</span></div>
+        <div class="gap-row"><span class="gap-key">Why it strengthens the health-system case</span><span class="gap-val">Quality and accreditation leaders and rare-disease service lines need adherence evidence defined with denominators, a comparator, and a persistence endpoint, not a single before/after mean on a small unspecified cohort. A comparator-anchored estimate makes the high-touch model defensible as a quality intervention the system can adopt.</span></div>
+      </li>
+      <li class="gap">
+        <div class="gap-row"><span class="gap-key">Asset (file)</span><span class="gap-val"><code class="mono">2nd-annual-healthcare-leader-report.html</code> and <code class="mono">reviving-access-reclaiming-revenue.html</code> (survey of 100 health-system and pharmacy leaders; trend vs 2024 N=80; e.g., 46% plan to expand pharmacy services up from 37%; 18% confident they can meet demand down from 29%; 4 in 10 lose &gt;$1M annually; 92% see pharmacy as a differentiator; only 1 in 5 has a defined strategy; 85% want real-time analytics) <span class="gap-type gap-evidence">Quality</span></span></div>
+        <div class="gap-row"><span class="gap-key">Observed methodological weakness</span><span class="gap-val">No disclosed sampling frame, recruitment method, response rate, or weighting. No stratification of findings by hospital size, 340B status, specialty-pharmacy ownership, rural/urban market, or baseline pharmacy maturity. Year-over-year trend (N=80 to N=100) is reported without testing whether the two samples are comparable. Some headline percentages (e.g., 4 in 10 lose &gt;$1M) are not tied to a denominator or organization type.</span></div>
+        <div class="gap-row"><span class="gap-key">Specific HEOR upgrade</span><span class="gap-val">Document and disclose the methodology (sampling frame, fielding, response rate, respondent roles, weighting). Pre-register a stratified analysis plan and report key findings by hospital size, 340B status, HSSP ownership/maturity, and geography so a health system can locate its own peer stratum. Treat the 2024-to-2025 change with a test of between-sample comparability before presenting deltas as trends.</span></div>
+        <div class="gap-row"><span class="gap-key">Why it strengthens the health-system case</span><span class="gap-val">A health-system leader cannot benchmark against an undifferentiated 100-respondent average. Stratified, methodologically disclosed survey results let a system compare itself to peers of similar size, 340B status, and maturity, which converts the survey from demand-signaling content into a self-assessment benchmark that supports a build/expand decision.</span></div>
+      </li>
+      <li class="gap">
+        <div class="gap-row"><span class="gap-key">Asset (file)</span><span class="gap-val"><code class="mono">meet-vytlaiq-the-ai-edge-for-health-system-pharmacy.html</code> (VytlAIQ; claims of 340B claims auditing at "100% coverage" vs sampling, capture-rate lift "upon deployment," removal of human error, reduction in denials and leakage, manual workflows "cut to minutes or seconds") <span class="gap-type gap-evidence">Quality</span></span></div>
+        <div class="gap-row"><span class="gap-key">Observed methodological weakness</span><span class="gap-val">Outcome claims are asserted in narrative form with no validation methodology, no model-governance or audit-trail description, no pre/post operational measurement, no false-positive rate or human-review burden for the continuous 340B audit, and no reported audit findings. The platform is positioned by outcomes ("assess us on the outcomes") but no outcome data are published.</span></div>
+        <div class="gap-row"><span class="gap-key">Specific HEOR upgrade</span><span class="gap-val">Design an independent evaluation: pre/post operational outcomes at deployment sites (denials, 340B audit findings and exceptions, capture rate, prescription leakage, liaison work-time, PA turnaround) with a defined baseline. Report the continuous-audit flag precision/recall and the human-review burden it generates (false positives per period). Document model governance (validation set, drift monitoring, audit logging, data-privacy controls) appropriate to protected health information (PHI). Where feasible, use a stepped-wedge rollout across sites.</span></div>
+        <div class="gap-row"><span class="gap-key">Why it strengthens the health-system case</span><span class="gap-val">Health-system leaders are explicitly skeptical of AI claims (the transcript itself anticipates this). Independent pre/post evidence with stated precision, review burden, and governance is exactly what a chief information officer (CIO), compliance officer, and pharmacy executive require before adopting an AI tool that touches 340B compliance and PHI. It converts a marketing claim into an adoption-grade evidence package.</span></div>
+      </li>
+    </ul>
+  </section>
+
+  <hr class="sep" />
+
+  <!-- ============================================================ -->
+  <!-- SECTION 3 - RELEVANCE ENHANCEMENT (gap cards, .gap-comm)      -->
+  <!-- ============================================================ -->
+  <section class="step" id="c3">
+    <div class="step-head"><span class="badge">3</span><div>
+      <p class="step-eyebrow">Relevance enhancement</p>
+      <h2>Relevance-enhancement opportunities</h2>
+    </div></div>
+
+    <ul class="gaps">
+      <li class="gap">
+        <div class="gap-row"><span class="gap-key">Gap / unaddressed question</span><span class="gap-val"><b>Operational metrics are never linked to downstream clinical or utilization outcomes.</b> Turnaround time, capture rate, PA turnaround, and refill interval are reported as endpoints; none is connected to time to therapy, persistence, abandonment, or avoidable ED/hospitalization for the system's own patients (<code class="mono">Maxor-Case-Study-County-Health-System.pdf</code>, <code class="mono">VytlOne_Prescription_Access_Liaison_Case_Study.pdf</code>, <code class="mono">VytlOne_Improving_Adherence_Through_High_Touch_Interventions.pdf</code>). <span class="gap-type gap-comm">Relevance</span></span></div>
+        <div class="gap-row"><span class="gap-key">Proposed study or reframing</span><span class="gap-val">An outcomes-linkage study that connects the access/operational levers to patient-level clinical and utilization endpoints the system bears: time to first fill, first-fill abandonment, persistence, and avoidable utilization at the system's own facilities.</span></div>
+        <div class="gap-row"><span class="gap-key">Design</span><span class="gap-val">Retrospective cohort on EHR plus pharmacy data; time-to-event methods for time to therapy; pre/post or comparator-based estimates for abandonment, persistence, and avoidable utilization, with risk adjustment.</span></div>
+        <div class="gap-row"><span class="gap-key">Primary outcome domain</span><span class="gap-val">Clinical/adherence outcomes; total cost of care to the system and avoidable utilization.</span></div>
+        <div class="gap-row"><span class="gap-key">Health-system decision / audience served</span><span class="gap-val">Service-line chiefs, quality/accreditation leaders, and population-health/finance leaders deciding whether the HSSP model improves outcomes the system is accountable for, not only throughput.</span></div>
+      </li>
+      <li class="gap">
+        <div class="gap-row"><span class="gap-key">Gap / unaddressed question</span><span class="gap-val"><b>Prescription capture and retention is asserted but never measured against eligible volume.</b> Capture rates (67% average; 31% to 64%) are reported without the denominator of system-originated eligible specialty prescriptions or the continuity consequence of leaked scripts. <span class="gap-type gap-comm">Relevance</span></span></div>
+        <div class="gap-row"><span class="gap-key">Proposed study or reframing</span><span class="gap-val">A prescription capture and retention study quantifying the share of system-originated specialty prescriptions retained within the HSSP and the net revenue and care-continuity consequence of reduced leakage.</span></div>
+        <div class="gap-row"><span class="gap-key">Design</span><span class="gap-val">Retrospective pre/post (ideally staggered-adoption difference-in-differences across clinics or service lines) on EHR plus pharmacy claims; capture rate and retained net revenue as co-primary measures; continuity and downstream utilization as secondary.</span></div>
+        <div class="gap-row"><span class="gap-key">Primary outcome domain</span><span class="gap-val">Prescription capture and retention; total cost of care to the system.</span></div>
+        <div class="gap-row"><span class="gap-key">Health-system decision / audience served</span><span class="gap-val">Pharmacy leadership and system finance making the build/expand decision; the most direct economic argument and currently unquantified against eligible volume.</span></div>
+      </li>
+      <li class="gap">
+        <div class="gap-row"><span class="gap-key">Gap / unaddressed question</span><span class="gap-val"><b>Clinician administrative burden and clinic capacity are unmeasured.</b> The PAL and county cases describe liaisons absorbing prior authorizations and refill coordination, but no asset measures clinician time removed or clinic capacity freed. The survey reports demand-readiness gaps (18% confident they can meet expansion demand) without quantifying the staffing capacity the HSSP frees up. <span class="gap-type gap-comm">Relevance</span></span></div>
+        <div class="gap-row"><span class="gap-key">Proposed study or reframing</span><span class="gap-val">A clinician time-and-capacity study measuring administrative time (PA, copay, refill coordination) before and after liaison/HSSP integration in matched clinics, including reallocated visit slots or panel growth.</span></div>
+        <div class="gap-row"><span class="gap-key">Design</span><span class="gap-val">Time-log or EHR time-stamp measurement with matched comparison clinics; pre/post difference-in-differences; observed clinician minutes and net patient-facing capacity as primary measures.</span></div>
+        <div class="gap-row"><span class="gap-key">Primary outcome domain</span><span class="gap-val">Clinician administrative burden and clinic capacity.</span></div>
+        <div class="gap-row"><span class="gap-key">Health-system decision / audience served</span><span class="gap-val">Service-line chiefs, ambulatory operations, and chief medical officers (CMOs) deciding whether HSSP integration relieves workforce strain; the survey shows leaders rank capacity-to-deliver as a top concern.</span></div>
+      </li>
+      <li class="gap">
+        <div class="gap-row"><span class="gap-key">Gap / unaddressed question</span><span class="gap-val"><b>No equity-stratified access outcomes exist</b>, despite a corpus centered on access, county/safety-net settings, HIV, rare disease, and pharmacy deserts (<code class="mono">pharmacy-deserts.html</code>, <code class="mono">VytlOne_Prescription_Access_Liaison_Case_Study.pdf</code>). Access and satisfaction metrics are reported only in aggregate. <span class="gap-type gap-comm">Relevance</span></span></div>
+        <div class="gap-row"><span class="gap-key">Proposed study or reframing</span><span class="gap-val">An equity-stratified access analysis reporting time to therapy, copay-assistance capture, capture rate, and avoidable utilization stratified by payer type, race/ethnicity, language, and rurality, and testing whether the HSSP model narrows access disparities for the system's own population.</span></div>
+        <div class="gap-row"><span class="gap-key">Design</span><span class="gap-val">Retrospective cohort with prespecified subgroup and interaction testing; where copay-assistance and access data exist, pre/post change among high-barrier subgroups vs others.</span></div>
+        <div class="gap-row"><span class="gap-key">Primary outcome domain</span><span class="gap-val">Patient access / equity for the system's own population.</span></div>
+        <div class="gap-row"><span class="gap-key">Health-system decision / audience served</span><span class="gap-val">System boards, community-benefit/mission leaders, and population-health teams; answers whether the access gains are distributed equitably, which aggregate metrics cannot.</span></div>
+      </li>
+      <li class="gap">
+        <div class="gap-row"><span class="gap-key">Gap / unaddressed question</span><span class="gap-val"><b>No standardized HSSP outcomes definitions across the case-study portfolio.</b> Each case reports its own ad hoc metrics (turnaround in minutes; PA turnaround in days; capture as a ratio; refill interval in days) with different windows and no shared dictionary, preventing cross-site comparison or benchmarking. <span class="gap-type gap-comm">Relevance</span></span></div>
+        <div class="gap-row"><span class="gap-key">Proposed study or reframing</span><span class="gap-val">A standardized HSSP outcomes dictionary and analytic protocol (cohort entry, index date, denominators, follow-up windows, comparators) applied uniformly across capture, time to therapy, PA turnaround, adherence/persistence, clinician burden, and patient experience.</span></div>
+        <div class="gap-row"><span class="gap-key">Design</span><span class="gap-val">Methods/specification engagement producing one outcome dictionary and statistical analysis plan, retro-applied to the existing case sites to make them comparable and benchmarkable.</span></div>
+        <div class="gap-row"><span class="gap-key">Primary outcome domain</span><span class="gap-val">Cross-domain (operational, access, clinical) standardization.</span></div>
+        <div class="gap-row"><span class="gap-key">Health-system decision / audience served</span><span class="gap-val">Pharmacy leadership and quality leaders who need to compare sites and benchmark against peers; also raises the credibility of every individual case.</span></div>
+      </li>
+      <li class="gap">
+        <div class="gap-row"><span class="gap-key">Gap / unaddressed question</span><span class="gap-val"><b>Pipeline and insights reports are framed for plan spend, not health-system operational readiness.</b> <code class="mono">VytlOne_Pipeline_Q2_2026.pdf</code> organizes around drug approvals, wholesale acquisition cost (WAC)/annual cost, and indication expansion, yet it already carries the operationally relevant variables for HSSP readiness: route of administration (subcutaneous (SC), intravenous (IV), intranasal (IN), oral (PO)), in-office vs infusion-center delivery, infusion-time differences, limited-distribution status, and high-cost rare-disease therapies. <span class="gap-type gap-comm">Relevance</span></span></div>
+        <div class="gap-row"><span class="gap-key">Proposed study or reframing</span><span class="gap-val">Reframe the quarterly pipeline (for the HSSP audience only) into a local readiness analysis: for upcoming specialty/rare-disease therapies, estimate local eligible patient volume, monitoring burden, staffing needs, site-of-care and infusion-capacity implications, cold-chain/REMS handling, and accreditation/limited-distribution access requirements. Exclude plan-spend forecasting.</span></div>
+        <div class="gap-row"><span class="gap-key">Design</span><span class="gap-val">Translational analysis layered on the existing pipeline data: map each pipeline therapy to operational readiness dimensions; where a partner system shares its case mix, produce a site-specific volume and capacity estimate.</span></div>
+        <div class="gap-row"><span class="gap-key">Primary outcome domain</span><span class="gap-val">Service-line growth; operational readiness (staffing, site of care, accreditation, cold-chain/REMS).</span></div>
+        <div class="gap-row"><span class="gap-key">Health-system decision / audience served</span><span class="gap-val">Pharmacy leadership, service-line chiefs, and ambulatory operations planning capacity for incoming specialty therapies; converts a plan-spend artifact into an HSSP operations tool.</span></div>
+      </li>
+    </ul>
+  </section>
+
+  <hr class="sep" />
+
+  <!-- ============================================================ -->
+  <!-- SECTION 4 - PRIORITY ENGAGEMENTS (ul.signals)                 -->
+  <!-- ============================================================ -->
+  <section class="step" id="c4">
+    <div class="step-head"><span class="badge">4</span><div>
+      <p class="step-eyebrow">Priority engagements</p>
+      <h2>Top priority engagements</h2>
+    </div></div>
+
+    <p class="explain">Ranked by value to VytlOne/Maxor combined with feasibility and credibility.</p>
+
+    <ul class="signals">
+      <li class="signal">
+        <span class="signal-head"><a class="ref-abs" href="#c2">1</a><span class="tag tier-direct">priority engagement</span></span>
+        <span class="signal-body">
+          <b>Prescription capture and retention study (with interrupted-time-series capture estimate).</b>
+          <div class="gap-row" style="margin-top:.5rem"><span class="gap-key">Research question</span><span class="gap-val">How much system-originated eligible specialty volume does the HSSP capture and retain, what operational lever moved capture, and what is the net revenue and care-continuity consequence of reduced leakage?</span></div>
+          <div class="gap-row"><span class="gap-key">Study design</span><span class="gap-val">Retrospective pre/post (ideally staggered-adoption difference-in-differences) on EHR plus pharmacy claims; interrupted time series with segmented regression on the monthly capture series; capture rate and retained net revenue as co-primary measures.</span></div>
+          <div class="gap-row"><span class="gap-key">Primary outcome domain</span><span class="gap-val">Prescription capture and retention; total cost of care to the system.</span></div>
+          <div class="gap-row"><span class="gap-key">Target audience</span><span class="gap-val">Pharmacy leadership and system finance.</span></div>
+          <div class="gap-row"><span class="gap-key">Builds on</span><span class="gap-val"><code class="mono">Maxor-Case-Study-County-Health-System.pdf</code> and <code class="mono">VytlOne_Prescription_Access_Liaison_Case_Study.pdf</code> (the 31%-to-64% and 67%-vs-50% capture claims).</span></div>
+          <div class="gap-row"><span class="gap-key">Rationale</span><span class="gap-val">Closes the corpus's largest economic research gap, attaches to VytlOne/Maxor's two strongest proof points, and supplies the most direct build/expand argument; the data already sit in partner systems, so feasibility is high.</span></div>
+        </span>
+      </li>
+      <li class="signal">
+        <span class="signal-head"><a class="ref-abs" href="#c2">2</a><span class="tag tier-direct">priority engagement</span></span>
+        <span class="signal-body">
+          <b>Net-economic-impact model with an explicit value framework for the county case.</b>
+          <div class="gap-row" style="margin-top:.5rem"><span class="gap-key">Research question</span><span class="gap-val">After separating gross revenue, net margin, avoided cost, one-time recoveries, and operating cost, what is the attributable net economic impact of the pharmacy partnership, with what uncertainty?</span></div>
+          <div class="gap-row"><span class="gap-key">Study design</span><span class="gap-val">Documented value-framework reconstruction; interrupted time series on the monthly margin and turnaround series to support attribution; base case with best/worst sensitivity ranges and stated assumptions.</span></div>
+          <div class="gap-row"><span class="gap-key">Primary outcome domain</span><span class="gap-val">Total cost of care to the system / net economic impact.</span></div>
+          <div class="gap-row"><span class="gap-key">Target audience</span><span class="gap-val">System CFOs, boards, and finance committees.</span></div>
+          <div class="gap-row"><span class="gap-key">Builds on</span><span class="gap-val"><code class="mono">Maxor-Case-Study-County-Health-System.pdf</code> (the $20M-loss-to-$40M-margin and ~$200M/13-year figures).</span></div>
+          <div class="gap-row"><span class="gap-key">Rationale</span><span class="gap-val">Upgrades the single most-cited financial claim from a blended endpoint narrative to a reconciliation-ready model; strongly improves credibility because finance audiences discount un-attributed multi-year blended figures.</span></div>
+        </span>
+      </li>
+      <li class="signal">
+        <span class="signal-head"><a class="ref-abs" href="#c2">3</a><span class="tag tier-direct">priority engagement</span></span>
+        <span class="signal-body">
+          <b>Independent VytlAIQ evaluation as a quality/access and compliance intervention.</b>
+          <div class="gap-row" style="margin-top:.5rem"><span class="gap-key">Research question</span><span class="gap-val">After deployment, does VytlAIQ produce measurable improvements in 340B audit findings, denials, capture, leakage, and liaison work-time, and what review burden and governance does it carry?</span></div>
+          <div class="gap-row"><span class="gap-key">Study design</span><span class="gap-val">Pre/post operational outcomes at deployment sites with a defined baseline (ideally a stepped-wedge rollout across sites); report continuous-audit flag precision/recall, false positives per period, human-review burden, and model governance (validation, drift monitoring, audit logging, privacy controls).</span></div>
+          <div class="gap-row"><span class="gap-key">Primary outcome domain</span><span class="gap-val">Operational outcomes (compliance, capture, denials, leakage) and clinician/liaison capacity.</span></div>
+          <div class="gap-row"><span class="gap-key">Target audience</span><span class="gap-val">Pharmacy executives, 340B compliance officers, and CIOs.</span></div>
+          <div class="gap-row"><span class="gap-key">Builds on</span><span class="gap-val"><code class="mono">meet-vytlaiq-the-ai-edge-for-health-system-pharmacy.html</code>.</span></div>
+          <div class="gap-row"><span class="gap-key">Rationale</span><span class="gap-val">Differentiating and directly responsive to the decision-maker skepticism the transcript names; independent validation of a tool that touches 340B and PHI is the evidence health systems require before adoption and is difficult to produce internally without appearing self-serving.</span></div>
+        </span>
+      </li>
+      <li class="signal">
+        <span class="signal-head"><a class="ref-abs" href="#c2">4</a><span class="tag tier-direct">priority engagement</span></span>
+        <span class="signal-body">
+          <b>Survey methodology and stratification upgrade for health-system self-benchmarking.</b>
+          <div class="gap-row" style="margin-top:.5rem"><span class="gap-key">Research question</span><span class="gap-val">How do pharmacy strategy, performance, and expansion-readiness vary across health systems by size, 340B status, HSSP ownership/maturity, and geography, and how can a system benchmark itself against its peer stratum?</span></div>
+          <div class="gap-row"><span class="gap-key">Study design</span><span class="gap-val">Document sampling frame, response rate, and weighting; pre-register a stratified analysis plan; report findings by stratum and test 2024-to-2025 between-sample comparability before presenting trends.</span></div>
+          <div class="gap-row"><span class="gap-key">Primary outcome domain</span><span class="gap-val">Cross-sectional benchmarking (strategy, performance, readiness).</span></div>
+          <div class="gap-row"><span class="gap-key">Target audience</span><span class="gap-val">C-suite and pharmacy leadership using the survey for self-assessment.</span></div>
+          <div class="gap-row"><span class="gap-key">Builds on</span><span class="gap-val"><code class="mono">2nd-annual-healthcare-leader-report.html</code> and <code class="mono">reviving-access-reclaiming-revenue.html</code> (N=100, trend vs N=80).</span></div>
+          <div class="gap-row"><span class="gap-key">Rationale</span><span class="gap-val">Converts demand-signaling content into a peer benchmark a system can act on; low marginal cost because the instrument and field partner (Sage Growth Partners) already exist.</span></div>
+        </span>
+      </li>
+      <li class="signal">
+        <span class="signal-head"><a class="ref-abs" href="#c2">5</a><span class="tag tier-direct">priority engagement</span></span>
+        <span class="signal-body">
+          <b>Outcomes-linkage and standardized-dictionary engagement across the case-study portfolio.</b>
+          <div class="gap-row" style="margin-top:.5rem"><span class="gap-key">Research question</span><span class="gap-val">Across the HSSP case sites, what are operational, access, and clinical outcomes under one transparent dictionary, and how do access/operational levers link to time to therapy, abandonment, persistence, and avoidable utilization?</span></div>
+          <div class="gap-row"><span class="gap-key">Study design</span><span class="gap-val">One outcome dictionary and statistical analysis plan (denominators, index dates, follow-up windows, comparators) applied across sites; time-to-event linkage of access metrics to abandonment and persistence; comparator-anchored adherence estimates.</span></div>
+          <div class="gap-row"><span class="gap-key">Primary outcome domain</span><span class="gap-val">Clinical/adherence outcomes linked to operational metrics.</span></div>
+          <div class="gap-row"><span class="gap-key">Target audience</span><span class="gap-val">Service-line and quality/accreditation leaders; pharmacy leadership.</span></div>
+          <div class="gap-row"><span class="gap-key">Builds on</span><span class="gap-val"><code class="mono">VytlOne_Improving_Adherence_Through_High_Touch_Interventions.pdf</code>, <code class="mono">VytlOne_Prescription_Access_Liaison_Case_Study.pdf</code>, and the county case.</span></div>
+          <div class="gap-row"><span class="gap-key">Rationale</span><span class="gap-val">Makes the existing case portfolio internally comparable and connects throughput to the outcomes the system is accountable for; broad but lower marginal cost because it standardizes assets VytlOne/Maxor already produces.</span></div>
+        </span>
+      </li>
+    </ul>
+  </section>
+
+  <hr class="sep" />
+
+  <!-- ============================================================ -->
+  <!-- SECTION 5 - DIFFERENTIATION NOTE                              -->
+  <!-- ============================================================ -->
+  <section class="step" id="c5">
+    <div class="step-head"><span class="badge">5</span><div>
+      <p class="step-eyebrow">Differentiation</p>
+      <h2>Differentiation note</h2>
+    </div></div>
+
+    <p class="explain">VytlOne/Maxor can already generate operational proof points, an annual survey, quarterly intelligence, and an analytics platform, and does so competently; proposing more of that volume would add little. The credible, specific and tailored value is in methods their assets do not currently apply and that are difficult to staff internally without appearing self-interested:</p>
+
+    <ul class="plain">
+      <li><b>Causal inference on their own operational series.</b> The case studies are endpoint-to-endpoint before/after narratives (180 to 51 minutes; 31% to 64% capture; 38 to 29 days). Interrupted time series, segmented regression, and staggered-adoption difference-in-differences on the monthly series VytlOne/Maxor already collects separate intervention effect from secular trend; these are the designs absent across the portfolio and the ones health-system finance and quality committees expect for capital and accreditation decisions.</li>
+      <li><b>A consistent value framework and net-economic-impact attribution.</b> The flagship financial story blends gross revenue, net margin, avoided cost, one-time billing recoveries, and operating cost into a single multi-year figure. Separating those objects and attributing them with stated assumptions and ranges is a recognized standard the assets do not adopt and the difference between a number that survives CFO reconciliation and one that does not.</li>
+      <li><b>Linking operational throughput to system-relevant outcomes.</b> Capture, turnaround, and refill interval are reported as ends in themselves. Linking them to time to therapy, abandonment, persistence, clinician capacity, equity, and avoidable utilization at the system's own facilities re-points the evidence from "the pharmacy is busy and profitable" to "the pharmacy improves the outcomes the system is accountable for," which is what service-line, quality, and population-health leaders decide on.</li>
+      <li><b>Independent validation of VytlAIQ.</b> The platform is marketed on outcomes ("assess us on the outcomes") with no published outcome, governance, or review-burden data, against a decision-maker audience the transcript acknowledges is skeptical of AI. A pre/post evaluation with precision/recall, false-positive and human-review burden, and model-governance documentation is independent evidence the vendor cannot credibly self-assert, and it is the form of proof a CIO and compliance officer require before adopting a tool that touches 340B and PHI.</li>
+      <li><b>Survey rigor and stratification for self-benchmarking.</b> The recurring survey is a structurally distinctive asset, but without a disclosed sampling frame, response rate, weighting, or stratification it functions as demand-signaling rather than a benchmark. Adding methodological disclosure and peer stratification (by size, 340B status, HSSP ownership/maturity, geography) lets a health system locate itself against comparable peers, which is the difference between content and a decision tool.</li>
+    </ul>
+
+    <p class="resnote"><b>Engagement approach.</b> Because VytlOne/Maxor's evidence is operationally strong but methodologically thin, the engagement approach is upgrade and link, not build-from-scratch: each proposal attaches to a specific existing asset and raises its causal/accounting rigor or links its operational metric to a named health-system outcome and decision-maker, rather than duplicating evidence VytlOne/Maxor already produces.</p>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- FOOTER                                                        -->
+  <!-- ============================================================ -->
+  <footer class="doc">
+    VytlOne / Maxor: HEOR Opportunity Brief &middot; prepared for internal use &middot; grounded in 11 PDFs and 75 HTML pages from the VytlOne_Maxor corpus.
+    <br /><br />
+    <b>Related briefs:</b>
+    <a href="shields-opportunity-brief.html">Shields Health Solutions</a> &middot;
+    <a href="cps-opportunity-brief.html">CPS Solutions</a> &middot;
+    <a href="clearway-opportunity-brief.html">Clearway Health</a> &middot;
+    VytlOne / Maxor (this brief) &middot;
+    <a href="cross-org-synthesis.html">Cross-Organization Synthesis</a>
+  </footer>
+</div>
+<script>
+(function(){
+  var btn=document.getElementById('gloss-toggle');
+  var panel=document.getElementById('glossary');
+  if(!btn||!panel)return;
+  function setState(open){
+    document.body.classList.toggle('gloss-open',open);
+    panel.classList.toggle('is-open',open);
+    btn.setAttribute('aria-expanded',open?'true':'false');
+    panel.setAttribute('aria-hidden',open?'false':'true');
+  }
+  btn.addEventListener('click',function(){
+    setState(btn.getAttribute('aria-expanded')!=='true');
+  });
+  // Default to hidden on narrow screens so the report reads full-width.
+  if(window.matchMedia&&window.matchMedia('(max-width:1179px)').matches){
+    setState(false);
+  }
+})();
+</script>
+</body>
+</html>

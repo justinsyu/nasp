@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HSSP Outcomes Research &middot; Cross-Organization Opportunity Synthesis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Instrument+Sans:wght@400;500;600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --ink:#0d261a; --body:#252525; --muted:rgba(13,38,26,.62); --faint:rgba(13,38,26,.32);
+  --bg:#ffffff; --warm:#fbfaf9; --warm2:#f4f2f1; --accent:#2cc396; --accent-ink:#0c7a5c;
+  --black:#0b0b0b; --line:rgba(13,38,26,.12); --line-strong:rgba(13,38,26,.2);
+  --font-display:"Lora",Georgia,"Times New Roman",serif;
+  --font-body:"Instrument Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --font-ui:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--body);font-family:var(--font-body);
+  font-size:17px;line-height:1.6;letter-spacing:-.01em;-webkit-font-smoothing:antialiased;}
+.page{max-width:880px;margin:0 auto;padding:4rem 1.75rem 5rem;}
+.pill{display:inline-flex;align-items:center;gap:.5rem;padding:.4rem .85rem;
+  border:1px solid var(--line-strong);border-radius:999px;background:var(--warm);color:var(--ink);
+  font-family:var(--font-ui);font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;}
+.pill .dot{width:.5rem;height:.5rem;border-radius:50%;background:var(--accent);}
+h1{margin:1.4rem 0 0;font-family:var(--font-display);font-weight:500;
+  font-size:clamp(2.8rem,6vw,4rem);line-height:1.14;letter-spacing:-.04em;color:var(--ink);}
+h1 .soft{color:var(--faint);display:block;margin-top:.2rem;}
+.lead{margin:1.25rem 0 0;max-width:46rem;color:var(--muted);font-size:1.02rem;line-height:1.55;letter-spacing:-.012em;}
+.meta{margin:0;padding-top:1.25rem;border-top:1px solid var(--line);
+  font-family:var(--font-ui);font-size:.82rem;color:var(--muted);letter-spacing:0;}
+.meta b{color:var(--ink);font-weight:600;}
+.cover{display:flex;flex-direction:column;}
+.cover .pill{align-self:flex-start;}
+.cover-main{margin:2.5rem 0 0;}
+.result-label{font-family:var(--font-ui);font-size:.66rem;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted);margin:1.6rem 0 .55rem;}
+.metric-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.65rem;margin-top:1.5rem;}
+.metric-card{background:var(--warm);border:1px solid var(--line);border-radius:12px;padding:.85rem .9rem;font-family:var(--font-ui);}
+.metric-card span{display:block;color:var(--muted);font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;}
+.metric-card strong{display:block;margin-top:.2rem;color:var(--ink);font-size:1.45rem;line-height:1.05;font-weight:700;font-variant-numeric:tabular-nums;}
+.metric-card em{display:block;margin-top:.25rem;color:var(--muted);font-size:.72rem;font-style:normal;line-height:1.3;}
+.toc{margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:.4rem;}
+.toc a{font-family:var(--font-ui);font-size:.74rem;font-weight:500;color:var(--accent-ink);
+  background:var(--warm2);border:1px solid var(--line);padding:.28rem .65rem;border-radius:999px;text-decoration:none;}
+.toc a:hover{background:var(--accent);color:#fff;border-color:var(--accent);}
+.chart-block{margin-top:1.1rem;padding:1rem;background:var(--warm);border:1px solid var(--line);border-radius:12px;}
+.chart-head{display:flex;justify-content:space-between;gap:1rem;align-items:baseline;margin-bottom:.75rem;font-family:var(--font-ui);}
+.chart-head span{color:var(--muted);font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;}
+.chart-head strong{color:var(--ink);font-size:.84rem;font-weight:700;font-variant-numeric:tabular-nums;}
+.bar-chart{display:grid;gap:.5rem;}
+.bar-row{display:grid;grid-template-columns:minmax(8rem,1fr) minmax(0,2.2fr) 2.4rem;align-items:center;gap:.65rem;}
+.bar-label{color:var(--ink);font-family:var(--font-ui);font-size:.8rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.bar-track{height:.6rem;border-radius:999px;background:rgba(13,38,26,.08);overflow:hidden;}
+.bar-fill{display:block;height:100%;min-width:2px;border-radius:999px;background:var(--accent);}
+.bar-value{color:var(--accent-ink);font-family:var(--font-mono);font-size:.74rem;text-align:right;font-variant-numeric:tabular-nums;}
+.step{margin-top:3.25rem;}
+.step-head{display:grid;grid-template-columns:2.1rem minmax(0,1fr);column-gap:.9rem;row-gap:.7rem;align-items:center;}
+.step-head.no-badge{grid-template-columns:1fr;}
+.badge{width:2.1rem;height:2.1rem;border-radius:50%;background:var(--black);color:#fff;display:grid;place-items:center;
+  font-family:var(--font-ui);font-size:.95rem;font-weight:600;}
+.step-head>div{display:contents;}
+.step-eyebrow{font-family:var(--font-ui);font-size:.7rem;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--accent-ink);margin:0;grid-column:2;grid-row:1;align-self:center;}
+.step-head.no-badge .step-eyebrow{grid-column:1;}
+.step h2{grid-column:1/-1;grid-row:2;margin:0;font-family:var(--font-display);font-weight:500;
+  font-size:clamp(1.5rem,3.2vw,2rem);line-height:1.12;letter-spacing:-.02em;color:var(--ink);}
+.explain{margin:1rem 0 0;color:var(--body);font-size:1.02rem;}
+.field{margin:1.05rem 0 0;color:var(--body);font-size:1rem;}
+.field.match{color:var(--muted);font-size:.92rem;}
+.flabel{display:inline-block;font-family:var(--font-ui);font-size:.6rem;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--accent-ink);background:var(--warm2);border:1px solid var(--line);
+  padding:.12rem .45rem;border-radius:5px;margin-right:.5rem;vertical-align:middle;}
+.sources{margin:.9rem 0 0;color:var(--muted);font-size:.82rem;line-height:1.5;}
+.signals{list-style:none;margin:.4rem 0 0;padding:0;display:grid;gap:.55rem;}
+.signals .signal{background:var(--warm);border:1px solid var(--line);border-radius:12px;padding:.7rem .85rem;}
+.signal-head{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;margin-bottom:.3rem;}
+.signal-head a{font-family:var(--font-mono);font-size:.8rem;font-weight:500;color:var(--accent-ink);
+  text-decoration:none;border-bottom:1px solid rgba(12,122,92,.3);}
+.signal-body{display:block;color:var(--body);font-size:.94rem;line-height:1.5;}
+.tag{font-family:var(--font-ui);font-size:.62rem;font-weight:600;letter-spacing:.04em;
+  padding:.16rem .5rem;border-radius:999px;border:1px solid var(--line);text-transform:lowercase;}
+.tier-direct{background:var(--accent);color:#073a2c;border-color:var(--accent);}
+.tier-portfolio{background:rgba(44,195,150,.18);color:var(--accent-ink);}
+.tier-session{background:rgba(13,38,26,.08);color:var(--ink);}
+.tier-landscape{background:var(--warm2);color:var(--muted);}
+.insights{margin:.4rem 0 0;padding-left:1.1rem;display:grid;gap:.5rem;}
+.insights li{color:var(--body);font-size:.96rem;line-height:1.5;}
+ul.plain{margin:1rem 0 0;padding-left:1.1rem;display:grid;gap:.5rem;}
+ul.plain li{color:var(--body);font-size:1rem;line-height:1.5;}
+.resnote{margin:1.1rem 0 0;color:var(--muted);font-size:.9rem;line-height:1.5;
+  border-left:2px solid var(--line-strong);padding-left:.9rem;}
+.resnote b{color:var(--ink);font-weight:600;}
+code.mono{font-family:var(--font-mono);font-size:.86em;background:var(--warm2);padding:.05rem .32rem;border-radius:4px;color:var(--accent-ink);}
+a{color:var(--accent-ink);}
+.field a,.explain a,.sources a,.insights a,.cross-list a{text-decoration:none;border-bottom:1px solid rgba(12,122,92,.3);}
+hr.sep{border:0;border-top:1px solid var(--line);margin:3.25rem 0 0;}
+.closing{margin-top:3.5rem;padding:1.9rem;background:var(--ink);border-radius:16px;color:rgba(255,255,255,.86);}
+.closing h2{margin:.2rem 0 0;font-family:var(--font-display);font-weight:500;font-size:1.6rem;letter-spacing:-.02em;color:#fff;}
+.closing p{margin:.8rem 0 0;font-size:1rem;line-height:1.55;}
+.closing .step-eyebrow.light{color:#9bf3d3;position:static;}
+.closing a{color:#9bf3d3;}
+.cross-list{margin:.6rem 0 0;padding-left:1.1rem;display:grid;gap:.6rem;}
+.cross-list li{line-height:1.5;}
+footer.doc{margin-top:2.5rem;color:var(--muted);font-family:var(--font-ui);font-size:.8rem;line-height:1.5;}
+@media (max-width:680px){.metric-grid{grid-template-columns:repeat(2,1fr);}.bar-row{grid-template-columns:minmax(6rem,1fr) minmax(0,1.6fr) 2.2rem;}}
+
+/* ---------- prior-art gap structure ---------- */
+a.ref-abs{font-family:var(--font-mono);font-size:.92em;color:var(--accent-ink);
+  text-decoration:none;border-bottom:1px solid rgba(12,122,92,.35);}
+a.ref-src{color:var(--accent-ink);text-decoration:none;border-bottom:1px dotted rgba(12,122,92,.5);}
+.sub-head{margin:.9rem 0 .1rem;font-family:var(--font-ui);font-size:.72rem;font-weight:700;
+  letter-spacing:.01em;color:var(--ink);}
+.activity{list-style:none;margin:.4rem 0 .2rem;padding:0;display:grid;gap:.45rem;}
+.activity li{position:relative;padding-left:1rem;color:var(--muted);font-size:.86rem;line-height:1.5;}
+.activity li::before{content:"";position:absolute;left:.05rem;top:.6em;width:.32rem;height:.32rem;
+  border-radius:50%;background:var(--faint);}
+.activity li a{color:var(--accent-ink);}
+.gaps{list-style:none;margin:.4rem 0 0;padding:0;display:grid;gap:.7rem;}
+.gap{background:var(--warm);border:1px solid var(--line);border-radius:12px;
+  padding:.8rem .9rem;display:grid;gap:.45rem;}
+.gap-plain{color:var(--body);font-size:.92rem;line-height:1.5;}
+.gap-row{display:grid;grid-template-columns:7.5rem minmax(0,1fr);gap:.7rem;align-items:start;}
+.gap-key{font-family:var(--font-ui);font-size:.62rem;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--accent-ink);padding-top:.12rem;line-height:1.3;}
+.gap-val{color:var(--body);font-size:.9rem;line-height:1.5;}
+.gap-delta{border-top:1px dashed var(--line);padding-top:.5rem;}
+.gap-rec{border-top:1px dashed var(--line);padding-top:.5rem;}
+.gap-rec .gap-val{color:var(--ink);}
+.gap-type{display:inline-block;margin-top:.25rem;font-family:var(--font-ui);font-size:.56rem;
+  font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:.08rem .4rem;border-radius:999px;}
+.gap-evidence{background:rgba(44,195,150,.18);color:var(--accent-ink);}
+.gap-comm{background:rgba(13,38,26,.08);color:var(--ink);}
+.uc-tag{display:inline-block;font-family:var(--font-ui);font-size:.6rem;font-weight:700;
+  letter-spacing:.04em;text-transform:uppercase;color:#ffffff;background:var(--accent-ink);
+  padding:.1rem .45rem;border-radius:999px;margin-right:.35rem;}
+@media (max-width:680px){.gap-row{grid-template-columns:1fr;gap:.15rem;}}
+
+/* ---------- abbreviations glossary panel ---------- */
+.gloss-toggle{position:fixed;top:1rem;right:1rem;z-index:60;display:inline-flex;align-items:center;
+  gap:.45rem;padding:.5rem .85rem;border:1px solid var(--line-strong);border-radius:999px;
+  background:var(--ink);color:#fff;font-family:var(--font-ui);font-size:.72rem;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;cursor:pointer;box-shadow:0 2px 10px rgba(13,38,26,.18);}
+.gloss-toggle:hover{background:var(--accent-ink);}
+.gloss-toggle .gicon{width:.55rem;height:.55rem;border-radius:50%;background:var(--accent);}
+.gloss-toggle .gt-hide{display:none;}
+.gloss-toggle[aria-expanded="true"] .gt-show{display:none;}
+.gloss-toggle[aria-expanded="true"] .gt-hide{display:inline;}
+.glossary{position:fixed;top:0;right:0;z-index:55;width:min(360px,86vw);height:100vh;
+  background:var(--warm);border-left:1px solid var(--line-strong);
+  box-shadow:-8px 0 28px rgba(13,38,26,.10);overflow-y:auto;overscroll-behavior:contain;
+  transform:translateX(100%);transition:transform .28s ease;will-change:transform;}
+.glossary.is-open{transform:translateX(0);}
+.gloss-inner{padding:4.25rem 1.4rem 2.5rem;}
+.gloss-head{margin-bottom:1.2rem;}
+.gloss-eyebrow{font-family:var(--font-ui);font-size:.66rem;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--accent-ink);}
+.gloss-title{margin:.25rem 0 0;font-family:var(--font-display);font-weight:500;font-size:1.5rem;
+  letter-spacing:-.02em;color:var(--ink);}
+.gloss-intro{margin:.6rem 0 0;color:var(--muted);font-size:.82rem;line-height:1.5;}
+.gloss-count{display:inline-block;margin-top:.35rem;font-family:var(--font-mono);font-size:.72rem;
+  color:var(--accent-ink);background:var(--warm2);border:1px solid var(--line);
+  padding:.1rem .45rem;border-radius:999px;}
+.gloss-list{margin:0;}
+.gloss-row{display:grid;grid-template-columns:1fr;gap:.05rem;padding:.4rem 0;border-bottom:1px solid var(--line);}
+.gloss-row:last-child{border-bottom:0;}
+.gloss-term{margin:0;font-family:var(--font-mono);font-size:.82rem;font-weight:500;color:var(--accent-ink);}
+.gloss-def{margin:.1rem 0 0;color:var(--body);font-size:.84rem;line-height:1.45;}
+/* Reserve room for the panel on wide screens so it never overlaps text. */
+@media (min-width:1180px){
+  body.gloss-open .page{margin-left:auto;margin-right:calc(min(360px,86vw) + 2.5rem);transition:margin-right .28s ease;}
+}
+@media (max-width:1179px){
+  /* On narrower screens the panel overlays; page stays readable when hidden. */
+  .glossary{box-shadow:-10px 0 34px rgba(13,38,26,.22);}
+}
+@media (prefers-reduced-motion:reduce){
+  .glossary,.gloss-toggle,body.gloss-open .page{transition:none;}
+}
+</style>
+</head>
+<body class="gloss-open">
+
+<!-- ============================================================ -->
+<!-- GLOSSARY TOGGLE BUTTON (fixed, top-right). Pairs with the     -->
+<!-- glossary <aside> below and the <script> at the end.           -->
+<!-- ============================================================ -->
+<button id="gloss-toggle" class="gloss-toggle" type="button"
+        aria-expanded="true" aria-controls="glossary">
+  <span class="gicon"></span><span class="gt-show">Glossary</span><span class="gt-hide">Hide glossary</span>
+</button>
+
+<!-- ============================================================ -->
+<!-- GLOSSARY PANEL (definition-list / glossary component).        -->
+<!-- ============================================================ -->
+<aside id="glossary" class="glossary is-open" aria-label="Abbreviations glossary" aria-hidden="false">
+  <div class="gloss-inner">
+    <div class="gloss-head">
+      <span class="gloss-eyebrow">Glossary</span>
+      <h2 class="gloss-title">Terms and abbreviations</h2>
+      <p class="gloss-intro">Terms and abbreviations used across this synthesis, in source order. <span class="gloss-count">34 terms</span></p>
+    </div>
+    <dl class="gloss-list">
+      <div class="gloss-row"><dt class="gloss-term">Health-system specialty pharmacy (HSSP)</dt><dd class="gloss-def">A specialty pharmacy owned and operated by a health system to serve its own patients.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Prescription capture (capture rate)</dt><dd class="gloss-def">The share of specialty prescriptions written by a health system's providers that are filled by that system's own specialty pharmacy rather than an external pharmacy.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Leakage</dt><dd class="gloss-def">Specialty prescriptions written within a health system but filled at an outside pharmacy, so the system loses the associated dispensing revenue and visibility into the patient's care.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Prescription retention</dt><dd class="gloss-def">Keeping eligible specialty prescriptions within the system's own specialty pharmacy, that is, reducing leakage.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">340B</dt><dd class="gloss-def">A federal program that lets eligible safety-net health systems purchase outpatient drugs at reduced prices.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Limited distribution drug (LDD)</dt><dd class="gloss-def">A specialty drug a manufacturer makes available through only a small number of approved pharmacies.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Proportion of days covered (PDC)</dt><dd class="gloss-def">A standard adherence measure equal to the share of days in a period for which a patient had the medication on hand.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Time to therapy (time to first fill)</dt><dd class="gloss-def">The elapsed time from when a prescription is written to when the patient receives the medication.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Persistence</dt><dd class="gloss-def">Continuing to refill and remain on a therapy over time.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Patient-reported outcome (PRO) / patient-reported outcome measure (PROM)</dt><dd class="gloss-def">An outcome reported directly by the patient (for example symptom burden or quality of life), usually via a validated questionnaire.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Social determinants of health (SDOH) / health-related social needs (HRSN)</dt><dd class="gloss-def">Non-medical factors (for example housing, transportation, food, income) that affect health and access to care.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Total cost of care</dt><dd class="gloss-def">Total spending on a patient's care across all settings over a defined period.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Avoidable utilization</dt><dd class="gloss-def">Emergency department visits, hospital admissions, or readmissions that appropriate care could have prevented.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Value-based care (VBC)</dt><dd class="gloss-def">Payment and care models that tie reimbursement to outcomes and total cost rather than to volume of services.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Cell and gene therapy</dt><dd class="gloss-def">One-time, high-cost treatments that modify a patient's cells or genes, requiring specialized handling, financing, and coordination.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Specialty pharmacy accreditation (URAC, ACHC)</dt><dd class="gloss-def">Quality certifications from independent bodies that many payers and manufacturers require for network and drug access.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Per member per month (PMPM)</dt><dd class="gloss-def">A standardized cost or utilization figure expressed as the average amount per enrolled health-plan member per month.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Medicare Advantage (MA)</dt><dd class="gloss-def">Privately administered Medicare health plans, an alternative to traditional fee-for-service Medicare.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Cost object</dt><dd class="gloss-def">In cost accounting, the entity a cost is measured against (for example a payer, a health system, or a facility); re-pointing the cost object means recalculating the same outcome from the health system's standpoint instead of a payer's.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Cost stack</dt><dd class="gloss-def">The itemized layers of cost (for example labor, drug acquisition, dispensing, technology, overhead) that make up a total, as opposed to a single gross figure.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Net Promoter Score (NPS)</dt><dd class="gloss-def">A satisfaction measure based on how likely respondents are to recommend a service.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Full-time equivalent (FTE)</dt><dd class="gloss-def">A unit expressing staffing in terms of full-time positions.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Comparison group (comparator)</dt><dd class="gloss-def">A group that did not receive the intervention, used as a baseline to judge the intervention's effect.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Quasi-experimental design</dt><dd class="gloss-def">A study that estimates cause and effect without randomly assigning participants, by constructing comparison groups or using repeated measurements over time.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Propensity-score matching</dt><dd class="gloss-def">A method that pairs intervention and comparison participants who have similar characteristics so the two groups are comparable.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Risk adjustment (case-mix adjustment)</dt><dd class="gloss-def">Statistically accounting for differences in participants' health and complexity so comparisons are fair.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Difference-in-differences</dt><dd class="gloss-def">A method that compares the before-and-after change in a group that received an intervention with the change over the same period in a group that did not, to isolate the intervention's effect.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Interrupted time series</dt><dd class="gloss-def">A method that measures an outcome at many points before and after an intervention to separate the intervention's effect from pre-existing trends.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Counterfactual</dt><dd class="gloss-def">An estimate of what would have happened without the intervention.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Comparative effectiveness</dt><dd class="gloss-def">Research that directly compares two or more care approaches to determine which produces better outcomes.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Sensitivity analysis</dt><dd class="gloss-def">Re-running an analysis under different assumptions to test whether the conclusions hold.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Entropy balancing</dt><dd class="gloss-def">A reweighting method that makes a comparison group statistically similar to the intervention group on chosen characteristics without one-to-one pairing.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Funnel plot</dt><dd class="gloss-def">A statistical display that shows each site's result against the range of variation expected by chance, used to flag true outliers in benchmarking.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Co-primary measure</dt><dd class="gloss-def">One of two primary outcomes of equal importance in a study.</dd></div>
+    </dl>
+  </div>
+</aside>
+
+<div class="page">
+
+  <!-- ============================================================ -->
+  <!-- HERO / COVER                                                  -->
+  <!-- ============================================================ -->
+  <header class="cover">
+    <span class="pill"><span class="dot"></span>HSSP outcomes research</span>
+    <div class="cover-main">
+      <h1>HSSP Outcomes Research: Cross-Organization Opportunity Synthesis</h1>
+      <p class="lead">Prepared for internal use by an HEOR consulting firm serving health-system specialty pharmacy (HSSP) organizations. This synthesis sits above four per-organization opportunity briefs (Shields Health Solutions, CPS Solutions, Clearway Health, VytlOne/Maxor) and consolidates the patterns that recur across all four prospects. Customer of record for every proposal is the <b>health system</b>, not payers, PBMs, plan sponsors, or pharmaceutical manufacturers. The objective is to identify where the firm can enhance the methodological quality of each organization's outcomes research and make that research more relevant to the health-system decision-makers who are these organizations' actual customers.</p>
+
+      <!-- SUMMARY STAT STRIP -->
+      <p class="result-label">At a glance</p>
+      <div class="metric-grid">
+        <div class="metric-card"><span>Prospect organizations</span><strong>4</strong><em>Shields, CPS, Clearway, VytlOne/Maxor</em></div>
+        <div class="metric-card"><span>Recurring gaps</span><strong>7</strong><em>Observed across all four portfolios</em></div>
+        <div class="metric-card"><span>Capabilities the firm brings</span><strong>5</strong><em>Absent across all four portfolios</em></div>
+        <div class="metric-card"><span>Priority cross-organization studies</span><strong>2</strong><em>Reusable protocols for every prospect</em></div>
+      </div>
+
+      <!-- IN-PAGE NAV / TOC -->
+      <p class="result-label">Sections</p>
+      <nav class="toc">
+        <a href="#c1">Scope and method</a>
+        <a href="#c2">The seven recurring gaps</a>
+        <a href="#c3">What the firm uniquely brings</a>
+        <a href="#c4">Two priority studies</a>
+        <a href="#c5">Per-organization summary</a>
+        <a href="#c6">Differentiated opportunities</a>
+        <a href="#c7">Standardized measurement framework</a>
+        <a href="#c8">Recommended sequence</a>
+      </nav>
+    </div>
+    <p class="meta"><b>Prepared for internal use</b> by an HEOR consulting firm serving health-system specialty pharmacy (HSSP) organizations. &nbsp;|&nbsp; <b>Customer of record:</b> the health system. &nbsp;|&nbsp; <b>Sits above:</b> four per-organization opportunity briefs.</p>
+  </header>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 1: Scope and method                                   -->
+  <!-- ============================================================ -->
+  <section class="step" id="c1">
+    <div class="step-head"><span class="badge">1</span><div>
+      <p class="step-eyebrow">Approach</p>
+      <h2>Scope and method</h2>
+    </div></div>
+    <p class="explain">Each prospect's public evidence base was read at the asset level: the distilled prior analysis was used as a map and then verified against the raw corpus (PDFs, posters, white papers, outcome-study pages, case studies, survey pages, and platform pages). Every opportunity in the four briefs is anchored to a specifically named asset or a documented gap. The four briefs are the primary deliverables; this document reports the cross-cutting findings and a recommended sequence.</p>
+    <p class="explain">A single observation organizes everything below: the same seven gaps appear in all four portfolios. The organizations differ in evidence maturity and in their one distinctive asset, but the underlying methodological and relevance deficits are shared. That shared structure is the central commercial finding, because it means the firm can build one set of reusable methods and protocols and deploy them across the entire prospect set rather than custom-building for each.</p>
+  </section>
+
+  <hr class="sep" />
+
+  <!-- ============================================================ -->
+  <!-- SECTION 2: The seven recurring gaps                           -->
+  <!-- ============================================================ -->
+  <section class="step" id="c2">
+    <div class="step-head"><span class="badge">2</span><div>
+      <p class="step-eyebrow">The repeatable opportunity map</p>
+      <h2>The seven recurring gaps</h2>
+    </div></div>
+    <p class="explain">Each recurring gap is mapped to the organizations where it was observed, the standard methodological upgrade, and the health-system decision the upgrade serves. "All four" indicates the gap was observed in every prospect's corpus.</p>
+
+    <ul class="gaps">
+      <li class="gap">
+        <div class="gap-row"><span class="gap-key">Gap 1 <span class="gap-type gap-evidence">design</span></span><span class="gap-val">Single-arm or before/after results with no comparator and no statistical test.</span></div>
+        <div class="gap-row"><span class="gap-key">Observed in</span><span class="gap-val">All four (Shields disease-state posters and cost-avoidance figures; CPS most readable studies; Clearway every case study; VytlOne/Maxor every case study).</span></div>
+        <div class="gap-row gap-delta"><span class="gap-key">Standard upgrade</span><span class="gap-val">Quasi-experimental designs: propensity-score or entropy-balancing matching (entropy balancing reweights a comparison group to resemble the intervention group), difference-in-differences, interrupted time series with segmented regression, effect sizes with confidence intervals, sensitivity analyses.</span></div>
+        <div class="gap-row gap-rec"><span class="gap-key">Decision served</span><span class="gap-val">Any capital or staffing decision; converts a claim a quality committee or CFO would discount into one they apply elsewhere.</span></div>
+      </li>
+      <li class="gap">
+        <div class="gap-row"><span class="gap-key">Gap 2 <span class="gap-type gap-evidence">economics</span></span><span class="gap-val">Prescription capture and retention asserted but never measured against eligible volume.</span></div>
+        <div class="gap-row"><span class="gap-key">Observed in</span><span class="gap-val">All four (Shields research gap; CPS markets TherigyVista capture data but runs no study; Clearway build-versus-outsource implied but unmodeled; VytlOne/Maxor capture claims with no denominator).</span></div>
+        <div class="gap-row gap-delta"><span class="gap-key">Standard upgrade</span><span class="gap-val">A prescription capture and retention study: share of system-originated eligible specialty prescriptions retained, before/after with staggered-adoption difference-in-differences, retained net contribution as a co-primary measure (one of two primary outcomes of equal importance).</span></div>
+        <div class="gap-row gap-rec"><span class="gap-key">Decision served</span><span class="gap-val">Build, expand, or outsource the specialty pharmacy; the single most direct economic argument and unmeasured in all four.</span></div>
+      </li>
+      <li class="gap">
+        <div class="gap-row"><span class="gap-key">Gap 3 <span class="gap-type gap-evidence">workforce</span></span><span class="gap-val">Clinician administrative burden and clinic capacity claimed but not measured.</span></div>
+        <div class="gap-row"><span class="gap-key">Observed in</span><span class="gap-val">All four (Shields multiplies task counts by assumed minutes; CPS implies it through the embedded-pharmacist model; Clearway reports Net Promoter Score (NPS) and testimonials; VytlOne/Maxor describes liaison absorption).</span></div>
+        <div class="gap-row gap-delta"><span class="gap-key">Standard upgrade</span><span class="gap-val">A clinician time-and-capacity study: time-log or time-motion measurement in matched clinics, observed minutes returned and net patient-facing capacity recovered.</span></div>
+        <div class="gap-row gap-rec"><span class="gap-key">Decision served</span><span class="gap-val">Staffing and full-time equivalent (FTE) justification and clinician retention; addresses the workforce concern health-system executives rank first.</span></div>
+      </li>
+      <li class="gap">
+        <div class="gap-row"><span class="gap-key">Gap 4 <span class="gap-type gap-evidence">finance</span></span><span class="gap-val">Financial results reported gross or from borrowed unit costs, with no net-impact framing or sensitivity.</span></div>
+        <div class="gap-row"><span class="gap-key">Observed in</span><span class="gap-val">All four (Shields cost-avoidance algorithm; CPS borrowed $736-per-1%-A1C unit cost; Clearway gross revenue with no cost stack (the itemized layers of cost that make up a total); VytlOne/Maxor blended 13-year figure).</span></div>
+        <div class="gap-row gap-delta"><span class="gap-key">Standard upgrade</span><span class="gap-val">Net-economic-impact model with an itemized cost stack, a counterfactual or claims-validated estimate, and probabilistic sensitivity analysis reported as a range.</span></div>
+        <div class="gap-row gap-rec"><span class="gap-key">Decision served</span><span class="gap-val">CFO and finance-committee reconciliation; protects the credibility of headline numbers under decision-maker due diligence.</span></div>
+      </li>
+      <li class="gap">
+        <div class="gap-row"><span class="gap-key">Gap 5 <span class="gap-type gap-evidence">equity</span></span><span class="gap-val">No equity-stratified outcomes despite safety-net and SDOH positioning.</span></div>
+        <div class="gap-row"><span class="gap-key">Observed in</span><span class="gap-val">All four (Shields SDOH white paper is framework-only; CPS names no screening instrument; Clearway asserts equity system-wide; VytlOne/Maxor reports access only in aggregate).</span></div>
+        <div class="gap-row gap-delta"><span class="gap-key">Standard upgrade</span><span class="gap-val">Equity-stratified outcomes analysis: adherence, access, affordability, and avoidable utilization stratified by payer, race/ethnicity, language, and geography, with interaction testing.</span></div>
+        <div class="gap-row gap-rec"><span class="gap-key">Decision served</span><span class="gap-val">Board, community-benefit, and accreditation reporting on equity for the system's own population.</span></div>
+      </li>
+      <li class="gap">
+        <div class="gap-row"><span class="gap-key">Gap 6 <span class="gap-type gap-comm">relevance</span></span><span class="gap-val">Outcomes framed for a payer cost object (the entity a cost is measured against) or not translated to a system decision.</span></div>
+        <div class="gap-row"><span class="gap-key">Observed in</span><span class="gap-val">All four (Shields computes cost from a health-insurance perspective, per member per month (PMPM) and Medicare Advantage (MA); CPS transparency page targets payers/PBMs; Clearway frames accreditation as payer and LDD access; VytlOne/Maxor pipeline framed for plan spend).</span></div>
+        <div class="gap-row gap-delta"><span class="gap-key">Standard upgrade</span><span class="gap-val">Re-point the cost object to the system: avoidable utilization at the system's own facilities, readmissions, and value-based-care performance; re-point accreditation and pipeline content to internal quality and operational readiness.</span></div>
+        <div class="gap-row gap-rec"><span class="gap-key">Decision served</span><span class="gap-val">Makes the evidence actionable for the entity that actually bears the cost and makes the decision.</span></div>
+      </li>
+      <li class="gap">
+        <div class="gap-row"><span class="gap-key">Gap 7 <span class="gap-type gap-evidence">standardization</span></span><span class="gap-val">No standardized measure dictionary; cross-site benchmarks ungoverned.</span></div>
+        <div class="gap-row"><span class="gap-key">Observed in</span><span class="gap-val">All four (Shields network benchmark unsourced; CPS Therigy benchmarking with no risk adjustment; Clearway measures the same disease differently across sites; VytlOne/Maxor ad hoc per-case metrics and an unstratified survey).</span></div>
+        <div class="gap-row gap-delta"><span class="gap-key">Standard upgrade</span><span class="gap-val">A measure dictionary with numerator/denominator logic, minimum sample-size thresholds, and case-mix risk adjustment; benchmark governance with funnel-plot reporting (a display that shows each site's result against the range of variation expected by chance).</span></div>
+        <div class="gap-row gap-rec"><span class="gap-key">Decision served</span><span class="gap-val">Lets a system set defensible internal targets and benchmark against true peers rather than a misattributed average.</span></div>
+      </li>
+    </ul>
+  </section>
+
+  <hr class="sep" />
+
+  <!-- ============================================================ -->
+  <!-- SECTION 3: What the firm uniquely brings                      -->
+  <!-- ============================================================ -->
+  <section class="step" id="c3">
+    <div class="step-head"><span class="badge">3</span><div>
+      <p class="step-eyebrow">Differentiated capabilities</p>
+      <h2>What the firm uniquely brings</h2>
+    </div></div>
+    <p class="explain">The four prospects are already content-rich. Two of them (Shields, CPS) publish more HSSP outcomes content than almost any organization in the field. The firm should therefore not compete on volume. The recurring gaps point to five capabilities that are absent across all four portfolios and that are difficult for these organizations to staff internally:</p>
+    <ul class="signals">
+      <li class="signal"><span class="signal-head"><span class="tag tier-portfolio">capability 1</span></span><span class="signal-body"><b>Causal inference on observational data.</b> Matching, difference-in-differences, and interrupted time series are absent from every portfolio, yet they are the designs health-system finance and quality committees expect for capital and accreditation decisions. Every prospect has the data; none applies these methods.</span></li>
+      <li class="signal"><span class="signal-head"><span class="tag tier-portfolio">capability 2</span></span><span class="signal-body"><b>Counterfactual-anchored economics.</b> Three of the four headline economic claims rest on either an internal unit-cost algorithm, a borrowed literature unit cost, or a blended multi-year figure. A net-impact model with an itemized cost stack and probabilistic sensitivity analysis is a recognized standard none has adopted, and it is the difference between a number that survives CFO reconciliation and one that does not.</span></li>
+      <li class="signal"><span class="signal-head"><span class="tag tier-portfolio">capability 3</span></span><span class="signal-body"><b>Re-pointing the cost object and audience to the health system.</b> The strongest economic assets in the set are computed from a payer or plan-spend perspective. Re-specifying outcomes to the system's own cost object covers several measures: avoidable utilization at its facilities, prescription capture and leakage, clinician capacity, and equity in its population. This reframing is one none of the payer-oriented analyses provides, and it is what makes the work relevant to the customer.</span></li>
+      <li class="signal"><span class="signal-head"><span class="tag tier-portfolio">capability 4</span></span><span class="signal-body"><b>Standardization and benchmark governance.</b> Each organization has inconsistent or ungoverned measures. A measure dictionary and case-mix risk adjustment make cross-site comparison defensible. For the organizations with cross-site data (CPS Therigy; the VytlOne/Maxor survey; the Shields network), this converts a scale claim into a usable benchmark.</span></li>
+      <li class="signal"><span class="signal-head"><span class="tag tier-portfolio">capability 5</span></span><span class="signal-body"><b>Independence.</b> A third party validating a claim carries credibility the vendor cannot self-assert. This matters most for the cross-site benchmarks and for the VytlOne/Maxor VytlAIQ platform, which is marketed on outcomes the vendor has not published and which a CIO and compliance officer will not accept from the vendor alone.</span></li>
+    </ul>
+  </section>
+
+  <hr class="sep" />
+
+  <!-- ============================================================ -->
+  <!-- SECTION 4: Two priority cross-organization studies            -->
+  <!-- ============================================================ -->
+  <section class="step" id="c4">
+    <div class="step-head"><span class="badge">4</span><div>
+      <p class="step-eyebrow">Reusable protocols</p>
+      <h2>Two priority cross-organization studies and the reusable assets behind them</h2>
+    </div></div>
+    <p class="explain">Because gaps 2 and 3 appear in all four portfolios and map to the two decisions health-system decision-makers weigh most heavily (the build, expand, or outsource economics and the recovery of clinician capacity), two study designs are worth building once as reusable protocols and proposing to every prospect:</p>
+    <ul class="signals">
+      <li class="signal"><span class="signal-head"><span class="tag tier-direct">priority study a</span></span><span class="signal-body"><b>Prescription capture and retention.</b> Measure the share of system-originated eligible specialty prescriptions the HSSP retains, with a staggered-adoption difference-in-differences where service lines or sites onboard at different times, and retained net contribution as a co-primary measure. This is the most direct economic argument for the build, expand, or outsource decision and is currently unquantified against eligible volume in all four corpora. The protocol transfers across clients with only data-source changes.</span></li>
+      <li class="signal"><span class="signal-head"><span class="tag tier-direct">priority study b</span></span><span class="signal-body"><b>Clinician time-and-capacity.</b> Measure clinician administrative minutes on prior authorization, financial assistance, and refill coordination, and the net patient-facing capacity recovered, in matched clinics before and after HSSP integration. This addresses the workforce concern health-system executives rank first and is something almost no HSSP competitor measures directly, so it is both relevant and differentiating.</span></li>
+    </ul>
+    <p class="explain">Alongside these, three reusable templates recur in every brief and should be standardized into a repeatable service: a <b>net-economic-impact model</b> with an itemized cost stack and sensitivity analysis; an <b>equity-stratification template</b>; and the <b>HSSP measure dictionary</b> described under "A standardized HSSP outcomes measurement framework for the field" below. Building these once and deploying them across clients is efficient and is the basis for a repeatable set of services rather than four custom-built engagements.</p>
+  </section>
+
+  <hr class="sep" />
+
+  <!-- ============================================================ -->
+  <!-- SECTION 5: Per-organization summary                           -->
+  <!-- ============================================================ -->
+  <section class="step" id="c5">
+    <div class="step-head"><span class="badge">5</span><div>
+      <p class="step-eyebrow">Maturity range and entry points</p>
+      <h2>Per-organization summary and recommended starting engagement</h2>
+    </div></div>
+    <p class="explain">The four prospects sit across a maturity range. The engagement approach differs by level, but each has a low-commitment entry point that requires little or no new data and demonstrates the firm's rigor on the organization's own material.</p>
+    <ul class="signals">
+      <li class="signal"><span class="signal-head"><a class="ref-abs" href="clearway-opportunity-brief.html">Clearway Health</a><span class="tag tier-landscape">least structured</span></span><span class="signal-body"><b>Build a research foundation.</b> The portfolio is a small set of executive case studies with no study design, denominators, comparators, or methods beneath them. Initial engagement: a case-study-to-evidence conversion that re-expresses each case as a structured study without losing executive readability, starting from the Boston Medical Center IBD 96%-versus-88% PDC contrast (the one near-comparative result in the entire prospect set). Most accessible asset: OU Health is already running a patient-reported-outcomes pilot and has publicly stated its intent to study whether the model reduces total cost of care, so a named partner has already committed to the exact question. Clearway is the lowest-risk near-term entry: the initial engagement needs no new data and a prospective study is already on the table.</span></li>
+      <li class="signal"><span class="signal-head"><a class="ref-abs" href="vytlone-maxor-opportunity-brief.html">VytlOne/Maxor</a><span class="tag tier-session">operationally strong, methodologically thin</span></span><span class="signal-body"><b>Upgrade and link.</b> The case studies are endpoint-to-endpoint before/after narratives and the flagship county figure blends gross revenue, net margin, avoided cost, and one-time recoveries into a single 13-year number. Initial engagement: a net-economic-impact model with an explicit value framework on the county case, plus an interrupted-time-series capture estimate. Differentiated option: independent validation of the VytlAIQ platform (precision/recall of the continuous 340B audit, false-positive and human-review burden, pre/post operational outcomes, model governance), which is timely because the platform is sold on outcomes it has not published, and the vendor's own transcript describes its decision-maker audience as skeptical of AI.</span></li>
+      <li class="signal"><span class="signal-head"><a class="ref-abs" href="cps-opportunity-brief.html">CPS Solutions</a><span class="tag tier-session">high volume, gated, ungoverned benchmarks</span></span><span class="signal-body"><b>Rigor and governance.</b> CPS produces the most content and holds the one cross-site data platform in the set (Therigy, stated at over 100,000,000 patient responses), but roughly two-thirds of the study pages are gated, the readable studies are descriptive or unadjusted, and the cross-site benchmarking states no risk adjustment. Initial engagement: a landing-page-to-protocol conversion that specifies methods on CPS's own highest-traffic studies, starting from the already-published diabetes risk-stratification study. Greatest potential: a multi-site, risk-adjusted comparative-effectiveness study of HSSP care-model variants (embedded pharmacist versus liaison-supported versus standard) using Therigy data, which answers a question no single health system can answer alone, paired with the benchmark-governance framework that makes the Therigy advantage defensible.</span></li>
+      <li class="signal"><span class="signal-head"><a class="ref-abs" href="shields-opportunity-brief.html">Shields Health Solutions</a><span class="tag tier-direct">most mature</span></span><span class="signal-body"><b>Upgrade and re-point.</b> Shields operates a genuine evidence engine with a peer-reviewed lineage and a multi-system actuarial cost analysis. Proposing more descriptive output would add little. Initial engagement and the highest-value single asset: a matched, quasi-experimental re-analysis of the Optum total-cost-of-care study. That study currently rests on an unmatched 197-versus-8,824 comparison with single-divisor risk adjustment and t-tests. Re-estimating with matching and difference-in-differences on the existing baseline and follow-up data converts Shields' most-cited claim from an association into a defensible causal estimate. Shields is the most demanding decision-maker and the highest-credibility reference if earned.</span></li>
+    </ul>
+  </section>
+
+  <hr class="sep" />
+
+  <!-- ============================================================ -->
+  <!-- SECTION 6: Differentiated single-organization opportunities    -->
+  <!-- ============================================================ -->
+  <section class="step" id="c6">
+    <div class="step-head"><span class="badge">6</span><div>
+      <p class="step-eyebrow">Distinctive ground</p>
+      <h2>The differentiated single-organization opportunities</h2>
+    </div></div>
+    <p class="explain">Three opportunities have no equivalent elsewhere in the set and are where each organization can hold distinctive ground:</p>
+    <ul class="plain">
+      <li><b>CPS, multi-site comparative effectiveness of care models</b> using Therigy. Only CPS can field a risk-adjusted comparison of HSSP staffing models across many health systems. This is the highest-differentiation study in the entire set.</li>
+      <li><b>Clearway, cell and gene therapy readiness evidence.</b> The Children's National operating model (payer negotiation, funds-flow planning, procurement pathway, and a completed ZYNTEGLO administration) is unique among the prospects but is reported as a single-patient narrative. A standardized multiple-case readiness series is a specific and tailored research gap and a long-horizon standard-setting position for the field.</li>
+      <li><b>VytlOne/Maxor, independent AI validation.</b> VytlAIQ is the only AI analytics platform in the set marketed on outcomes; independent pre/post evaluation with governance documentation is exactly the evidence a CIO and 340B compliance officer require and the vendor cannot credibly self-produce.</li>
+    </ul>
+  </section>
+
+  <hr class="sep" />
+
+  <!-- ============================================================ -->
+  <!-- SECTION 7: Standardized HSSP measurement framework            -->
+  <!-- ============================================================ -->
+  <section class="step" id="c7">
+    <div class="step-head"><span class="badge">7</span><div>
+      <p class="step-eyebrow">A field-level standard</p>
+      <h2>A standardized HSSP outcomes measurement framework for the field</h2>
+    </div></div>
+    <p class="explain">Gap 7 appears in all four portfolios and points to a repeatable service that is larger than any single engagement. No organization in the set publishes a standardized HSSP outcome dictionary spanning the domains health systems actually decide on: prescription capture and retention, time to therapy and access, adherence and persistence, clinician administrative burden and clinic capacity, avoidable utilization and total cost of care to the system, patient experience, equity, and accreditation and quality. A firm that defines this dictionary, with numerator and denominator logic, minimum sample-size thresholds, and case-mix risk adjustment, supplies the common reference that every individual study feeds into and positions itself as the field's measurement standard rather than a study-by-study vendor. Every per-organization engagement above can be specified to populate this common framework, which strengthens the firm's position with each client.</p>
+  </section>
+
+  <hr class="sep" />
+
+  <!-- ============================================================ -->
+  <!-- SECTION 8: Recommended sequence (numbered, no-badge)          -->
+  <!-- ============================================================ -->
+  <section class="step" id="c8">
+    <div class="step-head"><span class="badge">8</span><div>
+      <p class="step-eyebrow">Sequencing</p>
+      <h2>Recommended sequence</h2>
+    </div></div>
+    <ul class="plain">
+      <li><b>1. Lead every prospect conversation with a no-new-data initial engagement on an existing priority asset</b> (Clearway case-study conversion; CPS landing-page-to-protocol; VytlOne/Maxor net-economic model; Shields matched re-analysis). Each is fast, low-cost, demonstrates rigor on the organization's own material, and builds the trust required for the larger studies.</li>
+      <li><b>2. Build the two priority cross-organization protocols once</b> (prescription capture and retention; clinician time-and-capacity) and the three reusable templates (net-economic-impact model, equity-stratification template, measure dictionary). These transfer across all four clients and are the basis for a repeatable set of services.</li>
+      <li><b>3. Start with Clearway as the first prospect.</b> It has the lowest-risk initial engagement and a partner-requested prospective study already on the table at OU Health, which together make it the most accessible near-term entry. Develop the reusable prescription capture and clinician-capacity protocols during that engagement so they are ready to propose to CPS, VytlOne/Maxor, and Shields.</li>
+      <li><b>4. Pursue the differentiated single-organization opportunities once a relationship exists</b>, since each (Therigy comparative effectiveness, Clearway cell and gene therapy series, VytlAIQ validation) depends on data access or platform cooperation that follows from an initial engagement rather than preceding it.</li>
+    </ul>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- CLOSING / DARK PANEL                                           -->
+  <!-- ============================================================ -->
+  <section class="closing">
+    <p class="step-eyebrow light">Bottom line</p>
+    <h2>One reusable method set, deployed across the prospect set</h2>
+    <p>The methods proposed here are portable from the firm's current health-outcomes research work and require no payer or pharmaceutical positioning; every proposal is health-system-facing and attaches to a specific asset each organization has already produced.</p>
+    <ul class="cross-list">
+      <li><strong>Shared structure:</strong> the same seven gaps appear in all four portfolios, so the firm can build one reusable set of methods and protocols rather than custom-building for each prospect.</li>
+      <li><strong>Two priority studies:</strong> prescription capture and retention, and clinician time-and-capacity, map to the two decisions health-system decision-makers weigh most heavily and transfer across all four clients.</li>
+      <li><strong>Start with Clearway:</strong> the lowest-risk initial engagement, with a partner-requested prospective study already on the table at OU Health.</li>
+      <li><strong>Field-level position:</strong> defining a standardized HSSP outcome dictionary positions the firm as the field's measurement standard rather than a study-by-study vendor.</li>
+    </ul>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- FOOTER                                                        -->
+  <!-- ============================================================ -->
+  <footer class="doc">
+    HSSP outcomes research &middot; cross-organization opportunity synthesis &middot; prepared for internal use by an HEOR consulting firm &middot; customer of record is the health system.
+    <br /><br />
+    <b>Related briefs:</b>
+    <a href="shields-opportunity-brief.html">Shields Health Solutions</a> &middot;
+    <a href="cps-opportunity-brief.html">CPS Solutions</a> &middot;
+    <a href="clearway-opportunity-brief.html">Clearway Health</a> &middot;
+    <a href="vytlone-maxor-opportunity-brief.html">VytlOne / Maxor</a> &middot;
+    <span>Cross-Organization Synthesis (this document)</span>
+  </footer>
+</div>
+<script>
+(function(){
+  var btn=document.getElementById('gloss-toggle');
+  var panel=document.getElementById('glossary');
+  if(!btn||!panel)return;
+  function setState(open){
+    document.body.classList.toggle('gloss-open',open);
+    panel.classList.toggle('is-open',open);
+    btn.setAttribute('aria-expanded',open?'true':'false');
+    panel.setAttribute('aria-hidden',open?'false':'true');
+  }
+  btn.addEventListener('click',function(){
+    setState(btn.getAttribute('aria-expanded')!=='true');
+  });
+  // Default to hidden on narrow screens so the report reads full-width.
+  if(window.matchMedia&&window.matchMedia('(max-width:1179px)').matches){
+    setState(false);
+  }
+})();
+</script>
+</body>
+</html>

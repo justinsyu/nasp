@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Clearway Health: Outcomes Research Opportunity Brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Instrument+Sans:wght@400;500;600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --ink:#0d261a; --body:#252525; --muted:rgba(13,38,26,.62); --faint:rgba(13,38,26,.32);
+  --bg:#ffffff; --warm:#fbfaf9; --warm2:#f4f2f1; --accent:#2cc396; --accent-ink:#0c7a5c;
+  --black:#0b0b0b; --line:rgba(13,38,26,.12); --line-strong:rgba(13,38,26,.2);
+  --font-display:"Lora",Georgia,"Times New Roman",serif;
+  --font-body:"Instrument Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --font-ui:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--body);font-family:var(--font-body);
+  font-size:17px;line-height:1.6;letter-spacing:-.01em;-webkit-font-smoothing:antialiased;}
+.page{max-width:880px;margin:0 auto;padding:4rem 1.75rem 5rem;}
+.pill{display:inline-flex;align-items:center;gap:.5rem;padding:.4rem .85rem;
+  border:1px solid var(--line-strong);border-radius:999px;background:var(--warm);color:var(--ink);
+  font-family:var(--font-ui);font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;}
+.pill .dot{width:.5rem;height:.5rem;border-radius:50%;background:var(--accent);}
+h1{margin:1.4rem 0 0;font-family:var(--font-display);font-weight:500;
+  font-size:clamp(2.8rem,6vw,4rem);line-height:1.14;letter-spacing:-.04em;color:var(--ink);}
+h1 .soft{color:var(--faint);display:block;margin-top:.2rem;}
+.lead{margin:1.25rem 0 0;max-width:46rem;color:var(--muted);font-size:1.02rem;line-height:1.55;letter-spacing:-.012em;}
+.meta{margin:0;padding-top:1.25rem;border-top:1px solid var(--line);
+  font-family:var(--font-ui);font-size:.82rem;color:var(--muted);letter-spacing:0;}
+.meta b{color:var(--ink);font-weight:600;}
+.cover{display:flex;flex-direction:column;}
+.cover .pill{align-self:flex-start;}
+.cover-main{margin:2.5rem 0 0;}
+.result-label{font-family:var(--font-ui);font-size:.66rem;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted);margin:1.6rem 0 .55rem;}
+.metric-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.65rem;margin-top:1.5rem;}
+.metric-card{background:var(--warm);border:1px solid var(--line);border-radius:12px;padding:.85rem .9rem;font-family:var(--font-ui);}
+.metric-card span{display:block;color:var(--muted);font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;}
+.metric-card strong{display:block;margin-top:.2rem;color:var(--ink);font-size:1.45rem;line-height:1.05;font-weight:700;font-variant-numeric:tabular-nums;}
+.metric-card em{display:block;margin-top:.25rem;color:var(--muted);font-size:.72rem;font-style:normal;line-height:1.3;}
+.toc{margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:.4rem;}
+.toc a{font-family:var(--font-ui);font-size:.74rem;font-weight:500;color:var(--accent-ink);
+  background:var(--warm2);border:1px solid var(--line);padding:.28rem .65rem;border-radius:999px;text-decoration:none;}
+.toc a:hover{background:var(--accent);color:#fff;border-color:var(--accent);}
+.chart-block{margin-top:1.1rem;padding:1rem;background:var(--warm);border:1px solid var(--line);border-radius:12px;}
+.chart-head{display:flex;justify-content:space-between;gap:1rem;align-items:baseline;margin-bottom:.75rem;font-family:var(--font-ui);}
+.chart-head span{color:var(--muted);font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;}
+.chart-head strong{color:var(--ink);font-size:.84rem;font-weight:700;font-variant-numeric:tabular-nums;}
+.bar-chart{display:grid;gap:.5rem;}
+.bar-row{display:grid;grid-template-columns:minmax(8rem,1fr) minmax(0,2.2fr) 2.4rem;align-items:center;gap:.65rem;}
+.bar-label{color:var(--ink);font-family:var(--font-ui);font-size:.8rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.bar-track{height:.6rem;border-radius:999px;background:rgba(13,38,26,.08);overflow:hidden;}
+.bar-fill{display:block;height:100%;min-width:2px;border-radius:999px;background:var(--accent);}
+.bar-value{color:var(--accent-ink);font-family:var(--font-mono);font-size:.74rem;text-align:right;font-variant-numeric:tabular-nums;}
+.step{margin-top:3.25rem;}
+.step-head{display:grid;grid-template-columns:2.1rem minmax(0,1fr);column-gap:.9rem;row-gap:.7rem;align-items:center;}
+.step-head.no-badge{grid-template-columns:1fr;}
+.badge{width:2.1rem;height:2.1rem;border-radius:50%;background:var(--black);color:#fff;display:grid;place-items:center;
+  font-family:var(--font-ui);font-size:.95rem;font-weight:600;}
+.step-head>div{display:contents;}
+.step-eyebrow{font-family:var(--font-ui);font-size:.7rem;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--accent-ink);margin:0;grid-column:2;grid-row:1;align-self:center;}
+.step-head.no-badge .step-eyebrow{grid-column:1;}
+.step h2{grid-column:1/-1;grid-row:2;margin:0;font-family:var(--font-display);font-weight:500;
+  font-size:clamp(1.5rem,3.2vw,2rem);line-height:1.12;letter-spacing:-.02em;color:var(--ink);}
+.explain{margin:1rem 0 0;color:var(--body);font-size:1.02rem;}
+.field{margin:1.05rem 0 0;color:var(--body);font-size:1rem;}
+.field.match{color:var(--muted);font-size:.92rem;}
+.flabel{display:inline-block;font-family:var(--font-ui);font-size:.6rem;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--accent-ink);background:var(--warm2);border:1px solid var(--line);
+  padding:.12rem .45rem;border-radius:5px;margin-right:.5rem;vertical-align:middle;}
+.sources{margin:.9rem 0 0;color:var(--muted);font-size:.82rem;line-height:1.5;}
+.signals{list-style:none;margin:.4rem 0 0;padding:0;display:grid;gap:.55rem;}
+.signals .signal{background:var(--warm);border:1px solid var(--line);border-radius:12px;padding:.7rem .85rem;}
+.signal-head{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;margin-bottom:.3rem;}
+.signal-head a{font-family:var(--font-mono);font-size:.8rem;font-weight:500;color:var(--accent-ink);
+  text-decoration:none;border-bottom:1px solid rgba(12,122,92,.3);}
+.signal-body{display:block;color:var(--body);font-size:.94rem;line-height:1.5;}
+.tag{font-family:var(--font-ui);font-size:.62rem;font-weight:600;letter-spacing:.04em;
+  padding:.16rem .5rem;border-radius:999px;border:1px solid var(--line);text-transform:lowercase;}
+.tier-direct{background:var(--accent);color:#073a2c;border-color:var(--accent);}
+.tier-portfolio{background:rgba(44,195,150,.18);color:var(--accent-ink);}
+.tier-session{background:rgba(13,38,26,.08);color:var(--ink);}
+.tier-landscape{background:var(--warm2);color:var(--muted);}
+.insights{margin:.4rem 0 0;padding-left:1.1rem;display:grid;gap:.5rem;}
+.insights li{color:var(--body);font-size:.96rem;line-height:1.5;}
+ul.plain{margin:1rem 0 0;padding-left:1.1rem;display:grid;gap:.5rem;}
+ul.plain li{color:var(--body);font-size:1rem;line-height:1.5;}
+.resnote{margin:1.1rem 0 0;color:var(--muted);font-size:.9rem;line-height:1.5;
+  border-left:2px solid var(--line-strong);padding-left:.9rem;}
+.resnote b{color:var(--ink);font-weight:600;}
+code.mono{font-family:var(--font-mono);font-size:.86em;background:var(--warm2);padding:.05rem .32rem;border-radius:4px;color:var(--accent-ink);}
+a{color:var(--accent-ink);}
+.field a,.explain a,.sources a,.insights a,.cross-list a{text-decoration:none;border-bottom:1px solid rgba(12,122,92,.3);}
+hr.sep{border:0;border-top:1px solid var(--line);margin:3.25rem 0 0;}
+.closing{margin-top:3.5rem;padding:1.9rem;background:var(--ink);border-radius:16px;color:rgba(255,255,255,.86);}
+.closing h2{margin:.2rem 0 0;font-family:var(--font-display);font-weight:500;font-size:1.6rem;letter-spacing:-.02em;color:#fff;}
+.closing p{margin:.8rem 0 0;font-size:1rem;line-height:1.55;}
+.closing .step-eyebrow.light{color:#9bf3d3;position:static;}
+.closing a{color:#9bf3d3;}
+.cross-list{margin:.6rem 0 0;padding-left:1.1rem;display:grid;gap:.6rem;}
+.cross-list li{line-height:1.5;}
+footer.doc{margin-top:2.5rem;color:var(--muted);font-family:var(--font-ui);font-size:.8rem;line-height:1.5;}
+@media (max-width:680px){.metric-grid{grid-template-columns:repeat(2,1fr);}.bar-row{grid-template-columns:minmax(6rem,1fr) minmax(0,1.6fr) 2.2rem;}}
+
+/* ---------- prior-art gap structure ---------- */
+a.ref-abs{font-family:var(--font-mono);font-size:.92em;color:var(--accent-ink);
+  text-decoration:none;border-bottom:1px solid rgba(12,122,92,.35);}
+a.ref-src{color:var(--accent-ink);text-decoration:none;border-bottom:1px dotted rgba(12,122,92,.5);}
+.sub-head{margin:.9rem 0 .1rem;font-family:var(--font-ui);font-size:.72rem;font-weight:700;
+  letter-spacing:.01em;color:var(--ink);}
+.activity{list-style:none;margin:.4rem 0 .2rem;padding:0;display:grid;gap:.45rem;}
+.activity li{position:relative;padding-left:1rem;color:var(--muted);font-size:.86rem;line-height:1.5;}
+.activity li::before{content:"";position:absolute;left:.05rem;top:.6em;width:.32rem;height:.32rem;
+  border-radius:50%;background:var(--faint);}
+.activity li a{color:var(--accent-ink);}
+.gaps{list-style:none;margin:.4rem 0 0;padding:0;display:grid;gap:.7rem;}
+.gap{background:var(--warm);border:1px solid var(--line);border-radius:12px;
+  padding:.8rem .9rem;display:grid;gap:.45rem;}
+.gap-plain{color:var(--body);font-size:.92rem;line-height:1.5;}
+.gap-row{display:grid;grid-template-columns:7.5rem minmax(0,1fr);gap:.7rem;align-items:start;}
+.gap-key{font-family:var(--font-ui);font-size:.62rem;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--accent-ink);padding-top:.12rem;line-height:1.3;}
+.gap-val{color:var(--body);font-size:.9rem;line-height:1.5;}
+.gap-delta{border-top:1px dashed var(--line);padding-top:.5rem;}
+.gap-rec{border-top:1px dashed var(--line);padding-top:.5rem;}
+.gap-rec .gap-val{color:var(--ink);}
+.gap-type{display:inline-block;margin-top:.25rem;font-family:var(--font-ui);font-size:.56rem;
+  font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:.08rem .4rem;border-radius:999px;}
+.gap-evidence{background:rgba(44,195,150,.18);color:var(--accent-ink);}
+.gap-comm{background:rgba(13,38,26,.08);color:var(--ink);}
+.uc-tag{display:inline-block;font-family:var(--font-ui);font-size:.6rem;font-weight:700;
+  letter-spacing:.04em;text-transform:uppercase;color:#ffffff;background:var(--accent-ink);
+  padding:.1rem .45rem;border-radius:999px;margin-right:.35rem;}
+@media (max-width:680px){.gap-row{grid-template-columns:1fr;gap:.15rem;}}
+
+/* ---------- abbreviations glossary panel ---------- */
+.gloss-toggle{position:fixed;top:1rem;right:1rem;z-index:60;display:inline-flex;align-items:center;
+  gap:.45rem;padding:.5rem .85rem;border:1px solid var(--line-strong);border-radius:999px;
+  background:var(--ink);color:#fff;font-family:var(--font-ui);font-size:.72rem;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;cursor:pointer;box-shadow:0 2px 10px rgba(13,38,26,.18);}
+.gloss-toggle:hover{background:var(--accent-ink);}
+.gloss-toggle .gicon{width:.55rem;height:.55rem;border-radius:50%;background:var(--accent);}
+.gloss-toggle .gt-hide{display:none;}
+.gloss-toggle[aria-expanded="true"] .gt-show{display:none;}
+.gloss-toggle[aria-expanded="true"] .gt-hide{display:inline;}
+.glossary{position:fixed;top:0;right:0;z-index:55;width:min(360px,86vw);height:100vh;
+  background:var(--warm);border-left:1px solid var(--line-strong);
+  box-shadow:-8px 0 28px rgba(13,38,26,.10);overflow-y:auto;overscroll-behavior:contain;
+  transform:translateX(100%);transition:transform .28s ease;will-change:transform;}
+.glossary.is-open{transform:translateX(0);}
+.gloss-inner{padding:4.25rem 1.4rem 2.5rem;}
+.gloss-head{margin-bottom:1.2rem;}
+.gloss-eyebrow{font-family:var(--font-ui);font-size:.66rem;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--accent-ink);}
+.gloss-title{margin:.25rem 0 0;font-family:var(--font-display);font-weight:500;font-size:1.5rem;
+  letter-spacing:-.02em;color:var(--ink);}
+.gloss-intro{margin:.6rem 0 0;color:var(--muted);font-size:.82rem;line-height:1.5;}
+.gloss-count{display:inline-block;margin-top:.35rem;font-family:var(--font-mono);font-size:.72rem;
+  color:var(--accent-ink);background:var(--warm2);border:1px solid var(--line);
+  padding:.1rem .45rem;border-radius:999px;}
+.gloss-list{margin:0;}
+.gloss-row{display:grid;grid-template-columns:1fr;gap:.05rem;padding:.4rem 0;border-bottom:1px solid var(--line);}
+.gloss-row:last-child{border-bottom:0;}
+.gloss-term{margin:0;font-family:var(--font-mono);font-size:.82rem;font-weight:500;color:var(--accent-ink);}
+.gloss-def{margin:.1rem 0 0;color:var(--body);font-size:.84rem;line-height:1.45;}
+/* Reserve room for the panel on wide screens so it never overlaps text. */
+@media (min-width:1180px){
+  body.gloss-open .page{margin-left:auto;margin-right:calc(min(360px,86vw) + 2.5rem);transition:margin-right .28s ease;}
+}
+@media (max-width:1179px){
+  /* On narrower screens the panel overlays; page stays readable when hidden. */
+  .glossary{box-shadow:-10px 0 34px rgba(13,38,26,.22);}
+}
+@media (prefers-reduced-motion:reduce){
+  .glossary,.gloss-toggle,body.gloss-open .page{transition:none;}
+}
+</style>
+</head>
+<body class="gloss-open">
+
+<!-- ============================================================ -->
+<!-- GLOSSARY TOGGLE BUTTON (fixed, top-right). Pairs with the     -->
+<!-- glossary <aside> below and the <script> at the end.           -->
+<!-- ============================================================ -->
+<button id="gloss-toggle" class="gloss-toggle" type="button"
+        aria-expanded="true" aria-controls="glossary">
+  <span class="gicon"></span><span class="gt-show">Glossary</span><span class="gt-hide">Hide glossary</span>
+</button>
+
+<!-- ============================================================ -->
+<!-- GLOSSARY PANEL (definition-list / glossary component).        -->
+<!-- ============================================================ -->
+<aside id="glossary" class="glossary is-open" aria-label="Glossary" aria-hidden="false">
+  <div class="gloss-inner">
+    <div class="gloss-head">
+      <span class="gloss-eyebrow">Glossary</span>
+      <h2 class="gloss-title">Clinical and operational terms</h2>
+      <p class="gloss-intro">Clinical, operational, and research-method terms used across this brief. <span class="gloss-count">34 terms</span></p>
+    </div>
+    <dl class="gloss-list">
+      <div class="gloss-row"><dt class="gloss-term">Health-system specialty pharmacy (HSSP)</dt><dd class="gloss-def">a specialty pharmacy owned and operated by a health system to serve its own patients, as opposed to an external or contract pharmacy (sometimes abbreviated HSSP).</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Prescription capture (capture rate)</dt><dd class="gloss-def">the share of specialty prescriptions written by a health system's providers that are filled by that system's own specialty pharmacy rather than an external pharmacy.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Leakage</dt><dd class="gloss-def">specialty prescriptions written within a health system but filled at an outside pharmacy, so the system loses the associated dispensing revenue and visibility into the patient's care.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Prescription retention</dt><dd class="gloss-def">keeping eligible specialty prescriptions within the system's own specialty pharmacy, that is, reducing leakage.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">340B</dt><dd class="gloss-def">a federal program that lets eligible safety-net health systems purchase outpatient drugs at reduced prices.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Contract pharmacy</dt><dd class="gloss-def">an outside pharmacy a 340B health system contracts with to dispense its drugs; displacing it with an owned pharmacy keeps the dispensing in-house.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Limited distribution drug (LDD)</dt><dd class="gloss-def">a specialty drug a manufacturer makes available through only a small number of approved pharmacies.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Proportion of days covered (PDC)</dt><dd class="gloss-def">a standard adherence measure equal to the share of days in a period for which a patient had the medication on hand.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Time to therapy (time to first fill)</dt><dd class="gloss-def">the elapsed time from when a prescription is written to when the patient receives the medication.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Persistence</dt><dd class="gloss-def">continuing to refill and remain on a therapy over time.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Sustained virologic response at 12 weeks (SVR12)</dt><dd class="gloss-def">an undetectable hepatitis C viral level 12 weeks after treatment, used as the marker of cure.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Inflammatory bowel disease (IBD)</dt><dd class="gloss-def">chronic inflammatory conditions of the gut, including Crohn's disease and ulcerative colitis.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Harvey Bradshaw Index</dt><dd class="gloss-def">a validated index of Crohn's disease activity; lower scores indicate less active disease.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Chronic myeloid leukemia (CML)</dt><dd class="gloss-def">a type of blood cancer.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Major molecular response (MMR)</dt><dd class="gloss-def">a defined reduction in measurable leukemia burden used to gauge response to chronic myeloid leukemia therapy.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Hepatitis C virus (HCV)</dt><dd class="gloss-def">a viral liver infection that specialty antiviral therapy can cure.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Viral suppression</dt><dd class="gloss-def">an HIV viral level reduced below a detectable threshold, indicating effective treatment.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Ryan White Program (HRSA)</dt><dd class="gloss-def">a federal program administered by the Health Resources and Services Administration that funds and reports on HIV care for low-income patients.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Patient-reported outcome (PRO)</dt><dd class="gloss-def">an outcome reported directly by the patient (for example symptom burden or quality of life), usually via a validated questionnaire.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Linkage to care</dt><dd class="gloss-def">the steps by which a patient identified with a condition is connected to and started on appropriate treatment.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Cell and gene therapy</dt><dd class="gloss-def">one-time, high-cost treatments that modify a patient's cells or genes, requiring specialized handling, financing, and coordination.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Total cost of care</dt><dd class="gloss-def">total spending on a patient's care across all settings over a defined period.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Net Promoter Score (NPS)</dt><dd class="gloss-def">a satisfaction measure based on how likely respondents are to recommend a service.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">HCAHPS</dt><dd class="gloss-def">a standardized national survey of patients' experience of hospital care.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Full-time equivalent (FTE)</dt><dd class="gloss-def">a unit expressing staffing in terms of full-time positions.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Third-party administrator (TPA)</dt><dd class="gloss-def">an organization that processes claims or administers benefits on behalf of a payer or plan.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Specialty pharmacy accreditation (URAC, ACHC)</dt><dd class="gloss-def">quality certifications from independent bodies that many payers and manufacturers require for network and drug access.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Comparison group (comparator)</dt><dd class="gloss-def">a group that did not receive the intervention, used as a baseline to judge the intervention's effect.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Retrospective cohort study</dt><dd class="gloss-def">a study that follows a defined group of patients using existing records to assess outcomes after an intervention or exposure.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Interrupted time series</dt><dd class="gloss-def">a method that measures an outcome at many points before and after an intervention to separate the intervention's effect from pre-existing trends.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Time-and-motion study</dt><dd class="gloss-def">direct observation and timing of tasks to measure how staff time is spent.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Attribution</dt><dd class="gloss-def">determining how much of an observed result is caused by the intervention rather than by other concurrent changes.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Confidence interval</dt><dd class="gloss-def">a range around an estimate that expresses how much uncertainty it carries.</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">Sensitivity analysis</dt><dd class="gloss-def">re-running an analysis under different assumptions to test whether the conclusions hold.</dd></div>
+    </dl>
+  </div>
+</aside>
+
+<div class="page">
+
+  <!-- ============================================================ -->
+  <!-- HERO / COVER                                                  -->
+  <!-- ============================================================ -->
+  <header class="cover">
+    <span class="pill"><span class="dot"></span>Health-system specialty pharmacy outcomes research</span>
+    <div class="cover-main">
+      <h1>Clearway Health: Outcomes Research Opportunity Brief<span class="soft">Converting executive case studies into a structured research foundation</span></h1>
+      <p class="lead">Clearway's public evidence base consists almost entirely of executive-facing case studies built around named health-system partners. These assets are effective at executive persuasion, but results are reported without study design, denominators, baseline periods, comparator construction, attribution logic, or statistical methods. The central opportunity is the construction of a research foundation rather than the addition of more content.</p>
+
+      <!-- SUMMARY STAT STRIP -->
+      <p class="result-label">Analysis base</p>
+      <div class="metric-grid">
+        <div class="metric-card"><span>Case-study PDFs</span><strong>5</strong><em>Reviewed in full</em></div>
+        <div class="metric-card"><span>HTML pages</span><strong>9</strong><em>Saved pages reviewed</em></div>
+        <div class="metric-card"><span>Named partners</span><strong>5</strong><em>Health systems</em></div>
+        <div class="metric-card"><span>Priority engagements</span><strong>5</strong><em>Ranked proposals</em></div>
+      </div>
+
+      <!-- IN-PAGE NAV / TABLE OF CONTENTS -->
+      <p class="result-label">Sections</p>
+      <nav class="toc"><a href="#c1">1. Research approach snapshot</a><a href="#c2">2. Quality-enhancement opportunities</a><a href="#c3">3. Relevance-enhancement opportunities</a><a href="#c4">4. Top priority engagements</a><a href="#c5">5. Differentiation note</a></nav>
+    </div>
+    <p class="meta"><b>Prepared for internal HEOR business development.</b> Audience for the proposed work is health-system decision-makers (C-suite, pharmacy leadership, service-line chiefs, ambulatory operations, system finance, quality/accreditation, and mission/community-benefit leaders). Customer scope is health systems; no payer, PBM, or manufacturer deliverables are proposed. Note: HEOR refers to health economics and outcomes research, the discipline that measures the clinical and economic results of a healthcare intervention. &nbsp;|&nbsp; <b>Sources reviewed in full:</b> five case-study PDFs (Boston Medical Center, Children's National Hospital, Signature Healthcare, OU Health, plus a duplicate export of the Children's National file) and nine saved HTML pages (the four case-study pages, the Brooklyn Hospital Center executive/webinar page, the medication therapy management article, the GLP-1 liaison article, the OU Health fertility article, and the case-studies index). Specific assets are named throughout.</p>
+  </header>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 1                                                     -->
+  <!-- ============================================================ -->
+  <section class="step" id="c1">
+    <div class="step-head"><span class="badge">1</span><div>
+      <p class="step-eyebrow">Approach snapshot</p>
+      <h2>Research approach snapshot</h2>
+    </div></div>
+    <p class="explain">Clearway's public evidence base consists almost entirely of executive-facing case studies built around named health-system partners (Boston Medical Center Health System, Children's National Hospital, Signature Healthcare, OU Health, and The Brooklyn Hospital Center). These assets are effective at executive persuasion. They pair financial results with named clinical and operational metrics and direct quotations from chief pharmacy officers, chief financial officers, and ambulatory leaders.</p>
+    <p class="explain">The financial results are substantial. BMC specialty pharmacy revenue grew from $20 million to $600 million from 2012 to 2022; Signature contributed $31.7 million since August 2022, $13 million above budget; OU Health reported more than $288 million in two years; and Children's National reported $57 million from October 2023 through September 2024, $20 million over forecast. The genuine strengths are the named-partner proof points, the safety-net/academic/pediatric/community-hospital mix that matches the target decision-maker, and a consistent operating-model narrative (embedded liaison model, 340B sustainability, contract-pharmacy displacement, accreditation).</p>
+    <p class="explain">The genuine limitation is methodological. Across the portfolio, results are reported without study design, denominators, baseline periods, comparator construction, attribution logic, or statistical methods. Clearway has the least structured outcomes research of the four prospects under review, which makes the central opportunity the construction of a research foundation rather than the addition of more content.</p>
+  </section>
+
+  <hr class="sep" />
+
+  <!-- ============================================================ -->
+  <!-- SECTION 2                                                     -->
+  <!-- ============================================================ -->
+  <section class="step" id="c2">
+    <div class="step-head"><span class="badge">2</span><div>
+      <p class="step-eyebrow">Quality</p>
+      <h2>Quality-enhancement opportunities</h2>
+    </div></div>
+    <p class="explain">Each item names the asset, the observed weakness, the specific HEOR upgrade, and why the upgrade strengthens the case for a health-system decision-maker.</p>
+
+    <ul class="gaps">
+
+      <li class="gap">
+        <div class="gap-row"><span class="gap-key">2.1 <span class="gap-type gap-evidence">Quality</span></span><span class="gap-val"><b>The BMC inflammatory bowel disease (IBD) enrolled-versus-non-enrolled contrast is the only near-comparative result and is reported without design</b></span></div>
+        <div class="gap-row"><span class="gap-key">Asset</span><span class="gap-val">Boston Medical Center case study PDF (<code class="mono">66fb7bc11e664f364d47ba17_..._Boston_Medical_Center_Health_System_Case_Study.pdf</code>), Results pages.</span></div>
+        <div class="gap-row"><span class="gap-key">Observed weakness</span><span class="gap-val">The report states 96% proportion of days covered (PDC) for enrolled IBD participants versus 88% for non-enrolled, plus a "more drastic change in average Harvey Bradshaw Index over 12 months," and 76% major molecular response (MMR) at year two for enrolled chronic myeloid leukemia (CML) participants. No denominators, cohort definitions, enrollment criteria, follow-up windows, baseline equivalence, or adjustment for confounding are given. The 95% PDC and the 89% HIV viral suppression and 90% sustained virologic response at 12 weeks (SVR12) are single-arm point estimates with no comparator and no industry-source citation beyond a stated 60% PDC norm.</span></div>
+        <div class="gap-row"><span class="gap-key">HEOR upgrade</span><span class="gap-val">Convert the existing enrolled-versus-non-enrolled comparison into a structured retrospective cohort study with explicit inclusion/exclusion criteria, a defined index date, a fixed measurement window, and adjustment for measurable confounders (age, payer, baseline severity, regimen). Report the PDC difference with a confidence interval and a pre-specified adherence definition. Add denominators to the SVR12, viral suppression, and major molecular response estimates and benchmark each against published disease-state literature.</span></div>
+        <div class="gap-row gap-rec"><span class="gap-key">Why it strengthens the case</span><span class="gap-val">A pharmacy director or service-line chief deciding whether to enroll a disease cohort needs to know the size of the enrolled-versus-non-enrolled effect and whether it survives adjustment, not a single percentage. A defensible comparison is what distinguishes an outcomes claim from a testimonial when the decision-maker's quality committee reviews it.</span></div>
+      </li>
+
+      <li class="gap">
+        <div class="gap-row"><span class="gap-key">2.2 <span class="gap-type gap-evidence">Quality</span></span><span class="gap-val"><b>The Brooklyn Hospital Center HIV result is a strong adherence signal reported as an unqualified absolute</b></span></div>
+        <div class="gap-row"><span class="gap-key">Asset</span><span class="gap-val"><code class="mono">hospital-executives-how-specialty-pharmacy-can-be-a-lever-for-health-system-mission-centric-change.html</code> (Becker's webinar summary).</span></div>
+        <div class="gap-row"><span class="gap-key">Observed weakness</span><span class="gap-val">The page reports "100% viral suppression" and "zero missed doses in well over a year" among approximately 190 participants on injectable HIV therapy, and a hepatitis C virus (HCV) "test to treat" dashboard that changed testing workflow. The denominator (approximately 190) is stated, but the observation period ("well over a year"), the definition of a missed dose, the suppression measurement protocol, and the pre-program baseline are not. There is no comparator period.</span></div>
+        <div class="gap-row"><span class="gap-key">HEOR upgrade</span><span class="gap-val">Reframe as a pre/post interrupted-time-series or single-arm longitudinal study with a defined cohort, a stated baseline missed-dose rate and suppression rate before the embedded program, explicit measurement intervals, and a denominator-anchored persistence curve. For the HCV test-to-treat claim, define the linkage-to-care cascade (antibody-positive, confirmed, linked, treated, SVR12) with counts at each step.</span></div>
+        <div class="gap-row gap-rec"><span class="gap-key">Why it strengthens the case</span><span class="gap-val">Injectable HIV adherence and HCV linkage-to-care are quality and population-health metrics that infectious disease service lines and quality leaders already report. A cascade with denominators is directly comparable to the system's own internal benchmarks and to Ryan White Program (Health Resources and Services Administration, HRSA) reporting, which raises its credibility for a clinical audience.</span></div>
+      </li>
+
+      <li class="gap">
+        <div class="gap-row"><span class="gap-key">2.3 <span class="gap-type gap-evidence">Quality</span></span><span class="gap-val"><b>Financial claims are gross and lack net-economic framing</b></span></div>
+        <div class="gap-row"><span class="gap-key">Assets</span><span class="gap-val">BMC PDF ($20M to $600M; more than $580M over 10 years); Signature PDF ($31.7M since opening, $13M over budget; 100% average month-over-month revenue growth; the monthly contract-versus-onsite revenue and margin chart on page 6); OU Health PDF and HTML (more than $288M in two years); Children's National PDF ($57M, $20M over forecast; 39% additional previously ineligible claims month over month); the Children's National "Impact of In-house Specialty Pharmacy Services for 340B Eligible Health Systems" illustration (+34%, +37%, +27% gross margin across three example drugs).</span></div>
+        <div class="gap-row"><span class="gap-key">Observed weakness</span><span class="gap-val">Revenue and budget-overperformance figures are reported gross. None of the assets nets out implementation cost, pharmacy build cost (Children's National opened a new pharmacy with five new staff in November 2024), staffing cost (Signature: seven liaisons, one clinical pharmacist, three pharmacists, four technicians; Children's National: comparable staffing), technology cost (the Charter platform), inventory carrying cost and working capital, bad debt, or 340B program expense. The +34%/+37%/+27% margin example is a generic per-drug illustration ("revenue minus 340B expense, administration and dispensing fees"), not a measured system-level net result, and the three drugs are unnamed.</span></div>
+        <div class="gap-row"><span class="gap-key">HEOR upgrade</span><span class="gap-val">Build a net-economic-impact-to-the-system model for the hospital-owned specialty pharmacy, with a transparent margin definition, an itemized cost stack (labor, technology, inventory, build/amortization, patient-assistance outlay, avoided contract-pharmacy dispensing fees), a stated time horizon, and one- and two-way sensitivity analyses on the largest drivers (payer mix, capture rate, 340B eligibility share, drug-mix margin). Re-present the gross revenue figures as net contribution with the cost stack shown.</span></div>
+        <div class="gap-row gap-rec"><span class="gap-key">Why it strengthens the case</span><span class="gap-val">A CFO or system-finance leader evaluating build-versus-outsource needs net contribution and a break-even timeline, not gross revenue. A sensitivity analysis also pre-empts the most common executive objection, that the headline number is not repeatable in a different payer or 340B environment.</span></div>
+      </li>
+
+      <li class="gap">
+        <div class="gap-row"><span class="gap-key">2.4 <span class="gap-type gap-evidence">Quality</span></span><span class="gap-val"><b>Multi-component results are reported without attribution logic</b></span></div>
+        <div class="gap-row"><span class="gap-key">Assets</span><span class="gap-val">Children's National PDF (938% patient growth in two years; prior authorization (PA) turnaround from up to 42 days to 1.2 days or less; 39% additional eligible claims; $57M revenue), with the same period also featuring a new pharmacy build, ACHC and URAC accreditation, EHR/claims/third-party administrator (TPA) data analysis, and 340B eligibility expansion; OU Health PDF (1,291 first-year to 2,742 patients; 9,578 PAs at 91% approval; less than 1.8 days versus a 17-day industry reference).</span></div>
+        <div class="gap-row"><span class="gap-key">Observed weakness</span><span class="gap-val">Each headline outcome co-occurs with several simultaneous changes (staffing, contracting, EHR workflow, payer-mix shifts, accreditation, 340B-rule changes, market conditions). The reports attribute outcomes to the partnership as a whole without separating the contribution of individual components.</span></div>
+        <div class="gap-row"><span class="gap-key">HEOR upgrade</span><span class="gap-val">Apply a structured attribution framework (a driver decomposition or, where data permit, a segmented interrupted-time-series keyed to discrete implementation milestones such as liaison embedding, pharmacy opening, and accreditation dates). State explicitly which results are plausibly attributable to the operating model versus concurrent system or market changes, and label the remainder as associative.</span></div>
+        <div class="gap-row gap-rec"><span class="gap-key">Why it strengthens the case</span><span class="gap-val">A decision-maker replicating the model in its own environment needs to know which components drive which results so it can budget and sequence them. Honest attribution also raises the credibility of the claims that do hold.</span></div>
+      </li>
+
+      <li class="gap">
+        <div class="gap-row"><span class="gap-key">2.5 <span class="gap-type gap-evidence">Quality</span></span><span class="gap-val"><b>Clinical outcomes are uneven across the portfolio and not standardized</b></span></div>
+        <div class="gap-row"><span class="gap-key">Assets</span><span class="gap-val">BMC PDF (PDC, SVR12, viral suppression, Harvey Bradshaw Index, major molecular response); OU Health PDF (PA approval, enrollment, fertility cost savings, a stated pilot of patient-reported outcomes (PRO) in HIV, HCV, rheumatoid arthritis, migraine, and multiple sclerosis); Signature PDF (PA volume and turnaround, prescription volume, enrollment percentage, but no longitudinal clinical endpoints); Children's National PDF (PA turnaround, growth, Net Promoter Score (NPS), but no disease-state clinical endpoints).</span></div>
+        <div class="gap-row"><span class="gap-key">Observed weakness</span><span class="gap-val">Disease-state clinical outcomes are reported richly for BMC, partially for OU Health, and largely not for Signature or Children's National. The same disease (for example HCV, present at BMC, Brooklyn, OU Health, and Signature) is measured differently or not at all across sites, preventing cross-site comparison.</span></div>
+        <div class="gap-row"><span class="gap-key">HEOR upgrade</span><span class="gap-val">Define a standardized disease-state outcome set (for example, for HCV: SVR12 with a defined cascade; for IBD: PDC plus a validated severity index; for HIV: viral suppression and persistence) with common denominators, windows, and definitions, then apply it across partner sites to produce a multi-site outcomes series.</span></div>
+        <div class="gap-row gap-rec"><span class="gap-key">Why it strengthens the case</span><span class="gap-val">A prospective decision-maker wants to see that the model produces consistent clinical results across hospital types, not a single strong site. Standardization is also the precondition for any future pooled or multi-site analysis.</span></div>
+      </li>
+
+      <li class="gap">
+        <div class="gap-row"><span class="gap-key">2.6 <span class="gap-type gap-evidence">Quality</span></span><span class="gap-val"><b>Provider and clinician burden reduction is claimed repeatedly but rarely quantified</b></span></div>
+        <div class="gap-row"><span class="gap-key">Assets</span><span class="gap-val">Children's National PDF (provider/clinician NPS of 100 with three survey dimensions: "Saves time," "Improves patient adherence," "Provides a better care experience"; provider free-text testimonials); Signature PDF (provider NPS of 100, captured twice yearly; testimonials); OU Health PDF/HTML (provider NPS of 91; a statement that the monthly dashboard tracks the clinic-embedded team's impact on Hospital Consumer Assessment of Healthcare Providers and Systems (HCAHPS) questions); Brooklyn page (providers relieved of prior-authorization work); the GLP-1 and MTM articles (liaison time-saving vignettes).</span></div>
+        <div class="gap-row"><span class="gap-key">Observed weakness</span><span class="gap-val">Burden reduction is asserted through satisfaction scores and anecdotes. None of the assets quantifies clinician hours saved, prior-authorization tasks shifted out of the clinic, appeals handled, calls avoided, rework prevented, or clinic visit capacity recovered. The NPS instrument, sample size, and response rate are not described.</span></div>
+        <div class="gap-row"><span class="gap-key">HEOR upgrade</span><span class="gap-val">Run a quantified clinician-burden study using time-and-motion or task-volume methods: count prior-authorization tasks and appeals absorbed by the pharmacy team per clinic per month, estimate clinician and nurse minutes returned, and convert to recovered visit capacity. Standardize the satisfaction instrument and report sample size and response rate alongside the NPS.</span></div>
+        <div class="gap-row gap-rec"><span class="gap-key">Why it strengthens the case</span><span class="gap-val">Clinic capacity and clinician administrative burden are operational and financial currency for ambulatory operations leaders and service-line chiefs. A figure such as "X prior-authorization tasks and Y clinician hours per clinic per month returned to direct care" supports both a staffing business case and a clinician-retention argument, which testimonials cannot.</span></div>
+      </li>
+
+      <li class="gap">
+        <div class="gap-row"><span class="gap-key">2.7 <span class="gap-type gap-evidence">Quality</span></span><span class="gap-val"><b>Equity and access claims are central but not stratified</b></span></div>
+        <div class="gap-row"><span class="gap-key">Assets</span><span class="gap-val">all five case studies emphasize safety-net, pediatric, rural, low-income, and Medicaid populations; the MTM article cites low health literacy, language, and transportation barriers; the GLP-1 article describes a single diabetes patient's six-month coverage delay resolved by a liaison.</span></div>
+        <div class="gap-row"><span class="gap-key">Observed weakness</span><span class="gap-val">Access, affordability, patient-assistance, and adherence outcomes are reported in aggregate. They are not stratified by payer type, language, geography (urban versus rural), or social-risk proxy, so the equity claim is narrative rather than measured.</span></div>
+        <div class="gap-row"><span class="gap-key">HEOR upgrade</span><span class="gap-val">Stratify the existing access and adherence outcomes (time-to-therapy, PA approval, patient-assistance dollars secured, PDC) by payer, language, and geography where the data exist, and report disparities closed or persisting.</span></div>
+        <div class="gap-row gap-rec"><span class="gap-key">Why it strengthens the case</span><span class="gap-val">Mission and community-benefit leaders, and accreditation/quality leaders, must document equity for their own reporting. Stratified outcomes let the system use Clearway's data directly in its community-benefit and quality narratives.</span></div>
+      </li>
+
+    </ul>
+  </section>
+
+  <hr class="sep" />
+
+  <!-- ============================================================ -->
+  <!-- SECTION 3                                                     -->
+  <!-- ============================================================ -->
+  <section class="step" id="c3">
+    <div class="step-head"><span class="badge">3</span><div>
+      <p class="step-eyebrow">Relevance</p>
+      <h2>Relevance-enhancement opportunities</h2>
+    </div></div>
+    <p class="explain">Each item names the gap or unaddressed question, the proposed study or reframing, the design, the primary outcome domain, and the health-system decision and audience served.</p>
+
+    <ul class="gaps">
+
+      <li class="gap">
+        <div class="gap-row"><span class="gap-key">3.1 <span class="gap-type gap-comm">Relevance</span></span><span class="gap-val"><b>Build-versus-outsource decision is implied but never modeled at the system level</b></span></div>
+        <div class="gap-row"><span class="gap-key">Gap</span><span class="gap-val">The Signature and Children's National cases are fundamentally build-versus-outsource stories (displacing contract pharmacies with an owned pharmacy), yet neither presents a net build-versus-outsource model the decision-maker can apply.</span></div>
+        <div class="gap-row"><span class="gap-key">Proposed work</span><span class="gap-val">A net-economic-impact and capture-and-retention model that quantifies contribution from prescription capture and retention, avoided contract-pharmacy dispensing fees, and 340B margin, against the full cost of building and operating an owned pharmacy.</span></div>
+        <div class="gap-row"><span class="gap-key">Design</span><span class="gap-val">Deterministic financial model with probabilistic sensitivity analysis, parameterized from one or more partner sites (Signature's monthly contract-versus-onsite revenue and margin series is suitable raw material for the capture-shift curve).</span></div>
+        <div class="gap-row"><span class="gap-key">Primary outcome domain</span><span class="gap-val">Total economic contribution to the system and prescription capture and retention.</span></div>
+        <div class="gap-row gap-rec"><span class="gap-key">Decision and audience</span><span class="gap-val">Build, expand, or outsource the specialty pharmacy; system finance, C-suite, and pharmacy leadership.</span></div>
+      </li>
+
+      <li class="gap">
+        <div class="gap-row"><span class="gap-key">3.2 <span class="gap-type gap-comm">Relevance</span></span><span class="gap-val"><b>Prior-authorization speed is reported but not connected to time-to-therapy or downstream utilization</b></span></div>
+        <div class="gap-row"><span class="gap-key">Gap</span><span class="gap-val">PA turnaround is the most consistently reported metric (BMC 2 days; Signature 1.4 business days; Children's National 1.2 days or less from up to 42; OU Health less than 1.8 days versus a 17-day reference). It is presented as an operational statistic, not connected to time-to-first-fill, treatment initiation rate, or avoidable utilization.</span></div>
+        <div class="gap-row"><span class="gap-key">Proposed work</span><span class="gap-val">Link PA turnaround to a patient-level time-to-therapy endpoint and, where feasible, to treatment-initiation and early-discontinuation rates; frame faster initiation as access and quality for the system's own patients.</span></div>
+        <div class="gap-row"><span class="gap-key">Design</span><span class="gap-val">Retrospective cohort with time-to-event (time from prescription to first fill) analysis; optional pre/post around liaison embedding.</span></div>
+        <div class="gap-row"><span class="gap-key">Primary outcome domain</span><span class="gap-val">Patient access and time-to-therapy.</span></div>
+        <div class="gap-row gap-rec"><span class="gap-key">Decision and audience</span><span class="gap-val">Whether embedded liaisons justify their cost through faster, more reliable therapy starts; ambulatory operations, service-line chiefs, and quality leaders.</span></div>
+      </li>
+
+      <li class="gap">
+        <div class="gap-row"><span class="gap-key">3.3 <span class="gap-type gap-comm">Relevance</span></span><span class="gap-val"><b>Clinician burden and clinic capacity</b></span></div>
+        <div class="gap-row"><span class="gap-key">Gap</span><span class="gap-val">Burden reduction is the most repeated qualitative claim and the least quantified (see 2.6).</span></div>
+        <div class="gap-row"><span class="gap-key">Proposed work</span><span class="gap-val">A quantified clinician-burden and clinic-capacity study (PA tasks and appeals absorbed, clinician/nurse minutes returned, recovered visit capacity).</span></div>
+        <div class="gap-row"><span class="gap-key">Design</span><span class="gap-val">Time-and-motion or task-volume study with a pre/post or embedded-versus-non-embedded clinic comparison.</span></div>
+        <div class="gap-row"><span class="gap-key">Primary outcome domain</span><span class="gap-val">Clinician administrative burden and clinic capacity.</span></div>
+        <div class="gap-row gap-rec"><span class="gap-key">Decision and audience</span><span class="gap-val">Staffing and full-time equivalent (FTE) justification, clinician retention; ambulatory operations, service-line chiefs, pharmacy leadership.</span></div>
+      </li>
+
+      <li class="gap">
+        <div class="gap-row"><span class="gap-key">3.4 <span class="gap-type gap-comm">Relevance</span></span><span class="gap-val"><b>Cell and gene therapy operating-model readiness</b></span></div>
+        <div class="gap-row"><span class="gap-key">Gap</span><span class="gap-val">The Children's National case describes a cell and gene therapy operating model (payer negotiation, legal and risk management, procurement pathway, revenue-integrity coordination, funds-flow planning, and execution of a ZYNTEGLO treatment for transfusion-dependent beta-thalassemia) but presents it as a narrative, with no readiness framework, no time-to-treat or cost-recovery metrics, and a single patient.</span></div>
+        <div class="gap-row"><span class="gap-key">Proposed work</span><span class="gap-val">A structured cell and gene therapy readiness and operating-model evidence study: a documented framework (decision points, stakeholders, funds-flow scenarios) plus measured outcomes per case (time from referral to administration, payer-coverage outcome, institutional financial exposure and recovery).</span></div>
+        <div class="gap-row"><span class="gap-key">Design</span><span class="gap-val">Multiple-case study series with a standardized data-capture template across cases as volume accrues.</span></div>
+        <div class="gap-row"><span class="gap-key">Primary outcome domain</span><span class="gap-val">Operating-model readiness, access to one-time high-cost therapies, and institutional financial integrity.</span></div>
+        <div class="gap-row gap-rec"><span class="gap-key">Decision and audience</span><span class="gap-val">Whether the system can safely take on cell and gene therapy in-house; C-suite, pharmacy leadership, system finance, and pediatric or specialty service-line chiefs. This is the most differentiated content in the portfolio and has no equivalent among the comparison prospects.</span></div>
+      </li>
+
+      <li class="gap">
+        <div class="gap-row"><span class="gap-key">3.5 <span class="gap-type gap-comm">Relevance</span></span><span class="gap-val"><b>Patient-reported outcomes research is already underway at OU Health and is not yet used</b></span></div>
+        <div class="gap-row"><span class="gap-key">Gap</span><span class="gap-val">The OU Health case study states the program is "currently piloting patient-reported outcomes research (data collection and reporting)" in HIV, HCV, rheumatoid arthritis, migraine, and multiple sclerosis, and the fertility article states OU Health's stated next step is "to research whether these initiatives reduce overall healthcare spending by improving patient outcomes." This is an active research collaboration that is not yet structured or published.</span></div>
+        <div class="gap-row"><span class="gap-key">Proposed work</span><span class="gap-val">Co-design the PRO study protocol (instrument selection, sampling, analysis plan) and the linked utilization/total-cost-of-care analysis the system has already said it wants, converting an internal pilot into a defensible multi-condition outcomes study.</span></div>
+        <div class="gap-row"><span class="gap-key">Design</span><span class="gap-val">Prospective PRO cohort with a linked retrospective utilization and total-cost-of-care-to-the-system analysis.</span></div>
+        <div class="gap-row"><span class="gap-key">Primary outcome domain</span><span class="gap-val">Patient-reported outcomes plus total cost of care to the system and avoidable utilization.</span></div>
+        <div class="gap-row gap-rec"><span class="gap-key">Decision and audience</span><span class="gap-val">Whether the embedded model improves outcomes and lowers system spend; quality leaders, system finance, and pharmacy leadership. This is the single most credible initial engagement because the partner has already committed to the question.</span></div>
+      </li>
+
+      <li class="gap">
+        <div class="gap-row"><span class="gap-key">3.6 <span class="gap-type gap-comm">Relevance</span></span><span class="gap-val"><b>Quality and accreditation framed as access and care quality, not payer economics</b></span></div>
+        <div class="gap-row"><span class="gap-key">Gap</span><span class="gap-val">ACHC and URAC accreditation (Children's National February and June 2025; Signature June 2024) and the HCAHPS-tracking statement (OU Health) are presented as gateways to payer and limited-distribution-drug access. For a health-system audience the more relevant framing is internal quality, accreditation readiness, and the patient-experience contribution of the embedded team.</span></div>
+        <div class="gap-row"><span class="gap-key">Proposed work</span><span class="gap-val">Document the accreditation pathway as a quality-infrastructure case and, separately, quantify the embedded pharmacy team's measured contribution to HCAHPS and patient-experience items (building on OU Health's existing dashboard).</span></div>
+        <div class="gap-row"><span class="gap-key">Design</span><span class="gap-val">Process case study plus a pre/post or correlational HCAHPS analysis.</span></div>
+        <div class="gap-row"><span class="gap-key">Primary outcome domain</span><span class="gap-val">Quality, accreditation readiness, and patient experience.</span></div>
+        <div class="gap-row gap-rec"><span class="gap-key">Decision and audience</span><span class="gap-val">Quality and accreditation leaders, ambulatory operations.</span></div>
+      </li>
+
+      <li class="gap">
+        <div class="gap-row"><span class="gap-key">3.7 <span class="gap-type gap-comm">Relevance</span></span><span class="gap-val"><b>Equity-stratified outcomes for safety-net populations</b></span></div>
+        <div class="gap-row"><span class="gap-key">Gap</span><span class="gap-val">see 2.7; equity is asserted system-wide but never stratified.</span></div>
+        <div class="gap-row"><span class="gap-key">Proposed work</span><span class="gap-val">An equity-stratified analysis of access, affordability, patient-assistance, and adherence outcomes.</span></div>
+        <div class="gap-row"><span class="gap-key">Design</span><span class="gap-val">Retrospective cohort with stratification by payer, language, and geography.</span></div>
+        <div class="gap-row"><span class="gap-key">Primary outcome domain</span><span class="gap-val">Equity in access, affordability, and adherence for the system's population.</span></div>
+        <div class="gap-row gap-rec"><span class="gap-key">Decision and audience</span><span class="gap-val">Mission/community-benefit leaders, quality leaders, C-suite.</span></div>
+      </li>
+
+    </ul>
+  </section>
+
+  <hr class="sep" />
+
+  <!-- ============================================================ -->
+  <!-- SECTION 4                                                     -->
+  <!-- ============================================================ -->
+  <section class="step" id="c4">
+    <div class="step-head"><span class="badge">4</span><div>
+      <p class="step-eyebrow">Priority engagements</p>
+      <h2>Top priority engagements</h2>
+    </div></div>
+    <p class="explain">Ranked by value combined with feasibility and credibility. Each builds on a specific existing asset.</p>
+
+    <ul class="signals">
+
+      <li class="signal">
+        <span class="signal-head"><a class="ref-abs" href="#c4">Priority 1</a><span class="tag tier-direct">recommended starting engagement</span></span>
+        <span class="signal-body">
+          <b>Case-study-to-evidence conversion program (recommended starting engagement)</b>
+          <div class="gap-row" style="margin-top:.5rem"><span class="gap-key">Research question</span><span class="gap-val">Can each existing executive case study be re-expressed as a structured outcomes study with denominators, baseline periods, comparator logic, and stated methods, without losing executive readability?</span></div>
+          <div class="gap-row"><span class="gap-key">Design</span><span class="gap-val">A standardized evidence-brief template (problem, intervention, population and denominator, baseline, comparator, time horizon, attribution statement, clinical/operational/economic results, sensitivity) applied first to the BMC and Children's National cases, then across the portfolio.</span></div>
+          <div class="gap-row"><span class="gap-key">Primary outcome domain</span><span class="gap-val">Methodological quality across all domains.</span></div>
+          <div class="gap-row"><span class="gap-key">Audience</span><span class="gap-val">All health-system decision-maker audiences; the immediate value is to the sales and quality-review interaction.</span></div>
+          <div class="gap-row"><span class="gap-key">Builds on</span><span class="gap-val">All five case studies, beginning with the BMC IBD enrolled-versus-non-enrolled contrast (the one near-comparative result) and the Children's National financial and NPS data.</span></div>
+          <div class="gap-row"><span class="gap-key">Rationale for rank</span><span class="gap-val">Highest feasibility (uses existing data), lowest delivery risk, and it directly addresses the portfolio's single largest weakness. The small case-study base is the opportunity: converting four to five cases into structured evidence creates a reusable research foundation.</span></div>
+        </span>
+      </li>
+
+      <li class="signal">
+        <span class="signal-head"><a class="ref-abs" href="#c4">Priority 2</a><span class="tag tier-portfolio">named-partner study</span></span>
+        <span class="signal-body">
+          <b>Patient-reported outcomes and total-cost-of-care study at OU Health</b>
+          <div class="gap-row" style="margin-top:.5rem"><span class="gap-key">Research question</span><span class="gap-val">Does the embedded specialty pharmacy model improve patient-reported outcomes and reduce total cost of care to the system in HIV, HCV, rheumatoid arthritis, migraine, and multiple sclerosis?</span></div>
+          <div class="gap-row"><span class="gap-key">Design</span><span class="gap-val">Prospective PRO cohort linked to a retrospective utilization and total-cost-of-care analysis.</span></div>
+          <div class="gap-row"><span class="gap-key">Primary outcome domain</span><span class="gap-val">Patient-reported outcomes; total cost of care and avoidable utilization.</span></div>
+          <div class="gap-row"><span class="gap-key">Audience</span><span class="gap-val">Quality leaders, system finance, pharmacy leadership.</span></div>
+          <div class="gap-row"><span class="gap-key">Builds on</span><span class="gap-val">OU Health's stated active PRO pilot and its stated intent to research downstream spend.</span></div>
+          <div class="gap-row"><span class="gap-key">Rationale for rank</span><span class="gap-val">A named partner has already committed to this exact question, which makes it the most credible and most immediately actionable structured study in the portfolio.</span></div>
+        </span>
+      </li>
+
+      <li class="signal">
+        <span class="signal-head"><a class="ref-abs" href="#c4">Priority 3</a><span class="tag tier-portfolio">net-economic model</span></span>
+        <span class="signal-body">
+          <b>Net economic impact and build-versus-outsource model</b>
+          <div class="gap-row" style="margin-top:.5rem"><span class="gap-key">Research question</span><span class="gap-val">What is the net contribution to the system of an owned specialty pharmacy after full implementation, staffing, technology, inventory, and patient-assistance costs, and how sensitive is it to payer mix, capture rate, and 340B eligibility?</span></div>
+          <div class="gap-row"><span class="gap-key">Design</span><span class="gap-val">Deterministic model with probabilistic sensitivity analysis, parameterized from Signature's monthly contract-versus-onsite revenue/margin series and Children's National's build and staffing detail.</span></div>
+          <div class="gap-row"><span class="gap-key">Primary outcome domain</span><span class="gap-val">Total economic contribution to the system; prescription capture and retention.</span></div>
+          <div class="gap-row"><span class="gap-key">Audience</span><span class="gap-val">System finance, C-suite, pharmacy leadership.</span></div>
+          <div class="gap-row"><span class="gap-key">Builds on</span><span class="gap-val">Signature page 6 time series; Children's National financial and staffing pages; the generic +34%/+37%/+27% margin illustration, upgraded to a measured net model.</span></div>
+          <div class="gap-row"><span class="gap-key">Rationale for rank</span><span class="gap-val">Directly answers the build-versus-outsource decision that the case studies imply but never model; high value, moderate feasibility (requires partner cost data).</span></div>
+        </span>
+      </li>
+
+      <li class="signal">
+        <span class="signal-head"><a class="ref-abs" href="#c4">Priority 4</a><span class="tag tier-session">clinician-burden study</span></span>
+        <span class="signal-body">
+          <b>Quantified clinician-burden and clinic-capacity study</b>
+          <div class="gap-row" style="margin-top:.5rem"><span class="gap-key">Research question</span><span class="gap-val">How many prior-authorization tasks, appeals, and clinician/nurse hours does the embedded team absorb per clinic per month, and how much direct-care capacity does that return?</span></div>
+          <div class="gap-row"><span class="gap-key">Design</span><span class="gap-val">Time-and-motion or task-volume study with an embedded-versus-non-embedded or pre/post comparison.</span></div>
+          <div class="gap-row"><span class="gap-key">Primary outcome domain</span><span class="gap-val">Clinician administrative burden and clinic capacity.</span></div>
+          <div class="gap-row"><span class="gap-key">Audience</span><span class="gap-val">Ambulatory operations, service-line chiefs, pharmacy leadership.</span></div>
+          <div class="gap-row"><span class="gap-key">Builds on</span><span class="gap-val">The NPS of 100 and HCAHPS-dashboard claims at Children's National, Signature, and OU Health, and the Brooklyn providers' statements about PA relief.</span></div>
+          <div class="gap-row"><span class="gap-key">Rationale for rank</span><span class="gap-val">Converts the most-repeated, least-measured claim into a quantified staffing and retention argument; moderate feasibility.</span></div>
+        </span>
+      </li>
+
+      <li class="signal">
+        <span class="signal-head"><a class="ref-abs" href="#c4">Priority 5</a><span class="tag tier-landscape">most differentiated gap</span></span>
+        <span class="signal-body">
+          <b>Cell and gene therapy readiness evidence series</b>
+          <div class="gap-row" style="margin-top:.5rem"><span class="gap-key">Research question</span><span class="gap-val">What is a replicable operating-model and funds-flow framework for in-house cell and gene therapy, and what are the measured per-case outcomes (time-to-administration, coverage outcome, financial exposure and recovery)?</span></div>
+          <div class="gap-row"><span class="gap-key">Design</span><span class="gap-val">Multiple-case study series with a standardized data-capture template.</span></div>
+          <div class="gap-row"><span class="gap-key">Primary outcome domain</span><span class="gap-val">Operating-model readiness; access to one-time high-cost therapies; institutional financial integrity.</span></div>
+          <div class="gap-row"><span class="gap-key">Audience</span><span class="gap-val">C-suite, pharmacy leadership, system finance, pediatric and specialty service-line chiefs.</span></div>
+          <div class="gap-row"><span class="gap-key">Builds on</span><span class="gap-val">The Children's National cell and gene therapy section and the ZYNTEGLO execution.</span></div>
+          <div class="gap-row"><span class="gap-key">Rationale for rank</span><span class="gap-val">Most differentiated research gap; ranked fifth only because case volume is currently low, which is itself the reason to start a structured series now.</span></div>
+        </span>
+      </li>
+
+    </ul>
+  </section>
+
+  <hr class="sep" />
+
+  <!-- ============================================================ -->
+  <!-- SECTION 5                                                     -->
+  <!-- ============================================================ -->
+  <section class="step" id="c5">
+    <div class="step-head"><span class="badge">5</span><div>
+      <p class="step-eyebrow">Differentiation</p>
+      <h2>Differentiation note</h2>
+    </div></div>
+    <p class="explain">These opportunities are credible and specific and tailored for three reasons. First, every one is anchored to a specific named asset and a specific documented gap, not to generic HEOR offerings. For example, the BMC IBD 96%-versus-88% PDC contrast is the seed for a structured cohort; OU Health's already-running PRO pilot is the seed for a multi-condition outcomes study; and Signature's monthly revenue/margin chart is the input to a net-economic model. Second, the proposed designs are matched to the data Clearway already holds (retrospective cohorts, interrupted time series, time-and-motion, and case series). As a result, the work is feasible without new primary data collection in most cases. Third, all outcome domains are health-system-facing (total cost of care to the system, prescription capture and retention, clinic capacity, accreditation and quality, equity for the system's own population, and cell and gene therapy readiness). None is a payer, PBM, or manufacturer deliverable.</p>
+    <p class="explain">The strategic point is that Clearway currently has the least structured research of the four prospects under review. That is the opportunity, not a disqualifier. The portfolio is a small set of high-quality persuasion assets with no research foundation beneath them. The right first engagement is not to produce more case studies but to convert the existing ones into structured evidence and to stand up the one prospective study a partner (OU Health) has already asked for.</p>
+    <p class="resnote"><b>Positioning.</b> A case-study-to-evidence conversion program plus the OU Health PRO/total-cost study would give Clearway a defensible research foundation that its current case-study-only approach lacks, and would let its strongest assets withstand scrutiny from the quality and finance reviewers who sit inside the health systems it is selling to.</p>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- FOOTER                                                        -->
+  <!-- ============================================================ -->
+  <footer class="doc">
+    Clearway Health outcomes research opportunity brief &middot; prepared for internal HEOR business development &middot; prepared 2026-06-21.
+    <br /><br />
+    <b>Related briefs:</b>
+    <a href="shields-opportunity-brief.html">Shields Health Solutions</a> &middot;
+    <a href="cps-opportunity-brief.html">CPS Solutions</a> &middot;
+    <a href="vytlone-maxor-opportunity-brief.html">VytlOne / Maxor</a> &middot;
+    Clearway (current) &middot;
+    <a href="cross-org-synthesis.html">Cross-Organization Synthesis</a>
+  </footer>
+</div>
+<script>
+(function(){
+  var btn=document.getElementById('gloss-toggle');
+  var panel=document.getElementById('glossary');
+  if(!btn||!panel)return;
+  function setState(open){
+    document.body.classList.toggle('gloss-open',open);
+    panel.classList.toggle('is-open',open);
+    btn.setAttribute('aria-expanded',open?'true':'false');
+    panel.setAttribute('aria-hidden',open?'false':'true');
+  }
+  btn.addEventListener('click',function(){
+    setState(btn.getAttribute('aria-expanded')!=='true');
+  });
+  // Default to hidden on narrow screens so the report reads full-width.
+  if(window.matchMedia&&window.matchMedia('(max-width:1179px)').matches){
+    setState(false);
+  }
+})();
+</script>
+</body>
+</html>

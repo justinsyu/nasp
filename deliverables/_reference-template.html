@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Reference Template &middot; Component Gallery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Instrument+Sans:wght@400;500;600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --ink:#0d261a; --body:#252525; --muted:rgba(13,38,26,.62); --faint:rgba(13,38,26,.32);
+  --bg:#ffffff; --warm:#fbfaf9; --warm2:#f4f2f1; --accent:#2cc396; --accent-ink:#0c7a5c;
+  --black:#0b0b0b; --line:rgba(13,38,26,.12); --line-strong:rgba(13,38,26,.2);
+  --font-display:"Lora",Georgia,"Times New Roman",serif;
+  --font-body:"Instrument Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --font-ui:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--body);font-family:var(--font-body);
+  font-size:17px;line-height:1.6;letter-spacing:-.01em;-webkit-font-smoothing:antialiased;}
+.page{max-width:880px;margin:0 auto;padding:4rem 1.75rem 5rem;}
+.pill{display:inline-flex;align-items:center;gap:.5rem;padding:.4rem .85rem;
+  border:1px solid var(--line-strong);border-radius:999px;background:var(--warm);color:var(--ink);
+  font-family:var(--font-ui);font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;}
+.pill .dot{width:.5rem;height:.5rem;border-radius:50%;background:var(--accent);}
+h1{margin:1.4rem 0 0;font-family:var(--font-display);font-weight:500;
+  font-size:clamp(2.8rem,6vw,4rem);line-height:1.14;letter-spacing:-.04em;color:var(--ink);}
+h1 .soft{color:var(--faint);display:block;margin-top:.2rem;}
+.lead{margin:1.25rem 0 0;max-width:46rem;color:var(--muted);font-size:1.02rem;line-height:1.55;letter-spacing:-.012em;}
+.meta{margin:0;padding-top:1.25rem;border-top:1px solid var(--line);
+  font-family:var(--font-ui);font-size:.82rem;color:var(--muted);letter-spacing:0;}
+.meta b{color:var(--ink);font-weight:600;}
+.cover{display:flex;flex-direction:column;}
+.cover .pill{align-self:flex-start;}
+.cover-main{margin:2.5rem 0 0;}
+.result-label{font-family:var(--font-ui);font-size:.66rem;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted);margin:1.6rem 0 .55rem;}
+.metric-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.65rem;margin-top:1.5rem;}
+.metric-card{background:var(--warm);border:1px solid var(--line);border-radius:12px;padding:.85rem .9rem;font-family:var(--font-ui);}
+.metric-card span{display:block;color:var(--muted);font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;}
+.metric-card strong{display:block;margin-top:.2rem;color:var(--ink);font-size:1.45rem;line-height:1.05;font-weight:700;font-variant-numeric:tabular-nums;}
+.metric-card em{display:block;margin-top:.25rem;color:var(--muted);font-size:.72rem;font-style:normal;line-height:1.3;}
+.toc{margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:.4rem;}
+.toc a{font-family:var(--font-ui);font-size:.74rem;font-weight:500;color:var(--accent-ink);
+  background:var(--warm2);border:1px solid var(--line);padding:.28rem .65rem;border-radius:999px;text-decoration:none;}
+.toc a:hover{background:var(--accent);color:#fff;border-color:var(--accent);}
+.chart-block{margin-top:1.1rem;padding:1rem;background:var(--warm);border:1px solid var(--line);border-radius:12px;}
+.chart-head{display:flex;justify-content:space-between;gap:1rem;align-items:baseline;margin-bottom:.75rem;font-family:var(--font-ui);}
+.chart-head span{color:var(--muted);font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;}
+.chart-head strong{color:var(--ink);font-size:.84rem;font-weight:700;font-variant-numeric:tabular-nums;}
+.bar-chart{display:grid;gap:.5rem;}
+.bar-row{display:grid;grid-template-columns:minmax(8rem,1fr) minmax(0,2.2fr) 2.4rem;align-items:center;gap:.65rem;}
+.bar-label{color:var(--ink);font-family:var(--font-ui);font-size:.8rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.bar-track{height:.6rem;border-radius:999px;background:rgba(13,38,26,.08);overflow:hidden;}
+.bar-fill{display:block;height:100%;min-width:2px;border-radius:999px;background:var(--accent);}
+.bar-value{color:var(--accent-ink);font-family:var(--font-mono);font-size:.74rem;text-align:right;font-variant-numeric:tabular-nums;}
+.step{margin-top:3.25rem;}
+.step-head{display:grid;grid-template-columns:2.1rem minmax(0,1fr);column-gap:.9rem;row-gap:.7rem;align-items:center;}
+.step-head.no-badge{grid-template-columns:1fr;}
+.badge{width:2.1rem;height:2.1rem;border-radius:50%;background:var(--black);color:#fff;display:grid;place-items:center;
+  font-family:var(--font-ui);font-size:.95rem;font-weight:600;}
+.step-head>div{display:contents;}
+.step-eyebrow{font-family:var(--font-ui);font-size:.7rem;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--accent-ink);margin:0;grid-column:2;grid-row:1;align-self:center;}
+.step-head.no-badge .step-eyebrow{grid-column:1;}
+.step h2{grid-column:1/-1;grid-row:2;margin:0;font-family:var(--font-display);font-weight:500;
+  font-size:clamp(1.5rem,3.2vw,2rem);line-height:1.12;letter-spacing:-.02em;color:var(--ink);}
+.explain{margin:1rem 0 0;color:var(--body);font-size:1.02rem;}
+.field{margin:1.05rem 0 0;color:var(--body);font-size:1rem;}
+.field.match{color:var(--muted);font-size:.92rem;}
+.flabel{display:inline-block;font-family:var(--font-ui);font-size:.6rem;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--accent-ink);background:var(--warm2);border:1px solid var(--line);
+  padding:.12rem .45rem;border-radius:5px;margin-right:.5rem;vertical-align:middle;}
+.sources{margin:.9rem 0 0;color:var(--muted);font-size:.82rem;line-height:1.5;}
+.signals{list-style:none;margin:.4rem 0 0;padding:0;display:grid;gap:.55rem;}
+.signals .signal{background:var(--warm);border:1px solid var(--line);border-radius:12px;padding:.7rem .85rem;}
+.signal-head{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;margin-bottom:.3rem;}
+.signal-head a{font-family:var(--font-mono);font-size:.8rem;font-weight:500;color:var(--accent-ink);
+  text-decoration:none;border-bottom:1px solid rgba(12,122,92,.3);}
+.signal-body{display:block;color:var(--body);font-size:.94rem;line-height:1.5;}
+.tag{font-family:var(--font-ui);font-size:.62rem;font-weight:600;letter-spacing:.04em;
+  padding:.16rem .5rem;border-radius:999px;border:1px solid var(--line);text-transform:lowercase;}
+.tier-direct{background:var(--accent);color:#073a2c;border-color:var(--accent);}
+.tier-portfolio{background:rgba(44,195,150,.18);color:var(--accent-ink);}
+.tier-session{background:rgba(13,38,26,.08);color:var(--ink);}
+.tier-landscape{background:var(--warm2);color:var(--muted);}
+.insights{margin:.4rem 0 0;padding-left:1.1rem;display:grid;gap:.5rem;}
+.insights li{color:var(--body);font-size:.96rem;line-height:1.5;}
+ul.plain{margin:1rem 0 0;padding-left:1.1rem;display:grid;gap:.5rem;}
+ul.plain li{color:var(--body);font-size:1rem;line-height:1.5;}
+.resnote{margin:1.1rem 0 0;color:var(--muted);font-size:.9rem;line-height:1.5;
+  border-left:2px solid var(--line-strong);padding-left:.9rem;}
+.resnote b{color:var(--ink);font-weight:600;}
+code.mono{font-family:var(--font-mono);font-size:.86em;background:var(--warm2);padding:.05rem .32rem;border-radius:4px;color:var(--accent-ink);}
+a{color:var(--accent-ink);}
+.field a,.explain a,.sources a,.insights a,.cross-list a{text-decoration:none;border-bottom:1px solid rgba(12,122,92,.3);}
+hr.sep{border:0;border-top:1px solid var(--line);margin:3.25rem 0 0;}
+.closing{margin-top:3.5rem;padding:1.9rem;background:var(--ink);border-radius:16px;color:rgba(255,255,255,.86);}
+.closing h2{margin:.2rem 0 0;font-family:var(--font-display);font-weight:500;font-size:1.6rem;letter-spacing:-.02em;color:#fff;}
+.closing p{margin:.8rem 0 0;font-size:1rem;line-height:1.55;}
+.closing .step-eyebrow.light{color:#9bf3d3;position:static;}
+.closing a{color:#9bf3d3;}
+.cross-list{margin:.6rem 0 0;padding-left:1.1rem;display:grid;gap:.6rem;}
+.cross-list li{line-height:1.5;}
+footer.doc{margin-top:2.5rem;color:var(--muted);font-family:var(--font-ui);font-size:.8rem;line-height:1.5;}
+@media (max-width:680px){.metric-grid{grid-template-columns:repeat(2,1fr);}.bar-row{grid-template-columns:minmax(6rem,1fr) minmax(0,1.6fr) 2.2rem;}}
+
+/* ---------- prior-art gap structure ---------- */
+a.ref-abs{font-family:var(--font-mono);font-size:.92em;color:var(--accent-ink);
+  text-decoration:none;border-bottom:1px solid rgba(12,122,92,.35);}
+a.ref-src{color:var(--accent-ink);text-decoration:none;border-bottom:1px dotted rgba(12,122,92,.5);}
+.sub-head{margin:.9rem 0 .1rem;font-family:var(--font-ui);font-size:.72rem;font-weight:700;
+  letter-spacing:.01em;color:var(--ink);}
+.activity{list-style:none;margin:.4rem 0 .2rem;padding:0;display:grid;gap:.45rem;}
+.activity li{position:relative;padding-left:1rem;color:var(--muted);font-size:.86rem;line-height:1.5;}
+.activity li::before{content:"";position:absolute;left:.05rem;top:.6em;width:.32rem;height:.32rem;
+  border-radius:50%;background:var(--faint);}
+.activity li a{color:var(--accent-ink);}
+.gaps{list-style:none;margin:.4rem 0 0;padding:0;display:grid;gap:.7rem;}
+.gap{background:var(--warm);border:1px solid var(--line);border-radius:12px;
+  padding:.8rem .9rem;display:grid;gap:.45rem;}
+.gap-plain{color:var(--body);font-size:.92rem;line-height:1.5;}
+.gap-row{display:grid;grid-template-columns:7.5rem minmax(0,1fr);gap:.7rem;align-items:start;}
+.gap-key{font-family:var(--font-ui);font-size:.62rem;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--accent-ink);padding-top:.12rem;line-height:1.3;}
+.gap-val{color:var(--body);font-size:.9rem;line-height:1.5;}
+.gap-delta{border-top:1px dashed var(--line);padding-top:.5rem;}
+.gap-rec{border-top:1px dashed var(--line);padding-top:.5rem;}
+.gap-rec .gap-val{color:var(--ink);}
+.gap-type{display:inline-block;margin-top:.25rem;font-family:var(--font-ui);font-size:.56rem;
+  font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:.08rem .4rem;border-radius:999px;}
+.gap-evidence{background:rgba(44,195,150,.18);color:var(--accent-ink);}
+.gap-comm{background:rgba(13,38,26,.08);color:var(--ink);}
+.uc-tag{display:inline-block;font-family:var(--font-ui);font-size:.6rem;font-weight:700;
+  letter-spacing:.04em;text-transform:uppercase;color:#ffffff;background:var(--accent-ink);
+  padding:.1rem .45rem;border-radius:999px;margin-right:.35rem;}
+@media (max-width:680px){.gap-row{grid-template-columns:1fr;gap:.15rem;}}
+
+/* ---------- abbreviations glossary panel ---------- */
+.gloss-toggle{position:fixed;top:1rem;right:1rem;z-index:60;display:inline-flex;align-items:center;
+  gap:.45rem;padding:.5rem .85rem;border:1px solid var(--line-strong);border-radius:999px;
+  background:var(--ink);color:#fff;font-family:var(--font-ui);font-size:.72rem;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;cursor:pointer;box-shadow:0 2px 10px rgba(13,38,26,.18);}
+.gloss-toggle:hover{background:var(--accent-ink);}
+.gloss-toggle .gicon{width:.55rem;height:.55rem;border-radius:50%;background:var(--accent);}
+.gloss-toggle .gt-hide{display:none;}
+.gloss-toggle[aria-expanded="true"] .gt-show{display:none;}
+.gloss-toggle[aria-expanded="true"] .gt-hide{display:inline;}
+.glossary{position:fixed;top:0;right:0;z-index:55;width:min(360px,86vw);height:100vh;
+  background:var(--warm);border-left:1px solid var(--line-strong);
+  box-shadow:-8px 0 28px rgba(13,38,26,.10);overflow-y:auto;overscroll-behavior:contain;
+  transform:translateX(100%);transition:transform .28s ease;will-change:transform;}
+.glossary.is-open{transform:translateX(0);}
+.gloss-inner{padding:4.25rem 1.4rem 2.5rem;}
+.gloss-head{margin-bottom:1.2rem;}
+.gloss-eyebrow{font-family:var(--font-ui);font-size:.66rem;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--accent-ink);}
+.gloss-title{margin:.25rem 0 0;font-family:var(--font-display);font-weight:500;font-size:1.5rem;
+  letter-spacing:-.02em;color:var(--ink);}
+.gloss-intro{margin:.6rem 0 0;color:var(--muted);font-size:.82rem;line-height:1.5;}
+.gloss-count{display:inline-block;margin-top:.35rem;font-family:var(--font-mono);font-size:.72rem;
+  color:var(--accent-ink);background:var(--warm2);border:1px solid var(--line);
+  padding:.1rem .45rem;border-radius:999px;}
+.gloss-list{margin:0;}
+.gloss-row{display:grid;grid-template-columns:1fr;gap:.05rem;padding:.4rem 0;border-bottom:1px solid var(--line);}
+.gloss-row:last-child{border-bottom:0;}
+.gloss-term{margin:0;font-family:var(--font-mono);font-size:.82rem;font-weight:500;color:var(--accent-ink);}
+.gloss-def{margin:.1rem 0 0;color:var(--body);font-size:.84rem;line-height:1.45;}
+/* Reserve room for the panel on wide screens so it never overlaps text. */
+@media (min-width:1180px){
+  body.gloss-open .page{margin-left:auto;margin-right:calc(min(360px,86vw) + 2.5rem);transition:margin-right .28s ease;}
+}
+@media (max-width:1179px){
+  /* On narrower screens the panel overlays; page stays readable when hidden. */
+  .glossary{box-shadow:-10px 0 34px rgba(13,38,26,.22);}
+}
+@media (prefers-reduced-motion:reduce){
+  .glossary,.gloss-toggle,body.gloss-open .page{transition:none;}
+}
+</style>
+</head>
+<body class="gloss-open">
+
+<!-- ============================================================ -->
+<!-- GLOSSARY TOGGLE BUTTON (fixed, top-right). Pairs with the     -->
+<!-- glossary <aside> below and the <script> at the end.           -->
+<!-- ============================================================ -->
+<button id="gloss-toggle" class="gloss-toggle" type="button"
+        aria-expanded="true" aria-controls="glossary">
+  <span class="gicon"></span><span class="gt-show">Glossary</span><span class="gt-hide">Hide glossary</span>
+</button>
+
+<!-- ============================================================ -->
+<!-- GLOSSARY PANEL (definition-list / glossary component).        -->
+<!-- Each entry is a .gloss-row wrapping <dt class="gloss-term">   -->
+<!-- and <dd class="gloss-def">. Optional .gloss-count chip.       -->
+<!-- ============================================================ -->
+<aside id="glossary" class="glossary is-open" aria-label="Abbreviations glossary" aria-hidden="false">
+  <div class="gloss-inner">
+    <div class="gloss-head">
+      <span class="gloss-eyebrow">Glossary</span>
+      <h2 class="gloss-title">Abbreviations</h2>
+      <p class="gloss-intro">Abbreviations used across this report, listed alphabetically. <span class="gloss-count">3 terms</span></p>
+    </div>
+    <dl class="gloss-list">
+      <div class="gloss-row"><dt class="gloss-term">ADC</dt><dd class="gloss-def">antibody-drug conjugate</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">AE</dt><dd class="gloss-def">adverse event</dd></div>
+      <div class="gloss-row"><dt class="gloss-term">QoL</dt><dd class="gloss-def">quality of life</dd></div>
+    </dl>
+  </div>
+</aside>
+
+<div class="page">
+
+  <!-- ============================================================ -->
+  <!-- HERO / COVER. header.cover holds a .pill eyebrow, .cover-main -->
+  <!-- with h1 (+ .soft second line), .lead intro paragraph, a       -->
+  <!-- .result-label label, a .metric-grid stat strip, another label -->
+  <!-- and a .toc nav, then a .meta byline row.                      -->
+  <!-- ============================================================ -->
+  <header class="cover">
+    <span class="pill"><span class="dot"></span>BRAND &middot; section label</span>
+    <div class="cover-main">
+      <h1>Page title goes here<span class="soft">Secondary subtitle line</span></h1>
+      <p class="lead">One-paragraph lead/standfirst that summarizes the document scope and method in neutral, quantitative language. Keep it to roughly two or three sentences.</p>
+
+      <!-- SUMMARY STAT STRIP (KPI cards / number callouts) -->
+      <p class="result-label">Analysis base</p>
+      <div class="metric-grid">
+        <div class="metric-card"><span>Items profiled</span><strong>10</strong><em>Short qualifier</em></div>
+        <div class="metric-card"><span>Records analyzed</span><strong>775</strong><em>Across 23 tracks</em></div>
+        <div class="metric-card"><span>Items cited</span><strong>62</strong><em>Verified against source</em></div>
+        <div class="metric-card"><span>Direct matches</span><strong>1</strong><em>With qualifier</em></div>
+      </div>
+
+      <!-- IN-PAGE NAV / TABLE OF CONTENTS (pill links) -->
+      <p class="result-label">Sections</p>
+      <nav class="toc"><a href="#c1">Nav Item One</a><a href="#c2">Nav Item Two</a><a href="#c3">Nav Item Three</a></nav>
+    </div>
+    <p class="meta"><b>Prepared:</b> 2026-06-21 &nbsp;|&nbsp; <b>Source:</b> Source name (<a href="#" target="_blank" rel="noopener">DOI / link</a>) &nbsp;|&nbsp; <b>Method:</b> short method statement</p>
+  </header>
+
+  <!-- ============================================================ -->
+  <!-- SECTION (no badge) + DATA VISUALIZATION (bar chart).          -->
+  <!-- section.step with .step-head.no-badge: the .step-eyebrow      -->
+  <!-- accent label sits above the <h2>. NOTE: the accent on h2 is   -->
+  <!-- the colored .step-eyebrow above it (not a dot ON the h2).     -->
+  <!-- The "stat callout" data viz is a .chart-block > .bar-chart.   -->
+  <!-- There is NO <table> component in the source; bar-chart is the -->
+  <!-- tabular/data display.                                         -->
+  <!-- ============================================================ -->
+  <section class="step">
+    <div class="step-head no-badge"><div>
+      <p class="step-eyebrow">Overview</p>
+      <h2>Section heading with accent eyebrow</h2>
+    </div></div>
+    <p class="explain">Intro/explanatory paragraph for the section. Uses the larger .explain body size.</p>
+    <div class="chart-block">
+      <div class="chart-head"><span>Series label (uppercased)</span><strong>62 total across the set</strong></div>
+      <div class="bar-chart">
+        <div class="bar-row"><span class="bar-label">Category A</span><span class="bar-track"><span class="bar-fill" style="width:33.3%"></span></span><span class="bar-value">4</span></div>
+        <div class="bar-row"><span class="bar-label">Category B</span><span class="bar-track"><span class="bar-fill" style="width:75.0%"></span></span><span class="bar-value">9</span></div>
+        <div class="bar-row"><span class="bar-label">Category C</span><span class="bar-track"><span class="bar-fill" style="width:100.0%"></span></span><span class="bar-value">12</span></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="sep" />
+
+  <!-- ============================================================ -->
+  <!-- NUMBERED MAJOR SECTION (with badge) + several sub-components: -->
+  <!--   - section.step id="c1" with .step-head + .badge number      -->
+  <!--   - .field rows with a .flabel inline label (key/value prose) -->
+  <!--   - intro list: ul.plain  (plain bulleted list)               -->
+  <!--   - .result-label divider label                               -->
+  <!--   - ul.signals: "insight cards" (each li.signal = a card)     -->
+  <!--   - .sub-head + ul.activity: dotted source/activity list      -->
+  <!--   - ul.gaps: structured gap/insight cards (.gap-row layout)   -->
+  <!--   - .resnote: callout / note panel (left-border)              -->
+  <!-- ============================================================ -->
+  <section class="step" id="c1">
+    <div class="step-head"><span class="badge">1</span><div>
+      <p class="step-eyebrow">Eyebrow / category line</p>
+      <h2>Major Section Title</h2>
+    </div></div>
+
+    <!-- FIELD ROWS (labeled key/value prose via .flabel) -->
+    <p class="field"><span class="flabel">Participation</span> Body text describing this field. The .flabel is a small uppercase chip pinned inline at the start.</p>
+    <p class="field"><span class="flabel">Portfolio &amp; strategy</span> A second field row. Use <code class="mono">inline-code.md</code> via <code class="mono">code.mono</code> for file names or identifiers.</p>
+
+    <!-- PLAIN BULLETED LIST (ul.plain) -->
+    <p class="explain">Lead-in sentence for a plain list:</p>
+    <ul class="plain">
+      <li>First list item in plain body style.</li>
+      <li>Second item referencing <code class="mono">a-file.json</code>.</li>
+      <li>Third item.</li>
+    </ul>
+
+    <!-- INSIGHT CARDS (ul.signals -> li.signal). Each card has a     -->
+    <!-- .signal-head (mono ref link + a colored .tag tier chip) and  -->
+    <!-- a .signal-body. Tier classes: tier-direct / tier-portfolio / -->
+    <!-- tier-session / tier-landscape.                               -->
+    <div class="result-label">Strongest signals</div>
+    <ul class="signals">
+      <li class="signal"><span class="signal-head"><a class="ref-abs" href="#" target="_blank" rel="noopener">REF-004</a><span class="tag tier-portfolio">portfolio-aligned</span></span><span class="signal-body">Body of the insight card describing the finding, with verified figures (for example 99 of 127 responses, 77.9%).</span></li>
+      <li class="signal"><span class="signal-head"><a class="ref-abs" href="#" target="_blank" rel="noopener">REF-006</a><span class="tag tier-landscape">landscape</span></span><span class="signal-body">A second insight card. Tier tags available: tier-direct, tier-portfolio, tier-session, tier-landscape.</span></li>
+    </ul>
+
+    <!-- DOTTED SOURCE / ACTIVITY LIST (.sub-head + ul.activity) -->
+    <p class="sub-head">Evidence and sources:</p>
+    <ul class="activity">
+      <li><a class="ref-src" href="#" target="_blank" rel="noopener">Source label, registry</a> (accessed 2026-06-21): description of the source and what it establishes.</li>
+      <li><a class="ref-src" href="#" target="_blank" rel="noopener">Second source</a>: another supporting reference rendered in muted text with a dot bullet.</li>
+    </ul>
+
+    <!-- STRUCTURED GAP / INSIGHT CARDS (ul.gaps -> li.gap).          -->
+    <!-- Each .gap is a card of .gap-row(s): a .gap-key label column  -->
+    <!-- and a .gap-val column. Variant rows: .gap-delta (dashed top  -->
+    <!-- divider) and .gap-rec (recommendation). A .gap-type chip     -->
+    <!-- (.gap-evidence / .gap-comm) classifies the gap; a .uc-tag    -->
+    <!-- chip prefixes the recommendation.                            -->
+    <div class="result-label">Gaps and recommendations</div>
+    <ul class="gaps">
+      <li class="gap">
+        <div class="gap-row"><span class="gap-key">Signal</span><span class="gap-val">What the field signal shows, with a citation (<a class="ref-abs" href="#" target="_blank" rel="noopener">REF-004</a>).</span></div>
+        <div class="gap-row"><span class="gap-key">Current position</span><span class="gap-val">What currently exists, with sources (<a class="ref-src" href="#" target="_blank" rel="noopener">Author et al., 2022</a>).</span></div>
+        <div class="gap-row gap-delta"><span class="gap-key">Gap <span class="gap-type gap-comm">communication</span></span><span class="gap-val">The specific gap between evidence and field practice.</span></div>
+        <div class="gap-row gap-rec"><span class="gap-key">Recommendation</span><span class="gap-val"><span class="uc-tag">medical education</span> The recommended action, written as a concrete next step.</span></div>
+      </li>
+    </ul>
+
+    <!-- CALLOUT / NOTE PANEL (.resnote, left-border accent) -->
+    <p class="resnote"><b>Confidence and caveats.</b> A short note panel for caveats, confidence levels, or methodological qualifiers. The leading bold runs via .resnote b.</p>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- CLOSING / DARK CALLOUT PANEL (section.closing, ink bg).       -->
+  <!-- Holds .step-eyebrow.light, an <h2>, a <p>, and a takeaways     -->
+  <!-- list ul.cross-list (bulleted, each <li> may lead with         -->
+  <!-- <strong>label:</strong>).                                      -->
+  <!-- ============================================================ -->
+  <section class="closing">
+    <p class="step-eyebrow light">Closing</p>
+    <h2>Cross-Cutting Takeaways</h2>
+    <p>An opening sentence framing the synthesis or cross-cutting opportunities.</p>
+    <ul class="cross-list">
+      <li><strong>First takeaway:</strong> a synthesized point spanning multiple sections, with citations (<a class="ref-abs" href="#" target="_blank" rel="noopener">REF-006</a>).</li>
+      <li><strong>Second takeaway:</strong> another consolidated recommendation.</li>
+    </ul>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- FOOTER (footer.doc). Muted UI-font byline.                    -->
+  <!-- ============================================================ -->
+  <footer class="doc">
+    BRAND report &middot; source DOI / reference &middot; prepared 2026-06-21 &middot; one-line provenance / disclaimer statement.
+  </footer>
+</div>
+<script>
+(function(){
+  var btn=document.getElementById('gloss-toggle');
+  var panel=document.getElementById('glossary');
+  if(!btn||!panel)return;
+  function setState(open){
+    document.body.classList.toggle('gloss-open',open);
+    panel.classList.toggle('is-open',open);
+    btn.setAttribute('aria-expanded',open?'true':'false');
+    panel.setAttribute('aria-hidden',open?'false':'true');
+  }
+  btn.addEventListener('click',function(){
+    setState(btn.getAttribute('aria-expanded')!=='true');
+  });
+  // Default to hidden on narrow screens so the report reads full-width.
+  if(window.matchMedia&&window.matchMedia('(max-width:1179px)').matches){
+    setState(false);
+  }
+})();
+</script>
+</body>
+</html>
