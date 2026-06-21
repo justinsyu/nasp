@@ -1,4 +1,5 @@
 const DATA_URL = "assets/data/presentations-index.json?v=nasp-2";
+const METHODS_DATA_URL = "assets/data/methods-analysis.json?v=nasp-3";
 const PAGE_SIZE = 120;
 
 const colors = {
@@ -32,6 +33,7 @@ const termGroups = {
 
 const app = {
   records: [],
+  methodRecords: [],
   charts: [],
   selectedRecords: [],
   rendered: 0,
@@ -290,6 +292,26 @@ function renderThemeCards() {
   });
 }
 
+function renderOrganizationBreakdown() {
+  const sourceRecords = app.methodRecords.length ? app.methodRecords : app.records;
+  const groups = groupRecords(sourceRecords, (record) => record.organization?.name || "Not parsed");
+  const notParsed = groups.find((group) => group.label === "Not parsed");
+  const parsedGroups = groups.filter((group) => group.label !== "Not parsed").slice(0, 15);
+  renderBarList("organizationBars", parsedGroups, "Organization");
+  const note = document.querySelector("#organization-note");
+  if (note) {
+    if (!app.methodRecords.length) {
+      note.textContent = "Organization data unavailable";
+      return;
+    }
+    const parsedCount = groups
+      .filter((group) => group.label !== "Not parsed")
+      .reduce((sum, group) => sum + group.records.length, 0);
+    const unparsedText = notParsed ? `${numberFormat(notParsed.records.length)} not parsed` : "all parsed";
+    note.textContent = `${numberFormat(parsedCount)} parsed posters; ${unparsedText}; 2 abstract-book records excluded`;
+  }
+}
+
 function wireDialog() {
   document.querySelector(".dialog-close").addEventListener("click", () => document.querySelector("#records-dialog").close());
   document.querySelector("#records-dialog").addEventListener("click", (event) => {
@@ -314,6 +336,7 @@ function renderAll() {
   renderChart("therapyChart", "polarArea", groupRecords(app.records.flatMap((record) => (record.therapies || []).map((therapy) => ({ ...record, _therapy: therapy }))), (record) => record._therapy).slice(0, 8), "Therapy area");
   renderBarList("accessBars", countData([["Access / authorization", termGroups.access], ["Adherence / persistence", termGroups.adherence], ["Patient experience", termGroups.patient], ["Operations / quality", termGroups.operations], ["Clinical outcomes", termGroups.clinical], ["Real-world evidence", termGroups.rwe], ["Workforce / education", termGroups.workforce], ["Digital / automation", termGroups.digital]]), "Signal");
   renderChart("modelChart", "doughnut", countData([["Oncology", termGroups.oncology], ["Inflammatory & autoimmune", termGroups.inflammatory], ["Infectious disease", termGroups.infectious], ["Neurology", termGroups.neurology], ["Cardiometabolic", termGroups.cardiometabolic], ["Rare disease", termGroups.rare]]), "Treatment signal");
+  renderOrganizationBreakdown();
   renderThemeCards();
 }
 
@@ -329,6 +352,15 @@ async function start() {
   if (!response.ok) throw new Error(`Failed to load ${DATA_URL}`);
   const data = await response.json();
   app.records = data.presentations || [];
+  try {
+    const methodsResponse = await fetch(METHODS_DATA_URL);
+    if (methodsResponse.ok) {
+      const methodsData = await methodsResponse.json();
+      app.methodRecords = methodsData.records || [];
+    }
+  } catch (_error) {
+    app.methodRecords = [];
+  }
   renderAll();
   requestAnimationFrame(markLoaded);
 }

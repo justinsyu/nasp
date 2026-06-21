@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/site.css?v=nasp-5">
-    <link rel="stylesheet" href="assets/css/intelligence.css?v=nasp-3">
+    <link rel="stylesheet" href="assets/css/intelligence.css?v=nasp-4">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
     <script src="assets/js/intelligence.js?v=nasp-4" defer></script>
   </head>
@@ -95,6 +95,17 @@
             <div class="chart-wrap"><canvas id="modelChart"></canvas></div>
           </article>
         </div>
+      </section>
+
+      <section class="section-block organization-section">
+        <h2><span class="dot green"></span>Sponsoring Organization Breakdown</h2>
+        <article class="card">
+          <div class="panel-heading">
+            <h3>Most frequent parsed organizations</h3>
+            <span class="hint" id="organization-note"></span>
+          </div>
+          <div class="bar-list organization-bars" id="organizationBars"></div>
+        </article>
       </section>
 
       <section class="section-block">

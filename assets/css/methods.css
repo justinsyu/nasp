@@ -157,9 +157,19 @@
 
 .outcomes-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.65fr);
+  grid-template-columns: minmax(0, 1fr) minmax(31rem, 0.72fr);
   border-top: 1px solid var(--border-strong);
   border-bottom: 1px solid var(--border-strong);
+}
+
+.outcomes-grid .panel-heading {
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.outcomes-grid .panel-heading h3,
+.outcomes-grid .panel-heading .hint {
+  white-space: nowrap;
 }
 
 .method-note-grid article,
@@ -189,6 +199,134 @@
 
 .method-note-grid p {
   margin: 0.55rem 0 0;
+}
+
+.quality-rationale {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--border-strong);
+  border-bottom: 1px solid var(--border-strong);
+}
+
+.quality-rationale article {
+  min-width: 0;
+  padding: 1rem;
+  border-right: 1px solid var(--border-strong);
+  background: var(--surface);
+}
+
+.quality-rationale article:last-child {
+  border-right: 0;
+}
+
+.quality-rationale h3,
+.quality-study-card h3 {
+  margin: 0;
+  color: var(--blue);
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.quality-rationale p {
+  margin: 0.55rem 0 0;
+}
+
+.quality-study-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 21rem), 1fr));
+  gap: 0.8rem;
+  margin-top: 0.85rem;
+}
+
+.quality-study-card {
+  display: grid;
+  gap: 0.75rem;
+  align-content: start;
+  min-width: 0;
+  min-height: 100%;
+  padding: 0.95rem;
+  border: 1px solid var(--border-strong);
+  border-top: 3px solid var(--gold);
+  background: #ffffff;
+}
+
+.quality-study-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+}
+
+.quality-study-topline span,
+.quality-study-topline strong {
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.quality-study-topline span {
+  color: var(--muted);
+}
+
+.quality-study-topline strong {
+  flex: 0 0 auto;
+  padding: 0.18rem 0.4rem;
+  border: 1px solid rgba(233, 158, 37, 0.5);
+  background: var(--panel-gold);
+  color: #8a5600;
+}
+
+.quality-study-card h3 {
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0;
+  line-height: 1.28;
+  text-transform: none;
+}
+
+.quality-study-card p {
+  margin: 0;
+  color: var(--body-text);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.quality-study-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.quality-study-meta span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.5rem;
+  max-width: 100%;
+  padding: 0.16rem 0.42rem;
+  border: 1px solid rgba(36, 55, 112, 0.2);
+  border-radius: 2px;
+  background: var(--surface-blue);
+  color: var(--blue);
+  font-size: 0.7rem;
+  font-weight: 850;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.quality-study-card .source-links {
+  margin-top: 0.1rem;
+}
+
+.quality-study-card .button {
+  min-height: 2rem;
+  padding: 0.38rem 0.7rem;
+  font-size: 0.76rem;
 }
 
 .panel-heading {
@@ -537,6 +675,7 @@
 @media (max-width: 1000px) {
   .methods-summary,
   .method-note-grid,
+  .quality-rationale,
   .methods-grid,
   .outcomes-grid,
   .evidence-grid {
@@ -545,6 +684,7 @@
 
   .summary-tile,
   .method-note-grid article,
+  .quality-rationale article,
   .methods-grid .panel,
   .outcomes-grid .panel {
     border-right: 0;
