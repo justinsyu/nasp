@@ -177,11 +177,24 @@ function metadata(record) {
   ].filter(Boolean);
 }
 
+function posterDescriptor(record) {
+  return record.poster_code || record.pdf?.filename?.replace(/\.pdf$/i, "") || "Poster";
+}
+
+function posterThumbnail(record) {
+  const thumbnailPath = record.thumbnail_path;
+  if (!thumbnailPath) return `<span class="document-row-thumbnail-placeholder">No preview</span>`;
+  return `<img class="document-row-thumbnail" src="${escapeHtml(thumbnailPath)}" alt="" loading="lazy">`;
+}
+
 function renderRecord(record) {
   return `
     <li>
       <article class="document-row-link abstract-row">
-        <div class="document-row-chip">${escapeHtml(record.year)}<br>${escapeHtml(record.poster_code)}</div>
+        <figure class="document-row-chip">
+          ${posterThumbnail(record)}
+          <figcaption title="${escapeHtml(record.pdf?.filename || posterDescriptor(record))}">${escapeHtml(posterDescriptor(record))}</figcaption>
+        </figure>
         <div class="document-row-body">
           <h3 class="document-row-title">${escapeHtml(record.title || "Untitled NASP poster")}</h3>
           <p class="document-row-meta">${metadata(record).map((part) => `<span>${escapeHtml(part)}</span>`).join("")}</p>

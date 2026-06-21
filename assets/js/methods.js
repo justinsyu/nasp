@@ -1,4 +1,4 @@
-const METHODS_DATA_URL = "assets/data/methods-analysis.json?v=nasp-2";
+const METHODS_DATA_URL = "assets/data/methods-analysis.json?v=nasp-3";
 const INITIAL_LIMIT = 80;
 const LIMIT_STEP = 80;
 const palette = ["#243770", "#d12630", "#e99e25", "#187c8f", "#4d8a67", "#7561a8", "#b86b3d", "#68758d"];
@@ -215,12 +215,25 @@ function outcomesPreview(record) {
   return (record.outcomes || []).slice(0, 4).map((outcome) => `<span class="outcome-tag">${escapeHtml(outcome.label)}</span>`).join("");
 }
 
+function posterDescriptor(record) {
+  return record.poster_code || record.pdf?.filename?.replace(/\.pdf$/i, "") || "Poster";
+}
+
+function posterThumbnail(record) {
+  const thumbnailPath = record.thumbnail_path;
+  if (!thumbnailPath) return `<span class="record-thumbnail-placeholder">No preview</span>`;
+  return `<img class="record-thumbnail" src="${escapeHtml(thumbnailPath)}" alt="" loading="lazy">`;
+}
+
 function renderRecord(record) {
   const posterPdfUrl = record.pdf?.source_url || record.pdf?.local_path || "#";
   return `
     <li>
       <article class="method-record">
-        <div class="record-chip">${escapeHtml(record.year)}<br>${escapeHtml(record.poster_code)}</div>
+        <figure class="record-chip">
+          ${posterThumbnail(record)}
+          <figcaption title="${escapeHtml(record.pdf?.filename || posterDescriptor(record))}">${escapeHtml(posterDescriptor(record))}</figcaption>
+        </figure>
         <div>
           <button class="record-title-button" type="button" data-uid="${escapeHtml(record.uid)}">${escapeHtml(record.title || "Untitled NASP poster")}</button>
           <div class="record-meta">

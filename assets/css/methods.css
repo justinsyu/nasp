@@ -329,7 +329,7 @@
 
 .method-record {
   display: grid;
-  grid-template-columns: 9.5rem minmax(0, 1fr);
+  grid-template-columns: 12.5rem minmax(0, 1fr);
   gap: 1rem;
   padding: 1rem 0.25rem;
   border-bottom: 1px solid var(--border);
@@ -338,19 +338,46 @@
 .method-record:last-child { border-bottom: 0; }
 
 .record-chip {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 9.5rem;
-  min-height: 2.45rem;
-  padding: 0.34rem 0.5rem;
+  display: grid;
+  gap: 0.55rem;
+  align-content: start;
+  width: 12.5rem;
+  margin: 0;
+  padding: 0.55rem;
   border: 1px solid rgba(36, 55, 112, 0.25);
   border-radius: 4px;
   background: var(--surface-blue);
   color: var(--blue);
+}
+
+.record-thumbnail,
+.record-thumbnail-placeholder {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: 1px solid rgba(36, 55, 112, 0.16);
+  border-radius: 3px;
+  background: #ffffff;
+}
+
+.record-thumbnail {
+  object-fit: contain;
+}
+
+.record-thumbnail-placeholder {
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.record-chip figcaption {
   font-family: var(--font-display);
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   font-weight: 800;
+  line-height: 1.25;
   text-align: center;
   text-transform: uppercase;
   overflow-wrap: anywhere;
@@ -548,6 +575,7 @@
   .record-chip {
     width: auto;
     justify-self: start;
+    max-width: min(12.5rem, 100%);
   }
 }
 

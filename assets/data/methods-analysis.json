@@ -1083,6 +1083,7 @@
         "Cardiometabolic",
         "Renal"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/01_2019.jpg",
       "pdf": {
         "filename": "01_2019.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/01_2019.pdf",
@@ -1166,6 +1167,7 @@
         "Oncology",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/10_2019.jpg",
       "pdf": {
         "filename": "10_2019.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/10_2019.pdf",
@@ -1221,6 +1223,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/11_2019.jpg",
       "pdf": {
         "filename": "11_2019.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/11_2019.pdf",
@@ -1285,6 +1288,7 @@
         "Infectious Disease",
         "Renal"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/12_2019.jpg",
       "pdf": {
         "filename": "12_2019.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/12_2019.pdf",
@@ -1361,6 +1365,7 @@
         "Neurology",
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/13_2019.jpg",
       "pdf": {
         "filename": "13_2019.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/13_2019.pdf",
@@ -1438,6 +1443,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/14_2019.jpg",
       "pdf": {
         "filename": "14_2019.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/14_2019.pdf",
@@ -1502,6 +1508,7 @@
       "therapies": [
         "Unclassified"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/15_2019.jpg",
       "pdf": {
         "filename": "15_2019.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/15_2019.pdf",
@@ -1555,6 +1562,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/16_2019.jpg",
       "pdf": {
         "filename": "16_2019.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/16_2019.pdf",
@@ -1627,6 +1635,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/17_2019.jpg",
       "pdf": {
         "filename": "17_2019.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/17_2019.pdf",
@@ -1707,6 +1716,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/18_2019.jpg",
       "pdf": {
         "filename": "18_2019.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/18_2019.pdf",
@@ -1760,6 +1770,7 @@
         "Neurology",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/19_2019.jpg",
       "pdf": {
         "filename": "19_2019.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/19_2019.pdf",
@@ -1868,6 +1879,7 @@
         "Inflammatory & Autoimmune",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/2_2019.jpg",
       "pdf": {
         "filename": "2_2019.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/2_2019.pdf",
@@ -1938,6 +1950,7 @@
         "Oncology",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/21_2019.jpg",
       "pdf": {
         "filename": "21_2019.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/21_2019.pdf",
@@ -2013,6 +2026,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/22_2019.jpg",
       "pdf": {
         "filename": "22_2019.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/22_2019.pdf",
@@ -2080,6 +2094,7 @@
         "Neurology",
         "Renal"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/23_2019.jpg",
       "pdf": {
         "filename": "23_2019.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/23_2019.pdf",
@@ -2145,6 +2160,7 @@
         "Inflammatory & Autoimmune",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/24_2019.jpg",
       "pdf": {
         "filename": "24_2019.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/24_2019.pdf",
@@ -2247,6 +2263,7 @@
         "Inflammatory & Autoimmune",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/25_2019.jpg",
       "pdf": {
         "filename": "25_2019.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/25_2019.pdf",
@@ -2322,6 +2339,7 @@
         "Neurology",
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/26_2019.jpg",
       "pdf": {
         "filename": "26_2019.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/26_2019.pdf",
@@ -2413,6 +2431,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/27_2019.jpg",
       "pdf": {
         "filename": "27_2019.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/27_2019.pdf",
@@ -2480,6 +2499,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/28_2019.jpg",
       "pdf": {
         "filename": "28_2019.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/28_2019.pdf",
@@ -2550,6 +2570,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/29_2019.jpg",
       "pdf": {
         "filename": "29_2019.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/29_2019.pdf",
@@ -2629,6 +2650,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/3_2019.jpg",
       "pdf": {
         "filename": "3_2019.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/3_2019.pdf",
@@ -2706,6 +2728,7 @@
         "Neurology",
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/30_2019.jpg",
       "pdf": {
         "filename": "30_2019.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/30_2019.pdf",
@@ -2789,6 +2812,7 @@
         "Inflammatory & Autoimmune",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/31_2019.jpg",
       "pdf": {
         "filename": "31_2019.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/31_2019.pdf",
@@ -2846,6 +2870,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/32_2019.jpg",
       "pdf": {
         "filename": "32_2019.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/32_2019.pdf",
@@ -2945,6 +2970,7 @@
         "Rare Disease",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/33_2019.jpg",
       "pdf": {
         "filename": "33_2019.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/33_2019.pdf",
@@ -3022,6 +3048,7 @@
         "Oncology",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/34_2019.jpg",
       "pdf": {
         "filename": "34_2019.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/34_2019.pdf",
@@ -3080,6 +3107,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/35_2019.jpg",
       "pdf": {
         "filename": "35_2019.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/35_2019.pdf",
@@ -3152,6 +3180,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/36_2019.jpg",
       "pdf": {
         "filename": "36_2019.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/36_2019.pdf",
@@ -3279,6 +3308,7 @@
       "therapies": [
         "Renal"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/37_2019.jpg",
       "pdf": {
         "filename": "37_2019.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/37_2019.pdf",
@@ -3352,6 +3382,7 @@
         "Rare Disease",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/38_2019.jpg",
       "pdf": {
         "filename": "38_2019.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/38_2019.pdf",
@@ -3472,6 +3503,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/39_2019.jpg",
       "pdf": {
         "filename": "39_2019.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/39_2019.pdf",
@@ -3532,6 +3564,7 @@
       "therapies": [
         "Unclassified"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/4_2019.jpg",
       "pdf": {
         "filename": "4_2019.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/4_2019.pdf",
@@ -3595,6 +3628,7 @@
       "therapies": [
         "Oncology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/40_2019.jpg",
       "pdf": {
         "filename": "40_2019.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/40_2019.pdf",
@@ -3659,6 +3693,7 @@
         "Rare Disease",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/41_2019.jpg",
       "pdf": {
         "filename": "41_2019.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/41_2019.pdf",
@@ -3750,6 +3785,7 @@
         "Renal",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/42_2019.jpg",
       "pdf": {
         "filename": "42_2019.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/42_2019.pdf",
@@ -3811,6 +3847,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/43_2019.jpg",
       "pdf": {
         "filename": "43_2019.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/43_2019.pdf",
@@ -3887,6 +3924,7 @@
         "Oncology",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/44_2019.jpg",
       "pdf": {
         "filename": "44_2019.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/44_2019.pdf",
@@ -3990,6 +4028,7 @@
         "Infectious Disease",
         "Cardiometabolic"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/5_2019.jpg",
       "pdf": {
         "filename": "5_2019.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/5_2019.pdf",
@@ -4095,6 +4134,7 @@
         "Infectious Disease",
         "Renal"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/6_2019.jpg",
       "pdf": {
         "filename": "6_2019.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/6_2019.pdf",
@@ -4184,6 +4224,7 @@
         "Cardiometabolic",
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/7_2019.jpg",
       "pdf": {
         "filename": "7_2019.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/7_2019.pdf",
@@ -4265,6 +4306,7 @@
         "Rare Disease",
         "Renal"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/8_2019.jpg",
       "pdf": {
         "filename": "8_2019.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/8_2019.pdf",
@@ -4394,6 +4436,7 @@
         "Neurology",
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/9_2019.jpg",
       "pdf": {
         "filename": "9_2019.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/9_2019.pdf",
@@ -4478,6 +4521,7 @@
         "Cardiometabolic",
         "Renal"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/Poster-1-3_2020.jpg",
       "pdf": {
         "filename": "Poster-1-3_2020.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/Poster-1-3_2020.pdf",
@@ -4557,6 +4601,7 @@
         "Inflammatory & Autoimmune",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/Poster-11_2020.jpg",
       "pdf": {
         "filename": "Poster-11_2020.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/Poster-11_2020.pdf",
@@ -4625,6 +4670,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/Poster-12_2020.jpg",
       "pdf": {
         "filename": "Poster-12_2020.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/Poster-12_2020.pdf",
@@ -4718,6 +4764,7 @@
         "Inflammatory & Autoimmune",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/Poster-13_2020.jpg",
       "pdf": {
         "filename": "Poster-13_2020.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/Poster-13_2020.pdf",
@@ -4797,6 +4844,7 @@
         "Cardiometabolic",
         "Renal"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/Poster-14_2020.jpg",
       "pdf": {
         "filename": "Poster-14_2020.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/Poster-14_2020.pdf",
@@ -4898,6 +4946,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/Poster-15_2020.jpg",
       "pdf": {
         "filename": "Poster-15_2020.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/Poster-15_2020.pdf",
@@ -4952,6 +5001,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/Poster-16_2020.jpg",
       "pdf": {
         "filename": "Poster-16_2020.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/Poster-16_2020.pdf",
@@ -5047,6 +5097,7 @@
         "Infectious Disease",
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/Poster-17_2020.jpg",
       "pdf": {
         "filename": "Poster-17_2020.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/Poster-17_2020.pdf",
@@ -5125,6 +5176,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/Poster-18_2020.jpg",
       "pdf": {
         "filename": "Poster-18_2020.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/Poster-18_2020.pdf",
@@ -5202,6 +5254,7 @@
         "Oncology",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/Poster-19_2020.jpg",
       "pdf": {
         "filename": "Poster-19_2020.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/Poster-19_2020.pdf",
@@ -5282,6 +5335,7 @@
         "Infectious Disease",
         "Renal"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/Poster-2-1_2020.jpg",
       "pdf": {
         "filename": "Poster-2-1_2020.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/Poster-2-1_2020.pdf",
@@ -5367,6 +5421,7 @@
         "Inflammatory & Autoimmune",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/Poster-21_2020.jpg",
       "pdf": {
         "filename": "Poster-21_2020.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/Poster-21_2020.pdf",
@@ -5426,6 +5481,7 @@
         "Oncology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/Poster-22_2020.jpg",
       "pdf": {
         "filename": "Poster-22_2020.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/Poster-22_2020.pdf",
@@ -5550,6 +5606,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/Poster-23_2020.jpg",
       "pdf": {
         "filename": "Poster-23_2020.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/Poster-23_2020.pdf",
@@ -5673,6 +5730,7 @@
         "Infectious Disease",
         "Cardiometabolic"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/Poster-24_2020.jpg",
       "pdf": {
         "filename": "Poster-24_2020.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/Poster-24_2020.pdf",
@@ -5746,6 +5804,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/Poster-25_2020.jpg",
       "pdf": {
         "filename": "Poster-25_2020.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/Poster-25_2020.pdf",
@@ -5810,6 +5869,7 @@
         "Neurology",
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/Poster-26_2020.jpg",
       "pdf": {
         "filename": "Poster-26_2020.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/Poster-26_2020.pdf",
@@ -5870,6 +5930,7 @@
       "therapies": [
         "Unclassified"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/Poster-27_2020.jpg",
       "pdf": {
         "filename": "Poster-27_2020.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/Poster-27_2020.pdf",
@@ -5938,6 +5999,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/Poster-28_2020.jpg",
       "pdf": {
         "filename": "Poster-28_2020.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/Poster-28_2020.pdf",
@@ -6022,6 +6084,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/Poster-29_2020.jpg",
       "pdf": {
         "filename": "Poster-29_2020.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/Poster-29_2020.pdf",
@@ -6119,6 +6182,7 @@
         "Renal",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/Poster-3-1_2020.jpg",
       "pdf": {
         "filename": "Poster-3-1_2020.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/Poster-3-1_2020.pdf",
@@ -6198,6 +6262,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/Poster-30_2020.jpg",
       "pdf": {
         "filename": "Poster-30_2020.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/Poster-30_2020.pdf",
@@ -6270,6 +6335,7 @@
         "Neurology",
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/Poster-31_2020.jpg",
       "pdf": {
         "filename": "Poster-31_2020.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/Poster-31_2020.pdf",
@@ -6326,6 +6392,7 @@
         "Infectious Disease",
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/Poster-32_2020.jpg",
       "pdf": {
         "filename": "Poster-32_2020.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/Poster-32_2020.pdf",
@@ -6401,6 +6468,7 @@
         "Infectious Disease",
         "Renal"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/Poster-33_2020.jpg",
       "pdf": {
         "filename": "Poster-33_2020.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/Poster-33_2020.pdf",
@@ -6466,6 +6534,7 @@
         "Oncology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/Poster-4-1_2020.jpg",
       "pdf": {
         "filename": "Poster-4-1_2020.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/Poster-4-1_2020.pdf",
@@ -6563,6 +6632,7 @@
         "Cardiometabolic",
         "Renal"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/Poster-5_2020.jpg",
       "pdf": {
         "filename": "Poster-5_2020.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/Poster-5_2020.pdf",
@@ -6644,6 +6714,7 @@
         "Inflammatory & Autoimmune",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/Poster-6_2020.jpg",
       "pdf": {
         "filename": "Poster-6_2020.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/Poster-6_2020.pdf",
@@ -6723,6 +6794,7 @@
         "Oncology",
         "Renal"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/Poster-7_2020.jpg",
       "pdf": {
         "filename": "Poster-7_2020.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/Poster-7_2020.pdf",
@@ -6793,6 +6865,7 @@
       "therapies": [
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/Poster-8_2020.jpg",
       "pdf": {
         "filename": "Poster-8_2020.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/Poster-8_2020.pdf",
@@ -6888,6 +6961,7 @@
         "Inflammatory & Autoimmune",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/Poster-9_2020.jpg",
       "pdf": {
         "filename": "Poster-9_2020.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/Poster-9_2020.pdf",
@@ -6942,6 +7016,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/01-Pharmacy-Extern-Roles-Within-a-Specialty-Pharmacy_2021.jpg",
       "pdf": {
         "filename": "01-Pharmacy-Extern-Roles-Within-a-Specialty-Pharmacy_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/01-Pharmacy-Extern-Roles-Within-a-Specialty-Pharmacy_2021.pdf",
@@ -7073,6 +7148,7 @@
         "Infectious Disease",
         "Cardiometabolic"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/02-Pharmacy-collaborative-care-model-in-HIV-clinics_2021.jpg",
       "pdf": {
         "filename": "02-Pharmacy-collaborative-care-model-in-HIV-clinics_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/02-Pharmacy-collaborative-care-model-in-HIV-clinics_2021.pdf",
@@ -7146,6 +7222,7 @@
         "Inflammatory & Autoimmune",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/03-Use-of-Texting-to-Re-engage-Specialty-Patients_2021.jpg",
       "pdf": {
         "filename": "03-Use-of-Texting-to-Re-engage-Specialty-Patients_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/03-Use-of-Texting-to-Re-engage-Specialty-Patients_2021.pdf",
@@ -7219,6 +7296,7 @@
         "Infectious Disease",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/04-Biosimilar-Adoption-Benefit-use-Claims-Dollars_2021.jpg",
       "pdf": {
         "filename": "04-Biosimilar-Adoption-Benefit-use-Claims-Dollars_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/04-Biosimilar-Adoption-Benefit-use-Claims-Dollars_2021.pdf",
@@ -7298,6 +7376,7 @@
         "Infectious Disease",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/05-Cancer-Caregiver-Absence-Cost-and-Lost-Time_2021.jpg",
       "pdf": {
         "filename": "05-Cancer-Caregiver-Absence-Cost-and-Lost-Time_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/05-Cancer-Caregiver-Absence-Cost-and-Lost-Time_2021.pdf",
@@ -7370,6 +7449,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/06-Patient-reported-outcomes-in-neurology_2021.jpg",
       "pdf": {
         "filename": "06-Patient-reported-outcomes-in-neurology_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/06-Patient-reported-outcomes-in-neurology_2021.pdf",
@@ -7461,6 +7541,7 @@
         "Neurology",
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/07-Nonadherence-phenotype-tool-improves-outcomes_2021.jpg",
       "pdf": {
         "filename": "07-Nonadherence-phenotype-tool-improves-outcomes_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/07-Nonadherence-phenotype-tool-improves-outcomes_2021.pdf",
@@ -7519,6 +7600,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/08-CalOPT-Optimizing-Calcium-Intake_2021.jpg",
       "pdf": {
         "filename": "08-CalOPT-Optimizing-Calcium-Intake_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/08-CalOPT-Optimizing-Calcium-Intake_2021.pdf",
@@ -7630,6 +7712,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/09-Patient-Support-Program-and-Ibrutinib-Adherence-1_2021.jpg",
       "pdf": {
         "filename": "09-Patient-Support-Program-and-Ibrutinib-Adherence-1_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/09-Patient-Support-Program-and-Ibrutinib-Adherence-1_2021.pdf",
@@ -7694,6 +7777,7 @@
       "therapies": [
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/10-Pharmacy-Impact-on-Self-Administration-of-Prolia_2021.jpg",
       "pdf": {
         "filename": "10-Pharmacy-Impact-on-Self-Administration-of-Prolia_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/10-Pharmacy-Impact-on-Self-Administration-of-Prolia_2021.pdf",
@@ -7768,6 +7852,7 @@
         "Neurology",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/11-Pharmacist-driven-coagulation-and-cancer-clinic_2021.jpg",
       "pdf": {
         "filename": "11-Pharmacist-driven-coagulation-and-cancer-clinic_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/11-Pharmacist-driven-coagulation-and-cancer-clinic_2021.pdf",
@@ -7848,6 +7933,7 @@
         "Inflammatory & Autoimmune",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/12-Medication-adherence-post-implementation-of-a-PMP_2021.jpg",
       "pdf": {
         "filename": "12-Medication-adherence-post-implementation-of-a-PMP_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/12-Medication-adherence-post-implementation-of-a-PMP_2021.pdf",
@@ -7963,6 +8049,7 @@
         "Oncology",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/13-Specialty-Pharmacy-Impacts-Oral-Chemotherapy-Cost_2021.jpg",
       "pdf": {
         "filename": "13-Specialty-Pharmacy-Impacts-Oral-Chemotherapy-Cost_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/13-Specialty-Pharmacy-Impacts-Oral-Chemotherapy-Cost_2021.pdf",
@@ -8017,6 +8104,7 @@
       "therapies": [
         "Unclassified"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/14-Specialty-Pharmacy-Responds-to-Opioid-Crisis-1_2021.jpg",
       "pdf": {
         "filename": "14-Specialty-Pharmacy-Responds-to-Opioid-Crisis-1_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/14-Specialty-Pharmacy-Responds-to-Opioid-Crisis-1_2021.pdf",
@@ -8124,6 +8212,7 @@
         "Infectious Disease",
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/15-Pharmacist-Interventions-in-Specialty-Pharmacy_2021.jpg",
       "pdf": {
         "filename": "15-Pharmacist-Interventions-in-Specialty-Pharmacy_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/15-Pharmacist-Interventions-in-Specialty-Pharmacy_2021.pdf",
@@ -8197,6 +8286,7 @@
         "Neurology",
         "Cardiometabolic"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/16-Exploring-Rates-of-PCSK9-Inhibitor-Persistence_2021.jpg",
       "pdf": {
         "filename": "16-Exploring-Rates-of-PCSK9-Inhibitor-Persistence_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/16-Exploring-Rates-of-PCSK9-Inhibitor-Persistence_2021.pdf",
@@ -8260,6 +8350,7 @@
       "therapies": [
         "Unclassified"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/17-Patient-Satisfaction-Survey-in-Specialty-Pharmacy_2021.jpg",
       "pdf": {
         "filename": "17-Patient-Satisfaction-Survey-in-Specialty-Pharmacy_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/17-Patient-Satisfaction-Survey-in-Specialty-Pharmacy_2021.pdf",
@@ -8324,6 +8415,7 @@
       "therapies": [
         "Unclassified"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/18-Quality-of-Life-Measures-in-Specialty-Pharmacy_2021.jpg",
       "pdf": {
         "filename": "18-Quality-of-Life-Measures-in-Specialty-Pharmacy_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/18-Quality-of-Life-Measures-in-Specialty-Pharmacy_2021.pdf",
@@ -8387,6 +8479,7 @@
       "therapies": [
         "Unclassified"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/19-Health-System-Specialty-Rx-PGY1-Residency-Launch_2021.jpg",
       "pdf": {
         "filename": "19-Health-System-Specialty-Rx-PGY1-Residency-Launch_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/19-Health-System-Specialty-Rx-PGY1-Residency-Launch_2021.pdf",
@@ -8460,6 +8553,7 @@
         "Inflammatory & Autoimmune",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/20-Biologic-Adherence-COVID19-Vaccine-Timing-Dilemma_2021.jpg",
       "pdf": {
         "filename": "20-Biologic-Adherence-COVID19-Vaccine-Timing-Dilemma_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/20-Biologic-Adherence-COVID19-Vaccine-Timing-Dilemma_2021.pdf",
@@ -8536,6 +8630,7 @@
         "Renal",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/21-Safety-update-Tepotinib-in-METex14-skipping-NSCLC_2021.jpg",
       "pdf": {
         "filename": "21-Safety-update-Tepotinib-in-METex14-skipping-NSCLC_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/21-Safety-update-Tepotinib-in-METex14-skipping-NSCLC_2021.pdf",
@@ -8614,6 +8709,7 @@
         "Inflammatory & Autoimmune",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/22-Specialty-Pharmacy-Impact-on-Atopic-Dermatitis_2021.jpg",
       "pdf": {
         "filename": "22-Specialty-Pharmacy-Impact-on-Atopic-Dermatitis_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/22-Specialty-Pharmacy-Impact-on-Atopic-Dermatitis_2021.pdf",
@@ -8680,6 +8776,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/23-Role-of-Specialty-Pharmacist-in-Cannabidiol-Use_2021.jpg",
       "pdf": {
         "filename": "23-Role-of-Specialty-Pharmacist-in-Cannabidiol-Use_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/23-Role-of-Specialty-Pharmacist-in-Cannabidiol-Use_2021.pdf",
@@ -8744,6 +8841,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/24-Cannabidiol-Use-at-an-Integrated-Care-Center_2021.jpg",
       "pdf": {
         "filename": "24-Cannabidiol-Use-at-an-Integrated-Care-Center_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/24-Cannabidiol-Use-at-an-Integrated-Care-Center_2021.pdf",
@@ -8812,6 +8910,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/25-Building-a-Unique-Specialty-Pharmacy-Rotation-1_2021.jpg",
       "pdf": {
         "filename": "25-Building-a-Unique-Specialty-Pharmacy-Rotation-1_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/25-Building-a-Unique-Specialty-Pharmacy-Rotation-1_2021.pdf",
@@ -8883,6 +8982,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/26-HIV-Post-Exposure-Pharmacist-Linkage-to-Care_2021.jpg",
       "pdf": {
         "filename": "26-HIV-Post-Exposure-Pharmacist-Linkage-to-Care_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/26-HIV-Post-Exposure-Pharmacist-Linkage-to-Care_2021.pdf",
@@ -8967,6 +9067,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/27-Digestive-integrated-pharmacy-clinical-service_2021.jpg",
       "pdf": {
         "filename": "27-Digestive-integrated-pharmacy-clinical-service_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/27-Digestive-integrated-pharmacy-clinical-service_2021.pdf",
@@ -9046,6 +9147,7 @@
         "Infectious Disease",
         "Cardiometabolic"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/28-Identifying-Nonadherence-to-Specialty-Medications_2021.jpg",
       "pdf": {
         "filename": "28-Identifying-Nonadherence-to-Specialty-Medications_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/28-Identifying-Nonadherence-to-Specialty-Medications_2021.pdf",
@@ -9114,6 +9216,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/29-Specialty-Pharmacy-Turnaround-Time-Factors_2021.jpg",
       "pdf": {
         "filename": "29-Specialty-Pharmacy-Turnaround-Time-Factors_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/29-Specialty-Pharmacy-Turnaround-Time-Factors_2021.pdf",
@@ -9186,6 +9289,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/30-Persistence-to-Disease-Modifying-Therapy-in-MS_2021.jpg",
       "pdf": {
         "filename": "30-Persistence-to-Disease-Modifying-Therapy-in-MS_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/30-Persistence-to-Disease-Modifying-Therapy-in-MS_2021.pdf",
@@ -9244,6 +9348,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/31-MS-Disease-Modifying-Therapy-Switches_2021.jpg",
       "pdf": {
         "filename": "31-MS-Disease-Modifying-Therapy-Switches_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/31-MS-Disease-Modifying-Therapy-Switches_2021.pdf",
@@ -9311,6 +9416,7 @@
         "Neurology",
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/32-Adherence-Program-Impact-in-Cystic-Fibrosis_2021.jpg",
       "pdf": {
         "filename": "32-Adherence-Program-Impact-in-Cystic-Fibrosis_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/32-Adherence-Program-Impact-in-Cystic-Fibrosis_2021.pdf",
@@ -9382,6 +9488,7 @@
         "Neurology",
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/33-Clinical-Intervention-Impact-in-Cystic-Fibrosis_2021.jpg",
       "pdf": {
         "filename": "33-Clinical-Intervention-Impact-in-Cystic-Fibrosis_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/33-Clinical-Intervention-Impact-in-Cystic-Fibrosis_2021.pdf",
@@ -9471,6 +9578,7 @@
         "Neurology",
         "Cardiometabolic"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/34-Droxidopa-persistence-and-pharmacist-interventions-1_2021.jpg",
       "pdf": {
         "filename": "34-Droxidopa-persistence-and-pharmacist-interventions-1_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/34-Droxidopa-persistence-and-pharmacist-interventions-1_2021.pdf",
@@ -9541,6 +9649,7 @@
       "therapies": [
         "Oncology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/35-PARPi-therapy-Patient-characteristics-and-access_2021.jpg",
       "pdf": {
         "filename": "35-PARPi-therapy-Patient-characteristics-and-access_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/35-PARPi-therapy-Patient-characteristics-and-access_2021.pdf",
@@ -9619,6 +9728,7 @@
         "Cardiometabolic",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/36-Impact-of-a-Specialty-Pharmacy-Program-on-Diabetes_2021.jpg",
       "pdf": {
         "filename": "36-Impact-of-a-Specialty-Pharmacy-Program-on-Diabetes_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/36-Impact-of-a-Specialty-Pharmacy-Program-on-Diabetes_2021.pdf",
@@ -9688,6 +9798,7 @@
       "therapies": [
         "Unclassified"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/37-Impact-of-Health-System-Specialty-Pharmacist-Liaison-Teams-on-Patient-Outcomes_2021.jpg",
       "pdf": {
         "filename": "37-Impact-of-Health-System-Specialty-Pharmacist-Liaison-Teams-on-Patient-Outcomes_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/37-Impact-of-Health-System-Specialty-Pharmacist-Liaison-Teams-on-Patient-Outcomes_2021.pdf",
@@ -9748,6 +9859,7 @@
         "Oncology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/38-Pharmacist-Clinical-Decision-Support-System-Alerts_2021.jpg",
       "pdf": {
         "filename": "38-Pharmacist-Clinical-Decision-Support-System-Alerts_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/38-Pharmacist-Clinical-Decision-Support-System-Alerts_2021.pdf",
@@ -9800,6 +9912,7 @@
         "Cardiometabolic",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/39-Concomitant-use-of-apalutamide-and-anticoagulants_2021.jpg",
       "pdf": {
         "filename": "39-Concomitant-use-of-apalutamide-and-anticoagulants_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/39-Concomitant-use-of-apalutamide-and-anticoagulants_2021.pdf",
@@ -9868,6 +9981,7 @@
         "Cardiometabolic",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/40-Enabling-Access-to-Federal-COVID-Pharmacy-Programs_2021.jpg",
       "pdf": {
         "filename": "40-Enabling-Access-to-Federal-COVID-Pharmacy-Programs_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/40-Enabling-Access-to-Federal-COVID-Pharmacy-Programs_2021.pdf",
@@ -9919,6 +10033,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/41-Supply-Crunch-Supporting-Pharmacies-in-a-Pandemic_2021.jpg",
       "pdf": {
         "filename": "41-Supply-Crunch-Supporting-Pharmacies-in-a-Pandemic_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/41-Supply-Crunch-Supporting-Pharmacies-in-a-Pandemic_2021.pdf",
@@ -10009,6 +10124,7 @@
       "therapies": [
         "Unclassified"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/42-Triage-Pharmacist-Role-in-a-Specialty-Pharmacy-Call-Center_2021.jpg",
       "pdf": {
         "filename": "42-Triage-Pharmacist-Role-in-a-Specialty-Pharmacy-Call-Center_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/42-Triage-Pharmacist-Role-in-a-Specialty-Pharmacy-Call-Center_2021.pdf",
@@ -10076,6 +10192,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/43-Specialty-Pharmacy-Technician-and-Epidiolex-Access_2021.jpg",
       "pdf": {
         "filename": "43-Specialty-Pharmacy-Technician-and-Epidiolex-Access_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/43-Specialty-Pharmacy-Technician-and-Epidiolex-Access_2021.pdf",
@@ -10163,6 +10280,7 @@
         "Oncology",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/44-US-PROs-Tepotinib-for-MET-exon-14-skipping-NSCLC_2021.jpg",
       "pdf": {
         "filename": "44-US-PROs-Tepotinib-for-MET-exon-14-skipping-NSCLC_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/44-US-PROs-Tepotinib-for-MET-exon-14-skipping-NSCLC_2021.pdf",
@@ -10242,6 +10360,7 @@
         "Inflammatory & Autoimmune",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/45-Health-System-Specialty-Pharmacist-Interventions_2021.jpg",
       "pdf": {
         "filename": "45-Health-System-Specialty-Pharmacist-Interventions_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/45-Health-System-Specialty-Pharmacist-Interventions_2021.pdf",
@@ -10311,6 +10430,7 @@
         "Infectious Disease",
         "Cardiometabolic"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/46-Pharmacist-driven-medication-appeal-process_2021.jpg",
       "pdf": {
         "filename": "46-Pharmacist-driven-medication-appeal-process_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/46-Pharmacist-driven-medication-appeal-process_2021.pdf",
@@ -10382,6 +10502,7 @@
         "Neurology",
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/47-Coagulation-factor-X-in-an-infant-patient_2021.jpg",
       "pdf": {
         "filename": "47-Coagulation-factor-X-in-an-infant-patient_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/47-Coagulation-factor-X-in-an-infant-patient_2021.pdf",
@@ -10440,6 +10561,7 @@
         "Neurology",
         "Cardiometabolic"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/48-Real-World-Use-of-PCSK9-Inhibitors_2021.jpg",
       "pdf": {
         "filename": "48-Real-World-Use-of-PCSK9-Inhibitors_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/48-Real-World-Use-of-PCSK9-Inhibitors_2021.pdf",
@@ -10521,6 +10643,7 @@
       "therapies": [
         "Inflammatory & Autoimmune"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/49-Adalimumab-Dose-Intensification-in-Pediatric-IBD_2021.jpg",
       "pdf": {
         "filename": "49-Adalimumab-Dose-Intensification-in-Pediatric-IBD_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/49-Adalimumab-Dose-Intensification-in-Pediatric-IBD_2021.pdf",
@@ -10616,6 +10739,7 @@
         "Inflammatory & Autoimmune",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/50-HealthBeacon-ICMS-19-more-patients-at-month-12_2021.jpg",
       "pdf": {
         "filename": "50-HealthBeacon-ICMS-19-more-patients-at-month-12_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/50-HealthBeacon-ICMS-19-more-patients-at-month-12_2021.pdf",
@@ -10695,6 +10819,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/52-Impact-of-Specialty-Pharmacy-Services-on-Migraine_2021.jpg",
       "pdf": {
         "filename": "52-Impact-of-Specialty-Pharmacy-Services-on-Migraine_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/52-Impact-of-Specialty-Pharmacy-Services-on-Migraine_2021.pdf",
@@ -10773,6 +10898,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/53-Specialty-clinic-pharmacist-collaborative-model_2021.jpg",
       "pdf": {
         "filename": "53-Specialty-clinic-pharmacist-collaborative-model_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/53-Specialty-clinic-pharmacist-collaborative-model_2021.pdf",
@@ -10867,6 +10993,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/54-Impact-of-addition-of-Community-Healthcare-Worker_2021.jpg",
       "pdf": {
         "filename": "54-Impact-of-addition-of-Community-Healthcare-Worker_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/54-Impact-of-addition-of-Community-Healthcare-Worker_2021.pdf",
@@ -10944,6 +11071,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/55-Pharmacy-staff-wellness-during-COVID-19-and-beyond_2021.jpg",
       "pdf": {
         "filename": "55-Pharmacy-staff-wellness-during-COVID-19-and-beyond_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/55-Pharmacy-staff-wellness-during-COVID-19-and-beyond_2021.pdf",
@@ -11045,6 +11173,7 @@
       "therapies": [
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/56-Hereditary-Angioedema-Medication-Utilization_2021.jpg",
       "pdf": {
         "filename": "56-Hereditary-Angioedema-Medication-Utilization_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/56-Hereditary-Angioedema-Medication-Utilization_2021.pdf",
@@ -11114,6 +11243,7 @@
         "Cardiometabolic",
         "Renal"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/57-Crushing-and-Splitting-DAAs-for-HCV-A-Case-Series_2021.jpg",
       "pdf": {
         "filename": "57-Crushing-and-Splitting-DAAs-for-HCV-A-Case-Series_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/57-Crushing-and-Splitting-DAAs-for-HCV-A-Case-Series_2021.pdf",
@@ -11229,6 +11359,7 @@
         "Infectious Disease",
         "Renal"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/58-Extended-Adherence-and-Persistence-to-HIV-PrEP_2021.jpg",
       "pdf": {
         "filename": "58-Extended-Adherence-and-Persistence-to-HIV-PrEP_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/58-Extended-Adherence-and-Persistence-to-HIV-PrEP_2021.pdf",
@@ -11304,6 +11435,7 @@
       "therapies": [
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/59-Successful-Access-and-Affordability-of-HIV-PrEP_2021.jpg",
       "pdf": {
         "filename": "59-Successful-Access-and-Affordability-of-HIV-PrEP_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/59-Successful-Access-and-Affordability-of-HIV-PrEP_2021.pdf",
@@ -11401,6 +11533,7 @@
         "Infectious Disease",
         "Cardiometabolic"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/60-Rheumatology-integrated-pharmacy-clinical-service_2021.jpg",
       "pdf": {
         "filename": "60-Rheumatology-integrated-pharmacy-clinical-service_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/60-Rheumatology-integrated-pharmacy-clinical-service_2021.pdf",
@@ -11490,6 +11623,7 @@
         "Inflammatory & Autoimmune",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/61-Rates-and-Reasons-for-bDMARD-Switching-and-Cycling_2021.jpg",
       "pdf": {
         "filename": "61-Rates-and-Reasons-for-bDMARD-Switching-and-Cycling_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/61-Rates-and-Reasons-for-bDMARD-Switching-and-Cycling_2021.pdf",
@@ -11546,6 +11680,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/62-Riluzole-Swallowing-Study-1_2021.jpg",
       "pdf": {
         "filename": "62-Riluzole-Swallowing-Study-1_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/62-Riluzole-Swallowing-Study-1_2021.pdf",
@@ -11605,6 +11740,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/63-Apalutamide-Tablets-in-Different-Food-Vehicles_2021.jpg",
       "pdf": {
         "filename": "63-Apalutamide-Tablets-in-Different-Food-Vehicles_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/63-Apalutamide-Tablets-in-Different-Food-Vehicles_2021.pdf",
@@ -11683,6 +11819,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/64-Migraine-ACES-Assessing-CGRP-Efficacy-and-Safety_2021.jpg",
       "pdf": {
         "filename": "64-Migraine-ACES-Assessing-CGRP-Efficacy-and-Safety_2021.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/64-Migraine-ACES-Assessing-CGRP-Efficacy-and-Safety_2021.pdf",
@@ -11768,6 +11905,7 @@
         "Inflammatory & Autoimmune",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/01-2022.jpg",
       "pdf": {
         "filename": "01-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/01-2022.pdf",
@@ -11932,6 +12070,7 @@
         "Inflammatory & Autoimmune",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/02-2022.jpg",
       "pdf": {
         "filename": "02-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/02-2022.pdf",
@@ -12059,6 +12198,7 @@
       "therapies": [
         "Oncology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/03-2022.jpg",
       "pdf": {
         "filename": "03-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/03-2022.pdf",
@@ -12124,6 +12264,7 @@
         "Rare Disease",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/04-2022.jpg",
       "pdf": {
         "filename": "04-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/04-2022.pdf",
@@ -12189,6 +12330,7 @@
         "Inflammatory & Autoimmune",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/05-2022.jpg",
       "pdf": {
         "filename": "05-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/05-2022.pdf",
@@ -12273,6 +12415,7 @@
         "Oncology",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/06-2022.jpg",
       "pdf": {
         "filename": "06-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/06-2022.pdf",
@@ -12378,6 +12521,7 @@
       "therapies": [
         "Oncology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/07-2022.jpg",
       "pdf": {
         "filename": "07-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/07-2022.pdf",
@@ -12484,6 +12628,7 @@
         "Cardiometabolic",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/08-2022.jpg",
       "pdf": {
         "filename": "08-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/08-2022.pdf",
@@ -12551,6 +12696,7 @@
         "Oncology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/09-2022.jpg",
       "pdf": {
         "filename": "09-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/09-2022.pdf",
@@ -12667,6 +12813,7 @@
         "Oncology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/10-2022.jpg",
       "pdf": {
         "filename": "10-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/10-2022.pdf",
@@ -12736,6 +12883,7 @@
       "therapies": [
         "Unclassified"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/11-2022.jpg",
       "pdf": {
         "filename": "11-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/11-2022.pdf",
@@ -12809,6 +12957,7 @@
         "Oncology",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/12-2022.jpg",
       "pdf": {
         "filename": "12-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/12-2022.pdf",
@@ -12881,6 +13030,7 @@
         "Infectious Disease",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/13-2022.jpg",
       "pdf": {
         "filename": "13-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/13-2022.pdf",
@@ -12953,6 +13103,7 @@
         "Neurology",
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/14-2022.jpg",
       "pdf": {
         "filename": "14-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/14-2022.pdf",
@@ -13064,6 +13215,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/15-2022.jpg",
       "pdf": {
         "filename": "15-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/15-2022.pdf",
@@ -13128,6 +13280,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/16-2022.jpg",
       "pdf": {
         "filename": "16-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/16-2022.pdf",
@@ -13183,6 +13336,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/17-2022.jpg",
       "pdf": {
         "filename": "17-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/17-2022.pdf",
@@ -13245,6 +13399,7 @@
         "Cardiometabolic",
         "Renal"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/18-2022.jpg",
       "pdf": {
         "filename": "18-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/18-2022.pdf",
@@ -13333,6 +13488,7 @@
         "Oncology",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/19-2022.jpg",
       "pdf": {
         "filename": "19-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/19-2022.pdf",
@@ -13405,6 +13561,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/20-2022.jpg",
       "pdf": {
         "filename": "20-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/20-2022.pdf",
@@ -13462,6 +13619,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/22-2022.jpg",
       "pdf": {
         "filename": "22-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/22-2022.pdf",
@@ -13534,6 +13692,7 @@
         "Oncology",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/24-2022.jpg",
       "pdf": {
         "filename": "24-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/24-2022.pdf",
@@ -13599,6 +13758,7 @@
         "Inflammatory & Autoimmune",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/25-2022.jpg",
       "pdf": {
         "filename": "25-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/25-2022.pdf",
@@ -13680,6 +13840,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/26-2022.jpg",
       "pdf": {
         "filename": "26-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/26-2022.pdf",
@@ -13745,6 +13906,7 @@
         "Inflammatory & Autoimmune",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/28-2022.jpg",
       "pdf": {
         "filename": "28-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/28-2022.pdf",
@@ -13803,6 +13965,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/29-2022.jpg",
       "pdf": {
         "filename": "29-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/29-2022.pdf",
@@ -13875,6 +14038,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/30-2022.jpg",
       "pdf": {
         "filename": "30-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/30-2022.pdf",
@@ -13938,6 +14102,7 @@
       "therapies": [
         "Unclassified"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/31-2022.jpg",
       "pdf": {
         "filename": "31-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/31-2022.pdf",
@@ -13999,6 +14164,7 @@
         "Neurology",
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/32-2022.jpg",
       "pdf": {
         "filename": "32-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/32-2022.pdf",
@@ -14049,6 +14215,7 @@
       "therapies": [
         "Unclassified"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/33-2022.jpg",
       "pdf": {
         "filename": "33-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/33-2022.pdf",
@@ -14121,6 +14288,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/34-2022.jpg",
       "pdf": {
         "filename": "34-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/34-2022.pdf",
@@ -14218,6 +14386,7 @@
       "therapies": [
         "Cardiometabolic"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/35-2022.jpg",
       "pdf": {
         "filename": "35-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/35-2022.pdf",
@@ -14295,6 +14464,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/36-2022.jpg",
       "pdf": {
         "filename": "36-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/36-2022.pdf",
@@ -14366,6 +14536,7 @@
         "Inflammatory & Autoimmune",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/37-2022.jpg",
       "pdf": {
         "filename": "37-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/37-2022.pdf",
@@ -14422,6 +14593,7 @@
         "Infectious Disease",
         "Cardiometabolic"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/38-2022.jpg",
       "pdf": {
         "filename": "38-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/38-2022.pdf",
@@ -14518,6 +14690,7 @@
         "Rare Disease",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/39-2022.jpg",
       "pdf": {
         "filename": "39-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/39-2022.pdf",
@@ -14591,6 +14764,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/40-2022.jpg",
       "pdf": {
         "filename": "40-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/40-2022.pdf",
@@ -14673,6 +14847,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/41-2022.jpg",
       "pdf": {
         "filename": "41-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/41-2022.pdf",
@@ -14740,6 +14915,7 @@
         "Infectious Disease",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/42-2022.jpg",
       "pdf": {
         "filename": "42-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/42-2022.pdf",
@@ -14812,6 +14988,7 @@
         "Inflammatory & Autoimmune",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/43-2022.jpg",
       "pdf": {
         "filename": "43-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/43-2022.pdf",
@@ -14878,6 +15055,7 @@
         "Neurology",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/44-2022.jpg",
       "pdf": {
         "filename": "44-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/44-2022.pdf",
@@ -14967,6 +15145,7 @@
         "Oncology",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/45-2022.jpg",
       "pdf": {
         "filename": "45-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/45-2022.pdf",
@@ -15046,6 +15225,7 @@
         "Rare Disease",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/47-2022.jpg",
       "pdf": {
         "filename": "47-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/47-2022.pdf",
@@ -15118,6 +15298,7 @@
         "Inflammatory & Autoimmune",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/48-2022.jpg",
       "pdf": {
         "filename": "48-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/48-2022.pdf",
@@ -15191,6 +15372,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/49-2022.jpg",
       "pdf": {
         "filename": "49-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/49-2022.pdf",
@@ -15263,6 +15445,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/50-2022.jpg",
       "pdf": {
         "filename": "50-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/50-2022.pdf",
@@ -15346,6 +15529,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/51-2022.jpg",
       "pdf": {
         "filename": "51-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/51-2022.pdf",
@@ -15423,6 +15607,7 @@
         "Oncology",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/52-2022.jpg",
       "pdf": {
         "filename": "52-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/52-2022.pdf",
@@ -15502,6 +15687,7 @@
         "Inflammatory & Autoimmune",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/53-2022.jpg",
       "pdf": {
         "filename": "53-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/53-2022.pdf",
@@ -15568,6 +15754,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/54-2022.jpg",
       "pdf": {
         "filename": "54-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/54-2022.pdf",
@@ -15634,6 +15821,7 @@
         "Renal",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/55-2022.jpg",
       "pdf": {
         "filename": "55-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/55-2022.pdf",
@@ -15708,6 +15896,7 @@
         "Infectious Disease",
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/56-2022.jpg",
       "pdf": {
         "filename": "56-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/56-2022.pdf",
@@ -15763,6 +15952,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/57-2022.jpg",
       "pdf": {
         "filename": "57-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/57-2022.pdf",
@@ -15839,6 +16029,7 @@
         "Oncology",
         "Renal"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/58-2022.jpg",
       "pdf": {
         "filename": "58-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/58-2022.pdf",
@@ -15921,6 +16112,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/59-2022.jpg",
       "pdf": {
         "filename": "59-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/59-2022.pdf",
@@ -15980,6 +16172,7 @@
       "therapies": [
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/60-2022.jpg",
       "pdf": {
         "filename": "60-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/60-2022.pdf",
@@ -16098,6 +16291,7 @@
         "Oncology",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/61-2022.jpg",
       "pdf": {
         "filename": "61-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/61-2022.pdf",
@@ -16209,6 +16403,7 @@
         "Cardiometabolic",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/62-2022.jpg",
       "pdf": {
         "filename": "62-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/62-2022.pdf",
@@ -16316,6 +16511,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/64-2022.jpg",
       "pdf": {
         "filename": "64-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/64-2022.pdf",
@@ -16381,6 +16577,7 @@
         "Oncology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/65-2022.jpg",
       "pdf": {
         "filename": "65-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/65-2022.pdf",
@@ -16477,6 +16674,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/66-2022.jpg",
       "pdf": {
         "filename": "66-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/66-2022.pdf",
@@ -16577,6 +16775,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/67-2022.jpg",
       "pdf": {
         "filename": "67-2022.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/67-2022.pdf",
@@ -16648,6 +16847,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1_lab_monitoring_s1p_modulators_2023.jpg",
       "pdf": {
         "filename": "1_lab_monitoring_s1p_modulators_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1_lab_monitoring_s1p_modulators_2023.pdf",
@@ -16708,6 +16908,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/10_Achieving-Accreditation-of-Health-System-Specialty-Pharmacies-Through-a-Standardized-Method-_2023.jpg",
       "pdf": {
         "filename": "10_Achieving-Accreditation-of-Health-System-Specialty-Pharmacies-Through-a-Standardized-Method-_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/10_Achieving-Accreditation-of-Health-System-Specialty-Pharmacies-Through-a-Standardized-Method-_2023.pdf",
@@ -16764,6 +16965,7 @@
       "therapies": [
         "Unclassified"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/11_Alternate-Work-Arrangement-within-Specialty-Pharmacy_2023.jpg",
       "pdf": {
         "filename": "11_Alternate-Work-Arrangement-within-Specialty-Pharmacy_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/11_Alternate-Work-Arrangement-within-Specialty-Pharmacy_2023.pdf",
@@ -16824,6 +17026,7 @@
       "therapies": [
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/12_Clinical-Continuity-Intervention-for-Newborns-Exposed-to-Maternal-HIV-Infection_2023.jpg",
       "pdf": {
         "filename": "12_Clinical-Continuity-Intervention-for-Newborns-Exposed-to-Maternal-HIV-Infection_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/12_Clinical-Continuity-Intervention-for-Newborns-Exposed-to-Maternal-HIV-Infection_2023.pdf",
@@ -16878,6 +17081,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/13_Expanding-Patient-Care-Services-for-Solid-Organ-Transplant-Patients-by-Establishing-an-Accredited-Health-System-Specialty-Pharmacy_2023.jpg",
       "pdf": {
         "filename": "13_Expanding-Patient-Care-Services-for-Solid-Organ-Transplant-Patients-by-Establishing-an-Accredited-Health-System-Specialty-Pharmacy_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/13_Expanding-Patient-Care-Services-for-Solid-Organ-Transplant-Patients-by-Establishing-an-Accredited-Health-System-Specialty-Pharmacy_2023.pdf",
@@ -16975,6 +17179,7 @@
       "therapies": [
         "Cardiometabolic"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/14_Impact-of-Integrating-a-Pharmacy-Liaison-Managed-Care-Model-within-a-Diabetes-Population_2023.jpg",
       "pdf": {
         "filename": "14_Impact-of-Integrating-a-Pharmacy-Liaison-Managed-Care-Model-within-a-Diabetes-Population_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/14_Impact-of-Integrating-a-Pharmacy-Liaison-Managed-Care-Model-within-a-Diabetes-Population_2023.pdf",
@@ -17062,6 +17267,7 @@
       "therapies": [
         "Cardiometabolic"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/15_Implementation-of-ambulatory-clinical-pharmacist-type-2-diabetes-care-services-within-an-integrated-health-system-specialty-pharmacy_2023.jpg",
       "pdf": {
         "filename": "15_Implementation-of-ambulatory-clinical-pharmacist-type-2-diabetes-care-services-within-an-integrated-health-system-specialty-pharmacy_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/15_Implementation-of-ambulatory-clinical-pharmacist-type-2-diabetes-care-services-within-an-integrated-health-system-specialty-pharmacy_2023.pdf",
@@ -17121,6 +17327,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/16_Pharmacy-Integration-into-the-Fertility-Service-Line-University-Hospitals-Specialty-Pharmacy_2023.jpg",
       "pdf": {
         "filename": "16_Pharmacy-Integration-into-the-Fertility-Service-Line-University-Hospitals-Specialty-Pharmacy_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/16_Pharmacy-Integration-into-the-Fertility-Service-Line-University-Hospitals-Specialty-Pharmacy_2023.pdf",
@@ -17178,6 +17385,7 @@
         "Cardiometabolic",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/17_Respiratory-syncytial-virus-RSV-protection-a-pan-pharmacy-approach_2023.jpg",
       "pdf": {
         "filename": "17_Respiratory-syncytial-virus-RSV-protection-a-pan-pharmacy-approach_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/17_Respiratory-syncytial-virus-RSV-protection-a-pan-pharmacy-approach_2023.pdf",
@@ -17256,6 +17464,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/18_The-role-of-pharmacists-and-pharmacy-liaisons-in-addressing-social-determinants-of-health-in-a-multi-centered-health-system-specialty-pharmacy-setting_2023.jpg",
       "pdf": {
         "filename": "18_The-role-of-pharmacists-and-pharmacy-liaisons-in-addressing-social-determinants-of-health-in-a-multi-centered-health-system-specialty-pharmacy-setting_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/18_The-role-of-pharmacists-and-pharmacy-liaisons-in-addressing-social-determinants-of-health-in-a-multi-centered-health-system-specialty-pharmacy-setting_2023.pdf",
@@ -17314,6 +17523,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/19_Business-Development-Team-Enhances-Clinical-Continuity-by-Leveraging-Health-System-Partners_2023.jpg",
       "pdf": {
         "filename": "19_Business-Development-Team-Enhances-Clinical-Continuity-by-Leveraging-Health-System-Partners_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/19_Business-Development-Team-Enhances-Clinical-Continuity-by-Leveraging-Health-System-Partners_2023.pdf",
@@ -17388,6 +17598,7 @@
         "Infectious Disease",
         "Cardiometabolic"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/2_Impact-of-a-Health-System-Specialty-Pharmacy-on-Patient-Engagement-and-Clinical-Outcomes-Post-Transition-of-Management_2023.jpg",
       "pdf": {
         "filename": "2_Impact-of-a-Health-System-Specialty-Pharmacy-on-Patient-Engagement-and-Clinical-Outcomes-Post-Transition-of-Management_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/2_Impact-of-a-Health-System-Specialty-Pharmacy-on-Patient-Engagement-and-Clinical-Outcomes-Post-Transition-of-Management_2023.pdf",
@@ -17458,6 +17669,7 @@
         "Renal",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/20_Developing-a-disease-state-specific-patient-management-program-at-an-integrated-health-system-specialty-pharmacy_2023.jpg",
       "pdf": {
         "filename": "20_Developing-a-disease-state-specific-patient-management-program-at-an-integrated-health-system-specialty-pharmacy_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/20_Developing-a-disease-state-specific-patient-management-program-at-an-integrated-health-system-specialty-pharmacy_2023.pdf",
@@ -17531,6 +17743,7 @@
         "Neurology",
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/21_Effectiveness-of-Patient-Navigation-in-Resolving-Health-System-Related-Barriers-to-Care-for-Patients-with-Bleeding-Disorders_2023.jpg",
       "pdf": {
         "filename": "21_Effectiveness-of-Patient-Navigation-in-Resolving-Health-System-Related-Barriers-to-Care-for-Patients-with-Bleeding-Disorders_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/21_Effectiveness-of-Patient-Navigation-in-Resolving-Health-System-Related-Barriers-to-Care-for-Patients-with-Bleeding-Disorders_2023.pdf",
@@ -17600,6 +17813,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/23_Treatment-patterns-of-intravenous-edaravone-in-patients-with-amyotrophic-lateral-sclerosis-A-retrospective-administrative-claims-analysis-_2023.jpg",
       "pdf": {
         "filename": "23_Treatment-patterns-of-intravenous-edaravone-in-patients-with-amyotrophic-lateral-sclerosis-A-retrospective-administrative-claims-analysis-_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/23_Treatment-patterns-of-intravenous-edaravone-in-patients-with-amyotrophic-lateral-sclerosis-A-retrospective-administrative-claims-analysis-_2023.pdf",
@@ -17698,6 +17912,7 @@
         "Neurology",
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/24_Impact-of-a-Clinical-Pharmacist-Led-Care-Program-on-Patients-with-Hemophilia-A-Utilizing Therigy_2023.jpg",
       "pdf": {
         "filename": "24_Impact-of-a-Clinical-Pharmacist-Led-Care-Program-on-Patients-with-Hemophilia-A-Utilizing Therigy_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/24_Impact-of-a-Clinical-Pharmacist-Led-Care-Program-on-Patients-with-Hemophilia-A-Utilizing Therigy_2023.pdf",
@@ -17770,6 +17985,7 @@
       "therapies": [
         "Unclassified"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/25_Specialty-Pharmacy-Application-of-PROs-and-PROMs-as-Interventions_2023.jpg",
       "pdf": {
         "filename": "25_Specialty-Pharmacy-Application-of-PROs-and-PROMs-as-Interventions_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/25_Specialty-Pharmacy-Application-of-PROs-and-PROMs-as-Interventions_2023.pdf",
@@ -17828,6 +18044,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/26_Adherence-and-Discontinuation-of-Prescription-Cannabidiol-at-an-Integrated-Care-Center_2023.jpg",
       "pdf": {
         "filename": "26_Adherence-and-Discontinuation-of-Prescription-Cannabidiol-at-an-Integrated-Care-Center_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/26_Adherence-and-Discontinuation-of-Prescription-Cannabidiol-at-an-Integrated-Care-Center_2023.pdf",
@@ -17926,6 +18143,7 @@
         "Inflammatory & Autoimmune",
         "Cardiometabolic"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/27_JAK_TNFi_alpha_black_box_warning_2023.jpg",
       "pdf": {
         "filename": "27_JAK_TNFi_alpha_black_box_warning_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/27_JAK_TNFi_alpha_black_box_warning_2023.pdf",
@@ -18013,6 +18231,7 @@
         "Oncology",
         "Inflammatory & Autoimmune"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/28_Influence-of-seasonal-changes-on-adherence-in-rheumatoid-arthritis-patients_2023.jpg",
       "pdf": {
         "filename": "28_Influence-of-seasonal-changes-on-adherence-in-rheumatoid-arthritis-patients_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/28_Influence-of-seasonal-changes-on-adherence-in-rheumatoid-arthritis-patients_2023.pdf",
@@ -18077,6 +18296,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/29_Clinical-Outcomes-Associated-With-Prescription-Cannabidiol-Use-At-12-Months-Post-Initiation_2023.jpg",
       "pdf": {
         "filename": "29_Clinical-Outcomes-Associated-With-Prescription-Cannabidiol-Use-At-12-Months-Post-Initiation_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/29_Clinical-Outcomes-Associated-With-Prescription-Cannabidiol-Use-At-12-Months-Post-Initiation_2023.pdf",
@@ -18156,6 +18376,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/3_pharmacy_technician_training_program_2023.jpg",
       "pdf": {
         "filename": "3_pharmacy_technician_training_program_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/3_pharmacy_technician_training_program_2023.pdf",
@@ -18233,6 +18454,7 @@
         "Inflammatory & Autoimmune",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/30_Clinical-Outcomes-in-Rheumatoid-Arthritis-Patients-Enrolled-in-an-Integrated-Specialty-Pharmacy-Care-Model_2023.jpg",
       "pdf": {
         "filename": "30_Clinical-Outcomes-in-Rheumatoid-Arthritis-Patients-Enrolled-in-an-Integrated-Specialty-Pharmacy-Care-Model_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/30_Clinical-Outcomes-in-Rheumatoid-Arthritis-Patients-Enrolled-in-an-Integrated-Specialty-Pharmacy-Care-Model_2023.pdf",
@@ -18314,6 +18536,7 @@
         "Inflammatory & Autoimmune",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/31_Evaluating-Patient-Reported-Adherence-and-Outcomes-in-Specialty-Disease-States-A-Dual-Site-Initiative-_2023.jpg",
       "pdf": {
         "filename": "31_Evaluating-Patient-Reported-Adherence-and-Outcomes-in-Specialty-Disease-States-A-Dual-Site-Initiative-_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/31_Evaluating-Patient-Reported-Adherence-and-Outcomes-in-Specialty-Disease-States-A-Dual-Site-Initiative-_2023.pdf",
@@ -18413,6 +18636,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/32_Evaluation-of-Inflammatory-Bowel-Disease-Treatment-Discontinuation-Rates-in-Patients-within-Health-System-Specialty-Pharmacy​_2023.jpg",
       "pdf": {
         "filename": "32_Evaluation-of-Inflammatory-Bowel-Disease-Treatment-Discontinuation-Rates-in-Patients-within-Health-System-Specialty-Pharmacy​_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/32_Evaluation-of-Inflammatory-Bowel-Disease-Treatment-Discontinuation-Rates-in-Patients-within-Health-System-Specialty-Pharmacy​_2023.pdf",
@@ -18487,6 +18711,7 @@
         "Cardiometabolic",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/34_Hospital-Utilization-Rates-for-Oncology-Patients-in-an-Integrated-Health-System-Compared-to-a-National-Network_2023.jpg",
       "pdf": {
         "filename": "34_Hospital-Utilization-Rates-for-Oncology-Patients-in-an-Integrated-Health-System-Compared-to-a-National-Network_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/34_Hospital-Utilization-Rates-for-Oncology-Patients-in-an-Integrated-Health-System-Compared-to-a-National-Network_2023.pdf",
@@ -18597,6 +18822,7 @@
       "therapies": [
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/35_Impact-of-an-Integrated-Health-System-Specialty-Pharmacy-on-HIV-Clinical-Outcomes_2023.jpg",
       "pdf": {
         "filename": "35_Impact-of-an-Integrated-Health-System-Specialty-Pharmacy-on-HIV-Clinical-Outcomes_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/35_Impact-of-an-Integrated-Health-System-Specialty-Pharmacy-on-HIV-Clinical-Outcomes_2023.pdf",
@@ -18682,6 +18908,7 @@
         "Infectious Disease",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/36_Impact-of-Health-System-Specialty-Pharmacy-Management-on-Clinical-Outcomes-in-Patients-with-Asthma-_2023.jpg",
       "pdf": {
         "filename": "36_Impact-of-Health-System-Specialty-Pharmacy-Management-on-Clinical-Outcomes-in-Patients-with-Asthma-_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/36_Impact-of-Health-System-Specialty-Pharmacy-Management-on-Clinical-Outcomes-in-Patients-with-Asthma-_2023.pdf",
@@ -18815,6 +19042,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/37_Impact-of-social-determinants-of-health-on-multiple-sclerosis-adherence-and-persistence-for-patients-using-a-national-mail-order-specialty-pharmacy_2023.jpg",
       "pdf": {
         "filename": "37_Impact-of-social-determinants-of-health-on-multiple-sclerosis-adherence-and-persistence-for-patients-using-a-national-mail-order-specialty-pharmacy_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/37_Impact-of-social-determinants-of-health-on-multiple-sclerosis-adherence-and-persistence-for-patients-using-a-national-mail-order-specialty-pharmacy_2023.pdf",
@@ -18929,6 +19157,7 @@
       "therapies": [
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/38_Impact-of-Specialty-Pharmacy-Implementation-on-Disease-Burden-and-Quality-of-Life-in-Pediatric-and-Young-Adult-Patients-Living-with-HIV_2023.jpg",
       "pdf": {
         "filename": "38_Impact-of-Specialty-Pharmacy-Implementation-on-Disease-Burden-and-Quality-of-Life-in-Pediatric-and-Young-Adult-Patients-Living-with-HIV_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/38_Impact-of-Specialty-Pharmacy-Implementation-on-Disease-Burden-and-Quality-of-Life-in-Pediatric-and-Young-Adult-Patients-Living-with-HIV_2023.pdf",
@@ -19020,6 +19249,7 @@
         "Inflammatory & Autoimmune",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/39_Adherence-Rates-of-Sphingosine-1-Phosphate-Receptor-Modulators-in-Patients-with-Multiple-Sclerosis_2023.jpg",
       "pdf": {
         "filename": "39_Adherence-Rates-of-Sphingosine-1-Phosphate-Receptor-Modulators-in-Patients-with-Multiple-Sclerosis_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/39_Adherence-Rates-of-Sphingosine-1-Phosphate-Receptor-Modulators-in-Patients-with-Multiple-Sclerosis_2023.pdf",
@@ -19094,6 +19324,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/4_Biosimilar-Perceptions-Among-Autoimmune-Prescribers-and-Pharmacists-in-Health-System-Specialty-Pharmacy-_2023.jpg",
       "pdf": {
         "filename": "4_Biosimilar-Perceptions-Among-Autoimmune-Prescribers-and-Pharmacists-in-Health-System-Specialty-Pharmacy-_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/4_Biosimilar-Perceptions-Among-Autoimmune-Prescribers-and-Pharmacists-in-Health-System-Specialty-Pharmacy-_2023.pdf",
@@ -19168,6 +19399,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/40_Concomitant-Apalutamide-and-Relugolix-in-Patients-With-High-Risk-Localized-Prostate-Cancer-Testosterone-Suppression-1-Year-Update-_2023.jpg",
       "pdf": {
         "filename": "40_Concomitant-Apalutamide-and-Relugolix-in-Patients-With-High-Risk-Localized-Prostate-Cancer-Testosterone-Suppression-1-Year-Update-_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/40_Concomitant-Apalutamide-and-Relugolix-in-Patients-With-High-Risk-Localized-Prostate-Cancer-Testosterone-Suppression-1-Year-Update-_2023.pdf",
@@ -19246,6 +19478,7 @@
         "Inflammatory & Autoimmune",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/41_Multiple-switching-between-the-biosimilar-adalimumab_2023.jpg",
       "pdf": {
         "filename": "41_Multiple-switching-between-the-biosimilar-adalimumab_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/41_Multiple-switching-between-the-biosimilar-adalimumab_2023.pdf",
@@ -19322,6 +19555,7 @@
       "therapies": [
         "Inflammatory & Autoimmune"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/42_Patient-Oriented-Eczema-Measure-POEM-Scores-to-Measure-Patient-Improvement-with-Specialty-Medication-for-Atopic-Dermatitis-_2023.jpg",
       "pdf": {
         "filename": "42_Patient-Oriented-Eczema-Measure-POEM-Scores-to-Measure-Patient-Improvement-with-Specialty-Medication-for-Atopic-Dermatitis-_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/42_Patient-Oriented-Eczema-Measure-POEM-Scores-to-Measure-Patient-Improvement-with-Specialty-Medication-for-Atopic-Dermatitis-_2023.pdf",
@@ -19384,6 +19618,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/43_Real-world-use-of-immunomodulators-in-patients-receiving-pegloticase-for-chronic-gout_2023.jpg",
       "pdf": {
         "filename": "43_Real-world-use-of-immunomodulators-in-patients-receiving-pegloticase-for-chronic-gout_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/43_Real-world-use-of-immunomodulators-in-patients-receiving-pegloticase-for-chronic-gout_2023.pdf",
@@ -19462,6 +19697,7 @@
       "therapies": [
         "Unclassified"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/44_Safety-of-Deutetrabenazine-Above-Food-and-Drug-Administration-Maximum-Recommended-Dose-in-Huntingtons-Disease-Chorea _2023.jpg",
       "pdf": {
         "filename": "44_Safety-of-Deutetrabenazine-Above-Food-and-Drug-Administration-Maximum-Recommended-Dose-in-Huntingtons-Disease-Chorea _2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/44_Safety-of-Deutetrabenazine-Above-Food-and-Drug-Administration-Maximum-Recommended-Dose-in-Huntingtons-Disease-Chorea _2023.pdf",
@@ -19537,6 +19773,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/45_Analyzing-Data-for-Specialty-Conditions-Such-as-Hepatitis-C-_2023.jpg",
       "pdf": {
         "filename": "45_Analyzing-Data-for-Specialty-Conditions-Such-as-Hepatitis-C-_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/45_Analyzing-Data-for-Specialty-Conditions-Such-as-Hepatitis-C-_2023.pdf",
@@ -19616,6 +19853,7 @@
         "Infectious Disease",
         "Renal"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/46_Cost-analysis-of-once-daily-extended-release-tacrolimus-LCPT-and-twice-daily-immediate-release-tacrolimus-IR-Tac-for-Kidney-Transplant-Patients_2023.jpg",
       "pdf": {
         "filename": "46_Cost-analysis-of-once-daily-extended-release-tacrolimus-LCPT-and-twice-daily-immediate-release-tacrolimus-IR-Tac-for-Kidney-Transplant-Patients_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/46_Cost-analysis-of-once-daily-extended-release-tacrolimus-LCPT-and-twice-daily-immediate-release-tacrolimus-IR-Tac-for-Kidney-Transplant-Patients_2023.pdf",
@@ -19694,6 +19932,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/47_Financial-Impact-of-Integrated-Specialty-Pharmacy-Efforts-to-Avoid-Oral-Oncolytic-Waste_2023.jpg",
       "pdf": {
         "filename": "47_Financial-Impact-of-Integrated-Specialty-Pharmacy-Efforts-to-Avoid-Oral-Oncolytic-Waste_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/47_Financial-Impact-of-Integrated-Specialty-Pharmacy-Efforts-to-Avoid-Oral-Oncolytic-Waste_2023.pdf",
@@ -19770,6 +20009,7 @@
       "therapies": [
         "Oncology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/48_Impact-of-Patient-Assistance-Programs-on-Out-of-Pocket-Costs-for-Oral-Oncolytics-Managed-Through-Integrated-Health-System-Specialty-Pharmacies_2023.jpg",
       "pdf": {
         "filename": "48_Impact-of-Patient-Assistance-Programs-on-Out-of-Pocket-Costs-for-Oral-Oncolytics-Managed-Through-Integrated-Health-System-Specialty-Pharmacies_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/48_Impact-of-Patient-Assistance-Programs-on-Out-of-Pocket-Costs-for-Oral-Oncolytics-Managed-Through-Integrated-Health-System-Specialty-Pharmacies_2023.pdf",
@@ -19860,6 +20100,7 @@
         "Infectious Disease",
         "Renal"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/49_Maximizing-Cost-Savings-The-Impact-of-Specialty-Pharmacist-Interventions-at-a-Community-Oncology-Center-_2023.jpg",
       "pdf": {
         "filename": "49_Maximizing-Cost-Savings-The-Impact-of-Specialty-Pharmacist-Interventions-at-a-Community-Oncology-Center-_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/49_Maximizing-Cost-Savings-The-Impact-of-Specialty-Pharmacist-Interventions-at-a-Community-Oncology-Center-_2023.pdf",
@@ -19945,6 +20186,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/5_Education-and-evaluation-strategies-to-implement-a-new-care-management-documentation-system-in-a-health-system-specialty-pharmacy-_2023.jpg",
       "pdf": {
         "filename": "5_Education-and-evaluation-strategies-to-implement-a-new-care-management-documentation-system-in-a-health-system-specialty-pharmacy-_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/5_Education-and-evaluation-strategies-to-implement-a-new-care-management-documentation-system-in-a-health-system-specialty-pharmacy-_2023.pdf",
@@ -20003,6 +20245,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/50_Retraining-of-Transplant-Pharmacy-Staff-to-Reduce-Medicare-Part-B-Prescription-Billing-Errors-_2023.jpg",
       "pdf": {
         "filename": "50_Retraining-of-Transplant-Pharmacy-Staff-to-Reduce-Medicare-Part-B-Prescription-Billing-Errors-_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/50_Retraining-of-Transplant-Pharmacy-Staff-to-Reduce-Medicare-Part-B-Prescription-Billing-Errors-_2023.pdf",
@@ -20118,6 +20361,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/51_Rheumatoid-Arthritis-RA-and-non-infused-biologics-adherence-healthcare-cost-and-utilization-_2023.jpg",
       "pdf": {
         "filename": "51_Rheumatoid-Arthritis-RA-and-non-infused-biologics-adherence-healthcare-cost-and-utilization-_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/51_Rheumatoid-Arthritis-RA-and-non-infused-biologics-adherence-healthcare-cost-and-utilization-_2023.pdf",
@@ -20191,6 +20435,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/52_Positive-Impact-of-a-Specialty-Pharmacy-Health-Coach-Program-_2023.jpg",
       "pdf": {
         "filename": "52_Positive-Impact-of-a-Specialty-Pharmacy-Health-Coach-Program-_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/52_Positive-Impact-of-a-Specialty-Pharmacy-Health-Coach-Program-_2023.pdf",
@@ -20278,6 +20523,7 @@
         "Infectious Disease",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/53_A-Comparison-of-Face-to-Face-vs.-Virtual-Educational-Nursing-Support-on-Patient-Compliance-with-Oral-and-Inhaled-PAH-Therapies_2023.jpg",
       "pdf": {
         "filename": "53_A-Comparison-of-Face-to-Face-vs.-Virtual-Educational-Nursing-Support-on-Patient-Compliance-with-Oral-and-Inhaled-PAH-Therapies_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/53_A-Comparison-of-Face-to-Face-vs.-Virtual-Educational-Nursing-Support-on-Patient-Compliance-with-Oral-and-Inhaled-PAH-Therapies_2023.pdf",
@@ -20343,6 +20589,7 @@
       "therapies": [
         "Cardiometabolic"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/54_A-model-for-medication-therapy-management-service-implementation-in-a-health-system-specialty-pharmacy-_2023.jpg",
       "pdf": {
         "filename": "54_A-model-for-medication-therapy-management-service-implementation-in-a-health-system-specialty-pharmacy-_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/54_A-model-for-medication-therapy-management-service-implementation-in-a-health-system-specialty-pharmacy-_2023.pdf",
@@ -20411,6 +20658,7 @@
         "Infectious Disease",
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/55_Development-and-Implementation-of-Collaborative-Pharmacy-Practice-Agreements-in-an-Integrated-Health-System-Specialty-Pharmacy-A-Qualitative-Analysis_2023.jpg",
       "pdf": {
         "filename": "55_Development-and-Implementation-of-Collaborative-Pharmacy-Practice-Agreements-in-an-Integrated-Health-System-Specialty-Pharmacy-A-Qualitative-Analysis_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/55_Development-and-Implementation-of-Collaborative-Pharmacy-Practice-Agreements-in-an-Integrated-Health-System-Specialty-Pharmacy-A-Qualitative-Analysis_2023.pdf",
@@ -20512,6 +20760,7 @@
         "Inflammatory & Autoimmune",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/56_Disease-Therapy-Management-for-Medication-Adherence-in-Rheumatoid-Arthritis_2023.jpg",
       "pdf": {
         "filename": "56_Disease-Therapy-Management-for-Medication-Adherence-in-Rheumatoid-Arthritis_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/56_Disease-Therapy-Management-for-Medication-Adherence-in-Rheumatoid-Arthritis_2023.pdf",
@@ -20618,6 +20867,7 @@
       "therapies": [
         "Oncology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/57_Impact-of-an-Ambulatory-Clinical-Pharmacist-on-Oral-Oncolytics-in-a-HematologyOncology-Specialty-Clinic-Integrated-with-a-Health-System-Specialty-Pharmacy_2023.jpg",
       "pdf": {
         "filename": "57_Impact-of-an-Ambulatory-Clinical-Pharmacist-on-Oral-Oncolytics-in-a-HematologyOncology-Specialty-Clinic-Integrated-with-a-Health-System-Specialty-Pharmacy_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/57_Impact-of-an-Ambulatory-Clinical-Pharmacist-on-Oral-Oncolytics-in-a-HematologyOncology-Specialty-Clinic-Integrated-with-a-Health-System-Specialty-Pharmacy_2023.pdf",
@@ -20679,6 +20929,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/6_Opportunities-Provided-to-Students-through-a-Specialty-Pharmacy-Externship-Program_2023.jpg",
       "pdf": {
         "filename": "6_Opportunities-Provided-to-Students-through-a-Specialty-Pharmacy-Externship-Program_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/6_Opportunities-Provided-to-Students-through-a-Specialty-Pharmacy-Externship-Program_2023.pdf",
@@ -20759,6 +21010,7 @@
       "therapies": [
         "Oncology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/60_A-Health-System-Specialty-Pharmacy-Led-Check-in-Protocol-in-Patients-on-Oral-Oncolytics_2023.jpg",
       "pdf": {
         "filename": "60_A-Health-System-Specialty-Pharmacy-Led-Check-in-Protocol-in-Patients-on-Oral-Oncolytics_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/60_A-Health-System-Specialty-Pharmacy-Led-Check-in-Protocol-in-Patients-on-Oral-Oncolytics_2023.pdf",
@@ -20831,6 +21083,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/61_Achieving-Quality-Pharmacy-Care-for-HIV-Post-Exposure-Prophylaxis-PEP-Therapy_2023.jpg",
       "pdf": {
         "filename": "61_Achieving-Quality-Pharmacy-Care-for-HIV-Post-Exposure-Prophylaxis-PEP-Therapy_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/61_Achieving-Quality-Pharmacy-Care-for-HIV-Post-Exposure-Prophylaxis-PEP-Therapy_2023.pdf",
@@ -20931,6 +21184,7 @@
       "therapies": [
         "Cardiometabolic"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/62_Clinical-and-Quality-Outcomes-of-a-Hypertrophic-Cardiomyopathy-Management-Program-within-an-Integrated-Health-System-Specialty-Pharmacy-Model_2023.jpg",
       "pdf": {
         "filename": "62_Clinical-and-Quality-Outcomes-of-a-Hypertrophic-Cardiomyopathy-Management-Program-within-an-Integrated-Health-System-Specialty-Pharmacy-Model_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/62_Clinical-and-Quality-Outcomes-of-a-Hypertrophic-Cardiomyopathy-Management-Program-within-an-Integrated-Health-System-Specialty-Pharmacy-Model_2023.pdf",
@@ -21005,6 +21259,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/63_Impact-of-PROMIS-10-on-health-related-quality-of-life-outcomes-in-specialty-pharmacy-settings-_2023.jpg",
       "pdf": {
         "filename": "63_Impact-of-PROMIS-10-on-health-related-quality-of-life-outcomes-in-specialty-pharmacy-settings-_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/63_Impact-of-PROMIS-10-on-health-related-quality-of-life-outcomes-in-specialty-pharmacy-settings-_2023.pdf",
@@ -21085,6 +21340,7 @@
         "Infectious Disease",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/64_Measuring-prescription-turnaround-times-in-an-integrated-health-system-specialty-pharmacy-setting-_2023.jpg",
       "pdf": {
         "filename": "64_Measuring-prescription-turnaround-times-in-an-integrated-health-system-specialty-pharmacy-setting-_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/64_Measuring-prescription-turnaround-times-in-an-integrated-health-system-specialty-pharmacy-setting-_2023.pdf",
@@ -21156,6 +21412,7 @@
         "Renal",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/65_Utilization-of-standard-half-life-or-extended-half-life-products-in-members-with-Hemophilia-A-prescribed-emicizumab_2023.jpg",
       "pdf": {
         "filename": "65_Utilization-of-standard-half-life-or-extended-half-life-products-in-members-with-Hemophilia-A-prescribed-emicizumab_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/65_Utilization-of-standard-half-life-or-extended-half-life-products-in-members-with-Hemophilia-A-prescribed-emicizumab_2023.pdf",
@@ -21263,6 +21520,7 @@
         "Inflammatory & Autoimmune",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/66_biologic_adherence_uc_crohns_claims_2023.jpg",
       "pdf": {
         "filename": "66_biologic_adherence_uc_crohns_claims_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/66_biologic_adherence_uc_crohns_claims_2023.pdf",
@@ -21358,6 +21616,7 @@
       "therapies": [
         "Unclassified"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/67_Difference-in-persistence-between-tablets-and-capsules_2023.jpg",
       "pdf": {
         "filename": "67_Difference-in-persistence-between-tablets-and-capsules_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/67_Difference-in-persistence-between-tablets-and-capsules_2023.pdf",
@@ -21444,6 +21703,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/68_Evaluating-prior-authorization-turnaround-times-for-integrated-health-system-specialty-pharmacy-patients-_2023.jpg",
       "pdf": {
         "filename": "68_Evaluating-prior-authorization-turnaround-times-for-integrated-health-system-specialty-pharmacy-patients-_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/68_Evaluating-prior-authorization-turnaround-times-for-integrated-health-system-specialty-pharmacy-patients-_2023.pdf",
@@ -21553,6 +21813,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/69_Impact-of-clinical-dashboards-for-data-capture-and-reporting-across-health-system-specialty-pharmacies_2023.jpg",
       "pdf": {
         "filename": "69_Impact-of-clinical-dashboards-for-data-capture-and-reporting-across-health-system-specialty-pharmacies_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/69_Impact-of-clinical-dashboards-for-data-capture-and-reporting-across-health-system-specialty-pharmacies_2023.pdf",
@@ -21617,6 +21878,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/7_Optimizing-initiation-for-self-injectable-medications-with-remote-demonstration-kits-delivered-via-specialty-pharmacy-_2023.jpg",
       "pdf": {
         "filename": "7_Optimizing-initiation-for-self-injectable-medications-with-remote-demonstration-kits-delivered-via-specialty-pharmacy-_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/7_Optimizing-initiation-for-self-injectable-medications-with-remote-demonstration-kits-delivered-via-specialty-pharmacy-_2023.pdf",
@@ -21707,6 +21969,7 @@
         "Oncology",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/70_Individualized-Care-Plans-Effect-on-Therapy-Adherence-for-Patients-Prescribed-Olaparib-_2023.jpg",
       "pdf": {
         "filename": "70_Individualized-Care-Plans-Effect-on-Therapy-Adherence-for-Patients-Prescribed-Olaparib-_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/70_Individualized-Care-Plans-Effect-on-Therapy-Adherence-for-Patients-Prescribed-Olaparib-_2023.pdf",
@@ -21765,6 +22028,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/71_Technology-Driven-Delivery-Performance-using-predictive-insight-to-take-action.before-shipping-is-even-initiated_2023.jpg",
       "pdf": {
         "filename": "71_Technology-Driven-Delivery-Performance-using-predictive-insight-to-take-action.before-shipping-is-even-initiated_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/71_Technology-Driven-Delivery-Performance-using-predictive-insight-to-take-action.before-shipping-is-even-initiated_2023.pdf",
@@ -21826,6 +22090,7 @@
         "Neurology",
         "Cardiometabolic"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/72_Development-of-a-Workflow-to-Manage-Non-specialty-Medications-at-a-Specialty-Pharmacy-_2023.jpg",
       "pdf": {
         "filename": "72_Development-of-a-Workflow-to-Manage-Non-specialty-Medications-at-a-Specialty-Pharmacy-_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/72_Development-of-a-Workflow-to-Manage-Non-specialty-Medications-at-a-Specialty-Pharmacy-_2023.pdf",
@@ -21891,6 +22156,7 @@
         "Neurology",
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/73_Identifying-Medication-Access-Barriers-for-Rare-and-Complex-Disease-Patients-within-the-Pharmacy-Hub-Space-_2023.jpg",
       "pdf": {
         "filename": "73_Identifying-Medication-Access-Barriers-for-Rare-and-Complex-Disease-Patients-within-the-Pharmacy-Hub-Space-_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/73_Identifying-Medication-Access-Barriers-for-Rare-and-Complex-Disease-Patients-within-the-Pharmacy-Hub-Space-_2023.pdf",
@@ -21963,6 +22229,7 @@
         "Infectious Disease",
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/74_A-landscape-assessment-of-digital-engagement-with-healthcare-decision-makers_2023.jpg",
       "pdf": {
         "filename": "74_A-landscape-assessment-of-digital-engagement-with-healthcare-decision-makers_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/74_A-landscape-assessment-of-digital-engagement-with-healthcare-decision-makers_2023.pdf",
@@ -22034,6 +22301,7 @@
       "therapies": [
         "Unclassified"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/75_Implementation-of-a-new-patient-case-management-system-at-a-large-health-system-specialty-pharmacy_2023.jpg",
       "pdf": {
         "filename": "75_Implementation-of-a-new-patient-case-management-system-at-a-large-health-system-specialty-pharmacy_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/75_Implementation-of-a-new-patient-case-management-system-at-a-large-health-system-specialty-pharmacy_2023.pdf",
@@ -22092,6 +22360,7 @@
       "therapies": [
         "Inflammatory & Autoimmune"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/76_Optimize-Your-Patient-Services-to-Support-the-Patient-Treatment-Journey_2023.jpg",
       "pdf": {
         "filename": "76_Optimize-Your-Patient-Services-to-Support-the-Patient-Treatment-Journey_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/76_Optimize-Your-Patient-Services-to-Support-the-Patient-Treatment-Journey_2023.pdf",
@@ -22179,6 +22448,7 @@
         "Oncology",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/77_Oral-oncology-adverse-event-reporting-via-text-messaging-integrative-collaboration-between-specialty-pharmacy-and-oncology-provider-clinic_2023.jpg",
       "pdf": {
         "filename": "77_Oral-oncology-adverse-event-reporting-via-text-messaging-integrative-collaboration-between-specialty-pharmacy-and-oncology-provider-clinic_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/77_Oral-oncology-adverse-event-reporting-via-text-messaging-integrative-collaboration-between-specialty-pharmacy-and-oncology-provider-clinic_2023.pdf",
@@ -22253,6 +22523,7 @@
       "therapies": [
         "Inflammatory & Autoimmune"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/78_Impact-of-Multi-Step-Order-Transmittal-in-an-Inflammatory-Bowel-Disease-Clinic-_2023.jpg",
       "pdf": {
         "filename": "78_Impact-of-Multi-Step-Order-Transmittal-in-an-Inflammatory-Bowel-Disease-Clinic-_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/78_Impact-of-Multi-Step-Order-Transmittal-in-an-Inflammatory-Bowel-Disease-Clinic-_2023.pdf",
@@ -22310,6 +22581,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/79_Creating-a-Digital-Refill-Program-Using-Readily-Available-Software_2023.jpg",
       "pdf": {
         "filename": "79_Creating-a-Digital-Refill-Program-Using-Readily-Available-Software_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/79_Creating-a-Digital-Refill-Program-Using-Readily-Available-Software_2023.pdf",
@@ -22364,6 +22636,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/8_Smart-Strategies-for-Control-Room-Temperature-Shipping-of-Mail-Order-Specialty-Pharmaceuticals_2023.jpg",
       "pdf": {
         "filename": "8_Smart-Strategies-for-Control-Room-Temperature-Shipping-of-Mail-Order-Specialty-Pharmaceuticals_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/8_Smart-Strategies-for-Control-Room-Temperature-Shipping-of-Mail-Order-Specialty-Pharmaceuticals_2023.pdf",
@@ -22452,6 +22725,7 @@
       "therapies": [
         "Unclassified"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/80_Improving-Medication-Adherence-for-Specialty-Pharmacy-Patients-_2023.jpg",
       "pdf": {
         "filename": "80_Improving-Medication-Adherence-for-Specialty-Pharmacy-Patients-_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/80_Improving-Medication-Adherence-for-Specialty-Pharmacy-Patients-_2023.pdf",
@@ -22507,6 +22781,7 @@
         "Infectious Disease",
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/81_The-Implementation-of-Agile-Methodology-and-its-Impact-on-the-Healthcare-and-Pharmacy-Technology-Industry_2023.jpg",
       "pdf": {
         "filename": "81_The-Implementation-of-Agile-Methodology-and-its-Impact-on-the-Healthcare-and-Pharmacy-Technology-Industry_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/81_The-Implementation-of-Agile-Methodology-and-its-Impact-on-the-Healthcare-and-Pharmacy-Technology-Industry_2023.pdf",
@@ -22562,6 +22837,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/9_Abemaciclib-Linkage-to-Care-A-Health-System-Specialty-Pharmacy-Initiative_2023.jpg",
       "pdf": {
         "filename": "9_Abemaciclib-Linkage-to-Care-A-Health-System-Specialty-Pharmacy-Initiative_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/9_Abemaciclib-Linkage-to-Care-A-Health-System-Specialty-Pharmacy-Initiative_2023.pdf",
@@ -22629,6 +22905,7 @@
         "Rare Disease",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/NASP_231005_POSTER_AbstractFrontierTherapies_FINAL_2023.jpg",
       "pdf": {
         "filename": "NASP_231005_POSTER_AbstractFrontierTherapies_FINAL_2023.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/NASP_231005_POSTER_AbstractFrontierTherapies_FINAL_2023.pdf",
@@ -22710,6 +22987,7 @@
         "Rare Disease",
         "Renal"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1-OPR1-OR-Poster-AM24-v2_2024.jpg",
       "pdf": {
         "filename": "1-OPR1-OR-Poster-AM24-v2_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1-OPR1-OR-Poster-AM24-v2_2024.pdf",
@@ -22784,6 +23062,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/10-OPR10-EN-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "10-OPR10-EN-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/10-OPR10-EN-Poster-AM24_2024.pdf",
@@ -22838,6 +23117,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/100-PSP100-RP-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "100-PSP100-RP-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/100-PSP100-RP-Poster-AM24_2024.pdf",
@@ -22907,6 +23187,7 @@
         "Oncology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/101-PSP101-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "101-PSP101-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/101-PSP101-OR-Poster-AM24_2024.pdf",
@@ -22978,6 +23259,7 @@
         "Infectious Disease",
         "Cardiometabolic"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/102-PSP102-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "102-PSP102-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/102-PSP102-OR-Poster-AM24_2024.pdf",
@@ -23029,6 +23311,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/103-PSP103-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "103-PSP103-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/103-PSP103-OR-Poster-AM24_2024.pdf",
@@ -23080,6 +23363,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/104-PSP104-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "104-PSP104-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/104-PSP104-OR-Poster-AM24_2024.pdf",
@@ -23140,6 +23424,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/11-OPR11-EN-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "11-OPR11-EN-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/11-OPR11-EN-Poster-AM24_2024.pdf",
@@ -23205,6 +23490,7 @@
         "Inflammatory & Autoimmune",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/12-OPR12-EN-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "12-OPR12-EN-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/12-OPR12-EN-Poster-AM24_2024.pdf",
@@ -23318,6 +23604,7 @@
         "Oncology",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/13-OPR13-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "13-OPR13-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/13-OPR13-OR-Poster-AM24_2024.pdf",
@@ -23385,6 +23672,7 @@
         "Oncology",
         "Cardiometabolic"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/14-OPR14-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "14-OPR14-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/14-OPR14-OR-Poster-AM24_2024.pdf",
@@ -23466,6 +23754,7 @@
         "Cardiometabolic",
         "Renal"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/15-OPR15-EN-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "15-OPR15-EN-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/15-OPR15-EN-Poster-AM24_2024.pdf",
@@ -23539,6 +23828,7 @@
         "Neurology",
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/16-OPR16-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "16-OPR16-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/16-OPR16-OR-Poster-AM24_2024.pdf",
@@ -23624,6 +23914,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/17-OPR17-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "17-OPR17-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/17-OPR17-OR-Poster-AM24_2024.pdf",
@@ -23705,6 +23996,7 @@
         "Cardiometabolic",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/18-OPR18-EN-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "18-OPR18-EN-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/18-OPR18-EN-Poster-AM24_2024.pdf",
@@ -23773,6 +24065,7 @@
         "Cardiometabolic",
         "Renal"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/19-OPR19-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "19-OPR19-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/19-OPR19-OR-Poster-AM24_2024.pdf",
@@ -23850,6 +24143,7 @@
         "Inflammatory & Autoimmune",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/2-OPR2-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "2-OPR2-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/2-OPR2-OR-Poster-AM24_2024.pdf",
@@ -23925,6 +24219,7 @@
       "therapies": [
         "Unclassified"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/20-OPR20-EN-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "20-OPR20-EN-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/20-OPR20-EN-Poster-AM24_2024.pdf",
@@ -23996,6 +24291,7 @@
         "Oncology",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/21-OPR21-EN-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "21-OPR21-EN-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/21-OPR21-EN-Poster-AM24_2024.pdf",
@@ -24080,6 +24376,7 @@
         "Infectious Disease",
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/22-OPR22-EN-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "22-OPR22-EN-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/22-OPR22-EN-Poster-AM24_2024.pdf",
@@ -24162,6 +24459,7 @@
       "therapies": [
         "Inflammatory & Autoimmune"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/23-OPR23-EN-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "23-OPR23-EN-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/23-OPR23-EN-Poster-AM24_2024.pdf",
@@ -24228,6 +24526,7 @@
         "Infectious Disease",
         "Renal"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/24-OPR24-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "24-OPR24-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/24-OPR24-OR-Poster-AM24_2024.pdf",
@@ -24295,6 +24594,7 @@
         "Oncology",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/25-OPR25-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "25-OPR25-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/25-OPR25-OR-Poster-AM24_2024.pdf",
@@ -24374,6 +24674,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/26-OPR26-OR-Poster-AM24-v2_2024.jpg",
       "pdf": {
         "filename": "26-OPR26-OR-Poster-AM24-v2_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/26-OPR26-OR-Poster-AM24-v2_2024.pdf",
@@ -24454,6 +24755,7 @@
         "Inflammatory & Autoimmune",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/27-OPR27-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "27-OPR27-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/27-OPR27-OR-Poster-AM24_2024.pdf",
@@ -24526,6 +24828,7 @@
         "Inflammatory & Autoimmune",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/28-OPR28-EN-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "28-OPR28-EN-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/28-OPR28-EN-Poster-AM24_2024.pdf",
@@ -24586,6 +24889,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/29-OPR29-RP-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "29-OPR29-RP-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/29-OPR29-RP-Poster-AM24_2024.pdf",
@@ -24652,6 +24956,7 @@
         "Infectious Disease",
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/3-OPR3-EN-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "3-OPR3-EN-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/3-OPR3-EN-Poster-AM24_2024.pdf",
@@ -24728,6 +25033,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/30-OPR30-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "30-OPR30-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/30-OPR30-OR-Poster-AM24_2024.pdf",
@@ -24820,6 +25126,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/31-OPR31-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "31-OPR31-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/31-OPR31-OR-Poster-AM24_2024.pdf",
@@ -24883,6 +25190,7 @@
         "Infectious Disease",
         "Cardiometabolic"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/32-OPR32-EN-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "32-OPR32-EN-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/32-OPR32-EN-Poster-AM24_2024.pdf",
@@ -24947,6 +25255,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/33-OPR33-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "33-OPR33-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/33-OPR33-OR-Poster-AM24_2024.pdf",
@@ -25037,6 +25346,7 @@
         "Rare Disease",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/34-OPR34-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "34-OPR34-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/34-OPR34-OR-Poster-AM24_2024.pdf",
@@ -25108,6 +25418,7 @@
         "Oncology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/35-OPR35-RP-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "35-OPR35-RP-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/35-OPR35-RP-Poster-AM24_2024.pdf",
@@ -25196,6 +25507,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/36-OPR36-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "36-OPR36-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/36-OPR36-OR-Poster-AM24_2024.pdf",
@@ -25302,6 +25614,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/37-OPR37-EN-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "37-OPR37-EN-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/37-OPR37-EN-Poster-AM24_2024.pdf",
@@ -25376,6 +25689,7 @@
         "Cardiometabolic",
         "Renal"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/38-OPR38-EN-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "38-OPR38-EN-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/38-OPR38-EN-Poster-AM24_2024.pdf",
@@ -25443,6 +25757,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/39-OPR39-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "39-OPR39-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/39-OPR39-OR-Poster-AM24_2024.pdf",
@@ -25507,6 +25822,7 @@
         "Inflammatory & Autoimmune",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/4-OPR4-EN-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "4-OPR4-EN-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/4-OPR4-EN-Poster-AM24_2024.pdf",
@@ -25565,6 +25881,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/40-OPR40-EN-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "40-OPR40-EN-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/40-OPR40-EN-Poster-AM24_2024.pdf",
@@ -25693,6 +26010,7 @@
         "Inflammatory & Autoimmune",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/41-OPR41-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "41-OPR41-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/41-OPR41-OR-Poster-AM24_2024.pdf",
@@ -25769,6 +26087,7 @@
         "Infectious Disease",
         "Cardiometabolic"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/42-OPR42-EN-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "42-OPR42-EN-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/42-OPR42-EN-Poster-AM24_2024.pdf",
@@ -25844,6 +26163,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/43-OPR43-EN-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "43-OPR43-EN-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/43-OPR43-EN-Poster-AM24_2024.pdf",
@@ -25947,6 +26267,7 @@
       "therapies": [
         "Oncology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/44-OPR44-RP-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "44-OPR44-RP-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/44-OPR44-RP-Poster-AM24_2024.pdf",
@@ -26019,6 +26340,7 @@
       "therapies": [
         "Cardiometabolic"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/45-OPR45-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "45-OPR45-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/45-OPR45-OR-Poster-AM24_2024.pdf",
@@ -26084,6 +26406,7 @@
       "therapies": [
         "Oncology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/46-OPR46-RP-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "46-OPR46-RP-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/46-OPR46-RP-Poster-AM24_2024.pdf",
@@ -26162,6 +26485,7 @@
         "Inflammatory & Autoimmune",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/47-OPR47-EN-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "47-OPR47-EN-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/47-OPR47-EN-Poster-AM24_2024.pdf",
@@ -26225,6 +26549,7 @@
         "Neurology",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/48-OPR48-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "48-OPR48-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/48-OPR48-OR-Poster-AM24_2024.pdf",
@@ -26313,6 +26638,7 @@
         "Oncology",
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/49-OPR49-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "49-OPR49-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/49-OPR49-OR-Poster-AM24_2024.pdf",
@@ -26389,6 +26715,7 @@
       "therapies": [
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/5-OPR5-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "5-OPR5-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/5-OPR5-OR-Poster-AM24_2024.pdf",
@@ -26502,6 +26829,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/50-OPR50-EN-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "50-OPR50-EN-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/50-OPR50-EN-Poster-AM24_2024.pdf",
@@ -26558,6 +26886,7 @@
       "therapies": [
         "Inflammatory & Autoimmune"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/51-OPR51-EN-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "51-OPR51-EN-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/51-OPR51-EN-Poster-AM24_2024.pdf",
@@ -26632,6 +26961,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/52-OPR52-EN-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "52-OPR52-EN-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/52-OPR52-EN-Poster-AM24_2024.pdf",
@@ -26720,6 +27050,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/53-OPR53-EN-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "53-OPR53-EN-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/53-OPR53-EN-Poster-AM24_2024.pdf",
@@ -26797,6 +27128,7 @@
         "Inflammatory & Autoimmune",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/54-OPR54-EN-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "54-OPR54-EN-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/54-OPR54-EN-Poster-AM24_2024.pdf",
@@ -26890,6 +27222,7 @@
       "therapies": [
         "Inflammatory & Autoimmune"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/55-OPR55-RP-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "55-OPR55-RP-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/55-OPR55-RP-Poster-AM24_2024.pdf",
@@ -26966,6 +27299,7 @@
       "therapies": [
         "Cardiometabolic"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/56-OPR56-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "56-OPR56-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/56-OPR56-OR-Poster-AM24_2024.pdf",
@@ -27087,6 +27421,7 @@
         "Infectious Disease",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/57-OPR57-RP-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "57-OPR57-RP-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/57-OPR57-RP-Poster-AM24_2024.pdf",
@@ -27182,6 +27517,7 @@
         "Neurology",
         "Renal"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/58-OPR58-EN-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "58-OPR58-EN-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/58-OPR58-EN-Poster-AM24_2024.pdf",
@@ -27269,6 +27605,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/59-OPR59-EN-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "59-OPR59-EN-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/59-OPR59-EN-Poster-AM24_2024.pdf",
@@ -27339,6 +27676,7 @@
       "therapies": [
         "Inflammatory & Autoimmune"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/6-OPR6-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "6-OPR6-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/6-OPR6-OR-Poster-AM24_2024.pdf",
@@ -27401,6 +27739,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/60-OPR60-EN-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "60-OPR60-EN-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/60-OPR60-EN-Poster-AM24_2024.pdf",
@@ -27472,6 +27811,7 @@
       "therapies": [
         "Oncology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/61-OPR61-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "61-OPR61-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/61-OPR61-OR-Poster-AM24_2024.pdf",
@@ -27539,6 +27879,7 @@
         "Cardiometabolic",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/62-OPR62-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "62-OPR62-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/62-OPR62-OR-Poster-AM24_2024.pdf",
@@ -27590,6 +27931,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/63-OPR63-RP-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "63-OPR63-RP-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/63-OPR63-RP-Poster-AM24_2024.pdf",
@@ -27708,6 +28050,7 @@
       "therapies": [
         "Oncology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/64-OPR64-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "64-OPR64-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/64-OPR64-OR-Poster-AM24_2024.pdf",
@@ -27795,6 +28138,7 @@
       "therapies": [
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/65-OPR65-OR-Poster-AM24-v2_2024.jpg",
       "pdf": {
         "filename": "65-OPR65-OR-Poster-AM24-v2_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/65-OPR65-OR-Poster-AM24-v2_2024.pdf",
@@ -27900,6 +28244,7 @@
       "therapies": [
         "Unclassified"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/66-OPR66-EN-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "66-OPR66-EN-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/66-OPR66-EN-Poster-AM24_2024.pdf",
@@ -27985,6 +28330,7 @@
         "Cardiometabolic",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/67-OPR67-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "67-OPR67-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/67-OPR67-OR-Poster-AM24_2024.pdf",
@@ -28048,6 +28394,7 @@
         "Infectious Disease",
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/68-OPR68-EN-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "68-OPR68-EN-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/68-OPR68-EN-Poster-AM24_2024.pdf",
@@ -28113,6 +28460,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/69-OPR69-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "69-OPR69-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/69-OPR69-OR-Poster-AM24_2024.pdf",
@@ -28179,6 +28527,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/7-OPR7-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "7-OPR7-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/7-OPR7-OR-Poster-AM24_2024.pdf",
@@ -28250,6 +28599,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/70-OPR70-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "70-OPR70-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/70-OPR70-OR-Poster-AM24_2024.pdf",
@@ -28358,6 +28708,7 @@
         "Oncology",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/71-OPR71-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "71-OPR71-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/71-OPR71-OR-Poster-AM24_2024.pdf",
@@ -28455,6 +28806,7 @@
         "Oncology",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/72-OPR72-EN-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "72-OPR72-EN-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/72-OPR72-EN-Poster-AM24_2024.pdf",
@@ -28525,6 +28877,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/73-DTS73-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "73-DTS73-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/73-DTS73-OR-Poster-AM24_2024.pdf",
@@ -28579,6 +28932,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/74-DTS74-RP-Poster-AM24-v3_2024.jpg",
       "pdf": {
         "filename": "74-DTS74-RP-Poster-AM24-v3_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/74-DTS74-RP-Poster-AM24-v3_2024.pdf",
@@ -28638,6 +28992,7 @@
       "therapies": [
         "Unclassified"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/75-DTS75-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "75-DTS75-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/75-DTS75-OR-Poster-AM24_2024.pdf",
@@ -28702,6 +29057,7 @@
       "therapies": [
         "Inflammatory & Autoimmune"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/76-DTS76-EN-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "76-DTS76-EN-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/76-DTS76-EN-Poster-AM24_2024.pdf",
@@ -28837,6 +29193,7 @@
         "Oncology",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/77-DTS77-EN-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "77-DTS77-EN-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/77-DTS77-EN-Poster-AM24_2024.pdf",
@@ -28978,6 +29335,7 @@
         "Oncology",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/78-DTS78-EN-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "78-DTS78-EN-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/78-DTS78-EN-Poster-AM24_2024.pdf",
@@ -29123,6 +29481,7 @@
         "Oncology",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/79-DTS79-EN-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "79-DTS79-EN-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/79-DTS79-EN-Poster-AM24_2024.pdf",
@@ -29200,6 +29559,7 @@
         "Oncology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/8-OPR8-EN-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "8-OPR8-EN-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/8-OPR8-EN-Poster-AM24_2024.pdf",
@@ -29265,6 +29625,7 @@
       "therapies": [
         "Inflammatory & Autoimmune"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/80-DTS80-EN-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "80-DTS80-EN-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/80-DTS80-EN-Poster-AM24_2024.pdf",
@@ -29325,6 +29686,7 @@
       "therapies": [
         "Inflammatory & Autoimmune"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/81-DTS81-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "81-DTS81-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/81-DTS81-OR-Poster-AM24_2024.pdf",
@@ -29394,6 +29756,7 @@
       "therapies": [
         "Oncology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/82-DTS82-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "82-DTS82-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/82-DTS82-OR-Poster-AM24_2024.pdf",
@@ -29451,6 +29814,7 @@
       "therapies": [
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/83-DTS83-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "83-DTS83-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/83-DTS83-OR-Poster-AM24_2024.pdf",
@@ -29531,6 +29895,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/84-DTS84-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "84-DTS84-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/84-DTS84-OR-Poster-AM24_2024.pdf",
@@ -29598,6 +29963,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/85-PSP85-RP-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "85-PSP85-RP-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/85-PSP85-RP-Poster-AM24_2024.pdf",
@@ -29673,6 +30039,7 @@
         "Neurology",
         "Cardiometabolic"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/86-PSP86-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "86-PSP86-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/86-PSP86-OR-Poster-AM24_2024.pdf",
@@ -29767,6 +30134,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/87-PSP87-RP-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "87-PSP87-RP-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/87-PSP87-RP-Poster-AM24_2024.pdf",
@@ -29833,6 +30201,7 @@
       "therapies": [
         "Oncology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/88-PSP88-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "88-PSP88-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/88-PSP88-OR-Poster-AM24_2024.pdf",
@@ -29907,6 +30276,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/89-PSP89-RP-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "89-PSP89-RP-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/89-PSP89-RP-Poster-AM24_2024.pdf",
@@ -29959,6 +30329,7 @@
         "Oncology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/9-OPR9-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "9-OPR9-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/9-OPR9-OR-Poster-AM24_2024.pdf",
@@ -30033,6 +30404,7 @@
         "Inflammatory & Autoimmune",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/90-PSP90-EN-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "90-PSP90-EN-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/90-PSP90-EN-Poster-AM24_2024.pdf",
@@ -30116,6 +30488,7 @@
         "Inflammatory & Autoimmune",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/91-PSP91-RP-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "91-PSP91-RP-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/91-PSP91-RP-Poster-AM24_2024.pdf",
@@ -30174,6 +30547,7 @@
         "Neurology",
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/92-PSP92-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "92-PSP92-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/92-PSP92-OR-Poster-AM24_2024.pdf",
@@ -30247,6 +30621,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/93-PSP93-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "93-PSP93-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/93-PSP93-OR-Poster-AM24_2024.pdf",
@@ -30308,6 +30683,7 @@
         "Rare Disease",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/94-PSP94-EN-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "94-PSP94-EN-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/94-PSP94-EN-Poster-AM24_2024.pdf",
@@ -30373,6 +30749,7 @@
       "therapies": [
         "Oncology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/95-PSP95-RP-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "95-PSP95-RP-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/95-PSP95-RP-Poster-AM24_2024.pdf",
@@ -30426,6 +30803,7 @@
         "Inflammatory & Autoimmune",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/96-PSP96-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "96-PSP96-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/96-PSP96-OR-Poster-AM24_2024.pdf",
@@ -30516,6 +30894,7 @@
         "Neurology",
         "Cardiometabolic"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/97-PSP97-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "97-PSP97-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/97-PSP97-OR-Poster-AM24_2024.pdf",
@@ -30575,6 +30954,7 @@
       "therapies": [
         "Oncology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/98-PSP98-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "98-PSP98-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/98-PSP98-OR-Poster-AM24_2024.pdf",
@@ -30640,6 +31020,7 @@
       "therapies": [
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/99-PSP99-OR-Poster-AM24_2024.jpg",
       "pdf": {
         "filename": "99-PSP99-OR-Poster-AM24_2024.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/99-PSP99-OR-Poster-AM24_2024.pdf",
@@ -30726,6 +31107,7 @@
         "Infectious Disease",
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1101-OPR26-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1101-OPR26-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1101-OPR26-OR-Poster-AM25_2025.pdf",
@@ -30796,6 +31178,7 @@
         "Infectious Disease",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1103-OPR48-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1103-OPR48-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1103-OPR48-OR-Poster-AM25_2025.pdf",
@@ -30869,6 +31252,7 @@
         "Oncology",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1109-OPR25-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1109-OPR25-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1109-OPR25-OR-Poster-AM25_2025.pdf",
@@ -30959,6 +31343,7 @@
         "Infectious Disease",
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1110-OPR59-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1110-OPR59-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1110-OPR59-OR-Poster-AM25_2025.pdf",
@@ -31017,6 +31402,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1117-PSP78-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1117-PSP78-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1117-PSP78-OR-Poster-AM25_2025.pdf",
@@ -31071,6 +31457,7 @@
       "therapies": [
         "Inflammatory & Autoimmune"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1118-OPR14-OR-Poster-AM25-v2_2025.jpg",
       "pdf": {
         "filename": "1118-OPR14-OR-Poster-AM25-v2_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1118-OPR14-OR-Poster-AM25-v2_2025.pdf",
@@ -31138,6 +31525,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1124-OPR40-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1124-OPR40-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1124-OPR40-OR-Poster-AM25_2025.pdf",
@@ -31260,6 +31648,7 @@
         "Neurology",
         "Cardiometabolic"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1134-OPR44-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1134-OPR44-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1134-OPR44-OR-Poster-AM25_2025.pdf",
@@ -31348,6 +31737,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1135-OPR43-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1135-OPR43-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1135-OPR43-OR-Poster-AM25_2025.pdf",
@@ -31403,6 +31793,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1139-PSP82-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1139-PSP82-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1139-PSP82-OR-Poster-AM25_2025.pdf",
@@ -31479,6 +31870,7 @@
       "therapies": [
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1140-PSP80-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1140-PSP80-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1140-PSP80-OR-Poster-AM25_2025.pdf",
@@ -31579,6 +31971,7 @@
         "Infectious Disease",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1141-PSP90-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1141-PSP90-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1141-PSP90-OR-Poster-AM25_2025.pdf",
@@ -31645,6 +32038,7 @@
         "Infectious Disease",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1145-OPR19-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1145-OPR19-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1145-OPR19-OR-Poster-AM25_2025.pdf",
@@ -31744,6 +32138,7 @@
         "Oncology",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1148-OPR69-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1148-OPR69-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1148-OPR69-OR-Poster-AM25_2025.pdf",
@@ -31811,6 +32206,7 @@
         "Inflammatory & Autoimmune",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1150-OPR24-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1150-OPR24-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1150-OPR24-OR-Poster-AM25_2025.pdf",
@@ -31884,6 +32280,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1151-OPR58-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1151-OPR58-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1151-OPR58-OR-Poster-AM25_2025.pdf",
@@ -31951,6 +32348,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1153-OPR51-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1153-OPR51-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1153-OPR51-OR-Poster-AM25_2025.pdf",
@@ -32020,6 +32418,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1154-OPR52-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1154-OPR52-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1154-OPR52-OR-Poster-AM25_2025.pdf",
@@ -32069,6 +32468,7 @@
         "Neurology",
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1159-PSP102-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1159-PSP102-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1159-PSP102-OR-Poster-AM25_2025.pdf",
@@ -32141,6 +32541,7 @@
         "Infectious Disease",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1160-OPR04-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1160-OPR04-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1160-OPR04-OR-Poster-AM25_2025.pdf",
@@ -32205,6 +32606,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1163-OPR27-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1163-OPR27-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1163-OPR27-OR-Poster-AM25_2025.pdf",
@@ -32304,6 +32706,7 @@
         "Cardiometabolic",
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1165-OPR42-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1165-OPR42-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1165-OPR42-OR-Poster-AM25_2025.pdf",
@@ -32387,6 +32790,7 @@
         "Oncology",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1167-OPR29-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1167-OPR29-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1167-OPR29-OR-Poster-AM25_2025.pdf",
@@ -32476,6 +32880,7 @@
         "Oncology",
         "Renal"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1170-OPR01-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1170-OPR01-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1170-OPR01-OR-Poster-AM25_2025.pdf",
@@ -32543,6 +32948,7 @@
         "Infectious Disease",
         "Renal"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1172-PSP72-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1172-PSP72-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1172-PSP72-OR-Poster-AM25_2025.pdf",
@@ -32620,6 +33026,7 @@
         "Neurology",
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1173-PSP87-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1173-PSP87-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1173-PSP87-OR-Poster-AM25_2025.pdf",
@@ -32687,6 +33094,7 @@
         "Infectious Disease",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1174-OPR10-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1174-OPR10-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1174-OPR10-OR-Poster-AM25_2025.pdf",
@@ -32749,6 +33157,7 @@
         "Neurology",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1175-PSP73-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1175-PSP73-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1175-PSP73-OR-Poster-AM25_2025.pdf",
@@ -32813,6 +33222,7 @@
       "therapies": [
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1178-OPR68-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1178-OPR68-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1178-OPR68-OR-Poster-AM25_2025.pdf",
@@ -32891,6 +33301,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1179-OPR23-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1179-OPR23-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1179-OPR23-OR-Poster-AM25_2025.pdf",
@@ -32963,6 +33374,7 @@
         "Neurology",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1180-OPR38-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1180-OPR38-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1180-OPR38-OR-Poster-AM25_2025.pdf",
@@ -33021,6 +33433,7 @@
         "Inflammatory & Autoimmune",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1181-PSP79-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1181-PSP79-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1181-PSP79-OR-Poster-AM25_2025.pdf",
@@ -33073,6 +33486,7 @@
         "Cardiometabolic",
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1183-PSP77-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1183-PSP77-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1183-PSP77-OR-Poster-AM25_2025.pdf",
@@ -33132,6 +33546,7 @@
       "therapies": [
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1184-PSP84-RP-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1184-PSP84-RP-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1184-PSP84-RP-Poster-AM25_2025.pdf",
@@ -33216,6 +33631,7 @@
         "Neurology",
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1186-OPR70-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1186-OPR70-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1186-OPR70-OR-Poster-AM25_2025.pdf",
@@ -33335,6 +33751,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1187-PSP81-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1187-PSP81-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1187-PSP81-OR-Poster-AM25_2025.pdf",
@@ -33407,6 +33824,7 @@
         "Oncology",
         "Inflammatory & Autoimmune"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1188-OPR39-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1188-OPR39-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1188-OPR39-OR-Poster-AM25_2025.pdf",
@@ -33482,6 +33900,7 @@
       "therapies": [
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1191-OPR32-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1191-OPR32-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1191-OPR32-OR-Poster-AM25_2025.pdf",
@@ -33581,6 +34000,7 @@
         "Inflammatory & Autoimmune",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1192-PSP88-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1192-PSP88-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1192-PSP88-OR-Poster-AM25_2025.pdf",
@@ -33635,6 +34055,7 @@
         "Cardiometabolic",
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1193-OPR56-EN-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1193-OPR56-EN-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1193-OPR56-EN-Poster-AM25_2025.pdf",
@@ -33708,6 +34129,7 @@
         "Neurology",
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1195-DTS106-OR-Poster-AM25v2_2025.jpg",
       "pdf": {
         "filename": "1195-DTS106-OR-Poster-AM25v2_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1195-DTS106-OR-Poster-AM25v2_2025.pdf",
@@ -33806,6 +34228,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1196-OPR09-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1196-OPR09-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1196-OPR09-OR-Poster-AM25_2025.pdf",
@@ -33898,6 +34321,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1197-OPR07-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1197-OPR07-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1197-OPR07-OR-Poster-AM25_2025.pdf",
@@ -33973,6 +34397,7 @@
         "Neurology",
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1199-OPR63-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1199-OPR63-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1199-OPR63-OR-Poster-AM25_2025.pdf",
@@ -34073,6 +34498,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1200-PSP99-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1200-PSP99-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1200-PSP99-OR-Poster-AM25_2025.pdf",
@@ -34152,6 +34578,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1201-OPR17-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1201-OPR17-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1201-OPR17-OR-Poster-AM25_2025.pdf",
@@ -34225,6 +34652,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1203-PSP93-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1203-PSP93-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1203-PSP93-OR-Poster-AM25_2025.pdf",
@@ -34298,6 +34726,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1206-OPR08-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1206-OPR08-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1206-OPR08-OR-Poster-AM25_2025.pdf",
@@ -34376,6 +34805,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1208-PSP71-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1208-PSP71-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1208-PSP71-OR-Poster-AM25_2025.pdf",
@@ -34446,6 +34876,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1210-OPR11-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1210-OPR11-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1210-OPR11-OR-Poster-AM25_2025.pdf",
@@ -34523,6 +34954,7 @@
         "Neurology",
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1211-OPR67-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1211-OPR67-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1211-OPR67-OR-Poster-AM25_2025.pdf",
@@ -34610,6 +35042,7 @@
         "Inflammatory & Autoimmune",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1215-DTS109-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1215-DTS109-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1215-DTS109-OR-Poster-AM25_2025.pdf",
@@ -34688,6 +35121,7 @@
         "Oncology",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1216-OPR41-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1216-OPR41-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1216-OPR41-OR-Poster-AM25_2025.pdf",
@@ -34772,6 +35206,7 @@
       "therapies": [
         "Oncology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1218-OPR62-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1218-OPR62-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1218-OPR62-OR-Poster-AM25_2025.pdf",
@@ -34822,6 +35257,7 @@
       "therapies": [
         "Oncology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1219-DTS111-OR-Poster-AM25-2_2025.jpg",
       "pdf": {
         "filename": "1219-DTS111-OR-Poster-AM25-2_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1219-DTS111-OR-Poster-AM25-2_2025.pdf",
@@ -34885,6 +35321,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1222-DTS108-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1222-DTS108-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1222-DTS108-OR-Poster-AM25_2025.pdf",
@@ -34972,6 +35409,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/1223-OPR66-OR-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "1223-OPR66-OR-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/1223-OPR66-OR-Poster-AM25_2025.pdf",
@@ -35046,6 +35484,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/2102-PSP83-EN-Poster-AM25v2_2025.jpg",
       "pdf": {
         "filename": "2102-PSP83-EN-Poster-AM25v2_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/2102-PSP83-EN-Poster-AM25v2_2025.pdf",
@@ -35104,6 +35543,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/2104-OPR47-EN-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "2104-OPR47-EN-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/2104-OPR47-EN-Poster-AM25_2025.pdf",
@@ -35182,6 +35622,7 @@
         "Inflammatory & Autoimmune",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/2105-OPR50-EN-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "2105-OPR50-EN-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/2105-OPR50-EN-Poster-AM25_2025.pdf",
@@ -35254,6 +35695,7 @@
         "Cardiometabolic",
         "Renal"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/2106-OPR49-EN-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "2106-OPR49-EN-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/2106-OPR49-EN-Poster-AM25_2025.pdf",
@@ -35325,6 +35767,7 @@
       "therapies": [
         "Oncology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/2108-DTS105-EN-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "2108-DTS105-EN-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/2108-DTS105-EN-Poster-AM25_2025.pdf",
@@ -35421,6 +35864,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/2111-OPR37-EN-Poster-AM25v2_2025.jpg",
       "pdf": {
         "filename": "2111-OPR37-EN-Poster-AM25v2_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/2111-OPR37-EN-Poster-AM25v2_2025.pdf",
@@ -35510,6 +35954,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/2112-OPR36-EN-Poster-AM25v2_2025.jpg",
       "pdf": {
         "filename": "2112-OPR36-EN-Poster-AM25v2_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/2112-OPR36-EN-Poster-AM25v2_2025.pdf",
@@ -35585,6 +36030,7 @@
         "Infectious Disease",
         "Cardiometabolic"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/2113-OPR54-EN-Poster-AM25v2_2025.jpg",
       "pdf": {
         "filename": "2113-OPR54-EN-Poster-AM25v2_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/2113-OPR54-EN-Poster-AM25v2_2025.pdf",
@@ -35650,6 +36096,7 @@
         "Cardiometabolic",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/2115-OPR22-EN-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "2115-OPR22-EN-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/2115-OPR22-EN-Poster-AM25_2025.pdf",
@@ -35704,6 +36151,7 @@
         "Neurology",
         "Cardiometabolic"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/2116-DTS110-EN-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "2116-DTS110-EN-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/2116-DTS110-EN-Poster-AM25_2025.pdf",
@@ -35775,6 +36223,7 @@
         "Inflammatory & Autoimmune",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/2120-OPR13-EN-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "2120-OPR13-EN-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/2120-OPR13-EN-Poster-AM25_2025.pdf",
@@ -35840,6 +36289,7 @@
         "Oncology",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/2121-OPR02-EN-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "2121-OPR02-EN-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/2121-OPR02-EN-Poster-AM25_2025.pdf",
@@ -35919,6 +36369,7 @@
         "Inflammatory & Autoimmune",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/2123-OPR12-EN-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "2123-OPR12-EN-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/2123-OPR12-EN-Poster-AM25_2025.pdf",
@@ -36056,6 +36507,7 @@
         "Infectious Disease",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/2125-OPR35-EN-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "2125-OPR35-EN-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/2125-OPR35-EN-Poster-AM25_2025.pdf",
@@ -36136,6 +36588,7 @@
       "therapies": [
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/2126-OPR34-EN-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "2126-OPR34-EN-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/2126-OPR34-EN-Poster-AM25_2025.pdf",
@@ -36242,6 +36695,7 @@
       "therapies": [
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/2127-OPR15-EN-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "2127-OPR15-EN-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/2127-OPR15-EN-Poster-AM25_2025.pdf",
@@ -36300,6 +36754,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/2128-OPR45-EN-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "2128-OPR45-EN-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/2128-OPR45-EN-Poster-AM25_2025.pdf",
@@ -36385,6 +36840,7 @@
         "Neurology",
         "Cardiometabolic"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/2129-OPR28-EN-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "2129-OPR28-EN-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/2129-OPR28-EN-Poster-AM25_2025.pdf",
@@ -36497,6 +36953,7 @@
         "Neurology",
         "Cardiometabolic"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/2138-PSP95-EN-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "2138-PSP95-EN-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/2138-PSP95-EN-Poster-AM25_2025.pdf",
@@ -36574,6 +37031,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/2142-PSP75-EN-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "2142-PSP75-EN-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/2142-PSP75-EN-Poster-AM25_2025.pdf",
@@ -36634,6 +37092,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/2144-OPR21-EN-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "2144-OPR21-EN-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/2144-OPR21-EN-Poster-AM25_2025.pdf",
@@ -36717,6 +37176,7 @@
       "therapies": [
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/2146-PSP92-EN-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "2146-PSP92-EN-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/2146-PSP92-EN-Poster-AM25_2025.pdf",
@@ -36799,6 +37259,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/2147-OPR55-EN-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "2147-OPR55-EN-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/2147-OPR55-EN-Poster-AM25_2025.pdf",
@@ -36864,6 +37325,7 @@
       "therapies": [
         "Oncology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/2158-PSP104-RP-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "2158-PSP104-RP-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/2158-PSP104-RP-Poster-AM25_2025.pdf",
@@ -36936,6 +37398,7 @@
         "Infectious Disease",
         "Respiratory"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/2161-OPR03-EN-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "2161-OPR03-EN-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/2161-OPR03-EN-Poster-AM25_2025.pdf",
@@ -37005,6 +37468,7 @@
       "therapies": [
         "Inflammatory & Autoimmune"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/2164-PSP98-EN-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "2164-PSP98-EN-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/2164-PSP98-EN-Poster-AM25_2025.pdf",
@@ -37067,6 +37531,7 @@
       "therapies": [
         "Inflammatory & Autoimmune"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/2166-PSP97EN-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "2166-PSP97EN-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/2166-PSP97EN-Poster-AM25_2025.pdf",
@@ -37139,6 +37604,7 @@
         "Oncology",
         "Inflammatory & Autoimmune"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/2169-PSP86-EN-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "2169-PSP86-EN-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/2169-PSP86-EN-Poster-AM25_2025.pdf",
@@ -37206,6 +37672,7 @@
         "Infectious Disease",
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/2171-PSP85-EN-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "2171-PSP85-EN-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/2171-PSP85-EN-Poster-AM25_2025.pdf",
@@ -37273,6 +37740,7 @@
         "Infectious Disease",
         "Renal"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/2177-OPR33-EN-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "2177-OPR33-EN-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/2177-OPR33-EN-Poster-AM25_2025.pdf",
@@ -37329,6 +37797,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/2182-OPR06-EN-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "2182-OPR06-EN-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/2182-OPR06-EN-Poster-AM25_2025.pdf",
@@ -37419,6 +37888,7 @@
         "Inflammatory & Autoimmune",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/2185-OPR57-EN-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "2185-OPR57-EN-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/2185-OPR57-EN-Poster-AM25_2025.pdf",
@@ -37512,6 +37982,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/2194-OPR05-EN-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "2194-OPR05-EN-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/2194-OPR05-EN-Poster-AM25_2025.pdf",
@@ -37594,6 +38065,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/2207-PSP100-EN-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "2207-PSP100-EN-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/2207-PSP100-EN-Poster-AM25_2025.pdf",
@@ -37692,6 +38164,7 @@
         "Oncology",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/2220-OPR30-EN-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "2220-OPR30-EN-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/2220-OPR30-EN-Poster-AM25_2025.pdf",
@@ -37755,6 +38228,7 @@
         "Oncology",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/2221-OPR16-EN-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "2221-OPR16-EN-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/2221-OPR16-EN-Poster-AM25_2025.pdf",
@@ -37821,6 +38295,7 @@
       "therapies": [
         "Cardiometabolic"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/3149-PSP96-RP-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "3149-PSP96-RP-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/3149-PSP96-RP-Poster-AM25_2025.pdf",
@@ -37892,6 +38367,7 @@
       "therapies": [
         "Unclassified"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/3152-PSP76-RP-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "3152-PSP76-RP-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/3152-PSP76-RP-Poster-AM25_2025.pdf",
@@ -37992,6 +38468,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/3168-OPR20-RP-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "3168-OPR20-RP-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/3168-OPR20-RP-Poster-AM25_2025.pdf",
@@ -38065,6 +38542,7 @@
         "Inflammatory & Autoimmune",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/3176-OPR61-RP-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "3176-OPR61-RP-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/3176-OPR61-RP-Poster-AM25_2025.pdf",
@@ -38130,6 +38608,7 @@
         "Neurology",
         "Rare Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/3189-OPR46-RP-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "3189-OPR46-RP-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/3189-OPR46-RP-Poster-AM25_2025.pdf",
@@ -38183,6 +38662,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/3190-PSP94-RP-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "3190-PSP94-RP-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/3190-PSP94-RP-Poster-AM25_2025.pdf",
@@ -38246,6 +38726,7 @@
       "therapies": [
         "Unclassified"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/3198-PSP91-RP-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "3198-PSP91-RP-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/3198-PSP91-RP-Poster-AM25_2025.pdf",
@@ -38322,6 +38803,7 @@
       "therapies": [
         "Unclassified"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/3202-PSP74-RP-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "3202-PSP74-RP-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/3202-PSP74-RP-Poster-AM25_2025.pdf",
@@ -38395,6 +38877,7 @@
         "Inflammatory & Autoimmune",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/3205-PSP89-RP-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "3205-PSP89-RP-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/3205-PSP89-RP-Poster-AM25_2025.pdf",
@@ -38467,6 +38950,7 @@
       "therapies": [
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/3209-DTS107-RP-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "3209-DTS107-RP-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/3209-DTS107-RP-Poster-AM25_2025.pdf",
@@ -38526,6 +39010,7 @@
         "Neurology",
         "Infectious Disease"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/3214-OPR53-RP-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "3214-OPR53-RP-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/3214-OPR53-RP-Poster-AM25_2025.pdf",
@@ -38584,6 +39069,7 @@
       "therapies": [
         "Unclassified"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/3217-OPR31-RP-Poster-AM25_2025.jpg",
       "pdf": {
         "filename": "3217-OPR31-RP-Poster-AM25_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/3217-OPR31-RP-Poster-AM25_2025.pdf",
@@ -38652,6 +39138,7 @@
         "Oncology",
         "Neurology"
       ],
+      "thumbnail_path": "assets/img/poster-thumbnails/OPR18-OR-Implementing-Hard-Stop_2025.jpg",
       "pdf": {
         "filename": "OPR18-OR-Implementing-Hard-Stop_2025.pdf",
         "local_path": "nasp_abstracts_posters_pdfs_2019_2025/OPR18-OR-Implementing-Hard-Stop_2025.pdf",

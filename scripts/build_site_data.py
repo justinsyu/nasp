@@ -11,6 +11,7 @@ MANIFEST = CORPUS_DIR / "download_manifest.csv"
 OUT_JSON = ROOT / "assets" / "data" / "presentations-index.json"
 OUT_MD = ROOT / "assets" / "data" / "nasp_abstracts_posters.md"
 OUT_METHODS_JSON = ROOT / "assets" / "data" / "methods-analysis.json"
+THUMB_DIR = ROOT / "assets" / "img" / "poster-thumbnails"
 
 
 CATEGORY_RULES = {
@@ -560,6 +561,32 @@ def poster_code(filename: str) -> str:
     return stem[:24].upper()
 
 
+def ensure_pdf_thumbnail(pdf_path: Path) -> str:
+    THUMB_DIR.mkdir(parents=True, exist_ok=True)
+    thumb_path = THUMB_DIR / f"{pdf_path.stem}.jpg"
+    rel_path = f"assets/img/poster-thumbnails/{thumb_path.name}"
+    if thumb_path.exists() and thumb_path.stat().st_mtime >= pdf_path.stat().st_mtime:
+        return rel_path
+    try:
+        import fitz
+        from PIL import Image
+    except Exception:
+        return ""
+    try:
+        with fitz.open(pdf_path) as doc:
+            if doc.page_count == 0:
+                return ""
+            page = doc.load_page(0)
+            pixmap = page.get_pixmap(matrix=fitz.Matrix(0.32, 0.32), colorspace=fitz.csRGB, alpha=False)
+            image = Image.frombytes("RGB", (pixmap.width, pixmap.height), pixmap.samples)
+            image.thumbnail((360, 260), Image.Resampling.LANCZOS)
+            image.save(thumb_path, "JPEG", quality=72, optimize=True)
+        return rel_path
+    except Exception as exc:
+        print(f"Skipped thumbnail for {pdf_path.name}: {exc}")
+        return ""
+
+
 def extract_sections(markdown: str) -> dict:
     sections = {}
     matches = list(re.finditer(r"^##+\s+(.+)$", markdown, flags=re.M))
@@ -905,6 +932,7 @@ def build_methods_analysis(records: list[dict]) -> dict:
                 "outcomes": outcomes,
                 "categories": record.get("categories", []),
                 "therapies": record.get("therapies", []),
+                "thumbnail_path": record.get("thumbnail_path", ""),
                 "pdf": record["pdf"],
                 "markdown_path": record["markdown_path"],
             }
@@ -958,6 +986,7 @@ def main():
         categories = classify(full_text, CATEGORY_RULES)
         therapies = classify(full_text, THERAPY_RULES)
         uid = pdf_path.stem.lower()
+        thumbnail_path = ensure_pdf_thumbnail(pdf_path)
         records.append(
             {
                 "uid": uid,
@@ -969,6 +998,7 @@ def main():
                 "categories": categories,
                 "therapies": therapies,
                 "sections": sections,
+                "thumbnail_path": thumbnail_path,
                 "pdf": {
                     "filename": pdf_path.name,
                     "local_path": f"nasp_abstracts_posters_pdfs_2019_2025/{pdf_path.name}",
