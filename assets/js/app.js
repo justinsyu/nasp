@@ -235,6 +235,8 @@ function renderResults() {
   const records = filteredRecords();
   const visible = records.slice(0, state.visibleLimit);
   elements.resultCount.textContent = `${numberFormat(records.length)} matching poster${records.length === 1 ? "" : "s"}`;
+  elements.results.removeAttribute("data-loading");
+  elements.results.setAttribute("aria-busy", "false");
   elements.results.innerHTML = visible.map(renderRecord).join("");
   elements.loadMore.hidden = records.length <= state.visibleLimit;
   elements.loadMore.textContent = `Load ${numberFormat(Math.min(LIMIT_STEP, records.length - state.visibleLimit))} more`;
@@ -474,6 +476,8 @@ async function start() {
   } catch (error) {
     markStatsUnavailable();
     elements.resultCount.textContent = "Unable to load NASP records.";
+    elements.results.removeAttribute("data-loading");
+    elements.results.setAttribute("aria-busy", "false");
     elements.results.innerHTML = `<li><p>${escapeHtml(error.message)}</p></li>`;
   }
 }
