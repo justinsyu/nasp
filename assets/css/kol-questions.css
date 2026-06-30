@@ -87,7 +87,7 @@
 
 .kol-card-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.15fr);
   gap: 0;
   border: 1px solid var(--border-strong);
   border-width: 1px 0;
