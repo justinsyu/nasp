@@ -121,30 +121,6 @@
   font-size: 0.9rem;
 }
 
-.domain-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.55rem;
-  margin: 0;
-}
-
-.domain-nav span {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  min-height: 2.2rem;
-  border: 1px solid var(--border-strong);
-  border-radius: 3px;
-  background: #ffffff;
-  color: var(--blue);
-  font: 850 0.78rem/1.2 var(--font-body);
-  padding: 0.45rem 0.62rem;
-}
-
-.domain-nav strong {
-  color: var(--red);
-}
-
 .kol-list {
   display: grid;
   gap: 1rem;

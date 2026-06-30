@@ -27,23 +27,10 @@ function slug(value) {
   return text(value).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 }
 
-function uniqueSorted(values) {
-  return [...new Set(values.filter(Boolean))].sort((a, b) => a.localeCompare(b));
-}
-
 function initElements() {
-  el.domainNav = document.querySelector("#domain-nav");
   el.list = document.querySelector("#kol-list");
   el.dialog = document.querySelector("#kol-dialog");
   el.dialogContent = document.querySelector("#kol-dialog-content");
-}
-
-function renderDomainNav() {
-  const domains = uniqueSorted(state.data.questions.map((question) => question.domain));
-  el.domainNav.innerHTML = domains.map((domain) => {
-    const count = state.data.questions.filter((question) => question.domain === domain).length;
-    return `<span>${escapeHtml(domain)} <strong>${numberFormat(count)}</strong></span>`;
-  }).join("");
 }
 
 function evidencePreview(question) {
@@ -168,7 +155,6 @@ async function start() {
   if (!response.ok) throw new Error(`Failed to load ${KOL_DATA_URL}`);
   state.data = await response.json();
 
-  renderDomainNav();
   renderQuestions();
   requestAnimationFrame(markLoaded);
 }
