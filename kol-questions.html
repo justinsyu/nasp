@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+    <title>KOL Questions | NASP Poster Archive</title>
+    <meta name="description" content="Evidence-grounded KOL discussion questions generated from NASP annual meeting poster evidence, with source PDF links and supporting publication rationale.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/site.css?v=nasp-5">
+    <link rel="stylesheet" href="assets/css/kol-questions.css?v=nasp-1">
+    <script src="assets/js/kol-questions.js?v=nasp-1" defer></script>
+  </head>
+  <body class="kol-page is-loading">
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="NASP abstract archive home">
+        <img src="assets/img/nasp-logo.svg" alt="NASP">
+        <span>2019-2025 Poster Archive</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="./">Browse</a>
+        <a href="./#categories">Categories</a>
+        <a href="./#therapies">Therapy Areas</a>
+        <a href="intelligence.html">Intelligence</a>
+        <a href="methods.html">Methods</a>
+        <a href="kol-questions.html" aria-current="page">KOL Questions</a>
+        <a href="hssp-insights.html">HSSP Insights</a>
+        <a class="download-link" href="assets/data/presentations-index.json" download>
+          <svg class="download-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.5v9m0 0 3.5-3.5M10 11.5 6.5 8M4 14.5v2h12v-2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          JSON
+        </a>
+        <a class="download-link" href="assets/data/nasp_abstracts_posters.md" download>
+          <svg class="download-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.5v9m0 0 3.5-3.5M10 11.5 6.5 8M4 14.5v2h12v-2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Markdown
+        </a>
+      </nav>
+    </header>
+
+    <main class="kol-shell">
+      <section class="kol-hero">
+        <p class="eyebrow">NASP annual meeting posters / 2019-2025</p>
+        <h1>KOL Questions</h1>
+        <p>Use conference-derived evidence tensions to guide KOL conversations. Each prompt separates NASP poster evidence from external guideline, regulator, or professional-standard context, then narrows the question to the remaining implementation uncertainty.</p>
+      </section>
+
+      <section class="dashboard-loading" id="kol-loading" aria-live="polite" aria-busy="true">
+        <span class="loading-mark" aria-hidden="true"></span>
+        <span>Loading KOL questions</span>
+      </section>
+
+      <section class="kol-summary" id="kol-summary" aria-label="KOL question summary"></section>
+
+      <section class="section-block">
+        <h2><span class="dot red"></span>How To Use This Page</h2>
+        <div class="method-grid">
+          <article>
+            <h3>Question rule</h3>
+            <p>Questions focus on unresolved decision processes, not awareness, agreement, or literature recall.</p>
+          </article>
+          <article>
+            <h3>Evidence rule</h3>
+            <p>Each question cites poster-level NASP evidence and opens the matching NASP source PDF.</p>
+          </article>
+          <article>
+            <h3>Literature rule</h3>
+            <p>External sources are used to identify what public guidance already answers and what remains open for KOL discussion.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <h2><span class="dot blue"></span>Evidence Domains</h2>
+        <nav class="domain-nav" id="domain-nav" aria-label="KOL question domains"></nav>
+      </section>
+
+      <section class="section-block" id="questions">
+        <div class="section-heading-row">
+          <div>
+            <h2><span class="dot gold"></span>Questions</h2>
+            <p class="lead">Filter by topic, priority, answerability, poster code, title, or source rationale.</p>
+          </div>
+        </div>
+
+        <form class="filter-panel kol-filters" id="kol-filters">
+          <label>
+            <span>Search</span>
+            <input id="kol-search" type="search" placeholder="Try oral oncology, PrEP, PDC, biosimilar, Elevidys">
+          </label>
+          <label>
+            <span>Domain</span>
+            <select id="domain-filter"><option value="">All domains</option></select>
+          </label>
+          <label>
+            <span>Priority</span>
+            <select id="priority-filter"><option value="">All priorities</option></select>
+          </label>
+          <label>
+            <span>Already answered</span>
+            <select id="answered-filter"><option value="">All verdicts</option></select>
+          </label>
+        </form>
+
+        <div class="results-toolbar" aria-live="polite">
+          <span id="kol-result-count">Loading questions...</span>
+          <button class="button button-secondary" id="clear-kol-filters" type="button">Clear filters</button>
+        </div>
+
+        <div class="kol-list" id="kol-list"></div>
+      </section>
+    </main>
+
+    <dialog class="records-dialog kol-dialog" id="kol-dialog">
+      <article class="records-panel">
+        <button class="dialog-close" type="button" aria-label="Close KOL question evidence">Close</button>
+        <div id="kol-dialog-content"></div>
+      </article>
+    </dialog>
+
+    <footer class="site-footer">
+      <p>Questions are discussion prompts for evidence planning. They are not clinical practice recommendations.</p>
+      <p>Source data: <a href="https://naspnet.org/annual-meeting/abstracts-posters" rel="noopener">NASP Abstracts & Posters</a>.</p>
+    </footer>
+  </body>
+</html>

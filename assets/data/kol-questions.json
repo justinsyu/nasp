@@ -1,0 +1,708 @@
+{
+  "source": {
+    "local_data": [
+      "assets/data/presentations-index.json",
+      "assets/data/methods-analysis.json"
+    ],
+    "reviewed_at": "2026-06-30",
+    "notes": "Curated from poster-level NASP records and checked against selected public guidelines, regulatory materials, and professional standards. The questions are intended for discussion planning, not clinical guidance."
+  },
+  "summary": {
+    "question_count": 11,
+    "poster_evidence_count": 46,
+    "domains": [
+      "HIV and PrEP service models",
+      "Adherence and persistence",
+      "Access and prior authorization",
+      "Oral oncology safety",
+      "Biosimilars",
+      "Patient-reported outcomes",
+      "Financial assistance",
+      "Rare disease and gene therapy",
+      "Workforce and delegation",
+      "Digital monitoring",
+      "Social drivers and adherence"
+    ]
+  },
+  "questions": [
+    {
+      "id": "hiv-long-acting-care",
+      "domain": "HIV and PrEP service models",
+      "priority": "High",
+      "evidence_discrepancy": "Multiple NASP posters support integrated HSSP or outpatient-pharmacy involvement in viral suppression, PrEP persistence, and long-acting HIV service implementation, but the evidence mixes retrospective outcomes, implementation reports, and access-process measures.",
+      "literature_verdict": "Public HIV guidance supports routine assessment of adherence barriers, rapid ART access, multidisciplinary support, and caution with long-acting cabotegravir/rilpivirine when retention or adherence is unstable. It does not specify which pharmacy-led operational model should be used for each local population.",
+      "already_answered": "Partly",
+      "residual_uncertainty": "The remaining decision is not whether adherence and retention matter. It is how programs choose between oral refill support, injectable administration models, PrEP services, same-day starts, and retention workflows for specific patient groups.",
+      "question": "When a clinic has both oral ART adherence challenges and demand for long-acting HIV treatment or PrEP, how do you decide which patients need a pharmacy-led injection or PrEP service rather than intensified oral-medication adherence support?",
+      "tags": [
+        "HIV",
+        "PrEP",
+        "Long-acting therapy",
+        "Retention",
+        "Integrated HSSP"
+      ],
+      "evidence": [
+        {
+          "uid": "30-opr30-or-poster-am24_2024",
+          "year": 2024,
+          "poster_code": "30-OPR30-OR",
+          "title": "An Integrated Health System Specialty Pharmacy Impacts HIV Viral Load Suppression and Maintenance",
+          "snippet": "HIV patients using the integrated HSSP were more likely to achieve viral-load suppression after a high index viral load and to maintain undetectable viral load at six months than patients using commercial specialty pharmacies.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2024/09/30-OPR30-OR-Poster-AM24.pdf"
+        },
+        {
+          "uid": "1201-opr17-or-poster-am25_2025",
+          "year": 2025,
+          "poster_code": "1201-OPR17-OR",
+          "title": "One Shot at a Time: Pharmacy Team Driven Implementation of Long-Acting Antiretroviral Therapy for HIV Management and PrEP",
+          "snippet": "A pharmacy-team implementation report described 141 long-acting ART starts, including 51 same-day first doses after consultation and additional next-day starts enabled by specialty-pharmacy involvement.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2025/08/1201-OPR17-OR-Poster-AM25.pdf"
+        },
+        {
+          "uid": "3190-psp94-rp-poster-am25_2025",
+          "year": 2025,
+          "poster_code": "3190-PSP94-RP",
+          "title": "Development and implementation of a novel, pharmacist-led, long-acting HIV pre-exposure prophylaxis administration service in a health system outpatient pharmacy",
+          "snippet": "A pharmacist-led outpatient-pharmacy model was developed for long-acting HIV PrEP administration, addressing implementation needs rather than comparative clinical outcomes.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2025/08/3190-PSP94-RP-Poster-AM25.pdf"
+        },
+        {
+          "uid": "64-2022",
+          "year": 2022,
+          "poster_code": "64",
+          "title": "Persistence to HIV Pre-Exposure Prophylaxis Filled Through an Integrated Health-System Specialty Pharmacy Compared With External Pharmacies",
+          "snippet": "Patients receiving PrEP in a multidisciplinary clinic and filling through the integrated HSSP had higher persistence than patients filling externally.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2022/12/64-2022.pdf"
+        }
+      ],
+      "sources": [
+        {
+          "title": "NIH HIV Guidelines: Adherence to the Continuum of Care",
+          "url": "https://clinicalinfo.hiv.gov/en/guidelines/hiv-clinical-guidelines-adult-and-adolescent-arv/adherence-continuum-care",
+          "rationale": "Supports discussion of adherence assessment, rapid ART access, multidisciplinary support, and case-by-case long-acting ART decisions. It does not define a pharmacy operating model."
+        }
+      ]
+    },
+    {
+      "id": "adherence-thresholds",
+      "domain": "Adherence and persistence",
+      "priority": "High",
+      "evidence_discrepancy": "NASP posters report PDC, MPR, persistence, discontinuation, hospitalizations, cost, and patient-reported adherence across diseases. Public quality programs often operationalize adherence using PDC thresholds, but specialty-disease management may require disease-specific interpretation.",
+      "literature_verdict": "CMS Star Ratings technical notes define PDC-based adherence measures for selected chronic drug classes and use an 80 percent PDC numerator threshold for several Part D measures. That public rule does not settle how to interpret PDC for oncology, HIV, rare disease, or inflammatory-disease specialty medications.",
+      "already_answered": "Partly",
+      "residual_uncertainty": "The unresolved decision is how clinicians translate a refill-based measure into an action threshold when clinical risk, toxicity, treatment cycling, or social barriers differ by disease and medication.",
+      "question": "When you review specialty-medication adherence data, when is PDC or MPR alone meaningful enough to trigger intervention, and when do you require disease-specific context such as symptoms, toxicity, disease activity, hospitalization risk, or treatment cycling?",
+      "tags": [
+        "PDC",
+        "MPR",
+        "Persistence",
+        "Quality measurement",
+        "Specialty medication"
+      ],
+      "evidence": [
+        {
+          "uid": "08-2022",
+          "year": 2022,
+          "poster_code": "08",
+          "title": "Patient-Tailored Pharmacist Interventions to Improve Specialty Medication Adherence: A Randomized Controlled Trial",
+          "snippet": "Patient-tailored pharmacist interventions improved 8-month PDC compared with usual care, with reported PDC of 94 percent versus 88 percent.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2022/12/08-2022.pdf"
+        },
+        {
+          "uid": "07-nonadherence-phenotype-tool-improves-outcomes_2021",
+          "year": 2021,
+          "poster_code": "07",
+          "title": "Nonadherence phenotype tool improves outcomes",
+          "snippet": "A phenotype-guided program compared baseline MPR with 12-month post-intervention MPR and reported adherence improvement in nine of 10 patients.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2021/09/07-Nonadherence-phenotype-tool-improves-outcomes.pdf"
+        },
+        {
+          "uid": "51_rheumatoid-arthritis-ra-and-non-infused-biologics-adherence-healthcare-cost-and-utilization-_2023",
+          "year": 2023,
+          "poster_code": "51",
+          "title": "Rheumatoid Arthritis (RA) and non-infused biologics: adherence, healthcare cost and utilization.",
+          "snippet": "An RA biologics adherence metric was associated with yearly healthcare cost, hospitalization odds, and length of stay after covariate adjustment.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2023/08/51_Rheumatoid-Arthritis-RA-and-non-infused-biologics-adherence-healthcare-cost-and-utilization-.pdf"
+        },
+        {
+          "uid": "1223-opr66-or-poster-am25_2025",
+          "year": 2025,
+          "poster_code": "1223-OPR66-OR",
+          "title": "Hematological oral oncolytics: adherence, healthcare cost and utilization.",
+          "snippet": "A large retrospective oral hematology-oncology analysis examined discontinuation, adherence, cost, and utilization in a specialty-pharmacy management program.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2025/08/1223-OPR66-OR-Poster-AM25.pdf"
+        }
+      ],
+      "sources": [
+        {
+          "title": "CMS Medicare 2026 Part C and D Star Ratings Technical Notes",
+          "url": "https://www.cms.gov/files/document/2026-star-ratings-technical-notes.pdf",
+          "rationale": "Defines selected Part D adherence measures using PDC and an 80 percent threshold. It supports the measurement context but not disease-specific intervention thresholds."
+        },
+        {
+          "title": "Pharmacy Quality Alliance measure implementation overview",
+          "url": "https://www.pqa.org/measures/measure-implementation/",
+          "rationale": "Shows that PQA PDC measures are used in Medicare Part D quality programs. It supports the quality-measure lineage, not specialty-disease action rules."
+        }
+      ]
+    },
+    {
+      "id": "access-time-vs-completeness",
+      "domain": "Access and prior authorization",
+      "priority": "High",
+      "evidence_discrepancy": "Access posters report faster fill times, proactive prior authorization workflows, missing-information barriers, and integrated-HSSP time-to-access improvements, but they do not use one common endpoint or denominator.",
+      "literature_verdict": "CMS prior-authorization policy emphasizes electronic exchange, denial reasons, public metrics, and decision timeframes for specified medical items and services, while explicitly excluding drug prior authorizations from some provisions. This provides workflow context but does not define specialty-drug access success.",
+      "already_answered": "No",
+      "residual_uncertainty": "Programs still need to choose which access metrics matter most: time to triage, time to complete documentation, time to payer decision, time to first fill, abandonment, or clinical delay.",
+      "question": "For specialty-drug access workflows, which operational endpoint do you consider most decision-relevant: time to complete information, payer decision time, time to first fill, or avoidance of abandonment, and how do you handle cases where a faster process risks incomplete documentation?",
+      "tags": [
+        "Prior authorization",
+        "Access",
+        "Turnaround time",
+        "Missing information",
+        "Workflow"
+      ],
+      "evidence": [
+        {
+          "uid": "68_evaluating-prior-authorization-turnaround-times-for-integrated-health-system-specialty-pharmacy-patients-_2023",
+          "year": 2023,
+          "poster_code": "68",
+          "title": "Evaluating prior authorization turnaround times for integrated health system specialty pharmacy patients",
+          "snippet": "The poster frames PA turnaround time as a patient-impact issue and evaluates integrated-HSSP prior-authorization performance.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2023/08/68_Evaluating-prior-authorization-turnaround-times-for-integrated-health-system-specialty-pharmacy-patients-.pdf"
+        },
+        {
+          "uid": "19-2022",
+          "year": 2022,
+          "poster_code": "19",
+          "title": "Implementation of an electronic multistep order transmittal process for proactive oral oncolytic prior authorization in an oncology clinic",
+          "snippet": "An electronic multistep order transmittal tool improved timing for medication access and workflow in a complex oral-oncology PA process.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2022/12/19-2022.pdf"
+        },
+        {
+          "uid": "58-2022",
+          "year": 2022,
+          "poster_code": "58",
+          "title": "Health System Specialty Pharmacy Integration Impact on Fill Time",
+          "snippet": "Integration of an HSSP was associated with a 15 percent reduction in patient access time and a 43 percent reduction among patients filling internally.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2022/12/58-2022.pdf"
+        },
+        {
+          "uid": "73_identifying-medication-access-barriers-for-rare-and-complex-disease-patients-within-the-pharmacy-hub-space-_2023",
+          "year": 2023,
+          "poster_code": "73",
+          "title": "Identifying Medication Access Barriers for Rare and Complex Disease Patients within the Pharmacy Hub Space",
+          "snippet": "Across analyzed programs, 37 percent of triaged prescriptions had missing information, including patient demographics, signatures, provider information, and dosing.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2023/08/73_Identifying-Medication-Access-Barriers-for-Rare-and-Complex-Disease-Patients-within-the-Pharmacy-Hub-Space-.pdf"
+        }
+      ],
+      "sources": [
+        {
+          "title": "CMS Interoperability and Prior Authorization Final Rule CMS-0057-F",
+          "url": "https://www.cms.gov/newsroom/fact-sheets/cms-interoperability-prior-authorization-final-rule-cms-0057-f",
+          "rationale": "Supports discussion of prior-authorization APIs, denial reasons, reporting, and decision-time expectations. It is indirect because some provisions exclude drug prior authorizations."
+        }
+      ]
+    },
+    {
+      "id": "oral-oncology-monitoring",
+      "domain": "Oral oncology safety",
+      "priority": "High",
+      "evidence_discrepancy": "Oral-oncology posters describe 14-day check-ins, early electronic questionnaires, dose modification support, hard-stop alerts, and discontinuation outcomes. The evidence supports high-touch monitoring but does not identify one preferred timing, escalation, or ownership model.",
+      "literature_verdict": "ASCO/ONS standards provide a safety framework for antineoplastic therapy across routes and care settings. They support structured safety processes but do not settle the optimal specialty-pharmacy cadence for early monitoring or escalation.",
+      "already_answered": "Partly",
+      "residual_uncertainty": "The operational uncertainty is how to allocate monitoring intensity by regimen, toxicity risk, patient risk, and team capacity.",
+      "question": "For patients starting oral anticancer therapy, which factors should determine whether the first proactive contact occurs at 7, 14, or 30 days, and which adverse-event or adherence signals should trigger escalation to oncology rather than pharmacy-only management?",
+      "tags": [
+        "Oral oncolytics",
+        "Adverse events",
+        "Monitoring",
+        "Dose modification",
+        "Safety alerts"
+      ],
+      "evidence": [
+        {
+          "uid": "03-2022",
+          "year": 2022,
+          "poster_code": "03",
+          "title": "Comparison of Discontinuation Rates in Patients Receiving an Oral Anticancer Agent Before and After Implementation of a 14-day Pharmacist Check-in Protocol",
+          "snippet": "A 14-day pharmacist check-in protocol was presented as a targeted counseling and side-effect mitigation strategy to reduce oral anticancer discontinuation.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2022/12/03-2022.pdf"
+        },
+        {
+          "uid": "60_a-health-system-specialty-pharmacy-led-check-in-protocol-in-patients-on-oral-oncolytics_2023",
+          "year": 2023,
+          "poster_code": "60",
+          "title": "A Health System Specialty Pharmacy-led check-in Protocol in Patients on Oral Oncolytics",
+          "snippet": "The poster links high oral-oncolytic toxicity profiles with earlier pharmacist touchpoints intended to identify patient-related challenges to therapy.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2023/08/60_A-Health-System-Specialty-Pharmacy-Led-Check-in-Protocol-in-Patients-on-Oral-Oncolytics.pdf"
+        },
+        {
+          "uid": "2108-dts105-en-poster-am25_2025",
+          "year": 2025,
+          "poster_code": "2108-DTS105-EN",
+          "title": "Implementation of oral anticancer early monitoring using electronic questionnaires",
+          "snippet": "Patients who responded to early-monitoring electronic questionnaires had a high-engagement signal, raising questions about who responds and who remains under-monitored.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2025/08/2108-DTS105-EN-Poster-AM25.pdf"
+        },
+        {
+          "uid": "opr18-or-implementing-hard-stop_2025",
+          "year": 2025,
+          "poster_code": "OPR18-OR-IMPLEMENTING-HA",
+          "title": "Implementing Hard Stop Alerts in Hospital Software: Reducing Inappropriate Continuation of Oral Oncolytic Prescriptions Through Enhanced Safety Mechanisms",
+          "snippet": "Hard-stop alerts were reported to reduce inappropriate oral-oncolytic continuation in hospital software.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2026/01/OPR18-OR-Implementing-Hard-Stop.pdf"
+        },
+        {
+          "uid": "66-opr66-en-poster-am24_2024",
+          "year": 2024,
+          "poster_code": "66-OPR66-EN",
+          "title": "Adherence for Members Taking Oral Oncolytic Agents Undergoing Dose Modification Strategies",
+          "snippet": "Dose modification was associated with decreased adherence, suggesting a need for additional support during modification periods.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2024/09/66-OPR66-EN-Poster-AM24.pdf"
+        }
+      ],
+      "sources": [
+        {
+          "title": "ASCO/ONS Antineoplastic Therapy Administration Safety Standards",
+          "url": "https://www.ons.org/ascoons-chemotherapy-administration-safety-standards",
+          "rationale": "Provides a consensus safety framework for antineoplastic therapy across routes and settings. It supports safety rationale but not a single pharmacy-monitoring cadence."
+        }
+      ]
+    },
+    {
+      "id": "biosimilar-adoption",
+      "domain": "Biosimilars",
+      "priority": "Medium",
+      "evidence_discrepancy": "NASP biosimilar posters show adoption, purchasing, benefit-channel, and patient-cost signals, while public FDA materials emphasize comparable safety and effectiveness. The practical uncertainty is implementation, not whether FDA-approved biosimilars can be used.",
+      "literature_verdict": "FDA materials state that biosimilars and interchangeable biosimilars must meet high biosimilarity standards and can increase treatment options and access. That does not settle formulary design, patient counseling, switching governance, or local monitoring expectations.",
+      "already_answered": "Partly",
+      "residual_uncertainty": "Programs still need to decide how much counseling, monitoring, and prescriber involvement are needed when payer design, site of care, or state substitution rules drive biosimilar use.",
+      "question": "When biosimilar adoption is driven by payer or purchasing incentives, what patient, prescriber, or disease factors make you require additional counseling or monitoring before treating the switch as operationally routine?",
+      "tags": [
+        "Biosimilars",
+        "Switching",
+        "Benefit design",
+        "Out-of-pocket cost",
+        "Patient counseling"
+      ],
+      "evidence": [
+        {
+          "uid": "04-biosimilar-adoption-benefit-use-claims-dollars_2021",
+          "year": 2021,
+          "poster_code": "04",
+          "title": "Biosimilar Adoption, Benefit-use Claims and Dollars",
+          "snippet": "Health plans recognized biosimilar value and savings, with future analysis recommended by therapeutic area, agent, insurance plan, and region.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2021/09/04-Biosimilar-Adoption-Benefit-use-Claims-Dollars.pdf"
+        },
+        {
+          "uid": "poster-30_2020",
+          "year": 2020,
+          "poster_code": "POSTER-30",
+          "title": "Understanding biosimilar purchasing patterns within a home infusion and specialty pharmacy group purchasing organization: An inflammatory conditions case study",
+          "snippet": "The poster suggests that purchasing agreements plus clinical education and support may help drive biosimilar adoption in inflammatory conditions.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2021/01/Poster-30.pdf"
+        },
+        {
+          "uid": "71-opr71-or-poster-am24_2024",
+          "year": 2024,
+          "poster_code": "71-OPR71-OR",
+          "title": "Real-World Evaluation of Oncolytic Biosimilar Adoption on Medication Adherence and Out-of-Pocket Costs Among Members of a National Payor",
+          "snippet": "An oncology biosimilar claims analysis reported higher adherence and lower out-of-pocket spend among biosimilar recipients, while biosimilars remained prescribed less often than reference products.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2024/09/71-OPR71-OR-Poster-AM24.pdf"
+        }
+      ],
+      "sources": [
+        {
+          "title": "FDA: 9 Things to Know About Biosimilars and Interchangeable Biosimilars",
+          "url": "https://www.fda.gov/drugs/things-know-about/9-things-know-about-biosimilars-and-interchangeable-biosimilars",
+          "rationale": "Supports the broad safety, effectiveness, access, and substitution context. It does not resolve local switching workflow or counseling needs."
+        }
+      ]
+    },
+    {
+      "id": "patient-reported-outcomes",
+      "domain": "Patient-reported outcomes",
+      "priority": "Medium",
+      "evidence_discrepancy": "NASP posters use patient-reported adherence, quality of life, fatigue, urgency, tolerability, and disease-state measures. Some are trial endpoints, while others are pharmacy-service screening tools.",
+      "literature_verdict": "FDA patient-focused drug development guidance supports using fit-for-purpose clinical outcome assessments for patient experience and decision-making. It does not specify when pharmacy-collected PRO data should trigger therapy or service changes.",
+      "already_answered": "Partly",
+      "residual_uncertainty": "The unresolved question is which PRO changes are actionable in pharmacy workflow and which require clinician review, especially when the instrument was not designed as a disease-state decision threshold.",
+      "question": "When a specialty pharmacy collects PROs or quality-of-life measures, what magnitude or pattern of change is meaningful enough to change outreach frequency, clinical escalation, or treatment discussion, and when should the result be treated only as supportive context?",
+      "tags": [
+        "PROs",
+        "Quality of life",
+        "Clinical outcome assessment",
+        "Escalation",
+        "Patient experience"
+      ],
+      "evidence": [
+        {
+          "uid": "39-opr39-or-poster-am24_2024",
+          "year": 2024,
+          "poster_code": "39-OPR39-OR",
+          "title": "Implementation of the PozQoL in a Specialty Pharmacy Setting: Assessing the Impact of Pharmacist Interventions to Improve Quality of Life in People with HIV",
+          "snippet": "A PozQoL pilot used specialty-pharmacist review to identify low or moderate quality-of-life domains and support targeted interventions.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2024/09/39-OPR39-OR-Poster-AM24.pdf"
+        },
+        {
+          "uid": "28-opr28-en-poster-am24_2024",
+          "year": 2024,
+          "poster_code": "28-OPR28-EN",
+          "title": "Mirikizumab Improves Fatigue, Bowel Urgency, and Quality of Life in Patients With Moderately to Severely Active Crohn's Disease: Results From a Phase 3 Clinical Trial",
+          "snippet": "A phase 3 Crohn's disease trial reported improvements in fatigue, bowel urgency, and health-related quality of life versus placebo.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2024/09/28-OPR28-EN-Poster-AM24.pdf"
+        },
+        {
+          "uid": "31_evaluating-patient-reported-adherence-and-outcomes-in-specialty-disease-states-a-dual-site-initiative-_2023",
+          "year": 2023,
+          "poster_code": "31",
+          "title": "Evaluating Patient-Reported Adherence and Outcomes in Specialty Disease States: A Dual Site Initiative",
+          "snippet": "Patients with rheumatology or MS specialty medications reported high effectiveness and low missed doses, but tolerability issues or lower perceived effectiveness were associated with missed doses.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2023/08/31_Evaluating-Patient-Reported-Adherence-and-Outcomes-in-Specialty-Disease-States-A-Dual-Site-Initiative-.pdf"
+        },
+        {
+          "uid": "06-patient-reported-outcomes-in-neurology_2021",
+          "year": 2021,
+          "poster_code": "06",
+          "title": "Assessing Patient-Reported Outcomes and Pharmacist Interventions in Neurology Specialty Disease States",
+          "snippet": "Neurology patients reported 91 percent adherence, and missed doses were most often related to running out of medication, forgetting refills, or not picking up refills.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2021/09/06-Patient-reported-outcomes-in-neurology.pdf"
+        }
+      ],
+      "sources": [
+        {
+          "title": "FDA PFDD Guidance: Selecting, Developing, or Modifying Fit-for-Purpose Clinical Outcome Assessments",
+          "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/patient-focused-drug-development-selecting-developing-or-modifying-fit-purpose-clinical-outcome",
+          "rationale": "Supports the need for fit-for-purpose outcome assessment. It does not provide pharmacy-specific action thresholds."
+        }
+      ]
+    },
+    {
+      "id": "financial-assistance-redesign",
+      "domain": "Financial assistance",
+      "priority": "High",
+      "evidence_discrepancy": "Financial-assistance posters show patient-assistance enrollment changes, automation, proactive fund monitoring, and rapid foundation enrollment needs. Medicare Part D redesign changes the cost-sharing environment, but local specialty-pharmacy workflows still need operational redesign.",
+      "literature_verdict": "CMS materials describe Part D redesign, annual out-of-pocket caps, payment smoothing, and evolving 2026 thresholds. These policies explain why financial-assistance workflows may change but do not define the best operational triage model.",
+      "already_answered": "No",
+      "residual_uncertainty": "The key uncertainty is how financial-assistance teams should prioritize patients when payer benefit design, foundation availability, diagnosis-specific funds, manufacturer programs, and Medicare rules change over time.",
+      "question": "How are you changing financial-assistance triage for high-cost specialty drugs as Medicare Part D redesign changes patient cost exposure, and which patients still need proactive foundation or manufacturer-program monitoring despite lower statutory caps?",
+      "tags": [
+        "Financial assistance",
+        "Medicare Part D",
+        "IRA",
+        "Copay",
+        "Foundation funding"
+      ],
+      "evidence": [
+        {
+          "uid": "61-opr61-or-poster-am24_2024",
+          "year": 2024,
+          "poster_code": "61-OPR61-OR",
+          "title": "Impact of the Inflation Reduction Act on Patient Assistance Program Enrollment for Oral Hematology and Oncology Medications Managed Through a Large Academic Medical Health System Specialty Pharmacy",
+          "snippet": "A single-center oral hematology-oncology analysis reported changes in grants and patient-assistance enrollment after IRA implementation.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2024/09/61-OPR61-OR-Poster-AM24.pdf"
+        },
+        {
+          "uid": "48_impact-of-patient-assistance-programs-on-out-of-pocket-costs-for-oral-oncolytics-managed-through-integrated-health-system-specialty-pharmacies_2023",
+          "year": 2023,
+          "poster_code": "48",
+          "title": "Impact of Patient Assistance Programs on Out-of-Pocket Costs for Oral Oncolytics Managed Through Integrated Health System Specialty Pharmacies",
+          "snippet": "An HSSP model secured financial assistance for many oral-oncolytic fills, with reported differences by insurance type and brand versus generic medication status.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2023/08/48_Impact-of-Patient-Assistance-Programs-on-Out-of-Pocket-Costs-for-Oral-Oncolytics-Managed-Through-Integrated-Health-System-Specialty-Pharmacies.pdf"
+        },
+        {
+          "uid": "73-dts73-or-poster-am24_2024",
+          "year": 2024,
+          "poster_code": "73-DTS73-OR",
+          "title": "Integrated financial assistance management in a multi-specialty, multi-tenant pharmacy management system provides indispensable data for improving patient access to specialty medications",
+          "snippet": "Financial-assistance data capture was presented as a way to improve access, monitor waitlists, and identify expiring or depleted funds.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2024/09/73-DTS73-OR-Poster-AM24.pdf"
+        },
+        {
+          "uid": "78-dts78-en-poster-am24_2024",
+          "year": 2024,
+          "poster_code": "78-DTS78-EN",
+          "title": "Impact of automated financial assistance enrollment at a large mail-order specialty pharmacy on patient outcomes",
+          "snippet": "A large mail-order specialty-pharmacy analysis evaluated automated financial-assistance enrollment across oncology, MS, and inflammatory-disease cohorts.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2024/09/78-DTS78-EN-Poster-AM24.pdf"
+        },
+        {
+          "uid": "3209-dts107-rp-poster-am25_2025",
+          "year": 2025,
+          "poster_code": "3209-DTS107-RP",
+          "title": "Streamlining Copay Assistance for CIDP & Myasthenia Gravis: Rapid Foundation Enrollment via GetCopayHelp",
+          "snippet": "The poster describes diagnosis-based foundations as a digital blind spot with unpredictable openings and funds that can fill rapidly.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2025/08/3209-DTS107-RP-Poster-AM25.pdf"
+        }
+      ],
+      "sources": [
+        {
+          "title": "CMS Final CY 2026 Part D Redesign Program Instructions fact sheet",
+          "url": "https://www.cms.gov/newsroom/fact-sheets/final-cy-2026-part-d-redesign-program-instructions",
+          "rationale": "Supports the current Part D redesign context, including the 2026 out-of-pocket threshold. It does not settle local financial-assistance triage."
+        },
+        {
+          "title": "CMS preliminary 2025 Medicare Part D bid information and premium stabilization announcement",
+          "url": "https://www.cms.gov/newsroom/news-alert/cms-releases-preliminary-2025-medicare-part-d-bid-information-announces-premium-stabilization",
+          "rationale": "Provides the 2025 Part D out-of-pocket cap and payment-smoothing context. It supports the policy backdrop, not operational prioritization rules."
+        }
+      ]
+    },
+    {
+      "id": "rare-disease-gene-therapy-readiness",
+      "domain": "Rare disease and gene therapy",
+      "priority": "High",
+      "evidence_discrepancy": "Rare-disease posters show high-touch HSSP coordination, access barriers, CFTR adherence interventions, and Duchenne gene-therapy coordination. The evidence is operationally rich but includes case studies, retrospective reviews, and rapidly changing product-specific safety context.",
+      "literature_verdict": "FDA information for Elevidys establishes product indication and safety context for DMD gene therapy, including a revised indication and warnings. It does not define a health-system specialty-pharmacy readiness model.",
+      "already_answered": "No",
+      "residual_uncertainty": "The unresolved question is how to operationalize readiness for rare-disease therapies whose risks, eligibility, payer requirements, monitoring, and evidence base may change after launch.",
+      "question": "Before implementing a rare-disease or gene-therapy service, what minimum readiness criteria do you require across benefit investigation, consent support, product handling, safety monitoring, specialty-clinic communication, and post-treatment follow-up?",
+      "tags": [
+        "Rare disease",
+        "Gene therapy",
+        "Duchenne muscular dystrophy",
+        "CFTR modulators",
+        "High-touch care"
+      ],
+      "evidence": [
+        {
+          "uid": "1206-opr08-or-poster-am25_2025",
+          "year": 2025,
+          "poster_code": "1206-OPR08-OR",
+          "title": "The Role of Specialty Pharmacy in Coordinating and Monitoring Gene Therapy for Duchenne Muscular Dystrophy: The Elevidys Experience at a Single Integrated Delivery Network Medical Center",
+          "snippet": "DMD gene-therapy implementation required intensive pharmacy involvement across treatment acquisition and management and was proposed as a framework for high-touch, high-risk therapies.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2025/08/1206-OPR08-OR-Poster-AM25.pdf"
+        },
+        {
+          "uid": "1165-opr42-or-poster-am25_2025",
+          "year": 2025,
+          "poster_code": "1165-OPR42-OR",
+          "title": "Transforming Rare Disease Management: Real-World Impact of an Integrated Health System Specialty Pharmacy Services",
+          "snippet": "An integrated HSSP high-touch model was presented as suited to rare-disease patient management.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2025/08/1165-OPR42-OR-Poster-AM25.pdf"
+        },
+        {
+          "uid": "2127-opr15-en-poster-am25_2025",
+          "year": 2025,
+          "poster_code": "2127-OPR15-EN",
+          "title": "Evaluation of Intervention to Improve Adherence in Patients Receiving Cystic Fibrosis Transmembrane Conductance Regulator (CFTR) Modulators",
+          "snippet": "Among CFTR modulator patients, 22.1 percent were identified as nonadherent, and Saturday delivery was associated with a 6.2 percentage-point increase in average PDC among nonadherent patients.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2025/08/2127-OPR15-EN-Poster-AM25.pdf"
+        },
+        {
+          "uid": "73_identifying-medication-access-barriers-for-rare-and-complex-disease-patients-within-the-pharmacy-hub-space-_2023",
+          "year": 2023,
+          "poster_code": "73",
+          "title": "Identifying Medication Access Barriers for Rare and Complex Disease Patients within the Pharmacy Hub Space",
+          "snippet": "Missing information was a frequent barrier in rare and complex disease triage, including patient, provider, signature, and dosing data.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2023/08/73_Identifying-Medication-Access-Barriers-for-Rare-and-Complex-Disease-Patients-within-the-Pharmacy-Hub-Space-.pdf"
+        }
+      ],
+      "sources": [
+        {
+          "title": "FDA ELEVIDYS product page",
+          "url": "https://www.fda.gov/vaccines-blood-biologics/tissue-tissue-products/elevidys",
+          "rationale": "Provides current official indication and product-specific regulatory context for Elevidys. It does not prescribe local specialty-pharmacy readiness criteria."
+        },
+        {
+          "title": "FDA press announcement on revised Elevidys indication and safety warning",
+          "url": "https://www.fda.gov/news-events/press-announcements/fda-approves-new-safety-warning-and-revised-indication-limits-use-elevidys-following-reports-fatal",
+          "rationale": "Supports discussion of changing safety and indication context for gene therapy. It is product-specific and should not be generalized to all rare-disease therapies."
+        }
+      ]
+    },
+    {
+      "id": "technician-delegation",
+      "domain": "Workforce and delegation",
+      "priority": "Medium",
+      "evidence_discrepancy": "NASP workforce posters describe technician enhancement, structured training, retraining, outreach productivity, and pharmacist-technician collaboration. The evidence supports role expansion but does not define competency thresholds or delegation boundaries.",
+      "literature_verdict": "ASHP materials support pharmacy-technician advancement, specialty-pharmacy education, and competency assessment. They do not specify which HSSP outreach, access, adherence, or clinical-support activities should be delegated in a given organization.",
+      "already_answered": "No",
+      "residual_uncertainty": "Programs still need to define when technician-led work improves capacity without weakening clinical judgment, documentation quality, or patient experience.",
+      "question": "Which specialty-pharmacy activities are appropriate for technician-led execution after structured training, and which activities still require pharmacist ownership because of clinical ambiguity, escalation risk, or patient trust concerns?",
+      "tags": [
+        "Technicians",
+        "Training",
+        "Delegation",
+        "Outreach",
+        "Workforce"
+      ],
+      "evidence": [
+        {
+          "uid": "11-2022",
+          "year": 2022,
+          "poster_code": "11",
+          "title": "Technician Enhancement Within Specialty Pharmacy",
+          "snippet": "Expanded technician opportunities through career ladders or new pathways were presented as a way to improve engagement while supporting specialty-pharmacy operations and growth.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2022/12/11-2022.pdf"
+        },
+        {
+          "uid": "22-2022",
+          "year": 2022,
+          "poster_code": "22",
+          "title": "Specialty Technician Training Program Development",
+          "snippet": "A specialty-focused pharmacy technician training program was presented as a strategy to address HSSP technician staffing shortages.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2022/12/22-2022.pdf"
+        },
+        {
+          "uid": "1140-psp80-or-poster-am25_2025",
+          "year": 2025,
+          "poster_code": "1140-PSP80-OR",
+          "title": "The Impact of Re-Training Specialty Pharmacy Outreach Technicians and Optimizing Compliance and Productivity",
+          "snippet": "A structured 5-day, full-time retraining program was used to assess compliance knowledge, productivity, and enrollment rates among outreach technicians.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2025/08/1140-PSP80-OR-Poster-AM25.pdf"
+        },
+        {
+          "uid": "3214-opr53-rp-poster-am25_2025",
+          "year": 2025,
+          "poster_code": "3214-OPR53-RP",
+          "title": "Hepatitis C Treatment Outcomes: The Collaborative Roles of Pharmacists and Pharmacy Technicians",
+          "snippet": "An HCV outcomes poster examined integrated pharmacy teams, including pharmacist and technician roles, in treatment initiation, adherence, and outcomes.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2025/08/3214-OPR53-RP-Poster-AM25.pdf"
+        }
+      ],
+      "sources": [
+        {
+          "title": "ASHP Specialty Pharmacy Certificate",
+          "url": "https://www.ashp.org/Professional-Development/professional-certificates/Specialty-Pharmacy-Certificate",
+          "rationale": "Supports the need for specialty-pharmacy education for pharmacists and technicians. It does not define local delegation policy."
+        },
+        {
+          "title": "ASHP Specialty Pharmacy Competency Assessment Center",
+          "url": "https://www.ashp.org/Products-and-Services/competency-assessment-centers/specialty-pharmacy",
+          "rationale": "Supports competency-based assessment around onboarding, operations, regulatory compliance, access support, and quality. It does not settle specific role boundaries."
+        }
+      ]
+    },
+    {
+      "id": "digital-monitoring-equity",
+      "domain": "Digital monitoring",
+      "priority": "Medium",
+      "evidence_discrepancy": "Digital and analytics posters show texting, smart reminders, dashboards, machine-learning adverse-event prediction, and electronic questionnaires. The evidence suggests promise, but also raises questions about response bias, escalation burden, and integration with human outreach.",
+      "literature_verdict": "Public standards and guidelines support structured safety, adherence support, and patient-centered assessment, but they do not specify when digital monitoring can replace, supplement, or triage direct clinical contact.",
+      "already_answered": "No",
+      "residual_uncertainty": "The unresolved question is how to identify patients who benefit from digital tools and how to detect patients who are not responding, cannot use the tool, or need direct pharmacist contact.",
+      "question": "How do you decide whether a patient is appropriate for texting, smart reminders, questionnaires, or predictive-risk outreach, and what nonresponse pattern should trigger a switch back to direct pharmacist or technician contact?",
+      "tags": [
+        "Texting",
+        "Digital engagement",
+        "Machine learning",
+        "Questionnaires",
+        "Nonresponse"
+      ],
+      "evidence": [
+        {
+          "uid": "02-2022",
+          "year": 2022,
+          "poster_code": "02",
+          "title": "Impact of an adherence texting program in a large national specialty pharmacy",
+          "snippet": "A texting-program analysis compared participants and nonparticipants across MS, inflammatory, and oncology cohorts.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2022/12/02-2022.pdf"
+        },
+        {
+          "uid": "05-2022",
+          "year": 2022,
+          "poster_code": "05",
+          "title": "HealthBeacon: Smart Reminders Improve Adherence",
+          "snippet": "Smart-reminder analyses used large specialty-pharmacy cohorts and modeled adherence-related outcomes by disease group.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2022/12/05-2022.pdf"
+        },
+        {
+          "uid": "06-2022",
+          "year": 2022,
+          "poster_code": "06",
+          "title": "Machine Learning for Adverse Events: PREDICT",
+          "snippet": "A small oncology cohort used a risk-stratification model to predict discontinuation and target counseling for patients at risk of adverse-event discontinuation.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2022/12/06-2022.pdf"
+        },
+        {
+          "uid": "77_oral-oncology-adverse-event-reporting-via-text-messaging-integrative-collaboration-between-specialty-pharmacy-and-oncology-provider-clinic_2023",
+          "year": 2023,
+          "poster_code": "77",
+          "title": "Oral oncology adverse event reporting via text messaging integrative collaboration between specialty pharmacy and oncology provider clinic",
+          "snippet": "Among 143 eligible oral-oncology patients, 35 were enrolled and text enrollment was 77 percent, highlighting both digital uptake and residual non-enrollment.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2023/08/77_Oral-oncology-adverse-event-reporting-via-text-messaging-integrative-collaboration-between-specialty-pharmacy-and-oncology-provider-clinic.pdf"
+        },
+        {
+          "uid": "2108-dts105-en-poster-am25_2025",
+          "year": 2025,
+          "poster_code": "2108-DTS105-EN",
+          "title": "Implementation of oral anticancer early monitoring using electronic questionnaires",
+          "snippet": "Electronic questionnaires were used for early oral-anticancer monitoring, with response behavior itself becoming an implementation signal.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2025/08/2108-DTS105-EN-Poster-AM25.pdf"
+        }
+      ],
+      "sources": [
+        {
+          "title": "NIH HIV Guidelines: Adherence to the Continuum of Care",
+          "url": "https://clinicalinfo.hiv.gov/en/guidelines/hiv-clinical-guidelines-adult-and-adolescent-arv/adherence-continuum-care",
+          "rationale": "Supports tailored, nonjudgmental adherence support and attention to barriers. It is not a digital-monitoring standard."
+        },
+        {
+          "title": "ASCO/ONS Antineoplastic Therapy Administration Safety Standards",
+          "url": "https://www.ons.org/ascoons-chemotherapy-administration-safety-standards",
+          "rationale": "Supports safety-process framing for oral antineoplastic monitoring. It does not specify digital triage rules."
+        }
+      ]
+    },
+    {
+      "id": "social-drivers-adherence",
+      "domain": "Social drivers and adherence",
+      "priority": "Medium",
+      "evidence_discrepancy": "NASP posters link adherence to patient characteristics and social drivers, including MS and oral-oncology examples. However, operational responses to SDOH signals vary and can become either supportive care or nonactionable documentation.",
+      "literature_verdict": "Public HIV guidance explicitly recognizes social and economic needs as adherence barriers and recommends linkage to resources. That principle is relevant but does not define specialty-pharmacy thresholds for intervention across disease areas.",
+      "already_answered": "Partly",
+      "residual_uncertainty": "Programs need to define which SDOH signals should change outreach, delivery, affordability work, or clinical escalation, and which should be referred to non-pharmacy support resources.",
+      "question": "When social drivers are associated with lower adherence, which specific findings should change the specialty-pharmacy care plan, and which should be referred to broader social-work, case-management, or community-resource pathways?",
+      "tags": [
+        "SDOH",
+        "Adherence",
+        "Multiple sclerosis",
+        "Oral oncology",
+        "Care coordination"
+      ],
+      "evidence": [
+        {
+          "uid": "37_impact-of-social-determinants-of-health-on-multiple-sclerosis-adherence-and-persistence-for-patients-using-a-national-mail-order-specialty-pharmacy_2023",
+          "year": 2023,
+          "poster_code": "37",
+          "title": "Impact of social determinants of health on multiple sclerosis adherence and persistence for patients using a national mail-order specialty pharmacy",
+          "snippet": "A national mail-order specialty-pharmacy MS analysis examined patient characteristics, out-of-pocket cost, days on therapy, adherence, and persistence.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2023/08/37_Impact-of-social-determinants-of-health-on-multiple-sclerosis-adherence-and-persistence-for-patients-using-a-national-mail-order-specialty-pharmacy.pdf"
+        },
+        {
+          "uid": "67-opr67-or-poster-am24_2024",
+          "year": 2024,
+          "poster_code": "67-OPR67-OR",
+          "title": "The Impact of Patient Characteristics and Social Drivers of Health Factors on Oral Oncolytic Adherence",
+          "snippet": "The poster frames smoking and health literacy as SDOH factors associated with oral-oncolytic adherence and potential sources for more targeted care.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2024/09/67-OPR67-OR-Poster-AM24.pdf"
+        },
+        {
+          "uid": "2127-opr15-en-poster-am25_2025",
+          "year": 2025,
+          "poster_code": "2127-OPR15-EN",
+          "title": "Evaluation of Intervention to Improve Adherence in Patients Receiving Cystic Fibrosis Transmembrane Conductance Regulator (CFTR) Modulators",
+          "snippet": "In a CFTR modulator adherence intervention, transition-age and rural patients were more likely to be nonadherent, and Saturday delivery increased average PDC among nonadherent patients.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2025/08/2127-OPR15-EN-Poster-AM25.pdf"
+        },
+        {
+          "uid": "06-patient-reported-outcomes-in-neurology_2021",
+          "year": 2021,
+          "poster_code": "06",
+          "title": "Assessing Patient-Reported Outcomes and Pharmacist Interventions in Neurology Specialty Disease States",
+          "snippet": "Missed neurology specialty-medication doses were often attributed to access and refill-execution issues such as running out of medication, forgetting refills, or not picking up refills.",
+          "pdf_url": "https://naspnet.org/wp-content/uploads/2021/09/06-Patient-reported-outcomes-in-neurology.pdf"
+        }
+      ],
+      "sources": [
+        {
+          "title": "NIH HIV Guidelines: Adherence to the Continuum of Care",
+          "url": "https://clinicalinfo.hiv.gov/en/guidelines/hiv-clinical-guidelines-adult-and-adolescent-arv/adherence-continuum-care",
+          "rationale": "Supports the principle that social and economic needs can affect adherence and should be linked to resources. It is disease-specific and does not settle specialty-pharmacy intervention thresholds in other conditions."
+        }
+      ]
+    }
+  ]
+}

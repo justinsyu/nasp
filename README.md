@@ -1,6 +1,6 @@
 # NASP Abstract and Poster Archive
 
-Static GitHub Pages interface for NASP annual meeting abstract and poster PDFs from 2019-2025, including parsed markdown from LlamaParse, source PDF links, browse filters, an Intelligence dashboard, a Methods page for traceable statistical-analysis extraction, and an HSSP Insights page for Shields, CPS, Clearway, and VytlOne/Maxor research content.
+Static GitHub Pages interface for NASP annual meeting abstract and poster PDFs from 2019-2025, including parsed markdown from LlamaParse, source PDF links, browse filters, an Intelligence dashboard, a Methods page for traceable statistical-analysis extraction, a KOL Questions page grounded in poster evidence and external source checks, and an HSSP Insights page for Shields, CPS, Clearway, and VytlOne/Maxor research content.
 
 ## Local preview
 
