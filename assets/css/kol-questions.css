@@ -61,9 +61,7 @@
   to { transform: rotate(360deg); }
 }
 
-.is-loading .kol-summary,
 .is-loading .section-block,
-.has-load-error .kol-summary,
 .has-load-error .section-block {
   display: none;
 }
@@ -71,54 +69,6 @@
 .is-loaded .dashboard-loading,
 .dashboard-loading[hidden] {
   display: none;
-}
-
-.kol-summary {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  margin-top: 0;
-  border-top: 1px solid var(--border-strong);
-  border-bottom: 1px solid var(--border-strong);
-}
-
-.summary-tile {
-  min-width: 0;
-  padding: 1rem;
-  border-right: 1px solid var(--border-strong);
-}
-
-.summary-tile:last-child {
-  border-right: 0;
-}
-
-.summary-tile strong {
-  display: block;
-  color: var(--blue);
-  font-size: 0.68rem;
-  font-weight: 900;
-  letter-spacing: 0.13em;
-  line-height: 1.35;
-  text-transform: uppercase;
-}
-
-.summary-tile span {
-  display: block;
-  margin-top: 0.18rem;
-  color: var(--red);
-  font-family: var(--font-display);
-  font-size: 2.2rem;
-  font-weight: 400;
-  line-height: 1;
-}
-
-.summary-tile em {
-  display: block;
-  margin-top: 0.45rem;
-  color: var(--muted);
-  font-size: 0.78rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 1.4;
 }
 
 .section-block {
@@ -135,7 +85,6 @@
   font-size: 1.35rem;
 }
 
-.method-grid,
 .kol-card-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -144,19 +93,16 @@
   border-width: 1px 0;
 }
 
-.method-grid article,
 .kol-card-grid section {
   padding: 1rem;
   border-right: 1px solid var(--border-strong);
   background: var(--surface);
 }
 
-.method-grid article:last-child,
 .kol-card-grid section:last-child {
   border-right: 0;
 }
 
-.method-grid h3,
 .kol-card-grid h3,
 .dialog-section h3 {
   margin: 0 0 0.45rem;
@@ -168,7 +114,6 @@
   text-transform: uppercase;
 }
 
-.method-grid p,
 .kol-card-grid p,
 .dialog-section p {
   margin: 0;
@@ -407,21 +352,15 @@
 }
 
 @media (max-width: 1000px) {
-  .kol-summary,
-  .method-grid,
   .kol-card-grid {
     grid-template-columns: 1fr;
   }
 
-  .summary-tile,
-  .method-grid article,
   .kol-card-grid section {
     border-right: 0;
     border-bottom: 1px solid var(--border-strong);
   }
 
-  .summary-tile:last-child,
-  .method-grid article:last-child,
   .kol-card-grid section:last-child {
     border-bottom: 0;
   }
@@ -436,10 +375,6 @@
 
   .kol-hero h1 {
     font-size: 2.05rem;
-  }
-
-  .summary-tile span {
-    font-size: 1.85rem;
   }
 
   .evidence-mini-list li,

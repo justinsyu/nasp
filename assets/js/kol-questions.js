@@ -32,23 +32,10 @@ function uniqueSorted(values) {
 }
 
 function initElements() {
-  el.summary = document.querySelector("#kol-summary");
   el.domainNav = document.querySelector("#domain-nav");
   el.list = document.querySelector("#kol-list");
   el.dialog = document.querySelector("#kol-dialog");
   el.dialogContent = document.querySelector("#kol-dialog-content");
-}
-
-function renderSummary() {
-  const questions = state.data.questions || [];
-  const posterCount = questions.reduce((total, question) => total + (question.evidence || []).length, 0);
-  const sourceCount = uniqueSorted(questions.flatMap((question) => (question.sources || []).map((source) => source.url))).length;
-  el.summary.innerHTML = `
-    <div class="summary-tile"><strong>KOL questions</strong><span>${numberFormat(questions.length)}</span><em>Conference-derived discussion prompts</em></div>
-    <div class="summary-tile"><strong>Poster evidence links</strong><span>${numberFormat(posterCount)}</span><em>Each link opens the NASP PDF</em></div>
-    <div class="summary-tile"><strong>Evidence domains</strong><span>${numberFormat(uniqueSorted(questions.map((question) => question.domain)).length)}</span><em>Access, adherence, oncology, workforce, and more</em></div>
-    <div class="summary-tile"><strong>External checks</strong><span>${numberFormat(sourceCount)}</span><em>Guidelines, regulator pages, and standards</em></div>
-  `;
 }
 
 function renderDomainNav() {
@@ -181,7 +168,6 @@ async function start() {
   if (!response.ok) throw new Error(`Failed to load ${KOL_DATA_URL}`);
   state.data = await response.json();
 
-  renderSummary();
   renderDomainNav();
   renderQuestions();
   requestAnimationFrame(markLoaded);
