@@ -2,10 +2,6 @@ const KOL_DATA_URL = "assets/data/kol-questions.json?v=nasp-1";
 
 const state = {
   data: null,
-  domain: "",
-  priority: "",
-  answered: "",
-  query: "",
 };
 
 const el = {};
@@ -31,19 +27,6 @@ function slug(value) {
   return text(value).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 }
 
-function questionText(question) {
-  return [
-    question.domain,
-    question.priority,
-    question.evidence_discrepancy,
-    question.literature_verdict,
-    question.question,
-    (question.tags || []).join(" "),
-    (question.evidence || []).map((item) => `${item.poster_code} ${item.title} ${item.snippet}`).join(" "),
-    (question.sources || []).map((item) => `${item.title} ${item.rationale}`).join(" "),
-  ].join(" ").toLowerCase();
-}
-
 function uniqueSorted(values) {
   return [...new Set(values.filter(Boolean))].sort((a, b) => a.localeCompare(b));
 }
@@ -51,20 +34,9 @@ function uniqueSorted(values) {
 function initElements() {
   el.summary = document.querySelector("#kol-summary");
   el.domainNav = document.querySelector("#domain-nav");
-  el.filters = document.querySelector("#kol-filters");
-  el.search = document.querySelector("#kol-search");
-  el.domain = document.querySelector("#domain-filter");
-  el.priority = document.querySelector("#priority-filter");
-  el.answered = document.querySelector("#answered-filter");
-  el.clear = document.querySelector("#clear-kol-filters");
-  el.count = document.querySelector("#kol-result-count");
   el.list = document.querySelector("#kol-list");
   el.dialog = document.querySelector("#kol-dialog");
   el.dialogContent = document.querySelector("#kol-dialog-content");
-}
-
-function populateSelect(select, values) {
-  select.insertAdjacentHTML("beforeend", values.map((value) => `<option value="${escapeHtml(value)}">${escapeHtml(value)}</option>`).join(""));
 }
 
 function renderSummary() {
@@ -83,36 +55,8 @@ function renderDomainNav() {
   const domains = uniqueSorted(state.data.questions.map((question) => question.domain));
   el.domainNav.innerHTML = domains.map((domain) => {
     const count = state.data.questions.filter((question) => question.domain === domain).length;
-    return `<button type="button" data-domain="${escapeHtml(domain)}">${escapeHtml(domain)} <span>${numberFormat(count)}</span></button>`;
+    return `<span>${escapeHtml(domain)} <strong>${numberFormat(count)}</strong></span>`;
   }).join("");
-}
-
-function syncStateFromControls() {
-  state.query = el.search.value.trim().toLowerCase();
-  state.domain = el.domain.value;
-  state.priority = el.priority.value;
-  state.answered = el.answered.value;
-  renderQuestions();
-}
-
-function clearFilters() {
-  el.search.value = "";
-  el.domain.value = "";
-  el.priority.value = "";
-  el.answered.value = "";
-  syncStateFromControls();
-}
-
-function filteredQuestions() {
-  const terms = state.query.split(/\s+/).filter(Boolean);
-  return state.data.questions.filter((question) => {
-    if (state.domain && question.domain !== state.domain) return false;
-    if (state.priority && question.priority !== state.priority) return false;
-    if (state.answered && question.already_answered !== state.answered) return false;
-    if (!terms.length) return true;
-    const haystack = questionText(question);
-    return terms.every((term) => haystack.includes(term));
-  });
 }
 
 function evidencePreview(question) {
@@ -161,9 +105,8 @@ function renderQuestionCard(question, index) {
 }
 
 function renderQuestions() {
-  const questions = filteredQuestions();
-  el.count.textContent = `${numberFormat(questions.length)} matching question${questions.length === 1 ? "" : "s"}`;
-  el.list.innerHTML = questions.map((question, index) => renderQuestionCard(question, state.data.questions.indexOf(question))).join("");
+  const questions = state.data.questions || [];
+  el.list.innerHTML = questions.map((question, index) => renderQuestionCard(question, index)).join("");
 }
 
 function renderEvidence(question) {
@@ -216,18 +159,6 @@ function openQuestion(index) {
 }
 
 function bindEvents() {
-  el.filters.addEventListener("submit", (event) => event.preventDefault());
-  [el.search, el.domain, el.priority, el.answered].forEach((control) => {
-    control.addEventListener(control === el.search ? "input" : "change", syncStateFromControls);
-  });
-  el.clear.addEventListener("click", clearFilters);
-  el.domainNav.addEventListener("click", (event) => {
-    const button = event.target.closest("[data-domain]");
-    if (!button) return;
-    el.domain.value = button.dataset.domain;
-    syncStateFromControls();
-    document.querySelector("#questions").scrollIntoView({ behavior: "smooth", block: "start" });
-  });
   document.addEventListener("click", (event) => {
     const button = event.target.closest("[data-question-index]");
     if (button) openQuestion(Number(button.dataset.questionIndex));
@@ -249,10 +180,6 @@ async function start() {
   const response = await fetch(KOL_DATA_URL);
   if (!response.ok) throw new Error(`Failed to load ${KOL_DATA_URL}`);
   state.data = await response.json();
-
-  populateSelect(el.domain, uniqueSorted(state.data.questions.map((question) => question.domain)));
-  populateSelect(el.priority, uniqueSorted(state.data.questions.map((question) => question.priority)));
-  populateSelect(el.answered, uniqueSorted(state.data.questions.map((question) => question.already_answered)));
 
   renderSummary();
   renderDomainNav();

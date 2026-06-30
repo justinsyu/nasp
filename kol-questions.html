@@ -11,8 +11,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/site.css?v=nasp-5">
-    <link rel="stylesheet" href="assets/css/kol-questions.css?v=nasp-1">
-    <script src="assets/js/kol-questions.js?v=nasp-1" defer></script>
+    <link rel="stylesheet" href="assets/css/kol-questions.css?v=nasp-2">
+    <script src="assets/js/kol-questions.js?v=nasp-2" defer></script>
   </head>
   <body class="kol-page is-loading">
     <header class="site-header">
@@ -80,32 +80,7 @@
         <div class="section-heading-row">
           <div>
             <h2><span class="dot gold"></span>Questions</h2>
-            <p class="lead">Filter by topic, priority, answerability, poster code, title, or source rationale.</p>
           </div>
-        </div>
-
-        <form class="filter-panel kol-filters" id="kol-filters">
-          <label>
-            <span>Search</span>
-            <input id="kol-search" type="search" placeholder="Try oral oncology, PrEP, PDC, biosimilar, Elevidys">
-          </label>
-          <label>
-            <span>Domain</span>
-            <select id="domain-filter"><option value="">All domains</option></select>
-          </label>
-          <label>
-            <span>Priority</span>
-            <select id="priority-filter"><option value="">All priorities</option></select>
-          </label>
-          <label>
-            <span>Already answered</span>
-            <select id="answered-filter"><option value="">All verdicts</option></select>
-          </label>
-        </form>
-
-        <div class="results-toolbar" aria-live="polite">
-          <span id="kol-result-count">Loading questions...</span>
-          <button class="button button-secondary" id="clear-kol-filters" type="button">Clear filters</button>
         </div>
 
         <div class="kol-list" id="kol-list"></div>

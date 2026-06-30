@@ -183,7 +183,7 @@
   margin: 0;
 }
 
-.domain-nav button {
+.domain-nav span {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
@@ -192,22 +192,12 @@
   border-radius: 3px;
   background: #ffffff;
   color: var(--blue);
-  cursor: pointer;
   font: 850 0.78rem/1.2 var(--font-body);
   padding: 0.45rem 0.62rem;
 }
 
-.domain-nav button:hover {
-  border-color: var(--red);
+.domain-nav strong {
   color: var(--red);
-}
-
-.domain-nav span {
-  color: var(--red);
-}
-
-.kol-filters {
-  grid-template-columns: minmax(16rem, 2fr) repeat(3, minmax(10.5rem, 1fr));
 }
 
 .kol-list {
@@ -436,9 +426,6 @@
     border-bottom: 0;
   }
 
-  .kol-filters {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (max-width: 700px) {
