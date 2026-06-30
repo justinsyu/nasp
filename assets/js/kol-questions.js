@@ -37,7 +37,6 @@ function questionText(question) {
     question.priority,
     question.evidence_discrepancy,
     question.literature_verdict,
-    question.residual_uncertainty,
     question.question,
     (question.tags || []).join(" "),
     (question.evidence || []).map((item) => `${item.poster_code} ${item.title} ${item.snippet}`).join(" "),
@@ -125,6 +124,14 @@ function evidencePreview(question) {
   `).join("");
 }
 
+function renderLiteratureCheck(question) {
+  const citations = (question.sources || []).map((source) => `
+    <a href="${escapeHtml(source.url)}" target="_blank" rel="noopener">${escapeHtml(source.title)}</a>
+  `).join("; ");
+  const citationMarkup = citations ? ` <span class="literature-citations">Sources: ${citations}.</span>` : "";
+  return `<p>${escapeHtml(question.literature_verdict)}${citationMarkup}</p>`;
+}
+
 function renderQuestionCard(question, index) {
   return `
     <article class="kol-card" id="${escapeHtml(question.id)}">
@@ -134,7 +141,6 @@ function renderQuestionCard(question, index) {
         <span>${escapeHtml(question.already_answered)} answered</span>
       </div>
       <h2>${escapeHtml(question.question)}</h2>
-      <p>${escapeHtml(question.residual_uncertainty)}</p>
       <div class="tag-row">${(question.tags || []).map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`).join("")}</div>
       <div class="kol-card-grid">
         <section>
@@ -143,13 +149,12 @@ function renderQuestionCard(question, index) {
         </section>
         <section>
           <h3>Literature check</h3>
-          <p>${escapeHtml(question.literature_verdict)}</p>
+          ${renderLiteratureCheck(question)}
         </section>
       </div>
       <ul class="evidence-mini-list">${evidencePreview(question)}</ul>
       <div class="record-actions">
         <button class="button button-primary" type="button" data-question-index="${index}">View evidence</button>
-        <a class="button button-secondary" href="#${escapeHtml(question.id)}">Question link</a>
       </div>
     </article>
   `;
@@ -197,10 +202,6 @@ function openQuestion(index) {
           <span>${numberFormat((question.sources || []).length)} external checks</span>
         </div>
       </header>
-      <section class="dialog-section">
-        <h3>Residual uncertainty</h3>
-        <p>${escapeHtml(question.residual_uncertainty)}</p>
-      </section>
       <section class="dialog-section">
         <h3>NASP poster evidence</h3>
         <div class="evidence-list">${renderEvidence(question)}</div>
