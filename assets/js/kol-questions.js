@@ -43,10 +43,10 @@ function evidencePreview(question) {
 }
 
 function renderLiteratureCheck(question) {
-  const citations = (question.sources || []).map((source) => `
-    <a href="${escapeHtml(source.url)}" target="_blank" rel="noopener">${escapeHtml(source.title)}</a>
-  `).join("; ");
-  const citationMarkup = citations ? ` <span class="literature-citations">Sources: ${citations}.</span>` : "";
+  const citations = (question.sources || [])
+    .map((source) => `<a href="${escapeHtml(source.url)}" target="_blank" rel="noopener">${escapeHtml(source.title)}</a>`)
+    .join("");
+  const citationMarkup = citations ? `<span class="literature-citations"><span class="literature-citations-label">Sources:</span>${citations}</span>` : "";
   return `<p>${escapeHtml(question.literature_verdict)}${citationMarkup}</p>`;
 }
 
